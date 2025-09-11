@@ -1,7 +1,7 @@
 import React from "react";
-import type { AutoCompleteProps } from "@webiny/ui/AutoComplete";
-import { AutoComplete } from "@webiny/ui/AutoComplete";
-import { LIST_TEAMS } from "./graphql";
+import type { AutoCompleteProps } from "@webiny/ui/AutoComplete/index.js";
+import { AutoComplete } from "@webiny/ui/AutoComplete/index.js";
+import { LIST_TEAMS } from "./graphql.js";
 import { useQuery } from "@apollo/react-hooks";
 
 type TeamAutocompleteProps = Partial<AutoCompleteProps>;

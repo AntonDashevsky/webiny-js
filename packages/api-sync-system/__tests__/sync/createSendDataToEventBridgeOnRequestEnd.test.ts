@@ -10,6 +10,7 @@ import {
     PutEventsCommand
 } from "@webiny/aws-sdk/client-eventbridge/index.js";
 import { mockClient } from "aws-sdk-client-mock";
+import { jest } from "@jest/globals";
 
 describe("createSendDataToEventBridgeOnRequestEnd", () => {
     it("should create plugins to attach handler to request end", () => {

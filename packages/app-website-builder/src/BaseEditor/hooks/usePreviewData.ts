@@ -1,5 +1,5 @@
-import { useSelectFromEditor } from "./useSelectFromEditor";
-import { Boxes } from "./Boxes";
+import { useSelectFromEditor } from "./useSelectFromEditor.js";
+import { Boxes } from "./Boxes.js";
 
 export const usePreviewData = () => {
     const { viewport, boxes } = useSelectFromEditor(state => {

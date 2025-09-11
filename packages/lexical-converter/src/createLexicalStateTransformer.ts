@@ -3,7 +3,7 @@ import { $getRoot, $createNodeSelection, $isElementNode } from "lexical";
 import { $generateHtmlFromNodes } from "@lexical/html";
 import { createHeadlessEditor } from "@lexical/headless";
 import { allNodes, prepareLexicalState } from "@webiny/lexical-nodes";
-import { postProcessHtml } from "./postProcessHtml";
+import { postProcessHtml } from "./postProcessHtml.js";
 
 interface LexicalStateTransformerConfig {
     editorConfig?: Pick<CreateEditorArgs, "nodes" | "theme">;

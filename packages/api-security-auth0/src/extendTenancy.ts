@@ -1,5 +1,5 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
-import type { TenancyContext } from "@webiny/api-tenancy/types";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
+import type { TenancyContext } from "@webiny/api-tenancy/types.js";
 import { ContextPlugin } from "@webiny/handler";
 
 export const extendTenancy = () => {

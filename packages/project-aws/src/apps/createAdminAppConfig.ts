@@ -1,5 +1,5 @@
 import { createReactAppConfig, type ReactAppConfigModifier } from "./createReactAppConfig.js";
-import { type ApiOutput } from "~/pulumi";
+import { type ApiOutput } from "~/pulumi/index.js";
 
 export const createAdminAppConfig = (modifier?: ReactAppConfigModifier) => {
     return createReactAppConfig(baseParams => {

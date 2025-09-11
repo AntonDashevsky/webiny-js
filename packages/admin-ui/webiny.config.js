@@ -1,4 +1,4 @@
-const { createWatchPackage, createBuildPackage } = require("@webiny/project-utils");
+const { createWatchPackage, createBuildPackage } = require("@webiny/build-tools");
 const path = require("path");
 const fs = require("node:fs");
 

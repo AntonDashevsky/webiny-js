@@ -1,1 +1,1 @@
-export * from "./ColorPickerPresenter";
+export * from "./ColorPickerPresenter.js";

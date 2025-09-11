@@ -5,8 +5,8 @@ import { useMoveToFolderDialog, useNavigateFolder } from "@webiny/app-aco";
 import { observer } from "mobx-react-lite";
 import { getPagesLabel } from "~/modules/pages/PagesList/components/BulkActions/BulkActions.js";
 import { useMovePage } from "~/features/pages/index.js";
-import { ROOT_FOLDER } from "~/constants";
-import { PageListConfig } from "~/modules/pages/configs";
+import { ROOT_FOLDER } from "~/constants.js";
+import { PageListConfig } from "~/modules/pages/configs/index.js";
 
 export const BulkActionMovePage = observer(() => {
     const { useWorker, useButtons, useDialog } = PageListConfig.Browser.BulkAction;

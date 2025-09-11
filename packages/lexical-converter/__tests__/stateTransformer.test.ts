@@ -12,8 +12,8 @@ import {
     ParagraphNode,
     QuoteNode
 } from "@webiny/lexical-nodes";
-import { stateMock } from "./mocks/stateMocks";
-import { createLexicalStateTransformer } from "~/createLexicalStateTransformer";
+import { stateMock } from "./mocks/stateMocks.js";
+import { createLexicalStateTransformer } from "~/createLexicalStateTransformer.js";
 import { jest } from "@jest/globals";
 
 describe("Lexical State Transformer", () => {

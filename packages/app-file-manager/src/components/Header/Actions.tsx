@@ -5,9 +5,9 @@ import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as FileUploadIcon } from "@webiny/icons/file_upload.svg";
 import { ReactComponent as GridIcon } from "@webiny/icons/grid_on.svg";
 import { ReactComponent as TableIcon } from "@webiny/icons/format_list_bulleted.svg";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
-import type { BrowseFilesHandler, HeaderProps } from "~/components/Header/Header";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
+import type { BrowseFilesHandler, HeaderProps } from "~/components/Header/Header.js";
 import { FiltersToggle } from "@webiny/app-admin";
 
 type ActionsProps = Pick<HeaderProps, "browseFiles">;

@@ -1,4 +1,4 @@
-import { createS3Client } from "@webiny/aws-sdk/client-s3";
+import { createS3Client } from "@webiny/aws-sdk/client-s3/index.js";
 import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
 import { ExportContentEntries } from "~/tasks/domain/exportContentEntries/ExportContentEntries.js";
 import type { ICreateCmsEntryZipperConfig } from "~/tasks/domain/exportContentEntries/ExportContentEntries.js";

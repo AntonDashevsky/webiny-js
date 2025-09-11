@@ -2,12 +2,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
-import { ApiGraphql, CoreOutput } from "~/pulumi/apps";
-import { createBackgroundTaskDefinition } from "./backgroundTask/definition";
-import { createBackgroundTaskStepFunctionPolicy } from "~/pulumi/apps/api/backgroundTask/policy";
-import { createBackgroundTaskStepFunctionRole } from "./backgroundTask/role";
+import { ApiGraphql, CoreOutput } from "~/pulumi/apps/index.js";
+import { createBackgroundTaskDefinition } from "./backgroundTask/definition.js";
+import { createBackgroundTaskStepFunctionPolicy } from "~/pulumi/apps/api/backgroundTask/policy.js";
+import { createBackgroundTaskStepFunctionRole } from "./backgroundTask/role.js";
 import { getLayerArn } from "@webiny/aws-layers";
-import { getAwsAccountId, getAwsRegion } from "~/pulumi/apps/awsUtils";
+import { getAwsAccountId, getAwsRegion } from "~/pulumi/apps/awsUtils.js";
 
 export type ApiBackgroundTask = PulumiAppModule<typeof ApiBackgroundTask>;
 

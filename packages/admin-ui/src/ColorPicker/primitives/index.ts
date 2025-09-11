@@ -1,1 +1,1 @@
-export * from "./ColorPickerPrimitive";
+export * from "./ColorPickerPrimitive.js";

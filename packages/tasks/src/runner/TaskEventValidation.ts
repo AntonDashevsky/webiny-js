@@ -1,7 +1,7 @@
 import zod from "zod";
 import { createZodError } from "@webiny/utils";
-import type { ITaskEventValidation, ITaskEventValidationResult } from "./abstractions";
-import type { ITaskEvent } from "~/handler/types";
+import type { ITaskEventValidation, ITaskEventValidationResult } from "./abstractions/index.js";
+import type { ITaskEvent } from "~/handler/types.js";
 
 const validation = zod
     .object({

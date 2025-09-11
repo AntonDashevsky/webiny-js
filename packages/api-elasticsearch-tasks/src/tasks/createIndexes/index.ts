@@ -1,7 +1,7 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import type { Context, IElasticsearchTaskConfig } from "~/types";
-import type { IElasticsearchCreateIndexesTaskInput } from "~/tasks/createIndexes/types";
-import { CreateIndexesTaskRunner } from "./CreateIndexesTaskRunner";
+import type { Context, IElasticsearchTaskConfig } from "~/types.js";
+import type { IElasticsearchCreateIndexesTaskInput } from "~/tasks/createIndexes/types.js";
+import { CreateIndexesTaskRunner } from "./CreateIndexesTaskRunner.js";
 
 export const createIndexesTaskDefinition = (params?: IElasticsearchTaskConfig) => {
     return createTaskDefinition<Context, IElasticsearchCreateIndexesTaskInput>({
@@ -15,10 +15,10 @@ export const createIndexesTaskDefinition = (params?: IElasticsearchTaskConfig) =
         run: async ({ response, context, isCloseToTimeout, isAborted, store, input, timer }) => {
             const { Manager } = await import(
                 /* webpackChunkName: "Manager" */
-                "../Manager"
+                "../Manager.js"
             );
             const { IndexManager } = await import(
-                /* webpackChunkName: "IndexManager" */ "~/settings"
+                /* webpackChunkName: "IndexManager" */ "~/settings/index.js"
             );
 
             const manager = new Manager<IElasticsearchCreateIndexesTaskInput>({
@@ -41,12 +41,12 @@ export const createIndexesTaskDefinition = (params?: IElasticsearchTaskConfig) =
         async onBeforeTrigger({ context }) {
             // Let's create a new index for the tasks first.
             const { IndexManager } = await import(
-                /* webpackChunkName: "IndexManager" */ "~/settings"
+                /* webpackChunkName: "IndexManager" */ "~/settings/index.js"
             );
             const indexManager = new IndexManager(context.elasticsearch, {});
             const { OnBeforeTrigger } = await import(
                 /* webpackChunkName: "OnBeforeTrigger" */
-                "./OnBeforeTrigger"
+                "./OnBeforeTrigger.js"
             );
 
             const onBeforeTrigger = new OnBeforeTrigger({

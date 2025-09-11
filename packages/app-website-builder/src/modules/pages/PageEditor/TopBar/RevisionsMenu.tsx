@@ -4,10 +4,10 @@ import { ReactComponent as ArrowDown } from "@webiny/icons/keyboard_arrow_down.s
 import { ReactComponent as Draft } from "@webiny/icons/draw.svg";
 import { ReactComponent as Unpublished } from "@webiny/icons/lock.svg";
 import { ReactComponent as Published } from "@webiny/icons/remove_red_eye.svg";
-import { useGetPageRevisions } from "~/features/pages";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import type { PageRevision } from "~/domain/PageRevision";
-import { WB_PAGE_EDITOR_ROUTE } from "~/constants";
+import { useGetPageRevisions } from "~/features/pages/index.js";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
+import type { PageRevision } from "~/domain/PageRevision/index.js";
+import { WB_PAGE_EDITOR_ROUTE } from "~/constants.js";
 import type { EditorPage } from "@webiny/website-builder-sdk";
 
 const { Item } = DropdownMenu;

@@ -1,10 +1,10 @@
 import React from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 
-import type { CmsModelField, CmsModelFieldTypePlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
+import type { CmsModelField, CmsModelFieldTypePlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as DateTimeIcon } from "./icons/schedule-black-24px.svg";
-import { useModel, useModelField } from "~/admin/hooks";
+import { useModel, useModelField } from "~/admin/hooks/index.js";
 import { Bind } from "@webiny/form";
 import { Grid, Label, Select } from "@webiny/admin-ui";
 

@@ -1,8 +1,8 @@
 import React from "react";
-import { makeDecoratable } from "~/index";
+import { makeDecoratable } from "~/index.js";
 import { ConnectToProperties, Property, useIdGenerator } from "@webiny/react-properties";
-import { TenantName } from "./Tenant/TenantName";
-import { TenantLogo } from "./Tenant/TenantLogo";
+import { TenantName } from "./Tenant/TenantName.js";
+import { TenantLogo } from "./Tenant/TenantLogo.js";
 
 export interface TenantProps {
     children: React.ReactNode;

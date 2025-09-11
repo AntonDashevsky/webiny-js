@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import omit from "lodash/omit";
+import omit from "lodash/omit.js";
 import type { ButtonProps as AdminUiButtonProps } from "@webiny/admin-ui";
-import type { ButtonProps } from "~/Button/Button";
+import type { ButtonProps } from "~/Button/Button.js";
 
 export const useMappedButtonProps = (props: ButtonProps) => {
     return useMemo(() => {

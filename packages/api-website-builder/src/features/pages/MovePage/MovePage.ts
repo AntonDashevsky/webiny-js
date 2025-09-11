@@ -1,5 +1,5 @@
-import type { IMovePage } from "./IMovePage";
-import type { MoveWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
+import type { IMovePage } from "./IMovePage.js";
+import type { MoveWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types.js";
 
 export class MovePage implements IMovePage {
     private readonly moveOperation: WbPagesStorageOperations["move"];

@@ -1,16 +1,15 @@
 import React from "react";
 import { App } from "@webiny/app";
-import { ThemeProvider } from "@webiny/app-theme";
 import { WcpProvider } from "@webiny/app-wcp";
-import type { ApolloClientFactory } from "./providers/ApolloProvider";
-import { createApolloProvider } from "./providers/ApolloProvider";
-import { Base } from "./Base";
-import { createTelemetryProvider } from "./providers/TelemetryProvider";
-import { createUiStateProvider } from "./providers/UiStateProvider";
-import { createAdminUiStateProvider } from "./providers/AdminUiStateProvider";
-import { createUiProviders } from "./providers/UiProviders";
-import { createDialogsProvider } from "~/components/Dialogs/DialogsContext";
-import { DefaultIcons, IconPickerConfigProvider } from "~/components/IconPicker/config";
+import type { ApolloClientFactory } from "./providers/ApolloProvider.js";
+import { createApolloProvider } from "./providers/ApolloProvider.js";
+import { Base } from "./Base.js";
+import { createTelemetryProvider } from "./providers/TelemetryProvider.js";
+import { createUiStateProvider } from "./providers/UiStateProvider.js";
+import { createAdminUiStateProvider } from "./providers/AdminUiStateProvider.js";
+import { createUiProviders } from "./providers/UiProviders.js";
+import { createDialogsProvider } from "~/components/Dialogs/DialogsContext.js";
+import { DefaultIcons, IconPickerConfigProvider } from "~/components/IconPicker/config/index.js";
 
 export interface AdminProps {
     createApolloClient: ApolloClientFactory;
@@ -27,24 +26,22 @@ export const Admin = ({ children, createApolloClient }: AdminProps) => {
 
     return (
         <ApolloProvider>
-            <ThemeProvider>
-                <WcpProvider>
-                    <App
-                        providers={[
-                            TelemetryProvider,
-                            UIProviders,
-                            UiStateProvider,
-                            DialogsProvider,
-                            IconPickerConfigProvider,
-                            AdminUiStateProvider
-                        ]}
-                    >
-                        <Base />
-                        <DefaultIcons />
-                        {children}
-                    </App>
-                </WcpProvider>
-            </ThemeProvider>
+            <WcpProvider>
+                <App
+                    providers={[
+                        TelemetryProvider,
+                        UIProviders,
+                        UiStateProvider,
+                        DialogsProvider,
+                        IconPickerConfigProvider,
+                        AdminUiStateProvider
+                    ]}
+                >
+                    <Base />
+                    <DefaultIcons />
+                    {children}
+                </App>
+            </WcpProvider>
         </ApolloProvider>
     );
 };

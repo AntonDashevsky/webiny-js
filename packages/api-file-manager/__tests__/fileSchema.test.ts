@@ -1,10 +1,10 @@
 import prettier from "prettier";
-import { useHandler } from "./utils/useHandler";
-import { createFilesTypeDefs } from "~/graphql/createFilesTypeDefs";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
-import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/schema/createFieldTypePluginRecords";
-import fileSdlSnapshot from "./mocks/file.sdl";
-import { createFileModelModifier } from "~/modelModifier/CmsModelModifier";
+import { useHandler } from "./utils/useHandler.js";
+import { createFilesTypeDefs } from "~/graphql/createFilesTypeDefs.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/schema/createFieldTypePluginRecords.js";
+import fileSdlSnapshot from "./mocks/file.sdl.js";
+import { createFileModelModifier } from "~/modelModifier/CmsModelModifier.js";
 
 describe("File Model Modifier test", () => {
     test("should generate GraphQL schema for File model", async () => {

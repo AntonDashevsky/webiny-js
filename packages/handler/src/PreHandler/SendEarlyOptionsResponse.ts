@@ -1,9 +1,9 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
-import type { IPreHandler } from "~/PreHandler/IPreHandler";
-import { Action } from "~/PreHandler/IPreHandler";
-import type { ModifyResponseHeadersPlugin } from "~/plugins/ModifyResponseHeadersPlugin";
-import type { StandardHeaders } from "~/ResponseHeaders";
-import { ResponseHeaders } from "~/ResponseHeaders";
+import type { IPreHandler } from "~/PreHandler/IPreHandler.js";
+import { Action } from "~/PreHandler/IPreHandler.js";
+import type { ModifyResponseHeadersPlugin } from "~/plugins/ModifyResponseHeadersPlugin.js";
+import type { StandardHeaders } from "~/ResponseHeaders.js";
+import { ResponseHeaders } from "~/ResponseHeaders.js";
 
 export class SendEarlyOptionsResponse implements IPreHandler {
     private readonly plugins: ModifyResponseHeadersPlugin[];

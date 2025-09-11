@@ -1,6 +1,6 @@
 import { createEventHandlerPlugin } from "~/resolver/createEventHandlerPlugin.js";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
-import { SQSEventHandler } from "@webiny/handler-aws/sqs";
+import { SQSEventHandler } from "@webiny/handler-aws/sqs/index.js";
 import { createMockSQSEventRecord } from "~tests/mocks/sqsEvent.js";
 import { createMockContext } from "~tests/mocks/context.js";
 import { createLambdaContext } from "~tests/mocks/lambdaContext.js";

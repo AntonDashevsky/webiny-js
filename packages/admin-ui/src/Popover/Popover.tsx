@@ -3,8 +3,8 @@ import {
     PopoverPrimitive,
     type PopoverPrimitiveProps,
     type PopoverPrimitiveContentProps
-} from "./primitives";
-import { makeDecoratable } from "~/utils";
+} from "./primitives/index.js";
+import { makeDecoratable } from "~/utils.js";
 
 interface PopoverProps extends PopoverPrimitiveProps, Omit<PopoverPrimitiveProps, "children"> {
     align?: PopoverPrimitiveContentProps["align"];

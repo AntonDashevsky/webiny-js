@@ -1,5 +1,5 @@
-import type { Context, ITasksContextDefinitionObject } from "~/types";
-import { TaskDefinitionPlugin } from "~/task";
+import type { Context, ITasksContextDefinitionObject } from "~/types.js";
+import { TaskDefinitionPlugin } from "~/task/index.js";
 
 const getTaskDefinitionPlugins = (context: Context) => {
     return context.plugins.byType<TaskDefinitionPlugin>(TaskDefinitionPlugin.type);

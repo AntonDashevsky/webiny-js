@@ -3,9 +3,9 @@ import gql from "graphql-tag";
 import type {
     IListFoldersByParentIdsGateway,
     ListFoldersByParentIdsGatewayParams
-} from "./IListFoldersByParentIdsGateway";
-import type { AcoError, FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+} from "./IListFoldersByParentIdsGateway.js";
+import type { AcoError, FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export interface ListFoldersByParentIdsResponse {
     aco: {

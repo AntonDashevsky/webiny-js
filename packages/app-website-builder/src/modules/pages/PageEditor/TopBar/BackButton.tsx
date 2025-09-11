@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { IconButton } from "@webiny/admin-ui";
 import { useLocation, useNavigate, useRouter } from "@webiny/react-router";
 import { ReactComponent as BackIcon } from "@webiny/icons/arrow_back.svg";
-import { useDocumentEditor } from "~/DocumentEditor";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
 
 export function BackButton() {
     const { key } = useLocation();

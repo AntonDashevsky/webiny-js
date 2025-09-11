@@ -1,5 +1,5 @@
 import { type AppName, getStackOutput } from "@webiny/project";
-import { type IDefaultStackOutput } from "~/pulumi/types";
+import { type IDefaultStackOutput } from "~/pulumi/types.js";
 
 export interface IGetStacksStack {
     name: string;

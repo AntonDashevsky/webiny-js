@@ -4,7 +4,7 @@ import { ReactComponent as Close } from "@webiny/icons/close.svg";
 import { Buttons } from "@webiny/app-admin";
 import { useDocumentList } from "~/modules/pages/PagesList/useDocumentList.js";
 import { useSelectPages } from "~/features/pages/selectPages/useSelectPages.js";
-import { usePageListConfig } from "~/modules/pages/configs";
+import { usePageListConfig } from "~/modules/pages/configs/index.js";
 
 export const getPagesLabel = (count = 0): string => {
     return `${count} ${count === 1 ? "page" : "pages"}`;

@@ -1,5 +1,5 @@
 import type { Meta } from "@webiny/app-utils";
-import type { SchedulerItem } from "~/Domain";
+import type { SchedulerItem } from "~/Domain/index.js";
 import type { ISchedulerGetExecuteParams, ISchedulerListExecuteParams } from "~/Gateways/index.js";
 
 export interface ISchedulerItemsRepository {

@@ -5,11 +5,11 @@ import { ReactComponent as PagesIcon } from "@webiny/icons/table_chart.svg";
 import { PageEditor } from "~/modules/pages/PageEditor.js";
 import { PageList } from "~/modules/pages/PageList.js";
 import { WB_PAGE_EDITOR_ROUTE, WB_PAGES_LIST_ROUTE, WB_REDIRECT_LIST_ROUTE } from "~/constants.js";
-import { useSettingsDialog } from "~/modules/settings/useSettingsDialog";
+import { useSettingsDialog } from "~/modules/settings/useSettingsDialog.js";
 import { useIntegrationsDialog } from "./modules/integrations/useIntegrationsDialog.js";
-import { PagesListConfig } from "~/modules/pages/PagesListConfig";
-import { RedirectsList } from "~/modules/redirects/RedirectsList";
-import { RedirectsListConfig } from "~/modules/redirects/RedirectsListConfig";
+import { PagesListConfig } from "~/modules/pages/PagesListConfig.js";
+import { RedirectsList } from "~/modules/redirects/RedirectsList.js";
+import { RedirectsListConfig } from "~/modules/redirects/RedirectsListConfig.js";
 
 const { Menu, Route } = AdminConfig;
 

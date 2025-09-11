@@ -2,9 +2,9 @@ import type { PluginsContainer } from "@webiny/plugins";
 import type {
     CmsModelConverterCallable,
     ConverterCollectionConvertParams as BaseConverterCollectionConvertParams
-} from "~/utils/converters/ConverterCollection";
-import { ConverterCollection } from "~/utils/converters/ConverterCollection";
-import type { CmsModel, StorageOperationsCmsModel } from "~/types";
+} from "~/utils/converters/ConverterCollection.js";
+import { ConverterCollection } from "~/utils/converters/ConverterCollection.js";
+import type { CmsModel, StorageOperationsCmsModel } from "~/types/index.js";
 import type { SemVer } from "semver";
 import semver from "semver";
 

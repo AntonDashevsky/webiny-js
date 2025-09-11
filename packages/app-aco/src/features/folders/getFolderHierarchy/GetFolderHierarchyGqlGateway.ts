@@ -3,9 +3,9 @@ import gql from "graphql-tag";
 import type {
     GetFolderHierarchyGatewayParams,
     IGetFolderHierarchyGateway
-} from "./IGetFolderHierarchyGateway";
-import type { AcoError, FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+} from "./IGetFolderHierarchyGateway.js";
+import type { AcoError, FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 interface GetFolderHierarchyResponseData {
     parents: FolderItem[];

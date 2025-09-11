@@ -1,5 +1,5 @@
-import type { Plugin } from "@webiny/plugins/types";
-import type { GraphQLSchemaDefinition } from "@webiny/handler-graphql/types";
+import type { Plugin } from "@webiny/plugins/types.js";
+import type { GraphQLSchemaDefinition } from "@webiny/handler-graphql/types.js";
 import type {
     CmsContext,
     CmsFieldTypePlugins,
@@ -8,10 +8,10 @@ import type {
     CmsModelFieldToGraphQLNormalizeInputParams,
     CmsModelFieldToGraphQLPluginValidateChildFields,
     CmsModelFieldValidatorValidateParams
-} from "./types";
-import type { GetCmsModelFieldAst } from "./modelAst";
-import type { CmsModelField, CmsModelFieldType, LockedField } from "./modelField";
-import type { CmsModel } from "./model";
+} from "./types.js";
+import type { GetCmsModelFieldAst } from "./modelAst.js";
+import type { CmsModelField, CmsModelFieldType, LockedField } from "./modelField.js";
+import type { CmsModel } from "./model.js";
 
 /**
  * @category Plugin

@@ -1,6 +1,6 @@
-import useGqlHandler from "./utils/useGqlHandler";
-import { fileAData } from "./mocks/files";
-import type { SecurityIdentity } from "@webiny/api-security/types";
+import useGqlHandler from "./utils/useGqlHandler.js";
+import { fileAData } from "./mocks/files.js";
+import type { SecurityIdentity } from "@webiny/api-security/types.js";
 
 const extraFields = ["createdBy {id displayName type}", "modifiedBy {id displayName type}"];
 describe("file custom identities", () => {

@@ -1,4 +1,4 @@
-import type { Folder } from "~/folder/folder.types";
+import type { Folder } from "~/folder/folder.types.js";
 
 export interface GetAncestorsParams {
     folder: Folder;

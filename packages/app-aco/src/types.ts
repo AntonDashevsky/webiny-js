@@ -3,13 +3,13 @@ import type {
     CmsModel,
     CmsModelField,
     CmsModelFieldSettings
-} from "@webiny/app-headless-cms-common/types";
-import type { FolderPermission } from "@webiny/shared-aco/types";
+} from "@webiny/app-headless-cms-common/types/index.js";
+import type { FolderPermission } from "@webiny/shared-aco/types.js";
 
-export type { CmsIdentity } from "@webiny/app-headless-cms-common/types";
-export type * from "@webiny/shared-aco/flp/flp.types";
-export type * from "~/graphql/records/types";
-export type * from "~/table.types";
+export type { CmsIdentity } from "@webiny/app-headless-cms-common/types/index.js";
+export type * from "@webiny/shared-aco/flp/flp.types.js";
+export type * from "~/graphql/records/types.js";
+export type * from "~/table.types.js";
 
 export interface FolderLevelPermissionsTarget<TMeta = Record<string, any>> {
     id: string;

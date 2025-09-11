@@ -1,2 +1,2 @@
-export * from "./CanCreateFolderInRoot";
-export type * from "./ICanCreateFolderInRoot";
+export * from "./CanCreateFolderInRoot.js";
+export type * from "./ICanCreateFolderInRoot.js";

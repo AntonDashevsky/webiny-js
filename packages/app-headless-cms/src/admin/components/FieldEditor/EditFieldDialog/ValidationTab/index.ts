@@ -1,1 +1,1 @@
-export * from "./ValidationTab";
+export * from "./ValidationTab.js";

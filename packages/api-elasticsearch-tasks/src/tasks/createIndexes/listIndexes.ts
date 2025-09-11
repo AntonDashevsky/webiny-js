@@ -1,8 +1,8 @@
-import type { CreateElasticsearchIndexTaskPluginIndex } from "~/tasks/createIndexes/CreateElasticsearchIndexTaskPlugin";
-import type { CreateElasticsearchIndexTaskPlugin } from "~/tasks/createIndexes/CreateElasticsearchIndexTaskPlugin";
-import type { Context } from "~/types";
-import type { Tenant } from "@webiny/api-tenancy/types";
-import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { CreateElasticsearchIndexTaskPluginIndex } from "~/tasks/createIndexes/CreateElasticsearchIndexTaskPlugin.js";
+import type { CreateElasticsearchIndexTaskPlugin } from "~/tasks/createIndexes/CreateElasticsearchIndexTaskPlugin.js";
+import type { Context } from "~/types.js";
+import type { Tenant } from "@webiny/api-tenancy/types.js";
+import type { I18NLocale } from "@webiny/api-i18n/types.js";
 
 export interface IListIndexesParams {
     context: Context;

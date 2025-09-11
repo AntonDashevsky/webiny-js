@@ -4,7 +4,7 @@ import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { observer } from "mobx-react-lite";
 import { getRedirectsLabel } from "~/modules/redirects/RedirectsList/components/BulkActions/BulkActions.js";
 import { useDeleteRedirect } from "~/features/redirects/index.js";
-import { RedirectListConfig } from "~/modules/redirects/configs";
+import { RedirectListConfig } from "~/modules/redirects/configs/index.js";
 
 export const BulkActionDelete = observer(() => {
     const { useWorker, useButtons, useDialog } = RedirectListConfig.Browser.BulkAction;

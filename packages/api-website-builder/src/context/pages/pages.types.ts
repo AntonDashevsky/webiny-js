@@ -1,11 +1,11 @@
-import type { WbIdentity, WbLocation } from "~/context/types";
+import type { WbIdentity, WbLocation } from "~/context/types.js";
 import type {
     CmsEntryGetParams,
     CmsEntryListSort,
     CmsEntryListWhere
-} from "@webiny/api-headless-cms/types";
-import type { Topic } from "@webiny/pubsub/types";
-import type { ListWbPagesParams, WbListMeta } from "~/features/pages/ListPages/IListPages";
+} from "@webiny/api-headless-cms/types/index.js";
+import type { Topic } from "@webiny/pubsub/types.js";
+import type { ListWbPagesParams, WbListMeta } from "~/features/pages/ListPages/IListPages.js";
 
 export interface WbPage {
     id: string;

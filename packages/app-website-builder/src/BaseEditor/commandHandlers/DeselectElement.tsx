@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { Commands } from "../commands";
-import { $deselectElement } from "~/editorSdk/utils";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { Commands } from "../commands.js";
+import { $deselectElement } from "~/editorSdk/utils/index.js";
 
 export const DeselectElement = () => {
     const editor = useDocumentEditor();

@@ -9,7 +9,7 @@ import {
     getPublishPageUseCase,
     getUnpublishPageUseCase,
     getUpdatePagerUseCase
-} from "~/features/pages";
+} from "~/features/pages/index.js";
 import type {
     OnPageAfterCreateRevisionFromTopicParams,
     OnPageAfterCreateTopicParams,
@@ -30,11 +30,11 @@ import type {
     UpdateWbPageData,
     WbPageCrud,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
-import type { WebsiteBuilderConfig } from "~/context/types";
-import { getMovePageUseCase } from "~/features/pages/MovePage";
-import { getGetPageByIdUseCase } from "~/features/pages/GetPageById";
-import { getGetPageRevisionsUseCase } from "~/features/pages/GetPageRevisions";
+} from "~/context/pages/pages.types.js";
+import type { WebsiteBuilderConfig } from "~/context/types.js";
+import { getMovePageUseCase } from "~/features/pages/MovePage/index.js";
+import { getGetPageByIdUseCase } from "~/features/pages/GetPageById/index.js";
+import { getGetPageRevisionsUseCase } from "~/features/pages/GetPageRevisions/index.js";
 
 export const createPagesCrud = (
     config: WebsiteBuilderConfig<WbPagesStorageOperations>

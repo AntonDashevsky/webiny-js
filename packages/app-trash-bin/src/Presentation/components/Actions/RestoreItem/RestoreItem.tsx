@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Restore } from "@webiny/icons/restore.svg";
-import { useRestoreTrashBinItem, useTrashBinItem } from "~/Presentation/hooks";
-import { TrashBinListConfig } from "~/Presentation/configs";
+import { useRestoreTrashBinItem, useTrashBinItem } from "~/Presentation/hooks/index.js";
+import { TrashBinListConfig } from "~/Presentation/configs/index.js";
 
 export const RestoreItemAction = () => {
     const { item } = useTrashBinItem();

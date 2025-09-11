@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Avatar as AvatarPrimitive } from "radix-ui";
-import { withStaticProps, cn, makeDecoratable, cva, type VariantProps } from "~/utils";
+import { withStaticProps, cn, makeDecoratable, cva, type VariantProps } from "~/utils.js";
 import {
     AvatarFallback,
     AvatarImage,
     type AvatarFallbackProps,
     type AvatarImageProps
-} from "./components";
+} from "./components/index.js";
 
 interface AvatarProps
     extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>,

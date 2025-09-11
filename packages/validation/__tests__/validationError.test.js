@@ -1,4 +1,4 @@
-import { ValidationError } from "../src";
+import { ValidationError } from "../src/index.js";
 
 describe("ValidationError class test", function () {
     it("set / get message must work correctly", () => {

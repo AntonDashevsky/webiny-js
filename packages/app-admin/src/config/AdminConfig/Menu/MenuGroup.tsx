@@ -1,7 +1,7 @@
 import React from "react";
-import { makeDecoratable } from "~/index";
+import { makeDecoratable } from "~/index.js";
 import { Sidebar } from "@webiny/admin-ui";
-import { type SidebarMenuItemGroupProps } from "@webiny/admin-ui/Sidebar/components/items/SidebarMenuItem";
+import { type SidebarMenuItemGroupProps } from "@webiny/admin-ui/Sidebar/components/items/SidebarMenuItem.js";
 
 const MenuGroupBase = (props: SidebarMenuItemGroupProps) => {
     return <Sidebar.Group {...props} />;

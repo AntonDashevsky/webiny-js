@@ -4,7 +4,7 @@ import { Grid, Switch } from "@webiny/admin-ui";
 import type {
     CmsModelField,
     CmsModelFieldRendererSettingsProps
-} from "@webiny/app-headless-cms-common/types";
+} from "@webiny/app-headless-cms-common/types/index.js";
 
 export interface IAccordionRenderSettings {
     open: boolean;

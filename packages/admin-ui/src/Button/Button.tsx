@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Slot } from "radix-ui";
-import { cn, cva, type VariantProps, makeDecoratable } from "~/utils";
+import { cn, cva, type VariantProps, makeDecoratable } from "~/utils.js";
 
 const buttonWrapperVariants = cva("wby-inline-block", {
     variants: {

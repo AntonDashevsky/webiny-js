@@ -1,4 +1,4 @@
-import { createHandler } from "~/sync/createHandler";
+import { createHandler } from "~/sync/createHandler.js";
 import { createMockSystem } from "~tests/mocks/system.js";
 import { createMockManifest } from "~tests/mocks/manifest.js";
 import { Handler } from "~/sync/handler/Handler.js";
@@ -10,11 +10,11 @@ import {
     GetCommand,
     PutCommand,
     UpdateCommand
-} from "@webiny/aws-sdk/client-dynamodb";
+} from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { PutCommandValue } from "~/sync/handler/converter/commands/PutCommandValue.js";
-import { UpdateCommandValue } from "~/sync/handler/converter/commands/UpdateCommandValue";
+import { UpdateCommandValue } from "~/sync/handler/converter/commands/UpdateCommandValue.js";
 import { NullCommandValue } from "~/sync/handler/converter/commands/NullCommandValue.js";
-import { DeleteCommandValue } from "~/sync/handler/converter/commands/DeleteCommandValue";
+import { DeleteCommandValue } from "~/sync/handler/converter/commands/DeleteCommandValue.js";
 import { BatchWriteCommandValue } from "~/sync/handler/converter/commands/BatchWriteCommandValue.js";
 import { getTableType } from "~/sync/utils/getTableType.js";
 import { createMockPluginsContainer } from "~tests/mocks/plugins.js";

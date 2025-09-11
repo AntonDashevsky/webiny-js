@@ -1,4 +1,4 @@
-import type { CmsErrorResponse } from "@webiny/app-headless-cms-common/types";
+import type { CmsErrorResponse } from "@webiny/app-headless-cms-common/types/index.js";
 
 export enum ImportAction {
     UPDATE = "update",

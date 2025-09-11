@@ -1,8 +1,8 @@
 import React from "react";
 import { Accordion } from "@webiny/admin-ui";
-import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
 import { ReactComponent as PermissionsIcon } from "@webiny/icons/devices_other.svg";
-import { CMSPermissions } from "./CmsPermissions";
+import { CMSPermissions } from "./CmsPermissions.js";
 
 const plugin: AdminAppPermissionRendererPlugin = {
     type: "admin-app-permissions-renderer",

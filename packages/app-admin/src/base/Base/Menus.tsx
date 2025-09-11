@@ -1,9 +1,9 @@
 import React from "react";
 import { HasPermission } from "@webiny/app-security";
-import { FileManager } from "~/base/ui/FileManager";
-import { WebinyVersion } from "./Menus/WebinyVersion";
-import { SupportMenuItems } from "./Menus/SupportMenuItems";
-import { AdminConfig } from "~/config/AdminConfig";
+import { FileManager } from "~/base/ui/FileManager.js";
+import { WebinyVersion } from "./Menus/WebinyVersion.js";
+import { SupportMenuItems } from "./Menus/SupportMenuItems.js";
+import { AdminConfig } from "~/config/AdminConfig.js";
 import { ReactComponent as DashboardIcon } from "@webiny/icons/space_dashboard.svg";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { ReactComponent as FileManagerIcon } from "@webiny/icons/folder_open.svg";

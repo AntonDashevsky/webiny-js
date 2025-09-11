@@ -1,6 +1,6 @@
 import type * as React from "react";
 import type { ReactElement, ReactNode } from "react";
-import type { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types.js";
 import type {
     BindComponent as BaseBindComponent,
     BindComponentProps as BaseBindComponentProps,
@@ -8,14 +8,14 @@ import type {
     FormAPI
 } from "@webiny/form";
 import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
-import type { SecurityPermission } from "@webiny/app-security/types";
+import type { SecurityPermission } from "@webiny/app-security/types.js";
 import type {
     CmsModelFieldValidator,
     CmsModelFieldValidatorsFactory,
     CmsModelFieldValidatorsGroup
-} from "./validation";
-import type { CmsModel, CmsModelField } from "./model";
-import type { CmsIdentity } from "~/types/shared";
+} from "./validation.js";
+import type { CmsModel, CmsModelField } from "./model.js";
+import type { CmsIdentity } from "~/types/shared.js";
 import type { SourceType } from "dnd-core";
 import type { IconPickerIconDto } from "@webiny/admin-ui";
 
@@ -23,9 +23,9 @@ export type DragObjectWithType = {
     type: SourceType;
 };
 
-export type * from "./validation";
-export type * from "./model";
-export type * from "./shared";
+export type * from "./validation.js";
+export type * from "./model.js";
+export type * from "./shared.js";
 
 interface QueryFieldParams {
     model: CmsModel;

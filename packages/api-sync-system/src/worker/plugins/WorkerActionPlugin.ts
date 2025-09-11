@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins/Plugin.js";
-import type { IWorkerAction, IWorkerActionHandleParams } from "../types";
+import type { IWorkerAction, IWorkerActionHandleParams } from "../types.js";
 
 export class WorkerActionPlugin<T = unknown> extends Plugin {
     public static override readonly type: string = "sync.worker.action";

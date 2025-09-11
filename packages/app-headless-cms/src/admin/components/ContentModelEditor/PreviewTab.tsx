@@ -1,8 +1,8 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
-import type { CmsEditorContentTab } from "~/types";
-import { useModelEditor } from "~/admin/hooks";
-import { ContentEntryFormPreview } from "../ContentEntryForm/ContentEntryFormPreview";
+import { i18n } from "@webiny/app/i18n/index.js";
+import type { CmsEditorContentTab } from "~/types.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
+import { ContentEntryFormPreview } from "../ContentEntryForm/ContentEntryFormPreview.js";
 import { Alert } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/components/editor/tabs/preview");

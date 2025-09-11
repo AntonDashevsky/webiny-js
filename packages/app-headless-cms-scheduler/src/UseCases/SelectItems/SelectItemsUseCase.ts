@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import type { SchedulerItem, ISelectedItemsRepository } from "~/Domain";
-import type { ISelectItemsUseCase } from "./ISelectItemsUseCase";
+import type { SchedulerItem, ISelectedItemsRepository } from "~/Domain/index.js";
+import type { ISelectItemsUseCase } from "./ISelectItemsUseCase.js";
 
 export class SelectItemsUseCase implements ISelectItemsUseCase {
     private repository: ISelectedItemsRepository;

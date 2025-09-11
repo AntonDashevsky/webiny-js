@@ -1,13 +1,13 @@
 import prettier from "prettier";
-import { createGraphQLFields } from "~/graphqlFields";
-import { createReadSDL } from "~/graphql/schema/createReadSDL";
-import contentModels from "./mocks/contentModels";
-import categorySDL from "./snapshots/category.read";
-import productSDL from "./snapshots/product.read";
-import reviewSDL from "./snapshots/review.read";
-import pageSDL from "./snapshots/page.read";
-import type { CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types";
-import { pageModel } from "./mocks/pageWithDynamicZonesModel";
+import { createGraphQLFields } from "~/graphqlFields/index.js";
+import { createReadSDL } from "~/graphql/schema/createReadSDL.js";
+import contentModels from "./mocks/contentModels.js";
+import categorySDL from "./snapshots/category.read.js";
+import productSDL from "./snapshots/product.read.js";
+import reviewSDL from "./snapshots/review.read.js";
+import pageSDL from "./snapshots/page.read.js";
+import type { CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
+import { pageModel } from "./mocks/pageWithDynamicZonesModel.js";
 
 /**
  * Method createReadDSL expected model with filtered deleted fields.

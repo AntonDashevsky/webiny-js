@@ -1,6 +1,6 @@
 import type { IHandler } from "./types.js";
 import { createOnRequestResponseSend, createOnRequestTimeout } from "@webiny/handler";
-import type { Request as FastifyRequest } from "@webiny/handler/types";
+import type { Request as FastifyRequest } from "@webiny/handler/types.js";
 import { convertException } from "@webiny/utils/exception.js";
 
 const execute = async (handler: IHandler) => {

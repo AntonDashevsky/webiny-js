@@ -1,8 +1,8 @@
-import type { ApiEndpoint, CmsContext, CmsFieldTypePlugins, CmsModel } from "~/types";
-import type { ICmsGraphQLSchemaPlugin } from "~/plugins";
-import { createCmsGraphQLSchemaPlugin } from "~/plugins";
+import type { ApiEndpoint, CmsContext, CmsFieldTypePlugins, CmsModel } from "~/types/index.js";
+import type { ICmsGraphQLSchemaPlugin } from "~/plugins/index.js";
+import { createCmsGraphQLSchemaPlugin } from "~/plugins/index.js";
 import type { IGraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import type { GraphQLSchemaDefinition } from "@webiny/handler-graphql/types";
+import type { GraphQLSchemaDefinition } from "@webiny/handler-graphql/types.js";
 
 const TYPE_MAP: Record<string, "manage" | "read"> = {
     preview: "read",

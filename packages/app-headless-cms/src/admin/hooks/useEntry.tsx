@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import type { CmsContentEntry } from "~/types";
+import type { CmsContentEntry } from "~/types.js";
 
 export interface EntryContext {
     entry: CmsContentEntry;

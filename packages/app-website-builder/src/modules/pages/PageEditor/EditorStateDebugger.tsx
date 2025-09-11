@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import MonacoEditor from "@monaco-editor/react";
 import styled from "@emotion/styled";
 import { Button } from "@webiny/admin-ui";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
 import React from "react";
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import type { HistorySnapshot } from "~/editorSdk/HistorySnapshot";
+import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor.js";
+import type { HistorySnapshot } from "~/editorSdk/HistorySnapshot.js";
 
 const Toolbar = styled.div`
     position: absolute;

@@ -1,5 +1,5 @@
-import type { PresignedPostOptions } from "@webiny/aws-sdk/client-s3";
-import { S3Client, createPresignedPost } from "@webiny/aws-sdk/client-s3";
+import type { PresignedPostOptions } from "@webiny/aws-sdk/client-s3/index.js";
+import { S3Client, createPresignedPost } from "@webiny/aws-sdk/client-s3/index.js";
 
 interface GetPresignedPostParams {
     bucket: PresignedPostOptions["Bucket"];

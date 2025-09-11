@@ -1,4 +1,4 @@
-import type { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 
 interface Params {
     model: CmsModel;

@@ -4,10 +4,10 @@ import { Drawer } from "@webiny/admin-ui";
 import { observer } from "mobx-react-lite";
 import type { FormAPI } from "@webiny/form";
 
-import type { BatchEditorFormData } from "./BatchEditorDialogPresenter";
-import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter";
-import { BatchEditor } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditor";
-import type { BatchDTO, FieldDTO } from "~/components/BulkActions/ActionEdit/domain";
+import type { BatchEditorFormData } from "./BatchEditorDialogPresenter.js";
+import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter.js";
+import { BatchEditor } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditor.js";
+import type { BatchDTO, FieldDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
 
 interface BatchEditorDialogProps {
     fields: FieldDTO[];

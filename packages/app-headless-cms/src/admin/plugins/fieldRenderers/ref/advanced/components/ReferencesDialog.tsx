@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Search } from "./Search";
-import { Entry } from "./Entry";
-import type { CmsModelField, CmsModelFieldRendererProps } from "~/types";
-import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import { Search } from "./Search.js";
+import { Entry } from "./Entry.js";
+import type { CmsModelField, CmsModelFieldRendererProps } from "~/types.js";
+import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { useSnackbar } from "@webiny/app-admin";
 import { parseIdentifier } from "@webiny/utils";
-import { useEntries } from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/useEntries";
-import { Entries } from "./Entries";
-import type { MultiRefFieldSettings } from "~/admin/plugins/fieldRenderers/ref/advanced/components/AdvancedMultipleReferenceSettings";
+import { useEntries } from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/useEntries.js";
+import { Entries } from "./Entries.js";
+import type { MultiRefFieldSettings } from "~/admin/plugins/fieldRenderers/ref/advanced/components/AdvancedMultipleReferenceSettings.js";
 import { Dialog, OverlayLoader } from "@webiny/admin-ui";
 
 const isSelected = (entryId: string, values: CmsReferenceValue[]) => {

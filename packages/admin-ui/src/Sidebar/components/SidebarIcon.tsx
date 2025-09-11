@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, type IconProps } from "~/Icon";
+import { Icon, type IconProps } from "~/Icon/index.js";
 import { makeDecoratable } from "@webiny/react-composition";
 
 interface SidebarIconProps extends Omit<IconProps, "icon"> {

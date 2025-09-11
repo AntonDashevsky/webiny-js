@@ -1,10 +1,10 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { createModel } from "./helpers";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { createModel } from "./helpers.js";
 import {
     createNumbersEntryMutation,
     createNumbersModel,
     getNumbersEntryQuery
-} from "./mocks/numbersModel";
+} from "./mocks/numbersModel.js";
 
 const integerValue = 1234567890111213;
 const float2Value = 0.04;

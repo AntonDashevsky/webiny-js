@@ -1,19 +1,19 @@
-import type { Client } from "~/client";
-import { ElasticsearchCatHealth } from "~/operations/ElasticsearchCatHealth";
-import { ElasticsearchCatNodes } from "~/operations/ElasticsearchCatNodes";
+import type { Client } from "~/client.js";
+import { ElasticsearchCatHealth } from "~/operations/ElasticsearchCatHealth.js";
+import { ElasticsearchCatNodes } from "~/operations/ElasticsearchCatNodes.js";
 import type {
     IElasticsearchCatHealthResponse,
     IElasticsearchCatNodesResponse
-} from "~/operations/types";
-import { ElasticsearchCatClusterHealthStatus } from "~/operations/types";
-import { UnhealthyClusterError } from "~/utils/waitUntilHealthy/UnhealthyClusterError";
-import type { ClusterHealthReason, MemoryReason, ProcessorReason } from "./reason";
+} from "~/operations/types.js";
+import { ElasticsearchCatClusterHealthStatus } from "~/operations/types.js";
+import { UnhealthyClusterError } from "~/utils/waitUntilHealthy/UnhealthyClusterError.js";
+import type { ClusterHealthReason, MemoryReason, ProcessorReason } from "./reason/index.js";
 import {
     createClusterHealthStatusReason,
     createMemoryReason,
     createProcessorReason
-} from "./reason";
-import { WaitingHealthyClusterAbortedError } from "./WaitingHealthyClusterAbortedError";
+} from "./reason/index.js";
+import { WaitingHealthyClusterAbortedError } from "./WaitingHealthyClusterAbortedError.js";
 
 const WAITING_TIME_STEP = 10;
 

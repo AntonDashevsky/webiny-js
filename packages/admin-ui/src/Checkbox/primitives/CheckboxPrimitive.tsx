@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Checkbox as CheckboxPrimitives } from "radix-ui";
 import { ReactComponent as CheckIcon } from "@webiny/icons/check.svg";
-import { cn, makeDecoratable, cva, type VariantProps } from "~/utils";
-import { useCheckbox } from "./useCheckbox";
-import { Label } from "~/Label";
-import type { CheckboxItemDto, CheckboxItemFormatted } from "~/Checkbox";
+import { cn, makeDecoratable, cva, type VariantProps } from "~/utils.js";
+import { useCheckbox } from "./useCheckbox.js";
+import { Label } from "~/Label/index.js";
+import type { CheckboxItemDto, CheckboxItemFormatted } from "~/Checkbox/index.js";
 
 /**
  * Indeterminate Icon

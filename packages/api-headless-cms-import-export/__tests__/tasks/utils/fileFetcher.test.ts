@@ -1,6 +1,6 @@
-import { FileFetcher } from "~/tasks/utils/fileFetcher";
-import { GetObjectCommand, ListObjectsCommand, S3Client } from "@webiny/aws-sdk/client-s3";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client";
+import { FileFetcher } from "~/tasks/utils/fileFetcher/index.js";
+import { GetObjectCommand, ListObjectsCommand, S3Client } from "@webiny/aws-sdk/client-s3/index.js";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
 import { mockClient } from "aws-sdk-client-mock";
 import { basename } from "path";
 

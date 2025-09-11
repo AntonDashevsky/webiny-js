@@ -1,5 +1,5 @@
-import type { FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+import type { FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 import type { NodeDto } from "@webiny/admin-ui";
 
 /**

@@ -1,4 +1,4 @@
-import { CmsModelPlugin } from "~/plugins";
+import { CmsModelPlugin } from "~/plugins/index.js";
 import { jest } from "@jest/globals";
 
 describe("content model via code", () => {

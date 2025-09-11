@@ -1,5 +1,5 @@
 import React from "react";
-import { useFileManagerViewConfig } from "~/index";
+import { useFileManagerViewConfig } from "~/index.js";
 
 export const Actions = () => {
     const { fileDetails } = useFileManagerViewConfig();

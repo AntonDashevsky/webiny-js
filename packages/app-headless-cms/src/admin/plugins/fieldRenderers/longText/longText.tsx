@@ -1,8 +1,8 @@
 import React from "react";
-import get from "lodash/get";
-import type { CmsModelFieldRendererPlugin } from "~/types";
+import get from "lodash/get.js";
+import type { CmsModelFieldRendererPlugin } from "~/types.js";
 import { DelayedOnChange, Textarea } from "@webiny/admin-ui";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");
 

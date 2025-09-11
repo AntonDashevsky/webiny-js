@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { Node, type NodeFormatted, type NodeParams, NodeFormatter } from "../domains";
+import { Node, type NodeFormatted, type NodeParams, NodeFormatter } from "../domains/index.js";
 
 interface TreePresenterInitParams {
     rootId?: string;

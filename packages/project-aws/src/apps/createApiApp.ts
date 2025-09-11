@@ -1,4 +1,4 @@
-export { ApiOutput } from "~/pulumi";
+export { ApiOutput } from "~/pulumi/index.js";
 
 export function createApiApp() {
     return {

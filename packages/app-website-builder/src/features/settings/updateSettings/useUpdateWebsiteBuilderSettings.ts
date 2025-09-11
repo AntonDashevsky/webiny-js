@@ -1,9 +1,9 @@
 import { useMemo, useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { UpdateSettingsRepository } from "./UpdateSettings.repository";
-import { settingsCache } from "~/shared/settingsCache";
-import type { IWebsiteBuilderSettings } from "~/features/settings/IWebsiteBuilderSettings";
-import { UpdateSettingsGqlGateway } from "./UpdateSettings.gateway";
+import { UpdateSettingsRepository } from "./UpdateSettings.repository.js";
+import { settingsCache } from "~/shared/settingsCache.js";
+import type { IWebsiteBuilderSettings } from "~/features/settings/IWebsiteBuilderSettings.js";
+import { UpdateSettingsGqlGateway } from "./UpdateSettings.gateway.js";
 
 export const useUpdateWebsiteBuilderSettings = () => {
     const client = useApolloClient();

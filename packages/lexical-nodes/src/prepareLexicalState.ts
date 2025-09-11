@@ -1,5 +1,5 @@
 import type { SerializedEditorState } from "lexical";
-import { generateInitialLexicalValue } from "./generateInitialLexicalValue";
+import { generateInitialLexicalValue } from "./generateInitialLexicalValue.js";
 
 /**
  * Remap various node types to their latest form.

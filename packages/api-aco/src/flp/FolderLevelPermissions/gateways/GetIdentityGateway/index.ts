@@ -1,2 +1,2 @@
-export type * from "./IGetIdentityGateway";
-export * from "./GetIdentityGatewayFromContext";
+export type * from "./IGetIdentityGateway.js";
+export * from "./GetIdentityGatewayFromContext.js";

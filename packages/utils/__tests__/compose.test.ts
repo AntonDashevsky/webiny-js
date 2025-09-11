@@ -1,5 +1,5 @@
-import type { AsyncProcessor, SyncProcessor } from "~/compose";
-import { composeAsync, composeSync } from "~/compose";
+import type { AsyncProcessor, SyncProcessor } from "~/compose.js";
+import { composeAsync, composeSync } from "~/compose.js";
 
 interface ValueFnParams {
     value: number;

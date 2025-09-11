@@ -1,9 +1,9 @@
 import React from "react";
-import { makeDecoratable } from "~/index";
+import { makeDecoratable } from "~/index.js";
 import { ConnectToProperties, Property, useIdGenerator } from "@webiny/react-properties";
-import { UserMenuItem } from "./UserMenu/UserMenuItem";
-import { UserMenuLink } from "./UserMenu/UserMenuLink";
-import { UserMenuSeparator } from "./UserMenu/UserMenuSeparator";
+import { UserMenuItem } from "./UserMenu/UserMenuItem.js";
+import { UserMenuLink } from "./UserMenu/UserMenuLink.js";
+import { UserMenuSeparator } from "./UserMenu/UserMenuSeparator.js";
 
 export interface UserMenuProps {
     name: string;

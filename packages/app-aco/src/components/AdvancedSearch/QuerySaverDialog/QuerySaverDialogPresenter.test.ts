@@ -2,9 +2,10 @@ import type {
     FilterDTO,
     FilterGroupDTO,
     FilterGroupFilterDTO
-} from "~/components/AdvancedSearch/domain";
-import { Operation } from "~/components/AdvancedSearch/domain";
-import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter";
+} from "~/components/AdvancedSearch/domain/index.js";
+import { Operation } from "~/components/AdvancedSearch/domain/index.js";
+import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("QuerySaverDialogPresenter", () => {
     const demoFilter: FilterGroupFilterDTO = {

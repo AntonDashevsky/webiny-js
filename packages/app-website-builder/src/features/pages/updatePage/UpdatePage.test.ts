@@ -1,6 +1,7 @@
 import { UpdatePage } from "./UpdatePage.js";
-import { WbPageStatus } from "~/constants";
+import { WbPageStatus } from "~/constants.js";
 import { Page, pageListCache } from "~/domain/Page/index.js";
+import { jest } from "@jest/globals";
 
 describe("UpdatePage", () => {
     const pagesCache = pageListCache;

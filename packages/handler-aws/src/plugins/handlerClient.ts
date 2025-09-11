@@ -1,4 +1,4 @@
-import { LambdaClient, InvokeCommand } from "@webiny/aws-sdk/client-lambda";
+import { LambdaClient, InvokeCommand } from "@webiny/aws-sdk/client-lambda/index.js";
 import { HandlerClientPlugin } from "@webiny/handler-client";
 
 export const createHandlerClientPlugin = () => {

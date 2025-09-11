@@ -1,5 +1,5 @@
-import type { Topic } from "@webiny/pubsub/types";
-import type { File } from "./file";
+import type { Topic } from "@webiny/pubsub/types.js";
+import type { File } from "./file.js";
 
 export interface OnFileBeforeCreateTopicParams<TFile extends File = File> {
     file: TFile;

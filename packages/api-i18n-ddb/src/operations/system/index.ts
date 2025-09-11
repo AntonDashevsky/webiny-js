@@ -1,6 +1,6 @@
-import { SystemStorageOperations } from "./SystemStorageOperations";
-import type { SystemStorageOperationsProviderPluginParams } from "@webiny/api-i18n/plugins/SystemStorageOperationsProviderPlugin";
-import { SystemStorageOperationsProviderPlugin } from "@webiny/api-i18n/plugins/SystemStorageOperationsProviderPlugin";
+import { SystemStorageOperations } from "./SystemStorageOperations.js";
+import type { SystemStorageOperationsProviderPluginParams } from "@webiny/api-i18n/plugins/SystemStorageOperationsProviderPlugin.js";
+import { SystemStorageOperationsProviderPlugin } from "@webiny/api-i18n/plugins/SystemStorageOperationsProviderPlugin.js";
 
 export class SystemStorageOperationsProviderDdbPlugin extends SystemStorageOperationsProviderPlugin {
     public override name = "i18n.storageOperationsProvider.system.ddb";

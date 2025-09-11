@@ -1,6 +1,6 @@
 import React from "react";
-import lodashTrim from "lodash/trim";
-import type { I18NDataValues, Modifier, Processor } from "@webiny/i18n/types";
+import lodashTrim from "lodash/trim.js";
+import type { I18NDataValues, Modifier, Processor } from "@webiny/i18n/types.js";
 
 declare global {
     // eslint-disable-next-line

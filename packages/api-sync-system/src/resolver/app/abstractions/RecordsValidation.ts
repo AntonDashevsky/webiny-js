@@ -1,4 +1,4 @@
-import type { SQSRecord } from "@webiny/aws-sdk/types";
+import type { SQSRecord } from "@webiny/aws-sdk/types/index.js";
 import type { IResolverSQSRecord } from "~/resolver/app/abstractions/ResolverRecord.js";
 
 export interface IRecordsValidationValid {

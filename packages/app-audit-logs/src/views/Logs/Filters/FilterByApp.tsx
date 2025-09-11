@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useBind, useForm } from "@webiny/form";
-import { Select } from "@webiny/ui/Select";
+import { Select } from "@webiny/ui/Select/index.js";
 import { apps as auditLogsApps } from "@webiny/common-audit-logs/index.js";
 
 const getValidFilterValue = (value: string): string | undefined => {

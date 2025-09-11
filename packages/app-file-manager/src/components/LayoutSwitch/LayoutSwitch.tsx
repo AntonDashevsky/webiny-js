@@ -2,9 +2,9 @@ import React from "react";
 import { IconButton, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as GridIcon } from "@webiny/icons/view_module.svg";
 import { ReactComponent as TableIcon } from "@webiny/icons/view_list.svg";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 
 const t = i18n.ns("app-file-manager/components/layout-switch");
 

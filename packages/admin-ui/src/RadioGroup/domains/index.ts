@@ -1,4 +1,4 @@
-export * from "./RadioItem";
-export type * from "./RadioItemFormatted";
-export * from "./RadioItemFormatter";
-export type * from "./RadioItemParams";
+export * from "./RadioItem.js";
+export type * from "./RadioItemFormatted.js";
+export * from "./RadioItemFormatter.js";
+export type * from "./RadioItemParams.js";

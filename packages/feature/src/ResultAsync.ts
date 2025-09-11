@@ -1,4 +1,4 @@
-import { Result } from "./Result";
+import { Result } from "./Result.js";
 
 export class ResultAsync<TValue, TError = never> {
     constructor(private readonly promise: Promise<Result<TValue, TError>>) {}

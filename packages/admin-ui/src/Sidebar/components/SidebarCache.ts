@@ -1,4 +1,4 @@
-import { SIDEBAR_LS_KEY } from "./constants";
+import { SIDEBAR_LS_KEY } from "./constants.js";
 
 type CachedSidebarState = {
     pinned: boolean;

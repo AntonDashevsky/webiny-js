@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as ErrorIcon } from "@webiny/icons/error_outline.svg";
 import { ReactComponent as SuccessIcon } from "@webiny/icons/check_circle_outline.svg";
 import { List, Icon, cn } from "@webiny/admin-ui";
-import type { ShowResultsDialogParams } from "./index";
+import type { ShowResultsDialogParams } from "./index.js";
 
 type ResultDialogMessageProps = Pick<ShowResultsDialogParams, "results" | "message">;
 

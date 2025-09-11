@@ -1,17 +1,17 @@
 import React, { useMemo } from "react";
 
-import type { AdvancedSearchProps } from "./AdvancedSearch";
-import { AdvancedSearch as AdvancedSearchComponent } from "./AdvancedSearch";
-import { AdvancedSearchConfigs } from "./AdvancedSearchConfigs";
-import { AcoWithConfig, useAcoConfig } from "~/config";
+import type { AdvancedSearchProps } from "./AdvancedSearch.js";
+import { AdvancedSearch as AdvancedSearchComponent } from "./AdvancedSearch.js";
+import { AdvancedSearchConfigs } from "./AdvancedSearchConfigs.js";
+import { AcoWithConfig, useAcoConfig } from "~/config/index.js";
 
-export * from "./GraphQLInputMapper";
-export * from "./gateways";
-import type { FieldRaw } from "./domain";
-import { Field, FieldMapper } from "./domain";
-import { AdvancedSearchDebounceRenderer } from "./AdvancedSearchDebounceRender";
-export * from "./useFilterRepository";
-export * from "./useInputField";
+export * from "./GraphQLInputMapper.js";
+export * from "./gateways/index.js";
+import type { FieldRaw } from "./domain/index.js";
+import { Field, FieldMapper } from "./domain/index.js";
+import { AdvancedSearchDebounceRenderer } from "./AdvancedSearchDebounceRender.js";
+export * from "./useFilterRepository.js";
+export * from "./useInputField.js";
 
 interface AdvancedSearchWithFieldRenderersProps extends Omit<AdvancedSearchProps, "fields"> {
     fields: FieldRaw[];

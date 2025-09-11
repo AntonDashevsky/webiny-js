@@ -1,6 +1,6 @@
-import { SchedulerItem } from "~/Domain";
-import type { ISelectItemsUseCase } from "~/UseCases";
-import type { ISelectItemsController } from "./ISelectItemsController";
+import { SchedulerItem } from "~/Domain/index.js";
+import type { ISelectItemsUseCase } from "~/UseCases/index.js";
+import type { ISelectItemsController } from "./ISelectItemsController.js";
 import type { SchedulerEntry } from "~/types.js";
 
 export class SelectItemsController implements ISelectItemsController {

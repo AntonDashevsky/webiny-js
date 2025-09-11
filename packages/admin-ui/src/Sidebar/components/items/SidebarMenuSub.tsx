@@ -1,6 +1,6 @@
 import React from "react";
-import { cn } from "~/utils";
-import { SidebarMenuProvider, useSidebarMenu } from "./SidebarMenuProvider";
+import { cn } from "~/utils.js";
+import { SidebarMenuProvider, useSidebarMenu } from "./SidebarMenuProvider.js";
 
 const SidebarMenuSub = ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => {
     const parentSidebarMenu = useSidebarMenu();

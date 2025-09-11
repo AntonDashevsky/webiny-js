@@ -1,4 +1,4 @@
-import { toSlug } from "~/utils/toSlug";
+import { toSlug } from "~/utils/toSlug.js";
 
 describe("toSlug", () => {
     const cases: [string, string][] = [

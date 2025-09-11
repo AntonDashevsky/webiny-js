@@ -1,12 +1,12 @@
-import type { AdminCreateUserRequest } from "@webiny/aws-sdk/client-cognito-identity-provider";
-import { CognitoIdentityProvider } from "@webiny/aws-sdk/client-cognito-identity-provider";
+import type { AdminCreateUserRequest } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
+import { CognitoIdentityProvider } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
 import type {
     AdminUser,
     AdminUsersContext,
     BaseUserAttributes
-} from "@webiny/api-admin-users/types";
+} from "@webiny/api-admin-users/types.js";
 
 type MappedAttrType = (user: AdminUser) => string | keyof AdminUser;
 

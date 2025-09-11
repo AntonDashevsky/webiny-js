@@ -1,7 +1,7 @@
 import React from "react";
 import { DelayedOnChange, Icon, Input } from "@webiny/admin-ui";
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
-import { useFileManagerApi, useFileManagerView } from "~/index";
+import { useFileManagerApi, useFileManagerView } from "~/index.js";
 
 export const SearchWidget = () => {
     const fileManager = useFileManagerApi();

@@ -1,4 +1,4 @@
-import { generateId } from "@webiny/utils/generateId";
+import { generateId } from "@webiny/utils/generateId.js";
 import type {
     IGenericData,
     IWebsocketsManagerCloseEvent,
@@ -6,13 +6,13 @@ import type {
     IWebsocketManagerEvent,
     IWebsocketsManagerMessageEvent,
     IWebsocketsManagerOpenEvent
-} from "./types";
+} from "./types.js";
 import type {
     IWebsocketsSubscriptionManagerSubscriptions,
     IWebsocketsSubscription,
     IWebsocketsSubscriptionCallback,
     IWebsocketsSubscriptionManager
-} from "./abstractions/IWebsocketsSubscriptionManager";
+} from "./abstractions/IWebsocketsSubscriptionManager.js";
 
 export class WebsocketsSubscriptionManager implements IWebsocketsSubscriptionManager {
     private subscriptions: IWebsocketsSubscriptionManagerSubscriptions = {

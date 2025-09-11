@@ -11,11 +11,11 @@ import {
     RichItemPreview,
     TextOnlyPreview,
     Trigger
-} from "~/FilePicker";
-import { cn, makeDecoratable, withStaticProps } from "~/utils";
-import { Button } from "~/Button";
-import { inputVariants } from "~/Input";
-import { useMultiFilePicker } from "~/MultiFilePicker/primitives/useMultiFilePicker";
+} from "~/FilePicker/index.js";
+import { cn, makeDecoratable, withStaticProps } from "~/utils.js";
+import { Button } from "~/Button/index.js";
+import { inputVariants } from "~/Input/index.js";
+import { useMultiFilePicker } from "~/MultiFilePicker/primitives/useMultiFilePicker.js";
 
 interface MultiFilePickerPrimitiveProps
     extends Omit<FilePickerPrimitiveProps, "value" | "onEditItem" | "onRemoveItem"> {

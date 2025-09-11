@@ -1,11 +1,11 @@
-import type { Expression } from "~/operations/entry/filtering/createExpressions";
-import { createExpressions } from "~/operations/entry/filtering/createExpressions";
+import type { Expression } from "~/operations/entry/filtering/createExpressions.js";
+import { createExpressions } from "~/operations/entry/filtering/createExpressions.js";
 import type { PluginsContainer } from "@webiny/plugins";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
-import { createModel } from "../../helpers/createModel";
-import { createFields } from "~/operations/entry/filtering/createFields";
-import type { Field } from "~/operations/entry/filtering/types";
-import { createPluginsContainer } from "../../helpers/pluginsContainer";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { createModel } from "../../helpers/createModel.js";
+import { createFields } from "~/operations/entry/filtering/createFields.js";
+import type { Field } from "~/operations/entry/filtering/types.js";
+import { createPluginsContainer } from "../../helpers/pluginsContainer.js";
 
 describe("create filters from where conditions", () => {
     let plugins: PluginsContainer;

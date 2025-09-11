@@ -1,4 +1,4 @@
-import type { CmsFieldValueTransformer } from "~/types";
+import type { CmsFieldValueTransformer } from "~/types.js";
 
 export const createNumberTransformer = (): CmsFieldValueTransformer => ({
     type: "cms-field-value-transformer",

@@ -1,6 +1,6 @@
-import type { AcoBaseFields, ListMeta } from "~/types";
-import type { Topic } from "@webiny/pubsub/types";
-import type { CmsEntryListSort, CmsModel } from "@webiny/api-headless-cms/types";
+import type { AcoBaseFields, ListMeta } from "~/types.js";
+import type { Topic } from "@webiny/pubsub/types.js";
+import type { CmsEntryListSort, CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 export type GenericSearchData = {
     [key: string]: any;

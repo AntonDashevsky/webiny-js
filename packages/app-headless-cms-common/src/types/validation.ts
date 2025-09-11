@@ -1,6 +1,6 @@
 import type * as React from "react";
-import type { Plugin } from "@webiny/plugins/types";
-import type { CmsModelField } from "~/types";
+import type { Plugin } from "@webiny/plugins/types.js";
+import type { CmsModelField } from "~/types/index.js";
 
 export interface CmsModelFieldValidatorConfigAdapter {
     isRequired(): boolean;

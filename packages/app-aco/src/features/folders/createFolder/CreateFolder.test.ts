@@ -1,7 +1,7 @@
 import { CreateFolder } from "./CreateFolder.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
-import type { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto";
-import type { ICreateFolderGateway } from "~/features/folders/createFolder/ICreateFolderGateway";
+import type { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto.js";
+import type { ICreateFolderGateway } from "~/features/folders/createFolder/ICreateFolderGateway.js";
 
 class CreateFolderMockGateway implements ICreateFolderGateway {
     async execute() {

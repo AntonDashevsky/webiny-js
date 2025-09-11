@@ -1,5 +1,5 @@
 import React from "react";
-import type { DialogOnClose } from "../Dialog";
+import type { DialogOnClose } from "../Dialog/index.js";
 import { Alert } from "@webiny/admin-ui";
 
 interface ImageEditorDialogProps {

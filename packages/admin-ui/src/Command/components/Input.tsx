@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
-import type { InputPrimitiveProps } from "~/Input";
-import { InputPrimitive } from "~/Input";
+import type { InputPrimitiveProps } from "~/Input/index.js";
+import { InputPrimitive } from "~/Input/index.js";
 
 type InputProps = Omit<React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>, "size"> &
     InputPrimitiveProps & {

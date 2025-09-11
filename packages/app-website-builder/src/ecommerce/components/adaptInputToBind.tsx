@@ -1,8 +1,8 @@
 import React from "react";
 import type { BindComponentRenderProp } from "@webiny/form";
-import type { ElementInputRendererProps } from "~/BaseEditor";
-import { NullMetadata } from "~/BaseEditor/metadata";
-import { InputValueObject } from "~/BaseEditor/hooks/useInputValue";
+import type { ElementInputRendererProps } from "~/BaseEditor/index.js";
+import { NullMetadata } from "~/BaseEditor/metadata/index.js";
+import { InputValueObject } from "~/BaseEditor/hooks/useInputValue.js";
 
 const metadata = new NullMetadata();
 const noop = () => void 0;

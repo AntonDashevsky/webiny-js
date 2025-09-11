@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { SwitchPrimitive } from "./SwitchPrimitive";
+import { SwitchPrimitive } from "./SwitchPrimitive.js";
 
 const meta: Meta<typeof SwitchPrimitive> = {
     title: "Components/Form Primitives/Switch",

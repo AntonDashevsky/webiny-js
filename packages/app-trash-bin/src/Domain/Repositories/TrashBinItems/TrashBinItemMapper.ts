@@ -1,4 +1,4 @@
-import type { ITrashBinItemMapper, TrashBinItem } from "~/Domain";
+import type { ITrashBinItemMapper, TrashBinItem } from "~/Domain/index.js";
 
 export class TrashBinItemMapper implements ITrashBinItemMapper<TrashBinItem> {
     toDTO(data: TrashBinItem) {

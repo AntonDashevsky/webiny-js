@@ -1,5 +1,5 @@
-import type { CursorInput, CursorOutput } from "~/cursor";
-import { encodeCursor, decodeCursor } from "~/cursor";
+import type { CursorInput, CursorOutput } from "~/cursor.js";
+import { encodeCursor, decodeCursor } from "~/cursor.js";
 
 describe("Cursor", () => {
     const rawValues: [CursorInput, CursorOutput][] = [

@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { RichTextEditor, StaticToolbar } from "@webiny/lexical-editor";
-import type { RichTextEditorProps } from "@webiny/lexical-editor/types";
+import type { RichTextEditorProps } from "@webiny/lexical-editor/types.js";
 import { FileManager } from "@webiny/app-admin";
 import type { EditorTheme } from "@webiny/lexical-theme";
-import { useWebsiteBuilderTheme } from "~/BaseEditor/components";
+import { useWebsiteBuilderTheme } from "~/BaseEditor/components/index.js";
 import "./wbStaticToolbar.css";
 
 const placeholderStyles: React.CSSProperties = { position: "absolute", top: 40, left: 25 };

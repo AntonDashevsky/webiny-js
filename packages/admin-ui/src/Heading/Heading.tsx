@@ -1,5 +1,5 @@
 import React from "react";
-import { cn, makeDecoratable, cva, type VariantProps } from "~/utils";
+import { cn, makeDecoratable, cva, type VariantProps } from "~/utils.js";
 
 export type HeadingTags = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 export type HeadingLevels = 1 | 2 | 3 | 4 | 5 | 6;

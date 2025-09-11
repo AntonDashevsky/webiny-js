@@ -6,7 +6,7 @@ import {
     getUpdateRedirectUseCase,
     getMoveRedirectUseCase,
     getGetRedirectByIdUseCase
-} from "~/features/redirects";
+} from "~/features/redirects/index.js";
 import type {
     OnRedirectAfterCreateTopicParams,
     OnRedirectAfterDeleteTopicParams,
@@ -19,9 +19,9 @@ import type {
     UpdateWbRedirectData,
     WbRedirectCrud,
     WbRedirectsStorageOperations
-} from "~/context/redirects/redirects.types";
-import type { WebsiteBuilderConfig } from "~/context/types";
-import { getGetActiveRedirectsUseCase } from "~/features/redirects/GetActiveRedirects";
+} from "~/context/redirects/redirects.types.js";
+import type { WebsiteBuilderConfig } from "~/context/types.js";
+import { getGetActiveRedirectsUseCase } from "~/features/redirects/GetActiveRedirects/index.js";
 
 export const createRedirectsCrud = (
     config: WebsiteBuilderConfig<WbRedirectsStorageOperations>

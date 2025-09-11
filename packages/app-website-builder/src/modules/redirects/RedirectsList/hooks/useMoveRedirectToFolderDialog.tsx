@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog } from "@webiny/app-aco";
 import { useMoveRedirect } from "~/features/redirects/index.js";
-import type { RedirectDto } from "~/domain/Redirect";
+import type { RedirectDto } from "~/domain/Redirect/index.js";
 
 interface UseMoveRedirectToFolderDialog {
     redirect: RedirectDto;

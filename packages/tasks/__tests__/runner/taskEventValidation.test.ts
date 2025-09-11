@@ -1,5 +1,5 @@
-import { TaskEventValidation } from "~/runner/TaskEventValidation";
-import type { ITaskEvent } from "~/handler/types";
+import { TaskEventValidation } from "~/runner/TaskEventValidation.js";
+import type { ITaskEvent } from "~/handler/types.js";
 import type WebinyError from "@webiny/error";
 
 describe("task event validation", () => {

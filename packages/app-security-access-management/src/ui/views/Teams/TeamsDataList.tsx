@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo, useState } from "react";
-import orderBy from "lodash/orderBy";
+import orderBy from "lodash/orderBy.js";
 import { Button, Grid, Select, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     DataList,
     ScrollList,
@@ -14,17 +14,17 @@ import {
     DataListModalOverlay,
     ListItemTextPrimary,
     ListActions
-} from "@webiny/ui/List";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
+} from "@webiny/ui/List/index.js";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import type { ListTeamsResponse } from "./graphql";
-import { LIST_TEAMS, DELETE_TEAM } from "./graphql";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { deserializeSorters } from "../utils";
-import type { Team } from "~/types";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import type { ListTeamsResponse } from "./graphql.js";
+import { LIST_TEAMS, DELETE_TEAM } from "./graphql.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { deserializeSorters } from "../utils.js";
+import type { Team } from "~/types.js";
 
 const t = i18n.ns("app-security/admin/teams/data-list");
 

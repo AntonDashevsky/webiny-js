@@ -1,5 +1,5 @@
-import type { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
-import { FOLDER_MODEL_ID } from "~/folder/folder.model";
+import type { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import { FOLDER_MODEL_ID } from "~/folder/folder.model.js";
 
 /**
  * This type matches any function that has a CmsModel as the first parameter.

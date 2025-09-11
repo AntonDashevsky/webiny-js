@@ -3,7 +3,7 @@ import type {
     ISchedulerItemsRepository,
     ISearchRepository,
     ISelectedItemsRepository
-} from "~/Domain";
+} from "~/Domain/index.js";
 import type {
     ICancelItemController,
     IGetItemController,
@@ -16,7 +16,7 @@ import type {
     ISortItemsController,
     IUnpublishItemController,
     IUnselectAllItemsController
-} from "~/Presentation/Scheduler/controllers";
+} from "~/Presentation/Scheduler/controllers/index.js";
 import {
     CancelItemController,
     GetItemController,
@@ -29,7 +29,7 @@ import {
     SortItemsController,
     UnpublishItemController,
     UnselectAllItemsController
-} from "~/Presentation/Scheduler/controllers";
+} from "~/Presentation/Scheduler/controllers/index.js";
 import {
     GetItemUseCase,
     ListItemsUseCase,
@@ -44,7 +44,7 @@ import {
     SelectItemsUseCase,
     SortItemsUseCase,
     UnselectAllItemsUseCase
-} from "~/UseCases";
+} from "~/UseCases/index.js";
 
 export interface ISchedulerControllersParams {
     itemsRepository: ISchedulerItemsRepository;

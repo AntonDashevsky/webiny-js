@@ -1,5 +1,6 @@
-import type { CallbackParams } from "~/components/BulkActions/Worker";
-import { Worker } from "~/components/BulkActions/Worker";
+import type { CallbackParams } from "~/components/BulkActions/Worker.js";
+import { Worker } from "~/components/BulkActions/Worker.js";
+import { jest } from "@jest/globals";
 
 interface Item {
     id: number;

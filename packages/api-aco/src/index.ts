@@ -1,13 +1,13 @@
-import { createAcoContext } from "~/createAcoContext";
-import { createAcoGraphQL } from "~/createAcoGraphQL";
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { createAcoTasks } from "~/createAcoTasks";
+import { createAcoContext } from "~/createAcoContext.js";
+import { createAcoGraphQL } from "~/createAcoGraphQL.js";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import { createAcoTasks } from "~/createAcoTasks.js";
 
-export { SEARCH_RECORD_MODEL_ID } from "./record/record.model";
-export { FOLDER_MODEL_ID } from "./folder/folder.model";
-export { FILTER_MODEL_ID } from "./filter/filter.model";
-export * from "./apps";
-export * from "./plugins";
+export { SEARCH_RECORD_MODEL_ID } from "./record/record.model.js";
+export { FOLDER_MODEL_ID } from "./folder/folder.model.js";
+export { FILTER_MODEL_ID } from "./filter/filter.model.js";
+export * from "./apps/index.js";
+export * from "./plugins/index.js";
 
 export interface CreateAcoParams {
     documentClient: DynamoDBDocument;
@@ -18,4 +18,4 @@ export const createAco = (params: CreateAcoParams) => {
     return [createAcoContext(params), ...createAcoGraphQL(), ...createAcoTasks()];
 };
 
-export * from "./folder/createFolderModelModifier";
+export * from "./folder/createFolderModelModifier.js";

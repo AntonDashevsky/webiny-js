@@ -1,4 +1,4 @@
-import type { ThemeEmotionMap } from "~/types";
+import type { ThemeEmotionMap } from "~/types.js";
 
 export const findTypographyStyleByHtmlTag = (
     htmlTag: string | string[],

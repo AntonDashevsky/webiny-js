@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { DeletePage } from "./DeletePage";
-import { DeletePageWithEvents } from "./DeletePageWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { DeletePage } from "./DeletePage.js";
+import { DeletePageWithEvents } from "./DeletePageWithEvents.js";
 import type {
     OnPageAfterDeleteTopicParams,
     OnPageBeforeDeleteTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 
 export interface DeletePageUseCasesTopics {
     onPageBeforeDelete: Topic<OnPageBeforeDeleteTopicParams>;

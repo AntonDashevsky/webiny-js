@@ -1,3 +1,3 @@
-export type * from "./ISearchRepository";
-export * from "./SearchRepository";
-export * from "./SearchRepositoryFactory";
+export type * from "./ISearchRepository.js";
+export * from "./SearchRepository.js";
+export * from "./SearchRepositoryFactory.js";

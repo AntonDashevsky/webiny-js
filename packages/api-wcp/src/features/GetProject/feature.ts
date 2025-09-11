@@ -1,7 +1,7 @@
 import { createFeature } from "@webiny/feature";
-import type { WcpContext } from "~/types";
-import { GetProjectUseCase as GetProjectUseCaseImpl } from "./GetProjectUseCase";
-import { GetProjectUseCase } from "./abstractions";
+import type { WcpContext } from "~/types.js";
+import { GetProjectUseCase as GetProjectUseCaseImpl } from "./GetProjectUseCase.js";
+import { GetProjectUseCase } from "./abstractions.js";
 
 export { GetProjectUseCase };
 

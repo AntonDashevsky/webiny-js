@@ -1,5 +1,5 @@
-import { useGraphQlHandler } from "./utils/useGraphQlHandler";
-import type { SecurityIdentity } from "@webiny/api-security/types";
+import { useGraphQlHandler } from "./utils/useGraphQlHandler.js";
+import type { SecurityIdentity } from "@webiny/api-security/types.js";
 import { createSecurityTeamPlugin } from "@webiny/api-security";
 
 const FOLDER_TYPE = "test-folders";

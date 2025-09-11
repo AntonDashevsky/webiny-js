@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CodeEditor } from "./CodeEditor";
+import { CodeEditor } from "./CodeEditor.js";
 
 const meta: Meta<typeof CodeEditor> = {
     title: "Components/Form/CodeEditor",

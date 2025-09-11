@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import type { ISchedulerItemsRepository } from "~/Domain";
-import type { IListItemsUseCase } from "./IListItemsUseCase";
+import type { ISchedulerItemsRepository } from "~/Domain/index.js";
+import type { IListItemsUseCase } from "./IListItemsUseCase.js";
 import type { ISchedulerListExecuteParams } from "~/Gateways/index.js";
 
 export class ListItemsUseCase implements IListItemsUseCase {

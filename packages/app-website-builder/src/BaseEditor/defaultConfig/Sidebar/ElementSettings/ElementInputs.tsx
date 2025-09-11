@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { Grid } from "@webiny/admin-ui";
 import type { DocumentElement } from "@webiny/website-builder-sdk";
-import { useComponent } from "~/BaseEditor/hooks/useComponent";
-import { InputRenderer } from "./InputRenderer";
+import { useComponent } from "~/BaseEditor/hooks/useComponent.js";
+import { InputRenderer } from "./InputRenderer.js";
 import { ComponentManifestToAstConverter } from "@webiny/website-builder-sdk";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { InfoMessage } from "~/BaseEditor/defaultConfig/Sidebar/InfoMessage";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
+import { InfoMessage } from "~/BaseEditor/defaultConfig/Sidebar/InfoMessage.js";
 
 interface ElementInputsProps {
     element: DocumentElement;

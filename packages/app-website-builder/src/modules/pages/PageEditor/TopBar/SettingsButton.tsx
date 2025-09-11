@@ -3,8 +3,8 @@ import { toJS, observable } from "mobx";
 import { IconButton } from "@webiny/admin-ui";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { useDialogs } from "@webiny/app-admin";
-import { SettingsDialogBody } from "./Settings/SettingsDialogBody";
-import { useDocumentEditor } from "~/DocumentEditor";
+import { SettingsDialogBody } from "./Settings/SettingsDialogBody.js";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
 
 export const SettingsButton = () => {
     const dialogs = useDialogs();

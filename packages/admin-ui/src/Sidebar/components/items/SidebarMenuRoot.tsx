@@ -1,5 +1,5 @@
 import React from "react";
-import { SidebarMenuProvider } from "./SidebarMenuProvider";
+import { SidebarMenuProvider } from "./SidebarMenuProvider.js";
 
 interface SidebarMenuProps {
     children: React.ReactNode;

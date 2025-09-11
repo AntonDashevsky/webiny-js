@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormComponentDescription, type FormComponentProps } from "~/FormComponent";
+import { FormComponentDescription, type FormComponentProps } from "~/FormComponent/index.js";
 
 type FilePickerDescriptionProps = Pick<FormComponentProps, "description" | "disabled"> & {
     invalid?: boolean;

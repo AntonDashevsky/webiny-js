@@ -1,11 +1,11 @@
 import React from "react";
-import { makeDecoratable } from "~/index";
+import { makeDecoratable } from "~/index.js";
 import { ConnectToProperties, Property, useIdGenerator } from "@webiny/react-properties";
-import { MenuItem } from "./Menu/MenuItem";
-import { MenuLink } from "./Menu/MenuLink";
-import { MenuGroup } from "./Menu/MenuGroup";
-import { SupportMenu } from "./Menu/SupportMenu";
-import { UserMenu } from "./Menu/UserMenu";
+import { MenuItem } from "./Menu/MenuItem.js";
+import { MenuLink } from "./Menu/MenuLink.js";
+import { MenuGroup } from "./Menu/MenuGroup.js";
+import { SupportMenu } from "./Menu/SupportMenu.js";
+import { UserMenu } from "./Menu/UserMenu.js";
 
 export interface MenuProps {
     name: string;

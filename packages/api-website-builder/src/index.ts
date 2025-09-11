@@ -1,8 +1,8 @@
 import { createContextPlugin } from "@webiny/api";
-import type { WebsiteBuilderContext } from "./context/types";
-import { WebsiteBuilder } from "./context/WebsiteBuilder";
-import { createGraphQL } from "./graphql/createGraphQL";
-import { createRedirectsRoute } from "./rest/getRedirects";
+import type { WebsiteBuilderContext } from "./context/types.js";
+import { WebsiteBuilder } from "./context/WebsiteBuilder.js";
+import { createGraphQL } from "./graphql/createGraphQL.js";
+import { createRedirectsRoute } from "./rest/getRedirects.js";
 
 const createContext = () => {
     return createContextPlugin<WebsiteBuilderContext>(

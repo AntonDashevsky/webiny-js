@@ -1,5 +1,5 @@
-import type { FieldRendererConfig } from "./FieldRenderer";
-import { FieldRenderer } from "./FieldRenderer";
+import type { FieldRendererConfig } from "./FieldRenderer.js";
+import { FieldRenderer } from "./FieldRenderer.js";
 
 export interface AdvancedSearchConfig {
     fieldRenderers: FieldRendererConfig[];

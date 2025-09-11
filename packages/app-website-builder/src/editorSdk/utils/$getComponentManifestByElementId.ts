@@ -1,4 +1,4 @@
-import type { Editor } from "../Editor";
+import type { Editor } from "../Editor.js";
 import type { ComponentManifest } from "@webiny/website-builder-sdk";
 
 export function $getComponentManifestByElementId(

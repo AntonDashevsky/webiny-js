@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { Select } from "@webiny/admin-ui";
-import type { ElementInputRendererProps } from "~/BaseEditor";
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { toTitleCaseLabel } from "~/shared/toTitleCaseLabel";
+import type { ElementInputRendererProps } from "~/BaseEditor/index.js";
+import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor.js";
+import { toTitleCaseLabel } from "~/shared/toTitleCaseLabel.js";
 
 export const FragmentSelectorInputRenderer = ({
     value,

@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import type { SwitchPrimitiveProps } from "./SwitchPrimitive";
-import type { SwitchPresenterParams } from "./presenters/SwitchPresenter";
-import { SwitchPresenter } from "./presenters/SwitchPresenter";
+import type { SwitchPrimitiveProps } from "./SwitchPrimitive.js";
+import type { SwitchPresenterParams } from "./presenters/SwitchPresenter.js";
+import { SwitchPresenter } from "./presenters/SwitchPresenter.js";
 
 export const useSwitch = (props: SwitchPrimitiveProps) => {
     const params: SwitchPresenterParams = useMemo(

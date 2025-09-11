@@ -1,10 +1,10 @@
-import elasticsearchContext from "~/index";
+import elasticsearchContext from "~/index.js";
 import { ContextPlugin } from "@webiny/api";
 import { PluginsContainer } from "@webiny/plugins";
-import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin";
+import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin.js";
 import { Client } from "@elastic/elasticsearch";
-import type { ElasticsearchContext } from "~/types";
-import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
+import type { ElasticsearchContext } from "~/types.js";
+import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient.js";
 
 /**
  * If adding new default operators, they must be added here as well.

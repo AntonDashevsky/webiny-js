@@ -1,9 +1,9 @@
 import React from "react";
 import { SketchPicker } from "react-color";
-import { useColorPicker } from "./useColorPicker";
-import { type InputPrimitiveProps, inputVariants } from "~/Input";
-import { PopoverPrimitive, type PopoverPrimitiveContentProps } from "~/Popover";
-import { cn, cva, makeDecoratable } from "~/utils";
+import { useColorPicker } from "./useColorPicker.js";
+import { type InputPrimitiveProps, inputVariants } from "~/Input/index.js";
+import { PopoverPrimitive, type PopoverPrimitiveContentProps } from "~/Popover/index.js";
+import { cn, cva, makeDecoratable } from "~/utils.js";
 
 const colorPickerVariants = cva("wby-cursor-pointer", {
     variants: {

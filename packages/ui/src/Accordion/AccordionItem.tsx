@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { Accordion as AdminUiAccordion } from "@webiny/admin-ui";
-import { withStaticProps } from "@webiny/admin-ui/utils";
+import { withStaticProps } from "@webiny/admin-ui/utils.js";
 
 export interface AccordionItemProps {
     /**

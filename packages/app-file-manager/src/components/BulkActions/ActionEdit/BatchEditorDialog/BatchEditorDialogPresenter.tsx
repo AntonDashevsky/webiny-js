@@ -5,8 +5,8 @@ import type {
     FieldDTO,
     OperationDTO,
     OperatorDTO
-} from "~/components/BulkActions/ActionEdit/domain";
-import { Batch } from "~/components/BulkActions/ActionEdit/domain";
+} from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { Batch } from "~/components/BulkActions/ActionEdit/domain/index.js";
 import type { FormInvalidFields } from "@webiny/form";
 
 export interface IBatchEditorDialogPresenter {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { SliderPrimitive } from "./SliderPrimitive";
-import { Button } from "~/Button";
+import { SliderPrimitive } from "./SliderPrimitive.js";
+import { Button } from "~/Button/index.js";
 
 const meta: Meta<typeof SliderPrimitive> = {
     title: "Components/Form Primitives/Slider",

@@ -1,5 +1,5 @@
-import { EcommerceApiProvider } from "./EcommerceApiProvider";
-import { useGetEcommerceSettings } from "~/features";
+import { EcommerceApiProvider } from "./EcommerceApiProvider.js";
+import { useGetEcommerceSettings } from "~/features/index.js";
 
 let ecommerceApiProvider: EcommerceApiProvider;
 

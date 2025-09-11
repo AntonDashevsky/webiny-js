@@ -1,3 +1,3 @@
-export type * from "./AutoCompleteOption";
-export type * from "./AutoCompleteOptionDto";
-export * from "./ListCache";
+export type * from "./AutoCompleteOption.js";
+export type * from "./AutoCompleteOptionDto.js";
+export * from "./ListCache.js";

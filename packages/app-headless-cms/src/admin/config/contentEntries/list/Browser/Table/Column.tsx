@@ -1,8 +1,8 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
 import { AcoConfig, type TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import type { TableItem } from "~/types";
-import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel";
+import type { TableItem } from "~/types.js";
+import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel.js";
 
 const { Table } = AcoConfig;
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { Text } from "~/Text";
-import { cn } from "~/utils";
-import { ProgressItemState } from "~/SteppedProgress/domains";
+import { Text } from "~/Text/index.js";
+import { cn } from "~/utils.js";
+import { ProgressItemState } from "~/SteppedProgress/domains/index.js";
 
 interface SteppedProgressLabelProps extends React.HTMLAttributes<HTMLSpanElement> {
     label: string;

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { makeDecoratable, withStaticProps, cva, type VariantProps, cn } from "~/utils";
-import { ListItem, type ListItemProps } from "./components";
+import { makeDecoratable, withStaticProps, cva, type VariantProps, cn } from "~/utils.js";
+import { ListItem, type ListItemProps } from "./components/index.js";
 
 const listVariants = cva("wby-group wby-w-full", {
     variants: {

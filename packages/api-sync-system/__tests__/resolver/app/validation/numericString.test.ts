@@ -1,4 +1,4 @@
-import { createNumericStringValidation } from "~/resolver/app/validation/numericString";
+import { createNumericStringValidation } from "~/resolver/app/validation/numericString.js";
 import { createZodError } from "@webiny/utils";
 
 describe("validate numericString", () => {

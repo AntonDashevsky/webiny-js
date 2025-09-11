@@ -7,13 +7,13 @@ import {
     $isRangeSelection,
     $isRootOrShadowRoot
 } from "lexical";
-import type { ListNode } from "~/ListNode";
-import { $createListNode, $isListNode } from "~/ListNode";
+import type { ListNode } from "~/ListNode.js";
+import { $createListNode, $isListNode } from "~/ListNode.js";
 import { $getNearestNodeOfType } from "@lexical/utils";
-import { $createListItemNode, $isListItemNode, ListItemNode } from "~/ListItemNode";
+import { $createListItemNode, $isListItemNode, ListItemNode } from "~/ListItemNode.js";
 import type { ListType } from "@lexical/list";
-import type { ParagraphNode } from "~/ParagraphNode";
-import { $createParagraphNode } from "~/ParagraphNode";
+import type { ParagraphNode } from "~/ParagraphNode.js";
+import { $createParagraphNode } from "~/ParagraphNode.js";
 import {
     $getAllListItems,
     $getTopListNode,
@@ -21,7 +21,7 @@ import {
     findNearestListItemNode,
     getUniqueListItemNodes,
     isNestedListNode
-} from "~/utils/listNode";
+} from "~/utils/listNode.js";
 
 const DEFAULT_LIST_START_NUMBER = 1;
 

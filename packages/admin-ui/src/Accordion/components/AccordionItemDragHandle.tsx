@@ -1,8 +1,8 @@
 import * as React from "react";
 import { ReactComponent as DragHandleIcon } from "@webiny/icons/drag_indicator.svg";
-import { Icon } from "~/Icon";
-import { IconButton, type IconButtonProps } from "~/Button";
-import { cn } from "~/utils";
+import { Icon } from "~/Icon/index.js";
+import { IconButton, type IconButtonProps } from "~/Button/index.js";
+import { cn } from "~/utils.js";
 
 interface AccordionItemDragHandleProps extends Omit<IconButtonProps, "icon"> {
     icon?: React.ReactElement;

@@ -1,2 +1,2 @@
-export * from "./CheckboxGroup";
-export * from "./primitives";
+export * from "./CheckboxGroup.js";
+export * from "./primitives/index.js";

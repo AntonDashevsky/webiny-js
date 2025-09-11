@@ -1,10 +1,10 @@
 import React from "react";
 import { Icon, Card } from "@webiny/admin-ui";
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
+import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor.js";
 import type { ComponentGroupItem, ComponentManifest } from "@webiny/website-builder-sdk";
-import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg";
-import { Draggable } from "~/BaseEditor/components/Draggable";
-import { useComponentGroups } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/useComponentGroups";
+import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg.js";
+import { Draggable } from "~/BaseEditor/components/Draggable.js";
+import { useComponentGroups } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/useComponentGroups.js";
 
 const GroupComponent = ({ item }: { item: ComponentGroupItem }) => {
     const components = useSelectFromEditor<Record<string, ComponentManifest>>(state => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@webiny/admin-ui";
-import type { Chip } from "./Chip";
+import type { Chip } from "./Chip.js";
 
 export interface ChipsProps {
     /**

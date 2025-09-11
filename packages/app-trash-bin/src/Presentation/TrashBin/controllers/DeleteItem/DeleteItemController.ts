@@ -1,5 +1,5 @@
-import type { IDeleteItemUseCase } from "~/UseCases";
-import type { IDeleteItemController } from "./IDeleteItemController";
+import type { IDeleteItemUseCase } from "~/UseCases/index.js";
+import type { IDeleteItemController } from "./IDeleteItemController.js";
 
 export class DeleteItemController implements IDeleteItemController {
     private readonly useCaseFactory: () => IDeleteItemUseCase;

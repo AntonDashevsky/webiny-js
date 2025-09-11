@@ -1,7 +1,7 @@
-import type { GraphQLPlaygroundTabPlugin } from "~/types";
+import type { GraphQLPlaygroundTabPlugin } from "~/types.js";
 // @ts-expect-error
 import placeholder from "!!raw-loader!./placeholder.graphql";
-import { config as appConfig } from "@webiny/app/config";
+import { config as appConfig } from "@webiny/app/config.js";
 
 const plugin: GraphQLPlaygroundTabPlugin = {
     type: "graphql-playground-tab",

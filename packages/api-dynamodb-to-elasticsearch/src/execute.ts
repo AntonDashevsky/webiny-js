@@ -5,9 +5,9 @@ import {
     WaitingHealthyClusterAbortedError
 } from "@webiny/api-elasticsearch";
 import type { ITimer } from "@webiny/handler-aws";
-import type { ApiResponse } from "@webiny/api-elasticsearch/types";
+import type { ApiResponse } from "@webiny/api-elasticsearch/types.js";
 import { WebinyError } from "@webiny/error";
-import type { Context, IOperations } from "./types";
+import type { Context, IOperations } from "./types.js";
 
 export interface BulkOperationsResponseBodyItemIndexError {
     reason?: string;

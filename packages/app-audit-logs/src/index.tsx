@@ -2,9 +2,9 @@ import React from "react";
 import { ReactComponent as Icon } from "@webiny/icons/manage_search.svg";
 import { AdminConfig, Layout, useWcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
-import { LogsModule } from "~/views/Logs/LogsModule";
-import { AuditLogsPermissions } from "~/plugins/permissionRenderer";
-import AuditLogsView from "~/views/Logs/Logs";
+import { LogsModule } from "~/views/Logs/LogsModule.js";
+import { AuditLogsPermissions } from "~/plugins/permissionRenderer/index.js";
+import AuditLogsView from "~/views/Logs/Logs.js";
 
 const { Menu, Route } = AdminConfig;
 

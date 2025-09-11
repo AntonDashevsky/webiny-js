@@ -4,8 +4,8 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 import type { ColorState, RGBColor } from "react-color";
 import { ChromePicker } from "react-color";
-import type { OnChangeHandler } from "react-color/lib/components/common/ColorWrap";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import type { OnChangeHandler } from "react-color/lib/components/common/ColorWrap.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 
 // Icons
 import { ReactComponent as IconPalette } from "./round-color_lens-24px.svg";

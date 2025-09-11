@@ -5,12 +5,12 @@ import { ReactComponent as DeleteIcon } from "@webiny/icons/delete_outline.svg";
 import type { FormAPI, FormOnSubmit } from "@webiny/form";
 import { Form } from "@webiny/form";
 
-import { AddOperation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/AddOperation";
-import { Operation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/Operation";
+import { AddOperation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/AddOperation.js";
+import { Operation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/Operation.js";
 import type {
     BatchEditorDialogViewModel,
     BatchEditorFormData
-} from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter";
+} from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter.js";
 import { Accordion } from "@webiny/admin-ui";
 
 export interface BatchEditorProps {

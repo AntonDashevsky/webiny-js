@@ -2,6 +2,7 @@
   "name": "@webiny/website-builder-sdk",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/webiny/webiny-js.git"
@@ -31,17 +32,12 @@
     "@types/deep-equal": "^1.0.4",
     "@types/is-hotkey": "^0.1.10",
     "@types/micromatch": "^4.0.9",
-    "@webiny/cli": "0.0.0",
-    "@webiny/project-utils": "0.0.0",
+    "@webiny/build-tools": "0.0.0",
     "typescript": "5.9.2"
   },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
-  },
-  "scripts": {
-    "build": "yarn webiny run build",
-    "watch": "yarn webiny run watch"
   },
   "adio": {
     "ignore": {

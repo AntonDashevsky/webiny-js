@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useMemo } from "react";
-import { DocumentListPresenter } from "./DocumentListPresenter";
+import { DocumentListPresenter } from "./DocumentListPresenter.js";
 
 const DocumentListPresenterContext = createContext<DocumentListPresenter | null>(null);
 

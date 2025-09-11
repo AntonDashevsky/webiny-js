@@ -1,15 +1,15 @@
 import React, { Fragment, useCallback, useMemo } from "react";
-import capitalize from "lodash/capitalize";
+import capitalize from "lodash/capitalize.js";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { ReactComponent as TitleIcon } from "@webiny/icons/title.svg";
 import { ReactComponent as MoreVerticalIcon } from "@webiny/icons/more_vert.svg";
 import { plugins } from "@webiny/plugins";
-import type { CmsModelField, CmsEditorFieldOptionPlugin, CmsModel } from "~/types";
-import { i18n } from "@webiny/app/i18n";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useModelEditor } from "~/admin/hooks";
-import { useModelFieldEditor } from "~/admin/components/FieldEditor/useModelFieldEditor";
+import type { CmsModelField, CmsEditorFieldOptionPlugin, CmsModel } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
+import { useModelFieldEditor } from "~/admin/components/FieldEditor/useModelFieldEditor.js";
 import { useConfirmationDialog } from "@webiny/app-admin";
 import { IconButton, Heading, Text, DropdownMenu, Tag } from "@webiny/admin-ui";
 

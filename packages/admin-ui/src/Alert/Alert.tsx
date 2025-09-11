@@ -1,11 +1,11 @@
 import * as React from "react";
-import { cva, type VariantProps, cn, makeDecoratable, withStaticProps } from "~/utils";
-import { Button, type ButtonProps, IconButton } from "~/Button";
+import { cva, type VariantProps, cn, makeDecoratable, withStaticProps } from "~/utils.js";
+import { Button, type ButtonProps, IconButton } from "~/Button/index.js";
 import { ReactComponent as InfoIcon } from "@webiny/icons/info.svg";
 import { ReactComponent as WarningIcon } from "@webiny/icons/warning_amber.svg";
 import { ReactComponent as SuccessIcon } from "@webiny/icons/check_circle.svg";
 import { ReactComponent as XIcon } from "@webiny/icons/close.svg";
-import { Icon } from "~/Icon";
+import { Icon } from "~/Icon/index.js";
 
 const VARIANT_ICON_MAP = {
     info: InfoIcon,

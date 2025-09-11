@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "@webiny/admin-ui";
-import { InputFieldProvider } from "~/components";
-import type { FieldDTOWithElement } from "~/components/AdvancedSearch/domain";
+import { InputFieldProvider } from "~/components/index.js";
+import type { FieldDTOWithElement } from "~/components/AdvancedSearch/domain/index.js";
 
 interface InputFieldProps {
     field?: FieldDTOWithElement;

@@ -3,11 +3,11 @@ import type { RouteProps } from "@webiny/react-router";
 import { BrowserRouter, Route } from "@webiny/react-router";
 import type { GenericComponent, Decorator, DecoratorsCollection } from "@webiny/react-composition";
 import { CompositionProvider, compose } from "@webiny/react-composition";
-import { Routes as SortRoutes } from "./core/Routes";
-import { DebounceRender } from "./core/DebounceRender";
-import { PluginsProvider } from "./core/Plugins";
-import { RouterWithConfig, useRouterConfig } from "./config/RouterConfig";
-import { AppContainer } from "./AppContainer";
+import { Routes as SortRoutes } from "./core/Routes.js";
+import { DebounceRender } from "./core/DebounceRender.js";
+import { PluginsProvider } from "./core/Plugins.js";
+import { RouterWithConfig, useRouterConfig } from "./config/RouterConfig.js";
+import { AppContainer } from "./AppContainer.js";
 
 interface State {
     plugins: JSX.Element[];

@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import type {
     CmsReferenceContentEntry,
     CmsReferenceValue
-} from "~/admin/plugins/fieldRenderers/ref/components/types";
+} from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { ReactComponent as SelectIcon } from "@webiny/icons/check_box_outline_blank.svg";
 import { ReactComponent as SelectedIcon } from "@webiny/icons/check_box.svg";
 import { IconButton, Tooltip } from "@webiny/admin-ui";

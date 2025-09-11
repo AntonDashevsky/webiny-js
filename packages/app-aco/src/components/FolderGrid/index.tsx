@@ -1,1 +1,1 @@
-export * from "./FolderGridItem";
+export * from "./FolderGridItem.js";

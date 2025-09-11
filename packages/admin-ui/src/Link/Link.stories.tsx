@@ -1,8 +1,8 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { BrowserRouter } from "@webiny/react-router";
-import { Link } from "./Link";
-import { Text } from "~/Text";
+import { Link } from "./Link.js";
+import { Text } from "~/Text/index.js";
 
 const meta: Meta<typeof Link> = {
     title: "Components/Link",

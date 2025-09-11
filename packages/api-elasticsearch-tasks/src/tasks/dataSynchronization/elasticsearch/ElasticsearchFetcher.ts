@@ -4,9 +4,9 @@ import type {
     IElasticsearchFetcherFetchParams,
     IElasticsearchFetcherFetchResponse,
     IElasticsearchFetcherFetchResponseItem
-} from "./abstractions/ElasticsearchFetcher";
-import type { ElasticsearchSearchResponse, PrimitiveValue } from "@webiny/api-elasticsearch/types";
-import { shouldIgnoreEsResponseError } from "./shouldIgnoreEsResponseError";
+} from "./abstractions/ElasticsearchFetcher.js";
+import type { ElasticsearchSearchResponse, PrimitiveValue } from "@webiny/api-elasticsearch/types.js";
+import { shouldIgnoreEsResponseError } from "./shouldIgnoreEsResponseError.js";
 import { inspect } from "node:util";
 
 export interface IElasticsearchFetcherParams {

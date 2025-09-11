@@ -1,15 +1,15 @@
 import sharp from "sharp";
-import type { S3 } from "@webiny/aws-sdk/client-s3";
+import type { S3 } from "@webiny/aws-sdk/client-s3/index.js";
 import type {
     Asset,
     AssetRequest,
     AssetRequestOptions,
     AssetTransformationStrategy
 } from "@webiny/api-file-manager";
-import { WidthCollection } from "./transformation/WidthCollection";
-import * as utils from "./transformation/utils";
-import { CallableContentsReader } from "./transformation/CallableContentsReader";
-import { AssetKeyGenerator } from "./transformation/AssetKeyGenerator";
+import { WidthCollection } from "./transformation/WidthCollection.js";
+import * as utils from "./transformation/utils.js";
+import { CallableContentsReader } from "./transformation/CallableContentsReader.js";
+import { AssetKeyGenerator } from "./transformation/AssetKeyGenerator.js";
 
 interface SharpTransformationParams {
     s3: S3;

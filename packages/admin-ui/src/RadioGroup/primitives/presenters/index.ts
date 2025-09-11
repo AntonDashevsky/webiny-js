@@ -1,1 +1,1 @@
-export * from "./RadioGroupPresenter";
+export * from "./RadioGroupPresenter.js";

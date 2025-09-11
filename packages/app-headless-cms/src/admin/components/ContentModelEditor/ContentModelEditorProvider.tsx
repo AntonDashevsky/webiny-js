@@ -1,21 +1,21 @@
 import React, { useCallback, useEffect, useMemo, useReducer } from "react";
-import get from "lodash/get";
-import pick from "lodash/pick";
+import get from "lodash/get.js";
+import pick from "lodash/pick.js";
 import type { ApolloClient } from "apollo-client";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import type {
     GetCmsModelQueryResponse,
     GetCmsModelQueryVariables,
     UpdateCmsModelMutationResponse,
     UpdateCmsModelMutationVariables
-} from "~/admin/graphql/contentModels";
-import { GET_CONTENT_MODEL, UPDATE_CONTENT_MODEL } from "~/admin/graphql/contentModels";
-import { LIST_MENU_CONTENT_GROUPS_MODELS } from "~/admin/viewsGraphql";
-import type { CmsModel, CmsModelField } from "~/types";
+} from "~/admin/graphql/contentModels.js";
+import { GET_CONTENT_MODEL, UPDATE_CONTENT_MODEL } from "~/admin/graphql/contentModels.js";
+import { LIST_MENU_CONTENT_GROUPS_MODELS } from "~/admin/viewsGraphql.js";
+import type { CmsModel, CmsModelField } from "~/types.js";
 import type { FetchResult } from "apollo-link";
-import { ModelProvider } from "~/admin/components/ModelProvider";
-import { createHashing } from "@webiny/app/utils";
+import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
+import { createHashing } from "@webiny/app/utils/index.js";
 
 export interface ContentModelEditorProviderContext {
     apolloClient: ApolloClient<any>;

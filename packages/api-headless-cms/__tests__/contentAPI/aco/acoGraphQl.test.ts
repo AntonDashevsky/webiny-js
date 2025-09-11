@@ -1,5 +1,5 @@
-import { useGraphQLHandler } from "./setup/useGraphQLHandler";
-import { ROOT_FOLDER } from "~/constants";
+import { useGraphQLHandler } from "./setup/useGraphQLHandler.js";
+import { ROOT_FOLDER } from "~/constants.js";
 import { jest } from "@jest/globals";
 
 jest.retryTimes(0);

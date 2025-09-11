@@ -3,8 +3,8 @@ import type {
     CmsEntry,
     CmsStorageEntry,
     StorageOperationsCmsModel
-} from "@webiny/api-headless-cms/types";
-import { prepareEntryToIndex } from "~/helpers";
+} from "@webiny/api-headless-cms/types/index.js";
+import { prepareEntryToIndex } from "~/helpers/index.js";
 
 interface TransformEntryToIndexParams {
     plugins: PluginsContainer;

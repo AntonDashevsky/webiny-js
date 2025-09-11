@@ -1,19 +1,19 @@
 import React, { useCallback, useState } from "react";
-import { useApolloClient } from "~/admin/hooks";
+import { useApolloClient } from "~/admin/hooks/index.js";
 import type {
     ImportStructureResponse,
     ImportStructureVariables,
     ImportStructureVariablesGroup,
     ImportStructureVariablesModel,
     ValidateImportStructureResponse
-} from "~/admin/views/contentModels/importing/graphql";
+} from "~/admin/views/contentModels/importing/graphql.js";
 import {
     IMPORT_STRUCTURE,
     VALIDATE_IMPORT_STRUCTURE
-} from "~/admin/views/contentModels/importing/graphql";
-import type { CmsGroup, CmsModel } from "@webiny/app-headless-cms-common/types";
-import type { ImportGroupData, ImportModelData } from "./types";
-import { ImportAction } from "./types";
+} from "~/admin/views/contentModels/importing/graphql.js";
+import type { CmsGroup, CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import type { ImportGroupData, ImportModelData } from "./types.js";
+import { ImportAction } from "./types.js";
 import { useSnackbar } from "@webiny/app-admin";
 import type { FetchResult } from "apollo-link";
 

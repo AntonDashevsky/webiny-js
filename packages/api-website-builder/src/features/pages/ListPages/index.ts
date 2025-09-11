@@ -1,5 +1,5 @@
-import type { WbPagesStorageOperations } from "~/context/pages/pages.types";
-import { ListPages } from "./ListPages";
+import type { WbPagesStorageOperations } from "~/context/pages/pages.types.js";
+import { ListPages } from "./ListPages.js";
 
 interface ListPagesUseCasesParams {
     listOperation: WbPagesStorageOperations["list"];

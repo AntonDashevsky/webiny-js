@@ -1,8 +1,8 @@
 import React from "react";
-import { makeDecoratable } from "~/index";
+import { makeDecoratable } from "~/index.js";
 import { Sidebar } from "@webiny/admin-ui";
 import { useLocation } from "@webiny/react-router";
-import { type SidebarMenuItemLinkProps } from "@webiny/admin-ui/Sidebar/components/items/SidebarMenuLink";
+import { type SidebarMenuItemLinkProps } from "@webiny/admin-ui/Sidebar/components/items/SidebarMenuLink.js";
 
 const MenuLinkBase = (props: SidebarMenuItemLinkProps) => {
     const location = useLocation();

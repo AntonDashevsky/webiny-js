@@ -1,8 +1,8 @@
 import { ListFolders } from "./ListFolders.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { jest } from "@jest/globals";
-import type { IListFoldersGateway } from "~/features/folders/listFolders/IListFoldersGateway";
-import type { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto";
+import type { IListFoldersGateway } from "~/features/folders/listFolders/IListFoldersGateway.js";
+import type { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto.js";
 
 describe("ListFolders", () => {
     class ListFoldersMockGateway implements IListFoldersGateway {

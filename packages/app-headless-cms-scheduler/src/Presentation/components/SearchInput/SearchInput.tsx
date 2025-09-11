@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
 import { DelayedOnChange, Icon, Input } from "@webiny/admin-ui";
-import { useScheduler } from "~/Presentation/hooks";
+import { useScheduler } from "~/Presentation/hooks/index.js";
 
 export const SearchInput = () => {
     const { vm, searchItems } = useScheduler();

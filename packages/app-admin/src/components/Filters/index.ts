@@ -1,2 +1,2 @@
-export * from "./Filters";
-export * from "./FiltersToggle";
+export * from "./Filters.js";
+export * from "./FiltersToggle.js";

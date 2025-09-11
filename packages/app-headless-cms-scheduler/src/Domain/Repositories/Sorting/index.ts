@@ -1,1 +1,1 @@
-export * from "./SortingRepositoryWithDefaults";
+export * from "./SortingRepositoryWithDefaults.js";

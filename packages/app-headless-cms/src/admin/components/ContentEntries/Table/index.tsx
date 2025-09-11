@@ -1,8 +1,8 @@
 import type { ForwardRefRenderFunction } from "react";
 import React, { useMemo } from "react";
 import { Table as AcoTable, createRecordsData, createFoldersData } from "@webiny/app-aco";
-import { useContentEntriesList, useModel } from "~/admin/hooks";
-import type { TableItem } from "~/types";
+import { useContentEntriesList, useModel } from "~/admin/hooks/index.js";
+import type { TableItem } from "~/types.js";
 
 const BaseTable: ForwardRefRenderFunction<HTMLDivElement> = (_, ref) => {
     const { model } = useModel();

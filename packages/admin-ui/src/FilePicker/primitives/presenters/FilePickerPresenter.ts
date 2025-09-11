@@ -4,7 +4,7 @@ import {
     type FileItemDto,
     type FileItemFormatted,
     FileItemFormatter
-} from "../../domains";
+} from "../../domains/index.js";
 
 interface FilePickerPresenterParams {
     value?: FileItemDto | string | null;

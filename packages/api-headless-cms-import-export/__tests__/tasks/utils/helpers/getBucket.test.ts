@@ -1,4 +1,4 @@
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
 
 describe("get bucket", () => {
     it("should get the bucket", async () => {

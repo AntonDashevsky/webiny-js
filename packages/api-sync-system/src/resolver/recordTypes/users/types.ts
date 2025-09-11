@@ -1,4 +1,4 @@
-import type { IDeployment } from "~/resolver/deployment/types";
+import type { IDeployment } from "~/resolver/deployment/types.js";
 import type {
     CognitoIdentityProviderClient,
     CognitoIdentityProviderClientConfig

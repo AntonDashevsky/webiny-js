@@ -1,4 +1,4 @@
-import get from "lodash/get";
+import get from "lodash/get.js";
 import type { BindComponentRenderProp } from "@webiny/form";
 
 interface Params {

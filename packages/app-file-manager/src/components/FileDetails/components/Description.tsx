@@ -1,7 +1,7 @@
 import React from "react";
 import bytes from "bytes";
 import dayjs from "dayjs";
-import { useFile } from "~/hooks/useFile";
+import { useFile } from "~/hooks/useFile.js";
 
 const formatFileSize = (size: number) => {
     return bytes.format(size, { unitSeparator: " " });

@@ -1,4 +1,4 @@
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import type {
     DbDriver,
     GetValueResult,
@@ -12,13 +12,13 @@ import type {
     StoreValuesResult
 } from "@webiny/db";
 import type { Entity } from "dynamodb-toolbox";
-import type { Table } from "~/utils/createTable";
-import { createTable } from "~/utils/createTable";
-import type { GenericRecord } from "@webiny/api/types";
-import { createEntity } from "~/store/entity";
-import { batchReadAll, batchWriteAll, get, put, queryAll } from "~/utils";
-import { createPartitionKey, createSortKey, createType } from "~/store/keys";
-import type { IStoreItem } from "~/store/types";
+import type { Table } from "~/utils/createTable.js";
+import { createTable } from "~/utils/createTable.js";
+import type { GenericRecord } from "@webiny/api/types.js";
+import { createEntity } from "~/store/entity.js";
+import { batchReadAll, batchWriteAll, get, put, queryAll } from "~/utils/index.js";
+import { createPartitionKey, createSortKey, createType } from "~/store/keys.js";
+import type { IStoreItem } from "~/store/types.js";
 
 interface ConstructorArgs {
     documentClient: DynamoDBDocument;

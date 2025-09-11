@@ -1,10 +1,10 @@
-import type { ListCache, LoadedCache } from "../cache";
-import { Folder } from "../Folder";
+import type { ListCache, LoadedCache } from "../cache/index.js";
+import { Folder } from "../Folder.js";
 import type {
     GetFolderHierarchyRepositoryParams,
     IGetFolderHierarchyRepository
-} from "./IGetFolderHierarchyRepository";
-import type { IGetFolderHierarchyGateway } from "./IGetFolderHierarchyGateway";
+} from "./IGetFolderHierarchyRepository.js";
+import type { IGetFolderHierarchyGateway } from "./IGetFolderHierarchyGateway.js";
 
 export class GetFolderHierarchyRepository implements IGetFolderHierarchyRepository {
     private cache: ListCache<Folder>;

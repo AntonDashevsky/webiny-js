@@ -1,2 +1,2 @@
-export * from "./MultiFilePicker";
-export * from "./primitives";
+export * from "./MultiFilePicker.js";
+export * from "./primitives/index.js";

@@ -6,24 +6,24 @@ import {
     metaRepositoryFactory,
     sortRepositoryFactory
 } from "@webiny/app-utils";
-import { TrashBinProvider } from "../hooks";
-import { TrashBinOverlay } from "../components/TrashBinOverlay";
-import { TrashBinPresenter } from "./TrashBinPresenter";
-import type { ITrashBinItemMapper, TrashBinItemDTO } from "~/Domain";
+import { TrashBinProvider } from "../hooks/index.js";
+import { TrashBinOverlay } from "../components/TrashBinOverlay/index.js";
+import { TrashBinPresenter } from "./TrashBinPresenter.js";
+import type { ITrashBinItemMapper, TrashBinItemDTO } from "~/Domain/index.js";
 import {
     selectedItemsRepositoryFactory,
     searchRepositoryFactory,
     SortingRepositoryWithDefaults,
     trashBinItemsRepositoryFactory,
     TrashBinItemsRepositoryWithLoading
-} from "~/Domain";
+} from "~/Domain/index.js";
 import type {
     ITrashBinBulkActionsGateway,
     ITrashBinDeleteItemGateway,
     ITrashBinListGateway,
     ITrashBinRestoreItemGateway
-} from "~/Gateways";
-import { TrashBinControllers } from "~/Presentation/TrashBin/TrashBinControllers";
+} from "~/Gateways/index.js";
+import { TrashBinControllers } from "~/Presentation/TrashBin/TrashBinControllers.js";
 
 export interface TrashBinProps {
     listGateway: ITrashBinListGateway<any>;

@@ -1,9 +1,9 @@
-import type { IUpdateRedirect } from "./IUpdateRedirect";
-import type { UpdateRedirectUseCasesTopics } from "./index";
+import type { IUpdateRedirect } from "./IUpdateRedirect.js";
+import type { UpdateRedirectUseCasesTopics } from "./index.js";
 import type {
     UpdateWbRedirectData,
     WbRedirectsStorageOperations
-} from "~/context/redirects/redirects.types";
+} from "~/context/redirects/redirects.types.js";
 import { WebinyError } from "@webiny/error";
 
 export class UpdateRedirectWithEvents implements IUpdateRedirect {

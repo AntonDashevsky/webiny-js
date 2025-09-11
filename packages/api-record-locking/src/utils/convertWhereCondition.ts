@@ -1,5 +1,5 @@
-import type { IRecordLockingListLockRecordsParams } from "~/types";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
+import type { IRecordLockingListLockRecordsParams } from "~/types.js";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
 
 type IWhere = IRecordLockingListLockRecordsParams["where"] | undefined;
 

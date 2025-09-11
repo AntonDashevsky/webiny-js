@@ -1,10 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
-import { LinkedEditing } from "./LinkedEditing";
-import { useStyles } from "../../useStyles";
-import { ValueSelector } from "../../ValueSelector";
-import { useStyleValue } from "../../useStyleValue";
-import { UnitsOptions } from "../../UnitsOptions";
+import { LinkedEditing } from "./LinkedEditing.js";
+import { useStyles } from "../../useStyles.js";
+import { ValueSelector } from "../../ValueSelector.js";
+import { useStyleValue } from "../../useStyleValue.js";
+import { UnitsOptions } from "../../UnitsOptions.js";
 
 const widthOptions = UnitsOptions.widthUnits().getOptions();
 const heightOptions = UnitsOptions.heightUnits().getOptions();

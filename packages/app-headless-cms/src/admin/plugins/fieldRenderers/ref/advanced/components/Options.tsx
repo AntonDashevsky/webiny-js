@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import type { CmsModel } from "~/types";
-import { OptionsModelList } from "~/admin/plugins/fieldRenderers/ref/advanced/components/options/OptionsModelList";
+import type { CmsModel } from "~/types.js";
+import { OptionsModelList } from "~/admin/plugins/fieldRenderers/ref/advanced/components/options/OptionsModelList.js";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as LinkIcon } from "@webiny/icons/link.svg";
 import { Button, type ButtonProps, DropdownMenu } from "@webiny/admin-ui";

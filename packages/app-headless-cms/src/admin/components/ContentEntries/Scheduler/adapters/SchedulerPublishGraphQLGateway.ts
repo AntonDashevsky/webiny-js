@@ -2,7 +2,7 @@ import type { ApolloClient } from "apollo-client";
 import type { CmsErrorResponse } from "@webiny/app-headless-cms-common/types/index.js";
 import zod from "zod";
 import { schedulerEntrySchema } from "./schema/schedulerEntry.js";
-import { createZodError } from "@webiny/utils/createZodError";
+import { createZodError } from "@webiny/utils/createZodError.js";
 import gql from "graphql-tag";
 import type { SchedulerEntry } from "@webiny/app-headless-cms-scheduler/types.js";
 import { ScheduleType } from "@webiny/app-headless-cms-scheduler/types.js";

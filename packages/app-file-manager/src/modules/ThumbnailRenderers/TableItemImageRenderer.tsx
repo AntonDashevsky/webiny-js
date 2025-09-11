@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Image } from "@webiny/app/components";
-import { useFile } from "~/hooks/useFile";
+import { Image } from "@webiny/app/components/index.js";
+import { useFile } from "~/hooks/useFile.js";
 
 const width100 = { width: 100 };
 

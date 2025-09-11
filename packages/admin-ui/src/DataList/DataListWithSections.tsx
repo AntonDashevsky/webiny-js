@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import isEmpty from "lodash/isEmpty";
-import { Loader } from "~/Loader";
+import isEmpty from "lodash/isEmpty.js";
+import { Loader } from "~/Loader/index.js";
 import {
     Filters,
     MultiSelectActions,
@@ -9,10 +9,10 @@ import {
     Pagination,
     RefreshButton,
     Sorters
-} from "~/DataList/components";
-import { DataListModal } from "~/DataList/DataListModal";
-import type { DataListProps } from "~/DataList/types";
-import { Heading } from "~/Heading";
+} from "~/DataList/components/index.js";
+import { DataListModal } from "~/DataList/DataListModal.js";
+import type { DataListProps } from "~/DataList/types.js";
+import { Heading } from "~/Heading/index.js";
 
 const dataListWithSectionsDefaultProps = {
     children: null,

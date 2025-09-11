@@ -2,11 +2,11 @@ import React, { useEffect, useMemo } from "react";
 import { Grid, Input, Skeleton } from "@webiny/admin-ui";
 import { UnsetOnUnmount, useBind } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { createResourcePicker } from "~/ecommerce/createResourcePicker";
-import { adaptInputToBind } from "./adaptInputToBind";
-import type { Resource } from "../types";
-import { toTitleCaseLabel } from "~/ecommerce/components/toTitleCaseLabel";
-import { useEcommerceApi } from "~/features";
+import { createResourcePicker } from "~/ecommerce/createResourcePicker.js";
+import { adaptInputToBind } from "./adaptInputToBind.js";
+import type { Resource } from "../types.js";
+import { toTitleCaseLabel } from "~/ecommerce/components/toTitleCaseLabel.js";
+import { useEcommerceApi } from "~/features/index.js";
 
 export interface ResourcePageProps {
     apiName: string;

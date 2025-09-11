@@ -1,6 +1,6 @@
 import type React from "react";
 import { useContext, useEffect } from "react";
-import { DeprecatedListItemContext } from "~/List";
+import { DeprecatedListItemContext } from "~/List/index.js";
 
 /** Text Wrapper for the ListItem */
 export type ListItemTextProps = {

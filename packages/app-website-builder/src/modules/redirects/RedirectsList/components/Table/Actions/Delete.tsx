@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { useRedirect } from "~/modules/redirects/RedirectsList/hooks/useRedirect.js";
 import { useDeleteRedirectConfirmationDialog } from "~/modules/redirects/RedirectsList/hooks/useDeleteRedirectConfirmationDialog.js";
-import { RedirectListConfig } from "~/modules/redirects/configs";
+import { RedirectListConfig } from "~/modules/redirects/configs/index.js";
 
 export const Delete = () => {
     const { redirect } = useRedirect();

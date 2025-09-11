@@ -1,8 +1,8 @@
 import React from "react";
-import type { UIElementConfig } from "~/ui/UIElement";
-import { UIElement } from "~/ui/UIElement";
-import type { FormElementRenderProps } from "~/ui/elements/form/FormElement";
-import { SimpleFormHeader } from "~/components/SimpleForm";
+import type { UIElementConfig } from "~/ui/UIElement.js";
+import { UIElement } from "~/ui/UIElement.js";
+import type { FormElementRenderProps } from "~/ui/elements/form/FormElement.js";
+import { SimpleFormHeader } from "~/components/SimpleForm/index.js";
 import { Icon } from "@webiny/admin-ui";
 
 interface FormHeaderConfig extends UIElementConfig {

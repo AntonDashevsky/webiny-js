@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
-import type { SecurityContext } from "~/types";
-import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { SecurityContext } from "~/types.js";
+import type { TenancyContext } from "@webiny/api-tenancy/types.js";
 
 type Context = TenancyContext & SecurityContext;
 

@@ -1,6 +1,6 @@
 import micromatch from "micromatch";
 import type { Document } from "@webiny/website-builder-sdk";
-import type { IMetadata, Metadata } from "./IMetadata";
+import type { IMetadata, Metadata } from "./IMetadata.js";
 
 export class ElementMetadata implements IMetadata {
     private readonly elementId: string;

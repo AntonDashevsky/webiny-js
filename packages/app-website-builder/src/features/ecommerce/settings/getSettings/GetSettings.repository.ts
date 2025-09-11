@@ -1,7 +1,7 @@
-import type { IGetSettings } from "./IGetSettings";
-import type { SettingsCache } from "~/shared/settingsCache";
-import type { AllEcommerceSettings } from "~/features/ecommerce/settings/types";
-import { SETTINGS_KEY } from "~/features/ecommerce/settings/constants";
+import type { IGetSettings } from "./IGetSettings.js";
+import type { SettingsCache } from "~/shared/settingsCache.js";
+import type { AllEcommerceSettings } from "~/features/ecommerce/settings/types.js";
+import { SETTINGS_KEY } from "~/features/ecommerce/settings/constants.js";
 
 export class GetSettingsRepository implements IGetSettings {
     private gateway: IGetSettings;

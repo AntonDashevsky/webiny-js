@@ -1,14 +1,14 @@
-import type { AdminUsersStorageOperations, CreateAdminUsersStorageOperations } from "~/types";
-import { ENTITIES } from "~/types";
+import type { AdminUsersStorageOperations, CreateAdminUsersStorageOperations } from "~/types.js";
+import { ENTITIES } from "~/types.js";
 import WebinyError from "@webiny/error";
-import { createTable } from "~/definitions/table";
-import { createSystemEntity, createUserEntity } from "~/definitions/entities";
+import { createTable } from "~/definitions/table.js";
+import { createSystemEntity, createUserEntity } from "~/definitions/entities.js";
 import type {
     AdminUser,
     StorageOperationsGetUserParams,
     StorageOperationsListUsersParams,
     System
-} from "@webiny/api-admin-users/types";
+} from "@webiny/api-admin-users/types.js";
 import {
     cleanupItem,
     deleteItem,

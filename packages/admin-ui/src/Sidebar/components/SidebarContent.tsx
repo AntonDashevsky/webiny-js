@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "~/utils";
+import { cn } from "~/utils.js";
 
 const SidebarContent = ({ className, ...props }: React.ComponentProps<"div">) => {
     return (

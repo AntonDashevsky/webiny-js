@@ -1,15 +1,15 @@
 import { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import isEmpty from "lodash/isEmpty";
-import pick from "lodash/pick";
-import omit from "lodash/omit";
-import { i18n } from "@webiny/app/i18n";
+import isEmpty from "lodash/isEmpty.js";
+import pick from "lodash/pick.js";
+import omit from "lodash/omit.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useI18N } from "~/hooks/useI18N";
-import { GET_LOCALE, CREATE_LOCALE, UPDATE_LOCALE, LIST_LOCALES } from "./graphql";
-import { useCurrentLocale } from "./useCurrentLocale";
-import type { I18NLocaleItem } from "~/types";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useI18N } from "~/hooks/useI18N.js";
+import { GET_LOCALE, CREATE_LOCALE, UPDATE_LOCALE, LIST_LOCALES } from "./graphql.js";
+import { useCurrentLocale } from "./useCurrentLocale.js";
+import type { I18NLocaleItem } from "~/types.js";
 
 const t = i18n.ns("app-i18n/admin/locales/form");
 

@@ -17,9 +17,9 @@ import type {
 import { HeadingNode as BaseHeadingNode } from "@lexical/rich-text";
 import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
 import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
-import type { ParagraphNode } from "~/ParagraphNode";
-import type { TypographyStylesNode, ThemeStyleValue } from "~/types";
-import { getStyleId } from "~/utils/getStyleId";
+import type { ParagraphNode } from "~/ParagraphNode.js";
+import type { TypographyStylesNode, ThemeStyleValue } from "~/types.js";
+import { getStyleId } from "~/utils/getStyleId.js";
 
 export type SerializeHeadingNode = Spread<
     {

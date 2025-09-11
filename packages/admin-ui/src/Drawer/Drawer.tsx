@@ -1,16 +1,16 @@
 import * as React from "react";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import { DrawerContent } from "./components/DrawerContent";
-import { DrawerFooter } from "./components/DrawerFooter";
-import { DrawerHeader } from "./components/DrawerHeader";
-import { DrawerOverlay } from "./components/DrawerOverlay";
-import { DrawerPortal } from "./components/DrawerPortal";
-import { DrawerRoot } from "./components/DrawerRoot";
-import { DrawerTrigger } from "./components/DrawerTrigger";
-import { DrawerBody } from "~/Drawer/components/DrawerBody";
-import { Icon } from "./components/Icon";
-import { ConfirmButton } from "./components/ConfirmButton";
-import { CancelButton } from "./components/CancelButton";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import { DrawerContent } from "./components/DrawerContent.js";
+import { DrawerFooter } from "./components/DrawerFooter.js";
+import { DrawerHeader } from "./components/DrawerHeader.js";
+import { DrawerOverlay } from "./components/DrawerOverlay.js";
+import { DrawerPortal } from "./components/DrawerPortal.js";
+import { DrawerRoot } from "./components/DrawerRoot.js";
+import { DrawerTrigger } from "./components/DrawerTrigger.js";
+import { DrawerBody } from "~/Drawer/components/DrawerBody.js";
+import { Icon } from "./components/Icon.js";
+import { ConfirmButton } from "./components/ConfirmButton.js";
+import { CancelButton } from "./components/CancelButton.js";
 
 interface DrawerProps
     extends React.ComponentPropsWithoutRef<typeof DrawerRoot>,

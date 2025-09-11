@@ -5,7 +5,7 @@ import {
     LambdaClient,
     UpdateFunctionCodeCommand,
     UpdateFunctionConfigurationCommand
-} from "@webiny/aws-sdk/client-lambda";
+} from "@webiny/aws-sdk/client-lambda/index.js";
 import {
     type ListAppLambdaFunctionsService,
     type LoggerService,

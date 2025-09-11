@@ -18,6 +18,7 @@ import {
 } from "@webiny/aws-sdk/client-lambda/index.js";
 import { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
 import { mockClient } from "aws-sdk-client-mock";
+import { jest } from "@jest/globals";
 
 describe("usersOnPut", () => {
     it("should be able to handle target record", async () => {

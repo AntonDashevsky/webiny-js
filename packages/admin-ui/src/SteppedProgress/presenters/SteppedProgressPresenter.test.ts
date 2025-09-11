@@ -1,5 +1,5 @@
-import { SteppedProgressPresenter } from "./SteppedProgressPresenter";
-import { ProgressItemState } from "../domains";
+import { SteppedProgressPresenter } from "./SteppedProgressPresenter.js";
+import { ProgressItemState } from "../domains/index.js";
 
 describe("SteppedProgressPresenter", () => {
     it("should return the compatible `vm` based on props", () => {

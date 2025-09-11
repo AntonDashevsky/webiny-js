@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog } from "@webiny/app-aco";
-import type { FileItem } from "@webiny/app-admin/types";
-import { useFileManagerView } from "~/index";
+import type { FileItem } from "@webiny/app-admin/types.js";
+import { useFileManagerView } from "~/index.js";
 
 export function useMoveFileToFolder(file: FileItem) {
     const { showSnackbar } = useSnackbar();

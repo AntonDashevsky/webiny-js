@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "@webiny/react-router";
-import { cva } from "~/utils";
-import type { SidebarMenuItemProps } from "./SidebarMenuRootItem";
-import { DivButton } from "./DivButton";
+import { cva } from "~/utils.js";
+import type { SidebarMenuItemProps } from "./SidebarMenuRootItem.js";
+import { DivButton } from "./DivButton.js";
 
 const variants = cva(
     [

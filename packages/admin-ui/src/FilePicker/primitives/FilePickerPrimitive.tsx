@@ -1,13 +1,13 @@
 import * as React from "react";
-import { cn, cva, type VariantProps, makeDecoratable, withStaticProps } from "~/utils";
-import { FilePickerLabel, FilePickerDescription, Trigger } from "./components";
-import type { Label } from "~/Label";
-import type { InputPrimitiveProps } from "~/Input";
-import { inputVariants } from "~/Input";
-import { ImagePreview, RichItemPreview, TextOnlyPreview, FilePreview } from "./components";
-import { FileItem, type FileItemDto, type FileItemFormatted } from "../domains";
-import { useFilePicker } from "./useFilePicker";
-import type { FilePreviewRendererProps, TriggerRendererProps } from "./components/types";
+import { cn, cva, type VariantProps, makeDecoratable, withStaticProps } from "~/utils.js";
+import { FilePickerLabel, FilePickerDescription, Trigger } from "./components/index.js";
+import type { Label } from "~/Label/index.js";
+import type { InputPrimitiveProps } from "~/Input/index.js";
+import { inputVariants } from "~/Input/index.js";
+import { ImagePreview, RichItemPreview, TextOnlyPreview, FilePreview } from "./components/index.js";
+import { FileItem, type FileItemDto, type FileItemFormatted } from "../domains/index.js";
+import { useFilePicker } from "./useFilePicker.js";
+import type { FilePreviewRendererProps, TriggerRendererProps } from "./components/types.js";
 
 const filePickerVariants = cva(
     [

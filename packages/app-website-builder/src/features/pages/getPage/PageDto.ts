@@ -1,4 +1,4 @@
-import type { WbIdentity, WbLocation } from "~/types";
+import type { WbIdentity, WbLocation } from "~/types.js";
 import type { WbStatus } from "~/constants.js";
 import type { Page } from "~/domain/Page/index.js";
 

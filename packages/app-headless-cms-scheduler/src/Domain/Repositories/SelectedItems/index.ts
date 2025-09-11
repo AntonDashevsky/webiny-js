@@ -1,3 +1,3 @@
-export type * from "./ISelectedItemsRepository";
-export * from "./SelectedItemsRepository";
-export * from "./SelectedItemsRepositoryFactory";
+export type * from "./ISelectedItemsRepository.js";
+export * from "./SelectedItemsRepository.js";
+export * from "./SelectedItemsRepositoryFactory.js";

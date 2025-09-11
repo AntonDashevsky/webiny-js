@@ -1,6 +1,6 @@
-import type { Context } from "~/types";
-import type { ITaskEvent } from "~/handler/types";
-import type { IResponseResult } from "~/response/abstractions";
+import type { Context } from "~/types.js";
+import type { ITaskEvent } from "~/handler/types.js";
+import type { IResponseResult } from "~/response/abstractions/index.js";
 import type { ITimer } from "@webiny/handler-aws";
 
 export interface IIsCloseToTimeoutCallable {

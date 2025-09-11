@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn, cva, type VariantProps } from "~/utils";
+import { cn, cva, type VariantProps } from "~/utils.js";
 
 const rangeSliderValueVariants = cva("wby-font-normal wby-text-sm wby-leading-none", {
     variants: {

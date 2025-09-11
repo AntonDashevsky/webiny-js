@@ -2,8 +2,8 @@ import React, { lazy, Suspense } from "react";
 import { AdminConfig, Plugins, Layout } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import Helmet from "react-helmet";
-import { usePermission } from "~/hooks/usePermission";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { usePermission } from "~/hooks/usePermission.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
 const { Menu, Route } = AdminConfig;
 
@@ -11,7 +11,7 @@ const Settings = lazy(
     () =>
         import(
             /* webpackChunkName: "MailerModuleSettings" */
-            "~/views/settings"
+            "~/views/settings/index.js"
         )
 );
 

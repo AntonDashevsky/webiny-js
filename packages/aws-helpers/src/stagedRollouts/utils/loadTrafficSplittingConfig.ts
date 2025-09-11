@@ -1,6 +1,6 @@
 import { get } from "https";
-import type { CloudFrontRequestEvent } from "~/lambdaEdge";
-import { logDebug } from "./log";
+import type { CloudFrontRequestEvent } from "~/lambdaEdge/index.js";
+import { logDebug } from "./log.js";
 
 // Config file has a fixed URL within CDN, so it can be properly cached.
 // This way we achieve better performance, because CDN does not have to call WCP API for config every time,

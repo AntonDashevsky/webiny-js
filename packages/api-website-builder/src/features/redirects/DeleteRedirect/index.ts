@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { DeleteRedirect } from "./DeleteRedirect";
-import { DeleteRedirectWithEvents } from "./DeleteRedirectWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { DeleteRedirect } from "./DeleteRedirect.js";
+import { DeleteRedirectWithEvents } from "./DeleteRedirectWithEvents.js";
 import type {
     OnRedirectAfterDeleteTopicParams,
     OnRedirectBeforeDeleteTopicParams,
     WbRedirectsStorageOperations
-} from "~/context/redirects/redirects.types";
+} from "~/context/redirects/redirects.types.js";
 
 export interface DeleteRedirectUseCasesTopics {
     onRedirectBeforeDelete: Topic<OnRedirectBeforeDeleteTopicParams>;

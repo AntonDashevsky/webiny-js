@@ -1,7 +1,7 @@
 import type { ISelectRedirectsUseCase } from "~/features/redirects/selectRedirects/ISelectRedirectsUseCases.js";
 import { selectedItemsRepositoryFactory } from "~/domain/SelectedItem/index.js";
 import { SelectRedirectsUseCase } from "~/features/redirects/selectRedirects/SelectRedirectsUseCase.js";
-import { WB_REDIRECTS_APP } from "~/constants";
+import { WB_REDIRECTS_APP } from "~/constants.js";
 
 export class SelectRedirects {
     public static getInstance<T = any>(): ISelectRedirectsUseCase<T> {

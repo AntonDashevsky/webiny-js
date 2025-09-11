@@ -1,5 +1,5 @@
-import { GetPageByPath } from "./GetPageByPath";
-import type { WbPagesStorageOperations } from "~/context/pages/pages.types";
+import { GetPageByPath } from "./GetPageByPath.js";
+import type { WbPagesStorageOperations } from "~/context/pages/pages.types.js";
 
 interface GetPageByPathUseCasesParams {
     getOperation: WbPagesStorageOperations["get"];

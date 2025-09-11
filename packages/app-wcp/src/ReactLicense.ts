@@ -1,4 +1,4 @@
-import type { DecryptedWcpProjectLicense, ILicense, WcpProject } from "@webiny/wcp/types";
+import type { DecryptedWcpProjectLicense, ILicense, WcpProject } from "@webiny/wcp/types.js";
 import type { WCP_FEATURE_LABEL } from "@webiny/wcp";
 import { NullLicense } from "@webiny/wcp";
 

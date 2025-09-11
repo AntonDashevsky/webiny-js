@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { RichTextEditor } from "./RichTextEditor";
-import { type RichTextEditorValue } from "./RichTextEditorPrimitive";
+import { RichTextEditor } from "./RichTextEditor.js";
+import { type RichTextEditorValue } from "./RichTextEditorPrimitive.js";
 
 const meta: Meta<typeof RichTextEditor> = {
     title: "Components/Form/RichTextEditor",

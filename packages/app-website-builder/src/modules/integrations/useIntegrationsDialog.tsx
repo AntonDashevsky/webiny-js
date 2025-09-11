@@ -1,11 +1,11 @@
 import React from "react";
 import { useDialogs } from "@webiny/app-admin";
-import { IntegrationsSettings } from "./IntegrationsSettings";
+import { IntegrationsSettings } from "./IntegrationsSettings.js";
 import {
     useEcommerceApiProvider,
     useGetEcommerceSettings,
     useUpdateEcommerceSettings
-} from "~/features";
+} from "~/features/index.js";
 import { useToast } from "@webiny/admin-ui";
 
 export const useIntegrationsDialog = () => {

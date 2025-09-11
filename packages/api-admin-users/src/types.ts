@@ -1,6 +1,6 @@
-import type { Topic } from "@webiny/pubsub/types";
-import type { SecurityContext } from "@webiny/api-security/types";
-import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { Topic } from "@webiny/pubsub/types.js";
+import type { SecurityContext } from "@webiny/api-security/types.js";
+import type { TenancyContext } from "@webiny/api-tenancy/types.js";
 
 export interface AdminUsersContext extends SecurityContext, TenancyContext {
     adminUsers: AdminUsers;

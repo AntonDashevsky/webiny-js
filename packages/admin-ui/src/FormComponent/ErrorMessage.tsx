@@ -1,6 +1,6 @@
 import React from "react";
-import { Text, type TextProps } from "~/Text";
-import { cn, cva, makeDecoratable, type VariantProps } from "~/utils";
+import { Text, type TextProps } from "~/Text/index.js";
+import { cn, cva, makeDecoratable, type VariantProps } from "~/utils.js";
 
 const formComponentErrorMessageVariants = cva(
     "wby-mt-xs wby-text-destructive-primary wby-font-semibold",

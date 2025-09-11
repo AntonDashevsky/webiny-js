@@ -1,7 +1,7 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
-import type { IPreHandler } from "~/PreHandler/IPreHandler";
-import { Action } from "~/PreHandler/IPreHandler";
-import type { Context } from "~/types";
+import type { IPreHandler } from "~/PreHandler/IPreHandler.js";
+import { Action } from "~/PreHandler/IPreHandler.js";
+import type { Context } from "~/types.js";
 
 export class PreHandler implements IPreHandler {
     private readonly handlers: IPreHandler[];

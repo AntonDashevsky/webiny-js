@@ -1,6 +1,6 @@
-import type { IEcommerceApi } from "~/ecommerce";
-import type { EcommerceApiManifest } from "./EcommerceApiManifest";
-import type { IEcommerceSettings } from "~/features/ecommerce/settings/types";
+import type { IEcommerceApi } from "~/ecommerce/index.js";
+import type { EcommerceApiManifest } from "./EcommerceApiManifest.js";
+import type { IEcommerceSettings } from "~/features/ecommerce/settings/types.js";
 
 interface IEcommerceApiProvider {
     addApiManifest(manifest: EcommerceApiManifest): void;

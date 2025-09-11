@@ -1,5 +1,5 @@
-import type { EntriesGatewayInterface } from "../adapters";
-import { EntryRepository } from "./EntryRepository";
+import type { EntriesGatewayInterface } from "../adapters/index.js";
+import { EntryRepository } from "./EntryRepository.js";
 
 export class EntryRepositoryFactory {
     private gateway: EntriesGatewayInterface | undefined;

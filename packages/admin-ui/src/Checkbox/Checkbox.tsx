@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
-import { makeDecoratable } from "~/utils";
-import type { CheckboxPrimitiveProps } from "./primitives/";
-import { CheckboxPrimitive } from "./primitives/";
-import type { FormComponentProps } from "~/FormComponent";
+import { makeDecoratable } from "~/utils.js";
+import type { CheckboxPrimitiveProps } from "./primitives//index.js";
+import { CheckboxPrimitive } from "./primitives//index.js";
+import type { FormComponentProps } from "~/FormComponent/index.js";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentNote
-} from "~/FormComponent";
+} from "~/FormComponent/index.js";
 
 type CheckboxProps = CheckboxPrimitiveProps & FormComponentProps;
 

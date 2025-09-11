@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
-import { LocaleSelector } from "./admin/LocaleSelector";
-import contentPermissions from "./admin/contentPermissions";
+import { LocaleSelector } from "./admin/LocaleSelector.js";
+import contentPermissions from "./admin/contentPermissions/index.js";
 
 const I18NContentExtension = () => {
     plugins.register(contentPermissions);

@@ -2,7 +2,7 @@ import type {
     AbortMultipartUploadCommandOutput,
     CompleteMultipartUploadCommandOutput,
     S3Client
-} from "@webiny/aws-sdk/client-s3";
+} from "@webiny/aws-sdk/client-s3/index.js";
 
 export type ITag = string;
 

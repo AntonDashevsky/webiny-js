@@ -1,5 +1,5 @@
-import type { IGetFolderAncestorsRepository } from "./IGetFolderAncestorsRepository";
-import type { Folder, ListCache } from "~/features";
+import type { IGetFolderAncestorsRepository } from "./IGetFolderAncestorsRepository.js";
+import type { Folder, ListCache } from "~/features/index.js";
 
 export class GetFolderAncestorsRepository implements IGetFolderAncestorsRepository {
     private readonly cache: ListCache<Folder>;

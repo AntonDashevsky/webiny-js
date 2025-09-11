@@ -1,7 +1,7 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import type { CmsGroup, CmsModel, CmsModelField } from "~/types";
-import models from "./mocks/contentModels";
-import { toSlug } from "~/utils/toSlug";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import type { CmsGroup, CmsModel, CmsModelField } from "~/types/index.js";
+import models from "./mocks/contentModels.js";
+import { toSlug } from "~/utils/toSlug.js";
 
 const setEmptyTextsAsNull = (fields: CmsModelField[]): CmsModelField[] => {
     return fields.map(field => {

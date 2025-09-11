@@ -1,18 +1,18 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 import { useCreateDialog, useGetFolderLevelPermission } from "@webiny/app-aco";
 import { Scrollbar } from "@webiny/admin-ui";
-import { Empty } from "~/admin/components/ContentEntries/Empty";
-import { Filters } from "~/admin/components/ContentEntries/Filters";
-import { Header } from "~/admin/components/ContentEntries/Header";
-import { LoadMoreButton } from "~/admin/components/ContentEntries/LoadMoreButton";
-import { Table } from "~/admin/components/ContentEntries/Table";
-import { useContentEntriesList, useContentEntry } from "~/admin/views/contentEntries/hooks";
-import { ContentEntry } from "~/admin/views/contentEntries/ContentEntry";
+import { Empty } from "~/admin/components/ContentEntries/Empty/index.js";
+import { Filters } from "~/admin/components/ContentEntries/Filters/index.js";
+import { Header } from "~/admin/components/ContentEntries/Header/index.js";
+import { LoadMoreButton } from "~/admin/components/ContentEntries/LoadMoreButton/index.js";
+import { Table } from "~/admin/components/ContentEntries/Table/index.js";
+import { useContentEntriesList, useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
+import { ContentEntry } from "~/admin/views/contentEntries/ContentEntry.js";
 import { useRouter } from "@webiny/react-router";
-import { ROOT_FOLDER } from "~/admin/constants";
-import { BulkActions } from "~/admin/components/ContentEntries/BulkActions";
-import { BottomInfoBar } from "~/admin/components/ContentEntries/BottomInfoBar";
+import { ROOT_FOLDER } from "~/admin/constants.js";
+import { BulkActions } from "~/admin/components/ContentEntries/BulkActions/index.js";
+import { BottomInfoBar } from "~/admin/components/ContentEntries/BottomInfoBar/index.js";
 
 interface MainProps {
     folderId?: string;

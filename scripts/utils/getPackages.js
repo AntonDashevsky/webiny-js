@@ -99,11 +99,9 @@ export const getPackages = (args = {}) => {
 };
 
 export const getPackage = nameOrPackageFolder => {
-    return module.exports
-        .getPackages()
-        .find(
-            item =>
-                item.packageJson.name === nameOrPackageFolder ||
-                item.packageFolder === nameOrPackageFolder
-        );
+    return getPackages().find(
+        item =>
+            item.packageJson.name === nameOrPackageFolder ||
+            item.packageFolder === nameOrPackageFolder
+    );
 };

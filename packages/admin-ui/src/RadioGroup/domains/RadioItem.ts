@@ -1,5 +1,5 @@
-import type { RadioItemParams } from "./RadioItemParams";
-import { generateId } from "~/utils";
+import type { RadioItemParams } from "./RadioItemParams.js";
+import { generateId } from "~/utils.js";
 
 export class RadioItem {
     private readonly _id: string;

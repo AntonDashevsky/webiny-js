@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_EDITOR } from "lexical";
 import type { FontColorPayload } from "@webiny/lexical-nodes";
 import { ADD_FONT_COLOR_COMMAND } from "@webiny/lexical-nodes";
-import { useRichTextEditor } from "~/hooks";
-import { applyColorToSelection } from "./applyColorToSelection";
+import { useRichTextEditor } from "~/hooks/index.js";
+import { applyColorToSelection } from "./applyColorToSelection.js";
 
 export const FontColorPlugin = () => {
     const { editor } = useRichTextEditor();

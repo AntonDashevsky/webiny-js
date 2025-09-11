@@ -1,5 +1,5 @@
-import type { WbRedirect } from "~/context/redirects/redirects.types";
-import type { ActiveRedirectDto } from "./ActiveRedirectDto";
+import type { WbRedirect } from "~/context/redirects/redirects.types.js";
+import type { ActiveRedirectDto } from "./ActiveRedirectDto.js";
 
 export class ActiveRedirectRestMapper {
     static toDto(redirect: WbRedirect): ActiveRedirectDto {

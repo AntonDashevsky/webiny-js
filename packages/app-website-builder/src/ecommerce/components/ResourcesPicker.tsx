@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { runInAction, action } from "mobx";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import pluralize from "pluralize";
-import throttle from "lodash/throttle";
+import throttle from "lodash/throttle.js";
 import { useDialogs } from "@webiny/app-admin";
 import {
     Avatar,
@@ -14,8 +14,8 @@ import {
     DelayedOnChange,
     useToast
 } from "@webiny/admin-ui";
-import type { Resource } from "../types";
-import type { CustomResourcePickerProps } from "~/ecommerce";
+import type { Resource } from "../types.js";
+import type { CustomResourcePickerProps } from "~/ecommerce/index.js";
 
 export interface CommerceAPIOperations {
     [resourceName: string]: {

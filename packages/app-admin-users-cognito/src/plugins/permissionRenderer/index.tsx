@@ -1,8 +1,8 @@
 import React from "react";
 import { Accordion } from "@webiny/admin-ui";
 import { ReactComponent as PermissionsIcon } from "@webiny/icons/security.svg";
-import { AdminUsersPermissions } from "./AdminUsersPermissions";
-import { PermissionRendererPlugin } from "@webiny/app-admin/plugins/PermissionRendererPlugin";
+import { AdminUsersPermissions } from "./AdminUsersPermissions.js";
+import { PermissionRendererPlugin } from "@webiny/app-admin/plugins/PermissionRendererPlugin.js";
 
 export default new PermissionRendererPlugin({
     render(props) {

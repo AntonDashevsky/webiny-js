@@ -1,7 +1,7 @@
 import { Plugin } from "@webiny/plugins";
-import type { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
-import type { Field } from "~/operations/entry/filtering/types";
-import type { CmsFieldFilterValueTransformPlugin } from "~/types";
+import type { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin.js";
+import type { Field } from "~/operations/entry/filtering/types.js";
+import type { CmsFieldFilterValueTransformPlugin } from "~/types.js";
 
 /**
  * This plugin is used to create the filter.

@@ -3,7 +3,7 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { CreateRedirectGqlGateway } from "./CreateRedirectGqlGateway.js";
 import { type CreateRedirectParams } from "./ICreateRedirectUseCase.js";
 import { CreateRedirect } from "./CreateRedirect.js";
-import { useGetRedirectGraphQLFields } from "~/features/redirects";
+import { useGetRedirectGraphQLFields } from "~/features/redirects/index.js";
 
 export const useCreateRedirect = () => {
     const client = useApolloClient();

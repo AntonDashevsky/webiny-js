@@ -4,7 +4,7 @@ import {
     type ProgressItemParams,
     ProgressItemFormatter,
     type ProgressItemFormatted
-} from "../domains";
+} from "../domains/index.js";
 
 interface SteppedProgressPresenterParams {
     items: ProgressItemParams[];

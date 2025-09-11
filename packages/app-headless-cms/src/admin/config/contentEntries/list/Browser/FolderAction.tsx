@@ -1,6 +1,6 @@
 import React from "react";
 import { AcoConfig, type FolderActionConfig } from "@webiny/app-aco";
-import { useModel } from "~/admin/hooks";
+import { useModel } from "~/admin/hooks/index.js";
 
 const { Folder } = AcoConfig;
 

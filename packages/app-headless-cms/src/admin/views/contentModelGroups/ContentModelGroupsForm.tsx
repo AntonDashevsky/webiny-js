@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { ReactComponent as DevicesIcon } from "@webiny/icons/devices_other.svg";
-import isEmpty from "lodash/isEmpty";
-import get from "lodash/get";
+import isEmpty from "lodash/isEmpty.js";
+import get from "lodash/get.js";
 import type { FormRenderPropParams } from "@webiny/form";
 import { Form } from "@webiny/form";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { validation } from "@webiny/validation";
 
 import {
@@ -12,16 +12,16 @@ import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent
-} from "@webiny/app-admin/components/SimpleForm";
-import { IconPicker } from "~/admin/components/IconPicker";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { IconPicker } from "~/admin/components/IconPicker.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { useMutation, useQuery } from "../../hooks";
-import * as GQL from "./graphql";
-import usePermission from "../../hooks/usePermission";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { useMutation, useQuery } from "../../hooks/index.js";
+import * as GQL from "./graphql.js";
+import usePermission from "../../hooks/usePermission.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import type {
     CmsGroup,
     CreateCmsGroupMutationResponse,
@@ -31,7 +31,7 @@ import type {
     ListCmsGroupsQueryResponse,
     UpdateCmsGroupMutationResponse,
     UpdateCmsGroupMutationVariables
-} from "./graphql";
+} from "./graphql.js";
 import { Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/form");

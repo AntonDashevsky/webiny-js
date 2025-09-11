@@ -50,23 +50,23 @@ import type {
     OnEntryRevisionDeleteErrorTopicParams,
     OnEntryUnpublishErrorTopicParams,
     OnEntryUpdateErrorTopicParams
-} from "~/types";
-import { validateModelEntryData } from "./contentEntry/entryDataValidation";
-import type { SecurityIdentity } from "@webiny/api-security/types";
+} from "~/types/index.js";
+import { validateModelEntryData } from "./contentEntry/entryDataValidation.js";
+import type { SecurityIdentity } from "@webiny/api-security/types.js";
 import { createTopic } from "@webiny/pubsub";
-import { assignBeforeEntryCreate } from "./contentEntry/beforeCreate";
-import { assignBeforeEntryUpdate } from "./contentEntry/beforeUpdate";
-import { assignAfterEntryDelete } from "./contentEntry/afterDelete";
-import type { Tenant } from "@webiny/api-tenancy/types";
+import { assignBeforeEntryCreate } from "./contentEntry/beforeCreate.js";
+import { assignBeforeEntryUpdate } from "./contentEntry/beforeUpdate.js";
+import { assignAfterEntryDelete } from "./contentEntry/afterDelete.js";
+import type { Tenant } from "@webiny/api-tenancy/types.js";
 import {
     createTransformEntryCallable,
     entryFromStorageTransform,
     entryToStorageTransform
-} from "~/utils/entryStorage";
-import { getSearchableFields } from "./contentEntry/searchableFields";
-import type { I18NLocale } from "@webiny/api-i18n/types";
-import { filterAsync } from "~/utils/filterAsync";
-import { isEntryLevelEntryMetaField, pickEntryMetaFields } from "~/constants";
+} from "~/utils/entryStorage.js";
+import { getSearchableFields } from "./contentEntry/searchableFields.js";
+import type { I18NLocale } from "@webiny/api-i18n/types.js";
+import { filterAsync } from "~/utils/filterAsync.js";
+import { isEntryLevelEntryMetaField, pickEntryMetaFields } from "~/constants.js";
 import {
     createEntryData,
     createEntryRevisionFromData,
@@ -75,8 +75,8 @@ import {
     createUnpublishEntryData,
     createUpdateEntryData,
     mapAndCleanUpdatedInputData
-} from "./contentEntry/entryDataFactories";
-import type { AccessControl } from "./AccessControl/AccessControl";
+} from "./contentEntry/entryDataFactories/index.js";
+import type { AccessControl } from "./AccessControl/AccessControl.js";
 import {
     deleteEntryUseCases,
     getEntriesByIdsUseCases,
@@ -89,8 +89,8 @@ import {
     getRevisionsByEntryIdUseCases,
     listEntriesUseCases,
     restoreEntryFromBinUseCases
-} from "~/crud/contentEntry/useCases";
-import { ContentEntryTraverser } from "~/utils/contentEntryTraverser/ContentEntryTraverser";
+} from "~/crud/contentEntry/useCases/index.js";
+import { ContentEntryTraverser } from "~/utils/contentEntryTraverser/ContentEntryTraverser.js";
 
 interface CreateContentEntryCrudParams {
     storageOperations: HeadlessCmsStorageOperations;

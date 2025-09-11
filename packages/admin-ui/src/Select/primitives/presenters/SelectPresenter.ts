@@ -3,9 +3,9 @@ import type {
     SelectOptionsVm,
     SelectTriggerVm,
     SelectOption as SelectOptionParams
-} from "../SelectPrimitive";
-import { type SelectRootVm } from "../SelectPrimitive";
-import { SelectOption, SelectOptionMapper } from "../../domains";
+} from "../SelectPrimitive.js";
+import { type SelectRootVm } from "../SelectPrimitive.js";
+import { SelectOption, SelectOptionMapper } from "../../domains/index.js";
 
 interface SelectPresenterParams {
     options?: SelectOptionParams[];

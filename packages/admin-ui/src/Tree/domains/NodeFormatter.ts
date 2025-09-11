@@ -1,6 +1,6 @@
-import type { Node } from "./Node";
-import type { NodeFormatted } from "~/Tree/domains/NodeFormatted";
-import type { NodeDto } from "~/Tree/domains/NodeDto";
+import type { Node } from "./Node.js";
+import type { NodeFormatted } from "~/Tree/domains/NodeFormatted.js";
+import type { NodeDto } from "~/Tree/domains/NodeDto.js";
 
 export class NodeFormatter {
     static toFormatted<TData = Record<string, any>>(

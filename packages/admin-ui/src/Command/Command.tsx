@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
-import { cn, withStaticProps } from "~/utils";
-import { Empty, Group, Input, Item, List, Loading, Separator } from "./components";
+import { cn, withStaticProps } from "~/utils.js";
+import { Empty, Group, Input, Item, List, Loading, Separator } from "./components/index.js";
 
 type CommandProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive>;
 

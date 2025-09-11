@@ -1,5 +1,5 @@
-import { ProgressItemState } from "./ProgressItemState";
-import { generateId } from "~/utils";
+import { ProgressItemState } from "./ProgressItemState.js";
+import { generateId } from "~/utils.js";
 
 export interface ProgressItemParams {
     label: string;

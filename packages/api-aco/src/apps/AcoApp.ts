@@ -15,11 +15,11 @@ import type {
     ListSearchRecordTagsParams,
     SearchRecord,
     UpdateSearchRecordParams
-} from "~/types";
-import type { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
-import lodashUpperFirst from "lodash/upperFirst";
-import lodashCamelCase from "lodash/camelCase";
-import { DEFAULT_FIELDS } from "~/record/record.model";
+} from "~/types.js";
+import type { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import lodashUpperFirst from "lodash/upperFirst.js";
+import lodashCamelCase from "lodash/camelCase.js";
+import { DEFAULT_FIELDS } from "~/record/record.model.js";
 
 const createApiName = (name: string) => {
     return lodashUpperFirst(lodashCamelCase(name));

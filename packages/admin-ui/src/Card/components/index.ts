@@ -1,3 +1,3 @@
-export * from "./CardFooter";
-export * from "./CardHeader";
-export * from "./CardRoot";
+export * from "./CardFooter.js";
+export * from "./CardHeader.js";
+export * from "./CardRoot.js";

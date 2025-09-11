@@ -1,6 +1,6 @@
-import type { NonEmptyArray } from "@webiny/api/types";
+import type { NonEmptyArray } from "@webiny/api/types.js";
 import type { DynamoDBTableType, ExtendedCommandType } from "~/types.js";
-import type { ISystem } from "../types";
+import type { ISystem } from "../types.js";
 
 export interface IDetailItem {
     PK: string;

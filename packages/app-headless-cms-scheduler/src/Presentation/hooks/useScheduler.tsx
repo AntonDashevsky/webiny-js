@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
 import { createGenericContext } from "@webiny/app-admin";
-import type { ISchedulerControllers, ISchedulerPresenter } from "~/Presentation/abstractions";
-import type { SchedulerEntry } from "~/types";
+import type { ISchedulerControllers, ISchedulerPresenter } from "~/Presentation/abstractions/index.js";
+import type { SchedulerEntry } from "~/types.js";
 
 export interface SchedulerContext {
     controllers: ISchedulerControllers;

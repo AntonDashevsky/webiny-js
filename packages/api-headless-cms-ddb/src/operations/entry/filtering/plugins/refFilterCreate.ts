@@ -1,9 +1,9 @@
 import WebinyError from "@webiny/error";
-import type { CmsEntryFieldFilterPluginCreateResponse } from "~/plugins/CmsEntryFieldFilterPlugin";
-import { CmsEntryFieldFilterPlugin } from "~/plugins/CmsEntryFieldFilterPlugin";
-import { extractWhereParams } from "~/operations/entry/filtering/where";
-import { transformValue } from "~/operations/entry/filtering/transform";
-import type { GenericRecord } from "@webiny/api/types";
+import type { CmsEntryFieldFilterPluginCreateResponse } from "~/plugins/CmsEntryFieldFilterPlugin.js";
+import { CmsEntryFieldFilterPlugin } from "~/plugins/CmsEntryFieldFilterPlugin.js";
+import { extractWhereParams } from "~/operations/entry/filtering/where.js";
+import { transformValue } from "~/operations/entry/filtering/transform.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 
 export const createRefFilterCreate = () => {
     const plugin = new CmsEntryFieldFilterPlugin<GenericRecord | null | undefined>({

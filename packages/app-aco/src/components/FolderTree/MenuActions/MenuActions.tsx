@@ -2,8 +2,8 @@ import React from "react";
 import { OptionsMenu } from "@webiny/app-admin";
 import { cn, IconButton } from "@webiny/admin-ui";
 import { ReactComponent as MoreVerticalIcon } from "@webiny/icons/more_vert.svg";
-import { useAcoConfig } from "~/config";
-import { useFolder } from "~/hooks";
+import { useAcoConfig } from "~/config/index.js";
+import { useFolder } from "~/hooks/index.js";
 
 export const MenuActions = () => {
     const { folder } = useFolder();

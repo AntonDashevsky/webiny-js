@@ -4,8 +4,8 @@ import React, { useCallback, useState } from "react";
  */
 // @ts-expect-error
 import { useHotkeys } from "react-hotkeyz";
-import { i18n } from "@webiny/app/i18n";
-import { useModelEditor } from "~/admin/hooks";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
 import { Heading, Input, Tooltip } from "@webiny/admin-ui";
 
 const t = i18n.namespace("ContentModelEditor.Name");

@@ -5,7 +5,7 @@ import type {
     BenchmarkMeasureOptions,
     BenchmarkOutputCallable,
     BenchmarkRuns
-} from "~/types";
+} from "~/types.js";
 
 enum BenchmarkState {
     DISABLED = "disabled",

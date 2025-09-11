@@ -1,6 +1,6 @@
 import type { Container } from "@webiny/di-container";
 import type { PluginsContainer } from "@webiny/plugins";
-import type { ICompressor } from "@webiny/utils/compression/Compressor";
+import type { ICompressor } from "@webiny/utils/compression/Compressor.js";
 
 export type GenericRecord<K extends PropertyKey = PropertyKey, V = any> = Record<K, V>;
 

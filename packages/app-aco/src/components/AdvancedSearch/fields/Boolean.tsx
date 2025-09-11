@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Bind } from "@webiny/form";
-import { useInputField } from "~/components";
+import { useInputField } from "~/components/index.js";
 import { RadioGroup } from "@webiny/admin-ui";
 
 export const Boolean = () => {

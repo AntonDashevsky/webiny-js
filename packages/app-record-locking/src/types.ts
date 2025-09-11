@@ -1,7 +1,7 @@
-import type { CmsContentEntry } from "@webiny/app-headless-cms/types";
-import type { GenericRecord } from "@webiny/app/types";
-import type { IRecordLockingUnlockEntryResult } from "~/domain/abstractions/IRecordLockingUnlockEntry";
-import type { SecurityPermission } from "@webiny/app-security/types";
+import type { CmsContentEntry } from "@webiny/app-headless-cms/types.js";
+import type { GenericRecord } from "@webiny/app/types.js";
+import type { IRecordLockingUnlockEntryResult } from "~/domain/abstractions/IRecordLockingUnlockEntry.js";
+import type { SecurityPermission } from "@webiny/app-security/types.js";
 import type { IRecordLockingUpdateEntryLockResult } from "~/domain/abstractions/IRecordLocking.js";
 
 export interface IRecordLockingIdentity {

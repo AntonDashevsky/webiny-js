@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { plugins } from "@webiny/plugins";
-import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
+import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout/index.js";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
 import { Form } from "@webiny/form";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { i18n } from "@webiny/app/i18n";
-import * as SF from "@webiny/app-admin/components/SimpleForm";
-import type { CmsEditorFormSettingsPlugin } from "~/types";
-import { useModelEditor } from "~/admin/hooks";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import * as SF from "@webiny/app-admin/components/SimpleForm/index.js";
+import type { CmsEditorFormSettingsPlugin } from "~/types.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
 import { Button, Heading, Icon, List } from "@webiny/admin-ui";
 
 const t = i18n.namespace("FormsApp.Editor.FormSettings");

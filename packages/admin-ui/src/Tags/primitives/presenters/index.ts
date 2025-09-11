@@ -1,3 +1,3 @@
-export * from "./TagsPresenter";
-export * from "./TagsInputPresenter";
-export * from "./TagsValuesPresenter";
+export * from "./TagsPresenter.js";
+export * from "./TagsInputPresenter.js";
+export * from "./TagsValuesPresenter.js";

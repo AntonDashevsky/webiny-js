@@ -1,7 +1,7 @@
 import * as React from "react";
-import { cn } from "~/utils";
-import { Separator } from "~/Separator";
-import type { DrawerProps } from "~/Drawer";
+import { cn } from "~/utils.js";
+import { Separator } from "~/Separator/index.js";
+import type { DrawerProps } from "~/Drawer/index.js";
 
 export interface DrawerFooterProps extends React.HTMLAttributes<HTMLDivElement> {
     actions?: React.ReactNode;

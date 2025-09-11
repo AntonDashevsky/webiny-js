@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import type { DecoratableTypes } from "./Context";
-import { useComposition } from "./Context";
-import { useCompositionScope } from "~/CompositionScope";
-import type { ComposeWith, Decoratable, Enumerable } from "./types";
+import type { DecoratableTypes } from "./Context.js";
+import { useComposition } from "./Context.js";
+import { useCompositionScope } from "~/CompositionScope.js";
+import type { ComposeWith, Decoratable, Enumerable } from "./types.js";
 
 export interface ComposeProps {
     function?: DecoratableTypes;

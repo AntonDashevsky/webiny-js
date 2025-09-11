@@ -1,3 +1,3 @@
-export * from "./domains";
-export * from "./primitives";
-export * from "./FilePicker";
+export * from "./domains/index.js";
+export * from "./primitives/index.js";
+export * from "./FilePicker.js";

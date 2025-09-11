@@ -1,16 +1,16 @@
 import prettier from "prettier";
-import { createDefaultAppsSchemaSnapshot } from "./snapshots/defaultAppsSchema";
-import { createCustomAppsSchemaSnapshot } from "./snapshots/customAppsSchema";
-import { createMockAcoApp, createMockApp, MOCK_APP_NAME } from "./mocks/app";
-import { useGraphQlHandler } from "./utils/useGraphQlHandler";
-import { useHandler } from "./utils/useHandler";
+import { createDefaultAppsSchemaSnapshot } from "./snapshots/defaultAppsSchema.js";
+import { createCustomAppsSchemaSnapshot } from "./snapshots/customAppsSchema.js";
+import { createMockAcoApp, createMockApp, MOCK_APP_NAME } from "./mocks/app.js";
+import { useGraphQlHandler } from "./utils/useGraphQlHandler.js";
+import { useHandler } from "./utils/useHandler.js";
 import type { IntrospectionField, IntrospectionInterfaceType } from "graphql";
-import { registerAcoApp, createAcoAppModifier } from "~/plugins";
-import { createAppSchema } from "~/record/graphql/createAppSchema";
+import { registerAcoApp, createAcoAppModifier } from "~/plugins/index.js";
+import { createAppSchema } from "~/record/graphql/createAppSchema.js";
 import type {
     CmsFieldTypePlugins,
     CmsModelFieldToGraphQLPlugin
-} from "@webiny/api-headless-cms/types";
+} from "@webiny/api-headless-cms/types/index.js";
 
 interface GraphQlType {
     kind: Uppercase<string>;

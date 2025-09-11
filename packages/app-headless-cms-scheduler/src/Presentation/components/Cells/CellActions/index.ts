@@ -1,1 +1,1 @@
-export * from "./CellActions";
+export * from "./CellActions.js";

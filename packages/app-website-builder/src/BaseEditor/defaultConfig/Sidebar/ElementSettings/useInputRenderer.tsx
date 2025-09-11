@@ -1,6 +1,6 @@
 import React from "react";
-import { useEditorConfig } from "~/BaseEditor/config/EditorConfig";
-import type { ElementInputRendererProps } from "~/BaseEditor/config/ElementInput";
+import { useEditorConfig } from "~/BaseEditor/config/EditorConfig.js";
+import type { ElementInputRendererProps } from "~/BaseEditor/config/ElementInput.js";
 
 const NullRenderer = ({ name }: { name: string }) => {
     return <div>Missing renderer &quot;{name}&quot;.</div>;

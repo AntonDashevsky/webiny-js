@@ -1,6 +1,6 @@
 import React from "react";
-import { Tags } from "@webiny/ui/Tags";
-import type { CmsModelFieldRendererPlugin } from "~/types";
+import { Tags } from "@webiny/ui/Tags/index.js";
+import type { CmsModelFieldRendererPlugin } from "~/types.js";
 
 export const tags: CmsModelFieldRendererPlugin = {
     type: "cms-editor-field-renderer",

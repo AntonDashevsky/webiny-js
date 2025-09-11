@@ -1,10 +1,10 @@
-import { ErrorResponse, ListResponse } from "@webiny/handler-graphql/responses";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin";
+import { ErrorResponse, ListResponse } from "@webiny/handler-graphql/responses.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin.js";
 
-import { ensureAuthentication } from "~/utils/ensureAuthentication";
-import { resolve } from "~/utils/resolve";
+import { ensureAuthentication } from "~/utils/ensureAuthentication.js";
+import { resolve } from "~/utils/resolve.js";
 
-import type { AcoContext } from "~/types";
+import type { AcoContext } from "~/types.js";
 
 export const filterSchema = new GraphQLSchemaPlugin<AcoContext>({
     typeDefs: /* GraphQL */ `

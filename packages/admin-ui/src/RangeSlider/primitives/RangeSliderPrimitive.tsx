@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Slider as SliderPrimitives } from "radix-ui";
-import { SliderRoot, SliderThumb, type SliderThumbProps, SliderTrack } from "~/Slider";
-import { useRangeSlider } from "./useRangeSlider";
+import { SliderRoot, SliderThumb, type SliderThumbProps, SliderTrack } from "~/Slider/index.js";
+import { useRangeSlider } from "./useRangeSlider.js";
 
 interface RangeSliderPrimitiveRootProps
     extends Omit<SliderPrimitives.SliderProps, "min" | "max" | "value"> {

@@ -1,8 +1,8 @@
-import merge from "lodash/merge";
+import merge from "lodash/merge.js";
 import type { PulumiApp } from "@webiny/pulumi";
-import type { ServiceManifest, TableDefinition } from "./addServiceManifestTableItem";
-import { addServiceManifestTableItem } from "./addServiceManifestTableItem";
-import { CoreOutput } from "~/pulumi/apps";
+import type { ServiceManifest, TableDefinition } from "./addServiceManifestTableItem.js";
+import { addServiceManifestTableItem } from "./addServiceManifestTableItem.js";
+import { CoreOutput } from "~/pulumi/apps/index.js";
 
 export interface WithServiceManifest {
     addServiceManifest(manifest: ServiceManifest): void;

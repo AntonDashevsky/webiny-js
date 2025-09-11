@@ -1,1 +1,1 @@
-export * from "./CellTitle";
+export * from "./CellTitle.js";

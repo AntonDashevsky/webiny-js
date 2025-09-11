@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { type ITagsInputPresenter } from "./TagsInputPresenter";
-import { type ITagsValuesPresenter } from "./TagsValuesPresenter";
+import { type ITagsInputPresenter } from "./TagsInputPresenter.js";
+import { type ITagsValuesPresenter } from "./TagsValuesPresenter.js";
 
 interface TagsPresenterParams {
     values?: string[];

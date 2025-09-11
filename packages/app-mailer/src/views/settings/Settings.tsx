@@ -7,16 +7,16 @@ import {
     SimpleFormContent,
     SimpleFormFooter,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
 import { validation } from "@webiny/validation";
 import type {
     SaveSettingsMutationResponse,
     SaveSettingsMutationVariables,
     SettingsQueryResponse
-} from "./graphql";
-import { GET_SETTINGS_QUERY, SAVE_SETTINGS_MUTATION } from "./graphql";
-import type { TransportSettings, ValidationError } from "~/types";
-import type { Validator } from "@webiny/validation/types";
+} from "./graphql.js";
+import { GET_SETTINGS_QUERY, SAVE_SETTINGS_MUTATION } from "./graphql.js";
+import type { TransportSettings, ValidationError } from "~/types.js";
+import type { Validator } from "@webiny/validation/types.js";
 import dotPropImmutable from "dot-prop-immutable";
 import { Alert, Button, Grid, Input, OverlayLoader } from "@webiny/admin-ui";
 

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import type { Decorator } from "@webiny/react-composition";
 import { Compose, makeDecoratable } from "@webiny/react-composition";
-import type { GenericComponent } from "@webiny/react-composition/types";
+import type { GenericComponent } from "@webiny/react-composition/types.js";
 import type { Property } from "@webiny/react-properties";
 import { Properties, toObject, useDebugConfig } from "@webiny/react-properties";
 

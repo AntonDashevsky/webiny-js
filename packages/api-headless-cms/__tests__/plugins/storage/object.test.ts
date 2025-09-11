@@ -1,9 +1,9 @@
-import { createObjectStorageTransform } from "~/storage/object";
-import { createStoragePluginsContainer } from "./container";
-import { StorageTransformPlugin } from "~/plugins";
-import { createObjectMockModel } from "./object/model";
-import type { CmsModelField } from "~/types";
-import { entryToStorageTransform } from "~/utils/entryStorage";
+import { createObjectStorageTransform } from "~/storage/object.js";
+import { createStoragePluginsContainer } from "./container.js";
+import { StorageTransformPlugin } from "~/plugins/index.js";
+import { createObjectMockModel } from "./object/model.js";
+import type { CmsModelField } from "~/types/index.js";
+import { entryToStorageTransform } from "~/utils/entryStorage.js";
 
 const container = createStoragePluginsContainer();
 const plugins = container.byType<StorageTransformPlugin>(StorageTransformPlugin.type);

@@ -1,10 +1,10 @@
 import React from "react";
 import { ContentEntryListConfig, useModel } from "@webiny/app-headless-cms";
 import { ReactComponent as LockedIcon } from "@webiny/icons/lock.svg";
-import { useRecordLocking } from "~/hooks";
-import { UseContentEntriesListHookDecorator } from "./decorators/UseContentEntriesListHookDecorator";
-import { UseSaveEntryDecorator } from "~/components/decorators/UseSaveEntryDecorator";
-import { UseRecordsDecorator } from "./decorators/UseRecordsDecorator";
+import { useRecordLocking } from "~/hooks/index.js";
+import { UseContentEntriesListHookDecorator } from "./decorators/UseContentEntriesListHookDecorator.js";
+import { UseSaveEntryDecorator } from "~/components/decorators/UseSaveEntryDecorator.js";
+import { UseRecordsDecorator } from "./decorators/UseRecordsDecorator.js";
 import { Icon, Tooltip } from "@webiny/admin-ui";
 
 const { Browser } = ContentEntryListConfig;

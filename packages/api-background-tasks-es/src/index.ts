@@ -1,4 +1,4 @@
-import type { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types.js";
 import { createBackgroundTaskGraphQL, createBackgroundTaskContext } from "@webiny/tasks";
 import { createElasticsearchBackgroundTasks } from "@webiny/api-elasticsearch-tasks";
 import { createHeadlessCmsEsTasks } from "@webiny/api-headless-cms-es-tasks";

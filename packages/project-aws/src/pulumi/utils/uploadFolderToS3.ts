@@ -1,14 +1,14 @@
 import fs from "fs";
 import fetch from "node-fetch";
 import FormData from "form-data";
-import type { PresignedPostOptions } from "@webiny/aws-sdk/client-s3";
-import { S3Client, HeadObjectCommand } from "@webiny/aws-sdk/client-s3";
+import type { PresignedPostOptions } from "@webiny/aws-sdk/client-s3/index.js";
+import { S3Client, HeadObjectCommand } from "@webiny/aws-sdk/client-s3/index.js";
 import mime from "mime";
-import chunk from "lodash/chunk";
+import chunk from "lodash/chunk.js";
 import { relative } from "path";
-import { crawlDirectory } from "./crawlDirectory";
-import { getPresignedPost } from "./getPresignedPost";
-import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion";
+import { crawlDirectory } from "./crawlDirectory.js";
+import { getPresignedPost } from "./getPresignedPost.js";
+import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion.js";
 import crypto from "crypto";
 
 function getFileChecksum(file: string): Promise<string> {

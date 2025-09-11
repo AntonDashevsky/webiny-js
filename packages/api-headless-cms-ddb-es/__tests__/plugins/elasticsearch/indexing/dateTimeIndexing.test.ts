@@ -1,13 +1,13 @@
-import dateTimeIndexing from "~/elasticsearch/indexing/dateTimeIndexing";
-import type { CmsModelFieldToElasticsearchPlugin } from "~/types";
+import dateTimeIndexing from "~/elasticsearch/indexing/dateTimeIndexing.js";
+import type { CmsModelFieldToElasticsearchPlugin } from "~/types.js";
 import type {
     CmsModel,
     CmsModelDateTimeField,
     CmsModelFieldToGraphQLPlugin
-} from "@webiny/api-headless-cms/types";
-import elasticsearchIndexingPlugins from "~/elasticsearch/indexing";
+} from "@webiny/api-headless-cms/types/index.js";
+import elasticsearchIndexingPlugins from "~/elasticsearch/indexing/index.js";
 import { createGraphQLFields } from "@webiny/api-headless-cms";
-import defaultIndexingPlugin from "~/elasticsearch/indexing/defaultFieldIndexing";
+import defaultIndexingPlugin from "~/elasticsearch/indexing/defaultFieldIndexing.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 const indexingPlugins = elasticsearchIndexingPlugins();

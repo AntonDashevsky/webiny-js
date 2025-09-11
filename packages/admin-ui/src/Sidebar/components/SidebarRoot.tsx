@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from "react";
-import { cn, cva } from "~/utils";
-import { useSidebar } from "./SidebarProvider";
+import { cn, cva } from "~/utils.js";
+import { useSidebar } from "./SidebarProvider.js";
 
 interface SidebarRootProps extends React.ComponentProps<"div"> {
     side?: "left" | "right";

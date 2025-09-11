@@ -1,1 +1,1 @@
-export * from "./SchedulerListConfig";
+export * from "./SchedulerListConfig.js";

@@ -2,7 +2,7 @@ import React from "react";
 import dayjs from "dayjs";
 import { Icon, Text } from "@webiny/admin-ui";
 import { ReactComponent as CalendarIcon } from "@webiny/icons/today.svg";
-import { useFile } from "~/hooks/useFile";
+import { useFile } from "~/hooks/useFile.js";
 
 export const CreatedOn = () => {
     const { file } = useFile();

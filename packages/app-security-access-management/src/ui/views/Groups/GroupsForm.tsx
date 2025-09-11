@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useRouter } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import {
@@ -10,16 +10,16 @@ import {
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { Permissions } from "@webiny/app-admin/components/Permissions";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CREATE_GROUP, LIST_GROUPS, READ_GROUP, UPDATE_GROUP } from "./graphql";
-import isEmpty from "lodash/isEmpty";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { Permissions } from "@webiny/app-admin/components/Permissions/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CREATE_GROUP, LIST_GROUPS, READ_GROUP, UPDATE_GROUP } from "./graphql.js";
+import isEmpty from "lodash/isEmpty.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as CopyIcon } from "@webiny/icons/content_copy.svg";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
-import type { Group } from "~/types";
+import type { Group } from "~/types.js";
 import {
     Alert,
     Button,

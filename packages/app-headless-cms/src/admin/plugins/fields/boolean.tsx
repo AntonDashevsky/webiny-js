@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as BooleanIcon } from "@webiny/icons/toggle_on.svg";
-import type { CmsModelFieldTypePlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
+import type { CmsModelFieldTypePlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Bind } from "@webiny/form";
 import { Grid, RadioGroup } from "@webiny/admin-ui";
 

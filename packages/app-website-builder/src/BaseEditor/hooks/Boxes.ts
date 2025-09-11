@@ -1,5 +1,5 @@
 import type { BoxData } from "@webiny/website-builder-sdk";
-import { Box } from "~/BaseEditor/defaultConfig/Content/Preview/Box";
+import { Box } from "~/BaseEditor/defaultConfig/Content/Preview/Box.js";
 
 export class Boxes {
     private readonly boxes: Map<string, Box>;

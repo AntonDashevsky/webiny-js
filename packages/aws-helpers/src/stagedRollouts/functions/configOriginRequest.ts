@@ -1,5 +1,5 @@
-import type { CloudFrontRequestEvent, CloudFrontResponse } from "~/lambdaEdge";
-import { defineLambdaEdgeRequestHandler, setHeader } from "~/lambdaEdge";
+import type { CloudFrontRequestEvent, CloudFrontResponse } from "~/lambdaEdge/index.js";
+import { defineLambdaEdgeRequestHandler, setHeader } from "~/lambdaEdge/index.js";
 
 import { get } from "https";
 

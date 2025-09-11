@@ -1,4 +1,4 @@
-import type { HandlerFactoryParams } from "@webiny/handler-aws/types";
+import type { HandlerFactoryParams } from "@webiny/handler-aws/types.js";
 
 export type HandlerParams = HandlerFactoryParams;
 

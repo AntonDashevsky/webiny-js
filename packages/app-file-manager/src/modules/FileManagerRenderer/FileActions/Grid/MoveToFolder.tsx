@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as MoveIcon } from "@webiny/icons/exit_to_app.svg";
-import { FileManagerViewConfig, useFile, useMoveFileToFolder } from "~/index";
+import { FileManagerViewConfig, useFile, useMoveFileToFolder } from "~/index.js";
 
 const { Browser } = FileManagerViewConfig;
 

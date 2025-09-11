@@ -4,11 +4,11 @@ import type {
     IElasticsearchSyncParams,
     ISynchronization,
     ISynchronizationRunResult
-} from "../types";
-import type { IIndexManager } from "~/settings/types";
-import type { NonEmptyArray } from "@webiny/api/types";
-import type { IElasticsearchSynchronize } from "./abstractions/ElasticsearchSynchronize";
-import type { IElasticsearchFetcher } from "./abstractions/ElasticsearchFetcher";
+} from "../types.js";
+import type { IIndexManager } from "~/settings/types.js";
+import type { NonEmptyArray } from "@webiny/api/types.js";
+import type { IElasticsearchSynchronize } from "./abstractions/ElasticsearchSynchronize.js";
+import type { IElasticsearchFetcher } from "./abstractions/ElasticsearchFetcher.js";
 
 export class ElasticsearchToDynamoDbSynchronization implements ISynchronization {
     private readonly manager: IDataSynchronizationManager;

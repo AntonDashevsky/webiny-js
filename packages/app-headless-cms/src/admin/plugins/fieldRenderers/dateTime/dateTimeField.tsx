@@ -1,11 +1,11 @@
 import React from "react";
-import get from "lodash/get";
-import type { CmsModelFieldRendererPlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
-import { DateOnly } from "./DateOnly";
-import { DateTimeWithoutTimezone } from "./DateTimeWithoutTimezone";
-import { DateTimeWithTimezone } from "./DateTimeWithTimezone";
-import { Time } from "./Time";
+import get from "lodash/get.js";
+import type { CmsModelFieldRendererPlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { DateOnly } from "./DateOnly.js";
+import { DateTimeWithoutTimezone } from "./DateTimeWithoutTimezone.js";
+import { DateTimeWithTimezone } from "./DateTimeWithTimezone.js";
+import { Time } from "./Time.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/date-time");
 

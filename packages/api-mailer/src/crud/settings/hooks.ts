@@ -1,11 +1,11 @@
-import type { MailerContext } from "~/types";
+import type { MailerContext } from "~/types.js";
 import type {
     OnEntryAfterCreateTopicParams,
     OnEntryAfterUpdateTopicParams,
     OnEntryCreateErrorTopicParams,
     OnEntryUpdateErrorTopicParams
-} from "@webiny/api-headless-cms/types";
-import { SETTINGS_MODEL_ID } from "~/crud/settings/model";
+} from "@webiny/api-headless-cms/types/index.js";
+import { SETTINGS_MODEL_ID } from "~/crud/settings/model.js";
 
 const obfuscatePassword = (values: Record<string, any>) => {
     // eslint-disable-next-line

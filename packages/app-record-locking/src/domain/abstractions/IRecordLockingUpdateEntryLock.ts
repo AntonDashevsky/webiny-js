@@ -1,4 +1,4 @@
-import type { IRecordLockingError, IRecordLockingLockRecord } from "~/types";
+import type { IRecordLockingError, IRecordLockingLockRecord } from "~/types.js";
 
 export interface IRecordLockingUpdateEntryLockExecuteParams {
     id: string;

@@ -1,14 +1,14 @@
 import React, { useCallback, useMemo } from "react";
-import { generateId, makeDecoratable } from "~/utils";
-import type { TextareaPrimitiveProps } from "./TextareaPrimitive";
-import { TextareaPrimitive } from "./TextareaPrimitive";
-import type { FormComponentProps } from "~/FormComponent";
+import { generateId, makeDecoratable } from "~/utils.js";
+import type { TextareaPrimitiveProps } from "./TextareaPrimitive.js";
+import { TextareaPrimitive } from "./TextareaPrimitive.js";
+import type { FormComponentProps } from "~/FormComponent/index.js";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
     FormComponentNote
-} from "~/FormComponent";
+} from "~/FormComponent/index.js";
 
 type TextareaGroupProps = Omit<TextareaPrimitiveProps, "onChange"> & FormComponentProps;
 

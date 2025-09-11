@@ -3,10 +3,10 @@ import { Text, IconButton, Button } from "@webiny/admin-ui";
 import { ReactComponent as Close } from "@webiny/icons/close.svg";
 import { Buttons } from "@webiny/app-admin";
 
-import { useContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
+import { useContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useContentEntriesList } from "~/admin/views/contentEntries/hooks/index.js";
 
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-entries/bulk-actions");
 

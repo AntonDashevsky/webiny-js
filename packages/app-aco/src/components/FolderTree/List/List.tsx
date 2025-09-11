@@ -7,17 +7,17 @@ import {
     type DropOptions
 } from "@webiny/admin-ui";
 import { useSnackbar } from "@webiny/app-admin";
-import { Node } from "../Node";
-import { createInitialOpenList, createTreeData } from "./utils";
+import { Node } from "../Node/index.js";
+import { createInitialOpenList, createTreeData } from "./utils.js";
 import {
     useGetFolderAncestors,
     useGetFolderLevelPermission,
     useListFoldersByParentIds,
     useUpdateFolder
-} from "~/features";
-import { ROOT_FOLDER } from "~/constants";
-import type { FolderItem } from "~/types";
-import { FolderProvider } from "~/contexts/folder";
+} from "~/features/index.js";
+import { ROOT_FOLDER } from "~/constants.js";
+import type { FolderItem } from "~/types.js";
+import { FolderProvider } from "~/contexts/folder.js";
 
 interface ListProps {
     folders: FolderItem[];

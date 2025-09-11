@@ -1,9 +1,9 @@
-import type { MoveRedirectUseCasesTopics } from "./index";
+import type { MoveRedirectUseCasesTopics } from "./index.js";
 import type {
     MoveWbRedirectParams,
     WbRedirectsStorageOperations
-} from "~/context/redirects/redirects.types";
-import type { IMoveRedirect } from "~/features/redirects/MoveRedirect/IMoveRedirect";
+} from "~/context/redirects/redirects.types.js";
+import type { IMoveRedirect } from "~/features/redirects/MoveRedirect/IMoveRedirect.js";
 import { WebinyError } from "@webiny/error";
 
 export class MoveRedirectWithEvents implements IMoveRedirect {

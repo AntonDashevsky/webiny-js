@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
-import { breadcrumbs } from "./styles";
-import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { $getComponentManifestByElementId } from "~/editorSdk/utils";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { Commands } from "~/BaseEditor";
+import { breadcrumbs } from "./styles.js";
+import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement.js";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
+import { $getComponentManifestByElementId } from "~/editorSdk/utils/index.js";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { Commands } from "~/BaseEditor/index.js";
 
 export const Breadcrumbs = () => {
     const [activeElement] = useActiveElement();

@@ -1,4 +1,4 @@
-export * from "./SelectOption";
-export type * from "./SelectOptionDto";
-export type * from "./SelectOptionFormatted";
-export * from "./SelectOptionMapper";
+export * from "./SelectOption.js";
+export type * from "./SelectOptionDto.js";
+export type * from "./SelectOptionFormatted.js";
+export * from "./SelectOptionMapper.js";

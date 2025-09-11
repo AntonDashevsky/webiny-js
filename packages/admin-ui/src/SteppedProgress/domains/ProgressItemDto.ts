@@ -1,4 +1,4 @@
-import type { ProgressItemState } from "./ProgressItemState";
+import type { ProgressItemState } from "./ProgressItemState.js";
 
 export interface ProgressItemDto {
     id?: string;

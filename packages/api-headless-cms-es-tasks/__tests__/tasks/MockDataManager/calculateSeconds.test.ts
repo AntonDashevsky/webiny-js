@@ -1,4 +1,4 @@
-import { calculateSeconds } from "~/tasks/MockDataManager/calculateSeconds";
+import { calculateSeconds } from "~/tasks/MockDataManager/calculateSeconds.js";
 
 describe("calculate seconds to wait for task based on amount of records", () => {
     it("should properly calculate the amount of seconds - 5", async () => {

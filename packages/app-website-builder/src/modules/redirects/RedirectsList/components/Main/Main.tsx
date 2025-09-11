@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 import { useCreateDialog, useGetFolderLevelPermission } from "@webiny/app-aco";
 import { Scrollbar } from "@webiny/admin-ui";
 import { useDocumentList } from "~/modules/redirects/RedirectsList/useDocumentList.js";
@@ -8,7 +8,7 @@ import { BottomInfoBar } from "~/modules/redirects/RedirectsList/components/Bott
 import { Table } from "~/modules/redirects/RedirectsList/components/Table/index.js";
 import { Empty } from "~/modules/redirects/RedirectsList/components/Empty/index.js";
 import { useLoadMoreRedirects } from "~/features/redirects/index.js";
-import { BulkActions } from "../BulkActions";
+import { BulkActions } from "../BulkActions/index.js";
 import { Filters } from "~/modules/redirects/RedirectsList/components/Filters/index.js";
 import { useCreateRedirectDialog } from "~/modules/redirects/RedirectsList/index.js";
 

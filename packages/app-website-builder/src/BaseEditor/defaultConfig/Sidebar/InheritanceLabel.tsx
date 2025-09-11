@@ -8,8 +8,8 @@ import {
     DropdownMenu,
     FormComponentLabel
 } from "@webiny/admin-ui";
-import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint.js";
+import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg.js";
 import type { Breakpoint } from "@webiny/website-builder-sdk";
 
 export interface InheritanceLabelProps {

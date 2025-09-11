@@ -1,4 +1,4 @@
-import type ValidationError from "~/validationError";
+import type ValidationError from "~/validationError.js";
 
 type ValidatorResult = boolean | ValidationError | void | Promise<boolean | ValidationError | void>;
 /**

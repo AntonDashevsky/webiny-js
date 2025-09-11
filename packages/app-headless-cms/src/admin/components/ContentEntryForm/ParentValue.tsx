@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef } from "react";
-import get from "lodash/get";
-import type { CmsModelField } from "@webiny/app-headless-cms-common/types";
-import { useModelField } from "~/admin/components/ModelFieldProvider";
+import get from "lodash/get.js";
+import type { CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
+import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
 import type { FormAPI } from "@webiny/form";
 import { useForm } from "@webiny/form";
 

@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
 import { CompositionScope } from "@webiny/react-composition";
-import { Browser, type BrowserConfig } from "./Browser";
-import { PageType } from "./PageType";
+import { Browser, type BrowserConfig } from "./Browser/index.js";
+import { PageType } from "./PageType.js";
 
 const base = createConfigurableComponent<PageListConfig>("WbPageListConfig");
 

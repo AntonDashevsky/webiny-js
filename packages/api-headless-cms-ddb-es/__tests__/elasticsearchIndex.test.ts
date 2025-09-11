@@ -1,5 +1,5 @@
-import { configurations } from "~/configurations";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
+import { configurations } from "~/configurations.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { getElasticsearchIndexPrefix } from "@webiny/api-elasticsearch";
 
 describe("Elasticsearch index", () => {

@@ -1,2 +1,2 @@
-export * from "./ColumnSorter";
-export * from "./ColumnsVisibility";
+export * from "./ColumnSorter.js";
+export * from "./ColumnsVisibility.js";

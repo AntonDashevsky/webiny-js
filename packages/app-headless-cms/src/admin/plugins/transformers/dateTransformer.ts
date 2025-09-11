@@ -1,4 +1,4 @@
-import type { CmsFieldValueTransformer } from "~/types";
+import type { CmsFieldValueTransformer } from "~/types.js";
 import WebinyError from "@webiny/error";
 
 interface TransformerCallable<T> {

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Tabs } from "@webiny/admin-ui";
-import { Sidebar } from "./Sidebar";
+import { Sidebar } from "./Sidebar.js";
 
 const SidebarContainer = styled.div`
     background-color: #ffffff;

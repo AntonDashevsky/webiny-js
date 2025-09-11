@@ -1,2 +1,2 @@
-export * from "./primitives";
-export * from "./RadioGroup";
+export * from "./primitives/index.js";
+export * from "./RadioGroup.js";

@@ -1,5 +1,5 @@
 import { createAbstraction, type Result } from "@webiny/feature";
-import type { WcpProject } from "~/types";
+import type { WcpProject } from "~/types.js";
 
 export interface IGetProjectUseCase {
     execute(): Promise<Result<WcpProject | null>>;

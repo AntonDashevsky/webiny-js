@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Heading, Text } from "@webiny/admin-ui";
-import { OperationSelector } from "./OperationSelector";
+import { OperationSelector } from "./OperationSelector.js";
 
 export interface DetailsProps {
     name: string;

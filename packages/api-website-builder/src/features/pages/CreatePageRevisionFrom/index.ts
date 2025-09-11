@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { CreatePageRevisionFrom } from "./CreatePageRevisionFrom";
-import { CreatePageRevisionFromWithEvents } from "./CreatePageRevisionFromWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { CreatePageRevisionFrom } from "./CreatePageRevisionFrom.js";
+import { CreatePageRevisionFromWithEvents } from "./CreatePageRevisionFromWithEvents.js";
 import type {
     OnPageAfterCreateRevisionFromTopicParams,
     OnPageBeforeCreateRevisionFromTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 
 export interface CreatePageRevisionFromUseCasesTopics {
     onPageBeforeCreateRevisionFrom: Topic<OnPageBeforeCreateRevisionFromTopicParams>;

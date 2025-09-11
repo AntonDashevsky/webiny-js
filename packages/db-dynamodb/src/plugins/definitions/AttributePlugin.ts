@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { Plugin } from "@webiny/plugins";
-import type { AttributeDefinition } from "~/toolbox";
+import type { AttributeDefinition } from "~/toolbox.js";
 
 const reservedFields = ["PK", "SK", "index", "data"];
 

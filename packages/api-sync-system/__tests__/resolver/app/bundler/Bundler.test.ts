@@ -1,5 +1,5 @@
 import { Bundler, createBundler } from "~/resolver/app/bundler/Bundler.js";
-import { createBundles } from "~/resolver/app/bundler/Bundles";
+import { createBundles } from "~/resolver/app/bundler/Bundles.js";
 import { BaseBundle } from "~/resolver/app/bundler/BaseBundle.js";
 import { createMockDeployment } from "~tests/mocks/deployments.js";
 import { createRegularMockTable } from "~tests/mocks/table.js";

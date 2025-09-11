@@ -1,6 +1,6 @@
 import * as React from "react";
-import { cn, cva, type VariantProps } from "~/utils";
-import { Text } from "~/Text";
+import { cn, cva, type VariantProps } from "~/utils.js";
+import { Text } from "~/Text/index.js";
 
 const labelDescriptionVariants = cva("wby-font-normal wby-text-neutral-strong", {
     variants: {

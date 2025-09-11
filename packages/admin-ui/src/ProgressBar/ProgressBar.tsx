@@ -4,9 +4,9 @@ import {
     ProgressRoot,
     type ProgressRootProps,
     ProgressValue
-} from "./components";
-import { useProgressBar } from "./useProgressBar";
-import { cn, makeDecoratable } from "~/utils";
+} from "./components/index.js";
+import { useProgressBar } from "./useProgressBar.js";
+import { cn, makeDecoratable } from "~/utils.js";
 
 interface ProgressBarProps extends ProgressRootProps {
     valuePosition?: "start" | "end" | "both";

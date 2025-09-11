@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { ThemeProvider, useTheme } from "@webiny/app-theme";
+// TODO: import { ThemeProvider, useTheme } from "@webiny/app-theme";
 import type { LexicalNode, LexicalValue, Klass } from "@webiny/lexical-editor/types.js";
 import type { EditorTheme } from "@webiny/lexical-theme";
 import { LexicalHtmlRenderer } from "@webiny/lexical-editor";
@@ -18,7 +18,7 @@ const defaultTheme: EditorTheme = {
 };
 
 const LexicalRenderer = (props: RichTextLexicalRenderer) => {
-    const { theme } = useTheme();
+    // const { theme } = useTheme();
 
     const getValue = (value: RendererLexicalValue): string | null => {
         if (!value) {
@@ -27,23 +27,19 @@ const LexicalRenderer = (props: RichTextLexicalRenderer) => {
         return typeof props?.value === "string" ? props.value : JSON.stringify(props.value);
     };
 
-    const rendererTheme = useMemo(() => {
-        return { ...props?.theme, ...theme };
-    }, [props?.theme, theme]);
+    // const rendererTheme = useMemo(() => {
+    //     return { ...props?.theme, ...theme };
+    // }, [props?.theme, theme]);
 
     return (
         <LexicalHtmlRenderer
             value={getValue(props?.value)}
-            theme={{ ...defaultTheme, ...rendererTheme }}
+            theme={{ ...defaultTheme, ...props.theme }}
             nodes={props.nodes}
         />
     );
 };
 
 export const RichTextLexicalRenderer = (props: RichTextLexicalRenderer) => {
-    return (
-        <ThemeProvider>
-            <LexicalRenderer {...props} />
-        </ThemeProvider>
-    );
+    return <LexicalRenderer {...props} />;
 };

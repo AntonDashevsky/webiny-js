@@ -1,7 +1,7 @@
-import set from "lodash/set";
+import set from "lodash/set.js";
 import { useCallback } from "react";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { useDocumentEditor } from "~/DocumentEditor";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
 
 export const useRepeatValue = (elementId: string) => {
     const editor = useDocumentEditor();

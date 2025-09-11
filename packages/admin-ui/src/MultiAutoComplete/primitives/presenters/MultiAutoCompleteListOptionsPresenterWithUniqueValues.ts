@@ -1,8 +1,8 @@
-import type { CommandOption } from "~/Command/domain/CommandOption";
+import type { CommandOption } from "~/Command/domain/CommandOption.js";
 import type {
     IMultiAutoCompleteListOptionsPresenter,
     IMultiAutoCompleteListOptionsPresenterParams
-} from "./MultiAutoCompleteListOptionsPresenter";
+} from "./MultiAutoCompleteListOptionsPresenter.js";
 
 export class MultiAutoCompleteListOptionsPresenterWithUniqueValues
     implements IMultiAutoCompleteListOptionsPresenter

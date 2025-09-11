@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTenancy } from "@webiny/app-tenancy";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { usePreviewDomain } from "./usePreviewDomain";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
+import { usePreviewDomain } from "./usePreviewDomain.js";
 
 export const useIframeUrl = () => {
     const { tenant } = useTenancy();

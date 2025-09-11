@@ -1,5 +1,5 @@
-export * from "./Description";
-export * from "./ErrorMessage";
-export type * from "./FormComponent";
-export * from "./Label";
-export * from "./Note";
+export * from "./Description.js";
+export * from "./ErrorMessage.js";
+export type * from "./FormComponent.js";
+export * from "./Label.js";
+export * from "./Note.js";

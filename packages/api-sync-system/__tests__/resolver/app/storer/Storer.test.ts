@@ -14,6 +14,7 @@ import {
 } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { createCommandBundle } from "~/resolver/app/bundler/CommandBundle.js";
 import { mockClient } from "aws-sdk-client-mock";
+import { jest } from "@jest/globals";
 
 const item1 = createMockTableItemData({
     order: 1,

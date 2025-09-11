@@ -37,4 +37,4 @@ export type {
 
 export { unmarshall, marshall } from "@aws-sdk/util-dynamodb";
 
-export { getDocumentClient } from "./getDocumentClient";
+export { getDocumentClient } from "./getDocumentClient.js";

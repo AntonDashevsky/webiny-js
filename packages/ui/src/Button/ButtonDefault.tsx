@@ -1,6 +1,6 @@
 import React from "react";
-import type { ButtonProps } from "./Button";
-import { useMappedButtonProps } from "~/Button/useMappedButtonProps";
+import type { ButtonProps } from "./Button.js";
+import { useMappedButtonProps } from "~/Button/useMappedButtonProps.js";
 import { Button as AdminUiButton } from "@webiny/admin-ui";
 
 /**

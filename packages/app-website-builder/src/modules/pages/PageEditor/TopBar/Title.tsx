@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { Input, Text } from "@webiny/admin-ui";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
 
 export function Title() {
     const [localValue, setLocalValue] = useState<string | undefined>();

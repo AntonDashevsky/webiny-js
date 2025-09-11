@@ -1,5 +1,5 @@
-import type { GetLogEventsRequest } from "@webiny/aws-sdk/client-cloudwatch";
-import { CloudWatchLogs } from "@webiny/aws-sdk/client-cloudwatch";
+import type { GetLogEventsRequest } from "@webiny/aws-sdk/client-cloudwatch/index.js";
+import { CloudWatchLogs } from "@webiny/aws-sdk/client-cloudwatch/index.js";
 
 const cache = new Map<string, LogStream>();
 

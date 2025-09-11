@@ -1,4 +1,4 @@
-import { validation, ValidationError } from "../src";
+import { validation, ValidationError } from "../src/index.js";
 
 describe("lt test", () => {
     it("should not get triggered if an empty value was set", async () => {

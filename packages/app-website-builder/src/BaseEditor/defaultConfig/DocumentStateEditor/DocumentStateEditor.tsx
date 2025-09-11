@@ -4,7 +4,7 @@ import { Button } from "@webiny/admin-ui";
 import { useDialogs } from "@webiny/app-admin";
 import type { GenericFormData } from "@webiny/form";
 import { Bind } from "@webiny/form";
-import { useDocumentEditor } from "~/DocumentEditor";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
 import { autorun, toJS } from "mobx";
 import { observer } from "mobx-react-lite";
 import type { EditorDocument } from "@webiny/website-builder-sdk";

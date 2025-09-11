@@ -1,5 +1,5 @@
-import { mimeTypes } from "~/utils/mimeTypes";
-import type { PresignedPostPayloadData } from "~/types";
+import { mimeTypes } from "~/utils/mimeTypes.js";
+import type { PresignedPostPayloadData } from "~/types.js";
 
 export class FileExtension {
     private data: PresignedPostPayloadData;

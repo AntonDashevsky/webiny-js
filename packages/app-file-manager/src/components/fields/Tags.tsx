@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { Label, MultiAutoComplete } from "@webiny/admin-ui";
 import { useBind } from "@webiny/form";
-import { useFileManagerApi, useFileManagerView } from "~/index";
-import { THREAT_SCAN } from "~/modules/Enterprise/constants";
-import { useFileOrUndefined } from "./useFileOrUndefined";
+import { useFileManagerApi, useFileManagerView } from "~/index.js";
+import { THREAT_SCAN } from "~/modules/Enterprise/constants.js";
+import { useFileOrUndefined } from "./useFileOrUndefined.js";
 
 export const Tags = () => {
     const { file } = useFileOrUndefined();

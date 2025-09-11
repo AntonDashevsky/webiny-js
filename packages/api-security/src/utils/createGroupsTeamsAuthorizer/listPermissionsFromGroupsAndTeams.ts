@@ -1,6 +1,6 @@
-import { getPermissionsFromSecurityGroupsForLocale } from "../getPermissionsFromSecurityGroupsForLocale";
-import type { SecurityContext, SecurityRole } from "~/types";
-import type { Identity } from "@webiny/api-authentication/types";
+import { getPermissionsFromSecurityGroupsForLocale } from "../getPermissionsFromSecurityGroupsForLocale.js";
+import type { SecurityContext, SecurityRole } from "~/types.js";
+import type { Identity } from "@webiny/api-authentication/types.js";
 
 export type GroupSlug = string | undefined;
 export type TeamSlug = string | undefined;

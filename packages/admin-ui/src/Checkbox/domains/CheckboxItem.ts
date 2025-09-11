@@ -1,5 +1,5 @@
-import type { CheckboxItemDto } from "./CheckboxItemDto";
-import { generateId } from "~/utils";
+import type { CheckboxItemDto } from "./CheckboxItemDto.js";
+import { generateId } from "~/utils.js";
 
 export class CheckboxItem {
     private readonly _id: string;

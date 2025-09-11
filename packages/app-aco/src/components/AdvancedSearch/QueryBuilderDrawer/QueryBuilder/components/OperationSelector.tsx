@@ -2,7 +2,7 @@ import React from "react";
 
 import { Bind } from "@webiny/form";
 import { Switch } from "@webiny/admin-ui";
-import { Operation } from "~/components/AdvancedSearch/domain";
+import { Operation } from "~/components/AdvancedSearch/domain/index.js";
 
 interface OperationSelectorProps {
     label: string;

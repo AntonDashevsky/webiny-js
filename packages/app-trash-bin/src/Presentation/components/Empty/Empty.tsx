@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
 import { ReactComponent as TrashIcon } from "@webiny/icons/delete_forever.svg";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
-import { useTrashBin } from "~/Presentation/hooks";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
 
 export const Empty = () => {
     const { vm } = useTrashBin();

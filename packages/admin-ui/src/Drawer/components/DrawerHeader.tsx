@@ -1,13 +1,13 @@
 import * as React from "react";
-import { cn } from "~/utils";
-import { type DrawerProps } from "../Drawer";
-import { DrawerTitle } from "./DrawerTitle";
-import { DrawerDescription } from "./DrawerDescription";
+import { cn } from "~/utils.js";
+import { type DrawerProps } from "../Drawer.js";
+import { DrawerTitle } from "./DrawerTitle.js";
+import { DrawerDescription } from "./DrawerDescription.js";
 import { ReactComponent as XIcon } from "@webiny/icons/close.svg";
-import { IconButton } from "~/Button";
+import { IconButton } from "~/Button/index.js";
 import { Dialog as DrawerPrimitive } from "radix-ui";
 import { useMemo } from "react";
-import { Separator } from "~/Separator";
+import { Separator } from "~/Separator/index.js";
 
 export type DrawerHeaderProps = Omit<React.HTMLAttributes<HTMLDivElement>, "title"> &
     Pick<DrawerProps, "title" | "icon" | "description" | "showCloseButton"> & {

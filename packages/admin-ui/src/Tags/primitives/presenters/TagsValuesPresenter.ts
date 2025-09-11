@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import minimatch from "minimatch";
-import { TagItem, type TagItemFormatted, TagItemMapper } from "~/Tags/domain";
+import { TagItem, type TagItemFormatted, TagItemMapper } from "~/Tags/domain/index.js";
 
 interface TagsValuesPresenterParams {
     values?: string[];

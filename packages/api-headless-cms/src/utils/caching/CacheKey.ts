@@ -1,4 +1,4 @@
-import type { ICacheKey } from "./types";
+import type { ICacheKey } from "./types.js";
 import type { ICacheKeyKeys } from "@webiny/utils";
 import { createCacheKey as createCacheKeyValue } from "@webiny/utils";
 

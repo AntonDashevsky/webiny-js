@@ -1,4 +1,4 @@
-import type { CmsFieldValueTransformer, CmsModelField } from "~/types";
+import type { CmsFieldValueTransformer, CmsModelField } from "~/types/index.js";
 import { plugins } from "@webiny/plugins";
 
 interface AvailableFieldTransformers {

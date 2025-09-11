@@ -1,4 +1,4 @@
-import useGqlHandler from "./useGqlHandler";
+import useGqlHandler from "./useGqlHandler.js";
 
 describe("getI18NInformation Test", () => {
     const { createI18NLocale, getI18NInformation } = useGqlHandler();

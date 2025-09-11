@@ -1,4 +1,4 @@
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 import { Plugin } from "@webiny/plugins";
 import type { FastifyReply, FastifyRequest } from "fastify";
 

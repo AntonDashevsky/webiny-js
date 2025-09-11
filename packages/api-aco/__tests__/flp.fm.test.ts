@@ -1,6 +1,6 @@
-import { useGraphQlHandler } from "./utils/useGraphQlHandler";
-import { expectNotAuthorized } from "./utils/expectNotAuthorized";
-import type { SecurityIdentity } from "@webiny/api-security/types";
+import { useGraphQlHandler } from "./utils/useGraphQlHandler.js";
+import { expectNotAuthorized } from "./utils/expectNotAuthorized.js";
+import type { SecurityIdentity } from "@webiny/api-security/types.js";
 import { mdbid } from "@webiny/utils";
 import { jest } from "@jest/globals";
 

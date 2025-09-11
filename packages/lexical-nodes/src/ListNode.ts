@@ -14,12 +14,12 @@ import { ElementNode } from "lexical";
 import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
 import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement, removeClassNamesFromElement } from "@lexical/utils";
-import type { ListNodeTagType } from "@lexical/list/LexicalListNode";
-import { $getListDepth, wrapInListItem } from "~/utils/listNode";
-import type { ListItemNode } from "./ListItemNode";
-import { $isListItemNode } from "./ListItemNode";
+import type { ListNodeTagType } from "@lexical/list/LexicalListNode.js";
+import { $getListDepth, wrapInListItem } from "~/utils/listNode.js";
+import type { ListItemNode } from "./ListItemNode.js";
+import { $isListItemNode } from "./ListItemNode.js";
 import type { ListType } from "@lexical/list";
-import type { TypographyStylesNode } from "~/types";
+import type { TypographyStylesNode } from "~/types.js";
 
 export type SerializedWebinyListNode = Spread<
     {

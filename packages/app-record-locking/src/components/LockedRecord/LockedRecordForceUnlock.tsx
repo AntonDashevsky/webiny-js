@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Alert, Button, Text } from "@webiny/admin-ui";
-import type { IRecordLockingError, IRecordLockingIdentity } from "~/types";
+import type { IRecordLockingError, IRecordLockingIdentity } from "~/types.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import { useRecordLocking, usePermission } from "~/hooks";
+import { useRecordLocking, usePermission } from "~/hooks/index.js";
 import { useRouter } from "@webiny/react-router";
 import { useContentEntriesList } from "@webiny/app-headless-cms";
 

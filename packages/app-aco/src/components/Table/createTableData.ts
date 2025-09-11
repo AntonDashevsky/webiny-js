@@ -1,5 +1,5 @@
-import type { FolderTableRow, RecordTableRow } from "~/table.types";
-import type { FolderItem } from "~/types";
+import type { FolderTableRow, RecordTableRow } from "~/table.types.js";
+import type { FolderItem } from "~/types.js";
 
 export const createRecordsData = <T extends { id: string }>(items: T[]): RecordTableRow<T>[] => {
     return items.map(item => ({

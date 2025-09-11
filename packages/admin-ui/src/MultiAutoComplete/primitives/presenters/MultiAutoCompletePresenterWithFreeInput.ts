@@ -1,9 +1,9 @@
 import { makeAutoObservable } from "mobx";
-import type { IMultiAutoCompleteTemporaryOptionPresenter } from "./MultiAutoCompleteTemporaryOptionPresenter";
+import type { IMultiAutoCompleteTemporaryOptionPresenter } from "./MultiAutoCompleteTemporaryOptionPresenter.js";
 import type {
     IMultiAutoCompletePresenter,
     MultiAutoCompletePresenterParams
-} from "./MultiAutoCompletePresenter";
+} from "./MultiAutoCompletePresenter.js";
 
 class MultiAutoCompletePresenterWithFreeInput implements IMultiAutoCompletePresenter {
     private temporaryOptionPresenter: IMultiAutoCompleteTemporaryOptionPresenter;

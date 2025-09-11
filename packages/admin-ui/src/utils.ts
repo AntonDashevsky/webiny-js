@@ -1,6 +1,6 @@
 import type React from "react";
 import { clsx, type ClassValue } from "clsx";
-import { generateId as baseGenerateId } from "@webiny/utils/generateId";
+import { generateId as baseGenerateId } from "@webiny/utils/generateId.js";
 import { extendTailwindMerge } from "tailwind-merge";
 import { cva, type VariantProps } from "class-variance-authority";
 export { makeDecoratable } from "@webiny/react-composition";

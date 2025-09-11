@@ -1,1 +1,1 @@
-export * from "./MultiFilePickerPresenter";
+export * from "./MultiFilePickerPresenter.js";

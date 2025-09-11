@@ -1,6 +1,7 @@
-import { type ITagsPresenter, TagsPresenter } from "./TagsPresenter";
-import { TagsValuesPresenter } from "./TagsValuesPresenter";
-import { TagsInputPresenter } from "./TagsInputPresenter";
+import { type ITagsPresenter, TagsPresenter } from "./TagsPresenter.js";
+import { TagsValuesPresenter } from "./TagsValuesPresenter.js";
+import { TagsInputPresenter } from "./TagsInputPresenter.js";
+import { jest } from "@jest/globals";
 
 const createPresenter = (): ITagsPresenter => {
     const tagsInputPresenter = new TagsInputPresenter();

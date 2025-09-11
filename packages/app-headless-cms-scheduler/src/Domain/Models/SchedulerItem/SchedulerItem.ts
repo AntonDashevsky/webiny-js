@@ -1,5 +1,5 @@
-import type { CmsIdentity, CmsModel, SchedulerEntry } from "~/types";
-import type { ScheduleType } from "~/types";
+import type { CmsIdentity, CmsModel, SchedulerEntry } from "~/types.js";
+import type { ScheduleType } from "~/types.js";
 
 export class SchedulerItem {
     public readonly id: string;

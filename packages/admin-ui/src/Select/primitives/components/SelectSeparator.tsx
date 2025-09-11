@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Select as SelectPrimitives } from "radix-ui";
-import { cn } from "~/utils";
+import { cn } from "~/utils.js";
 
 type SelectSeparatorProps = SelectPrimitives.SelectSeparatorProps;
 

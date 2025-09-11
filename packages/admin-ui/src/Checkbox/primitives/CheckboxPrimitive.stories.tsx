@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CheckboxPrimitive } from "./CheckboxPrimitive";
+import { CheckboxPrimitive } from "./CheckboxPrimitive.js";
 
 const meta: Meta<typeof CheckboxPrimitive> = {
     title: "Components/Form Primitives/Checkbox",

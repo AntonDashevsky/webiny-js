@@ -1,6 +1,6 @@
-import { Settings } from "~/domain/Settings";
-import type { IGetSettingsGateway } from "~/features/getSettings/abstractions/IGetSettings.gateway";
-import type { IGetSettingsRepository } from "~/features/getSettings/abstractions/IGetSettings.repository";
+import { Settings } from "~/domain/Settings.js";
+import type { IGetSettingsGateway } from "~/features/getSettings/abstractions/IGetSettings.gateway.js";
+import type { IGetSettingsRepository } from "~/features/getSettings/abstractions/IGetSettings.repository.js";
 
 export type GetTenantId = () => string;
 

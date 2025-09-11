@@ -6,7 +6,6 @@
     { "path": "../app-aco/tsconfig.build.json" },
     { "path": "../app-admin/tsconfig.build.json" },
     { "path": "../app-admin-ui/tsconfig.build.json" },
-    { "path": "../app-apw/tsconfig.build.json" },
     { "path": "../app-audit-logs/tsconfig.build.json" },
     { "path": "../app-file-manager/tsconfig.build.json" },
     { "path": "../app-file-manager-s3/tsconfig.build.json" },

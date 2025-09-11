@@ -1,5 +1,5 @@
 import type { ResponseHeaders } from "@webiny/handler";
-import type { Asset, AssetOutputStrategy, AssetReply } from "~/delivery";
+import type { Asset, AssetOutputStrategy, AssetReply } from "~/delivery/index.js";
 
 export class SetCacheControlHeaders implements AssetOutputStrategy {
     private readonly strategy: AssetOutputStrategy | undefined;

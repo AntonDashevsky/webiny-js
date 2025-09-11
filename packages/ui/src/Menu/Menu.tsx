@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { DropdownMenu as AdminUiDropdownMenu } from "@webiny/admin-ui/DropdownMenu";
-import { ListItemGraphic } from "~/List";
+import { DropdownMenu as AdminUiDropdownMenu } from "@webiny/admin-ui/DropdownMenu/index.js";
+import { ListItemGraphic } from "~/List/index.js";
 
 export type MenuChildrenFunctionProps = {
     closeMenu: () => void;

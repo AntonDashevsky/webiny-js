@@ -1,9 +1,9 @@
-import type { S3Client } from "@webiny/aws-sdk/client-s3";
+import type { S3Client } from "@webiny/aws-sdk/client-s3/index.js";
 import {
     AbortMultipartUploadCommand,
     CompleteMultipartUploadCommand,
     UploadPartCommand
-} from "@webiny/aws-sdk/client-s3";
+} from "@webiny/aws-sdk/client-s3/index.js";
 import { WebinyError } from "@webiny/error";
 import bytes from "bytes";
 import type {

@@ -1,6 +1,6 @@
-import { createHandler } from "~/raw";
+import { createHandler } from "~/raw/index.js";
 import { EventPlugin } from "@webiny/handler";
-import type { LambdaContext } from "./types";
+import type { LambdaContext } from "./types.js";
 
 describe("raw", () => {
     it("should exec event and output should not be transformed into reply", async () => {

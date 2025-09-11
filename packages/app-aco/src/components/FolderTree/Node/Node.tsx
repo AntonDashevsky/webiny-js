@@ -3,9 +3,9 @@ import { Text, Tree } from "@webiny/admin-ui";
 import { ReactComponent as Folder } from "@webiny/icons/folder.svg";
 import { ReactComponent as FolderShared } from "@webiny/icons/folder_shared.svg";
 import { ReactComponent as HomeIcon } from "@webiny/icons/home.svg";
-import { MenuActions } from "../MenuActions";
-import { ROOT_FOLDER } from "~/constants";
-import { useFolder } from "~/hooks";
+import { MenuActions } from "../MenuActions/index.js";
+import { ROOT_FOLDER } from "~/constants.js";
+import { useFolder } from "~/hooks/index.js";
 
 interface FolderProps {
     text: string;

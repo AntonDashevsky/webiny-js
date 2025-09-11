@@ -5,10 +5,10 @@ import { getLayerArn } from "@webiny/aws-layers";
 import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
 
-import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils";
-import { ApiGraphql, CoreOutput, VpcConfig } from "~/pulumi/apps";
-import { getAwsAccountId } from "~/pulumi/apps/awsUtils";
-import { LAMBDA_RUNTIME } from "~/pulumi/constants";
+import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
+import { ApiGraphql, CoreOutput, VpcConfig } from "~/pulumi/apps/index.js";
+import { getAwsAccountId } from "~/pulumi/apps/awsUtils.js";
+import { LAMBDA_RUNTIME } from "~/pulumi/constants.js";
 
 export type ApiFileManager = PulumiAppModule<typeof ApiFileManager>;
 

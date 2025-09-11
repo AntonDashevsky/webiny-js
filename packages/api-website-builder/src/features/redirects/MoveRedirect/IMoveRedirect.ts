@@ -1,4 +1,4 @@
-import type { MoveWbRedirectParams } from "~/context/redirects/redirects.types";
+import type { MoveWbRedirectParams } from "~/context/redirects/redirects.types.js";
 
 export interface IMoveRedirect {
     execute: (params: MoveWbRedirectParams) => Promise<void>;

@@ -1,9 +1,9 @@
 import React from "react";
 import { Accordion } from "@webiny/admin-ui";
-import { PermissionRendererPlugin } from "@webiny/app-admin/plugins/PermissionRendererPlugin";
-import { i18n } from "@webiny/app/i18n";
+import { PermissionRendererPlugin } from "@webiny/app-admin/plugins/PermissionRendererPlugin.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as PermissionsIcon } from "@webiny/icons/translate.svg";
-import { I18NPermissions } from "./I18NPermissions";
+import { I18NPermissions } from "./I18NPermissions.js";
 
 const t = i18n.ns("app-i18n/admin/plugins/permissionRenderer");
 

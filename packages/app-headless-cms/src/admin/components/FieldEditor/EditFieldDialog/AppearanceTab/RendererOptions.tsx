@@ -1,6 +1,6 @@
 import React from "react";
-import type { CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types";
-import { useModelField } from "~/admin/components/ModelFieldProvider";
+import type { CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types/index.js";
+import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
 import { Grid, Heading, Text } from "@webiny/admin-ui";
 
 interface RendererOptionsProps {

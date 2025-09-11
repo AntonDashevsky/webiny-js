@@ -2,7 +2,7 @@ import type {
     CmsEntryStorageOperationsGetLatestByIdsParams,
     CmsModel,
     CmsStorageEntry
-} from "~/types";
+} from "~/types/index.js";
 
 export interface IGetLatestEntriesByIds {
     execute: (

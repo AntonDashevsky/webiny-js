@@ -23,9 +23,9 @@ import {
 } from "@webiny/lexical-editor";
 import { CompositionScope } from "@webiny/app-admin";
 import { LexicalEditorConfig } from "@webiny/lexical-editor";
-import { TypographyDropDown } from "./TypographyDropDown";
-import { ExpandEditorAction } from "./ExpandEditorAction";
-import { LinkEditForm } from "./LinkEditForm";
+import { TypographyDropDown } from "./TypographyDropDown.js";
+import { ExpandEditorAction } from "./ExpandEditorAction.js";
+import { LinkEditForm } from "./LinkEditForm.js";
 
 const { ToolbarElement, Plugin } = LexicalEditorConfig;
 

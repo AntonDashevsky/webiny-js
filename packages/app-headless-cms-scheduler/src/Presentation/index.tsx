@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
 import { AcoWithConfig } from "@webiny/app-aco";
-import { SchedulerRenderer } from "~/Presentation/SchedulerRenderer";
+import { SchedulerRenderer } from "~/Presentation/SchedulerRenderer/index.js";
 import { CompositionScope } from "@webiny/react-composition";
-import { SchedulerListWithConfig } from "~/Presentation/configs";
+import { SchedulerListWithConfig } from "~/Presentation/configs/index.js";
 import type {
     ISchedulerCancelGateway,
     ISchedulerGetGateway,

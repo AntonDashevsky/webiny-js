@@ -1,4 +1,4 @@
-import { validation, ValidationError } from "../src";
+import { validation, ValidationError } from "../src/index.js";
 
 describe("required test", () => {
     it("should fail - empty string", async () => {

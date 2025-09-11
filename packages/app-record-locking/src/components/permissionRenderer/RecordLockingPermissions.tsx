@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo } from "react";
-import { i18n } from "@webiny/app/i18n";
-import { gridWithPaddingClass, PermissionInfo } from "@webiny/app-admin/components/Permissions";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { gridWithPaddingClass, PermissionInfo } from "@webiny/app-admin/components/Permissions/index.js";
 import { Form } from "@webiny/form";
-import type { RecordLockingSecurityPermission } from "~/types";
+import type { RecordLockingSecurityPermission } from "~/types.js";
 import { Grid, Select } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-record-locking/components/permissionRenderer");

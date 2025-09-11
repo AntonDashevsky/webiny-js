@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useRecordLocking } from "~/hooks";
-import { LockedRecord } from "../LockedRecord";
-import type { IRecordLockingLockRecord } from "~/types";
-import type { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types";
+import { useRecordLocking } from "~/hooks/index.js";
+import { LockedRecord } from "../LockedRecord/index.js";
+import type { IRecordLockingLockRecord } from "~/types.js";
+import type { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types.js";
 import { OverlayLoader } from "@webiny/admin-ui";
 
 export interface IContentEntryGuardProps {

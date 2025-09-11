@@ -5,7 +5,7 @@ import { Accordion } from "@webiny/admin-ui";
 import type { FormAPI, FormOnSubmit } from "@webiny/form";
 import { Form } from "@webiny/form";
 
-import type { QueryBuilderFormData, QueryBuilderViewModel } from "../QueryBuilderDrawerPresenter";
+import type { QueryBuilderFormData, QueryBuilderViewModel } from "../QueryBuilderDrawerPresenter.js";
 
 import {
     AddFilter,
@@ -15,9 +15,9 @@ import {
     FilterOperationLabel,
     GroupOperationLabel,
     OperationSelector
-} from "./components";
+} from "./components/index.js";
 
-import type { FieldDTOWithElement } from "~/components/AdvancedSearch/domain";
+import type { FieldDTOWithElement } from "~/components/AdvancedSearch/domain/index.js";
 
 export interface QueryBuilderProps {
     onForm: (form: FormAPI) => void;

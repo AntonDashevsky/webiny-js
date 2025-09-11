@@ -4,7 +4,7 @@ import { ReactComponent as Close } from "@webiny/icons/close.svg";
 import { Buttons } from "@webiny/app-admin";
 import { useDocumentList } from "~/modules/redirects/RedirectsList/useDocumentList.js";
 import { useSelectRedirects } from "~/features/redirects/selectRedirects/useSelectRedirects.js";
-import { useRedirectListConfig } from "~/modules/redirects/configs";
+import { useRedirectListConfig } from "~/modules/redirects/configs/index.js";
 
 export const getRedirectsLabel = (count = 0): string => {
     return `${count} ${count === 1 ? "redirect" : "redirects"}`;

@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import orderBy from "lodash/orderBy";
+import orderBy from "lodash/orderBy.js";
 import { loadingActions, ROOT_FOLDER, WB_REDIRECTS_APP } from "~/constants.js";
 import type { ISortingRepository } from "@webiny/app-utils";
 import {
@@ -20,7 +20,7 @@ import {
     selectedItemsRepositoryFactory
 } from "~/domain/SelectedItem/index.js";
 import { filterRepositoryFactory, type IFilterRepository } from "~/domain/Filter/index.js";
-import type { Redirect } from "~/domain/Redirect";
+import type { Redirect } from "~/domain/Redirect/index.js";
 
 interface DocumentListPresenterParams {
     folderId: string;

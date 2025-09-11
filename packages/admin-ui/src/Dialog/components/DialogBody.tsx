@@ -1,6 +1,6 @@
 import * as React from "react";
-import { cn, cva } from "~/utils";
-import type { DialogProps } from "~/Dialog";
+import { cn, cva } from "~/utils.js";
+import type { DialogProps } from "~/Dialog/index.js";
 
 const dialogBodyVariants = cva("wby-flex-1", {
     // Flex grows to fill available space - we need this for the body to expand in case of a "fullscreen" dialog

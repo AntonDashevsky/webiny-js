@@ -1,1 +1,1 @@
-export * from "./NodePreview";
+export * from "./NodePreview.js";

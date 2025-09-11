@@ -2,7 +2,7 @@ import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import type { IUpdateRedirectGateway } from "./IUpdateRedirectGateway.js";
 import type { RedirectDto } from "./RedirectDto.js";
-import { type WbError } from "~/types";
+import { type WbError } from "~/types.js";
 import type { RedirectGqlDto } from "~/features/redirects/createRedirect/RedirectGqlDto.js";
 
 export interface UpdateRedirectResponse {

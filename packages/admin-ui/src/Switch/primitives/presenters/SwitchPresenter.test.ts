@@ -1,4 +1,5 @@
-import { SwitchPresenter } from "./SwitchPresenter";
+import { SwitchPresenter } from "./SwitchPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("SwitchPresenter", () => {
     const onChange = jest.fn();

@@ -1,9 +1,9 @@
 import React from "react";
-import capitalize from "lodash/capitalize";
-import { createResourcePicker } from "./createResourcePicker";
-import { createResourceListPicker } from "./createResourceListPicker";
+import capitalize from "lodash/capitalize.js";
+import { createResourcePicker } from "./createResourcePicker.js";
+import { createResourceListPicker } from "./createResourceListPicker.js";
 import { Editor } from "~/index.js";
-import { useEcommerceApi } from "~/features/ecommerce/apis";
+import { useEcommerceApi } from "~/features/ecommerce/apis/index.js";
 
 const { ElementInput } = Editor.EditorConfig;
 

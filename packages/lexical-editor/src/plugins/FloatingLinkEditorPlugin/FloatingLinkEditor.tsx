@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { getSelectedNode } from "~/utils/getSelectedNode";
+import { getSelectedNode } from "~/utils/getSelectedNode.js";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@webiny/lexical-nodes";
-import { setFloatingElemPosition } from "~/utils/setFloatingElemPosition";
-import { sanitizeUrl } from "~/utils/sanitizeUrl";
-import { isChildOfLinkEditor } from "./isChildOfLinkEditor";
-import { LinkEditForm as DefaultLinkEditForm } from "./LinkEditForm";
-import { LinkPreviewForm } from "./LinkPreviewForm";
+import { setFloatingElemPosition } from "~/utils/setFloatingElemPosition.js";
+import { sanitizeUrl } from "~/utils/sanitizeUrl.js";
+import { isChildOfLinkEditor } from "./isChildOfLinkEditor.js";
+import { LinkEditForm as DefaultLinkEditForm } from "./LinkEditForm.js";
+import { LinkPreviewForm } from "./LinkPreviewForm.js";
 import {
     SELECTION_CHANGE_COMMAND,
     type BaseSelection,

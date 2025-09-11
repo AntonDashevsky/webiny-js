@@ -1,1 +1,1 @@
-export * from "./DelayedOnChange";
+export * from "./DelayedOnChange.js";

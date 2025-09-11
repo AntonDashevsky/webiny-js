@@ -1,5 +1,5 @@
-import type { IGetPublishedEntriesByIds } from "../../abstractions";
-import type { CmsEntryStorageOperationsGetPublishedByIdsParams, CmsModel } from "~/types";
+import type { IGetPublishedEntriesByIds } from "../../abstractions/index.js";
+import type { CmsEntryStorageOperationsGetPublishedByIdsParams, CmsModel } from "~/types/index.js";
 
 export class GetPublishedEntriesByIdsNotDeleted implements IGetPublishedEntriesByIds {
     private getPublishedEntriesByIds: IGetPublishedEntriesByIds;

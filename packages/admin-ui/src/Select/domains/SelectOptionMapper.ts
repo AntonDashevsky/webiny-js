@@ -1,5 +1,5 @@
-import type { SelectOption } from "./SelectOption";
-import type { SelectOptionFormatted } from "./SelectOptionFormatted";
+import type { SelectOption } from "./SelectOption.js";
+import type { SelectOptionFormatted } from "./SelectOptionFormatted.js";
 
 export class SelectOptionMapper {
     static toFormatted(option: SelectOption): SelectOptionFormatted {

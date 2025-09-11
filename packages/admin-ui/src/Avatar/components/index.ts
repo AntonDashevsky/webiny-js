@@ -1,2 +1,2 @@
-export * from "./AvatarFallback";
-export * from "./AvatarImage";
+export * from "./AvatarFallback.js";
+export * from "./AvatarImage.js";

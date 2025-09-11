@@ -1,9 +1,9 @@
 import * as React from "react";
-import { cn, cva, makeDecoratable, withStaticProps, type VariantProps } from "~/utils";
-import { Text } from "~/Text";
-import { ListItemAction } from "./ListItemAction";
-import { ListItemHandle } from "./ListItemHandle";
-import { ListItemIcon } from "./ListItemIcon";
+import { cn, cva, makeDecoratable, withStaticProps, type VariantProps } from "~/utils.js";
+import { Text } from "~/Text/index.js";
+import { ListItemAction } from "./ListItemAction.js";
+import { ListItemHandle } from "./ListItemHandle.js";
+import { ListItemIcon } from "./ListItemIcon.js";
 
 const listItemVariant = cva(
     [

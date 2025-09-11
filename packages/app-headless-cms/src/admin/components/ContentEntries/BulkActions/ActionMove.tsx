@@ -3,9 +3,9 @@ import { ReactComponent as MoveIcon } from "@webiny/icons/exit_to_app.svg";
 import { useRecords, useMoveToFolderDialog, useNavigateFolder } from "@webiny/app-aco";
 import { useSnackbar } from "@webiny/app-admin";
 import { observer } from "mobx-react-lite";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { ROOT_FOLDER } from "~/admin/constants";
-import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { ROOT_FOLDER } from "~/admin/constants.js";
+import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions.js";
 import { type NodeDto, Tooltip } from "@webiny/admin-ui";
 
 export const ActionMove = observer(() => {

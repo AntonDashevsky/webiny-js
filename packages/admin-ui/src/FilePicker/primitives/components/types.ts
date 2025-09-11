@@ -1,6 +1,6 @@
-import type { VariantProps } from "~/utils";
-import type { previewVariants } from "./previews/variants";
-import type { FileItemFormatted } from "../../domains";
+import type { VariantProps } from "~/utils.js";
+import type { previewVariants } from "./previews/variants.js";
+import type { FileItemFormatted } from "../../domains/index.js";
 
 /**
  * Default properties of a file preview component.

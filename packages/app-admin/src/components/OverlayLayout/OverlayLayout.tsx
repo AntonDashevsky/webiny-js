@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import type { ExitHandler } from "react-transition-group/Transition";
-import { OverlayView } from "~/ui/views/OverlayView";
-import type { overlayHeaderVariants } from "./components";
-import { OverlayBackdrop, OverlayContent, OverlayHeader, OverlayRoot } from "./components";
+import { OverlayView } from "~/ui/views/OverlayView.js";
+import type { overlayHeaderVariants } from "./components/index.js";
+import { OverlayBackdrop, OverlayContent, OverlayHeader, OverlayRoot } from "./components/index.js";
 import { Portal, type VariantProps } from "@webiny/admin-ui";
 
 const noScrollBodyClassNames = ["wby-overflow-hidden", "wby-h-screen"];

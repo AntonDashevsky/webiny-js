@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as JsonIcon } from "@webiny/icons/data_object.svg";
-import type { CmsModelFieldTypePlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
+import type { CmsModelFieldTypePlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields");
 

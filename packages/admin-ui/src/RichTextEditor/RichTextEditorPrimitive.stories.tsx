@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { RichTextEditorPrimitive } from "./RichTextEditorPrimitive";
+import { RichTextEditorPrimitive } from "./RichTextEditorPrimitive.js";
 
 const meta: Meta<typeof RichTextEditorPrimitive> = {
     title: "Components/Form Primitives/RichTextEditor",

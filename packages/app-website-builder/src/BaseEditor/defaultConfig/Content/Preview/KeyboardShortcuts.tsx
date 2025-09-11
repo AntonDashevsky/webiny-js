@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from "react";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { useKeyHandler } from "~/BaseEditor/hooks/useKeyHandler";
-import { $getActiveElementId, $getComponentManifestByElementId } from "~/editorSdk/utils";
-import { Commands } from "~/BaseEditor";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { useKeyHandler } from "~/BaseEditor/hooks/useKeyHandler.js";
+import { $getActiveElementId, $getComponentManifestByElementId } from "~/editorSdk/utils/index.js";
+import { Commands } from "~/BaseEditor/index.js";
 
 export const KeyboardShortcuts = () => {
     const editor = useDocumentEditor();

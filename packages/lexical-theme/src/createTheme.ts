@@ -1,5 +1,5 @@
 import type { EditorThemeClasses } from "lexical";
-import type { ThemeEmotionMap } from "~/types";
+import type { ThemeEmotionMap } from "~/types.js";
 
 export type EditorTheme = {
     styles: Record<string, any>;

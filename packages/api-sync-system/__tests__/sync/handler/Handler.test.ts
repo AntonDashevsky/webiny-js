@@ -7,19 +7,20 @@ import {
     QueryCommand,
     ScanCommand,
     UpdateCommand
-} from "@webiny/aws-sdk/client-dynamodb";
+} from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { createMockSyncHandler } from "~tests/mocks/syncHandler.js";
 import type {
     PutEventsCommandInput,
     PutEventsCommandOutput
-} from "@webiny/aws-sdk/client-eventbridge";
+} from "@webiny/aws-sdk/client-eventbridge/index.js";
 import {
     createEventBridgeClient,
     EventBridgeClient,
     PutEventsCommand
-} from "@webiny/aws-sdk/client-eventbridge";
+} from "@webiny/aws-sdk/client-eventbridge/index.js";
 import { generateAlphaNumericId } from "@webiny/utils";
 import { mockClient } from "aws-sdk-client-mock";
+import { jest } from "@jest/globals";
 
 describe("Handler", () => {
     const tableName = process.env.DB_TABLE as string;

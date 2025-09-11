@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ImageEditor } from "./ImageEditor";
+import { ImageEditor } from "./ImageEditor.js";
 import { Dialog, OverlayLoader } from "@webiny/admin-ui";
 
 interface ImageEditorDialogProps {

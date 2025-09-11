@@ -1,9 +1,9 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
-import type { ElementProps } from "./Element";
-import { Element } from "./Element";
-import type { ElementsProps } from "./Elements";
-import { Elements } from "./Elements";
+import type { ElementProps } from "./Element.js";
+import { Element } from "./Element.js";
+import type { ElementsProps } from "./Elements.js";
+import { Elements } from "./Elements.js";
 
 const SCOPE = "elementProperties";
 

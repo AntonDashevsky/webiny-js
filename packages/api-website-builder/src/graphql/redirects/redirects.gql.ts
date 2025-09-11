@@ -4,10 +4,10 @@ import {
     ListResponse,
     Response
 } from "@webiny/handler-graphql";
-import { ensureAuthentication } from "~/utils/ensureAuthentication";
-import { resolve } from "~/utils/resolve";
-import type { WebsiteBuilderContext } from "~/context/types";
-import { redirectsTypeDefs } from "~/graphql/redirects/redirects.typeDefs";
+import { ensureAuthentication } from "~/utils/ensureAuthentication.js";
+import { resolve } from "~/utils/resolve.js";
+import type { WebsiteBuilderContext } from "~/context/types.js";
+import { redirectsTypeDefs } from "~/graphql/redirects/redirects.typeDefs.js";
 
 export const createRedirectsSchema = () => {
     const pageGraphQL = new GraphQLSchemaPlugin<WebsiteBuilderContext>({

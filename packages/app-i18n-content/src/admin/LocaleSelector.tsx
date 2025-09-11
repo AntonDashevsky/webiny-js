@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
 import { Select } from "@webiny/admin-ui";
 import { LocaleSelector as BaseLocaleSelector } from "@webiny/app-admin";
 import { useSecurity } from "@webiny/app-security";
-import type { I18NSecurityPermission } from "@webiny/app-i18n/types";
+import type { I18NSecurityPermission } from "@webiny/app-i18n/types.js";
 
 export const LocaleSelector = BaseLocaleSelector.createDecorator(() => {
     return function LocaleSelector() {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormComponentLabel, type FormComponentProps } from "~/FormComponent";
+import { FormComponentLabel, type FormComponentProps } from "~/FormComponent/index.js";
 
 type FilePickerLabelProps = Pick<FormComponentProps, "label" | "disabled" | "required"> & {
     invalid?: boolean;

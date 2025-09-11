@@ -1,5 +1,5 @@
-import { Plugin } from "@webiny/plugins/Plugin";
-import type { CmsModelField } from "@webiny/api-headless-cms/types";
+import { Plugin } from "@webiny/plugins/Plugin.js";
+import type { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 
 export interface CreatePathCallableParams<T = any> {
     field: CmsModelField;

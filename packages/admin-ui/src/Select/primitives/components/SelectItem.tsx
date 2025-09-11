@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ReactComponent as Check } from "@webiny/icons/check.svg";
 import { Select as SelectPrimitives } from "radix-ui";
-import { cn } from "~/utils";
+import { cn } from "~/utils.js";
 
 type SelectItemProps = SelectPrimitives.SelectItemProps;
 

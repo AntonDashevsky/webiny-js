@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import { makeDecoratable } from "~/utils";
-import { useTags } from "./useTags";
-import { InputPrimitive, type InputPrimitiveProps } from "~/Input";
-import { Tag } from "~/Tag";
-import { IconButton } from "~/Button";
-import type { Icon } from "~/Icon";
+import { makeDecoratable } from "~/utils.js";
+import { useTags } from "./useTags.js";
+import { InputPrimitive, type InputPrimitiveProps } from "~/Input/index.js";
+import { Tag } from "~/Tag/index.js";
+import { IconButton } from "~/Button/index.js";
+import type { Icon } from "~/Icon/index.js";
 
 interface TagsPrimitiveProps
     extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "onChange"> {

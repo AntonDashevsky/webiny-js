@@ -1,5 +1,5 @@
-import type { ParseWhereKeyResult } from "~/where";
-import { parseWhereKey } from "~/where";
+import type { ParseWhereKeyResult } from "~/where.js";
+import { parseWhereKey } from "~/where.js";
 
 describe("where", () => {
     const whereKeys: [string, ParseWhereKeyResult][] = [

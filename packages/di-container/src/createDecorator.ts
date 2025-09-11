@@ -1,6 +1,6 @@
-import type { Abstraction } from "./Abstraction";
-import type { Constructor, Dependency, GetInterface, MapDependencies } from "./types";
-import { Metadata } from "./Metadata";
+import type { Abstraction } from "./Abstraction.js";
+import type { Constructor, Dependency, GetInterface, MapDependencies } from "./types.js";
+import { Metadata } from "./Metadata.js";
 
 type DropLast<T> = T extends [...infer P, any] ? [...P] : never;
 

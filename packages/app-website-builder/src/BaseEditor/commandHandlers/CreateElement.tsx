@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { Commands } from "~/BaseEditor";
-import { $createElement } from "~/editorSdk/utils";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { Commands } from "~/BaseEditor/index.js";
+import { $createElement } from "~/editorSdk/utils/index.js";
 
 export const CreateElement = () => {
     const editor = useDocumentEditor();

@@ -1,10 +1,10 @@
 import { useWcp } from "@webiny/app-admin";
 import React from "react";
-import { FileManagerViewConfig } from "~/index";
-import { THREAT_SCAN } from "~/modules/Enterprise/constants";
-import { ThreatScanInProgressFileBody } from "./components/ThreatScanInProgressFileBody";
-import { ThreatScanInProgressTableCell } from "./components/ThreatScanInProgressTableCell";
-import { HandleWebsocketMessages } from "./HandleWebsocketMessages";
+import { FileManagerViewConfig } from "~/index.js";
+import { THREAT_SCAN } from "~/modules/Enterprise/constants.js";
+import { ThreatScanInProgressFileBody } from "./components/ThreatScanInProgressFileBody.js";
+import { ThreatScanInProgressTableCell } from "./components/ThreatScanInProgressTableCell.js";
+import { HandleWebsocketMessages } from "./HandleWebsocketMessages.js";
 
 const { Grid, Table } = FileManagerViewConfig.Browser;
 

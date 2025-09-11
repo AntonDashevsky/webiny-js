@@ -1,10 +1,10 @@
-import type { CloudFrontResponse } from "~/lambdaEdge";
+import type { CloudFrontResponse } from "~/lambdaEdge/index.js";
 import { get } from "https";
 import { load } from "cheerio";
 import type { SrcSetDefinition } from "srcset";
 import { parse as parseSrcset, stringify as stringifySrcset } from "srcset";
-import { isHeaderBlacklisted } from "./headerBlacklist";
-import { logDebug } from "./log";
+import { isHeaderBlacklisted } from "./headerBlacklist.js";
+import { logDebug } from "./log.js";
 
 // TODO cheerio does not have Element type, so we define it here
 interface Element {

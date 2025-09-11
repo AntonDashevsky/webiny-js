@@ -1,7 +1,7 @@
 import React from "react";
 import { IconButton, Text, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as NewTabIcon } from "@webiny/icons/open_in_new.svg";
-import { usePreviewLink } from "./usePreviewLink";
+import { usePreviewLink } from "./usePreviewLink.js";
 
 export const OpenInNewTab = () => {
     const link = usePreviewLink();

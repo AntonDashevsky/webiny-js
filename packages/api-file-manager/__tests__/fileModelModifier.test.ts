@@ -1,6 +1,6 @@
-import { useHandler } from "./utils/useHandler";
-import { createFileModelModifier } from "~/index";
-import { fileAData, fileBData } from "./mocks/files";
+import { useHandler } from "./utils/useHandler.js";
+import { createFileModelModifier } from "~/index.js";
+import { fileAData, fileBData } from "./mocks/files.js";
 
 describe("File Model Modifier test", () => {
     test("should add custom fields to `extensions` object field", async () => {

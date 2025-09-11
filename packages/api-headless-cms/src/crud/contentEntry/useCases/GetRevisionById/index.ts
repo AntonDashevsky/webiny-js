@@ -1,6 +1,6 @@
-import { GetRevisionById } from "./GetRevisionById";
-import { GetRevisionByIdNotDeleted } from "./GetRevisionByIdNotDeleted";
-import type { CmsEntryStorageOperations } from "~/types";
+import { GetRevisionById } from "./GetRevisionById.js";
+import { GetRevisionByIdNotDeleted } from "./GetRevisionByIdNotDeleted.js";
+import type { CmsEntryStorageOperations } from "~/types/index.js";
 import type { ITransformEntryCallable } from "~/utils/entryStorage.js";
 
 interface GetRevisionByIdUseCasesParams {

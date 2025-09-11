@@ -2,14 +2,14 @@ import {
     ApiGatewayManagementApiClient,
     DeleteConnectionCommand,
     PostToConnectionCommand
-} from "@webiny/aws-sdk/client-apigatewaymanagementapi";
+} from "@webiny/aws-sdk/client-apigatewaymanagementapi/index.js";
 import type {
     IWebsocketsTransport,
     IWebsocketsTransportDisconnectConnection,
     IWebsocketsTransportSendConnection,
     IWebsocketsTransportSendData
-} from "./abstractions/IWebsocketsTransport";
-import type { GenericRecord } from "@webiny/api/types";
+} from "./abstractions/IWebsocketsTransport.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 
 export class WebsocketsTransport implements IWebsocketsTransport {
     private readonly clients = new Map<string, ApiGatewayManagementApiClient>();

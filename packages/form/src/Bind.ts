@@ -1,6 +1,6 @@
 import * as React from "react";
-import { useBind } from "~/useBind";
-import type { BindComponentProps } from "~/types";
+import { useBind } from "~/useBind.js";
+import type { BindComponentProps } from "~/types.js";
 
 export function Bind({ children, ...props }: BindComponentProps) {
     const bind = useBind(props);

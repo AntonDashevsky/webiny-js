@@ -1,6 +1,6 @@
 import { Result } from "@webiny/feature";
-import type { Tenant } from "~/types";
-import type { GetRootTenantUseCase as UseCase } from "./abstractions";
+import type { Tenant } from "~/types.js";
+import type { GetRootTenantUseCase as UseCase } from "./abstractions.js";
 
 export class GetRootTenantUseCase implements UseCase.Interface {
     constructor(private readonly getRootTenant: () => Promise<Tenant>) {}

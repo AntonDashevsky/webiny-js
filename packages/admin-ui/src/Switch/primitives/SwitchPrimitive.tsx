@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Switch as SwitchPrimitives } from "radix-ui";
-import { cn, cva, makeDecoratable, type VariantProps } from "~/utils";
-import { Label } from "~/Label";
-import { useSwitch } from "./useSwitch";
-import type { SwitchItemDto, SwitchItemFormatted } from "../domains";
+import { cn, cva, makeDecoratable, type VariantProps } from "~/utils.js";
+import { Label } from "~/Label/index.js";
+import { useSwitch } from "./useSwitch.js";
+import type { SwitchItemDto, SwitchItemFormatted } from "../domains/index.js";
 
 /**
  * Switch Renderer

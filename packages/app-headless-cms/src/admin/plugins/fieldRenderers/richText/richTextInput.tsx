@@ -1,17 +1,17 @@
 import React, { useMemo } from "react";
-import get from "lodash/get";
-import { i18n } from "@webiny/app/i18n";
-import { createPropsFromConfig, RichTextEditor } from "@webiny/app-admin/components/RichTextEditor";
+import get from "lodash/get.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { createPropsFromConfig, RichTextEditor } from "@webiny/app-admin/components/RichTextEditor/index.js";
 import { plugins } from "@webiny/plugins";
 import { useForm } from "@webiny/form";
-import type { CmsModelFieldRendererPlugin, CmsModelField } from "~/types";
-import { allowCmsLegacyRichTextInput } from "~/utils/allowCmsLegacyRichTextInput";
-import { modelHasLexicalField } from "~/admin/plugins/fieldRenderers/lexicalText/utils";
+import type { CmsModelFieldRendererPlugin, CmsModelField } from "~/types.js";
+import { allowCmsLegacyRichTextInput } from "~/utils/allowCmsLegacyRichTextInput.js";
+import { modelHasLexicalField } from "~/admin/plugins/fieldRenderers/lexicalText/utils.js";
 import {
     isLegacyRteFieldSaved,
     modelHasLegacyRteField
-} from "~/admin/plugins/fieldRenderers/richText/utils";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
+} from "~/admin/plugins/fieldRenderers/richText/utils.js";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/rich-text");
 

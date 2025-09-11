@@ -1,7 +1,7 @@
-import { GetLatestRevisionByEntryId } from "./GetLatestRevisionByEntryId";
-import { GetLatestRevisionByEntryIdDeleted } from "./GetLatestRevisionByEntryIdDeleted";
-import { GetLatestRevisionByEntryIdNotDeleted } from "./GetLatestRevisionByEntryIdNotDeleted";
-import type { CmsEntryStorageOperations } from "~/types";
+import { GetLatestRevisionByEntryId } from "./GetLatestRevisionByEntryId.js";
+import { GetLatestRevisionByEntryIdDeleted } from "./GetLatestRevisionByEntryIdDeleted.js";
+import { GetLatestRevisionByEntryIdNotDeleted } from "./GetLatestRevisionByEntryIdNotDeleted.js";
+import type { CmsEntryStorageOperations } from "~/types/index.js";
 import type { ITransformEntryCallable } from "~/utils/entryStorage.js";
 
 interface GetLatestRevisionByEntryIdUseCasesParams {

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import gql from "graphql-tag";
 import { useApolloClient } from "@apollo/react-hooks";
-import { i18n } from "@webiny/app/i18n";
-import type { AdminInstallationPlugin } from "@webiny/app-admin/types";
-import { SimpleForm, SimpleFormContent } from "@webiny/app-admin/components/SimpleForm";
-import { config as appConfig } from "@webiny/app/config";
+import { i18n } from "@webiny/app/i18n/index.js";
+import type { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
+import { SimpleForm, SimpleFormContent } from "@webiny/app-admin/components/SimpleForm/index.js";
+import { config as appConfig } from "@webiny/app/config.js";
 import { Alert, OverlayLoader } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-file-manager/admin/installation");

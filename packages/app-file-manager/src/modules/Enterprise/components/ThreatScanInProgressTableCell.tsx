@@ -1,7 +1,7 @@
 import React from "react";
 import { Tooltip } from "@webiny/admin-ui";
-import { THREAT_SCAN } from "~/modules/Enterprise/constants";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
+import { THREAT_SCAN } from "~/modules/Enterprise/constants.js";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
 
 const { Table } = FileManagerViewConfig.Browser;
 

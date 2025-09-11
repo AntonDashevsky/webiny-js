@@ -1,6 +1,6 @@
-import type { CmsGroup } from "~/types";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { pubSubTracker } from "./mocks/lifecycleHooks";
+import type { CmsGroup } from "~/types/index.js";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { pubSubTracker } from "./mocks/lifecycleHooks.js";
 
 describe("content model test reserved model ids", () => {
     const manageHandlerOpts = { path: "manage/en-US" };

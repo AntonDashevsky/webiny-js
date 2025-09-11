@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
-import { FileManagerViewConfig, useFile, useFileManagerView } from "~/index";
+import { FileManagerViewConfig, useFile, useFileManagerView } from "~/index.js";
 
 const { Browser } = FileManagerViewConfig;
 

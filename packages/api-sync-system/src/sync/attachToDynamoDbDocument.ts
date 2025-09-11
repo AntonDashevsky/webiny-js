@@ -1,4 +1,4 @@
-import { decorateDocumentClient } from "@webiny/aws-sdk/client-dynamodb/getDocumentClient";
+import { decorateDocumentClient } from "@webiny/aws-sdk/client-dynamodb/getDocumentClient.js";
 import type { IHandler } from "~/sync/types.js";
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import {

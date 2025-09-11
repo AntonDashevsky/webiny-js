@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import type { CmsDynamicZoneTemplate } from "~/types";
-import { TemplateDialog } from "./TemplateDialog";
+import type { CmsDynamicZoneTemplate } from "~/types.js";
+import { TemplateDialog } from "./TemplateDialog.js";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as AddCircleIcon } from "@webiny/icons/add_circle_outline.svg";
 import { Button, Text, IconButton, Link, Tooltip } from "@webiny/admin-ui";

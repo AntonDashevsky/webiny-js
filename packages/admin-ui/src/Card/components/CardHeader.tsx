@@ -1,7 +1,7 @@
 import React from "react";
-import { Heading } from "~/Heading";
-import { Text } from "~/Text";
-import type { CardProps } from "~/Card";
+import { Heading } from "~/Heading/index.js";
+import { Text } from "~/Text/index.js";
+import type { CardProps } from "~/Card/index.js";
 
 type CardHeaderProps = Pick<CardProps, "title" | "description" | "options">;
 

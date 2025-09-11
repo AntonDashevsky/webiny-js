@@ -4,7 +4,7 @@ import {
     generateAlphaUpperCaseId,
     generateId,
     generateAlphaId
-} from "~/generateId";
+} from "~/generateId.js";
 
 describe("Generate ID", () => {
     const sizes: (number | undefined)[] = [undefined, 7, 15, 22, 36];

@@ -5,8 +5,8 @@ import type {
     IAcoAppAddFieldCallable,
     IAcoAppModifyFieldCallable,
     IAcoAppRemoveFieldCallable
-} from "~/types";
-import type { Context } from "@webiny/handler/types";
+} from "~/types.js";
+import type { Context } from "@webiny/handler/types.js";
 
 export interface AcoAppModifierPluginModifyParams<T extends Context = AcoContext> {
     app: IAcoApp;

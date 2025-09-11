@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDialogs } from "@webiny/app-admin";
-import { useGetRedirect, useUpdateRedirect } from "~/features/redirects";
-import { RedirectForm } from "../components/RedirectForm/RedirectForm";
+import { useGetRedirect, useUpdateRedirect } from "~/features/redirects/index.js";
+import { RedirectForm } from "../components/RedirectForm/RedirectForm.js";
 import { useToast } from "@webiny/admin-ui";
 
 export const useEditRedirectDialog = () => {

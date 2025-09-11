@@ -2,9 +2,9 @@ import React from "react";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
 import { Layout } from "@webiny/app-admin";
-import installation from "./plugins/installation";
-import permissionRenderer from "./plugins/permissionRenderer";
-import { FileManagerSettings } from "./views/FileManagerSettings";
+import installation from "./plugins/installation.js";
+import permissionRenderer from "./plugins/permissionRenderer/index.js";
+import { FileManagerSettings } from "./views/FileManagerSettings.js";
 import { AdminConfig } from "@webiny/app-admin";
 
 const { Menu, Route } = AdminConfig;

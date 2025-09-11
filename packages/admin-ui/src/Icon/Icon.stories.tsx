@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as XIcon } from "@webiny/icons/close.svg";
-import { Icon } from "./Icon";
+import { Icon } from "./Icon.js";
 
 const meta: Meta<typeof Icon> = {
     title: "Components/Icon",

@@ -10,11 +10,11 @@ export function getFilesUsingGlob(rootDir: string | string[]): string[] {
         .map((rootDir: string) => {
             return [
                 `${rootDir}/src/**/*.tsx`,
-                `${rootDir}/**/*.test.tsx?`,
+                // `${rootDir}/**/*.test.tsx?`,
                 `${rootDir}/src/**/*.ts`,
-                `${rootDir}/**/*.test.ts`,
-                `${rootDir}/src/**/*.js`,
-                `${rootDir}/**/*.test.js`
+                // `${rootDir}/**/*.test.ts`,
+                `${rootDir}/src/**/*.js`
+                // `${rootDir}/**/*.test.js`
             ];
         })
         .flat();

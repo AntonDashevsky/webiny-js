@@ -1,6 +1,6 @@
 import React from "react";
 import { Dialog, OverlayLoader } from "@webiny/admin-ui";
-import { Empty, FilterList } from "./components";
+import { Empty, FilterList } from "./components/index.js";
 
 type filterCallback = (filterId: string) => void;
 

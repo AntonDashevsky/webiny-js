@@ -1,4 +1,5 @@
-import { CheckboxPresenter } from "./CheckboxPresenter";
+import { CheckboxPresenter } from "./CheckboxPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("CheckboxPresenter", () => {
     const onCheckedChange = jest.fn();

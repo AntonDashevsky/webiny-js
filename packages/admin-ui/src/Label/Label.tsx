@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Label as LabelPrimitive } from "radix-ui";
-import { cn, makeDecoratable, cva, type VariantProps } from "~/utils";
-import { LabelDescription, LabelHint, LabelRequired, LabelValue } from "./components";
+import { cn, makeDecoratable, cva, type VariantProps } from "~/utils.js";
+import { LabelDescription, LabelHint, LabelRequired, LabelValue } from "./components/index.js";
 
 const labelVariants = cva(
     [

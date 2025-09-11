@@ -1,5 +1,5 @@
 import React from "react";
-import { FileDropArea } from "../FileDropArea";
+import { FileDropArea } from "../FileDropArea/index.js";
 
 export const FileDropPlaceholder = () => {
     return (

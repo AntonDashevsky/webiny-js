@@ -1,6 +1,6 @@
 import { Result } from "@webiny/feature";
-import type { WcpProject } from "~/types";
-import type { GetProjectUseCase as UseCase } from "./abstractions";
+import type { WcpProject } from "~/types.js";
+import type { GetProjectUseCase as UseCase } from "./abstractions.js";
 
 export class GetProjectUseCase implements UseCase.Interface {
     constructor(private readonly getProject: () => WcpProject | null) {}

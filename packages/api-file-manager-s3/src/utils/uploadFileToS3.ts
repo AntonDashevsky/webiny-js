@@ -1,7 +1,7 @@
 import FormData from "form-data";
 import type { Response } from "node-fetch";
 import fetch from "node-fetch";
-import type { PresignedPost } from "@webiny/aws-sdk/client-s3";
+import type { PresignedPost } from "@webiny/aws-sdk/client-s3/index.js";
 
 export default async (buffer: Buffer, preSignedPostPayload: PresignedPost): Promise<Response> => {
     const formData = new FormData();

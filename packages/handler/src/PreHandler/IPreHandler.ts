@@ -1,5 +1,5 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 
 export enum Action {
     CONTINUE = "continue",

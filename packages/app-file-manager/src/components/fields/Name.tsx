@@ -2,7 +2,7 @@ import React from "react";
 import { Input, Label } from "@webiny/admin-ui";
 import { validation } from "@webiny/validation";
 import { useBind } from "@webiny/form";
-import { useFile, useFileManagerApi } from "~/index";
+import { useFile, useFileManagerApi } from "~/index.js";
 
 export const Name = () => {
     const { file } = useFile();

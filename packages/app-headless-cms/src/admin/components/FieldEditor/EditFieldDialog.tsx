@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import cloneDeep from "lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep.js";
 import { Dialog, Tabs } from "@webiny/admin-ui";
 import type { FormOnSubmit } from "@webiny/form";
 import { Form } from "@webiny/form";
-import { i18n } from "@webiny/app/i18n";
-import type { CmsEditorContentModel, CmsModelField } from "~/types";
-import GeneralTab from "./EditFieldDialog/GeneralTab";
-import AppearanceTab from "./EditFieldDialog/AppearanceTab";
-import PredefinedValues from "./EditFieldDialog/PredefinedValues";
-import { ValidationTab } from "./EditFieldDialog/ValidationTab";
-import { useModelField, useModelEditor } from "~/admin/hooks";
-import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider";
-import { useRendererPlugins } from "~/admin/components/FieldEditor/EditFieldDialog/useRendererPlugins";
-import { getFieldValidators } from "~/admin/components/FieldEditor/EditFieldDialog/getValidators";
+import { i18n } from "@webiny/app/i18n/index.js";
+import type { CmsEditorContentModel, CmsModelField } from "~/types.js";
+import GeneralTab from "./EditFieldDialog/GeneralTab.js";
+import AppearanceTab from "./EditFieldDialog/AppearanceTab.js";
+import PredefinedValues from "./EditFieldDialog/PredefinedValues.js";
+import { ValidationTab } from "./EditFieldDialog/ValidationTab/index.js";
+import { useModelField, useModelEditor } from "~/admin/hooks/index.js";
+import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider/index.js";
+import { useRendererPlugins } from "~/admin/components/FieldEditor/EditFieldDialog/useRendererPlugins.js";
+import { getFieldValidators } from "~/admin/components/FieldEditor/EditFieldDialog/getValidators.js";
 
 const t = i18n.namespace("app-headless-cms/admin/components/editor");
 

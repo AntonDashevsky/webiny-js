@@ -1,4 +1,4 @@
-import type { IWebsiteBuilderSettings } from "~/features/settings/IWebsiteBuilderSettings";
+import type { IWebsiteBuilderSettings } from "~/features/settings/IWebsiteBuilderSettings.js";
 
 export interface IEcommerceSettings {
     [key: string]: any;

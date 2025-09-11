@@ -11,8 +11,8 @@ import {
     type PopoverContentProps as PopoverPrimitiveContentProps,
     type PopoverRootProps as PopoverPrimitiveProps,
     type PopoverTriggerProps as PopoverPrimitiveTriggerProps
-} from "./components";
-import { withStaticProps } from "~/utils";
+} from "./components/index.js";
+import { withStaticProps } from "~/utils.js";
 
 const PopoverPrimitive = withStaticProps(PopoverRoot, {
     Anchor: PopoverAnchor,

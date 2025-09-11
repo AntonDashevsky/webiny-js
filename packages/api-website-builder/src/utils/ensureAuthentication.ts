@@ -1,5 +1,5 @@
 import { NotAuthorizedError } from "@webiny/api-security";
-import type { WebsiteBuilderContext } from "~/context/types";
+import type { WebsiteBuilderContext } from "~/context/types.js";
 
 export const ensureAuthentication = (context: Pick<WebsiteBuilderContext, "security">) => {
     const identity = context.security.getIdentity();

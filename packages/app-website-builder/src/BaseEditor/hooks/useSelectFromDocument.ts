@@ -1,7 +1,7 @@
 import deepEqual from "deep-equal";
 import type { EditorDocument } from "@webiny/website-builder-sdk";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { useSelectFromState } from "./useSelectFromState";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { useSelectFromState } from "./useSelectFromState.js";
 
 type Equals<T> = (a: T, b: T) => boolean;
 

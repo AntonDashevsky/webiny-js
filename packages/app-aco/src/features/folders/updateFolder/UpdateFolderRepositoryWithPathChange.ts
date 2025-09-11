@@ -1,7 +1,7 @@
 import { Path } from "@webiny/shared-aco";
-import type { IUpdateFolderRepository } from "./IUpdateFolderRepository";
-import type { ListCache } from "../cache";
-import { Folder } from "../Folder";
+import type { IUpdateFolderRepository } from "./IUpdateFolderRepository.js";
+import type { ListCache } from "../cache/index.js";
+import { Folder } from "../Folder.js";
 
 export class UpdateFolderRepositoryWithPathChange implements IUpdateFolderRepository {
     private cache: ListCache<Folder>;

@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { Button, Icon, OverlayLoader, Tabs } from "@webiny/admin-ui";
-import { IconTypeProvider } from "~/components/IconPicker/config/IconType";
-import { IconPickerTabRenderer } from "~/components/IconPicker/IconPickerTab";
-import type { IconType } from "~/components/IconPicker/config";
+import { IconTypeProvider } from "~/components/IconPicker/config/IconType.js";
+import { IconPickerTabRenderer } from "~/components/IconPicker/IconPickerTab.js";
+import type { IconType } from "~/components/IconPicker/config/index.js";
 
 interface IconPickerContentProps {
     loading?: boolean;

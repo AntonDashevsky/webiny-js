@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction, toJS } from "mobx";
-import unionBy from "lodash/unionBy";
+import unionBy from "lodash/unionBy.js";
 
 export type Constructor<T> = new (...args: any[]) => T;
 

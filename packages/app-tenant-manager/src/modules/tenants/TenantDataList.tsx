@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { Button, Grid, Select } from "@webiny/admin-ui";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     DataList,
     ScrollList,
@@ -14,11 +14,11 @@ import {
     DataListModalOverlayAction,
     ListItemTextPrimary,
     LoginIcon
-} from "@webiny/ui/List";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { useTenantsList } from "./hooks/useTenantsList";
+} from "@webiny/ui/List/index.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { useTenantsList } from "./hooks/useTenantsList.js";
 import { useTenancy } from "@webiny/app-tenancy";
-import type { TenantItem } from "~/types";
+import type { TenantItem } from "~/types.js";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 

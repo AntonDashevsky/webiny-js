@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
-import { createEntryUrl } from "./createEntryUrl";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { createEntryUrl } from "./createEntryUrl.js";
 import { Link } from "@webiny/react-router";
-import type { OptionItem } from "./types";
-import { EntryStatus } from "./EntryStatus";
-import { IconButton } from "@webiny/ui/Button";
+import type { OptionItem } from "./types.js";
+import { EntryStatus } from "./EntryStatus.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { css } from "@emotion/css";
 
 const ModelId = styled("span")({

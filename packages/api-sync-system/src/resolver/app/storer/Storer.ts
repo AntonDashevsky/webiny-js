@@ -1,4 +1,4 @@
-import type { IStoreItem, IStorer, IStorerExecParams } from "./types";
+import type { IStoreItem, IStorer, IStorerExecParams } from "./types.js";
 import type { IDeployment } from "~/resolver/deployment/types.js";
 import type {
     DeleteCommandOutput,
@@ -6,9 +6,9 @@ import type {
     PutCommandOutput
 } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { DeleteCommand, PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
-import type { CommandType } from "~/types";
+import type { CommandType } from "~/types.js";
 import type { ITable } from "~/sync/types.js";
-import { createRetry } from "../utils/Retry";
+import { createRetry } from "../utils/Retry.js";
 import { convertException } from "@webiny/utils";
 
 export interface IStorerParamsCreateDocumentClientCallable {

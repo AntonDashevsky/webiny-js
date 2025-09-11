@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar } from "@webiny/admin-ui";
-import type { FolderLevelPermissionsTarget } from "~/types";
+import type { FolderLevelPermissionsTarget } from "~/types.js";
 
 interface ListItemGraphicProps {
     target: FolderLevelPermissionsTarget;

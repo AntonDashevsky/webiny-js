@@ -1,8 +1,8 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
-import { InheritanceLabel } from "../../../InheritanceLabel";
-import { useStyleValue } from "../../useStyleValue";
-import { UnitValuePicker, type UnitOption } from "../../UnitValuePicker";
+import { InheritanceLabel } from "../../../InheritanceLabel.js";
+import { useStyleValue } from "../../useStyleValue.js";
+import { UnitValuePicker, type UnitOption } from "../../UnitValuePicker.js";
 
 interface LengthWithUnitInputProps {
     elementId: string;

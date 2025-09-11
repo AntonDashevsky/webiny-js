@@ -1,7 +1,7 @@
-import { GetRevisionsByEntryId } from "./GetRevisionsByEntryId";
-import { GetRevisionsByEntryIdNotDeleted } from "./GetRevisionsByEntryIdNotDeleted";
-import type { CmsEntryStorageOperations } from "~/types";
-import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import { GetRevisionsByEntryId } from "./GetRevisionsByEntryId.js";
+import { GetRevisionsByEntryIdNotDeleted } from "./GetRevisionsByEntryIdNotDeleted.js";
+import type { CmsEntryStorageOperations } from "~/types/index.js";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl.js";
 import type { ITransformEntryCallable } from "~/utils/entryStorage.js";
 
 interface GetRevisionsByEntryIdUseCasesParams {

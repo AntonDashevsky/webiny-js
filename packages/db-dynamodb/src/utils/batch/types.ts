@@ -1,4 +1,4 @@
-import type { WriteRequest } from "@webiny/aws-sdk/client-dynamodb";
+import type { WriteRequest } from "@webiny/aws-sdk/client-dynamodb/index.js";
 
 export interface BatchWriteResponse {
     next?: () => Promise<BatchWriteResponse>;

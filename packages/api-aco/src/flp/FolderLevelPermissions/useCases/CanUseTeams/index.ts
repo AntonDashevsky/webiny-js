@@ -1,2 +1,2 @@
-export * from "./CanUseTeams";
-export type * from "./ICanUseTeams";
+export * from "./CanUseTeams.js";
+export type * from "./ICanUseTeams.js";

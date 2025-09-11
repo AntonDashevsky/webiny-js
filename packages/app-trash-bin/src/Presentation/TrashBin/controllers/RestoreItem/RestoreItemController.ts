@@ -1,5 +1,5 @@
-import type { IRestoreItemUseCase } from "~/UseCases";
-import type { IRestoreItemController } from "./IRestoreItemController";
+import type { IRestoreItemUseCase } from "~/UseCases/index.js";
+import type { IRestoreItemController } from "./IRestoreItemController.js";
 
 export class RestoreItemController implements IRestoreItemController {
     private readonly useCaseFactory: () => IRestoreItemUseCase;

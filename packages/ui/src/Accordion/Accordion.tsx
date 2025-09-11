@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion as AdminUiAccordion } from "@webiny/admin-ui";
-import type { ListItem } from "../List";
-import { type AccordionItem } from "./AccordionItem";
+import type { ListItem } from "../List/index.js";
+import { type AccordionItem } from "./AccordionItem.js";
 
 interface AccordionProps {
     /**

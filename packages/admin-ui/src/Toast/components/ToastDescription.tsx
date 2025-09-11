@@ -1,6 +1,6 @@
 import React from "react";
-import { cn, makeDecoratable } from "~/utils";
-import { Text } from "~/Text";
+import { cn, makeDecoratable } from "~/utils.js";
+import { Text } from "~/Text/index.js";
 
 type DescriptionProps = Omit<React.HTMLAttributes<HTMLDivElement>, "children"> & {
     text: React.ReactNode;

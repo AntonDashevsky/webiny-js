@@ -1,6 +1,7 @@
-import { QueryBuilderDrawerPresenter } from "./QueryBuilderDrawerPresenter";
-import type { FilterDTO } from "~/components/AdvancedSearch/domain";
-import { Operation } from "~/components/AdvancedSearch/domain";
+import { QueryBuilderDrawerPresenter } from "./QueryBuilderDrawerPresenter.js";
+import type { FilterDTO } from "~/components/AdvancedSearch/domain/index.js";
+import { Operation } from "~/components/AdvancedSearch/domain/index.js";
+import { jest } from "@jest/globals";
 
 describe("QueryBuilderDrawerPresenter", () => {
     const defaultFilter = { field: "", value: "", condition: "" };

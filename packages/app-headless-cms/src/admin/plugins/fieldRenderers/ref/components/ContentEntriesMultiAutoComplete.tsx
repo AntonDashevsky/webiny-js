@@ -1,17 +1,17 @@
 import React, { useCallback, useState } from "react";
-import debounce from "lodash/debounce";
-import { MultiAutoComplete } from "@webiny/ui/AutoComplete";
+import debounce from "lodash/debounce.js";
+import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
 import { Link } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
-import { useReferences } from "./useReferences";
-import { renderItem, renderListItemOptions } from "./renderItem";
-import { NewEntryButton } from "./NewEntryButton";
-import { useNewRefEntry } from "../hooks/useNewRefEntry";
-import type { CmsModelField } from "~/types";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useReferences } from "./useReferences.js";
+import { renderItem, renderListItemOptions } from "./renderItem.js";
+import { NewEntryButton } from "./NewEntryButton.js";
+import { useNewRefEntry } from "../hooks/useNewRefEntry.js";
+import type { CmsModelField } from "~/types.js";
 import type { BindComponentRenderProp } from "@webiny/form";
-import type { OptionItem } from "./types";
-import { useModels } from "~/admin/hooks";
-import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog";
+import type { OptionItem } from "./types.js";
+import { useModels } from "~/admin/hooks/index.js";
+import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");
 

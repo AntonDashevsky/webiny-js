@@ -1,10 +1,10 @@
 import React from "react";
 import { cn, IconButton, Text, TimeAgo } from "@webiny/admin-ui";
-import { FolderIcon, FolderSharedIcon } from "../FolderIcons";
+import { FolderIcon, FolderSharedIcon } from "../FolderIcons/index.js";
 import { ReactComponent as MoreVerticalIcon } from "@webiny/icons/more_vert.svg";
 import { OptionsMenu } from "@webiny/app-admin";
-import { useAcoConfig } from "~/config";
-import { useFolder } from "~/hooks";
+import { useAcoConfig } from "~/config/index.js";
+import { useFolder } from "~/hooks/index.js";
 
 export interface FolderProps {
     onClick: (id: string) => void;

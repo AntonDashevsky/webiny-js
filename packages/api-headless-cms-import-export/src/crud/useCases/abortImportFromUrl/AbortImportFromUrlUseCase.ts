@@ -1,16 +1,16 @@
 import type { ITasksContextObject } from "@webiny/tasks";
-import type { IImportFromUrlUseCaseExecuteResponse } from "../importFromUrl";
+import type { IImportFromUrlUseCaseExecuteResponse } from "../importFromUrl/index.js";
 import type {
     IAbortImportFromUrlUseCase,
     IAbortImportFromUrlUseCaseExecuteParams
-} from "./abstractions/AbortImportFromUrlUseCase";
+} from "./abstractions/AbortImportFromUrlUseCase.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { convertTaskToImportRecord } from "~/crud/utils/convertTaskToImportRecord";
+import { convertTaskToImportRecord } from "~/crud/utils/convertTaskToImportRecord.js";
 import type {
     IImportFromUrlControllerInput,
     IImportFromUrlControllerOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlController";
-import type { IGetImportFromUrlUseCase } from "~/crud/useCases/getImportFromUrl";
+} from "~/tasks/domain/abstractions/ImportFromUrlController.js";
+import type { IGetImportFromUrlUseCase } from "~/crud/useCases/getImportFromUrl/index.js";
 
 export interface IAbortImportFromUrlUseCaseParams {
     getTaskUseCase: IGetImportFromUrlUseCase;

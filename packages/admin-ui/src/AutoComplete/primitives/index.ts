@@ -1,1 +1,1 @@
-export * from "./AutoCompletePrimitive";
+export * from "./AutoCompletePrimitive.js";

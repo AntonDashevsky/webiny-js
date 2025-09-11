@@ -1,4 +1,4 @@
-import { validation } from "../src";
+import { validation } from "../src/index.js";
 
 const gteValidationDateCorrectValues = [
     ["2020-06-06T16:30:50Z", "2020-06-06T16:30:50Z"],

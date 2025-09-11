@@ -10,7 +10,7 @@ import type {
     IWebsocketsSubscription,
     IWebsocketsSubscriptionCallback,
     WebsocketsCloseCode
-} from "./types";
+} from "./types.js";
 
 export class WebsocketsManager implements IWebsocketsManager {
     public readonly connection: IWebsocketsConnection;

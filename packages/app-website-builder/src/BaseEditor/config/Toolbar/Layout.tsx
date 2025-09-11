@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Toolbar } from "./Toolbar";
-import { Tabs } from "@webiny/admin-ui/Tabs";
+import { Toolbar } from "./Toolbar.js";
+import { Tabs } from "@webiny/admin-ui/Tabs/index.js";
 
 const ToolbarContainer = styled("div")({
     display: "block",

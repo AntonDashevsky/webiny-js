@@ -1,6 +1,6 @@
-import sortBy from "lodash/sortBy";
-import type { CmsModel } from "@webiny/app-headless-cms-common/types";
-import type { FieldRaw } from "@webiny/app-aco/components/AdvancedSearch/domain";
+import sortBy from "lodash/sortBy.js";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import type { FieldRaw } from "@webiny/app-aco/components/AdvancedSearch/domain/index.js";
 
 export class FieldsMapper {
     private static excluded: FieldRaw["type"][] = ["rich-text", "file", "object", "dynamicZone"];

@@ -1,4 +1,4 @@
-import { validation, ValidationError } from "../src";
+import { validation, ValidationError } from "../src/index.js";
 
 describe("disabling error throwing test", () => {
     it("by default it must throw errors on invalid data", async () => {

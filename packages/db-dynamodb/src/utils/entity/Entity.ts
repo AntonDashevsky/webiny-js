@@ -3,27 +3,27 @@ import type {
     EntityConstructor as BaseEntityConstructor,
     Readonly,
     TableDef
-} from "~/toolbox";
-import { Entity as BaseEntity } from "~/toolbox";
-import type { ITableWriteBatch } from "../table/types";
+} from "~/toolbox.js";
+import { Entity as BaseEntity } from "~/toolbox.js";
+import type { ITableWriteBatch } from "../table/types.js";
 import type {
     IEntity,
     IEntityQueryAllParams,
     IEntityQueryOneParams,
     IEntityReadBatch,
     IEntityWriteBatch
-} from "./types";
-import type { IPutParamsItem } from "../put";
-import { put } from "../put";
-import type { GetRecordParamsKeys } from "../get";
-import { get, getClean } from "../get";
-import type { IDeleteItemKeys } from "../delete";
-import { deleteItem } from "../delete";
-import { createEntityReadBatch } from "./EntityReadBatch";
-import { createEntityWriteBatch } from "./EntityWriteBatch";
-import { createTableWriteBatch } from "~/utils/table/TableWriteBatch";
-import { queryAllClean, queryOneClean } from "../query";
-import type { GenericRecord } from "@webiny/api/types";
+} from "./types.js";
+import type { IPutParamsItem } from "../put.js";
+import { put } from "../put.js";
+import type { GetRecordParamsKeys } from "../get.js";
+import { get, getClean } from "../get.js";
+import type { IDeleteItemKeys } from "../delete.js";
+import { deleteItem } from "../delete.js";
+import { createEntityReadBatch } from "./EntityReadBatch.js";
+import { createEntityWriteBatch } from "./EntityWriteBatch.js";
+import { createTableWriteBatch } from "~/utils/table/TableWriteBatch.js";
+import { queryAllClean, queryOneClean } from "../query.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 
 export type EntityConstructor<
     T extends Readonly<AttributeDefinitions> = Readonly<AttributeDefinitions>

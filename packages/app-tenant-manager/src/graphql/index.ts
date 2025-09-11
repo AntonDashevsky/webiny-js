@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import type { TenantItem } from "~/types";
+import type { TenantItem } from "~/types.js";
 
 const fields = /* GraphQL */ `
     {

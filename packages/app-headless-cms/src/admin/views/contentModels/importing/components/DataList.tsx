@@ -1,7 +1,7 @@
 import React from "react";
-import { DataListGroup } from "./DataListGroup";
-import type { ImportGroupData, ImportModelData } from "../types";
-import { useImport } from "~/admin/views/contentModels/importing/useImport";
+import { DataListGroup } from "./DataListGroup.js";
+import type { ImportGroupData, ImportModelData } from "../types.js";
+import { useImport } from "~/admin/views/contentModels/importing/useImport.js";
 
 const getGroupModels = (group: ImportGroupData, models?: ImportModelData[] | null) => {
     if (!models) {

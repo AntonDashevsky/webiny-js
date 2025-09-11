@@ -1,9 +1,9 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import type { CmsModel, CmsGroup } from "~/types";
-import models from "./mocks/contentModels";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
-import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler";
-import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import type { CmsModel, CmsGroup } from "~/types/index.js";
+import models from "./mocks/contentModels.js";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
+import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler.js";
+import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler.js";
 import { jest } from "@jest/globals";
 
 jest.setTimeout(100000);

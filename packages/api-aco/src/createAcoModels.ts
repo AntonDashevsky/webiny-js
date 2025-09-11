@@ -1,9 +1,9 @@
-import type { CmsContext } from "@webiny/api-headless-cms/types";
-import { createFilterModel } from "~/filter/filter.model";
-import { createFolderModel } from "~/folder/folder.model";
-import { createSearchModel } from "~/record/record.model";
-import { modelFactory } from "~/utils/modelFactory";
-import { FolderCmsModelModifierPlugin } from "~/folder/createFolderModelModifier";
+import type { CmsContext } from "@webiny/api-headless-cms/types/index.js";
+import { createFilterModel } from "~/filter/filter.model.js";
+import { createFolderModel } from "~/folder/folder.model.js";
+import { createSearchModel } from "~/record/record.model.js";
+import { modelFactory } from "~/utils/modelFactory.js";
+import { FolderCmsModelModifierPlugin } from "~/folder/createFolderModelModifier.js";
 
 export const createAcoModels = async (context: CmsContext) => {
     /**

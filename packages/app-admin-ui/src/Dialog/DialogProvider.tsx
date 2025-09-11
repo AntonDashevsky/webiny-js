@@ -1,5 +1,5 @@
 import React from "react";
-import { DialogContainer } from "./DialogContainer";
+import { DialogContainer } from "./DialogContainer.js";
 
 export interface DialogProviderProps {
     children?: React.ReactNode;

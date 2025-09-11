@@ -5,10 +5,10 @@ import type {
     CmsModel,
     CmsModelField,
     CmsModelFieldToGraphQLPlugin
-} from "~/types";
-import { createTypeName } from "~/utils/createTypeName";
+} from "~/types/index.js";
+import { createTypeName } from "~/utils/createTypeName.js";
 import { parseIdentifier } from "@webiny/utils";
-import { createGraphQLInputField } from "./helpers";
+import { createGraphQLInputField } from "./helpers.js";
 
 interface RefFieldValue {
     /**

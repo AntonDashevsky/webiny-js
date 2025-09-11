@@ -1,9 +1,9 @@
 import React from "react";
 import { List, Scrollbar, Text } from "@webiny/admin-ui";
-import { ListItemGraphic } from "./UsersTeamsSelection/ListItemGraphic";
-import { ListItemText } from "./UsersTeamsSelection/ListItemText";
-import { ListItemMeta } from "./UsersTeamsSelection/ListItemMeta";
-import type { FolderLevelPermissionsTarget, FolderPermission } from "~/types";
+import { ListItemGraphic } from "./UsersTeamsSelection/ListItemGraphic.js";
+import { ListItemText } from "./UsersTeamsSelection/ListItemText.js";
+import { ListItemMeta } from "./UsersTeamsSelection/ListItemMeta.js";
+import type { FolderLevelPermissionsTarget, FolderPermission } from "~/types.js";
 
 interface UsersTeamsSelectionProps {
     targetsList: FolderLevelPermissionsTarget[];

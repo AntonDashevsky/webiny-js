@@ -9,6 +9,7 @@ import {
     PutEventsCommand
 } from "@webiny/aws-sdk/client-eventbridge/index.js";
 import { mockClient } from "aws-sdk-client-mock";
+import { jest } from "@jest/globals";
 
 describe("createSyncSystem", () => {
     let client: DynamoDBDocument;

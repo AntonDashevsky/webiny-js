@@ -2,18 +2,18 @@ import React, { useCallback, useEffect, useState } from "react";
 import type { LexicalCommand } from "lexical";
 import { Compose, makeDecoratable } from "@webiny/react-composition";
 import type { TypographyValue } from "@webiny/lexical-theme";
-import type { ActiveTypography } from "~/context/TypographyActionContext";
-import { TypographyActionContext } from "~/context/TypographyActionContext";
+import type { ActiveTypography } from "~/context/TypographyActionContext.js";
+import { TypographyActionContext } from "~/context/TypographyActionContext.js";
 import { $isHeadingNode, $isListNode, $isParagraphNode, $isQuoteNode } from "@webiny/lexical-nodes";
-import { useRichTextEditor } from "~/hooks/useRichTextEditor";
-import type { ListCommandPayload, QuoteCommandPayload, TypographyPayload } from "~/commands";
+import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";
+import type { ListCommandPayload, QuoteCommandPayload, TypographyPayload } from "~/commands/index.js";
 import {
     INSERT_ORDERED_LIST_COMMAND,
     INSERT_UNORDERED_LIST_COMMAND,
     INSERT_QUOTE_COMMAND,
     ADD_TYPOGRAPHY_COMMAND
-} from "~/commands";
-import { useCurrentElement } from "~/hooks/useCurrentElement";
+} from "~/commands/index.js";
+import { useCurrentElement } from "~/hooks/useCurrentElement.js";
 
 // Unfortunately, for some time in v5 we had `quoteblock` in our theme, so let's not break it.
 const quoteTagNames = ["blockquote", "quoteblock"];

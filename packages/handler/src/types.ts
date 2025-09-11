@@ -6,7 +6,7 @@ import type {
     RouteHandlerMethod
 } from "fastify";
 export type { FastifyInstance } from "fastify";
-import type { ClientContext } from "@webiny/handler-client/types";
+import type { ClientContext } from "@webiny/handler-client/types.js";
 
 export interface RouteMethodOptions {
     override?: boolean;

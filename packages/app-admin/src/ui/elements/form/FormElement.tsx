@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import type { FormOnSubmit, FormRenderPropParams } from "@webiny/form";
 import { Form } from "@webiny/form";
-import type { UIElementConfig, UiElementRenderProps } from "~/ui/UIElement";
-import { UIElement } from "~/ui/UIElement";
+import type { UIElementConfig, UiElementRenderProps } from "~/ui/UIElement.js";
+import { UIElement } from "~/ui/UIElement.js";
 
 interface FormElementConfig extends UIElementConfig {
     onSubmit: FormOnSubmit;

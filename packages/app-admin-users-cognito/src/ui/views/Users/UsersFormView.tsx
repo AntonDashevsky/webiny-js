@@ -1,22 +1,22 @@
 import React from "react";
-import { UIView } from "@webiny/app-admin/ui/UIView";
+import { UIView } from "@webiny/app-admin/ui/UIView.js";
 import type { FormAPI, GenericFormData } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { GenericElement } from "@webiny/app-admin/ui/elements/GenericElement";
-import type { AccordionItemElement } from "@webiny/app-admin/ui/elements/AccordionElement";
-import { AccordionElement } from "@webiny/app-admin/ui/elements/AccordionElement";
-import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement";
+import { GenericElement } from "@webiny/app-admin/ui/elements/GenericElement.js";
+import type { AccordionItemElement } from "@webiny/app-admin/ui/elements/AccordionElement.js";
+import { AccordionElement } from "@webiny/app-admin/ui/elements/AccordionElement.js";
+import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement.js";
 import { ReactComponent as SecurityIcon } from "@webiny/icons/gpp_maybe.svg";
 import { ReactComponent as SecurityTeamsIcon } from "@webiny/icons/admin_panel_settings.svg";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
-import { AvatarImage } from "../../components/AvatarImage";
-import { GroupsMultiAutocompleteElement } from "~/ui/elements/GroupsMultiAutocompleteElement";
-import { TeamsMultiAutocompleteElement } from "~/ui/elements/TeamsMultiAutocompleteElement";
-import type { UseUserForm } from "~/ui/views/Users/hooks/useUserForm";
-import { useUserForm } from "~/ui/views/Users/hooks/useUserForm";
-import { FormView } from "@webiny/app-admin/ui/views/FormView";
-import type { FormElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormElement";
-import { config as appConfig } from "@webiny/app/config";
+import { AvatarImage } from "../../components/AvatarImage/index.js";
+import { GroupsMultiAutocompleteElement } from "~/ui/elements/GroupsMultiAutocompleteElement.js";
+import { TeamsMultiAutocompleteElement } from "~/ui/elements/TeamsMultiAutocompleteElement.js";
+import type { UseUserForm } from "~/ui/views/Users/hooks/useUserForm.js";
+import { useUserForm } from "~/ui/views/Users/hooks/useUserForm.js";
+import { FormView } from "@webiny/app-admin/ui/views/FormView.js";
+import type { FormElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormElement.js";
+import { config as appConfig } from "@webiny/app/config.js";
 
 interface UsersFormViewParams {
     teams?: boolean;

@@ -1,10 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
-import { useStyles } from "../../useStyles";
-import { LinkedEditing } from "./LinkedEditing";
-import { ValueSelector } from "../../ValueSelector";
-import { UnitsOptions } from "../../UnitsOptions";
-import { useStyleValue } from "../../useStyleValue";
+import { useStyles } from "../../useStyles.js";
+import { LinkedEditing } from "./LinkedEditing.js";
+import { ValueSelector } from "../../ValueSelector.js";
+import { UnitsOptions } from "../../UnitsOptions.js";
+import { useStyleValue } from "../../useStyleValue.js";
 
 const additionalUnits = ["auto", "unset"];
 

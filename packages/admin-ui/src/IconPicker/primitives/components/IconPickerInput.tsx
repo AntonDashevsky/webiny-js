@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
-import { Input } from "~/Input";
-import { Icon } from "~/Icon";
-import type { OnChangeCallable } from "~/DelayedOnChange";
-import { DelayedOnChange } from "~/DelayedOnChange";
-import { cn } from "~/utils";
+import { Input } from "~/Input/index.js";
+import { Icon } from "~/Icon/index.js";
+import type { OnChangeCallable } from "~/DelayedOnChange/index.js";
+import { DelayedOnChange } from "~/DelayedOnChange/index.js";
+import { cn } from "~/utils.js";
 
 interface IconPickerInputProps {
     value: string;

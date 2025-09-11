@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as FileIcon } from "@webiny/icons/file_present.svg";
-import type { CmsModelFieldTypePlugin } from "@webiny/app-headless-cms/types";
+import type { CmsModelFieldTypePlugin } from "@webiny/app-headless-cms/types.js";
 import { Grid, Switch } from "@webiny/admin-ui";
 import { Bind } from "@webiny/form";
 

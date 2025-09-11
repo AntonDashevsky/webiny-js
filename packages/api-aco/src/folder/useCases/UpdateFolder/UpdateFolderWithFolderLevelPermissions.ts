@@ -1,8 +1,8 @@
 import { NotAuthorizedError } from "@webiny/api-security";
 import WError from "@webiny/error";
-import type { AcoFolderStorageOperations, UpdateFolderParams } from "~/folder/folder.types";
-import type { IUpdateFolder } from "./IUpdateFolder";
-import type { FolderLevelPermissions } from "~/flp";
+import type { AcoFolderStorageOperations, UpdateFolderParams } from "~/folder/folder.types.js";
+import type { IUpdateFolder } from "./IUpdateFolder.js";
+import type { FolderLevelPermissions } from "~/flp/index.js";
 
 export class UpdateFolderWithFolderLevelPermissions implements IUpdateFolder {
     private folderLevelPermissions: FolderLevelPermissions;

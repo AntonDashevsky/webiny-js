@@ -1,5 +1,5 @@
-import { WebsocketsConnectionRegistry } from "~/registry/WebsocketsConnectionRegistry";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { WebsocketsConnectionRegistry } from "~/registry/WebsocketsConnectionRegistry.js";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 
 describe("websockets connection registry", () => {
     it("should register new connections", async () => {

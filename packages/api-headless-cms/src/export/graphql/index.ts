@@ -1,7 +1,7 @@
-import { createCmsGraphQLSchemaPlugin } from "~/plugins";
+import { createCmsGraphQLSchemaPlugin } from "~/plugins/index.js";
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
 import { ContextPlugin } from "@webiny/handler";
-import type { CmsContext } from "~/types";
+import type { CmsContext } from "~/types/index.js";
 
 const plugin = createCmsGraphQLSchemaPlugin({
     typeDefs: /* GraphQL */ `

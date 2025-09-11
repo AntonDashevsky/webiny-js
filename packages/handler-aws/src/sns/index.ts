@@ -2,21 +2,21 @@ import type {
     APIGatewayProxyResult,
     SNSEvent,
     Context as LambdaContext
-} from "@webiny/aws-sdk/types";
+} from "@webiny/aws-sdk/types/index.js";
 import { createHandler as createBaseHandler } from "@webiny/handler";
-import { registerDefaultPlugins } from "~/plugins";
-import type { SNSEventHandlerCallableParams } from "./plugins/SNSEventHandler";
-import { SNSEventHandler } from "./plugins/SNSEventHandler";
-import { execute } from "~/execute";
-import type { HandlerFactoryParams } from "~/types";
+import { registerDefaultPlugins } from "~/plugins/index.js";
+import type { SNSEventHandlerCallableParams } from "./plugins/SNSEventHandler.js";
+import { SNSEventHandler } from "./plugins/SNSEventHandler.js";
+import { execute } from "~/execute.js";
+import type { HandlerFactoryParams } from "~/types.js";
 /**
  * We need a class, not an interface exported from types.
  */
 // @ts-expect-error
-import Reply from "fastify/lib/reply";
-import { createComposedHandler } from "~/utils/composedHandler";
+import Reply from "fastify/lib/reply.js";
+import { createComposedHandler } from "~/utils/composedHandler.js";
 
-export * from "./plugins/SNSEventHandler";
+export * from "./plugins/SNSEventHandler.js";
 
 export interface HandlerCallable {
     (event: SNSEvent, context: LambdaContext): Promise<APIGatewayProxyResult>;

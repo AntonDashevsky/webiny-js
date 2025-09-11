@@ -1,6 +1,6 @@
-import type { Context } from "@webiny/api/types";
+import type { Context } from "@webiny/api/types.js";
 import { Plugin } from "@webiny/plugins";
-import type { GraphQLSchemaDefinition, ResolverDecorators, Resolvers, TypeDefs } from "~/types";
+import type { GraphQLSchemaDefinition, ResolverDecorators, Resolvers, TypeDefs } from "~/types.js";
 
 export interface IGraphQLSchemaPlugin<TContext = Context> extends Plugin {
     schema: GraphQLSchemaDefinition<TContext>;

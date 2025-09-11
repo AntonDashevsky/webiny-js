@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { useSecurity } from "@webiny/app-security";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
-import type { CmsGroup, CmsIdentity, CmsModel, CmsSecurityPermission } from "~/types";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
+import type { CmsGroup, CmsIdentity, CmsModel, CmsSecurityPermission } from "~/types.js";
 import { makeDecoratable } from "@webiny/react-composition";
 
 export interface CreatableItem {

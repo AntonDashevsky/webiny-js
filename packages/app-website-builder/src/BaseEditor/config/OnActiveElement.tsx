@@ -1,5 +1,5 @@
 import React from "react";
-import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
+import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement.js";
 
 export interface OnActiveElementProps {
     children?: React.ReactNode;

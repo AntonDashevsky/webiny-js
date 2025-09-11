@@ -5,11 +5,11 @@ import { useDialogs, useSnackbar } from "@webiny/app-admin";
 import type { GenericFormData } from "@webiny/form";
 import { Bind, useForm } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { Extensions, FolderTree } from "~/components";
-import { useCreateFolder } from "~/features";
-import { ROOT_FOLDER } from "~/constants";
-import type { FolderItem } from "~/types";
-import { ParentFolderField } from "./ParentFolderField";
+import { Extensions, FolderTree } from "~/components/index.js";
+import { useCreateFolder } from "~/features/index.js";
+import { ROOT_FOLDER } from "~/constants.js";
+import type { FolderItem } from "~/types.js";
+import { ParentFolderField } from "./ParentFolderField.js";
 
 interface ShowDialogParams {
     currentParentId?: string | null;

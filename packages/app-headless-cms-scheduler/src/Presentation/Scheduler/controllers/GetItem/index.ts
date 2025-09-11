@@ -1,2 +1,2 @@
-export type * from "./IGetItemController";
-export * from "./GetItemController";
+export type * from "./IGetItemController.js";
+export * from "./GetItemController.js";

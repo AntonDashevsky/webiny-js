@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { useDragLayer } from "react-dnd";
-import { DropLine } from "./DropLine";
-import { useIsDragging } from "../useIsDragging";
-import { useProximityDropzone } from "../useProximityDropzone";
-import type { Box } from "../Box";
-import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
+import { DropLine } from "./DropLine.js";
+import { useIsDragging } from "../useIsDragging.js";
+import { useProximityDropzone } from "../useProximityDropzone.js";
+import type { Box } from "../Box.js";
+import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest.js";
 import { ComponentManifestToAstConverter } from "@webiny/website-builder-sdk";
 import { findMatchingAstNode } from "@webiny/website-builder-sdk";
 import type { SlotInput } from "@webiny/website-builder-sdk";

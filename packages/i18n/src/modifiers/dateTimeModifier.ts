@@ -1,4 +1,4 @@
-import type { Modifier, ModifierOptions } from "~/types";
+import type { Modifier, ModifierOptions } from "~/types.js";
 
 export default ({ i18n }: ModifierOptions): Modifier => ({
     name: "dateTime",

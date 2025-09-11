@@ -4,7 +4,7 @@ import { SchedulerListGraphQLGateway } from "../adapters/SchedulerListGraphQLGat
 import { SchedulerCancelGraphQLGateway } from "../adapters/SchedulerCancelGraphQLGateway.js";
 import { SchedulerPublishGraphQLGateway } from "../adapters/SchedulerPublishGraphQLGateway.js";
 import { SchedulerUnpublishGraphQLGateway } from "../adapters/SchedulerUnpublishGraphQLGateway.js";
-import { useApolloClient, useModel, usePermission } from "~/admin/hooks";
+import { useApolloClient, useModel, usePermission } from "~/admin/hooks/index.js";
 import { SchedulerButton } from "./ScheduleSidebarButton.js";
 import { Scheduler as BaseScheduler } from "@webiny/app-headless-cms-scheduler/index.js";
 

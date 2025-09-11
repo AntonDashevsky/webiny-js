@@ -1,2 +1,2 @@
-export * from "./FilePickerPrimitive";
-export * from "./components";
+export * from "./FilePickerPrimitive.js";
+export * from "./components/index.js";

@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
 import gql from "graphql-tag";
-import { useCms } from "../../../hooks";
-import type { CmsErrorResponse } from "~/types";
+import { useCms } from "../../../hooks/index.js";
+import type { CmsErrorResponse } from "~/types.js";
 
 export interface CmsDataCmsGroup {
     id: string;

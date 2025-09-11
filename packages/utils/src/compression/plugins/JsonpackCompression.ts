@@ -1,5 +1,5 @@
-import { CompressionPlugin, type ICompressedValue } from "../CompressionPlugin";
-import { compress, decompress } from "~/compression/jsonpack";
+import { CompressionPlugin, type ICompressedValue } from "../CompressionPlugin.js";
+import { compress, decompress } from "~/compression/jsonpack.js";
 
 const JSONPACK = "jsonpack";
 

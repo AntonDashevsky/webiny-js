@@ -1,5 +1,5 @@
 import React from "react";
-import { cn, cva, withStaticProps, makeDecoratable, type VariantProps } from "~/utils";
+import { cn, cva, withStaticProps, makeDecoratable, type VariantProps } from "~/utils.js";
 
 const columnVariants = cva("", {
     variants: {

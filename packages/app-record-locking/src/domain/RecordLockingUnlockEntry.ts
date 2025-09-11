@@ -3,13 +3,13 @@ import type {
     IRecordLockingUnlockEntry,
     IRecordLockingUnlockEntryParams,
     IRecordLockingUnlockEntryResult
-} from "~/domain/abstractions/IRecordLockingUnlockEntry";
-import type { IRecordLockingClient } from "./abstractions/IRecordLockingClient";
+} from "~/domain/abstractions/IRecordLockingUnlockEntry.js";
+import type { IRecordLockingClient } from "./abstractions/IRecordLockingClient.js";
 import type {
     RecordLockingUnlockEntryResponse,
     IRecordLockingUnlockEntryVariables
-} from "~/domain/graphql/unlockEntry";
-import { UNLOCK_ENTRY_MUTATION } from "~/domain/graphql/unlockEntry";
+} from "~/domain/graphql/unlockEntry.js";
+import { UNLOCK_ENTRY_MUTATION } from "~/domain/graphql/unlockEntry.js";
 
 interface Params {
     client: IRecordLockingClient;

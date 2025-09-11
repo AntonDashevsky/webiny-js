@@ -1,6 +1,6 @@
-import type { CmsEntryListParams } from "@webiny/api-headless-cms/types";
-import type { IListEntries } from "~/abstractions";
-import type { HcmsBulkActionsContext } from "~/types";
+import type { CmsEntryListParams } from "@webiny/api-headless-cms/types/index.js";
+import type { IListEntries } from "~/abstractions/index.js";
+import type { HcmsBulkActionsContext } from "~/types.js";
 
 class ListNotPublishedEntries implements IListEntries {
     private readonly context: HcmsBulkActionsContext;

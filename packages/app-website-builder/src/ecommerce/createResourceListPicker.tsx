@@ -1,8 +1,8 @@
 import React from "react";
 import { FormComponentLabel } from "@webiny/admin-ui";
-import type { Editor } from "~/index";
-import type { IEcommerceApi } from "./types";
-import { PickResourcesListButton } from "./components/ResourcesList";
+import type { Editor } from "~/index.js";
+import type { IEcommerceApi } from "./types.js";
+import { PickResourcesListButton } from "./components/ResourcesList.js";
 
 export const createResourceListPicker = (
     pluginName: string,

@@ -1,6 +1,7 @@
 import { GetPage } from "~/features/pages/getPage/GetPage.js";
 import { WbPageStatus } from "~/constants.js";
 import { fullPageCache } from "~/domain/Page/index.js";
+import { jest } from "@jest/globals";
 
 describe("GetPage", () => {
     const gateway = {

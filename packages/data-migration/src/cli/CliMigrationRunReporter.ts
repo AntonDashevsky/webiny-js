@@ -1,7 +1,7 @@
-import type { MigrationRunnerResult, MigrationRunReporter } from "~/cli";
+import type { MigrationRunnerResult, MigrationRunReporter } from "~/cli/index.js";
 import center from "center-align";
-import type { CliContext } from "@webiny/cli/types";
-import type { LogReporter } from "~/cli";
+import type { CliContext } from "@webiny/cli/types.js";
+import type { LogReporter } from "~/cli/index.js";
 
 export class CliMigrationRunReporter implements MigrationRunReporter {
     private context: CliContext;

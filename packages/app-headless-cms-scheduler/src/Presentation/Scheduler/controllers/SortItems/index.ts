@@ -1,2 +1,2 @@
-export type * from "./ISortItemsController";
-export * from "./SortItemsController";
+export type * from "./ISortItemsController.js";
+export * from "./SortItemsController.js";

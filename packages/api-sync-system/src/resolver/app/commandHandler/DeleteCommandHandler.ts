@@ -1,4 +1,4 @@
-import type { IStoreItem, IStorer } from "../storer/types";
+import type { IStoreItem, IStorer } from "../storer/types.js";
 import type { IDeployment } from "~/resolver/deployment/types.js";
 import type { ITable } from "~/sync/types.js";
 import type { IBundle } from "~/resolver/app/bundler/types.js";

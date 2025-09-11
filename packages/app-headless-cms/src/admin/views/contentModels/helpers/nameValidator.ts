@@ -1,5 +1,5 @@
-import lodashCamelCase from "lodash/camelCase";
-import type { CmsModel } from "~/types";
+import lodashCamelCase from "lodash/camelCase.js";
+import type { CmsModel } from "~/types.js";
 
 interface Params {
     models: CmsModel[];

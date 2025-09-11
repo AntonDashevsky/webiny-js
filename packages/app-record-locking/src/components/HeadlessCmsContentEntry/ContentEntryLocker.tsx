@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { useRecordLocking } from "~/hooks";
-import type { IRecordLockingIdentity, IRecordLockingLockRecord } from "~/types";
+import { useRecordLocking } from "~/hooks/index.js";
+import type { IRecordLockingIdentity, IRecordLockingLockRecord } from "~/types.js";
 import type { IncomingGenericData } from "@webiny/app-websockets";
 import { useWebsockets } from "@webiny/app-websockets";
 import { parseIdentifier } from "@webiny/utils";
 import { useDialogs } from "@webiny/app-admin";
-import type { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types";
+import type { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types.js";
 
 const autoUpdateTimeout = 20;
 

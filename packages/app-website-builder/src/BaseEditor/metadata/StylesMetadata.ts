@@ -1,5 +1,5 @@
 import type { Document } from "@webiny/website-builder-sdk";
-import type { IMetadata } from "./IMetadata";
+import type { IMetadata } from "./IMetadata.js";
 
 export class StylesMetadata implements IMetadata {
     private metadata: IMetadata;

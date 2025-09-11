@@ -1,5 +1,5 @@
 import { createGenericContext } from "@webiny/app";
-import type { RedirectDto } from "~/domain/Redirect";
+import type { RedirectDto } from "~/domain/Redirect/index.js";
 
 export interface RedirectRowContext {
     redirect: RedirectDto;

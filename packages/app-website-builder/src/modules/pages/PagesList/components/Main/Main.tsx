@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 import { useCreateDialog, useGetFolderLevelPermission } from "@webiny/app-aco";
 import { Scrollbar } from "@webiny/admin-ui";
 import { useDocumentList } from "~/modules/pages/PagesList/useDocumentList.js";
@@ -7,9 +7,9 @@ import { Header } from "~/modules/pages/PagesList/components/Header/index.js";
 import { BottomInfoBar } from "~/modules/pages/PagesList/components/BottomInfoBar/index.js";
 import { Table } from "~/modules/pages/PagesList/components/Table/index.js";
 import { Empty } from "~/modules/pages/PagesList/components/Empty/index.js";
-import { useCreatePageDialog } from "./CreatePage/CreatePage";
+import { useCreatePageDialog } from "./CreatePage/CreatePage.js";
 import { useLoadMorePages } from "~/features/pages/index.js";
-import { BulkActions } from "../BulkActions";
+import { BulkActions } from "../BulkActions/index.js";
 import { Filters } from "~/modules/pages/PagesList/components/Filters/index.js";
 
 const Main = () => {

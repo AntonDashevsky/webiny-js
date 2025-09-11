@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import type { ISchedulerItemsRepository } from "~/Domain/Repositories";
-import type { IUnpublishItemUseCase } from "./IUnpublishItemUseCase";
+import type { ISchedulerItemsRepository } from "~/Domain/Repositories/index.js";
+import type { IUnpublishItemUseCase } from "./IUnpublishItemUseCase.js";
 
 export class ScheduleUnpublishItemUseCase implements IUnpublishItemUseCase {
     private repository: ISchedulerItemsRepository;

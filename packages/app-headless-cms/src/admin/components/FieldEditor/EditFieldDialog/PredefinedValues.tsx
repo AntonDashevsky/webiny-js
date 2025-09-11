@@ -1,9 +1,9 @@
 import React, { useCallback, useRef, cloneElement } from "react";
-import { getValue } from "./functions/getValue";
-import { setValue } from "./functions/setValue";
+import { getValue } from "./functions/getValue.js";
+import { setValue } from "./functions/setValue.js";
 import type { BindComponent } from "@webiny/form";
 import { Bind as BaseFormBind } from "@webiny/form";
-import { useModelField } from "~/admin/hooks";
+import { useModelField } from "~/admin/hooks/index.js";
 
 interface MemoizedBindComponents {
     [key: string]: BindComponent;

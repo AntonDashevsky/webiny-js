@@ -6,10 +6,10 @@ import {
     getWcpProjectEnvironment
 } from "@webiny/wcp";
 import WError from "@webiny/error";
-import type { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
+import type { DecryptedWcpProjectLicense } from "@webiny/wcp/types.js";
 import { License, NullLicense } from "@webiny/wcp";
-import type { WcpContextObject, CachedWcpProjectLicense } from "./types";
-import { getWcpProjectLicenseCacheKey, wcpFetch } from "./utils";
+import type { WcpContextObject, CachedWcpProjectLicense } from "./types.js";
+import { getWcpProjectLicenseCacheKey, wcpFetch } from "./utils.js";
 
 const wcpProjectEnvironment = getWcpProjectEnvironment();
 

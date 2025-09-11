@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
-import type { CmsContext } from "~/types";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
+import type { CmsContext } from "~/types/index.js";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
 
 /**
  * In case version header is enabled via the env vars, add it to expectancy.

@@ -1,5 +1,5 @@
-import type { SwitchItemDto } from "./SwitchItemDto";
-import { generateId } from "~/utils";
+import type { SwitchItemDto } from "./SwitchItemDto.js";
+import { generateId } from "~/utils.js";
 
 export class SwitchItem {
     private readonly _id: string;

@@ -1,5 +1,5 @@
 import React from "react";
-import type { RouteProps } from "~/Route";
+import type { RouteProps } from "~/Route.js";
 import type { RoutesProps as BaseRoutesProps, Location } from "react-router-dom";
 import { Route, Routes as BaseRoutes, useLocation } from "react-router-dom";
 

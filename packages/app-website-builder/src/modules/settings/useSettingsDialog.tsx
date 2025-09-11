@@ -1,8 +1,8 @@
 import React from "react";
 import { useDialogs } from "@webiny/app-admin";
 import { useToast } from "@webiny/admin-ui";
-import { WebsiteBuilderSettings } from "./WebsiteBuilderSettings";
-import { useGetWebsiteBuilderSettings, useUpdateWebsiteBuilderSettings } from "~/features";
+import { WebsiteBuilderSettings } from "./WebsiteBuilderSettings.js";
+import { useGetWebsiteBuilderSettings, useUpdateWebsiteBuilderSettings } from "~/features/index.js";
 
 export const useSettingsDialog = () => {
     const { showSuccessToast } = useToast();

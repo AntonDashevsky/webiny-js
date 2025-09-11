@@ -5,9 +5,9 @@ import type {
     FileManagerSettings,
     FileManagerSystem,
     SystemCRUD
-} from "~/types";
+} from "~/types.js";
 import WebinyError from "@webiny/error";
-import type { FileManagerConfig } from "~/createFileManager/types";
+import type { FileManagerConfig } from "~/createFileManager/types.js";
 
 export const createSystemCrud = ({
     storageOperations,

@@ -1,3 +1,3 @@
-export * from "./MultiAutoCompleteInput";
-export * from "./MultiAutoCompleteInputIcons";
-export * from "./MultiAutoCompleteList";
+export * from "./MultiAutoCompleteInput.js";
+export * from "./MultiAutoCompleteInputIcons.js";
+export * from "./MultiAutoCompleteList.js";

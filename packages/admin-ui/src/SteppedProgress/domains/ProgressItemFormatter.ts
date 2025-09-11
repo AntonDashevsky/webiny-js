@@ -1,5 +1,5 @@
-import type { ProgressItem } from "~/SteppedProgress/domains/ProgressItem";
-import type { ProgressItemFormatted } from "~/SteppedProgress/domains/ProgressItemFormatted";
+import type { ProgressItem } from "~/SteppedProgress/domains/ProgressItem.js";
+import type { ProgressItemFormatted } from "~/SteppedProgress/domains/ProgressItemFormatted.js";
 
 export class ProgressItemFormatter {
     static format(item: ProgressItem): ProgressItemFormatted {

@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { Text, IconButton } from "@webiny/admin-ui";
 import { ReactComponent as Close } from "@webiny/icons/close.svg";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Buttons } from "@webiny/app-admin";
 
-import { useFileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { useFileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 
 const t = i18n.ns("app-file-manager/components/bulk-actions");
 

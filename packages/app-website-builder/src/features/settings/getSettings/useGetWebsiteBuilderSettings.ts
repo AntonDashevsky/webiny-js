@@ -1,8 +1,8 @@
 import { useMemo, useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { GetSettingsRepository } from "./GetSettings.repository";
-import { GetSettingsGqlGateway } from "./GetSettings.gateway";
-import { settingsCache } from "~/shared/settingsCache";
+import { GetSettingsRepository } from "./GetSettings.repository.js";
+import { GetSettingsGqlGateway } from "./GetSettings.gateway.js";
+import { settingsCache } from "~/shared/settingsCache.js";
 
 export const useGetWebsiteBuilderSettings = () => {
     const client = useApolloClient();

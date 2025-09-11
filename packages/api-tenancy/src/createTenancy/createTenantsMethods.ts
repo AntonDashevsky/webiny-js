@@ -11,7 +11,7 @@ import type {
     TenantAfterDeleteEvent,
     Tenancy,
     ListTenantsParams
-} from "~/types";
+} from "~/types.js";
 import { createTopic } from "@webiny/pubsub";
 import { mdbid } from "@webiny/utils";
 

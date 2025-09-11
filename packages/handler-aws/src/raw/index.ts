@@ -4,17 +4,17 @@
  *
  * We should try to have some kind of standardized event type implementation at some point.
  */
-import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types";
+import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types/index.js";
 import type { CreateHandlerParams as BaseCreateHandlerParams } from "@webiny/handler";
 import { createHandler as createBaseHandler } from "@webiny/handler";
-import { RawEventHandler } from "~/raw/plugins/RawEventHandler";
-import { registerDefaultPlugins } from "~/plugins";
-import { execute } from "~/execute";
-import { createComposedHandler } from "~/utils/composedHandler";
-import type { Context, Request } from "@webiny/handler/types";
+import { RawEventHandler } from "~/raw/plugins/RawEventHandler.js";
+import { registerDefaultPlugins } from "~/plugins/index.js";
+import { execute } from "~/execute.js";
+import { createComposedHandler } from "~/utils/composedHandler.js";
+import type { Context, Request } from "@webiny/handler/types.js";
 
 // @ts-expect-error
-import Reply from "fastify/lib/reply";
+import Reply from "fastify/lib/reply.js";
 
 const url = "/webiny-raw-event";
 
@@ -99,4 +99,4 @@ export const createHandler = <Payload = any, Response = APIGatewayProxyResult>(
     };
 };
 
-export * from "./plugins/RawEventHandler";
+export * from "./plugins/RawEventHandler.js";

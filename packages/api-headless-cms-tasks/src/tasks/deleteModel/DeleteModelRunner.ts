@@ -1,8 +1,8 @@
 import type { ITaskResponse, ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import type { HcmsTasksContext } from "~/types";
-import type { IDeleteModelTaskInput, IDeleteModelTaskOutput } from "./types";
-import type { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
-import { createStoreKey } from "~/tasks/deleteModel/helpers/store";
+import type { HcmsTasksContext } from "~/types.js";
+import type { IDeleteModelTaskInput, IDeleteModelTaskOutput } from "./types.js";
+import type { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { createStoreKey } from "~/tasks/deleteModel/helpers/store.js";
 
 export interface IDeleteModelRunnerParams<
     C extends HcmsTasksContext,

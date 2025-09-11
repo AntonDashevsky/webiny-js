@@ -1,5 +1,5 @@
 import type { ArchiverError, EntryData, ProgressData } from "archiver";
-import type { CompleteMultipartUploadCommandOutput } from "@webiny/aws-sdk/client-s3";
+import type { CompleteMultipartUploadCommandOutput } from "@webiny/aws-sdk/client-s3/index.js";
 import type { Readable } from "stream";
 
 export interface IAddOptions extends Omit<EntryData, "name">, Required<Pick<EntryData, "name">> {}

@@ -1,15 +1,15 @@
-import type { Context } from "~/types";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client";
-import { ImportFromUrlProcessAssets } from "./importFromUrlProcessAssets/ImportFromUrlProcessAssets";
+import type { Context } from "~/types.js";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
+import { ImportFromUrlProcessAssets } from "./importFromUrlProcessAssets/ImportFromUrlProcessAssets.js";
 import type {
     IImportFromUrlProcessAssets,
     IImportFromUrlProcessAssetsInput,
     IImportFromUrlProcessAssetsOutput
-} from "./importFromUrlProcessAssets/abstractions/ImportFromUrlProcessAssets";
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
-import { createCompressedFileReader, createDecompressor } from "~/tasks/utils/decompressor";
-import { createMultipartUpload, createMultipartUploadFactory } from "~/tasks/utils/upload";
-import { FileFetcher } from "~/tasks/utils/fileFetcher";
+} from "./importFromUrlProcessAssets/abstractions/ImportFromUrlProcessAssets.js";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
+import { createCompressedFileReader, createDecompressor } from "~/tasks/utils/decompressor/index.js";
+import { createMultipartUpload, createMultipartUploadFactory } from "~/tasks/utils/upload/index.js";
+import { FileFetcher } from "~/tasks/utils/fileFetcher/index.js";
 
 export const createImportFromUrlProcessAssets = <
     C extends Context = Context,

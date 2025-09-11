@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ProgressBar } from "./ProgressBar";
+import { ProgressBar } from "./ProgressBar.js";
 
 const meta: Meta<typeof ProgressBar> = {
     title: "Components/ProgressBar",

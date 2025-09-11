@@ -1,6 +1,6 @@
-import type { ElasticsearchBoolQueryConfig } from "~/types";
-import { ElasticsearchFieldPlugin } from "~/plugins/definition/ElasticsearchFieldPlugin";
-import type { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin";
+import type { ElasticsearchBoolQueryConfig } from "~/types.js";
+import { ElasticsearchFieldPlugin } from "~/plugins/definition/ElasticsearchFieldPlugin.js";
+import type { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin.js";
 import WebinyError from "@webiny/error";
 
 type Records<T> = Record<string, T>;

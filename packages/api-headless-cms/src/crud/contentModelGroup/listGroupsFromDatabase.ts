@@ -1,4 +1,4 @@
-import type { HeadlessCmsStorageOperations } from "~/types";
+import type { HeadlessCmsStorageOperations } from "~/types/index.js";
 
 interface Params {
     storageOperations: HeadlessCmsStorageOperations;

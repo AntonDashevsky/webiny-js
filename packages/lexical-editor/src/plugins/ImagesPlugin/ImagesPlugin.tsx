@@ -22,11 +22,11 @@ import {
     DROP_COMMAND
 } from "lexical";
 import { $isImageNode, ImageNode } from "@webiny/lexical-nodes";
-import type { ImagePayload } from "~/commands";
-import { INSERT_IMAGE_COMMAND } from "~/commands";
-import { CAN_USE_DOM } from "~/utils/canUseDOM";
-import { insertImage } from "~/utils/insertImage";
-import { useRichTextEditor } from "~/hooks";
+import type { ImagePayload } from "~/commands/index.js";
+import { INSERT_IMAGE_COMMAND } from "~/commands/index.js";
+import { CAN_USE_DOM } from "~/utils/canUseDOM.js";
+import { insertImage } from "~/utils/insertImage.js";
+import { useRichTextEditor } from "~/hooks/index.js";
 
 export type InsertImagePayload = Readonly<ImagePayload>;
 

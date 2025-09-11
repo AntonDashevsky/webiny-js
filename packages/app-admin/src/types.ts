@@ -1,10 +1,10 @@
 import type { ReactElement } from "react";
 import type React from "react";
-import type { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types.js";
 import type { ApolloClient } from "apollo-client";
-import type { SecurityPermission } from "@webiny/app-security/types";
+import type { SecurityPermission } from "@webiny/app-security/types.js";
 
-export type { Icon } from "~/components/IconPicker/types";
+export type { Icon } from "~/components/IconPicker/types.js";
 
 export interface AdminFileManagerFileTypePluginRenderParams {
     file: FileItem;

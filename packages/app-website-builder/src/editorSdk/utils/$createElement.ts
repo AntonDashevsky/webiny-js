@@ -1,6 +1,6 @@
-import type { Editor } from "../Editor";
-import type { CommandPayload } from "~/editorSdk/createCommand";
-import type { Commands } from "~/BaseEditor";
+import type { Editor } from "../Editor.js";
+import type { CommandPayload } from "~/editorSdk/createCommand.js";
+import type { Commands } from "~/BaseEditor/index.js";
 import { ElementFactory } from "@webiny/website-builder-sdk";
 
 export function $createElement(

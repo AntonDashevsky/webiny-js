@@ -1,15 +1,15 @@
 import React, { useCallback, useMemo } from "react";
-import type { ListCmsModelsQueryResponse } from "../../viewsGraphql";
-import { LIST_CONTENT_MODELS, withoutBeingDeletedModels } from "../../viewsGraphql";
+import type { ListCmsModelsQueryResponse } from "../../viewsGraphql.js";
+import { LIST_CONTENT_MODELS, withoutBeingDeletedModels } from "../../viewsGraphql.js";
 import { validation, ValidationError } from "@webiny/validation";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import type { CmsModel, CmsModelFieldTypePlugin } from "~/types";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import type { CmsModel, CmsModelFieldTypePlugin } from "~/types.js";
 import { ReactComponent as RefIcon } from "@webiny/icons/link.svg";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import type { BindComponentRenderProp } from "@webiny/form";
 import { Bind, useForm } from "@webiny/form";
-import { useModel, useQuery } from "~/admin/hooks";
-import { renderInfo } from "./ref/renderInfo";
+import { useModel, useQuery } from "~/admin/hooks/index.js";
+import { renderInfo } from "./ref/renderInfo.js";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/app-headless-cms-common";
 import { Grid, Label, MultiAutoComplete } from "@webiny/admin-ui";
 

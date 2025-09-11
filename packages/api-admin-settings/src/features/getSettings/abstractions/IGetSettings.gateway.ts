@@ -1,4 +1,4 @@
-import type { SettingsGatewayDto } from "~/shared/SettingsGatewayDto";
+import type { SettingsGatewayDto } from "~/shared/SettingsGatewayDto.js";
 
 export type GetSettingsParams = {
     name: string;

@@ -1,1 +1,1 @@
-export * from "@webiny/admin-ui/DataList/DataListIcons";
+export * from "@webiny/admin-ui/DataList/DataListIcons.js";

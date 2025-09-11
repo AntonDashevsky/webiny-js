@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Accordion, type AccordionItemProps as BaseAccordionItemProps } from "./Accordion";
+import { Accordion, type AccordionItemProps as BaseAccordionItemProps } from "./Accordion.js";
 
 import { ReactComponent as WarningIcon } from "@webiny/icons/insert_chart.svg";
 import { ReactComponent as ArrowUp } from "@webiny/icons/arrow_upward.svg";
 import { ReactComponent as ArrowDown } from "@webiny/icons/arrow_downward.svg";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as TrashIcon } from "@webiny/icons/delete.svg";
-import { Button } from "~/Button";
+import { Button } from "~/Button/index.js";
 
 const meta: Meta<typeof Accordion> = {
     title: "Components/Accordion",

@@ -1,5 +1,5 @@
 import { makeAutoObservable, toJS } from "mobx";
-import type { ISelectedItemsRepository } from "./ISelectedItemsRepository";
+import type { ISelectedItemsRepository } from "./ISelectedItemsRepository.js";
 
 export class SelectedItemsRepository<T = any> implements ISelectedItemsRepository<T> {
     private items: T[] = [];

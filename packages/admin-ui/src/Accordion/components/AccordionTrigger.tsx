@@ -1,11 +1,11 @@
 import * as React from "react";
 import { ReactComponent as KeyboardArrowDownIcon } from "@webiny/icons/keyboard_arrow_down.svg";
 import { Collapsible as CollapsiblePrimitive } from "radix-ui";
-import { cn } from "~/utils";
-import { type AccordionItemProps } from "./AccordionItem";
-import { AccordionItemAction } from "./AccordionItemAction";
-import { Icon } from "~/Icon";
-import { AccordionItemDragHandle } from "~/Accordion/components/AccordionItemDragHandle";
+import { cn } from "~/utils.js";
+import { type AccordionItemProps } from "./AccordionItem.js";
+import { AccordionItemAction } from "./AccordionItemAction.js";
+import { Icon } from "~/Icon/index.js";
+import { AccordionItemDragHandle } from "~/Accordion/components/AccordionItemDragHandle.js";
 
 type AccordionTriggerProps = Pick<
     AccordionItemProps,

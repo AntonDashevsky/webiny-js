@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog } from "@webiny/app-aco";
 import { useMovePage } from "~/features/pages/index.js";
-import type { PageDto } from "~/domain/Page";
+import type { PageDto } from "~/domain/Page/index.js";
 
 interface UseMovePageToFolderDialog {
     page: PageDto;

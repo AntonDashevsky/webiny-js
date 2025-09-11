@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { generateAlphaNumericId } from "@webiny/utils/generateId";
-import { DeprecatedTabsContext } from "./Tabs";
+import { generateAlphaNumericId } from "@webiny/utils/generateId.js";
+import { DeprecatedTabsContext } from "./Tabs.js";
 
 export type TabProps = {
     /**

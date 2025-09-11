@@ -1,7 +1,7 @@
 import React from "react";
-import type { CmsIdentity } from "~/types";
-import { Box } from "./Box";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
+import type { CmsIdentity } from "~/types.js";
+import { Box } from "./Box.js";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
 
 interface ModifiedByProps {
     modifiedBy?: CmsIdentity | null;

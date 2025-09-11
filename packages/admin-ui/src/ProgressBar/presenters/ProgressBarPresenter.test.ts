@@ -1,4 +1,4 @@
-import { ProgressBarPresenter } from "./ProgressBarPresenter";
+import { ProgressBarPresenter } from "./ProgressBarPresenter.js";
 
 describe("ProgressBarPresenter", () => {
     const presenter = new ProgressBarPresenter();

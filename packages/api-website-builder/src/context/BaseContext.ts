@@ -1,6 +1,6 @@
-import type { SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityPermission } from "@webiny/api-security/types.js";
 import { WebinyError } from "@webiny/error";
-import type { WebsiteBuilderContext } from "./types";
+import type { WebsiteBuilderContext } from "./types.js";
 
 export abstract class BaseContext {
     protected context: WebsiteBuilderContext;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Accordion } from "@webiny/admin-ui";
-import { MarginPaddingControl } from "./MarginPadding/MarginPadding";
+import { MarginPaddingControl } from "./MarginPadding/MarginPadding.js";
 
 interface MarginPaddingProps {
     elementId: string;

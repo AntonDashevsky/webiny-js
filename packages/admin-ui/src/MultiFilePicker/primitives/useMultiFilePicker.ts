@@ -3,8 +3,8 @@ import { autorun } from "mobx";
 import {
     MultiFilePickerPresenter,
     type MultiFilePickerPresenterParams
-} from "./presenters/MultiFilePickerPresenter";
-import type { MultiFilePickerPrimitiveProps } from "~/MultiFilePicker";
+} from "./presenters/MultiFilePickerPresenter.js";
+import type { MultiFilePickerPrimitiveProps } from "~/MultiFilePicker/index.js";
 
 type IMultiFilePickerPrimitiveProps = Pick<MultiFilePickerPrimitiveProps, "values">;
 

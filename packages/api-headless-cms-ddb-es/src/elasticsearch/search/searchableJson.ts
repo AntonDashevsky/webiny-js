@@ -1,4 +1,4 @@
-import { CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin";
+import { CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin.js";
 import { WebinyError } from "@webiny/error";
 import type { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 import { NoValueContainer } from "~/values/NoValueContainer.js";

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Toast } from "./Toast";
-import { useToast, type ShowToastParams } from "./useToast";
-import { Button } from "~/Button";
-import { Icon } from "~/Icon";
+import { Toast } from "./Toast.js";
+import { useToast, type ShowToastParams } from "./useToast.js";
+import { Button } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
 
 const ToastComponent = (props: ShowToastParams) => {
     const [lastToast, setLastToast] = useState<string | number>("");

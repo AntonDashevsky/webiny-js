@@ -1,5 +1,5 @@
-import type { S3, Part, ListPartsOutput } from "@webiny/aws-sdk/client-s3";
-import { ListPartsCommand, CompleteMultipartUploadCommand } from "@webiny/aws-sdk/client-s3";
+import type { S3, Part, ListPartsOutput } from "@webiny/aws-sdk/client-s3/index.js";
+import { ListPartsCommand, CompleteMultipartUploadCommand } from "@webiny/aws-sdk/client-s3/index.js";
 
 interface CompleteMultiPartUploadParams {
     fileKey: string;

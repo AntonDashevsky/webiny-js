@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon, type IconProps } from "~/Icon";
-import { makeDecoratable } from "~/utils";
+import { Icon, type IconProps } from "~/Icon/index.js";
+import { makeDecoratable } from "~/utils.js";
 
 interface ItemIconProps extends Omit<IconProps, "icon"> {
     element?: React.ReactNode;

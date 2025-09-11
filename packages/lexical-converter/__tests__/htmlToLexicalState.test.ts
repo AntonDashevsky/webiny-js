@@ -3,9 +3,9 @@
  */
 import type { LexicalNode } from "lexical";
 import { $isHeadingNode } from "@webiny/lexical-nodes";
-import { createMocks } from "./mocks/htmlMocks";
-import { createHtmlToLexicalParser } from "~/index";
-import { toBrowserDom, toJsDom } from "./utils/toDom";
+import { createMocks } from "./mocks/htmlMocks.js";
+import { createHtmlToLexicalParser } from "~/index.js";
+import { toBrowserDom, toJsDom } from "./utils/toDom.js";
 import { jest } from "@jest/globals";
 
 const defaultParser = createHtmlToLexicalParser();

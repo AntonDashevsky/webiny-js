@@ -1,5 +1,5 @@
 import React from "react";
-import { FormComponentErrorMessage, FormComponentNote } from "~/FormComponent";
+import { FormComponentErrorMessage, FormComponentNote } from "~/FormComponent/index.js";
 
 interface ChildrenRenderPropRowCallableParams {
     index: number;

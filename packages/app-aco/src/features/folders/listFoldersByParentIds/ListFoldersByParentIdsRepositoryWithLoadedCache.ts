@@ -1,8 +1,8 @@
-import type { LoadedCache } from "../cache";
+import type { LoadedCache } from "../cache/index.js";
 import type {
     IListFoldersByParentIdsRepository,
     ListFoldersByParentIdsRepositoryParams
-} from "./IListFoldersByParentIdsRepository";
+} from "./IListFoldersByParentIdsRepository.js";
 
 export class ListFoldersByParentIdsRepositoryWithLoadedCache
     implements IListFoldersByParentIdsRepository

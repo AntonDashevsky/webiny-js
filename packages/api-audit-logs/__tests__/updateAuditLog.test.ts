@@ -1,5 +1,5 @@
-import { getAuditConfig } from "~/utils/getAuditConfig";
-import { useHandler } from "./helpers/useHandler";
+import { getAuditConfig } from "~/utils/getAuditConfig.js";
+import { useHandler } from "./helpers/useHandler.js";
 import { auditAction } from "~tests/mocks/auditAction.js";
 import { generateAlphaNumericId } from "@webiny/utils/generateId.js";
 import type { IAuditLog } from "~/storage/types.js";

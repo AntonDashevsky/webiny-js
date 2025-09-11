@@ -1,6 +1,6 @@
 import React from "react";
-import { Toast } from "~/Toast";
-import { Tooltip } from "~/Tooltip";
+import { Toast } from "~/Toast/index.js";
+import { Tooltip } from "~/Tooltip/index.js";
 
 export interface ProvidersProps {
     children?: React.ReactNode;

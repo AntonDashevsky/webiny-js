@@ -2,11 +2,11 @@ import type {
     ICreateCognitoIdentityProviderClientCb,
     IDeleteUser,
     IDeleteUserHandleParams
-} from "./types";
+} from "./types.js";
 import type { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
 import type { InvokeCommandOutput } from "@webiny/aws-sdk/client-lambda/index.js";
-import type { AdminGetUserCommandInput } from "@webiny/aws-sdk/client-cognito-identity-provider";
-import { AdminGetUserCommand } from "@webiny/aws-sdk/client-cognito-identity-provider";
+import type { AdminGetUserCommandInput } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
+import { AdminGetUserCommand } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import type { IDeleteUserLambdaPayload } from "~/types.js";
 
 interface IGetUserParams {

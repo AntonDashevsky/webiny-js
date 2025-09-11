@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
-import { ERROR_FIELDS, LOCK_RECORD_FIELDS } from "./fields";
-import type { IRecordLockingError, IRecordLockingLockRecord } from "~/types";
-import type { IRecordLockingLockEntryParams } from "~/domain/abstractions/IRecordLockingLockEntry";
+import { ERROR_FIELDS, LOCK_RECORD_FIELDS } from "./fields.js";
+import type { IRecordLockingError, IRecordLockingLockRecord } from "~/types.js";
+import type { IRecordLockingLockEntryParams } from "~/domain/abstractions/IRecordLockingLockEntry.js";
 
 export type IRecordLockingLockEntryVariables = IRecordLockingLockEntryParams;
 

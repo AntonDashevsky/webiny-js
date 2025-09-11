@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as ListIcon } from "@webiny/icons/checklist.svg";
-import { ContentEntryEditorConfig } from "~/admin/config/contentEntries";
-import { useFullScreenContentEntry } from "~/admin/views/contentEntries/ContentEntry/FullScreenContentEntry/useFullScreenContentEntry";
+import { ContentEntryEditorConfig } from "~/admin/config/contentEntries/index.js";
+import { useFullScreenContentEntry } from "~/admin/views/contentEntries/ContentEntry/FullScreenContentEntry/useFullScreenContentEntry.js";
 
 export const ShowRevisionList = () => {
     const { openRevisionList } = useFullScreenContentEntry();

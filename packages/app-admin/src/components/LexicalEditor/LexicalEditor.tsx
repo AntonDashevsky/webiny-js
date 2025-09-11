@@ -1,8 +1,8 @@
 import React from "react";
-import { FileManager } from "~/components";
+import { FileManager } from "~/components/index.js";
 import { RichTextEditor as BaseEditor } from "@webiny/lexical-editor";
-import type { RichTextEditorProps } from "@webiny/lexical-editor/types";
-import { useTheme } from "@webiny/app-theme";
+import type { RichTextEditorProps } from "@webiny/lexical-editor/types.js";
+// TODO: import { useTheme } from "@webiny/app-theme";
 import type { EditorTheme } from "@webiny/lexical-theme";
 
 interface LexicalEditorProps extends Omit<RichTextEditorProps, "theme"> {
@@ -12,12 +12,12 @@ interface LexicalEditorProps extends Omit<RichTextEditorProps, "theme"> {
 const imagesOnly = ["image/*"];
 
 export const LexicalEditor = (props: LexicalEditorProps) => {
-    const { theme } = useTheme();
-
+    // const { theme } = useTheme();
+    //
     const editorTheme: EditorTheme = {
         styles: {},
         emotionMap: {},
-        ...theme,
+        // TODO:  ...theme,
         ...(props.theme || {})
     };
 

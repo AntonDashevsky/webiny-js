@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import { makeDecoratable } from "~/utils";
-import type { SwitchPrimitiveProps } from "./primitives";
-import { SwitchPrimitive } from "./primitives";
-import type { FormComponentProps } from "~/FormComponent";
-import { FormComponentErrorMessage, FormComponentNote } from "~/FormComponent";
+import { makeDecoratable } from "~/utils.js";
+import type { SwitchPrimitiveProps } from "./primitives/index.js";
+import { SwitchPrimitive } from "./primitives/index.js";
+import type { FormComponentProps } from "~/FormComponent/index.js";
+import { FormComponentErrorMessage, FormComponentNote } from "~/FormComponent/index.js";
 
 type SwitchProps = SwitchPrimitiveProps & FormComponentProps;
 

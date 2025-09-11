@@ -8,14 +8,14 @@ import {
     useParams,
     useSearchParams
 } from "react-router-dom";
-import type { StaticRouterProps } from "react-router-dom/server";
-import { StaticRouter as RStaticRouter } from "react-router-dom/server";
+import type { StaticRouterProps } from "react-router-dom/server.js";
+import { StaticRouter as RStaticRouter } from "react-router-dom/server.js";
 /**
  * Webiny enhancements and backwards compatibility with react-router v5.
  */
-import type { UseHistory } from "~/useHistory";
-import { useHistory } from "~/useHistory";
-import type { RouteProps } from "./Route";
+import type { UseHistory } from "~/useHistory.js";
+import { useHistory } from "~/useHistory.js";
+import type { RouteProps } from "./Route.js";
 
 /**
  * Re-export types from react-router-dom.
@@ -49,23 +49,23 @@ export type {
 
 export * from "react-router-dom";
 
-export { Link } from "./Link";
-export type { LinkProps } from "./Link";
+export { Link } from "./Link.js";
+export type { LinkProps } from "./Link.js";
 
-export { Route } from "./Route";
-export type { RouteProps } from "./Route";
+export { Route } from "./Route.js";
+export type { RouteProps } from "./Route.js";
 
-export { Prompt } from "./Prompt";
-export type { PromptProps } from "./Prompt";
+export { Prompt } from "./Prompt.js";
+export type { PromptProps } from "./Prompt.js";
 
-export { Routes } from "./Routes";
-export { Routes as Switch } from "./Routes";
-export type { RoutesProps } from "./Routes";
+export { Routes } from "./Routes.js";
+export { Routes as Switch } from "./Routes.js";
+export type { RoutesProps } from "./Routes.js";
 
-export { useHistory } from "./useHistory";
-export type { UseHistory } from "./useHistory";
+export { useHistory } from "./useHistory.js";
+export type { UseHistory } from "./useHistory.js";
 
-export { usePrompt } from "./usePrompt";
+export { usePrompt } from "./usePrompt.js";
 
 export type UseRouter = RouteProps & {
     history: UseHistory;

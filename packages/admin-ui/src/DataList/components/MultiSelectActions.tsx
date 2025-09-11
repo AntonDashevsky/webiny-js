@@ -1,4 +1,4 @@
-import type { DataListProps } from "../types";
+import type { DataListProps } from "../types.js";
 
 const MultiSelectActions = (props: DataListProps) => {
     const { multiSelectActions } = props;

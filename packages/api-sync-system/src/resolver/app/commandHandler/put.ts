@@ -2,7 +2,7 @@ import {
     CommandHandlerPlugin,
     createCommandHandlerPlugin
 } from "~/resolver/plugins/CommandHandlerPlugin.js";
-import { PutCommandHandler } from "./PutCommandHandler";
+import { PutCommandHandler } from "./PutCommandHandler.js";
 
 export const createPutCommandHandlerPlugin = () => {
     const plugin = createCommandHandlerPlugin({

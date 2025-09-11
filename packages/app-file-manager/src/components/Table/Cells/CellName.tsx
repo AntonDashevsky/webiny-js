@@ -1,13 +1,13 @@
 import React from "react";
 
 import { FolderIcon, FolderSharedIcon } from "@webiny/app-aco";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import type { FolderItem } from "@webiny/app-aco/types";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import type { FolderItem } from "@webiny/app-aco/types.js";
 import { cn, Text } from "@webiny/admin-ui";
-import { CellThumbnail } from "./CellThumbnail";
-import { FileProvider } from "~/contexts/FileProvider";
-import type { FileItem } from "@webiny/app-admin/types";
+import { CellThumbnail } from "./CellThumbnail.js";
+import { FileProvider } from "~/contexts/FileProvider.js";
+import type { FileItem } from "@webiny/app-admin/types.js";
 
 interface DefaultProps {
     onClick: (id: string) => void;

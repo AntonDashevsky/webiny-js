@@ -1,5 +1,5 @@
-import { createHandler, RoutePlugin } from "~/index";
-import type { DefinedContextRoutes } from "~/types";
+import { createHandler, RoutePlugin } from "~/index.js";
+import type { DefinedContextRoutes } from "~/types.js";
 
 describe("route plugins", () => {
     it("should add routes and they must be visible in the defined property", async () => {

@@ -6,8 +6,8 @@ import React, { Fragment } from "react";
 import LazyLoad from "react-lazy-load";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Text, TimeAgo, cn, CheckboxPrimitive } from "@webiny/admin-ui";
-import { useFileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import type { FileItem } from "@webiny/app-admin/types";
+import { useFileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import type { FileItem } from "@webiny/app-admin/types.js";
 
 export interface FileProps {
     file: FileItem;

@@ -2,9 +2,9 @@
  * File is @internal
  */
 import WebinyError from "@webiny/error";
-import type { CmsModelField } from "~/types";
-import type { GenericRecord } from "@webiny/api/types";
-import { StorageTransformPlugin } from "~/plugins";
+import type { CmsModelField } from "~/types/index.js";
+import type { GenericRecord } from "@webiny/api/types.js";
+import { StorageTransformPlugin } from "~/plugins/index.js";
 
 const excludeTypes = ["time", "dateTimeWithTimezone"];
 

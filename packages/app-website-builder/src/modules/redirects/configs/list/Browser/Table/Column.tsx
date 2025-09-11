@@ -6,8 +6,8 @@ import {
     type TableColumnConfig as ColumnConfig
 } from "@webiny/app-aco";
 import { makeDecoratable } from "@webiny/react-composition";
-import type { TableRow } from "~/modules/redirects/RedirectsList/presenters/TableRowMapper";
-import type { RedirectDto } from "~/domain/Redirect";
+import type { TableRow } from "~/modules/redirects/RedirectsList/presenters/TableRowMapper.js";
+import type { RedirectDto } from "~/domain/Redirect/index.js";
 
 const { Table } = AcoConfig;
 

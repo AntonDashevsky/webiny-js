@@ -16,11 +16,11 @@ import {
     getSortedRowModel,
     useReactTable
 } from "@tanstack/react-table";
-import { CheckboxPrimitive } from "~/Checkbox";
-import { Skeleton } from "~/Skeleton";
-import { Table } from "~/Table";
-import { ColumnSorter, ColumnsVisibility } from "./components";
-import { cn, makeDecoratable } from "~/utils";
+import { CheckboxPrimitive } from "~/Checkbox/index.js";
+import { Skeleton } from "~/Skeleton/index.js";
+import { Table } from "~/Table/index.js";
+import { ColumnSorter, ColumnsVisibility } from "./components/index.js";
+import { cn, makeDecoratable } from "~/utils.js";
 
 interface DataTableColumn<T> {
     /*

@@ -1,5 +1,6 @@
 import type { ColorState } from "react-color";
-import { ColorPickerPresenter } from "./ColorPickerPresenter";
+import { ColorPickerPresenter } from "./ColorPickerPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("ColorPickerPresenter", () => {
     const presenter = new ColorPickerPresenter();

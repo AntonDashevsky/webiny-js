@@ -1,6 +1,6 @@
-import type { Entity, TableDef } from "@webiny/db-dynamodb/toolbox";
-import type { Context } from "~/types";
-import type { NonEmptyArray } from "@webiny/api/types";
+import type { Entity, TableDef } from "@webiny/db-dynamodb/toolbox.js";
+import type { Context } from "~/types.js";
+import type { NonEmptyArray } from "@webiny/api/types.js";
 import type { IRegistryItem } from "@webiny/db";
 
 export interface IGetTableParams {

@@ -1,22 +1,22 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import ReactDOM from "react-dom";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 // @ts-expect-error This package has no types.
 import { useHotkeys } from "react-hotkeyz";
 import { Drawer, Grid, OverlayLoader, Tabs } from "@webiny/admin-ui";
-import type { FileItem } from "@webiny/app-admin/types";
+import type { FileItem } from "@webiny/app-admin/types.js";
 import type { FormAPI, FormOnSubmit } from "@webiny/form";
 import { Form } from "@webiny/form";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
-import { FileDetailsProvider } from "~/components/FileDetails/FileDetailsProvider";
-import { Preview } from "./components/Preview";
-import { Actions } from "./components/Actions";
-import { Content } from "./components/Content";
-import { Extensions } from "./components/Extensions";
-import { Description } from "./components/Description";
-import { useFileModel } from "~/hooks/useFileModel";
-import { useFileManagerViewConfig } from "~/index";
-import { FileProvider } from "~/contexts/FileProvider";
+import { FileDetailsProvider } from "~/components/FileDetails/FileDetailsProvider.js";
+import { Preview } from "./components/Preview.js";
+import { Actions } from "./components/Actions.js";
+import { Content } from "./components/Content.js";
+import { Extensions } from "./components/Extensions.js";
+import { Description } from "./components/Description.js";
+import { useFileModel } from "~/hooks/useFileModel.js";
+import { useFileManagerViewConfig } from "~/index.js";
+import { FileProvider } from "~/contexts/FileProvider.js";
 
 interface FileDetailsInnerProps {
     file: FileItem;

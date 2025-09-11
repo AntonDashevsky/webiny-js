@@ -1,5 +1,5 @@
-import type { TransformCallable } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin";
-import { CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin";
+import type { TransformCallable } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin.js";
+import { CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin.js";
 
 const transform: TransformCallable = params => {
     const { field, value } = params;

@@ -1,11 +1,11 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import type { CmsContentEntry, CmsEditorContentModel } from "~/types";
-import { ModelProvider } from "~/admin/components/ModelProvider";
-import { useFormRenderer } from "~/admin/components/ContentEntryForm/useFormRenderer";
-import { CustomLayout } from "~/admin/components/ContentEntryForm/CustomLayout";
-import { DefaultLayout } from "~/admin/components/ContentEntryForm/DefaultLayout";
-import { ContentEntryFormProvider } from "./ContentEntryFormProvider";
+import type { CmsContentEntry, CmsEditorContentModel } from "~/types.js";
+import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
+import { useFormRenderer } from "~/admin/components/ContentEntryForm/useFormRenderer.js";
+import { CustomLayout } from "~/admin/components/ContentEntryForm/CustomLayout.js";
+import { DefaultLayout } from "~/admin/components/ContentEntryForm/DefaultLayout.js";
+import { ContentEntryFormProvider } from "./ContentEntryFormProvider.js";
 
 export interface ContentEntryFormPreviewProps {
     contentModel: CmsEditorContentModel;

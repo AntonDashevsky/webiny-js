@@ -2,10 +2,10 @@ import React, { useCallback, useMemo } from "react";
 import { ReactComponent as MoveIcon } from "@webiny/icons/exit_to_app.svg";
 import { observer } from "mobx-react-lite";
 import { useMoveToFolderDialog, useNavigateFolder } from "@webiny/app-aco";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import { getFilesLabel } from "~/components/BulkActions/BulkActions";
-import { ROOT_FOLDER } from "~/constants";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import { getFilesLabel } from "~/components/BulkActions/BulkActions.js";
+import { ROOT_FOLDER } from "~/constants.js";
 import { type NodeDto, Tooltip } from "@webiny/admin-ui";
 
 export const ActionMove = observer(() => {

@@ -3,12 +3,12 @@ import {
     ErrorResponse,
     NotFoundResponse,
     ListResponse
-} from "@webiny/handler-graphql/responses";
-import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
-import type { I18NContext } from "~/types";
-import searchLocaleCodes from "./resolvers/searchLocaleCodes";
-import getI18NInformation from "./resolvers/getI18NInformation";
-import NotAuthorizedResponse from "@webiny/api-security/NotAuthorizedResponse";
+} from "@webiny/handler-graphql/responses.js";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
+import type { I18NContext } from "~/types.js";
+import searchLocaleCodes from "./resolvers/searchLocaleCodes.js";
+import getI18NInformation from "./resolvers/getI18NInformation.js";
+import NotAuthorizedResponse from "@webiny/api-security/NotAuthorizedResponse.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { NotAuthorizedError } from "@webiny/api-security";
 

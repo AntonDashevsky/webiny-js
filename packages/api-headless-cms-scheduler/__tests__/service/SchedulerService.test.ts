@@ -11,7 +11,8 @@ import {
     GetScheduleCommand,
     SchedulerClient,
     UpdateScheduleCommand
-} from "@webiny/aws-sdk/client-scheduler";
+} from "@webiny/aws-sdk/client-scheduler/index.js";
+import { jest } from "@jest/globals";
 
 describe("SchedulerService", () => {
     const lambdaArn = "arn:aws:lambda:us-east-1:123456789012:function:test";

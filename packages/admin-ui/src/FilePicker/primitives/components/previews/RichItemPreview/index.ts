@@ -1,1 +1,1 @@
-export * from "./RichItemPreview";
+export * from "./RichItemPreview.js";

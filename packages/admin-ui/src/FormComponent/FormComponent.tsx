@@ -1,5 +1,5 @@
 import type React from "react";
-import type { Label } from "~/Label";
+import type { Label } from "~/Label/index.js";
 
 interface FormComponentProps<TValue = any> {
     /**

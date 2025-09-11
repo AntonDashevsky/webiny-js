@@ -1,4 +1,4 @@
-import { validation } from "../src";
+import { validation } from "../src/index.js";
 
 describe("empty validators test", () => {
     it("should pass - no validators sent", async () => {

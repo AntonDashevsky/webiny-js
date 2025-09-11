@@ -1,7 +1,7 @@
 import React from "react";
-import { Separator } from "~/Separator";
+import { Separator } from "~/Separator/index.js";
 
-import { cva, type VariantProps } from "~/utils";
+import { cva, type VariantProps } from "~/utils.js";
 
 const separatorVariants = cva(["wby-h-xl wby-ml-px"], {
     variants: {

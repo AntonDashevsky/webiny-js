@@ -1,6 +1,6 @@
-import type { Abstraction } from "./Abstraction";
-import type { Constructor, Dependencies, Implementation, GetInterface } from "./types";
-import { Metadata } from "./Metadata";
+import type { Abstraction } from "./Abstraction.js";
+import type { Constructor, Dependencies, Implementation, GetInterface } from "./types.js";
+import { Metadata } from "./Metadata.js";
 
 export function createImplementation<
     A extends Abstraction<any>,

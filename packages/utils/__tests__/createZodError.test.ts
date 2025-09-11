@@ -1,5 +1,5 @@
 import zod from "zod";
-import { createZodError } from "~/createZodError";
+import { createZodError } from "~/createZodError.js";
 
 describe("create zod error", () => {
     const validation = zod.object({

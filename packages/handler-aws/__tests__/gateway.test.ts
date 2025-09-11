@@ -1,6 +1,6 @@
-import { createHandler, RoutePlugin } from "~/index";
-import { createLambdaContext } from "./mocks/lambdaContext";
-import { createLambdaEvent } from "./mocks/lambdaEvent";
+import { createHandler, RoutePlugin } from "~/index.js";
+import { createLambdaContext } from "./mocks/lambdaContext.js";
+import { createLambdaEvent } from "./mocks/lambdaEvent.js";
 
 describe("api gateway", () => {
     it("should create handler", async () => {

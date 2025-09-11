@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ButtonsProvider } from "./useButtons";
-import { ButtonContainer } from "./Buttons.styles";
+import { ButtonsProvider } from "./useButtons.js";
+import { ButtonContainer } from "./Buttons.styles.js";
 import {
     Button,
     type ButtonProps as BaseButtonProps,

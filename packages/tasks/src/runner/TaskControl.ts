@@ -1,13 +1,13 @@
-import type { ITaskEvent } from "~/handler/types";
-import type { Context, ITask, ITaskDataInput, ITaskDefinition, ITaskLog } from "~/types";
-import { TaskDataStatus, TaskResponseStatus } from "~/types";
-import type { ITaskControl, ITaskRunner } from "./abstractions";
-import { TaskManager } from "./TaskManager";
-import type { IResponse, IResponseResult } from "~/response/abstractions";
-import { DatabaseResponse, TaskResponse } from "~/response";
-import { TaskManagerStore } from "./TaskManagerStore";
+import type { ITaskEvent } from "~/handler/types.js";
+import type { Context, ITask, ITaskDataInput, ITaskDefinition, ITaskLog } from "~/types.js";
+import { TaskDataStatus, TaskResponseStatus } from "~/types.js";
+import type { ITaskControl, ITaskRunner } from "./abstractions/index.js";
+import { TaskManager } from "./TaskManager.js";
+import type { IResponse, IResponseResult } from "~/response/abstractions/index.js";
+import { DatabaseResponse, TaskResponse } from "~/response/index.js";
+import { TaskManagerStore } from "./TaskManagerStore.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { getErrorProperties } from "~/utils/getErrorProperties";
+import { getErrorProperties } from "~/utils/getErrorProperties.js";
 
 export class TaskControl implements ITaskControl {
     public readonly runner: ITaskRunner;

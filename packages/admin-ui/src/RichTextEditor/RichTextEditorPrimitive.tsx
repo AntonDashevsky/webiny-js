@@ -7,7 +7,7 @@ import type {
     ToolSettings
 } from "@editorjs/editorjs";
 import EditorJS from "@editorjs/editorjs";
-import { cn, cva, generateId, type VariantProps } from "~/utils";
+import { cn, cva, generateId, type VariantProps } from "~/utils.js";
 
 const richTextEditorVariants = cva(
     [

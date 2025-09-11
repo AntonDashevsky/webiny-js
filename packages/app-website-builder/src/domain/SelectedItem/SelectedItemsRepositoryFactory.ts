@@ -1,4 +1,4 @@
-import { SelectedItemsRepository } from "./SelectedItemsRepository";
+import { SelectedItemsRepository } from "./SelectedItemsRepository.js";
 import type { ISelectedItemsRepository } from "~/domain/SelectedItem/ISelectedItemsRepository.js";
 
 export class SelectedItemsRepositoryFactory {

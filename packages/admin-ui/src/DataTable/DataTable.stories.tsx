@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import type { DataTableColumns, DataTableDefaultData, DataTableSorting } from "./DataTable";
-import { DataTable } from "./DataTable";
-import { Avatar } from "~/Avatar";
-import { Text } from "~/Text";
+import type { DataTableColumns, DataTableDefaultData, DataTableSorting } from "./DataTable.js";
+import { DataTable } from "./DataTable.js";
+import { Avatar } from "~/Avatar/index.js";
+import { Text } from "~/Text/index.js";
 
 const meta: Meta<typeof DataTable> = {
     title: "Components/DataTable",

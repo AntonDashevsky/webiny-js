@@ -1,13 +1,13 @@
 import React from "react";
 import { AppContainer, Plugin } from "@webiny/app";
-import { Menu, type MenuConfig } from "./AdminConfig/Menu";
-import type { TenantConfig } from "./AdminConfig/Tenant";
-import { Tenant } from "./AdminConfig/Tenant";
-import type { SupportMenuConfig } from "./AdminConfig/Menu/SupportMenu";
-import type { UserMenuConfig } from "./AdminConfig/Menu/UserMenu";
-import { Route } from "./AdminConfig/Route";
-import { Theme } from "./AdminConfig/Theme";
-import { createAdminConfig } from "./createAdminConfig";
+import { Menu, type MenuConfig } from "./AdminConfig/Menu.js";
+import type { TenantConfig } from "./AdminConfig/Tenant.js";
+import { Tenant } from "./AdminConfig/Tenant.js";
+import type { SupportMenuConfig } from "./AdminConfig/Menu/SupportMenu.js";
+import type { UserMenuConfig } from "./AdminConfig/Menu/UserMenu.js";
+import { Route } from "./AdminConfig/Route.js";
+import { Theme } from "./AdminConfig/Theme.js";
+import { createAdminConfig } from "./createAdminConfig.js";
 
 const base = createAdminConfig<AdminConfig>();
 

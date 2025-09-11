@@ -1,6 +1,6 @@
 import React from "react";
 import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui";
-import { cn, makeDecoratable } from "~/utils";
+import { cn, makeDecoratable } from "~/utils.js";
 import { ReactComponent as Check } from "@webiny/icons/check.svg";
 
 export interface DropdownMenuItemProps

@@ -1,6 +1,6 @@
-import type { ITaskDataInput } from "~/types";
-import { TaskResponseStatus } from "~/types";
-import type { IResponseContinueResult } from "./abstractions";
+import type { ITaskDataInput } from "~/types.js";
+import { TaskResponseStatus } from "~/types.js";
+import type { IResponseContinueResult } from "./abstractions/index.js";
 
 export class ResponseContinueResult<T = ITaskDataInput> implements IResponseContinueResult<T> {
     public readonly message?: string | undefined;

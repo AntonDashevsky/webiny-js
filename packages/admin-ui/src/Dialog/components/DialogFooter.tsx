@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn, cva, type VariantProps } from "~/utils";
+import { cn, cva, type VariantProps } from "~/utils.js";
 
 const dialogFooterVariants = cva("wby-flex wby-justify-between", {
     variants: {

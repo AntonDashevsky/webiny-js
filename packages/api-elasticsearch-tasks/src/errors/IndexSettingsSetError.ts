@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import type { AugmentedError } from "~/types";
+import type { AugmentedError } from "~/types.js";
 
 export class IndexSettingsSetError extends WebinyError {
     public readonly index: string;

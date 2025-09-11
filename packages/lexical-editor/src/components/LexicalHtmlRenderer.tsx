@@ -9,9 +9,9 @@ import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { allNodes } from "@webiny/lexical-nodes";
 import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
 import { createTheme, toTypographyEmotionMap } from "@webiny/lexical-theme";
-import type { LexicalValue } from "~/types";
-import { RichTextEditorProvider } from "~/context/RichTextEditorContext";
-import { StateHandlingPlugin } from "~/plugins/StateHandlingPlugin";
+import type { LexicalValue } from "~/types.js";
+import { RichTextEditorProvider } from "~/context/RichTextEditorContext.js";
+import { StateHandlingPlugin } from "~/plugins/StateHandlingPlugin.js";
 
 interface LexicalHtmlRendererProps {
     nodes?: Klass<LexicalNode>[];

@@ -7,8 +7,8 @@ import type {
     OnFolderBeforeCreateTopicParams,
     OnFolderBeforeDeleteTopicParams,
     OnFolderBeforeUpdateTopicParams
-} from "./folder.types";
-import { type ListFoldersParams } from "./folder.types";
+} from "./folder.types.js";
+import { type ListFoldersParams } from "./folder.types.js";
 import {
     getCreateFolderUseCases,
     getDeleteFolderUseCases,
@@ -18,9 +18,9 @@ import {
     getListFoldersUseCases,
     getUpdateFolderUseCase,
     getGetFolderHierarchyUseCases
-} from "~/folder/useCases";
-import type { CreateAcoParams, Folder } from "~/types";
-import { type AcoContext } from "~/types";
+} from "~/folder/useCases/index.js";
+import type { CreateAcoParams, Folder } from "~/types.js";
+import { type AcoContext } from "~/types.js";
 
 const FIXED_FOLDER_LISTING_LIMIT = 10_000;
 

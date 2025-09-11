@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { MoveRedirect } from "./MoveRedirect";
-import { MoveRedirectWithEvents } from "./MoveRedirectWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { MoveRedirect } from "./MoveRedirect.js";
+import { MoveRedirectWithEvents } from "./MoveRedirectWithEvents.js";
 import type {
     OnRedirectAfterMoveTopicParams,
     OnRedirectBeforeMoveTopicParams,
     WbRedirectsStorageOperations
-} from "~/context/redirects/redirects.types";
+} from "~/context/redirects/redirects.types.js";
 
 export interface MoveRedirectUseCasesTopics {
     onRedirectBeforeMove: Topic<OnRedirectBeforeMoveTopicParams>;

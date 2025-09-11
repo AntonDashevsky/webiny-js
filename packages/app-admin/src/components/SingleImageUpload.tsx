@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import type { FileManagerFileItem } from "~/index";
-import { FileManager } from "~/index";
-import type { FormComponentProps } from "@webiny/ui/types";
+import type { FileManagerFileItem } from "~/index.js";
+import { FileManager } from "~/index.js";
+import type { FormComponentProps } from "@webiny/ui/types.js";
 import { FileItem, FilePicker, type FilePickerProps } from "@webiny/admin-ui";
 
 export interface SingleImageUploadProps extends FormComponentProps {

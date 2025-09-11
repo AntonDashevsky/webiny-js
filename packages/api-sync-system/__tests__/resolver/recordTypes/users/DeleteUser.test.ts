@@ -12,6 +12,7 @@ import {
     LambdaClient
 } from "@webiny/aws-sdk/client-lambda/index.js";
 import { mockClient } from "aws-sdk-client-mock";
+import { jest } from "@jest/globals";
 
 describe("DeleteUser", () => {
     it("should delete a user from the target user pool", async () => {

@@ -1,7 +1,7 @@
 import { createRoute } from "@webiny/handler";
-import type { WebsiteBuilderContext } from "~/context/types";
-import { ensureAuthentication } from "~/utils/ensureAuthentication";
-import { ActiveRedirectRestMapper } from "./ActiveRedirectRestMapper";
+import type { WebsiteBuilderContext } from "~/context/types.js";
+import { ensureAuthentication } from "~/utils/ensureAuthentication.js";
+import { ActiveRedirectRestMapper } from "./ActiveRedirectRestMapper.js";
 
 export const createRedirectsRoute = () => {
     return createRoute<WebsiteBuilderContext>(({ onGet, context }) => {

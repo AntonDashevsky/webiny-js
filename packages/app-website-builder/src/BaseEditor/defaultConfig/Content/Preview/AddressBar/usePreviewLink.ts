@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { useIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useIframeUrl";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
+import { useIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useIframeUrl.js";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
 
 export const usePreviewLink = () => {
     const iframeUrl = useIframeUrl();

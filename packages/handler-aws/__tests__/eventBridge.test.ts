@@ -1,6 +1,6 @@
 import type { GenericRecord } from "@webiny/utils";
-import { createEventBridgeEventHandler, createHandler } from "~/index";
-import type { LambdaContext } from "~/types";
+import { createEventBridgeEventHandler, createHandler } from "~/index.js";
+import type { LambdaContext } from "~/types.js";
 
 describe("event bridge", () => {
     it("should inject payload into event bridge event", async () => {

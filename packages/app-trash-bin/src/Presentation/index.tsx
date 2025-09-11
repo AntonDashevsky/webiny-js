@@ -5,13 +5,13 @@ import type {
     ITrashBinListGateway,
     ITrashBinRestoreItemGateway,
     ITrashBinBulkActionsGateway
-} from "~/Gateways";
-import type { ITrashBinItemMapper, TrashBinItemDTO } from "~/Domain";
-import { TrashBinRenderer } from "~/Presentation/TrashBinRenderer";
+} from "~/Gateways/index.js";
+import type { ITrashBinItemMapper, TrashBinItemDTO } from "~/Domain/index.js";
+import { TrashBinRenderer } from "~/Presentation/TrashBinRenderer/index.js";
 import { CompositionScope } from "@webiny/react-composition";
-import { TrashBinListWithConfig } from "~/Presentation/configs";
+import { TrashBinListWithConfig } from "~/Presentation/configs/index.js";
 
-export * from "~/Presentation/TrashBinConfigs";
+export * from "~/Presentation/TrashBinConfigs/index.js";
 
 export type TrashBinRenderPropParams = {
     showTrashBin: () => void;

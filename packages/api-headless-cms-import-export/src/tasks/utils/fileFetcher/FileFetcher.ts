@@ -1,10 +1,10 @@
-import type { DeleteObjectCommandOutput, S3Client } from "@webiny/aws-sdk/client-s3";
+import type { DeleteObjectCommandOutput, S3Client } from "@webiny/aws-sdk/client-s3/index.js";
 import {
     DeleteObjectCommand,
     GetObjectCommand,
     HeadObjectCommand,
     ListObjectsCommand
-} from "@webiny/aws-sdk/client-s3";
+} from "@webiny/aws-sdk/client-s3/index.js";
 import { basename } from "path";
 import type {
     IFileFetcher,

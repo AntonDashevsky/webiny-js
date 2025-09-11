@@ -1,11 +1,11 @@
-import type { ITaskEvent, ITaskRawEvent } from "~/handler/types";
-import type { ITaskEventValidation, ITaskRunner } from "./abstractions";
-import type { Context } from "~/types";
-import { Response, ResponseErrorResult } from "~/response";
-import { TaskControl } from "./TaskControl";
-import type { IResponseResult } from "~/response/abstractions";
-import { getErrorProperties } from "~/utils/getErrorProperties";
-import type { ITimer } from "@webiny/handler-aws/utils";
+import type { ITaskEvent, ITaskRawEvent } from "~/handler/types.js";
+import type { ITaskEventValidation, ITaskRunner } from "./abstractions/index.js";
+import type { Context } from "~/types.js";
+import { Response, ResponseErrorResult } from "~/response/index.js";
+import { TaskControl } from "./TaskControl.js";
+import type { IResponseResult } from "~/response/abstractions/index.js";
+import { getErrorProperties } from "~/utils/getErrorProperties.js";
+import type { ITimer } from "@webiny/handler-aws/utils/index.js";
 
 const transformMinutesIntoMilliseconds = (minutes: number) => {
     return minutes * 60000;

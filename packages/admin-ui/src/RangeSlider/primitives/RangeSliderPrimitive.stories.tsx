@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { RangeSliderPrimitive } from "./RangeSliderPrimitive";
-import { Button } from "~/Button";
+import { RangeSliderPrimitive } from "./RangeSliderPrimitive.js";
+import { Button } from "~/Button/index.js";
 
 const meta: Meta<typeof RangeSliderPrimitive> = {
     title: "Components/Form Primitives/RangeSlider",

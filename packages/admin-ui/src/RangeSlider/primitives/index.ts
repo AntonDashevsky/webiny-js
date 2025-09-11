@@ -1,3 +1,3 @@
-export * from "./RangeSliderPrimitive";
-export * from "./components";
-export * from "./useRangeSlider";
+export * from "./RangeSliderPrimitive.js";
+export * from "./components/index.js";
+export * from "./useRangeSlider.js";

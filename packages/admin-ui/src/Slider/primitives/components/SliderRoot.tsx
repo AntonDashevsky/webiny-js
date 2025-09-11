@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Slider as SliderPrimitives } from "radix-ui";
-import { cn } from "~/utils";
+import { cn } from "~/utils.js";
 
 const SliderRoot = ({ className, ...props }: SliderPrimitives.SliderProps) => (
     <SliderPrimitives.Root

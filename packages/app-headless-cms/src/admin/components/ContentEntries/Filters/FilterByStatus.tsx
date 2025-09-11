@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Select } from "@webiny/admin-ui";
 import { useBind } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
-import type { CmsEntryFilterStatusPlugin } from "@webiny/app-headless-cms-common/types";
+import type { CmsEntryFilterStatusPlugin } from "@webiny/app-headless-cms-common/types/index.js";
 
 const getValidFilterValue = (value: string): string | undefined => {
     if (value === "all" || value === "") {

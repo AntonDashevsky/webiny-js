@@ -1,9 +1,9 @@
 import React from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import type { TeamsDataListProps } from "./TeamsDataList";
-import { TeamsDataList } from "./TeamsDataList";
-import type { TeamsFormProps } from "./TeamsForm";
-import { TeamsForm } from "./TeamsForm";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import type { TeamsDataListProps } from "./TeamsDataList.js";
+import { TeamsDataList } from "./TeamsDataList.js";
+import type { TeamsFormProps } from "./TeamsForm.js";
+import { TeamsForm } from "./TeamsForm.js";
 
 export interface TeamsProps {
     listProps?: TeamsDataListProps;

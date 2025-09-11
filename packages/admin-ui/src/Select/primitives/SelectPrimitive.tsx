@@ -1,19 +1,19 @@
 import * as React from "react";
 import { ReactComponent as Close } from "@webiny/icons/close.svg";
 import { Select as SelectPrimitives } from "radix-ui";
-import { type VariantProps } from "~/utils";
-import { useSelect } from "./useSelect";
-import type { SelectOptionDto, SelectOptionFormatted } from "../domains";
-import { IconButton } from "~/Button";
-import { Icon } from "~/Icon";
-import type { selectTriggerVariants } from "./components";
+import { type VariantProps } from "~/utils.js";
+import { useSelect } from "./useSelect.js";
+import type { SelectOptionDto, SelectOptionFormatted } from "../domains/index.js";
+import { IconButton } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
+import type { selectTriggerVariants } from "./components/index.js";
 import {
     SelectContent,
     SelectItem,
     SelectLabel,
     SelectSeparator,
     SelectTrigger
-} from "./components";
+} from "./components/index.js";
 
 const SelectRoot = SelectPrimitives.Root;
 

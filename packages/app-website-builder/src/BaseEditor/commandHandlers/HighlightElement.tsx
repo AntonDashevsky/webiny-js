@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { Commands } from "../commands";
-import { $highlightElement } from "~/editorSdk/utils";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { Commands } from "../commands.js";
+import { $highlightElement } from "~/editorSdk/utils/index.js";
 
 export const HighlightElement = () => {
     const editor = useDocumentEditor();

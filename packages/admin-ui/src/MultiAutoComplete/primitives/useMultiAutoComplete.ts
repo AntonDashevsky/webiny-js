@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import type { MultiAutoCompletePrimitiveProps } from "./MultiAutoCompletePrimitive";
-import type { MultiAutoCompletePresenterParams } from "./presenters";
+import type { MultiAutoCompletePrimitiveProps } from "./MultiAutoCompletePrimitive.js";
+import type { MultiAutoCompletePresenterParams } from "./presenters/index.js";
 import {
     MultiAutoCompleteInputPresenter,
     MultiAutoCompleteListOptionsPresenter,
@@ -9,8 +9,8 @@ import {
     MultiAutoCompletePresenter,
     MultiAutoCompletePresenterWithFreeInput,
     MultiAutoCompleteSelectedOptionPresenter
-} from "./presenters";
-import { MultiAutoCompleteTemporaryOptionPresenter } from "~/MultiAutoComplete/primitives/presenters/MultiAutoCompleteTemporaryOptionPresenter";
+} from "./presenters/index.js";
+import { MultiAutoCompleteTemporaryOptionPresenter } from "~/MultiAutoComplete/primitives/presenters/MultiAutoCompleteTemporaryOptionPresenter.js";
 
 export const useMultiAutoComplete = (props: MultiAutoCompletePrimitiveProps) => {
     const params: MultiAutoCompletePresenterParams = useMemo(

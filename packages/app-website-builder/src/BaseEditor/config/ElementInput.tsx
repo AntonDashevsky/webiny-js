@@ -1,8 +1,8 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import type { ComponentInput } from "@webiny/website-builder-sdk";
-import type { InputBindingOnChange } from "../defaultConfig/Sidebar/ElementSettings/useInputValue";
-import type { IMetadata } from "~/BaseEditor/metadata";
+import type { InputBindingOnChange } from "../defaultConfig/Sidebar/ElementSettings/useInputValue.js";
+import type { IMetadata } from "~/BaseEditor/metadata/index.js";
 
 export interface ElementInputRendererProps {
     label: React.ReactNode;

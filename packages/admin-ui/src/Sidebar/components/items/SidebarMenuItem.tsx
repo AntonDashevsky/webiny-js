@@ -1,11 +1,11 @@
 import React from "react";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import { SidebarMenuItemIcon, type SidebarMenuItemIconProps } from "./SidebarMenuItemIcon";
-import { SidebarMenuItemAction, type SidebarMenuItemActionProps } from "./SidebarMenuItemAction";
-import { SidebarMenuSubItem } from "./SidebarMenuSubItem";
-import { useSidebarMenu } from "./SidebarMenuProvider";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import { SidebarMenuItemIcon, type SidebarMenuItemIconProps } from "./SidebarMenuItemIcon.js";
+import { SidebarMenuItemAction, type SidebarMenuItemActionProps } from "./SidebarMenuItemAction.js";
+import { SidebarMenuSubItem } from "./SidebarMenuSubItem.js";
+import { useSidebarMenu } from "./SidebarMenuProvider.js";
 import type { LinkProps, To } from "@webiny/react-router";
-import { SidebarMenuRootItem } from "~/Sidebar/components/items/SidebarMenuRootItem";
+import { SidebarMenuRootItem } from "~/Sidebar/components/items/SidebarMenuRootItem.js";
 
 export interface SidebarMenuItemBaseProps {
     text: React.ReactNode;

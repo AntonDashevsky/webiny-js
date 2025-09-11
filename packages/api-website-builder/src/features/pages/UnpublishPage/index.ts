@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { UnpublishPage } from "./UnpublishPage";
-import { UnpublishPageWithEvents } from "./UnpublishPageWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { UnpublishPage } from "./UnpublishPage.js";
+import { UnpublishPageWithEvents } from "./UnpublishPageWithEvents.js";
 import type {
     OnPageAfterUnpublishTopicParams,
     OnPageBeforeUnpublishTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 
 export interface UnpublishPageUseCasesTopics {
     onPageBeforeUnpublish: Topic<OnPageBeforeUnpublishTopicParams>;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { EditorConfig } from "~/BaseEditor";
+import { EditorConfig } from "~/BaseEditor/index.js";
 
 // TODO: find a good place for this!
 export const COLORS = {

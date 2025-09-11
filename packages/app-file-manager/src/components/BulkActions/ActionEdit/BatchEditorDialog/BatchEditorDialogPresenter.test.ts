@@ -1,6 +1,7 @@
-import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter";
-import type { BatchDTO, FieldDTO, OperatorDTO } from "~/components/BulkActions/ActionEdit/domain";
-import { OperatorType } from "~/components/BulkActions/ActionEdit/domain";
+import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter.js";
+import type { BatchDTO, FieldDTO, OperatorDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { OperatorType } from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { jest } from "@jest/globals";
 
 describe("BatchEditorDialogPresenter", () => {
     const batch: BatchDTO = {

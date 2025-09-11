@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ColorPickerPrimitive } from "./ColorPickerPrimitive";
+import { ColorPickerPrimitive } from "./ColorPickerPrimitive.js";
 
 const meta: Meta<typeof ColorPickerPrimitive> = {
     title: "Components/Form Primitives/ColorPicker",

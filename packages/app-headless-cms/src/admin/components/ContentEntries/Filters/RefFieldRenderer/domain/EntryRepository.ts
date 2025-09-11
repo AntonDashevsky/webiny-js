@@ -1,8 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import type { EntryDTO, EntryReference } from "./Entry";
-import type { EntriesGatewayInterface } from "../adapters";
-import { EntryMapper } from "./EntryMapper";
-import { Loading } from "./Loading";
+import type { EntryDTO, EntryReference } from "./Entry.js";
+import type { EntriesGatewayInterface } from "../adapters/index.js";
+import { EntryMapper } from "./EntryMapper.js";
+import { Loading } from "./Loading.js";
 
 export class EntryRepository {
     public readonly modelIds: string[];

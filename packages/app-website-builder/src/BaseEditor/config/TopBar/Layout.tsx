@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { HeaderBar } from "@webiny/admin-ui";
-import { TopBar } from "./TopBar";
+import { TopBar } from "./TopBar.js";
 
 export const Layout = makeDecoratable("TopBarLayout", () => {
     return (

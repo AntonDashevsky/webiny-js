@@ -1,10 +1,10 @@
-import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
-import { createInitFactory } from "./product/init";
-import { createEntriesFactory } from "./product/entries";
-import { createCategoryFactory } from "./product/category";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
-import type { Product, ProductCategory } from "../types";
-import { createGetProduct } from "./product/getProductFactory";
+import { useProductManageHandler } from "../testHelpers/useProductManageHandler.js";
+import { createInitFactory } from "./product/init.js";
+import { createEntriesFactory } from "./product/entries.js";
+import { createCategoryFactory } from "./product/category.js";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
+import type { Product, ProductCategory } from "../types.js";
+import { createGetProduct } from "./product/getProductFactory.js";
 
 describe("complex product nestedObject filtering", () => {
     const options = {

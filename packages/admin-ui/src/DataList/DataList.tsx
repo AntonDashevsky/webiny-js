@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import isEmpty from "lodash/isEmpty";
-import { Heading } from "~/Heading";
+import isEmpty from "lodash/isEmpty.js";
+import { Heading } from "~/Heading/index.js";
 import {
     Filters,
     Loader,
@@ -10,9 +10,9 @@ import {
     Pagination,
     RefreshButton,
     Sorters
-} from "~/DataList/components";
-import { DataListModal } from "~/DataList/DataListModal";
-import type { DataListProps } from "~/DataList/types";
+} from "~/DataList/components/index.js";
+import { DataListModal } from "~/DataList/DataListModal.js";
+import type { DataListProps } from "~/DataList/types.js";
 
 const defaultDataListProps = {
     children: null,

@@ -1,11 +1,11 @@
 import React from "react";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as RemoveIcon } from "@webiny/icons/remove.svg";
-import { i18n } from "@webiny/app/i18n";
-import type { BindComponent, CmsModelField } from "~/types";
+import { i18n } from "@webiny/app/i18n/index.js";
+import type { BindComponent, CmsModelField } from "~/types.js";
 import type { BindComponentRenderProp, FormAPI } from "@webiny/form";
 import { useForm } from "@webiny/form";
-import { useModelField } from "~/admin/hooks";
+import { useModelField } from "~/admin/hooks/index.js";
 import {
     Button,
     DynamicFieldset,

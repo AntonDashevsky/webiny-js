@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import type { CmsDynamicZoneTemplate } from "~/types";
-import { TemplateIcon } from "~/admin/plugins/fieldRenderers/dynamicZone/TemplateIcon";
+import type { CmsDynamicZoneTemplate } from "~/types.js";
+import { TemplateIcon } from "~/admin/plugins/fieldRenderers/dynamicZone/TemplateIcon.js";
 import { Button, Heading, Text } from "@webiny/admin-ui";
 
 export interface TemplateCardProps {

@@ -1,4 +1,4 @@
-import { TreePresenter } from "./TreePresenter";
+import { TreePresenter } from "./TreePresenter.js";
 
 describe("TreePresenter", () => {
     it("should return the compatible `vm` based on params", () => {

@@ -1,2 +1,2 @@
-export * from "./AutoCompleteInputIcons";
-export * from "./AutoCompleteList";
+export * from "./AutoCompleteInputIcons.js";
+export * from "./AutoCompleteList.js";

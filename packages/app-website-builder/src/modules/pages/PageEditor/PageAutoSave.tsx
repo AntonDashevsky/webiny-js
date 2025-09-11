@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import debounce from "lodash/debounce";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { useUpdatePage } from "~/features/pages";
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
+import debounce from "lodash/debounce.js";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { useUpdatePage } from "~/features/pages/index.js";
+import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor.js";
 
 export const PageAutoSave = () => {
     const editor = useDocumentEditor();

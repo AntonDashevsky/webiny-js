@@ -1,6 +1,6 @@
-import { Plugin } from "@webiny/plugins/Plugin";
-import type { ResponseHeaders } from "~/ResponseHeaders";
-import type { Request } from "~/types";
+import { Plugin } from "@webiny/plugins/Plugin.js";
+import type { ResponseHeaders } from "~/ResponseHeaders.js";
+import type { Request } from "~/types.js";
 
 interface ModifyResponseHeadersCallable {
     (request: Request, headers: ResponseHeaders): void;

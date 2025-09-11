@@ -1,6 +1,6 @@
 import * as React from "react";
-import type { Plugin } from "@webiny/plugins/types";
-import { NotAuthorizedError } from "~/components/NotAuthorizedError";
+import type { Plugin } from "@webiny/plugins/types.js";
+import { NotAuthorizedError } from "~/components/NotAuthorizedError/index.js";
 
 type SecureRouteErrorPlugin = Plugin & { render: () => React.ReactNode };
 

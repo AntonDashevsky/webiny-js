@@ -1,5 +1,5 @@
 import { createAbstraction, type Result } from "@webiny/feature";
-import type { Tenant } from "~/types";
+import type { Tenant } from "~/types.js";
 
 export interface IGetCurrentTenantUseCase {
     execute(): Result<Tenant>;

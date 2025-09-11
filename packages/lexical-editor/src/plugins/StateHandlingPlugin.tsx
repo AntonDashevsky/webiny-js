@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useMemo } from "react";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 import { OnChangePlugin as BaseOnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import type { EditorState, LexicalEditor } from "lexical";
 import { $isRootTextContentEmpty } from "@lexical/text";
 import { generateInitialLexicalValue, prepareLexicalState } from "@webiny/lexical-nodes";
-import { normalizeInputValue } from "~/components/Editor/normalizeInputValue";
-import type { LexicalValue } from "~/types";
-import { useRichTextEditor } from "~/hooks";
-import { parseLexicalState } from "~/utils/isValidLexicalData";
+import { normalizeInputValue } from "~/components/Editor/normalizeInputValue.js";
+import type { LexicalValue } from "~/types.js";
+import { useRichTextEditor } from "~/hooks/index.js";
+import { parseLexicalState } from "~/utils/isValidLexicalData.js";
 
 interface OnChangeProps {
     value: string | null | undefined;

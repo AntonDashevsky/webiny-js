@@ -14,8 +14,8 @@ import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
 import type { SerializedQuoteNode as BaseSerializedQuoteNode } from "@lexical/rich-text";
 import { QuoteNode as BaseQuoteNode } from "@lexical/rich-text";
-import type { ThemeStyleValue, TypographyStylesNode } from "~/types";
-import { getStyleId } from "~/utils/getStyleId";
+import type { ThemeStyleValue, TypographyStylesNode } from "~/types.js";
+import { getStyleId } from "~/utils/getStyleId.js";
 
 export type SerializedQuoteNode = Spread<
     {

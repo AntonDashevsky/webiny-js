@@ -1,8 +1,8 @@
-import type { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
-import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
-import { createPluginsContainer, createQuery } from "./filtering/mocks";
-import type { CreateExecFilteringResponse } from "./filtering/mocks/filtering";
-import { createExecFiltering } from "./filtering/mocks/filtering";
+import type { CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
+import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import { createPluginsContainer, createQuery } from "./filtering/mocks/index.js";
+import type { CreateExecFilteringResponse } from "./filtering/mocks/filtering.js";
+import { createExecFiltering } from "./filtering/mocks/filtering.js";
 
 describe("convert where to elasticsearch query", () => {
     let query: ElasticsearchBoolQueryConfig;

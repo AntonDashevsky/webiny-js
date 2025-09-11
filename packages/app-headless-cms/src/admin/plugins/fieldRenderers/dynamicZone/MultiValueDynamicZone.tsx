@@ -1,13 +1,13 @@
 import React from "react";
-import cloneDeep from "lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep.js";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete_outline.svg";
 import { ReactComponent as CloneIcon } from "@webiny/icons/library_add.svg";
 import { ReactComponent as ArrowUpIcon } from "@webiny/icons/expand_less.svg";
 import { ReactComponent as ArrowDownIcon } from "@webiny/icons/expand_more.svg";
-import { AddTemplateButton, AddTemplateIcon } from "./AddTemplate";
-import { TemplateIcon } from "./TemplateIcon";
-import { ParentFieldProvider, useModelField } from "~/admin/hooks";
-import { Fields } from "~/admin/components/ContentEntryForm/Fields";
+import { AddTemplateButton, AddTemplateIcon } from "./AddTemplate.js";
+import { TemplateIcon } from "./TemplateIcon.js";
+import { ParentFieldProvider, useModelField } from "~/admin/hooks/index.js";
+import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
 import type {
     BindComponent,
     BindComponentRenderProp,
@@ -16,10 +16,10 @@ import type {
     CmsModel,
     CmsModelField,
     CmsDynamicZoneTemplateWithTypename
-} from "~/types";
+} from "~/types.js";
 import { makeDecoratable } from "@webiny/react-composition";
-import { TemplateProvider } from "~/admin/plugins/fieldRenderers/dynamicZone/TemplateProvider";
-import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider";
+import { TemplateProvider } from "~/admin/plugins/fieldRenderers/dynamicZone/TemplateProvider.js";
+import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider/index.js";
 import { useConfirmationDialog } from "@webiny/app-admin";
 import { Accordion, Tooltip } from "@webiny/admin-ui";
 

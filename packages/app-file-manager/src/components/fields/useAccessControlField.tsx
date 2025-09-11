@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import type { Select } from "@webiny/admin-ui";
-import { useFileModel } from "~/index";
+import { useFileModel } from "~/index.js";
 
 interface AccessControlField {
     options: React.ComponentProps<typeof Select>["options"];

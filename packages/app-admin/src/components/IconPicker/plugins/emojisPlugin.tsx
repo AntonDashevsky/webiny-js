@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { observer } from "mobx-react-lite";
 import { cn, PopoverPrimitive } from "@webiny/admin-ui";
 import { useIcon } from "..";
-import { IconPickerTab } from "../IconPickerTab";
-import { IconProvider } from "../IconRenderer";
-import { useIconPicker } from "../IconPickerPresenterProvider";
-import { IconPickerConfig } from "../config";
-import type { Icon } from "../types";
+import { IconPickerTab } from "../IconPickerTab.js";
+import { IconProvider } from "../IconRenderer.js";
+import { useIconPicker } from "../IconPickerPresenterProvider.js";
+import { IconPickerConfig } from "../config/index.js";
+import type { Icon } from "../types.js";
 
 const SKIN_TONES = ["", "\u{1f3fb}", "\u{1f3fc}", "\u{1f3fd}", "\u{1f3fe}", "\u{1f3ff}"];
 

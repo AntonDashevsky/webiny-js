@@ -1,4 +1,4 @@
-import { getIdentity } from "~/index";
+import { getIdentity } from "~/index.js";
 
 describe("getIdentity Test", () => {
     test("full identity information should be returned correctly", async () => {

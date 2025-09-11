@@ -1,6 +1,6 @@
 import type { css as EmotionCSS } from "emotion";
-import type { ThemeEmotionMap } from "~/types";
-import type { EditorTheme } from "~/createTheme";
+import type { ThemeEmotionMap } from "~/types.js";
+import type { EditorTheme } from "~/createTheme.js";
 
 type StyleItem = {
     id: string;

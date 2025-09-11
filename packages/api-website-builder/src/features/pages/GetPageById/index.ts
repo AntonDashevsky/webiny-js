@@ -1,5 +1,5 @@
-import { GetPageById } from "./GetPageById";
-import type { WbPagesStorageOperations } from "~/context/pages/pages.types";
+import { GetPageById } from "./GetPageById.js";
+import type { WbPagesStorageOperations } from "~/context/pages/pages.types.js";
 
 interface GetPageByIdUseCasesParams {
     getOperation: WbPagesStorageOperations["getById"];

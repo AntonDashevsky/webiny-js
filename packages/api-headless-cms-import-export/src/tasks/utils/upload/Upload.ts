@@ -1,14 +1,14 @@
-import type { Options as BaseUploadOptions } from "@webiny/aws-sdk/lib-storage";
-import { Upload as BaseUpload } from "@webiny/aws-sdk/lib-storage";
+import type { Options as BaseUploadOptions } from "@webiny/aws-sdk/lib-storage/index.js";
+import { Upload as BaseUpload } from "@webiny/aws-sdk/lib-storage/index.js";
 import type { Transform } from "stream";
 import { PassThrough } from "stream";
 import type {
     CompleteMultipartUploadCommandOutput,
     PutObjectCommandInput,
     S3Client
-} from "@webiny/aws-sdk/client-s3";
-import type { IAwsUpload, IUpload, IUploadOnListener } from "./abstractions/Upload";
-import { getContentType } from "./getContentType";
+} from "@webiny/aws-sdk/client-s3/index.js";
+import type { IAwsUpload, IUpload, IUploadOnListener } from "./abstractions/Upload.js";
+import { getContentType } from "./getContentType.js";
 
 export interface IUploadConfig {
     client: S3Client;

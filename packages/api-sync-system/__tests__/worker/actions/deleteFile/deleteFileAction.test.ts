@@ -1,12 +1,13 @@
-import type { DeleteObjectCommandInput } from "@webiny/aws-sdk/client-s3";
+import type { DeleteObjectCommandInput } from "@webiny/aws-sdk/client-s3/index.js";
 import {
     createS3Client,
     DeleteObjectCommand,
     HeadObjectCommand,
     S3Client
-} from "@webiny/aws-sdk/client-s3";
+} from "@webiny/aws-sdk/client-s3/index.js";
 import { mockClient } from "aws-sdk-client-mock";
 import { createDeleteFileAction } from "~/worker/actions/deleteFile/deleteFileAction.js";
+import { jest } from "@jest/globals";
 
 describe("deleteFileAction", () => {
     beforeEach(() => {

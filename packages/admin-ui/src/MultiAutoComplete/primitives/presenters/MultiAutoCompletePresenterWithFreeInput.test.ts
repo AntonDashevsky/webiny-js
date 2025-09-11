@@ -1,10 +1,11 @@
-import type { IMultiAutoCompletePresenter } from "./MultiAutoCompletePresenter";
-import { MultiAutoCompletePresenter } from "./MultiAutoCompletePresenter";
-import { MultiAutoCompleteInputPresenter } from "./MultiAutoCompleteInputPresenter";
-import { MultiAutoCompleteSelectedOptionPresenter } from "./MultiAutoCompleteSelectedOptionsPresenter";
-import { MultiAutoCompleteListOptionsPresenter } from "./MultiAutoCompleteListOptionsPresenter";
-import { MultiAutoCompleteTemporaryOptionPresenter } from "~/MultiAutoComplete/primitives/presenters/MultiAutoCompleteTemporaryOptionPresenter";
-import { MultiAutoCompletePresenterWithFreeInput } from "~/MultiAutoComplete/primitives/presenters/MultiAutoCompletePresenterWithFreeInput";
+import type { IMultiAutoCompletePresenter } from "./MultiAutoCompletePresenter.js";
+import { MultiAutoCompletePresenter } from "./MultiAutoCompletePresenter.js";
+import { MultiAutoCompleteInputPresenter } from "./MultiAutoCompleteInputPresenter.js";
+import { MultiAutoCompleteSelectedOptionPresenter } from "./MultiAutoCompleteSelectedOptionsPresenter.js";
+import { MultiAutoCompleteListOptionsPresenter } from "./MultiAutoCompleteListOptionsPresenter.js";
+import { MultiAutoCompleteTemporaryOptionPresenter } from "~/MultiAutoComplete/primitives/presenters/MultiAutoCompleteTemporaryOptionPresenter.js";
+import { MultiAutoCompletePresenterWithFreeInput } from "~/MultiAutoComplete/primitives/presenters/MultiAutoCompletePresenterWithFreeInput.js";
+import { jest } from "@jest/globals";
 
 describe("MultiAutoCompletePresenterWithFreeInput", () => {
     let presenter: IMultiAutoCompletePresenter;

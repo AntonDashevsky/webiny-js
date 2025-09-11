@@ -1,5 +1,5 @@
 import React from "react";
-import { SchedulerListConfig } from "~/Presentation/configs";
+import { SchedulerListConfig } from "~/Presentation/configs/index.js";
 
 export const CellScheduledBy = () => {
     const { useTableRow } = SchedulerListConfig.Browser.Table.Column;

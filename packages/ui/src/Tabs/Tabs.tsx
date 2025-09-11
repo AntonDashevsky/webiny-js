@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from "react";
 import React, { createContext, useCallback, useMemo, useState } from "react";
 import { Tabs as AdminTabs } from "@webiny/admin-ui";
-import type { TabProps } from "./Tab";
+import type { TabProps } from "./Tab.js";
 
 const VALUE_PREFIX = "tab-";
 

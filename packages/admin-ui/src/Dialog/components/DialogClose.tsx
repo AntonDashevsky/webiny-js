@@ -1,7 +1,7 @@
 import React from "react";
 import { Dialog as DialogPrimitive } from "radix-ui";
 import { ReactComponent as XIcon } from "@webiny/icons/close.svg";
-import { IconButton } from "~/Button";
+import { IconButton } from "~/Button/index.js";
 
 export const DialogClosePrimitive = DialogPrimitive.Close;
 

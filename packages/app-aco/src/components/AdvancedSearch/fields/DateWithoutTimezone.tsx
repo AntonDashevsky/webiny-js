@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useBind } from "@webiny/form";
-import { useInputField } from "~/components";
+import { useInputField } from "~/components/index.js";
 import { Input } from "@webiny/admin-ui";
 
 export const DateWithoutTimezone = () => {

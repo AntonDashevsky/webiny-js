@@ -1,6 +1,6 @@
-import { CmsEntryElasticsearchBodyModifierPlugin } from "~/plugins";
+import { CmsEntryElasticsearchBodyModifierPlugin } from "~/plugins/index.js";
 import type { PluginsContainer } from "@webiny/plugins";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 interface Params {
     plugins: PluginsContainer;

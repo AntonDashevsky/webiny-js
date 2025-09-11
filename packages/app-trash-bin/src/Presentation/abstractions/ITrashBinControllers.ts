@@ -10,7 +10,7 @@ import type {
     ISelectItemsController,
     ISortItemsController,
     IUnselectAllItemsController
-} from "~/Presentation/TrashBin/controllers";
+} from "~/Presentation/TrashBin/controllers/index.js";
 
 export interface ITrashBinControllers {
     deleteItem: IDeleteItemController;

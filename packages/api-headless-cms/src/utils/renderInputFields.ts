@@ -3,8 +3,8 @@ import type {
     CmsModel,
     CmsModelField,
     CmsModelFieldDefinition
-} from "~/types";
-import { getBaseFieldType } from "~/utils/getBaseFieldType";
+} from "~/types/index.js";
+import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 
 interface RenderInputFieldsParams {
     models: CmsModel[];

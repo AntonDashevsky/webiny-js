@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Avatar as AvatarPrimitive } from "radix-ui";
-import { cn, makeDecoratable } from "~/utils";
+import { cn, makeDecoratable } from "~/utils.js";
 
 type AvatarImageProps = AvatarPrimitive.AvatarImageProps;
 

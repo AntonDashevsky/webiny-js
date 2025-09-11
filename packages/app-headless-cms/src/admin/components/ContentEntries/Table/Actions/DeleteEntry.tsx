@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Delete } from "@webiny/icons/delete.svg";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useContentEntry, useEntry, usePermission } from "~/admin/hooks";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useContentEntry, useEntry, usePermission } from "~/admin/hooks/index.js";
 
 export const DeleteEntry = () => {
     const { entry } = useEntry();

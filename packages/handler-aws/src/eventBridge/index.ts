@@ -1,22 +1,22 @@
 import { createHandler as createBaseHandler } from "@webiny/handler";
-import { registerDefaultPlugins } from "~/plugins";
-import type { EventBridgeEventHandlerCallableParams } from "~/eventBridge/plugins/EventBridgeEventHandler";
-import { EventBridgeEventHandler } from "~/eventBridge/plugins/EventBridgeEventHandler";
-import { execute } from "~/execute";
-import type { HandlerFactoryParams } from "~/types";
+import { registerDefaultPlugins } from "~/plugins/index.js";
+import type { EventBridgeEventHandlerCallableParams } from "~/eventBridge/plugins/EventBridgeEventHandler.js";
+import { EventBridgeEventHandler } from "~/eventBridge/plugins/EventBridgeEventHandler.js";
+import { execute } from "~/execute.js";
+import type { HandlerFactoryParams } from "~/types.js";
 import type {
     APIGatewayProxyResult,
     Context as LambdaContext,
     EventBridgeEvent
-} from "@webiny/aws-sdk/types";
+} from "@webiny/aws-sdk/types/index.js";
 /**
  * We need a class, not an interface exported from types.
  */
 // @ts-expect-error
-import Reply from "fastify/lib/reply";
-import { createComposedHandler } from "~/utils/composedHandler";
+import Reply from "fastify/lib/reply.js";
+import { createComposedHandler } from "~/utils/composedHandler.js";
 
-export * from "./plugins/EventBridgeEventHandler";
+export * from "./plugins/EventBridgeEventHandler.js";
 
 export type HandlerParams = HandlerFactoryParams;
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { cn, makeDecoratable } from "~/utils";
-import { type ProgressItemFormatted } from "./domains";
-import { SteppedProgressIcon, SteppedProgressIndicator, SteppedProgressLabel } from "./components";
+import { cn, makeDecoratable } from "~/utils.js";
+import { type ProgressItemFormatted } from "./domains/index.js";
+import { SteppedProgressIcon, SteppedProgressIndicator, SteppedProgressLabel } from "./components/index.js";
 
 type SteppedProgressItemProps = React.HTMLAttributes<HTMLDivElement> & ProgressItemFormatted;
 

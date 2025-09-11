@@ -1,5 +1,5 @@
-import omit from "lodash/omit";
-import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import omit from "lodash/omit.js";
+import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
 import type {
     WbRedirect,
     WbRedirectsStorageOperations,
@@ -9,7 +9,7 @@ import type {
     WbRedirectsStorageOperationsListResponse,
     WbRedirectsStorageOperationsMoveParams,
     WbRedirectsStorageOperationsUpdateParams
-} from "~/context/redirects/redirects.types";
+} from "~/context/redirects/redirects.types.js";
 import { entryFromStorageTransform } from "@webiny/api-headless-cms";
 import type { PluginsContainer } from "@webiny/plugins";
 

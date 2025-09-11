@@ -2,7 +2,7 @@ import type {
     CmsEntryStorageOperationsRestoreFromBinParams,
     CmsModel,
     CmsStorageEntry
-} from "~/types";
+} from "~/types/index.js";
 
 export interface IRestoreEntryFromBinOperation {
     execute: (

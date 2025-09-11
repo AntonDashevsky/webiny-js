@@ -1,5 +1,5 @@
-import type { FileItemDto } from "./FileItemDto";
-import { generateId } from "~/utils";
+import type { FileItemDto } from "./FileItemDto.js";
+import { generateId } from "~/utils.js";
 
 export class FileItem {
     private readonly _id: string;

@@ -1,1 +1,1 @@
-export * from "./PopoverPrimitive";
+export * from "./PopoverPrimitive.js";

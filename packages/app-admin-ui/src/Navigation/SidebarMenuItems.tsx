@@ -1,5 +1,5 @@
 import React from "react";
-import type { MenuConfig } from "@webiny/app-admin/config/AdminConfig/Menu";
+import type { MenuConfig } from "@webiny/app-admin/config/AdminConfig/Menu.js";
 
 export interface MenusProps {
     menus: MenuConfig[];

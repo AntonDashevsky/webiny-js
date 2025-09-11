@@ -1,5 +1,5 @@
-import type { RadioItemFormatted } from "./RadioItemFormatted";
-import type { RadioItem } from "./RadioItem";
+import type { RadioItemFormatted } from "./RadioItemFormatted.js";
+import type { RadioItem } from "./RadioItem.js";
 
 export class RadioItemFormatter {
     static format(item: RadioItem): RadioItemFormatted {

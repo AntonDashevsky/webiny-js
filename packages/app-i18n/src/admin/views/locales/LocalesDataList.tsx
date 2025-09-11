@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { Button, Select } from "@webiny/admin-ui";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     DataList,
     ScrollList,
@@ -12,12 +12,12 @@ import {
     ListItemTextSecondary,
     DataListModalOverlayAction,
     ListItemTextPrimary
-} from "@webiny/ui/List";
+} from "@webiny/ui/List/index.js";
 
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { useLocalesList } from "./hooks/useLocalesList";
-import type { I18NLocaleItem } from "~/types";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { useLocalesList } from "./hooks/useLocalesList.js";
+import type { I18NLocaleItem } from "~/types.js";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 

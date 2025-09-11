@@ -1,5 +1,5 @@
-import type { ToStorageParams } from "~/plugins/StorageTransformPlugin";
-import { createDateStorageTransformPlugin } from "~/storage/date";
+import type { ToStorageParams } from "~/plugins/StorageTransformPlugin.js";
+import { createDateStorageTransformPlugin } from "~/storage/date.js";
 
 const createDefaultArgs = ({ storageId = "storageId", type = "", multipleValues = false }) => {
     return {

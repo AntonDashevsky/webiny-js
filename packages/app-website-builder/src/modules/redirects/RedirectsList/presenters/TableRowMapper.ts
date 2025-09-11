@@ -1,6 +1,6 @@
 import type { Folder, FolderTableRow, RecordTableRow } from "@webiny/app-aco";
 import { FolderDtoMapper } from "@webiny/app-aco";
-import { type Redirect, type RedirectDto, RedirectDtoMapper } from "~/domain/Redirect";
+import { type Redirect, type RedirectDto, RedirectDtoMapper } from "~/domain/Redirect/index.js";
 
 export type RedirectTableRow = RecordTableRow<RedirectDto>;
 export type TableRow = FolderTableRow | RedirectTableRow;

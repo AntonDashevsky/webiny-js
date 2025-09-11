@@ -1,11 +1,11 @@
 import * as React from "react";
 import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui";
-import { cn, cva, makeDecoratable } from "~/utils";
-import { DropdownMenuSubRoot } from "./DropdownMenuSubRoot";
-import { DropdownMenuSubTrigger } from "./DropdownMenuSubTrigger";
-import { DropdownMenuPortal } from "./DropdownMenuPortal";
-import { DropdownMenuSubContent } from "./DropdownMenuSubContent";
-import { DropdownMenuItemIcon, type DropdownMenuItemIconProps } from "./DropdownMenuItemIcon";
+import { cn, cva, makeDecoratable } from "~/utils.js";
+import { DropdownMenuSubRoot } from "./DropdownMenuSubRoot.js";
+import { DropdownMenuSubTrigger } from "./DropdownMenuSubTrigger.js";
+import { DropdownMenuPortal } from "./DropdownMenuPortal.js";
+import { DropdownMenuSubContent } from "./DropdownMenuSubContent.js";
+import { DropdownMenuItemIcon, type DropdownMenuItemIconProps } from "./DropdownMenuItemIcon.js";
 import type { LinkProps, To } from "@webiny/react-router";
 import { Link } from "@webiny/react-router";
 

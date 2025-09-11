@@ -1,4 +1,4 @@
-import type { GenericRecord } from "@webiny/app/types";
+import type { GenericRecord } from "@webiny/app/types.js";
 import { sha1 } from "crypto-hash";
 
 export type ICreateCacheKeyInput = string | GenericRecord | ICreateCacheKeyInput[];

@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import { Text, IconButton, Button } from "@webiny/admin-ui";
 import { ReactComponent as Close } from "@webiny/icons/close.svg";
 import { Buttons } from "@webiny/app-admin";
-import { useTrashBinListConfig } from "~/Presentation/configs";
-import { useTrashBin } from "~/Presentation/hooks";
+import { useTrashBinListConfig } from "~/Presentation/configs/index.js";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
 
 export const getEntriesLabel = (count: number, isSelectedAll: boolean): string => {
     if (isSelectedAll) {

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { useConfirmationDialog } from "@webiny/app-admin";
 import { useForm } from "@webiny/form";

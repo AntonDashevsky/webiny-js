@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable, useButtons } from "@webiny/app-admin";
-import type { BaseActionProps } from "./BaseAction";
-import { BaseAction } from "./BaseAction";
+import type { BaseActionProps } from "./BaseAction.js";
+import { BaseAction } from "./BaseAction.js";
 
 export type ButtonActionType = "button-action";
 export type ButtonActionProps = Omit<BaseActionProps, "$type">;

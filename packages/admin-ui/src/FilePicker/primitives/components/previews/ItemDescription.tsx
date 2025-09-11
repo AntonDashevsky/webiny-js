@@ -1,8 +1,8 @@
 import React from "react";
 import bytes from "bytes";
-import { Text } from "~/Text";
-import { cn } from "~/utils";
-import type { FileItemFormatted } from "~/FilePicker";
+import { Text } from "~/Text/index.js";
+import { cn } from "~/utils.js";
+import type { FileItemFormatted } from "~/FilePicker/index.js";
 
 interface ItemDescriptionProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
     item: FileItemFormatted;

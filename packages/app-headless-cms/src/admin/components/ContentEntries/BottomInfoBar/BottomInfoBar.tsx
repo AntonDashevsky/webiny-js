@@ -1,7 +1,7 @@
 import React from "react";
 import { Separator } from "@webiny/admin-ui";
-import { ListMeta } from "./ListMeta";
-import { ListStatus } from "./ListStatus";
+import { ListMeta } from "./ListMeta.js";
+import { ListStatus } from "./ListStatus.js";
 
 interface BottomInfoBarProps {
     loading: boolean;

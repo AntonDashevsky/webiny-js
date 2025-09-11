@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import type { EditorProps } from "@monaco-editor/react";
 import MonacoEditor from "@monaco-editor/react";
 import type { editor } from "monaco-editor";
-import { makeDecoratable } from "~/utils";
+import { makeDecoratable } from "~/utils.js";
 
 interface CodeEditorPrimitiveProps extends Partial<EditorProps> {
     disabled?: boolean;

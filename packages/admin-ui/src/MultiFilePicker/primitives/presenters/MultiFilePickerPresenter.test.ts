@@ -1,4 +1,4 @@
-import { MultiFilePickerPresenter } from "./MultiFilePickerPresenter";
+import { MultiFilePickerPresenter } from "./MultiFilePickerPresenter.js";
 
 describe("MultiFilePickerPresenter", () => {
     const presenter = new MultiFilePickerPresenter();

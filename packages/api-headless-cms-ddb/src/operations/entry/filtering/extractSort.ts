@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
-import type { Field } from "./types";
+import type { Field } from "./types.js";
 import type { PluginsContainer } from "@webiny/plugins";
-import { CmsEntryFieldSortingPlugin } from "~/plugins";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
+import { CmsEntryFieldSortingPlugin } from "~/plugins/index.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 interface Result {
     valuePath: string;

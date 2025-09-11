@@ -1,5 +1,5 @@
 import React from "react";
-import { SchedulerListConfig } from "~/Presentation/configs";
+import { SchedulerListConfig } from "~/Presentation/configs/index.js";
 import { makeDecoratable } from "@webiny/react-composition";
 
 export interface ICellScheduledOnLabelProps {

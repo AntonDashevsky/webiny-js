@@ -1,5 +1,5 @@
-import type { Folder } from "../Folder";
-import { type IListCache, ListCache } from "~/features/folders/cache/ListCache";
+import type { Folder } from "../Folder.js";
+import { type IListCache, ListCache } from "~/features/folders/cache/ListCache.js";
 
 export class FoldersCacheFactory {
     private cache: Map<string, IListCache<Folder>> = new Map();

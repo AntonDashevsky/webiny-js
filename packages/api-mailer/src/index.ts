@@ -1,14 +1,14 @@
-import type { PluginCollection } from "@webiny/plugins/types";
-import { createMailerContext as createMailerContextPlugin } from "~/context";
-import { createDummyTransport } from "~/transports/createDummyTransport";
-import type { SmtpTransportConfig } from "~/transports/createSmtpTransport";
-import { createSmtpTransport } from "~/transports/createSmtpTransport";
-import { createTransport } from "~/plugins";
-import { createSettingsModel } from "~/crud/settings/model";
-import { createGraphQL } from "~/graphql";
+import type { PluginCollection } from "@webiny/plugins/types.js";
+import { createMailerContext as createMailerContextPlugin } from "~/context.js";
+import { createDummyTransport } from "~/transports/createDummyTransport.js";
+import type { SmtpTransportConfig } from "~/transports/createSmtpTransport.js";
+import { createSmtpTransport } from "~/transports/createSmtpTransport.js";
+import { createTransport } from "~/plugins/index.js";
+import { createSettingsModel } from "~/crud/settings/model.js";
+import { createGraphQL } from "~/graphql/index.js";
 
-export * from "~/plugins";
-export * from "~/transports";
+export * from "~/plugins/index.js";
+export * from "~/transports/index.js";
 
 export const createMailerContext = (): PluginCollection => {
     return [

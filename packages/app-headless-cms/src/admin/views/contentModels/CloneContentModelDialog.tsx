@@ -1,30 +1,30 @@
 import React, { useState, useCallback, useEffect } from "react";
-import * as UID from "@webiny/ui/Dialog";
+import * as UID from "@webiny/ui/Dialog/index.js";
 import { useRouter } from "@webiny/react-router";
 import { Form } from "@webiny/form";
-import { Input } from "@webiny/ui/Input";
-import { Select } from "@webiny/ui/Select";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { validation } from "@webiny/validation";
-import { useApolloClient, useMutation, useQueryLocale } from "../../hooks";
-import { i18n } from "@webiny/app/i18n";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { addModelToGroupCache, addModelToListCache } from "./cache";
-import type { CmsModel } from "~/types";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
+import { useApolloClient, useMutation, useQueryLocale } from "../../hooks/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { addModelToGroupCache, addModelToListCache } from "./cache.js";
+import type { CmsModel } from "~/types.js";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
 import type {
     CreateCmsModelFromMutationResponse,
     CreateCmsModelFromMutationVariables,
     ListMenuCmsGroupsQueryResponse
-} from "../../viewsGraphql";
-import { CREATE_CONTENT_MODEL_FROM, LIST_MENU_CONTENT_GROUPS_MODELS } from "../../viewsGraphql";
-import type { CmsGroupOption } from "~/admin/views/contentModels/types";
-import { Dialog } from "~/admin/components/Dialog";
-import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator";
-import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator";
-import { IconPicker } from "~/admin/components/IconPicker";
+} from "../../viewsGraphql.js";
+import { CREATE_CONTENT_MODEL_FROM, LIST_MENU_CONTENT_GROUPS_MODELS } from "../../viewsGraphql.js";
+import type { CmsGroupOption } from "~/admin/views/contentModels/types.js";
+import { Dialog } from "~/admin/components/Dialog.js";
+import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator.js";
+import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator.js";
+import { IconPicker } from "~/admin/components/IconPicker.js";
 
 const t = i18n.ns("app-headless-cms/admin/views/content-models/clone-content-model-dialog");
 

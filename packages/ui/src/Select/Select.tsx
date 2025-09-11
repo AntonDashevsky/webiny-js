@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import type { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types.js";
 import { Select as AdminSelect } from "@webiny/admin-ui";
 import type { SelectOptionDto } from "@webiny/admin-ui";
 

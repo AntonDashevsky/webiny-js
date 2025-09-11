@@ -1,16 +1,16 @@
 import React from "react";
 import type { FormOnSubmit } from "@webiny/form";
-import { CircularProgress } from "@webiny/ui/Progress";
-import type { UIElement, UIElementConfig } from "~/ui/UIElement";
-import type { FormElementRenderProps } from "~/ui/elements/form/FormElement";
-import { FormElement } from "~/ui/elements/form/FormElement";
-import { ButtonElement } from "~/ui/elements/ButtonElement";
-import { GenericElement } from "~/ui/elements/GenericElement";
-import { FormContentElement } from "./FormView/FormContentElement";
-import { FormHeaderElement } from "./FormView/FormHeaderElement";
-import { FormFooterElement } from "./FormView/FormFooterElement";
-import { FormContainerElement } from "./FormView/FormContainerElement";
-import { UIView } from "~/ui/UIView";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import type { UIElement, UIElementConfig } from "~/ui/UIElement.js";
+import type { FormElementRenderProps } from "~/ui/elements/form/FormElement.js";
+import { FormElement } from "~/ui/elements/form/FormElement.js";
+import { ButtonElement } from "~/ui/elements/ButtonElement.js";
+import { GenericElement } from "~/ui/elements/GenericElement.js";
+import { FormContentElement } from "./FormView/FormContentElement.js";
+import { FormHeaderElement } from "./FormView/FormHeaderElement.js";
+import { FormFooterElement } from "./FormView/FormFooterElement.js";
+import { FormContainerElement } from "./FormView/FormContainerElement.js";
+import { UIView } from "~/ui/UIView.js";
 
 export interface FormViewConfig extends UIElementConfig {
     setupForm?: boolean;

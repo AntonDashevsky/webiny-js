@@ -1,8 +1,8 @@
 import { createFeature } from "@webiny/feature";
-import { UpdateTenantRepository, UpdateTenantUseCase } from "./abstractions";
-import { UpdateTenantUseCase as UpdateTenantUseCaseImpl } from "./UpdateTenantUseCase";
-import { UpdateTenantRepository as UpdateTenantRepositoryImpl } from "./UpdateTenantRepository";
-import type { TenancyContext } from "~/types";
+import { UpdateTenantRepository, UpdateTenantUseCase } from "./abstractions.js";
+import { UpdateTenantUseCase as UpdateTenantUseCaseImpl } from "./UpdateTenantUseCase.js";
+import { UpdateTenantRepository as UpdateTenantRepositoryImpl } from "./UpdateTenantRepository.js";
+import type { TenancyContext } from "~/types.js";
 
 export { UpdateTenantUseCase };
 

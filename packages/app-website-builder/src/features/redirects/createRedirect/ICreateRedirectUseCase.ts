@@ -1,5 +1,5 @@
 import type { WbLocation } from "~/types.js";
-import type { Redirect } from "~/domain/Redirect";
+import type { Redirect } from "~/domain/Redirect/index.js";
 
 export interface CreateRedirectParams {
     location: WbLocation;

@@ -1,1 +1,1 @@
-export * from "@webiny/admin-ui/DataList/types";
+export * from "@webiny/admin-ui/DataList/types.js";

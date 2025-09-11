@@ -1,9 +1,9 @@
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { put } from "@webiny/db-dynamodb";
 import { WebinyError } from "@webiny/error";
-import { SettingsDynamoTable } from "./SettingsDynamoTable";
-import type { ISaveSettingsGateway } from "~/features/saveSettings/abstractions/ISaveSettings.gateway";
-import type { SettingsGatewayDto } from "~/shared/SettingsGatewayDto";
+import { SettingsDynamoTable } from "./SettingsDynamoTable.js";
+import type { ISaveSettingsGateway } from "~/features/saveSettings/abstractions/ISaveSettings.gateway.js";
+import type { SettingsGatewayDto } from "~/shared/SettingsGatewayDto.js";
 
 export class SaveSettingsGateway implements ISaveSettingsGateway {
     private table: SettingsDynamoTable;

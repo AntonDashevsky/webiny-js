@@ -1,14 +1,14 @@
 import { useCallback, useMemo, useState } from "react";
-import set from "lodash/set";
-import { generateAlphaNumericLowerCaseId } from "@webiny/utils/generateId";
-import { useDocumentEditor } from "~/DocumentEditor";
+import set from "lodash/set.js";
+import { generateAlphaNumericLowerCaseId } from "@webiny/utils/generateId.js";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
 import type { ValueBinding, CreateElementParams } from "@webiny/website-builder-sdk";
-import { Commands } from "~/BaseEditor";
+import { Commands } from "~/BaseEditor/index.js";
 import type { InputAstNode } from "@webiny/website-builder-sdk";
 import { functionConverter } from "@webiny/website-builder-sdk";
-import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { useBindingsForElement } from "./useBindingsForElement";
-import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint.js";
+import { useBindingsForElement } from "./useBindingsForElement.js";
+import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst.js";
 import { InputsBindingsProcessor } from "@webiny/website-builder-sdk";
 import { StylesBindingsProcessor } from "@webiny/website-builder-sdk";
 import { createElement } from "@webiny/website-builder-sdk";
@@ -17,8 +17,8 @@ import {
     ElementMetadata,
     InputMetadata,
     type IMetadata
-} from "~/BaseEditor/metadata";
-import { useElementFactory } from "./useElementFactory";
+} from "~/BaseEditor/metadata/index.js";
+import { useElementFactory } from "./useElementFactory.js";
 
 export type OnChangeParams = {
     value: InputValueObject;

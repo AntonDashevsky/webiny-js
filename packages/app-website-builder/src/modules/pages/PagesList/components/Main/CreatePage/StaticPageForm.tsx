@@ -3,7 +3,7 @@ import { Grid, Input } from "@webiny/admin-ui";
 import type { FormAPI } from "@webiny/form";
 import { UnsetOnUnmount, useBind, useForm } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { pagePathFromTitle } from "~/shared/pagePathFromTitle";
+import { pagePathFromTitle } from "~/shared/pagePathFromTitle.js";
 
 const generatePath = (form: FormAPI) => () => {
     if (form.getValue("properties.path")) {

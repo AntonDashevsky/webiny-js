@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { autorun } from "mobx";
-import type { PageType } from "./PageType";
-import { pageTypesCache } from "./pageTypesCache";
+import type { PageType } from "./PageType.js";
+import { pageTypesCache } from "./pageTypesCache.js";
 
 export const usePageTypes = () => {
     const [pageTypes, setPageTypes] = useState<PageType[]>([]);

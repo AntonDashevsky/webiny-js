@@ -1,7 +1,7 @@
 import React from "react";
 import { FolderProvider, useAcoConfig } from "@webiny/app-aco";
 import { makeDecoratable, OptionsMenu } from "@webiny/app-admin";
-import { PageListConfig } from "~/modules/pages/configs";
+import { PageListConfig } from "~/modules/pages/configs/index.js";
 import { PageProvider } from "~/modules/pages/PagesList/hooks/usePage.js";
 const DefaultCellActions = () => {
     const { useTableRow, isFolderRow } = PageListConfig.Browser.Table.Column;

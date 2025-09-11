@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect } from "react";
-import get from "lodash/get";
-import { i18n } from "@webiny/app/i18n";
-import { PermissionSelector } from "./PermissionSelector";
-import type { CmsDataCmsModel } from "./useCmsData";
-import { useCmsData } from "./useCmsData";
-import ContentModelList from "./ContentModelList";
-import type { BindComponent } from "@webiny/form/types";
-import type { CmsSecurityPermission } from "~/types";
+import get from "lodash/get.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { PermissionSelector } from "./PermissionSelector.js";
+import type { CmsDataCmsModel } from "./useCmsData.js";
+import { useCmsData } from "./useCmsData.js";
+import ContentModelList from "./ContentModelList.js";
+import type { BindComponent } from "@webiny/form/types.js";
+import type { CmsSecurityPermission } from "~/types.js";
 import { FormComponentNote, Grid, Select } from "@webiny/admin-ui";
-import { PermissionsGroup } from "@webiny/app-admin/components/Permissions";
+import { PermissionsGroup } from "@webiny/app-admin/components/Permissions/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 

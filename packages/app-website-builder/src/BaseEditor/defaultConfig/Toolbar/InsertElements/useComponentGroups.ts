@@ -1,11 +1,11 @@
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
+import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor.js";
 import type {
     ComponentGroupFilterContext,
     ComponentManifest,
     SerializedComponentGroup
 } from "@webiny/website-builder-sdk";
 import { functionConverter } from "@webiny/website-builder-sdk";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
 
 type WithItems<T> = T & { items: ComponentManifest[] };
 

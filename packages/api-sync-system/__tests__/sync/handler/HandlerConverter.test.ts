@@ -1,6 +1,7 @@
-import { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
-import { createHandlerConverter, HandlerConverter } from "~/sync/handler/HandlerConverter";
+import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import { createHandlerConverter, HandlerConverter } from "~/sync/handler/HandlerConverter.js";
 import { NullCommandValue } from "~/sync/handler/converter/commands/NullCommandValue.js";
+import { jest } from "@jest/globals";
 
 describe("HandlerConverter", () => {
     beforeEach(() => {

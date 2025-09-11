@@ -1,6 +1,6 @@
-import type { IListEntriesOperation } from "../../abstractions";
-import type { CmsEntryStorageOperationsListParams, CmsModel } from "~/types";
-import type { ListEntriesUseCasesTopics } from "./index";
+import type { IListEntriesOperation } from "../../abstractions/index.js";
+import type { CmsEntryStorageOperationsListParams, CmsModel } from "~/types/index.js";
+import type { ListEntriesUseCasesTopics } from "./index.js";
 
 export class ListEntriesOperationWithEvents implements IListEntriesOperation {
     private topics: ListEntriesUseCasesTopics;

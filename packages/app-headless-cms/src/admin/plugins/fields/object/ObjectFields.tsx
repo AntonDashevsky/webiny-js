@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { set } from "dot-prop-immutable";
-import { FieldEditor, useModelFieldEditor } from "~/admin/components/FieldEditor";
-import type { CmsModelField, CmsModel } from "~/types";
+import { FieldEditor, useModelFieldEditor } from "~/admin/components/FieldEditor/index.js";
+import type { CmsModelField, CmsModel } from "~/types.js";
 
 interface ObjectFieldsProps {
     field: CmsModelField;

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { makeDecoratable } from "~/utils";
-import { DialogClosePrimitive } from "./DialogClose";
-import type { ButtonProps } from "~/Button";
-import { Button } from "~/Button";
+import { makeDecoratable } from "~/utils.js";
+import { DialogClosePrimitive } from "./DialogClose.js";
+import type { ButtonProps } from "~/Button/index.js";
+import { Button } from "~/Button/index.js";
 
 const CancelButtonBase = (props: ButtonProps) => (
     <DialogClosePrimitive asChild>

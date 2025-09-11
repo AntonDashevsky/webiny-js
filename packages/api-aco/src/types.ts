@@ -1,30 +1,30 @@
-import type { TenancyContext, Tenant } from "@webiny/api-tenancy/types";
-import type { Context as BaseContext } from "@webiny/handler/types";
-import type { I18NContext, I18NLocale } from "@webiny/api-i18n/types";
-import type { SecurityContext } from "@webiny/api-security/types";
-import type { AdminUsersContext } from "@webiny/api-admin-users/types";
-import type { FileManagerContext } from "@webiny/api-file-manager/types";
-import type { Context as TasksContext } from "@webiny/tasks/types";
-import type { CmsContext, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import type { TenancyContext, Tenant } from "@webiny/api-tenancy/types.js";
+import type { Context as BaseContext } from "@webiny/handler/types.js";
+import type { I18NContext, I18NLocale } from "@webiny/api-i18n/types.js";
+import type { SecurityContext } from "@webiny/api-security/types.js";
+import type { AdminUsersContext } from "@webiny/api-admin-users/types.js";
+import type { FileManagerContext } from "@webiny/api-file-manager/types.js";
+import type { Context as TasksContext } from "@webiny/tasks/types.js";
+import type { CmsContext, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 import type {
     AcoSearchRecordCrud,
     AcoSearchRecordCrudBase,
     AcoSearchRecordStorageOperations,
     GenericSearchData,
     SearchRecord
-} from "~/record/record.types";
-import type { AcoFolderCrud, AcoFolderStorageOperations } from "~/folder/folder.types";
-import type { AcoFilterCrud, AcoFilterStorageOperations } from "~/filter/filter.types";
+} from "~/record/record.types.js";
+import type { AcoFolderCrud, AcoFolderStorageOperations } from "~/folder/folder.types.js";
+import type { AcoFilterCrud, AcoFilterStorageOperations } from "~/filter/filter.types.js";
 import type {
     AcoFolderLevelPermissionsCrud,
     AcoFolderLevelPermissionsStorageOperations
-} from "~/flp/flp.types";
-import type { FolderLevelPermissions } from "~/flp";
+} from "~/flp/flp.types.js";
+import type { FolderLevelPermissions } from "~/flp/index.js";
 
-export * from "./filter/filter.types";
-export type * from "./folder/folder.types";
-export type * from "./record/record.types";
-export type * from "./flp/flp.types";
+export * from "./filter/filter.types.js";
+export type * from "./folder/folder.types.js";
+export type * from "./record/record.types.js";
+export type * from "./flp/flp.types.js";
 
 export interface User {
     id: string;

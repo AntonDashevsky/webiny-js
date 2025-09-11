@@ -1,6 +1,6 @@
-import type { ICanUseFolderLevelPermissions } from "./ICanUseFolderPermissions";
-import type { IGetIdentityGateway } from "~/flp/FolderLevelPermissions/gateways";
-import type { IGetWcpGateway } from "~/flp/FolderLevelPermissions/gateways/GetWcpGateway";
+import type { ICanUseFolderLevelPermissions } from "./ICanUseFolderPermissions.js";
+import type { IGetIdentityGateway } from "~/flp/FolderLevelPermissions/gateways/index.js";
+import type { IGetWcpGateway } from "~/flp/FolderLevelPermissions/gateways/GetWcpGateway/index.js";
 
 export class CanUseFolderLevelPermissions implements ICanUseFolderLevelPermissions {
     private getWcpGateway: IGetWcpGateway;

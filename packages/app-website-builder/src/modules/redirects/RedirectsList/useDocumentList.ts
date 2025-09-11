@@ -5,9 +5,9 @@ import {
     useListFoldersByParentIds,
     useNavigateFolder
 } from "@webiny/app-aco";
-import { useDocumentListPresenter } from "./presenters/DocumentListPresenterContext";
+import { useDocumentListPresenter } from "./presenters/DocumentListPresenterContext.js";
 import { useFilterRedirects, useLoadRedirects } from "~/features/redirects/index.js";
-import { useSelectRedirects } from "~/features/redirects/selectRedirects/useSelectRedirects";
+import { useSelectRedirects } from "~/features/redirects/selectRedirects/useSelectRedirects.js";
 
 export const useDocumentList = () => {
     const isFirstLoad = useRef(true);

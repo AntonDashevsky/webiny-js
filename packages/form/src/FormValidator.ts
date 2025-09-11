@@ -1,7 +1,7 @@
-import lodashGet from "lodash/get";
-import type { FormField } from "./FormField";
-import type { FormValidationOptions, GenericFormData } from "~/types";
-import type { FieldValidationResult } from "~/FormFieldValidator";
+import lodashGet from "lodash/get.js";
+import type { FormField } from "./FormField.js";
+import type { FormValidationOptions, GenericFormData } from "~/types.js";
+import type { FieldValidationResult } from "~/FormFieldValidator.js";
 
 interface FormValidationResult {
     isValid: boolean;

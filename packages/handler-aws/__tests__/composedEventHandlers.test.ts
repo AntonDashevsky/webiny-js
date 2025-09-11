@@ -6,16 +6,16 @@ import type {
     SNSEvent,
     SQSEvent,
     SQSRecord
-} from "@webiny/aws-sdk/types";
-import { createHandler } from "~/createHandler";
+} from "@webiny/aws-sdk/types/index.js";
+import { createHandler } from "~/createHandler.js";
 import {
     createDynamoDBEventHandler,
     createEventBridgeEventHandler,
     createS3EventHandler,
     createSNSEventHandler,
     createSQSEventHandler
-} from "~/index";
-import type { LambdaContext } from "~/types";
+} from "~/index.js";
+import type { LambdaContext } from "~/types.js";
 
 interface S3EventHandlerResponse {
     isS3MainEventHandler?: boolean;

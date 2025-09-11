@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as NotificationsIcon } from "@webiny/icons/notifications.svg";
 import { ReactComponent as CalendarIcon } from "@webiny/icons/calendar_month.svg";
 
-import { InputPrimitive } from "./InputPrimitive";
-import { Icon } from "~/Icon";
+import { InputPrimitive } from "./InputPrimitive.js";
+import { Icon } from "~/Icon/index.js";
 
 const meta: Meta<typeof InputPrimitive> = {
     title: "Components/Form Primitives/Input",

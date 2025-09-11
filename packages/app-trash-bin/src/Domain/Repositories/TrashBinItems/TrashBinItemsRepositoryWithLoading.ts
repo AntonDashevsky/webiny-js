@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx";
 import type { ILoadingRepository } from "@webiny/app-utils";
-import type { ITrashBinItemsRepository } from "./ITrashBinItemsRepository";
-import type { TrashBinBulkActionsParams, TrashBinListQueryVariables } from "~/types";
-import { LoadingActions } from "~/types";
+import type { ITrashBinItemsRepository } from "./ITrashBinItemsRepository.js";
+import type { TrashBinBulkActionsParams, TrashBinListQueryVariables } from "~/types.js";
+import { LoadingActions } from "~/types.js";
 
 export class TrashBinItemsRepositoryWithLoading implements ITrashBinItemsRepository {
     private loadingRepository: ILoadingRepository;

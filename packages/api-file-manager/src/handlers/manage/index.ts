@@ -1,5 +1,5 @@
 import path from "path";
-import { S3 } from "@webiny/aws-sdk/client-s3";
+import { S3 } from "@webiny/aws-sdk/client-s3/index.js";
 import { getEnvironment } from "../utils/index.js";
 import { imageManager } from "./imageManager.js";
 import { S3EventHandler } from "@webiny/handler-aws";

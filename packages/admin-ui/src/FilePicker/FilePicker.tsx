@@ -1,17 +1,17 @@
 import React, { useCallback, useMemo } from "react";
-import { makeDecoratable, withStaticProps } from "~/utils";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
 import {
     FilePickerDescription,
     FilePickerLabel,
     FilePickerPrimitive,
     type FilePickerPrimitiveProps
-} from "./primitives";
+} from "./primitives/index.js";
 import {
     FormComponentErrorMessage,
     FormComponentNote,
     type FormComponentProps
-} from "~/FormComponent";
-import { ImagePreview, RichItemPreview, TextOnlyPreview } from "~/FilePicker/primitives/components";
+} from "~/FormComponent/index.js";
+import { ImagePreview, RichItemPreview, TextOnlyPreview } from "~/FilePicker/primitives/components/index.js";
 
 type FilePickerProps = FilePickerPrimitiveProps & FormComponentProps;
 

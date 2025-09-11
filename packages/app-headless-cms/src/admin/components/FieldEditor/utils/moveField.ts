@@ -4,8 +4,8 @@ import type {
     CmsEditorFieldId,
     CmsModel as BaseCmsModel,
     FieldLayoutPosition
-} from "~/types";
-import getFieldPosition from "./getFieldPosition";
+} from "~/types.js";
+import getFieldPosition from "./getFieldPosition.js";
 
 type CmsModel = Required<Pick<BaseCmsModel, "fields" | "layout">>;
 

@@ -1,8 +1,8 @@
-import type { IMoveRedirect } from "./IMoveRedirect";
+import type { IMoveRedirect } from "./IMoveRedirect.js";
 import type {
     MoveWbRedirectParams,
     WbRedirectsStorageOperations
-} from "~/context/redirects/redirects.types";
+} from "~/context/redirects/redirects.types.js";
 
 export class MoveRedirect implements IMoveRedirect {
     private readonly moveOperation: WbRedirectsStorageOperations["move"];

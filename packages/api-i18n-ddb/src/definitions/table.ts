@@ -1,6 +1,6 @@
-import { Table } from "@webiny/db-dynamodb/toolbox";
-import { getDocumentClient, getTable } from "~/operations/utils";
-import type { I18NContext } from "@webiny/api-i18n/types";
+import { Table } from "@webiny/db-dynamodb/toolbox.js";
+import { getDocumentClient, getTable } from "~/operations/utils.js";
+import type { I18NContext } from "@webiny/api-i18n/types.js";
 
 export default (params: { context: I18NContext }): Table<string, string, string> => {
     const { context } = params;

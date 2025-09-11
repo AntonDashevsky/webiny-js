@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "~/utils";
+import { cn } from "~/utils.js";
 
 const Cell = ({ className, ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) => (
     <td

@@ -1,5 +1,5 @@
-import type { WbPagesStorageOperations } from "~/context/pages/pages.types";
-import type { IGetPageRevisions } from "./IGetPageById";
+import type { WbPagesStorageOperations } from "~/context/pages/pages.types.js";
+import type { IGetPageRevisions } from "./IGetPageById.js";
 
 export class GetPageRevisions implements IGetPageRevisions {
     private readonly getRevisions: WbPagesStorageOperations["getRevisions"];

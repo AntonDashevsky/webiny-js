@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
 import { CompositionScope } from "@webiny/react-composition";
-import { Browser, type BrowserConfig } from "./Browser";
+import { Browser, type BrowserConfig } from "./Browser/index.js";
 
 const base = createConfigurableComponent<RedirectListConfig>("WbRedirectListConfig");
 

@@ -1,13 +1,13 @@
 import React from "react";
 import classSet from "classnames";
 import { css } from "@emotion/css";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import type { GetBindCallable } from "~/admin/components/ContentEntryForm/useBind";
-import { ParentFieldProvider } from "~/admin/hooks";
-import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider";
-import type { BindComponent, BindComponentRenderProp, CmsModelField } from "~/types";
-import { getMultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings";
+import type { GetBindCallable } from "~/admin/components/ContentEntryForm/useBind.js";
+import { ParentFieldProvider } from "~/admin/hooks/index.js";
+import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider/index.js";
+import type { BindComponent, BindComponentRenderProp, CmsModelField } from "~/types.js";
+import { getMultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings.js";
 import {
     Button,
     cn,

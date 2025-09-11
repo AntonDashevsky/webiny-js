@@ -1,8 +1,8 @@
 import React from "react";
-import { ButtonDefault, ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button";
-import type { UIElementConfig, UiElementRenderProps } from "../UIElement";
-import { UIElement } from "../UIElement";
-import kebabCase from "lodash/kebabCase";
+import { ButtonDefault, ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import type { UIElementConfig, UiElementRenderProps } from "../UIElement.js";
+import { UIElement } from "../UIElement.js";
+import kebabCase from "lodash/kebabCase.js";
 
 export type ButtonElementType = "default" | "primary" | "secondary";
 

@@ -1,5 +1,5 @@
-import { createHandler } from "~/fastify";
-import { createModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin";
+import { createHandler } from "~/fastify.js";
+import { createModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin.js";
 
 interface ModifiedApp {
     modifiedValue?: boolean;

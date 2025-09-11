@@ -1,1 +1,1 @@
-export { UserMenuSeparator } from "~/base/ui/UserMenu/UserMenuSeparator";
+export { UserMenuSeparator } from "~/base/ui/UserMenu/UserMenuSeparator.js";

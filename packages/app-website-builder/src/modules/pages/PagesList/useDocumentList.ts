@@ -5,7 +5,7 @@ import {
     useListFoldersByParentIds,
     useNavigateFolder
 } from "@webiny/app-aco";
-import { useDocumentListPresenter } from "./presenters/DocumentListPresenterContext";
+import { useDocumentListPresenter } from "./presenters/DocumentListPresenterContext.js";
 import { useFilterPages, useLoadPages } from "~/features/pages/index.js";
 import { useSelectPages } from "~/features/pages/selectPages/useSelectPages.js";
 

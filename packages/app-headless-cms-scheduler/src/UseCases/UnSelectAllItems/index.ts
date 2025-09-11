@@ -1,2 +1,2 @@
-export type * from "./IUnselectAllItemsUseCase";
-export * from "./UnselectAllItemsUseCase";
+export type * from "./IUnselectAllItemsUseCase.js";
+export * from "./UnselectAllItemsUseCase.js";

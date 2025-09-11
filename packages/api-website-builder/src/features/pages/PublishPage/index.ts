@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { PublishPage } from "./PublishPage";
-import { PublishPageWithEvents } from "./PublishPageWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { PublishPage } from "./PublishPage.js";
+import { PublishPageWithEvents } from "./PublishPageWithEvents.js";
 import type {
     OnPageAfterPublishTopicParams,
     OnPageBeforePublishTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 
 export interface PublishPageUseCasesTopics {
     onPageBeforePublish: Topic<OnPageBeforePublishTopicParams>;

@@ -1,9 +1,9 @@
-import type { ICreatePageRevisionFrom } from "./ICreatePageRevisionFrom";
+import type { ICreatePageRevisionFrom } from "./ICreatePageRevisionFrom.js";
 import type {
     CreateWbPageRevisionFromParams,
     WbPage,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 
 export class CreatePageRevisionFrom implements ICreatePageRevisionFrom {
     private readonly createRevisionFromOperation: WbPagesStorageOperations["createRevisionFrom"];

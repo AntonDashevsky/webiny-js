@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ValidatorsList } from "./ValidatorsList";
-import type { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter";
+import { ValidatorsList } from "./ValidatorsList.js";
+import type { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
 import { Grid, Heading, Text } from "@webiny/admin-ui";
 
 interface ValidatorsSectionProps {

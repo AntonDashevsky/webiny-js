@@ -1,5 +1,5 @@
-import useGqlHandler from "./useGqlHandler";
-import { assignLifecycleEvents, lifecycleTracker } from "./mocks/lifecycleEvents";
+import useGqlHandler from "./useGqlHandler.js";
+import { assignLifecycleEvents, lifecycleTracker } from "./mocks/lifecycleEvents.js";
 
 const WEBINY_VERSION = process.env.WEBINY_VERSION;
 

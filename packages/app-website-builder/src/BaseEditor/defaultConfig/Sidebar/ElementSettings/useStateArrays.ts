@@ -1,5 +1,5 @@
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { StatePathsExtractor } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/StatePathsExtractor";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
+import { StatePathsExtractor } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/StatePathsExtractor.js";
 
 export const useStateArrays = () => {
     return useSelectFromDocument(document => {

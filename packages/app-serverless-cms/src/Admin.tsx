@@ -8,15 +8,14 @@ import { I18N } from "@webiny/app-i18n";
 import { I18NContent } from "@webiny/app-i18n-content";
 import { HeadlessCMS } from "@webiny/app-headless-cms";
 import { AdminUI } from "@webiny/app-admin-ui";
-import { FileManager } from "@webiny/app-file-manager/app";
+import { FileManager } from "@webiny/app-file-manager/app.js";
 import { GraphQLPlayground } from "@webiny/app-graphql-playground";
 import { AccessManagement } from "@webiny/app-security-access-management";
-import { imagePlugin } from "@webiny/app/plugins";
+import { imagePlugin } from "@webiny/app/plugins/index.js";
 import fileStorageS3Plugin from "@webiny/app-file-manager-s3";
-import { createApolloClient as defaultApolloClientFactory } from "./apolloClientFactory";
-import apolloLinks from "./apolloLinks";
-import { createViewCompositionProvider } from "@webiny/app-admin/base/providers/ViewCompositionProvider";
-import { AdvancedPublishingWorkflow } from "@webiny/app-apw";
+import { createApolloClient as defaultApolloClientFactory } from "./apolloClientFactory.js";
+import apolloLinks from "./apolloLinks.js";
+import { createViewCompositionProvider } from "@webiny/app-admin/base/providers/ViewCompositionProvider.js";
 import { TenantManager } from "@webiny/app-tenant-manager";
 import { AuditLogs } from "@webiny/app-audit-logs";
 import { LexicalEditorActions } from "@webiny/lexical-editor-actions";
@@ -25,7 +24,7 @@ import { Websockets } from "@webiny/app-websockets";
 import { RecordLocking } from "@webiny/app-record-locking";
 import { TrashBinConfigs } from "@webiny/app-trash-bin";
 import { AdvancedContentOrganisation } from "@webiny/app-aco";
-import { Extension as WebsiteBuilder } from "@webiny/app-website-builder/Extension";
+import { Extension as WebsiteBuilder } from "@webiny/app-website-builder/Extension.js";
 import { SchedulerConfigs } from "@webiny/app-headless-cms-scheduler/index.js";
 
 export interface AdminProps extends Omit<BaseAdminProps, "createApolloClient"> {
@@ -55,7 +54,6 @@ const App = (props: AdminProps) => {
             <RecordLocking />
             <LexicalEditorActions />
             <HeadlessCMS createApolloClient={createApolloClient} />
-            <AdvancedPublishingWorkflow />
             <TenantManager />
             <AuditLogs />
             <MailerSettings />

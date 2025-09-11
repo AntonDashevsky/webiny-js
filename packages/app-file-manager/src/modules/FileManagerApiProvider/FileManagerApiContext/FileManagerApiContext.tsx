@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
-import omit from "lodash/omit";
+import omit from "lodash/omit.js";
 import { useApolloClient } from "@apollo/react-hooks";
 import WebinyError from "@webiny/error";
 import { useSecurity } from "@webiny/app-security";
@@ -18,7 +18,7 @@ import type {
     UpdateFileMutationResponse,
     UpdateFileMutationVariables,
     FmError
-} from "../graphql";
+} from "../graphql.js";
 import {
     CREATE_FILE,
     DELETE_FILE,
@@ -27,12 +27,12 @@ import {
     LIST_FILES,
     LIST_TAGS,
     UPDATE_FILE
-} from "../graphql";
-import type { FileItem, FileManagerSecurityPermission } from "@webiny/app-admin/types";
-import { getFileUploader } from "./getFileUploader";
-import type { Settings } from "~/types";
-import { useFileModel } from "~/hooks/useFileModel";
-import { getFileGraphQLSelection } from "./getFileGraphQLSelection";
+} from "../graphql.js";
+import type { FileItem, FileManagerSecurityPermission } from "@webiny/app-admin/types.js";
+import { getFileUploader } from "./getFileUploader.js";
+import type { Settings } from "~/types.js";
+import { useFileModel } from "~/hooks/useFileModel.js";
+import { getFileGraphQLSelection } from "./getFileGraphQLSelection.js";
 
 export interface ListTagsResponseItem {
     tag: string;

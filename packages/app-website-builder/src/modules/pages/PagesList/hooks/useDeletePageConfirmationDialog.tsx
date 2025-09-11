@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDeletePage } from "~/features/pages/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import type { PageDto } from "~/domain/Page";
+import type { PageDto } from "~/domain/Page/index.js";
 
 interface UseDeletePageConfirmationDialogProps {
     page: PageDto;

@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx";
-import type { RadioGroupVm } from "../RadioGroupPrimitive";
-import { RadioItem } from "~/RadioGroup/domains/RadioItem";
-import { RadioItemFormatter } from "~/RadioGroup/domains/RadioItemFormatter";
-import type { RadioItemParams } from "~/RadioGroup/domains/RadioItemParams";
+import type { RadioGroupVm } from "../RadioGroupPrimitive.js";
+import { RadioItem } from "~/RadioGroup/domains/RadioItem.js";
+import { RadioItemFormatter } from "~/RadioGroup/domains/RadioItemFormatter.js";
+import type { RadioItemParams } from "~/RadioGroup/domains/RadioItemParams.js";
 
 interface RadioGroupPresenterParams<TValue = string> {
     items: RadioItemParams[];

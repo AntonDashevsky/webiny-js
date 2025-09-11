@@ -1,6 +1,6 @@
 import React from "react";
-import { cn, makeDecoratable } from "~/utils";
-import { Heading } from "~/Heading";
+import { cn, makeDecoratable } from "~/utils.js";
+import { Heading } from "~/Heading/index.js";
 
 type ToastTitleProps = Omit<React.HTMLAttributes<HTMLDivElement>, "children"> & {
     text: React.ReactNode;

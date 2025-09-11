@@ -6,9 +6,9 @@ import { ReactComponent as CenterVertically } from "@webiny/icons/vertical_align
 import { ReactComponent as AlignLeft } from "@webiny/icons/align_horizontal_left.svg";
 import { ReactComponent as AlignRight } from "@webiny/icons/align_horizontal_right.svg";
 import { ReactComponent as CenterHorizontally } from "@webiny/icons/align_horizontal_center.svg";
-import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
-import { InheritanceLabel } from "../../../InheritanceLabel";
-import { IconButton } from "./IconButton";
+import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles.js";
+import { InheritanceLabel } from "../../../InheritanceLabel.js";
+import { IconButton } from "./IconButton.js";
 
 const activeVariant = "secondary";
 const inactiveVariant = "ghost";

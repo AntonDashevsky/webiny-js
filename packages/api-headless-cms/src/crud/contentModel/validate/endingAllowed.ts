@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { disallowedEnding, isModelEndingAllowed } from "./isModelEndingAllowed";
-import type { CmsModel } from "~/types";
+import { disallowedEnding, isModelEndingAllowed } from "./isModelEndingAllowed.js";
+import type { CmsModel } from "~/types/index.js";
 
 interface Params {
     model: Pick<CmsModel, "singularApiName" | "pluralApiName">;

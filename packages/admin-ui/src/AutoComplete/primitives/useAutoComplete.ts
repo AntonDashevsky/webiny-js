@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import type { AutoCompletePrimitiveProps } from "./AutoCompletePrimitive";
-import type { AutoCompletePresenterParams, AutoCompleteInputPresenterParams } from "./presenters";
+import type { AutoCompletePrimitiveProps } from "./AutoCompletePrimitive.js";
+import type { AutoCompletePresenterParams, AutoCompleteInputPresenterParams } from "./presenters/index.js";
 import {
     AutoCompletePresenter,
     AutoCompleteInputPresenter,
     AutoCompleteListOptionsPresenter
-} from "./presenters";
+} from "./presenters/index.js";
 
 export const useAutoComplete = (props: AutoCompletePrimitiveProps) => {
     const params: AutoCompletePresenterParams = useMemo(

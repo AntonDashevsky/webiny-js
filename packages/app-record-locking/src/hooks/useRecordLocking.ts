@@ -1,7 +1,7 @@
 import { WebinyError } from "@webiny/error";
 import { useContext } from "react";
-import { RecordLockingContext } from "~/components/RecordLockingProvider";
-import type { IRecordLockingContext, IPossiblyRecordLockingRecord } from "~/types";
+import { RecordLockingContext } from "~/components/RecordLockingProvider.js";
+import type { IRecordLockingContext, IPossiblyRecordLockingRecord } from "~/types.js";
 
 export const useRecordLocking = <
     T extends IPossiblyRecordLockingRecord = IPossiblyRecordLockingRecord

@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { createRecordsData, Table as AcoTable } from "@webiny/app-aco";
-import { useTrashBin } from "~/Presentation/hooks";
-import type { TrashBinTableRow } from "~/Domain";
-import { LoadingActions } from "~/types";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
+import type { TrashBinTableRow } from "~/Domain/index.js";
+import { LoadingActions } from "~/types.js";
 
 export const Table = () => {
     const { vm, selectItems, sortItems } = useTrashBin();

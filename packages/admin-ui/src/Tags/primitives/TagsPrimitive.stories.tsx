@@ -1,9 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as TagIcon } from "@webiny/icons/tag.svg";
-import { TagsPrimitive } from "./TagsPrimitive";
-import { Button } from "~/Button";
-import { Icon } from "~/Icon";
+import { TagsPrimitive } from "./TagsPrimitive.js";
+import { Button } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
 
 const meta: Meta<typeof TagsPrimitive> = {
     title: "Components/Form Primitives/Tags",

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import { SteppedProgressPresenter, type SteppedProgressPresenterParams } from "./presenters";
-import type { SteppedProgressProps } from "./SteppedProgress";
+import { SteppedProgressPresenter, type SteppedProgressPresenterParams } from "./presenters/index.js";
+import type { SteppedProgressProps } from "./SteppedProgress.js";
 
 export const useSteppedProgress = (props: SteppedProgressProps) => {
     const params: SteppedProgressPresenterParams = useMemo(

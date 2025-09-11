@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as PersonIcon } from "@webiny/icons/person.svg";
 import { ReactComponent as LockIcon } from "@webiny/icons/lock.svg";
-import { Tabs } from "./Tabs";
+import { Tabs } from "./Tabs.js";
 
 const meta: Meta<typeof Tabs> = {
     title: "Components/Tabs",

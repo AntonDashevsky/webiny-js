@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
-import { AutoCompletePrimitive } from "./AutoCompletePrimitive";
-import { Button } from "~/Button";
-import { Icon } from "~/Icon";
+import { AutoCompletePrimitive } from "./AutoCompletePrimitive.js";
+import { Button } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
 
 const meta: Meta<typeof AutoCompletePrimitive> = {
     title: "Components/Form Primitives/Autocomplete",

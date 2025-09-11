@@ -1,16 +1,16 @@
 import React, { Fragment } from "react";
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
 import { List } from "react-virtualized";
-import groupBy from "lodash/groupBy";
+import groupBy from "lodash/groupBy.js";
 
 import { Text, DelayedOnChange, Input, Tabs, Icon as IconComponent } from "@webiny/admin-ui";
 import { makeDecoratable } from "@webiny/react-composition";
 
-import { useIconPicker } from "./IconPickerPresenterProvider";
-import { useIconType } from "./config/IconType";
-import { IconPickerCell, IconPickerRow } from "./components";
-import type { Icon, IconPickerGridRow } from "./types";
-import { ICON_PICKER_SIZE } from "./types";
+import { useIconPicker } from "./IconPickerPresenterProvider.js";
+import { useIconType } from "./config/IconType.js";
+import { IconPickerCell, IconPickerRow } from "./components/index.js";
+import type { Icon, IconPickerGridRow } from "./types.js";
+import { ICON_PICKER_SIZE } from "./types.js";
 
 const COLUMN_COUNT = 8;
 

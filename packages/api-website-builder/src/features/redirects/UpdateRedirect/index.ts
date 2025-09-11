@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { UpdateRedirect } from "./UpdateRedirect";
-import { UpdateRedirectWithEvents } from "./UpdateRedirectWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { UpdateRedirect } from "./UpdateRedirect.js";
+import { UpdateRedirectWithEvents } from "./UpdateRedirectWithEvents.js";
 import type {
     OnRedirectAfterUpdateTopicParams,
     OnRedirectBeforeUpdateTopicParams,
     WbRedirectsStorageOperations
-} from "~/context/redirects/redirects.types";
+} from "~/context/redirects/redirects.types.js";
 
 export interface UpdateRedirectUseCasesTopics {
     onRedirectBeforeUpdate: Topic<OnRedirectBeforeUpdateTopicParams>;

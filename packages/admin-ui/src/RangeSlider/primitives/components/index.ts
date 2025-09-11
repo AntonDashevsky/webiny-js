@@ -1,1 +1,1 @@
-export * from "./RangeSliderValue";
+export * from "./RangeSliderValue.js";

@@ -1,5 +1,5 @@
-import type { IListAdminUsersGateway } from "./IListAdminUsersGateway";
-import type { AcoContext } from "~/types";
+import type { IListAdminUsersGateway } from "./IListAdminUsersGateway.js";
+import type { AcoContext } from "~/types.js";
 
 export class ListAdminUsersGatewayFromContext implements IListAdminUsersGateway {
     private context: AcoContext;

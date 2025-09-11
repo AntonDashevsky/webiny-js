@@ -1,3 +1,3 @@
-export * from "./ProgressIndicator";
-export * from "./ProgressRoot";
-export * from "./ProgressValue";
+export * from "./ProgressIndicator.js";
+export * from "./ProgressRoot.js";
+export * from "./ProgressValue.js";

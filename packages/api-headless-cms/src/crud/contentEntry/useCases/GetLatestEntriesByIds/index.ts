@@ -1,8 +1,8 @@
-import { GetLatestEntriesByIds } from "./GetLatestEntriesByIds";
-import { GetLatestEntriesByIdsNotDeleted } from "./GetLatestEntriesByIdsNotDeleted";
-import { GetLatestEntriesByIdsSecure } from "./GetLatestEntriesByIdsSecure";
-import type { CmsEntryStorageOperations } from "~/types";
-import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import { GetLatestEntriesByIds } from "./GetLatestEntriesByIds.js";
+import { GetLatestEntriesByIdsNotDeleted } from "./GetLatestEntriesByIdsNotDeleted.js";
+import { GetLatestEntriesByIdsSecure } from "./GetLatestEntriesByIdsSecure.js";
+import type { CmsEntryStorageOperations } from "~/types/index.js";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl.js";
 import type { ITransformEntryCallable } from "~/utils/entryStorage.js";
 
 interface GetLatestEntriesByIdsUseCasesParams {

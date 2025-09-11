@@ -1,9 +1,9 @@
 import React from "react";
-import { cn, cva, makeDecoratable, type VariantProps } from "~/utils";
-import { ItemDescription } from "../ItemDescription";
-import { ItemActions } from "~/FilePicker/primitives/components/previews/ItemActions";
-import type { FilePreviewDefaultProps } from "../../types";
-import { previewVariants } from "../variants";
+import { cn, cva, makeDecoratable, type VariantProps } from "~/utils.js";
+import { ItemDescription } from "../ItemDescription.js";
+import { ItemActions } from "~/FilePicker/primitives/components/previews/ItemActions.js";
+import type { FilePreviewDefaultProps } from "../../types.js";
+import { previewVariants } from "../variants.js";
 
 const textOnlyPreviewVariants = cva(
     "wby-w-full wby-flex wby-items-center wby-justify-between wby-gap-sm wby-min-w-0",

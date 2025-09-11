@@ -1,7 +1,7 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import type { CmsGroup, CmsModel } from "~/types";
-import models from "./mocks/contentModels";
-import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import type { CmsGroup, CmsModel } from "~/types/index.js";
+import models from "./mocks/contentModels.js";
+import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler.js";
 
 describe("fieldValidations", () => {
     const manageOpts = { path: "manage/en-US" };

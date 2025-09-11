@@ -11,8 +11,8 @@ import type {
     EventBridgeClient,
     PutEventsCommandInput,
     PutEventsCommandOutput
-} from "@webiny/aws-sdk/client-eventbridge";
-import { PutEventsCommand } from "@webiny/aws-sdk/client-eventbridge";
+} from "@webiny/aws-sdk/client-eventbridge/index.js";
+import { PutEventsCommand } from "@webiny/aws-sdk/client-eventbridge/index.js";
 import { convertException } from "@webiny/utils";
 import { generateAlphaNumericId } from "@webiny/utils/generateId.js";
 import type { IDetail } from "~/sync/handler/types.js";

@@ -5,7 +5,7 @@ import { Property, useIdGenerator } from "@webiny/react-properties";
 import { useDocumentList } from "~/modules/pages/PagesList/useDocumentList.js";
 import { useSelectPages } from "~/features/pages/selectPages/useSelectPages.js";
 import { Page, type PageDto, PageDtoMapper } from "~/domain/Page/index.js";
-import type { TableRow } from "~/modules/pages/types";
+import type { TableRow } from "~/modules/pages/types.js";
 
 export interface BulkActionConfig {
     name: string;

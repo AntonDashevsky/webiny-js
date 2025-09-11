@@ -2,11 +2,11 @@ import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
 import { Layout, Wcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
-import { Permission } from "~/plugins/constants";
-import { Groups } from "~/ui/views/Groups";
-import { Teams } from "~/ui/views/Teams";
-import { ApiKeys } from "~/ui/views/ApiKeys";
-import accessManagementPlugins from "./plugins";
+import { Permission } from "~/plugins/constants.js";
+import { Groups } from "~/ui/views/Groups/index.js";
+import { Teams } from "~/ui/views/Teams/index.js";
+import { ApiKeys } from "~/ui/views/ApiKeys/index.js";
+import accessManagementPlugins from "./plugins/index.js";
 import { AdminConfig } from "@webiny/app-admin";
 
 const { Menu, Route } = AdminConfig;

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { OverlayLoader } from "@webiny/admin-ui";
-import type { CmsModel } from "@webiny/app-headless-cms/types";
+import type { CmsModel } from "@webiny/app-headless-cms/types.js";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_FILE_MODEL } from "~/modules/FileManagerApiProvider/graphql";
+import { GET_FILE_MODEL } from "~/modules/FileManagerApiProvider/graphql.js";
 
 export const FileModelContext = React.createContext<CmsModel | undefined>(undefined);
 

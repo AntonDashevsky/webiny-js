@@ -5,7 +5,7 @@ import { PagesList } from "./PagesList/PagesList.js";
 import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
 import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
 import { WB_PAGE_APP } from "~/constants.js";
-import { NavigateFolderProvider } from "~/modules/pages/PagesList/NavigateFolderProvider";
+import { NavigateFolderProvider } from "~/modules/pages/PagesList/NavigateFolderProvider.js";
 import { PageListWithConfig } from "./configs/index.js";
 
 export const PageList = () => {

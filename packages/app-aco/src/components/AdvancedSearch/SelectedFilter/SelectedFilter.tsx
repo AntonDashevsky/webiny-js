@@ -1,7 +1,7 @@
 import React from "react";
 import { cn, IconButton, buttonVariants } from "@webiny/admin-ui";
 import { ReactComponent as Close } from "@webiny/icons/close.svg";
-import type { FilterDTO } from "~/components/AdvancedSearch/domain";
+import type { FilterDTO } from "~/components/AdvancedSearch/domain/index.js";
 
 interface SelectedFilterProps {
     filter: FilterDTO;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "@webiny/form";
-import { useTenant } from "./useTenant";
-import { Domains } from "../Domains";
+import { useTenant } from "./useTenant.js";
+import { Domains } from "../Domains.js";
 import { Dialog, OverlayLoader } from "@webiny/admin-ui";
 
 interface Props {

@@ -1,30 +1,30 @@
-import type { CreateGraphQLParams } from "~/graphql";
-import { createGraphQL as baseCreateGraphQL } from "~/graphql";
-import { createDefaultModelManager } from "~/modelManager";
-import { createGraphQLFields } from "~/graphqlFields";
-import { createValidators } from "~/validators";
+import type { CreateGraphQLParams } from "~/graphql/index.js";
+import { createGraphQL as baseCreateGraphQL } from "~/graphql/index.js";
+import { createDefaultModelManager } from "~/modelManager/index.js";
+import { createGraphQLFields } from "~/graphqlFields/index.js";
+import { createValidators } from "~/validators/index.js";
 import {
     createContextParameterPlugin,
     createHeaderParameterPlugin,
     createPathParameterPlugin
-} from "~/parameters";
-import type { CrudParams } from "~/context";
-import { createContextPlugin } from "~/context";
+} from "~/parameters/index.js";
+import type { CrudParams } from "~/context.js";
+import { createContextPlugin } from "~/context.js";
 import {
     entryFieldFromStorageTransform,
     entryFromStorageTransform,
     entryToStorageTransform
-} from "./utils/entryStorage";
-import { createFieldConverters } from "~/fieldConverters";
-import { createExportGraphQL } from "~/export";
-import { createStorageTransform } from "~/storage";
-import { createLexicalHTMLRenderer } from "./htmlRenderer/createLexicalHTMLRenderer";
-import { createRevisionIdScalarPlugin } from "~/graphql/scalars/RevisionIdScalarPlugin";
-import type { Plugin } from "@webiny/plugins/types";
+} from "./utils/entryStorage.js";
+import { createFieldConverters } from "~/fieldConverters/index.js";
+import { createExportGraphQL } from "~/export/index.js";
+import { createStorageTransform } from "~/storage/index.js";
+import { createLexicalHTMLRenderer } from "./htmlRenderer/createLexicalHTMLRenderer.js";
+import { createRevisionIdScalarPlugin } from "~/graphql/scalars/RevisionIdScalarPlugin.js";
+import type { Plugin } from "@webiny/plugins/types.js";
 
-export * from "./utils/isHeadlessCmsReady";
-export * from "./utils/createModelField";
-export * from "./graphql/schema/resolvers/manage/normalizeGraphQlInput";
+export * from "./utils/isHeadlessCmsReady.js";
+export * from "./utils/createModelField.js";
+export * from "./graphql/schema/resolvers/manage/normalizeGraphQlInput.js";
 
 export type CreateHeadlessCmsGraphQLParams = CreateGraphQLParams;
 export const createHeadlessCmsGraphQL = (params: CreateHeadlessCmsGraphQLParams = {}): Plugin[] => {
@@ -59,11 +59,11 @@ export const createHeadlessCmsContext = (params: ContentContextParams) => {
         ...createStorageTransform()
     ];
 };
-export * from "~/graphqlFields";
-export * from "~/plugins";
-export * from "~/utils/incrementEntryIdVersion";
-export * from "~/utils/RichTextRenderer";
-export * from "./graphql/handleRequest";
-export * from "./utils/contentEntryTraverser/ContentEntryTraverser";
-export * from "./utils/contentModelAst";
+export * from "~/graphqlFields/index.js";
+export * from "~/plugins/index.js";
+export * from "~/utils/incrementEntryIdVersion.js";
+export * from "~/utils/RichTextRenderer.js";
+export * from "./graphql/handleRequest.js";
+export * from "./utils/contentEntryTraverser/ContentEntryTraverser.js";
+export * from "./utils/contentModelAst/index.js";
 export { entryToStorageTransform, entryFieldFromStorageTransform, entryFromStorageTransform };

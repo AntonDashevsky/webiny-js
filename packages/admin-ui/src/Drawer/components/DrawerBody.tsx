@@ -1,6 +1,6 @@
 import * as React from "react";
-import { cn } from "~/utils";
-import type { DrawerProps } from "~/Drawer";
+import { cn } from "~/utils.js";
+import type { DrawerProps } from "~/Drawer/index.js";
 
 export type DrawerBodyProps = Pick<DrawerProps, "children" | "bodyPadding">;
 

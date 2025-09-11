@@ -1,6 +1,6 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import type { FileManagerContext } from "~/types";
-import { emptyResolver, resolve } from "./utils";
+import type { FileManagerContext } from "~/types.js";
+import { emptyResolver, resolve } from "./utils.js";
 
 export const createBaseSchema = () => {
     const fileManagerGraphQL = new GraphQLSchemaPlugin<FileManagerContext>({

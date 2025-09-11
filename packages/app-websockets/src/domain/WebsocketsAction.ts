@@ -3,7 +3,7 @@ import type {
     IWebsocketsAction,
     IWebsocketsActions,
     IWebsocketsActionsTriggerParams
-} from "./types";
+} from "./types.js";
 
 export class WebsocketsAction<
     T extends IGenericData = IGenericData,

@@ -1,16 +1,16 @@
 import React from "react";
-import { EditorConfig } from "~/BaseEditor";
-import { TextInputRenderer } from "~/inputRenderers/TextInput";
-import { NumberInputRenderer } from "~/inputRenderers/NumberInput";
-import { BooleanInputRenderer } from "~/inputRenderers/BooleanInput";
-import { TextareaInputRenderer } from "~/inputRenderers/TextareaInput";
-import { LexicalInputRenderer } from "~/inputRenderers/LexicalInput/LexicalInput";
-import { DefaultLexicalConfig } from "~/inputRenderers/LexicalInput/DefaultLexicalConfig";
-import { SlotInputRenderer } from "~/inputRenderers/SlotInput";
-import { GridLayoutInputRenderer } from "~/inputRenderers/GridLayoutInput";
-import { SelectInputRenderer } from "~/inputRenderers/SelectInput";
-import { FileInputRenderer } from "~/inputRenderers/FileInput";
-import { FragmentSelectorInputRenderer } from "~/inputRenderers/FragmentSelectorInput";
+import { EditorConfig } from "~/BaseEditor/index.js";
+import { TextInputRenderer } from "~/inputRenderers/TextInput.js";
+import { NumberInputRenderer } from "~/inputRenderers/NumberInput.js";
+import { BooleanInputRenderer } from "~/inputRenderers/BooleanInput.js";
+import { TextareaInputRenderer } from "~/inputRenderers/TextareaInput.js";
+import { LexicalInputRenderer } from "~/inputRenderers/LexicalInput/LexicalInput.js";
+import { DefaultLexicalConfig } from "~/inputRenderers/LexicalInput/DefaultLexicalConfig.js";
+import { SlotInputRenderer } from "~/inputRenderers/SlotInput.js";
+import { GridLayoutInputRenderer } from "~/inputRenderers/GridLayoutInput.js";
+import { SelectInputRenderer } from "~/inputRenderers/SelectInput.js";
+import { FileInputRenderer } from "~/inputRenderers/FileInput.js";
+import { FragmentSelectorInputRenderer } from "~/inputRenderers/FragmentSelectorInput.js";
 
 export const ElementInputRenderers = () => {
     return (

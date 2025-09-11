@@ -1,2 +1,2 @@
-export type * from "./ISchedulerControllers";
-export type * from "./ISchedulerPresenter";
+export type * from "./ISchedulerControllers.js";
+export type * from "./ISchedulerPresenter.js";

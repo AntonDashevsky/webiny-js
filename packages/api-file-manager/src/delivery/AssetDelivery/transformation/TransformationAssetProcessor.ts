@@ -1,4 +1,4 @@
-import type { Asset, AssetProcessor, AssetRequest, AssetTransformationStrategy } from "~/delivery";
+import type { Asset, AssetProcessor, AssetRequest, AssetTransformationStrategy } from "~/delivery/index.js";
 
 export class TransformationAssetProcessor implements AssetProcessor {
     private strategy: AssetTransformationStrategy;

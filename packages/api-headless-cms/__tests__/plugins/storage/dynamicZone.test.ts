@@ -1,8 +1,8 @@
-import { pageModel } from "../../contentAPI/mocks/pageWithDynamicZonesModel";
-import type { CmsModel, CmsModelDynamicZoneField } from "~/types";
-import { createDynamicZoneStorageTransform } from "~/storage/dynamicZone";
-import { createStorageTransform } from "~/storage/index";
-import { getStoragePluginFactory } from "~/utils/entryStorage";
+import { pageModel } from "../../contentAPI/mocks/pageWithDynamicZonesModel.js";
+import type { CmsModel, CmsModelDynamicZoneField } from "~/types/index.js";
+import { createDynamicZoneStorageTransform } from "~/storage/dynamicZone.js";
+import { createStorageTransform } from "~/storage/index.js";
+import { getStoragePluginFactory } from "~/utils/entryStorage.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 const field = pageModel.fields.find(f => f.id === "peeeyhtc") as CmsModelDynamicZoneField;

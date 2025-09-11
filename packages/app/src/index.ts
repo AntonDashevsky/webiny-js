@@ -1,24 +1,24 @@
-export { AddQuerySelectionPlugin } from "./plugins/AddQuerySelectionPlugin";
-export { ApolloLinkPlugin } from "./plugins/ApolloLinkPlugin";
-export { RoutePlugin } from "./plugins/RoutePlugin";
+export { AddQuerySelectionPlugin } from "./plugins/AddQuerySelectionPlugin.js";
+export { ApolloLinkPlugin } from "./plugins/ApolloLinkPlugin.js";
+export { RoutePlugin } from "./plugins/RoutePlugin.js";
 export {
     ApolloCacheObjectIdPlugin,
     type ApolloCacheObject
-} from "./plugins/ApolloCacheObjectIdPlugin";
+} from "./plugins/ApolloCacheObjectIdPlugin.js";
 
 // Composition - we re-export this for ease of use
 export * from "@webiny/react-composition";
 export type { HigherOrderComponent, ComposeProps, ComposableFC } from "@webiny/react-composition";
 
 // App framework
-export * from "./App";
-export * from "./AppContainer";
-export type { AppProps } from "./App";
-export * from "./core/Plugins";
-export * from "./core/Plugin";
-export * from "./core/Provider";
-export * from "./core/DebounceRender";
-export * from "./core/createProvider";
-export * from "./core/createProviderPlugin";
-export * from "./renderApp";
-export * from "./utils/createGenericContext";
+export * from "./App.js";
+export * from "./AppContainer.js";
+export type { AppProps } from "./App.js";
+export * from "./core/Plugins.js";
+export * from "./core/Plugin.js";
+export * from "./core/Provider.js";
+export * from "./core/DebounceRender.js";
+export * from "./core/createProvider.js";
+export * from "./core/createProviderPlugin.js";
+export * from "./renderApp.js";
+export * from "./utils/createGenericContext.js";

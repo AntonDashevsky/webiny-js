@@ -1,8 +1,8 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import type { WbError } from "~/types.js";
-import type { IGetPageRevisionsGateway } from "~/features/pages/getPageRevisions/IGetPageRevisionsGateway";
-import type { PageRevisionGatewayDto } from "~/features/pages/getPageRevisions/PageRevisionGatewayDto";
+import type { IGetPageRevisionsGateway } from "~/features/pages/getPageRevisions/IGetPageRevisionsGateway.js";
+import type { PageRevisionGatewayDto } from "~/features/pages/getPageRevisions/PageRevisionGatewayDto.js";
 
 export interface GetPageRevisionsResponse {
     websiteBuilder: {

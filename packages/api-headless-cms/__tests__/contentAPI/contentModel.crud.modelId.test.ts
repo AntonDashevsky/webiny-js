@@ -1,7 +1,7 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import type { CmsGroup } from "~/types";
-import camelCase from "lodash/camelCase";
-import upperFirst from "lodash/upperFirst";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import type { CmsGroup } from "~/types/index.js";
+import camelCase from "lodash/camelCase.js";
+import upperFirst from "lodash/upperFirst.js";
 import pluralize from "pluralize";
 
 describe("ContentModel modelId variations", () => {

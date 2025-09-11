@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useDropZoneManager } from "./DropZoneManagerProvider";
-import type { Box } from "./Box";
-import type { DropZoneProximity } from "~/BaseEditor/defaultConfig/Content/Preview/DropZoneManager";
+import { useDropZoneManager } from "./DropZoneManagerProvider.js";
+import type { Box } from "./Box.js";
+import type { DropZoneProximity } from "~/BaseEditor/defaultConfig/Content/Preview/DropZoneManager.js";
 
 export interface DropEvent {
     item: { id?: string; componentName: string };

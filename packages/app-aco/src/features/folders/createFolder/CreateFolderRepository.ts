@@ -1,8 +1,8 @@
-import type { ICreateFolderRepository } from "./ICreateFolderRepository";
-import type { ListCache } from "../cache";
-import { Folder } from "../Folder";
-import type { ICreateFolderGateway } from "./ICreateFolderGateway";
-import type { FolderDto } from "./FolderDto";
+import type { ICreateFolderRepository } from "./ICreateFolderRepository.js";
+import type { ListCache } from "../cache/index.js";
+import { Folder } from "../Folder.js";
+import type { ICreateFolderGateway } from "./ICreateFolderGateway.js";
+import type { FolderDto } from "./FolderDto.js";
 
 export class CreateFolderRepository implements ICreateFolderRepository {
     private cache: ListCache<Folder>;

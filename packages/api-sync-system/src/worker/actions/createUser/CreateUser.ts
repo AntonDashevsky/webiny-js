@@ -4,11 +4,11 @@ import type {
     AdminGetUserCommandOutput,
     CognitoIdentityProvider,
     CognitoIdentityProviderClientConfig
-} from "@webiny/aws-sdk/client-cognito-identity-provider";
+} from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import {
     AdminCreateUserCommand,
     AdminGetUserCommand
-} from "@webiny/aws-sdk/client-cognito-identity-provider";
+} from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import { convertException } from "@webiny/utils/exception.js";
 import { removeCognitoUserAttributes } from "~/worker/actions/removeCognitoUserAttributes.js";
 

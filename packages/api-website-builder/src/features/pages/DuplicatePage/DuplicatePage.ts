@@ -1,10 +1,10 @@
-import pick from "lodash/pick";
-import type { IDuplicatePage } from "./IDuplicatePage";
+import pick from "lodash/pick.js";
+import type { IDuplicatePage } from "./IDuplicatePage.js";
 import type {
     DuplicateWbPageParams,
     WbPage,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 
 export class DuplicatePage implements IDuplicatePage {
     private readonly getOperation: WbPagesStorageOperations["getById"];

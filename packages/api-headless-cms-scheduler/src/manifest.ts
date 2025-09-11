@@ -1,5 +1,5 @@
 import { ServiceDiscovery } from "@webiny/api";
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { createZodError } from "@webiny/utils";
 import zod from "zod";
 

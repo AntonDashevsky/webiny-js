@@ -4,8 +4,8 @@ import type {
     GraphQLAfterQueryPlugin,
     GraphQLBeforeQueryPlugin,
     GraphQLRequestBody
-} from "~/types";
-import type { Context } from "@webiny/api/types";
+} from "~/types.js";
+import type { Context } from "@webiny/api/types.js";
 
 const executeGraphQl = async <TData = Record<string, any>, TExtensions = Record<string, any>>(
     body: GraphQLRequestBody,

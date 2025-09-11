@@ -1,5 +1,5 @@
 import React from "react";
-import { UiProvider } from "@webiny/app/contexts/Ui";
+import { UiProvider } from "@webiny/app/contexts/Ui/index.js";
 import { createProvider } from "@webiny/app";
 
 interface AdminUiStateProviderProps {

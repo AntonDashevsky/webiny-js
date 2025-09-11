@@ -1,8 +1,8 @@
 import { createImplementation, Result } from "@webiny/feature";
 import Error from "@webiny/error";
-import type { Tenant } from "~/types";
-import { UpdateTenantUseCase as UseCase, UpdateTenantRepository } from "./abstractions";
-import { GetCurrentTenantUseCase, GetTenantByIdUseCase } from "~/features";
+import type { Tenant } from "~/types.js";
+import { UpdateTenantUseCase as UseCase, UpdateTenantRepository } from "./abstractions.js";
+import { GetCurrentTenantUseCase, GetTenantByIdUseCase } from "~/features/index.js";
 
 class DefaultUpdateTenantUseCase implements UseCase.Interface {
     constructor(

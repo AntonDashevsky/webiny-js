@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as KeyboardArrowRightIcon } from "@webiny/icons/keyboard_arrow_down.svg";
-import { HeaderBar } from "./HeaderBar";
+import { HeaderBar } from "./HeaderBar.js";
 import React from "react";
-import { Button, IconButton } from "~/Button";
-import { Avatar } from "~/Avatar";
-import { Text } from "~/Text";
+import { Button, IconButton } from "~/Button/index.js";
+import { Avatar } from "~/Avatar/index.js";
+import { Text } from "~/Text/index.js";
 
 const meta: Meta<typeof HeaderBar> = {
     title: "Components/HeaderBar",

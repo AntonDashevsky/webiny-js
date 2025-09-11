@@ -10,11 +10,11 @@ import type {
     OnLocaleBeforeCreateTopicParams,
     OnLocaleBeforeDeleteTopicParams,
     OnLocaleBeforeUpdateTopicParams
-} from "~/types";
+} from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
-import type { Tenant } from "@webiny/api-tenancy/types";
-import type { LocalesPermissions } from "./permissions/LocalesPermissions";
+import type { Tenant } from "@webiny/api-tenancy/types.js";
+import type { LocalesPermissions } from "./permissions/LocalesPermissions.js";
 import { IdentityValue } from "@webiny/api-security";
 
 export interface CreateLocalesCrudParams {

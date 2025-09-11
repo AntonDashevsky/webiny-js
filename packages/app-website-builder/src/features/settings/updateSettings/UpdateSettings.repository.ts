@@ -1,5 +1,5 @@
-import type { IUpdateSettings } from "./IUpdateSettings";
-import type { SettingsCache } from "~/shared/settingsCache";
+import type { IUpdateSettings } from "./IUpdateSettings.js";
+import type { SettingsCache } from "~/shared/settingsCache.js";
 
 export interface IWebsiteBuilderSettings {
     previewDomain: string;

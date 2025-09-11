@@ -1,1 +1,1 @@
-export * from "./BottomInfoBar";
+export * from "./BottomInfoBar.js";

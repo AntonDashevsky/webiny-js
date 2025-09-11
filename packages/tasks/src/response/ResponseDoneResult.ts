@@ -1,6 +1,6 @@
-import type { ITaskResponseDoneResultOutput } from "~/types";
-import { TaskResponseStatus } from "~/types";
-import type { IResponseDoneResult } from "./abstractions";
+import type { ITaskResponseDoneResultOutput } from "~/types.js";
+import { TaskResponseStatus } from "~/types.js";
+import type { IResponseDoneResult } from "./abstractions/index.js";
 
 export class ResponseDoneResult<
     O extends ITaskResponseDoneResultOutput = ITaskResponseDoneResultOutput

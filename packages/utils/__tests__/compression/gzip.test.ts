@@ -1,4 +1,4 @@
-import { compress, decompress } from "~/compression/gzip";
+import { compress, decompress } from "~/compression/gzip.js";
 
 const testingData = Object.freeze({
     name: "John Doe",

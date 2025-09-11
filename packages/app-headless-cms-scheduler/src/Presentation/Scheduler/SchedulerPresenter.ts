@@ -5,8 +5,8 @@ import type {
     ISchedulerItemsRepository,
     ISearchRepository,
     ISelectedItemsRepository
-} from "~/Domain/Repositories";
-import { LoadingActions } from "~/types";
+} from "~/Domain/Repositories/index.js";
+import { LoadingActions } from "~/types.js";
 
 export interface ISchedulerPresenterParams {
     itemsRepository: ISchedulerItemsRepository;

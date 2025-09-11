@@ -1,22 +1,22 @@
 import { AsyncLocalStorage } from "async_hooks";
 import minimatch from "minimatch";
 import { createTopic } from "@webiny/pubsub";
-import type { AaclPermission } from "@webiny/api-wcp/types";
-import type { Identity } from "@webiny/api-authentication/types";
-import { createAuthentication } from "@webiny/api-authentication/createAuthentication";
+import type { AaclPermission } from "@webiny/api-wcp/types.js";
+import type { Identity } from "@webiny/api-authentication/types.js";
+import { createAuthentication } from "@webiny/api-authentication/createAuthentication.js";
 import type {
     Authorizer,
     Security,
     SecurityPermission,
     SecurityConfig,
     AuthenticationToken
-} from "./types";
-import { createApiKeysMethods } from "~/createSecurity/createApiKeysMethods";
-import { createGroupsMethods } from "~/createSecurity/createGroupsMethods";
-import { createTeamsMethods } from "~/createSecurity/createTeamsMethods";
-import { createSystemMethods } from "~/createSecurity/createSystemMethods";
-import { createTenantLinksMethods } from "~/createSecurity/createTenantLinksMethods";
-import { filterOutCustomWbyAppsPermissions } from "~/createSecurity/filterOutCustomWbyAppsPermissions";
+} from "./types.js";
+import { createApiKeysMethods } from "~/createSecurity/createApiKeysMethods.js";
+import { createGroupsMethods } from "~/createSecurity/createGroupsMethods.js";
+import { createTeamsMethods } from "~/createSecurity/createTeamsMethods.js";
+import { createSystemMethods } from "~/createSecurity/createSystemMethods.js";
+import { createTenantLinksMethods } from "~/createSecurity/createTenantLinksMethods.js";
+import { filterOutCustomWbyAppsPermissions } from "~/createSecurity/filterOutCustomWbyAppsPermissions.js";
 
 export interface GetTenant {
     (): string | undefined;

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RadioGroup as RadioGroupPrimitive } from "radix-ui";
-import { cn, makeDecoratable } from "~/utils";
-import { Label } from "~/Label";
+import { cn, makeDecoratable } from "~/utils.js";
+import { Label } from "~/Label/index.js";
 
 /**
  * RadioItem

@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { useGetEditPageUrl } from "~/modules/pages/PagesList/hooks/useGetEditPageUrl.js";
 import { usePage } from "~/modules/pages/PagesList/hooks/usePage.js";
-import { PageListConfig } from "~/modules/pages/configs";
+import { PageListConfig } from "~/modules/pages/configs/index.js";
 
 const { OptionsMenuLink } = PageListConfig.Browser.Page.Action;
 

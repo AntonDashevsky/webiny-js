@@ -1,10 +1,10 @@
 import React from "react";
-import { Separator } from "~/Separator";
-import { IconButton } from "~/Button";
-import { useSidebar } from "./SidebarProvider";
+import { Separator } from "~/Separator/index.js";
+import { IconButton } from "~/Button/index.js";
+import { useSidebar } from "./SidebarProvider.js";
 import { ReactComponent as PinSidebarIcon } from "@webiny/icons/chrome_reader_mode.svg";
 import { ReactComponent as UnpinSidebarIcon } from "@webiny/icons/width_full.svg";
-import { Tooltip } from "~/Tooltip";
+import { Tooltip } from "~/Tooltip/index.js";
 
 interface SidebarHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
     icon?: React.ReactNode;

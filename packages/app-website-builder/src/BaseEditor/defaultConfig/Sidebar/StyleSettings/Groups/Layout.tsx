@@ -1,8 +1,8 @@
 import React from "react";
 import { Accordion, Grid } from "@webiny/admin-ui";
-import { Alignment } from "./Layout/Alignment";
-import { LengthWithUnitInput } from "./Layout/LengthWithUnitInput";
-import { UnitsOptions } from "../UnitsOptions";
+import { Alignment } from "./Layout/Alignment.js";
+import { LengthWithUnitInput } from "./Layout/LengthWithUnitInput.js";
+import { UnitsOptions } from "../UnitsOptions.js";
 
 interface LayoutProps {
     elementId: string;

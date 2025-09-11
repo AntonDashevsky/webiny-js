@@ -1,13 +1,13 @@
-import type { IMultipartUploadHandler } from "~/tasks/utils/upload";
-import { createMultipartUpload, MultipartUploadHandler } from "~/tasks/utils/upload";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client";
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
+import type { IMultipartUploadHandler } from "~/tasks/utils/upload/index.js";
+import { createMultipartUpload, MultipartUploadHandler } from "~/tasks/utils/upload/index.js";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
 import {
     AbortMultipartUploadCommand,
     CompleteMultipartUploadCommand,
     S3Client,
     UploadPartCommand
-} from "@webiny/aws-sdk/client-s3";
+} from "@webiny/aws-sdk/client-s3/index.js";
 import { mockClient } from "aws-sdk-client-mock";
 
 /**

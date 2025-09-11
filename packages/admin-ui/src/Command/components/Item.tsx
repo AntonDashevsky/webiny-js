@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ReactComponent as Check } from "@webiny/icons/check.svg";
 import { Command as CommandPrimitive } from "cmdk";
-import { cn, cva, type VariantProps } from "~/utils";
+import { cn, cva, type VariantProps } from "~/utils.js";
 
 const commandItemVariants = cva(
     [

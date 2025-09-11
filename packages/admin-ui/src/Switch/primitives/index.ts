@@ -1,1 +1,1 @@
-export * from "./SwitchPrimitive";
+export * from "./SwitchPrimitive.js";

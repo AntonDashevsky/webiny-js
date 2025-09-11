@@ -3,13 +3,13 @@ import type { ApolloClient } from "apollo-client";
 import { plugins } from "@webiny/plugins";
 import { AdminConfig, Provider } from "@webiny/app-admin";
 import { ApolloCacheObjectIdPlugin } from "@webiny/app";
-import { CmsProvider } from "~/admin/contexts/Cms";
-import { CmsMenuLoader } from "~/admin/menus/CmsMenuLoader";
-import apiInformation from "~/admin/plugins/apiInformation";
-import { ContentEntriesModule } from "~/admin/views/contentEntries/ContentEntriesModule";
-import allPlugins from "~/allPlugins";
-import { LexicalEditorCmsPlugin } from "~/admin/components/LexicalCmsEditor/LexicalEditorCmsPlugin";
-import { SingletonContentEntryModule } from "~/admin/views/contentEntries/SingletonContentEntryModule";
+import { CmsProvider } from "~/admin/contexts/Cms/index.js";
+import { CmsMenuLoader } from "~/admin/menus/CmsMenuLoader.js";
+import apiInformation from "~/admin/plugins/apiInformation/index.js";
+import { ContentEntriesModule } from "~/admin/views/contentEntries/ContentEntriesModule.js";
+import allPlugins from "~/allPlugins.js";
+import { LexicalEditorCmsPlugin } from "~/admin/components/LexicalCmsEditor/LexicalEditorCmsPlugin.js";
+import { SingletonContentEntryModule } from "~/admin/views/contentEntries/SingletonContentEntryModule.js";
 
 interface HeadlessCMSProvider {
     children: React.ReactNode;

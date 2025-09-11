@@ -3,14 +3,14 @@ import type {
     CmsEntry,
     CmsStorageEntry,
     StorageOperationsCmsModel
-} from "@webiny/api-headless-cms/types";
-import { transformEntryKeys } from "./transformEntryKeys";
-import type { CmsIndexEntry } from "~/types";
-import { transformEntryToIndex } from "~/operations/entry/transformations/transformEntryToIndex";
-import { CmsEntryElasticsearchValuesModifier } from "~/plugins";
-import { modifyEntryValues as modifyEntryValuesCallable } from "~/operations/entry/transformations/modifyEntryValues";
+} from "@webiny/api-headless-cms/types/index.js";
+import { transformEntryKeys } from "./transformEntryKeys.js";
+import type { CmsIndexEntry } from "~/types.js";
+import { transformEntryToIndex } from "~/operations/entry/transformations/transformEntryToIndex.js";
+import { CmsEntryElasticsearchValuesModifier } from "~/plugins/index.js";
+import { modifyEntryValues as modifyEntryValuesCallable } from "~/operations/entry/transformations/modifyEntryValues.js";
 import { compress } from "@webiny/api-elasticsearch";
-import { createLatestRecordType, createPublishedRecordType } from "~/operations/entry/recordType";
+import { createLatestRecordType, createPublishedRecordType } from "~/operations/entry/recordType.js";
 import WebinyError from "@webiny/error";
 
 interface BaseTransformerParams {

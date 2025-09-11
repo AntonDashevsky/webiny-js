@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
-import { makeDecoratable } from "~/utils";
-import type { CodeEditorPrimitiveProps } from "./CodeEditorPrimitive";
-import { CodeEditorPrimitive } from "./CodeEditorPrimitive";
-import type { FormComponentProps } from "~/FormComponent";
+import { makeDecoratable } from "~/utils.js";
+import type { CodeEditorPrimitiveProps } from "./CodeEditorPrimitive.js";
+import { CodeEditorPrimitive } from "./CodeEditorPrimitive.js";
+import type { FormComponentProps } from "~/FormComponent/index.js";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
     FormComponentNote
-} from "~/FormComponent";
+} from "~/FormComponent/index.js";
 
 type CodeEditorProps = CodeEditorPrimitiveProps & FormComponentProps;
 

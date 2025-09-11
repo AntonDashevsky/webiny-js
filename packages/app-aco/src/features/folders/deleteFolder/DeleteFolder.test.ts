@@ -1,7 +1,7 @@
 import { DeleteFolder } from "./DeleteFolder.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { Folder } from "../Folder.js";
-import { type IDeleteFolderGateway } from "~/features/folders/deleteFolder/IDeleteFolderGateway";
+import { type IDeleteFolderGateway } from "~/features/folders/deleteFolder/IDeleteFolderGateway.js";
 
 class DeleteFolderMockGateway implements IDeleteFolderGateway {
     async execute() {}

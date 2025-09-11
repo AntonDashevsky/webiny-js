@@ -1,7 +1,7 @@
 import type { SyntheticEvent } from "react";
 import React from "react";
-import type { ButtonProps } from "./Button";
-import { useMappedButtonProps } from "~/Button/useMappedButtonProps";
+import type { ButtonProps } from "./Button.js";
+import { useMappedButtonProps } from "~/Button/useMappedButtonProps.js";
 import { IconButton as AdminUiBIconButton } from "@webiny/admin-ui";
 
 export interface IconButtonProps extends ButtonProps {

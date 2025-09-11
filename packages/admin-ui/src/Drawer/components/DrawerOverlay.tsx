@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Dialog as DrawerPrimitive } from "radix-ui";
-import { cn } from "~/utils";
+import { cn } from "~/utils.js";
 
 export const DrawerOverlay = React.forwardRef<
     React.ElementRef<typeof DrawerPrimitive.Overlay>,

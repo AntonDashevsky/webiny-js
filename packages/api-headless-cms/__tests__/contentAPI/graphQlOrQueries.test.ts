@@ -1,6 +1,6 @@
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
-import lodashCamelCase from "lodash/camelCase";
-import { setupGroupAndModels } from "../testHelpers/setup";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
+import lodashCamelCase from "lodash/camelCase.js";
+import { setupGroupAndModels } from "../testHelpers/setup.js";
 
 const categories = [
     "Webiny Headless CMS Project",

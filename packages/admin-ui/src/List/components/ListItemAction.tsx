@@ -1,8 +1,8 @@
 import * as React from "react";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import type { IconButtonProps as IconButtonProps } from "~/Button";
-import { IconButton } from "~/Button";
-import { ListItemSeparator } from "./ListItemSeparator";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import type { IconButtonProps as IconButtonProps } from "~/Button/index.js";
+import { IconButton } from "~/Button/index.js";
+import { ListItemSeparator } from "./ListItemSeparator.js";
 
 type ListItemActionProps = IconButtonProps;
 

@@ -1,7 +1,7 @@
 import DataLoader from "dataloader";
 import WebinyError from "@webiny/error";
-import flatten from "lodash/flatten";
-import type { AdminUsersStorageOperations, AdminUser } from "~/types";
+import flatten from "lodash/flatten.js";
+import type { AdminUsersStorageOperations, AdminUser } from "~/types.js";
 
 interface Config {
     getTenant(): string;

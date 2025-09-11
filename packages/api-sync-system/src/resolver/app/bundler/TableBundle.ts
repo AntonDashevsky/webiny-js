@@ -4,7 +4,7 @@
  * It will be used to fetch the data from the source system tables.
  */
 import type { IBundle } from "./types.js";
-import type { IIngestorResultItem } from "../ingestor/types";
+import type { IIngestorResultItem } from "../ingestor/types.js";
 import type { IBaseBundleParams } from "./BaseBundle.js";
 import { BaseBundle } from "./BaseBundle.js";
 

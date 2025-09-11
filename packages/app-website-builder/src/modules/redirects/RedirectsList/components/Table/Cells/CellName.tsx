@@ -4,8 +4,8 @@ import { Icon, Text } from "@webiny/admin-ui";
 import { ReactComponent as File } from "@webiny/icons/description.svg";
 
 import type { RedirectTableRow } from "~/modules/redirects/RedirectsList/presenters/index.js";
-import { RedirectListConfig } from "~/modules/redirects/configs";
-import { FolderCellName } from "~/modules/shared/FolderCellName";
+import { RedirectListConfig } from "~/modules/redirects/configs/index.js";
+import { FolderCellName } from "~/modules/shared/FolderCellName.js";
 import { useEditRedirectDialog } from "~/modules/redirects/RedirectsList/index.js";
 
 interface DocumentCellRowTitleProps {

@@ -1,4 +1,4 @@
-import { StatePathsExtractor } from "./StatePathsExtractor";
+import { StatePathsExtractor } from "./StatePathsExtractor.js";
 
 // This test is skipped because its underlying functionality is currently not being used.
 describe.skip("StatePathsExtractor", () => {

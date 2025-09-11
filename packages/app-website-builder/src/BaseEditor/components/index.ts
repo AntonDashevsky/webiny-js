@@ -1,2 +1,2 @@
-export * from "./Editor";
-export { useWebsiteBuilderTheme } from "./ThemeProvider";
+export * from "./Editor.js";
+export { useWebsiteBuilderTheme } from "./ThemeProvider.js";

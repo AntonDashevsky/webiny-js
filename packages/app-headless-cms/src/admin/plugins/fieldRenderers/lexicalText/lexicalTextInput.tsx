@@ -1,10 +1,10 @@
 import React from "react";
-import get from "lodash/get";
-import { i18n } from "@webiny/app/i18n";
-import type { CmsModelFieldRendererPlugin, CmsModelField } from "~/types";
+import get from "lodash/get.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import type { CmsModelFieldRendererPlugin, CmsModelField } from "~/types.js";
 import { useForm } from "@webiny/form";
-import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor";
-import { modelHasLegacyRteField } from "~/admin/plugins/fieldRenderers/richText/utils";
+import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor.js";
+import { modelHasLegacyRteField } from "~/admin/plugins/fieldRenderers/richText/utils.js";
 import { FormComponentDescription, DelayedOnChange } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/rich-text");

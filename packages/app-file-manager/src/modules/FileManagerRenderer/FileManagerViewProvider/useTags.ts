@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSecurity } from "@webiny/app-security";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
-import { DEFAULT_SCOPE } from "~/constants";
-import type { FileTag } from "~/types";
-import { THREAT_SCAN } from "~/modules/Enterprise/constants";
+import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
+import { DEFAULT_SCOPE } from "~/constants.js";
+import type { FileTag } from "~/types.js";
+import { THREAT_SCAN } from "~/modules/Enterprise/constants.js";
 
 const sortTags = (tags: FileTag[]) => {
     return tags.sort((a, b) => a.tag.localeCompare(b.tag));

@@ -14,14 +14,14 @@ import type {
     OnSettingsGetErrorTopicParams,
     OnSettingsUpdateErrorTopicParams,
     TransportSettings
-} from "~/types";
+} from "~/types.js";
 import { createTopic } from "@webiny/pubsub";
-import { SETTINGS_MODEL_ID } from "./settings/model";
-import { transformInputToEntryValues, transformValuesFromEntry } from "~/crud/settings/transform";
-import { getSecret } from "~/crud/settings/secret";
-import { createValidation, updateValidation } from "~/crud/settings/validation";
-import type { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
-import { attachPasswordObfuscatingHooks } from "~/crud/settings/hooks";
+import { SETTINGS_MODEL_ID } from "./settings/model.js";
+import { transformInputToEntryValues, transformValuesFromEntry } from "~/crud/settings/transform.js";
+import { getSecret } from "~/crud/settings/secret.js";
+import { createValidation, updateValidation } from "~/crud/settings/validation.js";
+import type { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { attachPasswordObfuscatingHooks } from "~/crud/settings/hooks.js";
 import { NotAuthorizedError } from "@webiny/api-security";
 
 const defaultPort = 25;

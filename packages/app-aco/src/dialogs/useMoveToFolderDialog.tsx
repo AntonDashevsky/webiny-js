@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import type { GenericFormData } from "@webiny/form";
 import { Bind } from "@webiny/form";
 import { useDialogs } from "@webiny/app-admin";
-import { FolderTree } from "~/components";
-import { ParentFolderField } from "./ParentFolderField";
+import { FolderTree } from "~/components/index.js";
+import { ParentFolderField } from "./ParentFolderField.js";
 
 const t = i18n.ns("app-aco/dialogs/use-move-to-folder-dialog");
 

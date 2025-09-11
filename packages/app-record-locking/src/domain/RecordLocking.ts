@@ -1,25 +1,25 @@
 import type {
     IRecordLocking,
     IRecordLockingUpdateEntryLockResult
-} from "./abstractions/IRecordLocking";
+} from "./abstractions/IRecordLocking.js";
 import type { ApolloClient } from "apollo-client";
-import { RecordLockingGetLockRecord } from "./RecordLockingGetLockRecord";
-import { RecordLockingIsEntryLocked } from "./RecordLockingIsEntryLocked";
-import { RecordLockingListLockRecords } from "./RecordLockingListLockRecords";
-import { RecordLockingLockEntry } from "./RecordLockingLockEntry";
-import { RecordLockingUnlockEntry } from "./RecordLockingUnlockEntry";
-import { RecordLockingClient } from "./RecordLockingClient";
-import type { IRecordLockingGetLockRecord } from "./abstractions/IRecordLockingGetLockRecord";
-import type { IRecordLockingIsEntryLocked } from "./abstractions/IRecordLockingIsEntryLocked";
+import { RecordLockingGetLockRecord } from "./RecordLockingGetLockRecord.js";
+import { RecordLockingIsEntryLocked } from "./RecordLockingIsEntryLocked.js";
+import { RecordLockingListLockRecords } from "./RecordLockingListLockRecords.js";
+import { RecordLockingLockEntry } from "./RecordLockingLockEntry.js";
+import { RecordLockingUnlockEntry } from "./RecordLockingUnlockEntry.js";
+import { RecordLockingClient } from "./RecordLockingClient.js";
+import type { IRecordLockingGetLockRecord } from "./abstractions/IRecordLockingGetLockRecord.js";
+import type { IRecordLockingIsEntryLocked } from "./abstractions/IRecordLockingIsEntryLocked.js";
 import type {
     IRecordLockingListLockRecords,
     IRecordLockingListLockRecordsResult
-} from "./abstractions/IRecordLockingListLockRecords";
-import type { IRecordLockingLockEntry } from "./abstractions/IRecordLockingLockEntry";
+} from "./abstractions/IRecordLockingListLockRecords.js";
+import type { IRecordLockingLockEntry } from "./abstractions/IRecordLockingLockEntry.js";
 import type {
     IRecordLockingUnlockEntry,
     IRecordLockingUnlockEntryResult
-} from "./abstractions/IRecordLockingUnlockEntry";
+} from "./abstractions/IRecordLockingUnlockEntry.js";
 import type {
     IFetchLockedEntryLockRecordParams,
     IFetchLockRecordParams,
@@ -31,14 +31,14 @@ import type {
     IRecordLockingRecord,
     IUnlockEntryParams,
     IUpdateEntryLockParams
-} from "~/types";
-import { createRecordLockingError } from "./utils/createRecordLockingError";
-import { parseIdentifier } from "@webiny/utils/parseIdentifier";
-import { createCacheKey } from "~/utils/createCacheKey";
-import { RecordLockingUpdateEntryLock } from "~/domain/RecordLockingUpdateEntryLock";
-import type { IRecordLockingUpdateEntryLock } from "~/domain/abstractions/IRecordLockingUpdateEntryLock";
-import { RecordLockingGetLockedEntryLockRecord } from "~/domain/RecordLockingGetLockedEntryLockRecord";
-import type { IRecordLockingGetLockedEntryLockRecord } from "./abstractions/IRecordLockingGetLockedEntryLockRecord";
+} from "~/types.js";
+import { createRecordLockingError } from "./utils/createRecordLockingError.js";
+import { parseIdentifier } from "@webiny/utils/parseIdentifier.js";
+import { createCacheKey } from "~/utils/createCacheKey.js";
+import { RecordLockingUpdateEntryLock } from "~/domain/RecordLockingUpdateEntryLock.js";
+import type { IRecordLockingUpdateEntryLock } from "~/domain/abstractions/IRecordLockingUpdateEntryLock.js";
+import { RecordLockingGetLockedEntryLockRecord } from "~/domain/RecordLockingGetLockedEntryLockRecord.js";
+import type { IRecordLockingGetLockedEntryLockRecord } from "./abstractions/IRecordLockingGetLockedEntryLockRecord.js";
 
 export interface ICreateRecordLockingParams {
     client: ApolloClient<any>;

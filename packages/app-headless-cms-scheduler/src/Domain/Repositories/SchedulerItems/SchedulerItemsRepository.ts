@@ -1,20 +1,20 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import uniqBy from "lodash/uniqBy";
-import type { SchedulerItem } from "~/Domain";
+import uniqBy from "lodash/uniqBy.js";
+import type { SchedulerItem } from "~/Domain/index.js";
 import type {
     ISchedulerCancelGateway,
     ISchedulerListGateway,
     ISchedulerPublishGateway,
     ISchedulerUnpublishGateway
-} from "~/Gateways";
+} from "~/Gateways/index.js";
 import {
     type ISchedulerGetExecuteParams,
     type ISchedulerGetGateway,
     type ISchedulerListExecuteParams
-} from "~/Gateways";
+} from "~/Gateways/index.js";
 import type { IMetaRepository } from "@webiny/app-utils";
 import { Meta } from "@webiny/app-utils";
-import type { ISchedulerItemsRepository } from "./ISchedulerItemsRepository";
+import type { ISchedulerItemsRepository } from "./ISchedulerItemsRepository.js";
 import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 
 export interface ISchedulerItemsRepositoryParams {

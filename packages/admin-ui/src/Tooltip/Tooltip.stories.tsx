@@ -1,9 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Tooltip } from "~/Tooltip";
-import { Button } from "~/Button";
-import { Text } from "~/Text";
-import { Icon } from "~/Icon";
+import { Tooltip } from "~/Tooltip/index.js";
+import { Button } from "~/Button/index.js";
+import { Text } from "~/Text/index.js";
+import { Icon } from "~/Icon/index.js";
 
 import { ReactComponent as InfoIcon } from "@webiny/icons/info.svg";
 import { ReactComponent as HelpIcon } from "@webiny/icons/help.svg";

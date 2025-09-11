@@ -1,11 +1,11 @@
-import type { UploadOptions } from "@webiny/app/types";
+import type { UploadOptions } from "@webiny/app/types.js";
 import gql from "graphql-tag";
 import type {
     CompleteUploadParams,
     CreateUploadParams,
     MultiPartUpload,
     MultiPartUploadAPI
-} from "~/MultiPartUploadAPI";
+} from "~/MultiPartUploadAPI.js";
 
 export class MultiPartUploadGraphQLAPI implements MultiPartUploadAPI {
     private client: UploadOptions["apolloClient"];

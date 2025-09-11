@@ -2,10 +2,10 @@ import * as React from "react";
 import { toast as sonnerToast, type ToasterProps as SonnerToasterProps } from "sonner";
 import { ReactComponent as Check } from "@webiny/icons/check.svg";
 import { ReactComponent as Warning } from "@webiny/icons/warning.svg";
-import { ToastActions, ToastDescription, ToastTitle, type ToastRootProps } from "./components";
-import { Toast } from "./Toast";
-import { Icon } from "~/Icon";
-import { generateId } from "~/utils";
+import { ToastActions, ToastDescription, ToastTitle, type ToastRootProps } from "./components/index.js";
+import { Toast } from "./Toast.js";
+import { Icon } from "~/Icon/index.js";
+import { generateId } from "~/utils.js";
 
 type ShowToastParams = {
     title: React.ReactElement<typeof ToastTitle> | string;

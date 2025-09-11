@@ -1,4 +1,4 @@
-import type { IRecordLockingIsLockedParams } from "~/types";
+import type { IRecordLockingIsLockedParams } from "~/types.js";
 
 export type IIsEntryLockedUseCaseExecuteParams = IRecordLockingIsLockedParams;
 

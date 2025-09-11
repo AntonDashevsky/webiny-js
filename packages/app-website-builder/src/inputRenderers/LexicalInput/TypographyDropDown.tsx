@@ -14,8 +14,8 @@ import {
     $isListNode,
     ListNode
 } from "@webiny/lexical-nodes";
-import { useWebsiteBuilderTheme } from "~/BaseEditor/components";
-import type { TypographyStyle } from "@webiny/website-builder-sdk/types/WebsiteBuilderTheme";
+import { useWebsiteBuilderTheme } from "~/BaseEditor/components/index.js";
+import type { TypographyStyle } from "@webiny/website-builder-sdk/types/WebsiteBuilderTheme.js";
 
 export const TypographyDropDown = () => {
     const { value, applyTypography } = useTypographyAction();

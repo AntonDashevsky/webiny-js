@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import type { FiltersOnSubmit } from "@webiny/app-admin";
 import { Filters as BaseFilters } from "@webiny/app-admin";
-import { useAuditLogsListConfig } from "~/config/list";
+import { useAuditLogsListConfig } from "~/config/list/index.js";
 import type { IListAuditLogsVariablesWhere } from "~/hooks/graphql.js";
 
 interface FiltersProps {

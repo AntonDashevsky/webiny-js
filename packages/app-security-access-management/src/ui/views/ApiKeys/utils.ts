@@ -1,5 +1,5 @@
-import pick from "lodash/pick";
-import type { ApiKey } from "~/types";
+import pick from "lodash/pick.js";
+import type { ApiKey } from "~/types.js";
 
 export const pickDataForAPI = (
     data: ApiKey

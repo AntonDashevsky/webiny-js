@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { css } from "@emotion/css";
 import { validation } from "@webiny/validation";
 import { useBind } from "@webiny/form";
-import { allowCmsLegacyRichTextInput } from "~/utils/allowCmsLegacyRichTextInput";
-import { RendererOptions } from "./AppearanceTab/RendererOptions";
-import { LegacyRichTextInput } from "./AppearanceTab/LegacyRichTextInput";
-import { useRendererPlugins } from "./useRendererPlugins";
-import { useModelField } from "~/admin/components/ModelFieldProvider";
+import { allowCmsLegacyRichTextInput } from "~/utils/allowCmsLegacyRichTextInput.js";
+import { RendererOptions } from "./AppearanceTab/RendererOptions.js";
+import { LegacyRichTextInput } from "./AppearanceTab/LegacyRichTextInput.js";
+import { useRendererPlugins } from "./useRendererPlugins.js";
+import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
 import { RadioGroup, Text, Grid, Heading } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-editor/tabs/appearance-tab");

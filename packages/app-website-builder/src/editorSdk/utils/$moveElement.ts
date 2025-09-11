@@ -1,7 +1,7 @@
 import type { Document } from "@webiny/website-builder-sdk";
-import { $getElementById } from "./$getElementById";
-import { $removeElementReferenceFromParent } from "./$removeElementReferenceFromParent";
-import { $addElementReferenceToParent } from "./$addElementReferenceToParent";
+import { $getElementById } from "./$getElementById.js";
+import { $removeElementReferenceFromParent } from "./$removeElementReferenceFromParent.js";
+import { $addElementReferenceToParent } from "./$addElementReferenceToParent.js";
 
 interface MoveParams {
     // ID of the element to move.

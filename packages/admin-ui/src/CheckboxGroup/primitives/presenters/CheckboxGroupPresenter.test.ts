@@ -1,5 +1,6 @@
-import { CheckboxGroupPresenter } from "./CheckboxGroupPresenter";
-import type { CheckboxItemDto } from "~/Checkbox/domains/CheckboxItemDto";
+import { CheckboxGroupPresenter } from "./CheckboxGroupPresenter.js";
+import type { CheckboxItemDto } from "~/Checkbox/domains/CheckboxItemDto.js";
+import { jest } from "@jest/globals";
 
 describe("CheckboxGroupPresenter", () => {
     let presenter: CheckboxGroupPresenter;

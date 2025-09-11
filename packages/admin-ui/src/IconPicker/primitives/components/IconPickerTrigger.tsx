@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { ReactComponent as ChevronDown } from "@webiny/icons/keyboard_arrow_down.svg";
-import { Icon as IconComponent } from "~/Icon";
-import { cn, cva, type VariantProps } from "~/utils";
-import { IconPickerIcon as IconPickerIconComponent } from "./IconPickerIcon";
-import { IconPickerIcon, IconPickerIconFormatter } from "../../domains";
+import { Icon as IconComponent } from "~/Icon/index.js";
+import { cn, cva, type VariantProps } from "~/utils.js";
+import { IconPickerIcon as IconPickerIconComponent } from "./IconPickerIcon.js";
+import { IconPickerIcon, IconPickerIconFormatter } from "../../domains/index.js";
 
 const iconPickerTriggerVariants = cva("wby-flex wby-items-center", {
     variants: {

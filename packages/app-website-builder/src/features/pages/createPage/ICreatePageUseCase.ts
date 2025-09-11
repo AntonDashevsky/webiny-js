@@ -1,5 +1,5 @@
 import type { WbLocation } from "~/types.js";
-import type { Page } from "~/domain/Page";
+import type { Page } from "~/domain/Page/index.js";
 
 export interface CreatePageParams {
     location: WbLocation;

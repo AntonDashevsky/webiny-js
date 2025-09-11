@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import type { AdminAppPermissionRendererPlugin } from "~/types";
-import { Accordion } from "@webiny/ui/Accordion";
+import type { AdminAppPermissionRendererPlugin } from "~/types.js";
+import { Accordion } from "@webiny/ui/Accordion/index.js";
 import { plugins } from "@webiny/plugins";
 import type { BindComponentRenderProp } from "@webiny/form";
-import type { PermissionRendererPlugin } from "~/plugins/PermissionRendererPlugin";
+import type { PermissionRendererPlugin } from "~/plugins/PermissionRendererPlugin.js";
 
 interface PermissionsProps extends BindComponentRenderProp {
     id: string;

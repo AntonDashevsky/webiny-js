@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import type { CmsModelFieldValidatorPlugin } from "~/types";
+import type { CmsModelFieldValidatorPlugin } from "~/types/index.js";
 
 /**
  * Validation if the field value is unique.

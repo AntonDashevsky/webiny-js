@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useSecurity } from "@webiny/app-security";
-import { SettingsDialog } from "./CurrentTenant/SettingsDialog";
+import { SettingsDialog } from "./CurrentTenant/SettingsDialog.js";
 import { Button } from "@webiny/admin-ui";
 import { makeDecoratable } from "@webiny/app-admin";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as CopyContentIcon } from "@webiny/icons/content_copy.svg";
-import { useCopyFile } from "~/hooks/useCopyFile";
-import { FileManagerViewConfig, useFile } from "~/index";
+import { useCopyFile } from "~/hooks/useCopyFile.js";
+import { FileManagerViewConfig, useFile } from "~/index.js";
 
 const { FileDetails } = FileManagerViewConfig;
 

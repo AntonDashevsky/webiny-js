@@ -1,6 +1,6 @@
-import type { DuplicatePageUseCasesTopics } from "./index";
-import type { DuplicateWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
-import type { IDuplicatePage } from "./IDuplicatePage";
+import type { DuplicatePageUseCasesTopics } from "./index.js";
+import type { DuplicateWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types.js";
+import type { IDuplicatePage } from "./IDuplicatePage.js";
 import { WebinyError } from "@webiny/error";
 
 export class DuplicatePageWithEvents implements IDuplicatePage {

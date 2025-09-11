@@ -15,16 +15,16 @@ import type {
     SecurityConfig,
     Team,
     TeamInput
-} from "~/types";
-import NotAuthorizedError from "../NotAuthorizedError";
+} from "~/types.js";
+import NotAuthorizedError from "../NotAuthorizedError.js";
 import {
     type ListTeamsFromPluginsParams,
     listTeamsFromProvider as baseListTeamsFromPlugins
-} from "./groupsTeamsPlugins/listTeamsFromProvider";
+} from "./groupsTeamsPlugins/listTeamsFromProvider.js";
 import {
     type GetTeamFromPluginsParams,
     getTeamFromProvider as baseGetTeamFromPlugins
-} from "./groupsTeamsPlugins/getTeamFromProvider";
+} from "./groupsTeamsPlugins/getTeamFromProvider.js";
 import zod from "zod";
 
 const createDataModelValidation = zod.object({

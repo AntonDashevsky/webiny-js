@@ -1,5 +1,5 @@
-import type { IGetItemController } from "./IGetItemController";
-import type { IGetItemUseCase } from "~/UseCases";
+import type { IGetItemController } from "./IGetItemController.js";
+import type { IGetItemUseCase } from "~/UseCases/index.js";
 import type { ISchedulerGetExecuteParams } from "~/Gateways/index.js";
 
 export class GetItemController implements IGetItemController {

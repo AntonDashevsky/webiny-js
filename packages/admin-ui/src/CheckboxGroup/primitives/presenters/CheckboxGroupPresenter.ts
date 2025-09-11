@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx";
-import type { CheckboxGroupPrimitiveVm } from "../CheckboxGroupPrimitive";
-import { CheckboxItem } from "~/Checkbox/domains/CheckboxItem";
-import { CheckboxItemMapper } from "~/Checkbox/domains/CheckboxItemMapper";
-import type { CheckboxItemDto } from "~/Checkbox/domains/CheckboxItemDto";
+import type { CheckboxGroupPrimitiveVm } from "../CheckboxGroupPrimitive.js";
+import { CheckboxItem } from "~/Checkbox/domains/CheckboxItem.js";
+import { CheckboxItemMapper } from "~/Checkbox/domains/CheckboxItemMapper.js";
+import type { CheckboxItemDto } from "~/Checkbox/domains/CheckboxItemDto.js";
 
 interface CheckboxGroupPresenterParams<TValue = string | number> {
     items: CheckboxItemDto[];

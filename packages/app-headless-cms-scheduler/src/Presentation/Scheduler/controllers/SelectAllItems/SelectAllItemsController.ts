@@ -1,5 +1,5 @@
-import type { ISelectAllItemsUseCase } from "~/UseCases";
-import type { ISelectAllItemsController } from "./ISelectAllItemsController";
+import type { ISelectAllItemsUseCase } from "~/UseCases/index.js";
+import type { ISelectAllItemsController } from "./ISelectAllItemsController.js";
 
 export class SelectAllItemsController implements ISelectAllItemsController {
     private readonly useCaseFactory: () => ISelectAllItemsUseCase;

@@ -5,7 +5,6 @@
     { "path": "../admin-ui" },
     { "path": "../app" },
     { "path": "../app-security" },
-    { "path": "../app-theme" },
     { "path": "../app-wcp" },
     { "path": "../form" },
     { "path": "../lexical-editor" },
@@ -17,7 +16,8 @@
     { "path": "../ui" },
     { "path": "../ui-composer" },
     { "path": "../utils" },
-    { "path": "../validation" }
+    { "path": "../validation" },
+    { "path": "../cli" }
   ],
   "compilerOptions": {
     "rootDirs": ["./src", "./__tests__"],
@@ -32,8 +32,6 @@
       "@webiny/app": ["../app/src"],
       "@webiny/app-security/*": ["../app-security/src/*"],
       "@webiny/app-security": ["../app-security/src"],
-      "@webiny/app-theme/*": ["../app-theme/src/*"],
-      "@webiny/app-theme": ["../app-theme/src"],
       "@webiny/app-wcp/*": ["../app-wcp/src/*"],
       "@webiny/app-wcp": ["../app-wcp/src"],
       "@webiny/form/*": ["../form/src/*"],
@@ -57,7 +55,9 @@
       "@webiny/utils/*": ["../utils/src/*"],
       "@webiny/utils": ["../utils/src"],
       "@webiny/validation/*": ["../validation/src/*"],
-      "@webiny/validation": ["../validation/src"]
+      "@webiny/validation": ["../validation/src"],
+      "@webiny/cli/*": ["../cli/src/*"],
+      "@webiny/cli": ["../cli/src"]
     },
     "baseUrl": "."
   }

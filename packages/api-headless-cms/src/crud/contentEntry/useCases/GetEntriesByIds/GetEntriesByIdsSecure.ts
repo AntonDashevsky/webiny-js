@@ -1,7 +1,7 @@
-import type { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { filterAsync } from "~/utils/filterAsync";
-import type { IGetEntriesByIds } from "../../abstractions";
-import type { CmsEntryStorageOperationsGetByIdsParams, CmsModel } from "~/types";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { filterAsync } from "~/utils/filterAsync.js";
+import type { IGetEntriesByIds } from "../../abstractions/index.js";
+import type { CmsEntryStorageOperationsGetByIdsParams, CmsModel } from "~/types/index.js";
 
 export class GetEntriesByIdsSecure implements IGetEntriesByIds {
     private accessControl: AccessControl;

@@ -3,7 +3,7 @@ import type {
     ModifySortParams as BaseModifySortParams
 } from "@webiny/api-elasticsearch";
 import { ElasticsearchSortModifierPlugin } from "@webiny/api-elasticsearch";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 export interface ModifySortParams extends BaseModifySortParams {
     model: CmsModel;

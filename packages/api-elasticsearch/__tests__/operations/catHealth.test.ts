@@ -1,6 +1,6 @@
-import { ElasticsearchCatHealth } from "~/operations/ElasticsearchCatHealth";
-import { createElasticsearchClient } from "../helpers";
-import type { IElasticsearchCatHealthResponse } from "~/operations/types";
+import { ElasticsearchCatHealth } from "~/operations/ElasticsearchCatHealth.js";
+import { createElasticsearchClient } from "../helpers.js";
+import type { IElasticsearchCatHealthResponse } from "~/operations/types.js";
 
 describe("cat health", () => {
     it("should fetch health information", async () => {

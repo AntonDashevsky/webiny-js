@@ -1,5 +1,5 @@
 import { NotAuthorizedError } from "@webiny/api-security";
-import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types.js";
 import type {
     CmsEntry,
     CmsEntryPermission,
@@ -7,7 +7,7 @@ import type {
     CmsGroupPermission,
     CmsModel,
     CmsModelPermission
-} from "~/types";
+} from "~/types/index.js";
 
 export interface AccessControlParams {
     getIdentity: () => SecurityIdentity | Promise<SecurityIdentity>;

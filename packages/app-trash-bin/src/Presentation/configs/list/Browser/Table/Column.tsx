@@ -1,6 +1,6 @@
 import React from "react";
 import { AcoConfig, type TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import type { TrashBinTableRow } from "~/Domain";
+import type { TrashBinTableRow } from "~/Domain/index.js";
 
 const { Table } = AcoConfig;
 

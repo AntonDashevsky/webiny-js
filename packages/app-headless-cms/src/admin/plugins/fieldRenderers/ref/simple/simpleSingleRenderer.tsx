@@ -1,7 +1,7 @@
 import React from "react";
-import type { CmsModelFieldRendererPlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
-import { SimpleSingleRenderer } from "./components/SimpleSingleRenderer";
+import type { CmsModelFieldRendererPlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { SimpleSingleRenderer } from "./components/SimpleSingleRenderer.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");
 

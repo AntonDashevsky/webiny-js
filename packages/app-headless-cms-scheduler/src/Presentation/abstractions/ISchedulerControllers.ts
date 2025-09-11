@@ -10,7 +10,7 @@ import type {
     ISortItemsController,
     IUnpublishItemController,
     IUnselectAllItemsController
-} from "~/Presentation/Scheduler/controllers";
+} from "~/Presentation/Scheduler/controllers/index.js";
 
 export interface ISchedulerControllers {
     scheduleCancelItem: ICancelItemController;

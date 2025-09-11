@@ -1,6 +1,6 @@
 import React from "react";
-import { cn, cva, type VariantProps } from "~/utils";
-import { ProgressItemState } from "~/SteppedProgress/domains";
+import { cn, cva, type VariantProps } from "~/utils.js";
+import { ProgressItemState } from "~/SteppedProgress/domains/index.js";
 
 const steppedProgressIndicatorVariants = cva(
     ["wby-size-lg wby-rounded-full wby-relative wby-shrink-0 wby-basis-auto"],

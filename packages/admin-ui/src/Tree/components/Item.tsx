@@ -1,11 +1,11 @@
 import React from "react";
-import { cn, cva, type VariantProps, makeDecoratable, withStaticProps } from "~/utils";
-import { ItemCollapseTrigger } from "./ItemCollapseTrigger";
-import { ItemContent } from "./ItemContent";
-import { ItemDragHandle } from "./ItemDragHandle";
-import { ItemIcon } from "./ItemIcon";
-import { ItemSubIndentation } from "./ItemSubIndentation";
-import { ItemPlaceholder } from "./ItemPlaceholder";
+import { cn, cva, type VariantProps, makeDecoratable, withStaticProps } from "~/utils.js";
+import { ItemCollapseTrigger } from "./ItemCollapseTrigger.js";
+import { ItemContent } from "./ItemContent.js";
+import { ItemDragHandle } from "./ItemDragHandle.js";
+import { ItemIcon } from "./ItemIcon.js";
+import { ItemSubIndentation } from "./ItemSubIndentation.js";
+import { ItemPlaceholder } from "./ItemPlaceholder.js";
 
 const itemVariants = cva(
     [

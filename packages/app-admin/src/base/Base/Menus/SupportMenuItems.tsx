@@ -1,5 +1,5 @@
 import React from "react";
-import { AdminConfig } from "~/config/AdminConfig";
+import { AdminConfig } from "~/config/AdminConfig.js";
 
 const { useAdminConfig } = AdminConfig;
 

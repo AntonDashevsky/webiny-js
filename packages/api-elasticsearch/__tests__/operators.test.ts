@@ -1,5 +1,5 @@
 import { PluginsContainer } from "@webiny/plugins";
-import { getElasticsearchOperators, getElasticsearchOperatorPluginsByLocale } from "~/operators";
+import { getElasticsearchOperators, getElasticsearchOperatorPluginsByLocale } from "~/operators.js";
 
 describe("operators", () => {
     const container = new PluginsContainer(getElasticsearchOperators());

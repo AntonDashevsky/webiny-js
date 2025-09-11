@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import React, { useMemo } from "react";
-import sortBy from "lodash/sortBy";
-import unionBy from "lodash/unionBy";
-import lodashMerge from "lodash/merge";
-import { apolloFetchingHandler, loadingHandler } from "~/handlers";
+import sortBy from "lodash/sortBy.js";
+import unionBy from "lodash/unionBy.js";
+import lodashMerge from "lodash/merge.js";
+import { apolloFetchingHandler, loadingHandler } from "~/handlers.js";
 import {
     createCreateRecord,
     createDeleteRecord,
@@ -12,7 +12,7 @@ import {
     createListTags,
     createMoveRecord,
     createUpdateRecord
-} from "~/graphql/records.gql";
+} from "~/graphql/records.gql.js";
 import type {
     AcoAppMode,
     CreateSearchRecordResponse,
@@ -37,12 +37,12 @@ import type {
     TagItem,
     UpdateSearchRecordResponse,
     UpdateSearchRecordVariables
-} from "~/types";
-import { validateOrGetDefaultDbSort } from "~/sorting";
-import { useAcoApp } from "~/hooks";
+} from "~/types.js";
+import { validateOrGetDefaultDbSort } from "~/sorting.js";
+import { useAcoApp } from "~/hooks/index.js";
 import { parseIdentifier } from "@webiny/utils";
 import { useStateIfMounted } from "@webiny/app-admin";
-import { useAcoConfig } from "~/config";
+import { useAcoConfig } from "~/config/index.js";
 
 interface ListTagsParams {
     where?: ListTagsWhereQueryVariables;

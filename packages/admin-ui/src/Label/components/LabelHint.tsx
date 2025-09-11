@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ReactComponent as InfoIcon } from "@webiny/icons/info.svg";
-import { Tooltip } from "~/Tooltip";
-import { Icon } from "~/Icon";
+import { Tooltip } from "~/Tooltip/index.js";
+import { Icon } from "~/Icon/index.js";
 
 interface LabelHintProps {
     content: React.ReactNode;

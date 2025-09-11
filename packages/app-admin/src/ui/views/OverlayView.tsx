@@ -1,12 +1,12 @@
 import React from "react";
 import { Transition } from "react-transition-group";
 import styled from "@emotion/styled";
-import type { UIViewProps } from "~/ui/UIView";
-import { UIView } from "~/ui/UIView";
-import type { UseOverlayView } from "./OverlayView/useOverlayView";
-import { useOverlayView } from "./OverlayView/useOverlayView";
-import { HeaderElement } from "./OverlayView/HeaderElement";
-import { ContentElement } from "./OverlayView/ContentElement";
+import type { UIViewProps } from "~/ui/UIView.js";
+import { UIView } from "~/ui/UIView.js";
+import type { UseOverlayView } from "./OverlayView/useOverlayView.js";
+import { useOverlayView } from "./OverlayView/useOverlayView.js";
+import { HeaderElement } from "./OverlayView/HeaderElement.js";
+import { ContentElement } from "./OverlayView/ContentElement.js";
 
 // !GOOD FIRST ISSUE!
 // Extract rendering and styling into an OverlayViewRenderer class.

@@ -1,2 +1,2 @@
-export type * from "./IListMoreItemsUseCase";
-export * from "./ListMoreItemsUseCase";
+export type * from "./IListMoreItemsUseCase.js";
+export * from "./ListMoreItemsUseCase.js";

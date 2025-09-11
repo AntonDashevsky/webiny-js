@@ -1,1 +1,1 @@
-export * from "./TextOnlyPreview";
+export * from "./TextOnlyPreview.js";

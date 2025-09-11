@@ -1,11 +1,11 @@
-import type { CmsFieldTypePlugins, CmsModel } from "~/types";
-import { renderListFilterFields } from "~/utils/renderListFilterFields";
-import { renderSortEnum } from "~/utils/renderSortEnum";
-import { renderGetFilterFields } from "~/utils/renderGetFilterFields";
-import { renderInputFields } from "~/utils/renderInputFields";
-import { renderFields } from "~/utils/renderFields";
-import type { CmsGraphQLSchemaSorterPlugin } from "~/plugins";
-import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants";
+import type { CmsFieldTypePlugins, CmsModel } from "~/types/index.js";
+import { renderListFilterFields } from "~/utils/renderListFilterFields.js";
+import { renderSortEnum } from "~/utils/renderSortEnum.js";
+import { renderGetFilterFields } from "~/utils/renderGetFilterFields.js";
+import { renderInputFields } from "~/utils/renderInputFields.js";
+import { renderFields } from "~/utils/renderFields.js";
+import type { CmsGraphQLSchemaSorterPlugin } from "~/plugins/index.js";
+import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants.js";
 
 interface CreateManageSDLParams {
     models: CmsModel[];

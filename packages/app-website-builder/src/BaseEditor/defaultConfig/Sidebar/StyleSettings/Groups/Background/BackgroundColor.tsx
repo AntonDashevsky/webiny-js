@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { ColorPicker } from "@webiny/admin-ui";
 
-import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
-import { InheritanceLabel } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
+import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles.js";
+import { InheritanceLabel } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel.js";
 
 export const BackgroundColor = observer(({ elementId }: { elementId: string }) => {
     const { styles, onChange, onPreviewChange, inheritanceMap } = useStyles(elementId);

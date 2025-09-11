@@ -1,7 +1,7 @@
 import React from "react";
-import { DropdownMenuItem, type DropdownMenuItemLinkProps } from "./DropdownMenuItem";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import { DropdownMenuItemIcon, type DropdownMenuItemIconProps } from "./DropdownMenuItemIcon";
+import { DropdownMenuItem, type DropdownMenuItemLinkProps } from "./DropdownMenuItem.js";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import { DropdownMenuItemIcon, type DropdownMenuItemIconProps } from "./DropdownMenuItemIcon.js";
 
 export type DropdownMenuLinkProps = DropdownMenuItemLinkProps;
 

@@ -1,2 +1,2 @@
-export * from "./ColorPicker";
-export * from "./primitives";
+export * from "./ColorPicker.js";
+export * from "./primitives/index.js";

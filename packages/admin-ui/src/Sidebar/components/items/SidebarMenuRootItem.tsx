@@ -1,15 +1,15 @@
 import React, { useCallback, useMemo } from "react";
-import { cn, makeDecoratable, withStaticProps } from "~/utils";
-import { SidebarMenuRootButton } from "./SidebarMenuRootButton";
-import { SidebarMenuItemIcon } from "./SidebarMenuItemIcon";
-import { SidebarMenuItemAction } from "./SidebarMenuItemAction";
-import { SidebarMenuSub } from "./SidebarMenuSub";
+import { cn, makeDecoratable, withStaticProps } from "~/utils.js";
+import { SidebarMenuRootButton } from "./SidebarMenuRootButton.js";
+import { SidebarMenuItemIcon } from "./SidebarMenuItemIcon.js";
+import { SidebarMenuItemAction } from "./SidebarMenuItemAction.js";
+import { SidebarMenuSub } from "./SidebarMenuSub.js";
 import { Collapsible } from "radix-ui";
-import { Icon } from "~/Icon";
+import { Icon } from "~/Icon/index.js";
 import { ReactComponent as KeyboardArrowRightIcon } from "@webiny/icons/keyboard_arrow_down.svg";
-import { type SidebarMenuItemProps } from "./SidebarMenuItem";
-import { useSidebarMenu } from "~/Sidebar/components/items/SidebarMenuProvider";
-import { useSidebar } from "~/Sidebar";
+import { type SidebarMenuItemProps } from "./SidebarMenuItem.js";
+import { useSidebarMenu } from "~/Sidebar/components/items/SidebarMenuProvider.js";
+import { useSidebar } from "~/Sidebar/index.js";
 
 const SidebarMenuItemBase = ({ children, className, ...buttonProps }: SidebarMenuItemProps) => {
     const { currentLevel } = useSidebarMenu();

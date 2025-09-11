@@ -1,12 +1,12 @@
 import React, { useEffect, useCallback, useRef, useMemo } from "react";
-import camelCase from "lodash/camelCase";
+import camelCase from "lodash/camelCase.js";
 import { Grid, Switch, Input, Label } from "@webiny/admin-ui";
 import { validation } from "@webiny/validation";
-import { Tags } from "@webiny/ui/Tags";
+import { Tags } from "@webiny/ui/Tags/index.js";
 import { useForm, Bind } from "@webiny/form";
-import { useModelFieldEditor } from "~/admin/components/FieldEditor";
-import { useModelEditor } from "~/admin/hooks";
-import { useModelField } from "~/admin/hooks";
+import { useModelFieldEditor } from "~/admin/components/FieldEditor/index.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
+import { useModelField } from "~/admin/hooks/index.js";
 
 const GeneralTab = () => {
     const form = useForm();

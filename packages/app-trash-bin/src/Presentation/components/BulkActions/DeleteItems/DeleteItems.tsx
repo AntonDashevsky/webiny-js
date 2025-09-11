@@ -2,9 +2,9 @@ import React, { useMemo } from "react";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { observer } from "mobx-react-lite";
 import { useSnackbar } from "@webiny/app-admin";
-import { TrashBinListConfig } from "~/Presentation/configs";
-import { useTrashBin } from "~/Presentation/hooks";
-import { getEntriesLabel } from "../BulkActions";
+import { TrashBinListConfig } from "~/Presentation/configs/index.js";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
+import { getEntriesLabel } from "../BulkActions/index.js";
 import { Tooltip } from "@webiny/admin-ui";
 
 export const BulkActionsDeleteItems = observer(() => {

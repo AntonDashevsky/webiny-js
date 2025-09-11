@@ -1,4 +1,4 @@
-export * from "./SwitchItem";
-export type * from "./SwitchItemDto";
-export type * from "./SwitchItemFormatted";
-export * from "./SwitchItemMapper";
+export * from "./SwitchItem.js";
+export type * from "./SwitchItemDto.js";
+export type * from "./SwitchItemFormatted.js";
+export * from "./SwitchItemMapper.js";

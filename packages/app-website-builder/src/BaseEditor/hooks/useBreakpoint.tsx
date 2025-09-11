@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from "react";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { BASE_BREAKPOINT } from "~/constants";
-import { useWebsiteBuilderTheme } from "~/BaseEditor/components";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor.js";
+import { BASE_BREAKPOINT } from "~/constants.js";
+import { useWebsiteBuilderTheme } from "~/BaseEditor/components/index.js";
 
 export const useBreakpoint = () => {
     const { theme } = useWebsiteBuilderTheme();

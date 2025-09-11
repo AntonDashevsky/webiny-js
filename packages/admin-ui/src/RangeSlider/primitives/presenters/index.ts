@@ -1,1 +1,1 @@
-export * from "./RangeSliderPresenter";
+export * from "./RangeSliderPresenter.js";

@@ -3,12 +3,12 @@ import type { Decorator, GenericComponent } from "@webiny/react-composition";
 import { makeDecoratable, Compose } from "@webiny/react-composition";
 import type { Property } from "@webiny/react-properties";
 import { Properties, toObject } from "@webiny/react-properties";
-import type { ToolbarElementConfig } from "./components/ToolbarElement";
-import { ToolbarElement } from "./components/ToolbarElement";
-import type { PluginConfig } from "./components/Plugin";
-import { Plugin } from "./components/Plugin";
-import type { NodeConfig } from "./components/Node";
-import { Node } from "./components/Node";
+import type { ToolbarElementConfig } from "./components/ToolbarElement.js";
+import { ToolbarElement } from "./components/ToolbarElement.js";
+import type { PluginConfig } from "./components/Plugin.js";
+import { Plugin } from "./components/Plugin.js";
+import type { NodeConfig } from "./components/Node.js";
+import { Node } from "./components/Node.js";
 
 const LexicalEditorConfigApply = makeDecoratable("LexicalEditorConfigApply", ({ children }) => {
     return <>{children}</>;

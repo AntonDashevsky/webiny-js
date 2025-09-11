@@ -1,6 +1,6 @@
 import React from "react";
-import { assignColor } from "./Theme/assignColor";
-import type { ColorPalette, ColorShade } from "./Theme/types";
+import { assignColor } from "./Theme/assignColor.js";
+import type { ColorPalette, ColorShade } from "./Theme/types.js";
 
 export interface ThemeColorProps {
     palette: ColorPalette;

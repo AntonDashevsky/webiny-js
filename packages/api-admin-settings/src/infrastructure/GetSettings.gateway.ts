@@ -1,13 +1,13 @@
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { getClean } from "@webiny/db-dynamodb";
 import { WebinyError } from "@webiny/error";
-import type { GenericRecord } from "@webiny/api/types";
-import { SettingsDynamoTable } from "./SettingsDynamoTable";
+import type { GenericRecord } from "@webiny/api/types.js";
+import { SettingsDynamoTable } from "./SettingsDynamoTable.js";
 import type {
     GetSettingsParams,
     IGetSettingsGateway
-} from "~/features/getSettings/abstractions/IGetSettings.gateway";
-import type { SettingsGatewayDto } from "~/shared/SettingsGatewayDto";
+} from "~/features/getSettings/abstractions/IGetSettings.gateway.js";
+import type { SettingsGatewayDto } from "~/shared/SettingsGatewayDto.js";
 
 export class GetSettingsGateway implements IGetSettingsGateway {
     private table: SettingsDynamoTable;

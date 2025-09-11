@@ -1,7 +1,7 @@
 import React from "react";
-import get from "lodash/get";
-import type { CmsModelFieldRendererPlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
+import get from "lodash/get.js";
+import type { CmsModelFieldRendererPlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { RadioGroup } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");

@@ -1,5 +1,5 @@
-import type { AttributeDefinitions, Table } from "~/toolbox";
-import { Entity } from "~/toolbox";
+import type { AttributeDefinitions, Table } from "~/toolbox.js";
+import { Entity } from "~/toolbox.js";
 
 interface CreateStandardEntityParams {
     table: Table<string, string, string>;

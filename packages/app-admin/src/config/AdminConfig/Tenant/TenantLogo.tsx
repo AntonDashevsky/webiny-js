@@ -1,5 +1,5 @@
 import React from "react";
-import { makeDecoratable } from "~/index";
+import { makeDecoratable } from "~/index.js";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 
 export interface TenantLogoProps {

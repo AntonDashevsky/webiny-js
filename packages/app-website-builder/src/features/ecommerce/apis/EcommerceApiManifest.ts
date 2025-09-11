@@ -1,4 +1,4 @@
-import type { IEcommerceApiFactory, SettingsInput } from "~/ecommerce";
+import type { IEcommerceApiFactory, SettingsInput } from "~/ecommerce/index.js";
 
 export class EcommerceApiManifest {
     private readonly name: string;

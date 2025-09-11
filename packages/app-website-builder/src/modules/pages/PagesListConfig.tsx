@@ -1,5 +1,5 @@
 import React from "react";
-import { PageListConfig } from "./configs/list";
+import { PageListConfig } from "./configs/list/index.js";
 import { DeleteFolder, EditFolder, SetFolderPermissions } from "@webiny/app-aco";
 import {
     CellActions,
@@ -22,7 +22,7 @@ import {
     BulkActionUnpublish
 } from "~/modules/pages/PagesList/components/BulkActions/index.js";
 import { FilterByStatus } from "~/modules/pages/PagesList/components/Filters/index.js";
-import { StaticPageForm } from "~/modules/pages/PagesList/components/Main/CreatePage/StaticPageForm";
+import { StaticPageForm } from "~/modules/pages/PagesList/components/Main/CreatePage/StaticPageForm.js";
 
 const { Browser } = PageListConfig;
 

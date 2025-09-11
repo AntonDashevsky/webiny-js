@@ -1,14 +1,14 @@
 import React from "react";
 import { Grid, Heading } from "@webiny/admin-ui";
-import { useSecurity } from "@webiny/app-security/hooks/useSecurity";
+import { useSecurity } from "@webiny/app-security/hooks/useSecurity.js";
 import { plugins } from "@webiny/plugins";
-import type { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types";
+import type { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types.js";
 import {
     ApplicationWidget,
     AssistanceWidget,
     CommunityWidget,
     MissingPermissionsWidget
-} from "./components";
+} from "./components/index.js";
 
 const Welcome = () => {
     const { identity, getPermission } = useSecurity();

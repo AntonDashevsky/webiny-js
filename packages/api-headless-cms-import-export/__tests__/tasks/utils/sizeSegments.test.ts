@@ -1,4 +1,4 @@
-import { createSizeSegments } from "~/tasks/utils/helpers/sizeSegments";
+import { createSizeSegments } from "~/tasks/utils/helpers/sizeSegments.js";
 import bytes from "bytes";
 
 describe("file segments", () => {

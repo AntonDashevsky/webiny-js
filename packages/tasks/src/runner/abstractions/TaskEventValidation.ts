@@ -1,4 +1,4 @@
-import type { ITaskEvent } from "~/handler/types";
+import type { ITaskEvent } from "~/handler/types.js";
 
 export type ITaskEventValidationResult = ITaskEvent;
 

@@ -1,10 +1,10 @@
 import React from "react";
-import { CreateElement } from "./CreateElement";
-import { DeleteElement } from "./DeleteElement";
-import { MoveElement } from "./MoveElement";
-import { DeselectElement } from "./DeselectElement";
-import { SelectElement } from "./SelectElement";
-import { HighlightElement } from "./HighlightElement";
+import { CreateElement } from "./CreateElement.js";
+import { DeleteElement } from "./DeleteElement.js";
+import { MoveElement } from "./MoveElement.js";
+import { DeselectElement } from "./DeselectElement.js";
+import { SelectElement } from "./SelectElement.js";
+import { HighlightElement } from "./HighlightElement.js";
 
 export const CommandHandlers = React.memo(() => {
     return (

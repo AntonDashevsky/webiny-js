@@ -1,5 +1,5 @@
-import type { AcoFolderLevelPermissionsCrud } from "~/flp/flp.types";
-import type { IGetFolderPermission } from "./IGetFolderPermission";
+import type { AcoFolderLevelPermissionsCrud } from "~/flp/flp.types.js";
+import type { IGetFolderPermission } from "./IGetFolderPermission.js";
 
 export class GetFolderPermission implements IGetFolderPermission {
     private readonly crud: AcoFolderLevelPermissionsCrud["get"];

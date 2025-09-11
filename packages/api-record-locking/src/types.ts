@@ -5,14 +5,14 @@ import type {
     CmsIdentity,
     CmsModel,
     CmsModelManager
-} from "@webiny/api-headless-cms/types";
-import { CmsEntry, CmsError } from "@webiny/api-headless-cms/types";
-import type { Topic } from "@webiny/pubsub/types";
+} from "@webiny/api-headless-cms/types/index.js";
+import { CmsEntry, CmsError } from "@webiny/api-headless-cms/types/index.js";
+import type { Topic } from "@webiny/pubsub/types.js";
 import type {
     Context as IWebsocketsContext,
     IWebsocketsContextObject
-} from "@webiny/api-websockets/types";
-import type { SecurityPermission } from "@webiny/api-security/types";
+} from "@webiny/api-websockets/types.js";
+import type { SecurityPermission } from "@webiny/api-security/types.js";
 
 export { CmsError, CmsEntry };
 

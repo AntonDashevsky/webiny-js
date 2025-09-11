@@ -1,5 +1,5 @@
-import type { ITaskDataInput, TaskResponseStatus } from "~/types";
-import type { IResponseBaseResult } from "./ResponseBaseResult";
+import type { ITaskDataInput, TaskResponseStatus } from "~/types.js";
+import type { IResponseBaseResult } from "./ResponseBaseResult.js";
 
 /**
  * Wait can be used to pause next iteration of the Lambda execution.

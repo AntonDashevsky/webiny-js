@@ -4,7 +4,7 @@ import { Filters as BaseFilters } from "@webiny/app-admin";
 import { useFilterPages } from "~/features/pages/index.js";
 import { useDocumentList } from "~/modules/pages/PagesList/useDocumentList.js";
 import { useNavigateFolder } from "@webiny/app-aco";
-import { usePageListConfig } from "~/modules/pages/configs";
+import { usePageListConfig } from "~/modules/pages/configs/index.js";
 
 export const Filters = () => {
     const { browser } = usePageListConfig();

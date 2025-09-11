@@ -1,18 +1,18 @@
 import React, { Fragment } from "react";
 import { css } from "@emotion/css";
-import cloneDeep from "lodash/cloneDeep";
-import debounce from "lodash/debounce";
+import cloneDeep from "lodash/cloneDeep.js";
+import debounce from "lodash/debounce.js";
 import { plugins } from "@webiny/plugins";
-import { Switch } from "@webiny/ui/Switch";
+import { Switch } from "@webiny/ui/Switch/index.js";
 import { Form, Bind } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { Input } from "@webiny/ui/Input";
-import type { CmsModelFieldValidator, CmsModelFieldValidatorPlugin } from "~/types";
-import type { Validator } from "@webiny/validation/types";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
-import type { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter";
+import { Input } from "@webiny/ui/Input/index.js";
+import type { CmsModelFieldValidator, CmsModelFieldValidatorPlugin } from "~/types.js";
+import type { Validator } from "@webiny/validation/types.js";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
+import type { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
 import styled from "@emotion/styled";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { Grid } from "@webiny/admin-ui";
 
 const Variable = styled.span`

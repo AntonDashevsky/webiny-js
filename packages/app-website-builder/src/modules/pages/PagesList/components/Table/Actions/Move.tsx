@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as MoveIcon } from "@webiny/icons/exit_to_app.svg";
-import { PageListConfig } from "~/modules/pages/configs";
+import { PageListConfig } from "~/modules/pages/configs/index.js";
 import { useMovePageToFolderDialog } from "~/modules/pages/PagesList/hooks/useMovePageToFolderDialog.js";
 import { usePage } from "~/modules/pages/PagesList/hooks/usePage.js";
 

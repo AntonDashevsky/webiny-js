@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { GetSettingsRepository } from "./GetSettings.repository";
-import { GetSettingsGateway } from "./GetSettings.gateway";
-import { settingsCache } from "~/shared/settingsCache";
+import { GetSettingsRepository } from "./GetSettings.repository.js";
+import { GetSettingsGateway } from "./GetSettings.gateway.js";
+import { settingsCache } from "~/shared/settingsCache.js";
 
 export const useGetEcommerceSettings = () => {
     const client = useApolloClient();

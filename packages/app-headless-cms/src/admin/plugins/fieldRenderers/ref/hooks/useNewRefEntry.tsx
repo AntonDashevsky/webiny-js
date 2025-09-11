@@ -1,9 +1,9 @@
 import React from "react";
-import type { CmsModelField } from "~/types";
+import type { CmsModelField } from "~/types.js";
 import MissingEntryHelpText, {
     ReferenceMultipleModelsHelpText
-} from "../components/MissingEntryHelpText";
-import { useContentEntries } from "~/admin/views/contentEntries/hooks/useContentEntries";
+} from "../components/MissingEntryHelpText.js";
+import { useContentEntries } from "~/admin/views/contentEntries/hooks/useContentEntries.js";
 
 interface UseNewRefEntryParams {
     field: CmsModelField;

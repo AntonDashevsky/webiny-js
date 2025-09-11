@@ -1,7 +1,7 @@
 import { Context } from "@webiny/api";
-import { getExtraAttributes } from "~/utils/attributes";
-import type { AttributePluginParams } from "~/plugins/definitions/AttributePlugin";
-import { AttributePlugin } from "~/plugins/definitions/AttributePlugin";
+import { getExtraAttributes } from "~/utils/attributes.js";
+import type { AttributePluginParams } from "~/plugins/definitions/AttributePlugin.js";
+import { AttributePlugin } from "~/plugins/definitions/AttributePlugin.js";
 
 const testEntityName = "testEntity";
 class TestEntityAttributePlugin extends AttributePlugin {

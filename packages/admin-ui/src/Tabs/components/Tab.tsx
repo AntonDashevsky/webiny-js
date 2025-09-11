@@ -1,8 +1,8 @@
 import type React from "react";
 import { useContext, useEffect, useRef } from "react";
-import { makeDecoratable, generateId, type VariantProps } from "~/utils";
-import { TabsContext } from "./Context";
-import type { tabListVariants } from "./List";
+import { makeDecoratable, generateId, type VariantProps } from "~/utils.js";
+import { TabsContext } from "./Context.js";
+import type { tabListVariants } from "./List.js";
 
 interface TabProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children" | "content"> {
     value: string;

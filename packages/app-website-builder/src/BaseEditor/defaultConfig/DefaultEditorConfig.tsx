@@ -1,17 +1,17 @@
 import React from "react";
 import { ReactComponent as TouchIcon } from "@webiny/icons/touch_app.svg";
-import { Breadcrumbs } from "./Content/Breadcrumbs";
-import { EditorConfig } from "~/BaseEditor/config";
-import { InfoMessage } from "./Sidebar/InfoMessage";
-import { StyleSettingsGroup } from "./Sidebar/StyleSettings/StyleSettingsGroup";
-import { StyleProperties } from "./Sidebar/StyleSettings/StyleProperties";
-import { ElementSettingsGroup } from "./Sidebar/ElementSettings/ElementSettingsGroup";
-import { InsertElementsTab } from "./Toolbar/InsertElements/InsertElementsTab";
-import { NavigatorTab } from "./Toolbar/Navigator/NavigatorTab";
-import { CommandHandlers } from "~/BaseEditor/commandHandlers";
-import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
-import { ElementInputRenderers } from "./ElementInputRenderers";
-import { DocumentPreview } from "./Content/Preview/DocumentPreview";
+import { Breadcrumbs } from "./Content/Breadcrumbs/index.js";
+import { EditorConfig } from "~/BaseEditor/config/index.js";
+import { InfoMessage } from "./Sidebar/InfoMessage.js";
+import { StyleSettingsGroup } from "./Sidebar/StyleSettings/StyleSettingsGroup.js";
+import { StyleProperties } from "./Sidebar/StyleSettings/StyleProperties.js";
+import { ElementSettingsGroup } from "./Sidebar/ElementSettings/ElementSettingsGroup.js";
+import { InsertElementsTab } from "./Toolbar/InsertElements/InsertElementsTab.js";
+import { NavigatorTab } from "./Toolbar/Navigator/NavigatorTab.js";
+import { CommandHandlers } from "~/BaseEditor/commandHandlers/index.js";
+import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings.js";
+import { ElementInputRenderers } from "./ElementInputRenderers.js";
+import { DocumentPreview } from "./Content/Preview/DocumentPreview.js";
 
 const { Ui } = EditorConfig;
 

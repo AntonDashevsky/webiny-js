@@ -2,9 +2,9 @@ import React from "react";
 import { Button, useToast } from "@webiny/admin-ui";
 import { useDialogs } from "@webiny/app-admin";
 import { ReactComponent as PublishIcon } from "@webiny/icons/publish.svg";
-import { usePublishPage } from "~/features/pages";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { WB_PAGES_LIST_ROUTE } from "~/constants";
+import { usePublishPage } from "~/features/pages/index.js";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
+import { WB_PAGES_LIST_ROUTE } from "~/constants.js";
 import { useRouter } from "@webiny/react-router";
 import type { EditorPage } from "@webiny/website-builder-sdk";
 

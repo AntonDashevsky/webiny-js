@@ -1,18 +1,18 @@
-import type { ElasticsearchContext } from "@webiny/api-elasticsearch/types";
+import type { ElasticsearchContext } from "@webiny/api-elasticsearch/types.js";
 import type {
     Context as TasksContext,
     IIsCloseToTimeoutCallable,
     ITaskManagerStore,
     ITaskResponse,
     ITaskResponseDoneResultOutput
-} from "@webiny/tasks/types";
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+} from "@webiny/tasks/types.js";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import type { Client } from "@webiny/api-elasticsearch";
-import type { createTable } from "~/definitions";
+import type { createTable } from "~/definitions/index.js";
 import type { BatchReadItem, IEntity } from "@webiny/db-dynamodb";
 import type { ITimer } from "@webiny/handler-aws";
-import type { GenericRecord } from "@webiny/api/types";
-import type { Context as LoggerContext } from "@webiny/api-log/types";
+import type { GenericRecord } from "@webiny/api/types.js";
+import type { Context as LoggerContext } from "@webiny/api-log/types.js";
 
 export interface Context extends ElasticsearchContext, TasksContext, LoggerContext {}
 

@@ -3,7 +3,7 @@ import type {
     CmsContentEntry,
     CmsModel,
     CmsModelField
-} from "@webiny/app-headless-cms-common/types";
+} from "@webiny/app-headless-cms-common/types/index.js";
 
 /**
  * Used for some fields to convert their values.

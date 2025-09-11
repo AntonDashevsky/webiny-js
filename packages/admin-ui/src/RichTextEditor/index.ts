@@ -1,3 +1,3 @@
-export * from "./RichTextEditor";
-export * from "./RichTextEditorPrimitive";
-export { createPropsFromConfig } from "./createPropsFromConfig";
+export * from "./RichTextEditor.js";
+export * from "./RichTextEditorPrimitive.js";
+export { createPropsFromConfig } from "./createPropsFromConfig.js";

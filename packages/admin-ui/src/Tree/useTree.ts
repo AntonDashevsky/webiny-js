@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import type { DropOptions as DndDropOptions, NodeModel } from "@minoru/react-dnd-treeview";
 import { autorun } from "mobx";
-import { TreePresenter, type TreePresenterInitParams } from "./presenters";
-import type { TreeProps, DropOptions } from "./Tree";
-import { Node, NodeFormatter } from "./domains";
+import { TreePresenter, type TreePresenterInitParams } from "./presenters/index.js";
+import type { TreeProps, DropOptions } from "./Tree.js";
+import { Node, NodeFormatter } from "./domains/index.js";
 
 export const useTree = <TData = Record<string, any>>(props: TreeProps<TData>) => {
     const params: TreePresenterInitParams = useMemo(() => {

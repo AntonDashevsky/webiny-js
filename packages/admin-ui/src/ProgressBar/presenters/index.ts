@@ -1,1 +1,1 @@
-export * from "./ProgressBarPresenter";
+export * from "./ProgressBarPresenter.js";

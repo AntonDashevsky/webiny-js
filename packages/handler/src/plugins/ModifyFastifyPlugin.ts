@@ -1,4 +1,4 @@
-import { Plugin } from "@webiny/plugins/Plugin";
+import { Plugin } from "@webiny/plugins/Plugin.js";
 import type { FastifyInstance } from "fastify";
 
 interface ModifyFastifyPluginCallable {

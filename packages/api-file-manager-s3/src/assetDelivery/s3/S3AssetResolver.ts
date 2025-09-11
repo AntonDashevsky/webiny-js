@@ -1,8 +1,8 @@
-import type { S3 } from "@webiny/aws-sdk/client-s3";
+import type { S3 } from "@webiny/aws-sdk/client-s3/index.js";
 import type { AssetRequest, AssetResolver } from "@webiny/api-file-manager";
 import { Asset } from "@webiny/api-file-manager";
-import { S3AssetMetadataReader } from "./S3AssetMetadataReader";
-import { S3ContentsReader } from "./S3ContentsReader";
+import { S3AssetMetadataReader } from "./S3AssetMetadataReader.js";
+import { S3ContentsReader } from "./S3ContentsReader.js";
 
 export class S3AssetResolver implements AssetResolver {
     private readonly s3: S3;

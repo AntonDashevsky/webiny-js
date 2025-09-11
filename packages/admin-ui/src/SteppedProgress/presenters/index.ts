@@ -1,1 +1,1 @@
-export * from "./SteppedProgressPresenter";
+export * from "./SteppedProgressPresenter.js";

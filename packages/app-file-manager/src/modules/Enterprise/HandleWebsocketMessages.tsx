@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import type { IncomingGenericData } from "@webiny/app-websockets";
 import { useWebsockets } from "@webiny/app-websockets";
 import { useSnackbar } from "@webiny/app-admin";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 
 const THREAT_SCAN_ACTIONS = {
     NO_THREAT_FOUND: "fm.threatScan.noThreatFound",

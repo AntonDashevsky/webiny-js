@@ -1,4 +1,4 @@
-import type { S3 } from "@webiny/aws-sdk/client-s3";
+import type { S3 } from "@webiny/aws-sdk/client-s3/index.js";
 
 interface AssetMetadata {
     id: string;

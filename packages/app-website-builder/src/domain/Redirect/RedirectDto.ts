@@ -1,4 +1,4 @@
-import type { WbIdentity, WbLocation } from "~/types";
+import type { WbIdentity, WbLocation } from "~/types.js";
 import type { Redirect } from "~/domain/Redirect/index.js";
 
 export interface RedirectDto {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Tags } from "./Tags";
+import { Tags } from "./Tags.js";
 
 const meta: Meta<typeof Tags> = {
     title: "Components/Form/Tags",

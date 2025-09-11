@@ -4,11 +4,11 @@ import type {
     IWebsocketsConnectionRegistryData,
     IWebsocketsConnectionRegistryRegisterParams,
     IWebsocketsConnectionRegistryUnregisterParams
-} from "./abstractions/IWebsocketsConnectionRegistry";
-import { createEntity } from "~/registry/entity";
+} from "./abstractions/IWebsocketsConnectionRegistry.js";
+import { createEntity } from "~/registry/entity.js";
 import { batchReadAll, deleteItem, get, put, queryAll } from "@webiny/db-dynamodb";
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import type { EntityQueryOptions } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import type { EntityQueryOptions } from "@webiny/db-dynamodb/toolbox.js";
 
 const PK = `WS#CONNECTIONS`;
 const GSI1_PK = "WS#CONNECTIONS#IDENTITY";

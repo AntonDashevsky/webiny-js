@@ -1,5 +1,5 @@
 import React from "react";
-import type { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types.js";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,

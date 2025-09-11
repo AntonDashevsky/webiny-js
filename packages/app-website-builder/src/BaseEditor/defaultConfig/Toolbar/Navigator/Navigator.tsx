@@ -1,17 +1,17 @@
 import React, { useMemo, useCallback } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { observer } from "mobx-react-lite";
 import { type NodeDto, Tree, type TreeProps, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as VisibilityNone } from "@webiny/icons/visibility_off.svg";
 import type { Document } from "@webiny/website-builder-sdk";
-import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import type { EditorState } from "~/editorSdk/Editor";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { Commands } from "~/BaseEditor";
-import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg";
-import { InfoMessage } from "~/BaseEditor/defaultConfig/Sidebar/InfoMessage";
-import { useStyles } from "~/BaseEditor/hooks/useStyles";
+import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement.js";
+import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor.js";
+import type { EditorState } from "~/editorSdk/Editor.js";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { Commands } from "~/BaseEditor/index.js";
+import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg.js";
+import { InfoMessage } from "~/BaseEditor/defaultConfig/Sidebar/InfoMessage.js";
+import { useStyles } from "~/BaseEditor/hooks/useStyles.js";
 
 // Node type for the Tree component.
 type ElementNode = NodeDto<{

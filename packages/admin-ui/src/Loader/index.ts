@@ -1,2 +1,2 @@
-export * from "./Loader";
-export * from "./OverlayLoader";
+export * from "./Loader.js";
+export * from "./OverlayLoader.js";

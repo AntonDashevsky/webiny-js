@@ -1,4 +1,4 @@
-import type { CmsEditorContentModel } from "~/types";
+import type { CmsEditorContentModel } from "~/types/index.js";
 
 export const getModelTitleFieldId = (model: CmsEditorContentModel): string => {
     if (!model.titleFieldId || model.titleFieldId === "id") {

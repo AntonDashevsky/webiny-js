@@ -4,7 +4,6 @@ import type { GenericRecord } from "@webiny/api/types.js";
 import type { Topic } from "@webiny/pubsub/types.js";
 import type { MailerContext } from "@webiny/api-mailer/types.js";
 import type { TenancyContext } from "@webiny/api-tenancy/types.js";
-import type { ApwContext } from "@webiny/api-apw/types.js";
 import type { IAuditLog } from "~/storage/types.js";
 import type { FileManagerContext } from "@webiny/api-file-manager/types.js";
 import type { AcoContext } from "@webiny/api-aco/types.js";
@@ -80,7 +79,6 @@ export interface AuditLogsContext
         Pick<FileManagerContext, "fileManager">,
         Pick<SecurityContext, "security">,
         Pick<TenancyContext, "tenancy">,
-        Pick<ApwContext, "apw">,
         Pick<WebsiteBuilderContext, "websiteBuilder"> {
     auditLogs: AuditLogsContextValue;
 }

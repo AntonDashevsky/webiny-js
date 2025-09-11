@@ -1,9 +1,9 @@
-import { useCategoryManageHandler } from "../../testHelpers/useCategoryManageHandler";
-import { useArticleManageHandler } from "../../testHelpers/useArticleManageHandler";
-import { useArticleReadHandler } from "../../testHelpers/useArticleReadHandler";
-import { useGraphQLHandler } from "../../testHelpers/useGraphQLHandler";
-import { setupContentModelGroup, setupContentModels } from "../../testHelpers/setup";
-import type { GenericRecord } from "@webiny/api/types";
+import { useCategoryManageHandler } from "../../testHelpers/useCategoryManageHandler.js";
+import { useArticleManageHandler } from "../../testHelpers/useArticleManageHandler.js";
+import { useArticleReadHandler } from "../../testHelpers/useArticleReadHandler.js";
+import { useGraphQLHandler } from "../../testHelpers/useGraphQLHandler.js";
+import { setupContentModelGroup, setupContentModels } from "../../testHelpers/setup.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 import slugify from "slugify";
 
 interface ICreateCategoryItemPrams {

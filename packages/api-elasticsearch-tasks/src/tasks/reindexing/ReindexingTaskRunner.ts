@@ -3,13 +3,13 @@ import type {
     IElasticsearchIndexingTaskValues,
     IElasticsearchIndexingTaskValuesKeys,
     IManager
-} from "~/types";
-import type { ITaskResponse, ITaskResponseResult } from "@webiny/tasks/response/abstractions";
-import { scan } from "~/helpers/scan";
+} from "~/types.js";
+import type { ITaskResponse, ITaskResponseResult } from "@webiny/tasks/response/abstractions/index.js";
+import { scan } from "~/helpers/scan.js";
 import type { ScanResponse } from "@webiny/db-dynamodb";
 import { createTableWriteBatch } from "@webiny/db-dynamodb";
-import type { IndexManager } from "~/settings";
-import type { IIndexManager } from "~/settings/types";
+import type { IndexManager } from "~/settings/index.js";
+import type { IIndexManager } from "~/settings/types.js";
 
 const getKeys = (results: ScanResponse): IElasticsearchIndexingTaskValuesKeys | undefined => {
     if (results.lastEvaluatedKey?.PK && results.lastEvaluatedKey?.SK) {

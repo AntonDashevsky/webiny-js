@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import type { PulumiApp } from "@webiny/pulumi";
-import { marshall } from "@webiny/aws-sdk/client-dynamodb";
+import { marshall } from "@webiny/aws-sdk/client-dynamodb/index.js";
 
 export interface ServiceManifest {
     name: string;

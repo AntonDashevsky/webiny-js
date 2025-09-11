@@ -1,7 +1,7 @@
 import React from "react";
-import { cn } from "~/utils";
-import { SIDEBAR_TRANSITION_DURATION } from "./constants";
-import { SidebarCache } from "./SidebarCache";
+import { cn } from "~/utils.js";
+import { SIDEBAR_TRANSITION_DURATION } from "./constants.js";
+import { SidebarCache } from "./SidebarCache.js";
 
 type SidebarContext = {
     state: "expanded" | "collapsed";

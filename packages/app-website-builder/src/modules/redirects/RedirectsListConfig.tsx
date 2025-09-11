@@ -1,5 +1,5 @@
 import React from "react";
-import { RedirectListConfig } from "./configs";
+import { RedirectListConfig } from "./configs/index.js";
 import { DeleteFolder, EditFolder, SetFolderPermissions } from "@webiny/app-aco";
 import {
     CellActions,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Tree } from "@webiny/admin-ui";
-import { FolderNode } from "../Node";
+import { FolderNode } from "../Node/index.js";
 
 type NodePreviewProps = {
     text: string;

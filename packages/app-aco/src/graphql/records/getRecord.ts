@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
-import type { AcoAppMode, AcoModel } from "~/types";
-import { createAppFields, ERROR_FIELD } from "./common";
+import type { AcoAppMode, AcoModel } from "~/types.js";
+import { createAppFields, ERROR_FIELD } from "./common.js";
 import { createReadQuery } from "@webiny/app-headless-cms-common";
 
 export const createGetRecord = (model: AcoModel, mode: AcoAppMode) => {

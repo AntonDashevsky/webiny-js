@@ -1,5 +1,5 @@
-import type { IGetRedirectById } from "./IGetRedirectById";
-import type { WbRedirectsStorageOperations } from "~/context/redirects/redirects.types";
+import type { IGetRedirectById } from "./IGetRedirectById.js";
+import type { WbRedirectsStorageOperations } from "~/context/redirects/redirects.types.js";
 
 export class GetRedirectById implements IGetRedirectById {
     private readonly getOperation: WbRedirectsStorageOperations["getById"];

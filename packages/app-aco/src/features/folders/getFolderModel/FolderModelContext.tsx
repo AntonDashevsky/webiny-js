@@ -2,9 +2,9 @@ import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { autorun, toJS } from "mobx";
 import { useApolloClient } from "@apollo/react-hooks";
 import { OverlayLoader } from "@webiny/admin-ui";
-import type { FolderModelDto } from "~/features";
-import { GetFolderModelGqlGateway } from "~/features/folders/getFolderModel/GetFolderModelGqlGateway";
-import { GetFolderModel } from "~/features/folders/getFolderModel/GetFolderModel";
+import type { FolderModelDto } from "~/features/index.js";
+import { GetFolderModelGqlGateway } from "~/features/folders/getFolderModel/GetFolderModelGqlGateway.js";
+import { GetFolderModel } from "~/features/folders/getFolderModel/GetFolderModel.js";
 import type { Decorator, GenericComponent } from "@webiny/app";
 import { Plugin } from "@webiny/app";
 

@@ -1,10 +1,10 @@
 import * as React from "react";
-import { cn, makeDecoratable, withStaticProps } from "~/utils";
-import { AccordionTrigger } from "./AccordionTrigger";
-import { AccordionContent } from "./AccordionContent";
-import { AccordionItemIcon } from "./AccordionItemIcon";
-import { AccordionItemAction } from "./AccordionItemAction";
-import { AccordionRoot, type AccordionRootProps } from "~/Accordion/components/AccordionRoot";
+import { cn, makeDecoratable, withStaticProps } from "~/utils.js";
+import { AccordionTrigger } from "./AccordionTrigger.js";
+import { AccordionContent } from "./AccordionContent.js";
+import { AccordionItemIcon } from "./AccordionItemIcon.js";
+import { AccordionItemAction } from "./AccordionItemAction.js";
+import { AccordionRoot, type AccordionRootProps } from "~/Accordion/components/AccordionRoot.js";
 
 interface AccordionItemProps extends Omit<AccordionRootProps, "title"> {
     title: React.ReactNode;

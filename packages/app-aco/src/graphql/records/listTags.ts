@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
-import type { AcoAppMode, AcoModel } from "~/types";
-import { ERROR_FIELD, LIST_META_FIELD } from "./common";
+import type { AcoAppMode, AcoModel } from "~/types.js";
+import { ERROR_FIELD, LIST_META_FIELD } from "./common.js";
 
 export const createListTags = (model: AcoModel, mode: AcoAppMode) => {
     if (mode === "cms") {

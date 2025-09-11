@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx";
-import type { CommandOption } from "~/Command/domain/CommandOption";
-import type { CommandOptionFormatted } from "~/Command/domain/CommandOptionFormatted";
-import { CommandOptionFormatter } from "~/Command/domain/CommandOptionFormatter";
-import { ListCache } from "../../domains";
+import type { CommandOption } from "~/Command/domain/CommandOption.js";
+import type { CommandOptionFormatted } from "~/Command/domain/CommandOptionFormatted.js";
+import { CommandOptionFormatter } from "~/Command/domain/CommandOptionFormatter.js";
+import { ListCache } from "../../domains/index.js";
 
 export interface IMultiAutoCompleteListOptionsPresenterParams {
     options?: CommandOption[];

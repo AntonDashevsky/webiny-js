@@ -1,5 +1,5 @@
-export * from "./ProgressItem";
-export type * from "./ProgressItemDto";
-export * from "./ProgressItemState";
-export type * from "./ProgressItemFormatted";
-export * from "./ProgressItemFormatter";
+export * from "./ProgressItem.js";
+export type * from "./ProgressItemDto.js";
+export * from "./ProgressItemState.js";
+export type * from "./ProgressItemFormatted.js";
+export * from "./ProgressItemFormatter.js";

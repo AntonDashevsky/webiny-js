@@ -1,9 +1,9 @@
 import React from "react";
 import { validation } from "@webiny/validation";
 import { useBind } from "@webiny/form";
-import { useFileManagerApi } from "~/index";
-import { useAccessControlField } from "./useAccessControlField";
-import { useFileOrUndefined } from "~/components/fields/useFileOrUndefined";
+import { useFileManagerApi } from "~/index.js";
+import { useAccessControlField } from "./useAccessControlField.js";
+import { useFileOrUndefined } from "~/components/fields/useFileOrUndefined.js";
 import { Label, Select } from "@webiny/admin-ui";
 
 interface AccessControlProps {

@@ -1,6 +1,6 @@
-import get from "lodash/get";
-import { StatePathsCollection, type PathOption } from "./StatePathsCollection";
-import { PathType } from "./PathType";
+import get from "lodash/get.js";
+import { StatePathsCollection, type PathOption } from "./StatePathsCollection.js";
+import { PathType } from "./PathType.js";
 
 export class StatePathsExtractor {
     private readonly state: Record<string, any>;

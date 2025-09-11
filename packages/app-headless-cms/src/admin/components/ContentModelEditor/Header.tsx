@@ -1,6 +1,6 @@
 import React from "react";
 import { HeaderBar } from "@webiny/admin-ui";
-import { renderPlugins } from "@webiny/app/plugins";
+import { renderPlugins } from "@webiny/app/plugins/index.js";
 
 const EditorBar = () => {
     return (

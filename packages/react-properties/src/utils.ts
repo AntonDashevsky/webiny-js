@@ -1,6 +1,6 @@
 import { customAlphabet } from "nanoid";
 const nanoid = customAlphabet("1234567890abcdef");
-import type { Property } from "./Properties";
+import type { Property } from "./Properties.js";
 
 const sortPropertiesToTheTop = (a: Property, b: Property) => {
     if (a.$isFirst && b.$isFirst) {

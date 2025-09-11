@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { createRecordsData, Table as AcoTable } from "@webiny/app-aco";
-import { useScheduler } from "~/Presentation/hooks";
-import { LoadingActions, type SchedulerEntryTableRow } from "~/types";
+import { useScheduler } from "~/Presentation/hooks/index.js";
+import { LoadingActions, type SchedulerEntryTableRow } from "~/types.js";
 
 export const Table = () => {
     const { vm, selectItems, sortItems } = useScheduler();

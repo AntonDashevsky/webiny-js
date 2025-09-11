@@ -1,6 +1,6 @@
 import React from "react";
 import { Buttons } from "@webiny/app-admin";
-import { SaveAction } from "./SaveAction";
+import { SaveAction } from "./SaveAction.js";
 import { Grid, Heading } from "@webiny/admin-ui";
 
 export interface SingletonHeaderProps {

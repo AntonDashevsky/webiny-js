@@ -1,5 +1,5 @@
-import omit from "lodash/omit";
-import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import omit from "lodash/omit.js";
+import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
 import type {
     WbPage,
     WbPagesStorageOperations,
@@ -13,7 +13,7 @@ import type {
     WbPagesStorageOperationsPublishParams,
     WbPagesStorageOperationsUnpublishParams,
     WbPagesStorageOperationsUpdateParams
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 import { entryFromStorageTransform } from "@webiny/api-headless-cms";
 import type { PluginsContainer } from "@webiny/plugins";
 

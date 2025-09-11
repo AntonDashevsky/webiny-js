@@ -1,5 +1,5 @@
 import React from "react";
-import { SchedulerListConfig } from "~/Presentation/configs";
+import { SchedulerListConfig } from "~/Presentation/configs/index.js";
 import {
     CellActions,
     CellScheduledBy,
@@ -7,8 +7,8 @@ import {
     CellTitle,
     CellType,
     CellRevision
-} from "~/Presentation/components/Cells";
-import { CancelItemAction } from "~/Presentation/components/Actions";
+} from "~/Presentation/components/Cells/index.js";
+import { CancelItemAction } from "~/Presentation/components/Actions/index.js";
 
 const { Browser } = SchedulerListConfig;
 

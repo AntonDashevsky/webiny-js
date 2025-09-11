@@ -2,7 +2,7 @@ import type { Plugin } from "@webiny/plugins/types.js";
 import type { IGetEventBridgeCallable, ISystem } from "./types.js";
 import { validateSystemInput } from "./utils/validateSystemInput.js";
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
-import type { PossiblyUndefinedProperties } from "@webiny/api/types";
+import type { PossiblyUndefinedProperties } from "@webiny/api/types.js";
 import { createSyncSystemHandlerOnRequestPlugin } from "./requestPlugin.js";
 import type { FilterOutRecordPlugin } from "./plugins/FilterOutRecordPlugin.js";
 import { createDefaultFilterOutRecordPlugins } from "./filter/createDefaultFilterOutRecordPlugins.js";

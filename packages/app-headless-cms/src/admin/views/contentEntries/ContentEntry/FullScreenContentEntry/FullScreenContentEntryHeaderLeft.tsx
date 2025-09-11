@@ -3,7 +3,7 @@ import { ReactComponent as BackIcon } from "@webiny/icons/arrow_back.svg";
 import { ReactComponent as InfoIcon } from "@webiny/icons/info.svg";
 import { useNavigateFolder } from "@webiny/app-aco";
 import { makeDecoratable } from "@webiny/react-composition";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
 import { cn, Heading, Icon, IconButton, Tooltip } from "@webiny/admin-ui";
 
 export const ContentEntryFormMeta = makeDecoratable("ContentEntryFormMeta", () => {

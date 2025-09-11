@@ -8,10 +8,10 @@ import {
     Select,
     Separator
 } from "@webiny/admin-ui";
-import { InheritedFrom } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
-import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { BASE_BREAKPOINT } from "~/constants";
-import { UnitValue } from "./UnitValue";
+import { InheritedFrom } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel.js";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint.js";
+import { BASE_BREAKPOINT } from "~/constants.js";
+import { UnitValue } from "./UnitValue.js";
 
 type Option = {
     label: string;

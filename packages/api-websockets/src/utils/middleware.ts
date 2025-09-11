@@ -1,4 +1,4 @@
-import type { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types.js";
 
 export interface MiddlewareCallable<
     I extends GenericRecord = GenericRecord,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Progress as ProgressPrimitive } from "radix-ui";
-import { cn } from "~/utils";
+import { cn } from "~/utils.js";
 
 type ProgressRootProps = ProgressPrimitive.ProgressProps;
 

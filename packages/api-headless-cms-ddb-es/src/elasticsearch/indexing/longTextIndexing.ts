@@ -1,4 +1,4 @@
-import type { CmsModelFieldToElasticsearchPlugin } from "~/types";
+import type { CmsModelFieldToElasticsearchPlugin } from "~/types.js";
 
 /**
  * The long-text indexing plugin must take in consideration that users might have list of long-text fields.

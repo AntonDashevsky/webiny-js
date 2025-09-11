@@ -1,6 +1,6 @@
 import React from "react";
-import { FloatingLinkEditorController } from "./FloatingLinkEditorController";
-import type { LinkEditForm } from "./LinkEditForm";
+import { FloatingLinkEditorController } from "./FloatingLinkEditorController.js";
+import type { LinkEditForm } from "./LinkEditForm.js";
 import "./FloatingLinkEditorPlugin.css";
 
 export function FloatingLinkEditorPlugin({

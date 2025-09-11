@@ -1,4 +1,4 @@
-import type { SQSEvent } from "@webiny/aws-sdk/types";
+import type { SQSEvent } from "@webiny/aws-sdk/types/index.js";
 import { createResolverHandler } from "~/resolver/createResolverHandler.js";
 import { createMockSQSEventRecord } from "~tests/mocks/sqsEvent.js";
 import { createLambdaContext } from "~tests/mocks/lambdaContext.js";
@@ -6,7 +6,7 @@ import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.
 import { mockClient } from "aws-sdk-client-mock";
 import { createLambdaClient, LambdaClient } from "@webiny/aws-sdk/client-lambda/index.js";
 import { createS3Client, S3Client } from "@webiny/aws-sdk/client-s3/index.js";
-import { createCognitoIdentityProviderClient } from "@webiny/aws-sdk/client-cognito-identity-provider";
+import { createCognitoIdentityProviderClient } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 
 describe("createResolverHandler", () => {
     it("should create a resolver handler and get an error on input because of no deployments", async () => {

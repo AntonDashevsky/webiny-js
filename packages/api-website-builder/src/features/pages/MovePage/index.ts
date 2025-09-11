@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { MovePage } from "./MovePage";
-import { MovePageWithEvents } from "./MovePageWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { MovePage } from "./MovePage.js";
+import { MovePageWithEvents } from "./MovePageWithEvents.js";
 import type {
     OnPageAfterMoveTopicParams,
     OnPageBeforeMoveTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 
 export interface MovePageUseCasesTopics {
     onPageBeforeMove: Topic<OnPageBeforeMoveTopicParams>;

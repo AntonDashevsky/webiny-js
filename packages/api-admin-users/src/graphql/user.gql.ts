@@ -5,11 +5,11 @@ import {
     ListResponse,
     NotFoundResponse,
     Response
-} from "@webiny/handler-graphql/responses";
-import type { AdminUser, AdminUsersContext } from "~/types";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin";
+} from "@webiny/handler-graphql/responses.js";
+import type { AdminUser, AdminUsersContext } from "~/types.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin.js";
 import { NotAuthorizedError } from "@webiny/api-security";
-import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types.js";
 
 export interface CreateUserGraphQlPluginsParams {
     teams?: boolean;

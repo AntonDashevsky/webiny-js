@@ -14,14 +14,15 @@ import type {
     DynamoDBDocument,
     PutCommandInput,
     UpdateCommandInput
-} from "@webiny/aws-sdk/client-dynamodb";
-import { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
+} from "@webiny/aws-sdk/client-dynamodb/index.js";
+import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import {
     createEventBridgeClient,
     EventBridgeClient,
     PutEventsCommand
 } from "@webiny/aws-sdk/client-eventbridge/index.js";
 import { mockClient } from "aws-sdk-client-mock";
+import { jest } from "@jest/globals";
 
 describe("attachToDynamoDbDocument", () => {
     it("should not have attached decorator", async () => {

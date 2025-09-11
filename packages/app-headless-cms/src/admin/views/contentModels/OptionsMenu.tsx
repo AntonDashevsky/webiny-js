@@ -1,10 +1,10 @@
 import React from "react";
 import { css } from "@emotion/css";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Menu, MenuItem } from "@webiny/ui/Menu";
+import { Menu, MenuItem } from "@webiny/ui/Menu/index.js";
 import { ReactComponent as MoreVerticalIcon } from "@webiny/icons/more_vert.svg";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 import { IconButton } from "@webiny/admin-ui";
 
 const menuStyles = css`

@@ -1,4 +1,4 @@
-export * from "./CheckboxItem";
-export type * from "./CheckboxItemDto";
-export type * from "./CheckboxItemFormatted";
-export * from "./CheckboxItemMapper";
+export * from "./CheckboxItem.js";
+export type * from "./CheckboxItemDto.js";
+export type * from "./CheckboxItemFormatted.js";
+export * from "./CheckboxItemMapper.js";

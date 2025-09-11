@@ -11,21 +11,21 @@ import type {
     ITaskResponseDoneResultOutput,
     ITasksContextObject,
     TaskDataStatus
-} from "~/types";
-import { TaskLogItemType } from "~/types";
+} from "~/types.js";
+import { TaskLogItemType } from "~/types.js";
 import type {
     ITaskManagerStoreAddLogOptions,
     ITaskManagerStoreErrorLog,
     ITaskManagerStoreUpdateTaskInputParam,
     ITaskManagerStoreUpdateTaskParams
-} from "./abstractions";
+} from "./abstractions/index.js";
 /**
  * Package deep-equal does not have types.
  */
 import deepEqual from "deep-equal";
-import { getObjectProperties } from "~/utils/getObjectProperties";
-import { ObjectUpdater } from "~/utils/ObjectUpdater";
-import type { GenericRecord } from "@webiny/api/types";
+import { getObjectProperties } from "~/utils/getObjectProperties.js";
+import { ObjectUpdater } from "~/utils/ObjectUpdater.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 
 const getInput = <T extends ITaskDataInput = ITaskDataInput>(
     originalInput: T,

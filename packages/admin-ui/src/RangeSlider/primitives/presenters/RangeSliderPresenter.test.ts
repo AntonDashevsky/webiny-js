@@ -1,4 +1,5 @@
-import { RangeSliderPresenter } from "./RangeSliderPresenter";
+import { RangeSliderPresenter } from "./RangeSliderPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("RangeSliderPresenter", () => {
     const onValuesChange = jest.fn();

@@ -1,7 +1,7 @@
-import type { RichTextContents } from "~/plugins";
-import { CmsRichTextRendererPlugin } from "~/plugins";
-import type { CmsContext } from "~/types";
-import { RichTextPluginsProcessor } from "~/graphqlFields/richText/RichTextPluginsProcessor";
+import type { RichTextContents } from "~/plugins/index.js";
+import { CmsRichTextRendererPlugin } from "~/plugins/index.js";
+import type { CmsContext } from "~/types/index.js";
+import { RichTextPluginsProcessor } from "~/graphqlFields/richText/RichTextPluginsProcessor.js";
 
 export class RichTextRenderer {
     private renderersMap = new Map<string, RichTextPluginsProcessor>();

@@ -1,17 +1,17 @@
 import React, { useEffect, useMemo } from "react";
 import type { DataTableSorting, OnDataTableSortingChange } from "@webiny/admin-ui";
-import { Column, ColumnsPresenter, columnsRepositoryFactory } from "./Columns";
+import { Column, ColumnsPresenter, columnsRepositoryFactory } from "./Columns/index.js";
 import {
     ColumnsVisibilityDecorator,
     ColumnsVisibilityPresenter,
     ColumnsVisibilityUpdater,
     columnsVisibilityRepositoryFactory
-} from "./ColumnVisibility";
-import { ColumnsVisibilityLocalStorageGateway } from "./gateways";
-import { TablePresenter } from "./TablePresenter";
-import { TableInner } from "./TableInner";
-import { useAcoConfig } from "~/config";
-import type { TableRow } from "~/types";
+} from "./ColumnVisibility/index.js";
+import { ColumnsVisibilityLocalStorageGateway } from "./gateways/index.js";
+import { TablePresenter } from "./TablePresenter.js";
+import { TableInner } from "./TableInner.js";
+import { useAcoConfig } from "~/config/index.js";
+import type { TableRow } from "~/types.js";
 
 export interface TableProps<T> {
     data: T[];

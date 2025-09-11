@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton, type IconButtonProps } from "~/Button/IconButton";
+import { IconButton, type IconButtonProps } from "~/Button/IconButton.js";
 
 interface SidebarMenuItemActionProps extends Omit<IconButtonProps, "icon"> {
     element?: React.ReactNode;

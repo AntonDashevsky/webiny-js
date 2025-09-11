@@ -1,10 +1,10 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Layout } from "./Layout";
-import { Elements as BaseElements } from "../Elements";
-import type { ElementProps as BaseElementProps } from "../Element";
-import { Element as BaseElement } from "../Element";
-import { createGetId } from "../createGetId";
+import { Layout } from "./Layout.js";
+import { Elements as BaseElements } from "../Elements.js";
+import type { ElementProps as BaseElementProps } from "../Element.js";
+import { Element as BaseElement } from "../Element.js";
+import { createGetId } from "../createGetId.js";
 
 const SCOPE = "content";
 

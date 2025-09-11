@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as CloseIcon } from "@webiny/icons/close.svg";
-import { IconButton, type IconButtonProps } from "~/Button";
-import { Icon } from "~/Icon";
+import { IconButton, type IconButtonProps } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
 
 type ToastCloseProps = IconButtonProps;
 

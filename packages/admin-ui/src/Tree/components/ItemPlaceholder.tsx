@@ -1,5 +1,5 @@
 import React from "react";
-import { makeDecoratable } from "~/utils";
+import { makeDecoratable } from "~/utils.js";
 
 interface ItemPlaceholderProps {
     depth: number;

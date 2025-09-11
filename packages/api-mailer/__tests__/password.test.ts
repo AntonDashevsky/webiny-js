@@ -1,4 +1,4 @@
-import { decrypt, encrypt } from "~/crud/settings/password";
+import { decrypt, encrypt } from "~/crud/settings/password.js";
 
 const secret = "someReallySecretSecretWithRandomNumbersOrLettersOrSomethingElse";
 const password = "GZPJWYVIYnUX99dGnk1N";

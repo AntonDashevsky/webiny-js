@@ -2,7 +2,7 @@ import {
     createAssetDelivery as createBaseAssetDelivery,
     createAssetDeliveryConfig
 } from "@webiny/api-file-manager";
-import { S3 } from "@webiny/aws-sdk/client-s3";
+import { S3 } from "@webiny/aws-sdk/client-s3/index.js";
 import { S3AssetResolver } from "~/assetDelivery/s3/S3AssetResolver.js";
 import { S3OutputStrategy } from "~/assetDelivery/s3/S3OutputStrategy.js";
 import { SharpTransform } from "~/assetDelivery/s3/SharpTransform.js";

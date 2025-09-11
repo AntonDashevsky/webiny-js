@@ -1,9 +1,9 @@
 import React from "react";
-import { createVoidComponent, makeDecoratable } from "~/index";
+import { createVoidComponent, makeDecoratable } from "~/index.js";
 import type {
     DropdownMenuItemIconProps,
     DropdownMenuItemButtonProps
-} from "@webiny/admin-ui/DropdownMenu/components/DropdownMenuItem";
+} from "@webiny/admin-ui/DropdownMenu/components/DropdownMenuItem.js";
 
 // UserMenuItem
 type UserMenuItemRendererProps = DropdownMenuItemButtonProps;

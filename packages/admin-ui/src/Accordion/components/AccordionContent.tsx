@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Collapsible as CollapsiblePrimitive } from "radix-ui";
-import { cva, type VariantProps, cn } from "~/utils";
+import { cva, type VariantProps, cn } from "~/utils.js";
 
 const accordionContentVariants = cva(
     [

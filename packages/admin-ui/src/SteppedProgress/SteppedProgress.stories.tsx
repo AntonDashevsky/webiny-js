@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { SteppedProgress } from "./SteppedProgress";
-import { ProgressItemState } from "~/SteppedProgress/domains";
+import { SteppedProgress } from "./SteppedProgress.js";
+import { ProgressItemState } from "~/SteppedProgress/domains/index.js";
 
 const meta: Meta<typeof SteppedProgress> = {
     title: "Components/SteppedProgress",

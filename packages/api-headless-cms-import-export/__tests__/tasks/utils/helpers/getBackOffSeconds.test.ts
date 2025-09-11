@@ -1,4 +1,4 @@
-import { getBackOffSeconds, min, max } from "~/tasks/utils/helpers/getBackOffSeconds";
+import { getBackOffSeconds, min, max } from "~/tasks/utils/helpers/getBackOffSeconds.js";
 
 describe("get back off seconds", () => {
     const values: [number, number][] = [

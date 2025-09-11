@@ -1,6 +1,6 @@
 import React from "react";
 import { cn, IconButton, ProgressBar, Text } from "@webiny/admin-ui";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as CloseIcon } from "@webiny/icons/close.svg";
 
 const t = i18n.ns("app-admin/file-manager/components/upload-status");

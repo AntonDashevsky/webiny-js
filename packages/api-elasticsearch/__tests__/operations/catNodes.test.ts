@@ -1,6 +1,6 @@
-import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
-import { ElasticsearchCatNodes } from "~/operations";
-import type { IElasticsearchCatNodeResponse } from "~/operations/types";
+import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient.js";
+import { ElasticsearchCatNodes } from "~/operations/index.js";
+import type { IElasticsearchCatNodeResponse } from "~/operations/types.js";
 
 describe("cat nodes", () => {
     it("should fetch nodes information", async () => {

@@ -1,1 +1,1 @@
-export * from "./MenuActions";
+export * from "./MenuActions.js";

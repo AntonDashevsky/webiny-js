@@ -1,6 +1,6 @@
-import type { ICreatePage } from "./ICreatePage";
-import type { CreatePageUseCasesTopics } from "./index";
-import type { CreateWbPageData } from "~/context/pages/pages.types";
+import type { ICreatePage } from "./ICreatePage.js";
+import type { CreatePageUseCasesTopics } from "./index.js";
+import type { CreateWbPageData } from "~/context/pages/pages.types.js";
 
 export class CreatePageWithEvents implements ICreatePage {
     private topics: CreatePageUseCasesTopics;

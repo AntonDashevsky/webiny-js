@@ -1,9 +1,9 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
 import { mdbid } from "@webiny/utils";
 import { ErrorResponse, Response, ListResponse, NotFoundResponse } from "@webiny/handler-graphql";
 import { NotAuthorizedError } from "@webiny/api-security";
-import type { SecurityContext } from "@webiny/api-security/types";
-import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { SecurityContext } from "@webiny/api-security/types.js";
+import type { TenancyContext } from "@webiny/api-tenancy/types.js";
 import { UpdateTenantUseCase } from "@webiny/api-tenancy";
 
 type Context = TenancyContext & SecurityContext;

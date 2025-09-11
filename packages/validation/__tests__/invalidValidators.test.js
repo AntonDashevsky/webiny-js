@@ -1,4 +1,4 @@
-import { validation, ValidationError } from "../src";
+import { validation, ValidationError } from "../src/index.js";
 
 describe("invalid validators test", () => {
     test("must throw error if validators were not passed as a non-empty string", async () => {

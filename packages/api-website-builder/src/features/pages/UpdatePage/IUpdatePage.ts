@@ -1,4 +1,4 @@
-import type { UpdateWbPageData, WbPage } from "~/context/pages/pages.types";
+import type { UpdateWbPageData, WbPage } from "~/context/pages/pages.types.js";
 
 export interface IUpdatePage {
     execute: (id: string, data: UpdateWbPageData) => Promise<WbPage>;

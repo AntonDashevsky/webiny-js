@@ -1,12 +1,12 @@
 import React, { Fragment, useCallback, useMemo } from "react";
 import { Grid, Select } from "@webiny/admin-ui";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     CannotUseAaclAlert,
     PermissionInfo,
     gridWithPaddingClass,
     PermissionsGroup
-} from "@webiny/app-admin/components/Permissions";
+} from "@webiny/app-admin/components/Permissions/index.js";
 import { Form } from "@webiny/form";
 import { useSecurity } from "@webiny/app-security";
 import type { AaclPermission } from "@webiny/app-admin";

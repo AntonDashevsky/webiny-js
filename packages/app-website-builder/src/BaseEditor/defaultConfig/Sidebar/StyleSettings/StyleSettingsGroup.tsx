@@ -1,7 +1,7 @@
 import React from "react";
-import { Sidebar } from "~/BaseEditor/config/Sidebar/Sidebar";
-import { ScrollableContainer } from "~/BaseEditor/config/Sidebar/ScrollableContainer";
-import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
+import { Sidebar } from "~/BaseEditor/config/Sidebar/Sidebar.js";
+import { ScrollableContainer } from "~/BaseEditor/config/Sidebar/ScrollableContainer.js";
+import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement.js";
 
 export const StyleSettingsGroup = () => {
     const [element] = useActiveElement();

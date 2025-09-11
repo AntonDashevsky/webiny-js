@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useMemo } from "react";
 import { observer } from "mobx-react-lite";
-import isEqual from "lodash/isEqual";
+import isEqual from "lodash/isEqual.js";
 import type { FormComponentProps } from "@webiny/admin-ui";
 import {
     FormComponentDescription,
@@ -8,11 +8,11 @@ import {
     FormComponentLabel,
     PopoverPrimitive
 } from "@webiny/admin-ui";
-import { IconPickerContent, IconPickerTrigger } from "./components";
-import type { IconPickerPresenter } from "./IconPickerPresenter";
-import { IconPickerPresenterProvider } from "./IconPickerPresenterProvider";
-import type { Icon } from "./types";
-import { ICON_PICKER_SIZE } from "./types";
+import { IconPickerContent, IconPickerTrigger } from "./components/index.js";
+import type { IconPickerPresenter } from "./IconPickerPresenter.js";
+import { IconPickerPresenterProvider } from "./IconPickerPresenterProvider.js";
+import type { Icon } from "./types.js";
+import { ICON_PICKER_SIZE } from "./types.js";
 
 export interface IconPickerProps extends FormComponentProps {
     size?: ICON_PICKER_SIZE;

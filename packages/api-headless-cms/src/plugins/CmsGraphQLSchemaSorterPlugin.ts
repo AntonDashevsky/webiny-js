@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import type { CmsModel } from "~/types";
+import type { CmsModel } from "~/types/index.js";
 
 interface CmsGraphQLSchemaSorterPluginCallableParams {
     model: CmsModel;

@@ -1,4 +1,4 @@
-import type { Editor } from "~/editorSdk/Editor";
+import type { Editor } from "~/editorSdk/Editor.js";
 import type { Messenger } from "@webiny/website-builder-sdk";
 import {
     type BoxesData,
@@ -9,9 +9,9 @@ import {
     type SerializedComponentGroup
 } from "@webiny/website-builder-sdk";
 import defaultImage from "@webiny/icons/extension.svg";
-import { Commands } from "~/BaseEditor";
-import { $createElement } from "~/editorSdk/utils";
-import type { ScrollTracker } from "./ScrollTracker";
+import { Commands } from "~/BaseEditor/index.js";
+import { $createElement } from "~/editorSdk/utils/index.js";
+import type { ScrollTracker } from "./ScrollTracker.js";
 
 export class PreviewEvents {
     private editor: Editor;

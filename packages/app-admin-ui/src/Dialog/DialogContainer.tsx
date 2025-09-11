@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useUi } from "@webiny/app/hooks/useUi";
+import { useUi } from "@webiny/app/hooks/useUi.js";
 import { Dialog } from "@webiny/admin-ui";
 
 export const DialogContainer = () => {

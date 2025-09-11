@@ -1,8 +1,8 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useForm } from "@webiny/form";
-import type { CmsModelField, CmsModelFieldRendererPlugin } from "~/types";
-import ContentEntriesMultiAutocomplete from "./components/ContentEntriesMultiAutoComplete";
+import type { CmsModelField, CmsModelFieldRendererPlugin } from "~/types.js";
+import ContentEntriesMultiAutocomplete from "./components/ContentEntriesMultiAutoComplete.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");
 

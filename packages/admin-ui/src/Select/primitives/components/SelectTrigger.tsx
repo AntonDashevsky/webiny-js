@@ -1,8 +1,8 @@
 import * as React from "react";
 import { ReactComponent as ChevronDown } from "@webiny/icons/keyboard_arrow_down.svg";
 import { Select as SelectPrimitives } from "radix-ui";
-import { cn, cva, type VariantProps } from "~/utils";
-import { SelectIcon } from "./SelectIcon";
+import { cn, cva, type VariantProps } from "~/utils.js";
+import { SelectIcon } from "./SelectIcon.js";
 
 const selectTriggerVariants = cva(
     [

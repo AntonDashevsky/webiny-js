@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import type { RadioGroupPrimitiveProps } from "./RadioGroupPrimitive";
-import type { RadioGroupPresenterParams } from "./presenters/RadioGroupPresenter";
-import { RadioGroupPresenter } from "./presenters/RadioGroupPresenter";
+import type { RadioGroupPrimitiveProps } from "./RadioGroupPrimitive.js";
+import type { RadioGroupPresenterParams } from "./presenters/RadioGroupPresenter.js";
+import { RadioGroupPresenter } from "./presenters/RadioGroupPresenter.js";
 
 export const useRadioGroup = (props: RadioGroupPrimitiveProps) => {
     const params: RadioGroupPresenterParams = useMemo(

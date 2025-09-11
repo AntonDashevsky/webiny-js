@@ -9,8 +9,8 @@ import type {
     IRecordLockingRecord,
     IUnlockEntryParams,
     IUpdateEntryLockParams
-} from "~/types";
-import type { IRecordLockingUnlockEntryResult } from "./IRecordLockingUnlockEntry";
+} from "~/types.js";
+import type { IRecordLockingUnlockEntryResult } from "./IRecordLockingUnlockEntry.js";
 
 export interface IRecordLockingUpdateEntryLockResult {
     data: IRecordLockingLockRecord | null;

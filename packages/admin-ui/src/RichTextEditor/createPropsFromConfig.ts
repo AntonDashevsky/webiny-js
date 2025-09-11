@@ -1,7 +1,7 @@
-import type { RichTextEditorProps } from "./RichTextEditor";
+import type { RichTextEditorProps } from "./RichTextEditor.js";
 import type { ToolSettings } from "@editorjs/editorjs";
-import type { OutputData } from "@editorjs/editorjs/types";
-import { type RichTextEditorPrimitiveProps } from "./RichTextEditorPrimitive";
+import type { OutputData } from "@editorjs/editorjs/types/index.js";
+import { type RichTextEditorPrimitiveProps } from "./RichTextEditorPrimitive.js";
 
 interface CreatePropsFromConfigResult {
     onReady: (editor: any) => void;

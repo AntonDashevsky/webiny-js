@@ -1,15 +1,15 @@
 import React, { useEffect, useMemo, useState } from "react";
 import type { ApolloClient } from "apollo-client";
 import { DialogsProvider } from "@webiny/app-admin";
-import type { AcoApp, AcoAppMode, AcoError, AcoModel, AcoModelField } from "~/types";
-import type { GetAppResult, GetAppVariables } from "~/graphql/app.gql";
-import { createGetAppQuery } from "~/graphql/app.gql";
-import { FoldersProvider as FoldersContextProvider } from "./folders";
-import { SearchRecordsProvider as SearchRecordsContextProvider } from "./records";
-import { DisplayError } from "./DisplayError";
-import { Loading } from "./Loading";
-import { NavigateFolderWithRouterProvider } from "~/contexts/navigateFolderWithRouter";
-import { AcoListProvider } from "~/contexts/acoList";
+import type { AcoApp, AcoAppMode, AcoError, AcoModel, AcoModelField } from "~/types.js";
+import type { GetAppResult, GetAppVariables } from "~/graphql/app.gql.js";
+import { createGetAppQuery } from "~/graphql/app.gql.js";
+import { FoldersProvider as FoldersContextProvider } from "./folders.js";
+import { SearchRecordsProvider as SearchRecordsContextProvider } from "./records.js";
+import { DisplayError } from "./DisplayError/index.js";
+import { Loading } from "./Loading/index.js";
+import { NavigateFolderWithRouterProvider } from "~/contexts/navigateFolderWithRouter.js";
+import { AcoListProvider } from "~/contexts/acoList.js";
 
 export interface AcoAppProviderContext {
     app: AcoApp;

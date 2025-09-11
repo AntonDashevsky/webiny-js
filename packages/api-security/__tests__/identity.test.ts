@@ -1,6 +1,6 @@
-import type { Security, SecurityStorageOperations } from "~/types";
-import { createSecurity } from "~/createSecurity";
-import { getStorageOps } from "@webiny/project-utils/testing/environment";
+import type { Security, SecurityStorageOperations } from "~/types.js";
+import { createSecurity } from "~/createSecurity.js";
+import { getStorageOps } from "@webiny/project-utils/testing/environment/index.js";
 
 describe("identity test", () => {
     const tenant = "root";

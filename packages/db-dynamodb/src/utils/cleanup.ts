@@ -1,4 +1,4 @@
-import type { Entity } from "~/toolbox";
+import type { Entity } from "~/toolbox.js";
 
 /**
  * The attributes defined by us or the dynamodb-toolbox library.

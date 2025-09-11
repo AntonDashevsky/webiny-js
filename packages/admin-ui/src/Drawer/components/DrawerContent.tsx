@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Dialog as DrawerPrimitive } from "radix-ui";
-import { cn, cva, type VariantProps } from "~/utils";
+import { cn, cva, type VariantProps } from "~/utils.js";
 
 export interface DrawerContentProps
     extends React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>,

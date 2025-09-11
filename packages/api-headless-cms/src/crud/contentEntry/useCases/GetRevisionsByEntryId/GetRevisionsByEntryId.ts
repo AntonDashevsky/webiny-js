@@ -1,9 +1,9 @@
-import type { IGetRevisionsByEntryId } from "../../abstractions";
+import type { IGetRevisionsByEntryId } from "../../abstractions/index.js";
 import type {
     CmsEntryStorageOperations,
     CmsEntryStorageOperationsGetRevisionParams,
     CmsModel
-} from "~/types";
+} from "~/types/index.js";
 import type { ITransformEntryCallable } from "~/utils/entryStorage.js";
 
 export class GetRevisionsByEntryId implements IGetRevisionsByEntryId {

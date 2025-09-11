@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ReactComponent as Sort } from "@webiny/icons/sort.svg";
-import { PopoverPrimitive } from "~/Popover";
-import { withStaticProps } from "~/utils";
-import { Tooltip } from "~/Tooltip";
-import { IconButton } from "~/Button";
+import { PopoverPrimitive } from "~/Popover/index.js";
+import { withStaticProps } from "~/utils.js";
+import { Tooltip } from "~/Tooltip/index.js";
+import { IconButton } from "~/Button/index.js";
 
 interface DataListModalContentProps {
     children: React.ReactNode;

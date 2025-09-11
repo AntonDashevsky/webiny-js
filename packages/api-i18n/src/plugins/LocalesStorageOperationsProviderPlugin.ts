@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import type { I18NContext, I18NLocalesStorageOperations } from "~/types";
+import type { I18NContext, I18NLocalesStorageOperations } from "~/types.js";
 
 export interface LocalesStorageOperationsProviderPluginParams {
     context: I18NContext;

@@ -1,7 +1,7 @@
-import type { IFetcher, IFetcherExecParams, IFetcherExecResult } from "./types";
+import type { IFetcher, IFetcherExecParams, IFetcherExecResult } from "./types.js";
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { BatchGetCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
-import lodashChunk from "lodash/chunk";
+import lodashChunk from "lodash/chunk.js";
 import type { IDeployment } from "~/resolver/deployment/types.js";
 import { SourceDataContainer } from "~/resolver/app/data/SourceDataContainer.js";
 import type { GenericRecord } from "@webiny/api/types.js";

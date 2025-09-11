@@ -1,8 +1,8 @@
 import type {
     GetFolderHierarchyUseCaseParams,
     IGetFolderHierarchyUseCase
-} from "./IGetFolderHierarchyUseCase";
-import type { IGetFolderHierarchyRepository } from "./IGetFolderHierarchyRepository";
+} from "./IGetFolderHierarchyUseCase.js";
+import type { IGetFolderHierarchyRepository } from "./IGetFolderHierarchyRepository.js";
 
 export class GetFolderHierarchyUseCase implements IGetFolderHierarchyUseCase {
     private repository: IGetFolderHierarchyRepository;

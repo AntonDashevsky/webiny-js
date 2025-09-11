@@ -1,9 +1,9 @@
-import numberIndexing from "~/elasticsearch/indexing/numberIndexing";
+import numberIndexing from "~/elasticsearch/indexing/numberIndexing.js";
 import type {
     CmsModelFieldToElasticsearchFromParams,
     CmsModelFieldToElasticsearchPlugin,
     CmsModelFieldToElasticsearchToParams
-} from "~/types";
+} from "~/types.js";
 
 describe("numberIndexing", () => {
     const plugin = numberIndexing() as Required<CmsModelFieldToElasticsearchPlugin>;

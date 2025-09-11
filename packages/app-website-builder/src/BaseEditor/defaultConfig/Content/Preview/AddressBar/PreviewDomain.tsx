@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { ReactComponent as GlobeIcon } from "@webiny/icons/language.svg";
 import { Button, DropdownMenu, IconButton, Separator, Input, cn } from "@webiny/admin-ui";
-import { usePreviewDomain } from "../usePreviewDomain";
+import { usePreviewDomain } from "../usePreviewDomain.js";
 import type { GenericFormData } from "@webiny/form";
 import { Bind, Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { Commands } from "~/BaseEditor";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { Commands } from "~/BaseEditor/index.js";
 
 export const PreviewDomain = () => {
     const editor = useDocumentEditor();

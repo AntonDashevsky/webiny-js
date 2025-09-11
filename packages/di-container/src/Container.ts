@@ -1,13 +1,13 @@
-import type { Abstraction } from "./Abstraction";
+import type { Abstraction } from "./Abstraction.js";
 import type {
     Constructor,
     Registration,
     DecoratorRegistration,
     InstanceRegistration,
     Dependencies,
-    DependencyOptions,
-    LifetimeScope
+    DependencyOptions
 } from "./types.js";
+import { LifetimeScope } from "./types.js";
 import { Metadata } from "./Metadata.js";
 import { isComposite } from "./isComposite.js";
 import { isDecorator } from "./isDecorator.js";

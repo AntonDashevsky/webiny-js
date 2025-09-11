@@ -4,12 +4,12 @@ import { Button, Drawer } from "@webiny/admin-ui";
 import type { FormAPI } from "@webiny/form";
 // @ts-expect-error
 import { useHotkeys } from "react-hotkeyz";
-import { QueryBuilder } from "./QueryBuilder";
+import { QueryBuilder } from "./QueryBuilder/index.js";
 
-import type { FieldDTOWithElement, FilterDTO } from "~/components/AdvancedSearch/domain";
+import type { FieldDTOWithElement, FilterDTO } from "~/components/AdvancedSearch/domain/index.js";
 
-import type { QueryBuilderFormData } from "./QueryBuilderDrawerPresenter";
-import { QueryBuilderDrawerPresenter } from "./QueryBuilderDrawerPresenter";
+import type { QueryBuilderFormData } from "./QueryBuilderDrawerPresenter.js";
+import { QueryBuilderDrawerPresenter } from "./QueryBuilderDrawerPresenter.js";
 
 interface QueryBuilderDrawerProps {
     fields: FieldDTOWithElement[];

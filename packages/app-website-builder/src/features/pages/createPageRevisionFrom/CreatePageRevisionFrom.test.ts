@@ -1,6 +1,7 @@
 import { CreatePageRevisionFrom } from "./CreatePageRevisionFrom.js";
 import { WbPageStatus } from "~/constants.js";
 import { Page, pageListCache } from "~/domain/Page/index.js";
+import { jest } from "@jest/globals";
 
 describe("CreatePageRevisionFrom", () => {
     const gateway = {

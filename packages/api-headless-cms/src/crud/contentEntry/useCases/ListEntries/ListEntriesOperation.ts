@@ -1,9 +1,9 @@
-import type { IListEntriesOperation } from "../../abstractions";
+import type { IListEntriesOperation } from "../../abstractions/index.js";
 import type {
     CmsEntryStorageOperations,
     CmsEntryStorageOperationsListParams,
     CmsModel
-} from "~/types";
+} from "~/types/index.js";
 import type { ITransformEntryCallable } from "~/utils/entryStorage.js";
 
 export class ListEntriesOperation implements IListEntriesOperation {

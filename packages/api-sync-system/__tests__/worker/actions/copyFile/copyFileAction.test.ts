@@ -1,4 +1,4 @@
-import type { HeadObjectCommandInput } from "@webiny/aws-sdk/client-s3";
+import type { HeadObjectCommandInput } from "@webiny/aws-sdk/client-s3/index.js";
 import {
     AbortMultipartUploadCommand,
     CompleteMultipartUploadCommand,
@@ -8,9 +8,10 @@ import {
     ListPartsCommand,
     S3Client,
     UploadPartCopyCommand
-} from "@webiny/aws-sdk/client-s3";
+} from "@webiny/aws-sdk/client-s3/index.js";
 import { mockClient } from "aws-sdk-client-mock";
 import { createCopyFileAction } from "~/worker/actions/copyFile/copyFileAction.js";
+import { jest } from "@jest/globals";
 
 describe("copyFileAction", () => {
     beforeEach(() => {

@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as CheckIcon } from "@webiny/icons/check.svg";
 import { ReactComponent as ErrorIcon } from "@webiny/icons/error_outline.svg";
-import { cn, cva, type VariantProps } from "~/utils";
-import { ProgressItemState } from "~/SteppedProgress/domains";
-import { Icon } from "~/Icon";
+import { cn, cva, type VariantProps } from "~/utils.js";
+import { ProgressItemState } from "~/SteppedProgress/domains/index.js";
+import { Icon } from "~/Icon/index.js";
 
 const steppedProgressIconVariants = cva(
     ["wby-absolute wby-top-1/2 wby-left-1/2 -wby-translate-x-1/2 -wby-translate-y-1/2"],

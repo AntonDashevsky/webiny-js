@@ -4,12 +4,12 @@ import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import {
     FileManagerViewConfig,
     useFileManagerViewConfig
-} from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import { useFileModel } from "~/hooks/useFileModel";
-import type { BatchDTO } from "~/components/BulkActions/ActionEdit/domain";
-import { BatchEditorDialog } from "./BatchEditorDialog";
-import { ActionEditPresenter } from "./ActionEditPresenter";
-import { useActionEditWorker } from "~/components/BulkActions/ActionEdit/useActionEditWorker";
+} from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import { useFileModel } from "~/hooks/useFileModel.js";
+import type { BatchDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { BatchEditorDialog } from "./BatchEditorDialog/index.js";
+import { ActionEditPresenter } from "./ActionEditPresenter.js";
+import { useActionEditWorker } from "~/components/BulkActions/ActionEdit/useActionEditWorker.js";
 import { Tooltip } from "@webiny/admin-ui";
 
 const { useButtons } = FileManagerViewConfig.Browser.BulkAction;

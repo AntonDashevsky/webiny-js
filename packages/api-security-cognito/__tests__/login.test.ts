@@ -1,4 +1,4 @@
-import useGqlHandler from "./useGqlHandler";
+import useGqlHandler from "./useGqlHandler.js";
 import md5 from "md5";
 
 const createGravatar = (email: string) => `https://www.gravatar.com/avatar/${md5(email)}`;

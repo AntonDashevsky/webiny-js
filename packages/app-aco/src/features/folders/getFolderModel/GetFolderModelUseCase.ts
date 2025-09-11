@@ -1,5 +1,5 @@
-import type { IGetFolderModelRepository } from "./IGetFolderModelRepository";
-import type { IGetFolderModelUseCase } from "./IGetFolderModelUseCase";
+import type { IGetFolderModelRepository } from "./IGetFolderModelRepository.js";
+import type { IGetFolderModelUseCase } from "./IGetFolderModelUseCase.js";
 
 export class GetFolderModelUseCase implements IGetFolderModelUseCase {
     private repository: IGetFolderModelRepository;

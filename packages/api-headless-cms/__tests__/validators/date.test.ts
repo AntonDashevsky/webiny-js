@@ -1,6 +1,6 @@
-import { createDateLteValidator } from "~/validators/dateLte";
-import { createDateGteValidator } from "~/validators/dateGte";
-import type { CmsModel, CmsModelField, CmsModelFieldValidation } from "~/types";
+import { createDateLteValidator } from "~/validators/dateLte.js";
+import { createDateGteValidator } from "~/validators/dateGte.js";
+import type { CmsModel, CmsModelField, CmsModelFieldValidation } from "~/types/index.js";
 
 const createValidator = (args: Record<string, any>): CmsModelFieldValidation => {
     return {

@@ -1,5 +1,5 @@
 import { createGenericContext } from "@webiny/app";
-import type { PageDto } from "~/domain/Page";
+import type { PageDto } from "~/domain/Page/index.js";
 
 export interface PageContext {
     page: PageDto;

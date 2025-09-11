@@ -1,6 +1,6 @@
 import { Result } from "@webiny/feature";
-import type { Tenant } from "~/types";
-import type { GetCurrentTenantUseCase as UseCase } from "./abstractions";
+import type { Tenant } from "~/types.js";
+import type { GetCurrentTenantUseCase as UseCase } from "./abstractions.js";
 
 export class GetCurrentTenantUseCase implements UseCase.Interface {
     constructor(private readonly getCurrentTenant: () => Tenant) {}

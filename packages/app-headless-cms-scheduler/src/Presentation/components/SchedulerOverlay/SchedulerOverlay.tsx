@@ -1,13 +1,13 @@
 import React from "react";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 import { OverlayLayout } from "@webiny/app-admin";
-import { Scrollbar } from "@webiny/ui/Scrollbar";
-import { Title } from "~/Presentation/components/Title";
-import { SearchInput } from "~/Presentation/components/SearchInput";
-import { Empty } from "~/Presentation/components/Empty";
-import { Table } from "~/Presentation/components/Table";
-import { BottomInfoBar } from "~/Presentation/components/BottomInfoBar";
-import { useScheduler } from "~/Presentation/hooks";
+import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
+import { Title } from "~/Presentation/components/Title/index.js";
+import { SearchInput } from "~/Presentation/components/SearchInput/index.js";
+import { Empty } from "~/Presentation/components/Empty/index.js";
+import { Table } from "~/Presentation/components/Table/index.js";
+import { BottomInfoBar } from "~/Presentation/components/BottomInfoBar/index.js";
+import { useScheduler } from "~/Presentation/hooks/index.js";
 
 interface SchedulerOverlayProps {
     title: string;

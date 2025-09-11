@@ -1,14 +1,14 @@
-import type { useDocumentEditor } from "~/DocumentEditor";
+import type { useDocumentEditor } from "~/DocumentEditor/index.js";
 import { StylesBindingsProcessor } from "@webiny/website-builder-sdk";
-import type { IMetadata } from "~/BaseEditor/metadata";
+import type { IMetadata } from "~/BaseEditor/metadata/index.js";
 import {
     BreakpointElementMetadata,
     ElementMetadata,
     NullMetadata,
     StylesMetadata
-} from "~/BaseEditor/metadata";
-import { Commands } from "~/BaseEditor";
-import type { Editor } from "~/editorSdk/Editor";
+} from "~/BaseEditor/metadata/index.js";
+import { Commands } from "~/BaseEditor/index.js";
+import type { Editor } from "~/editorSdk/Editor.js";
 import { autorun, makeAutoObservable, runInAction } from "mobx";
 import { type InheritanceInfo, InheritanceProcessor } from "@webiny/website-builder-sdk";
 import {
@@ -16,9 +16,9 @@ import {
     type DocumentElementBindings,
     type Document
 } from "@webiny/website-builder-sdk";
-import { $getComponentManifestByElementId } from "~/editorSdk/utils";
+import { $getComponentManifestByElementId } from "~/editorSdk/utils/index.js";
 import { ComponentManifestToAstConverter } from "@webiny/website-builder-sdk";
-import { BASE_BREAKPOINT } from "~/constants";
+import { BASE_BREAKPOINT } from "~/constants.js";
 
 export type ElementBreakpointStyles = {
     styles: Record<string, any>;

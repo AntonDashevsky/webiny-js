@@ -1,6 +1,6 @@
 import React from "react";
 import { Slot } from "radix-ui";
-import { cn, cva, type VariantProps, makeDecoratable } from "~/utils";
+import { cn, cva, type VariantProps, makeDecoratable } from "~/utils.js";
 
 const iconButtonWrapperVariants = cva("wby-inline-block", {
     variants: {

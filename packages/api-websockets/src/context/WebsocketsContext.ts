@@ -1,17 +1,17 @@
 import WebinyError from "@webiny/error";
-import type { IWebsocketsConnectionRegistry, IWebsocketsConnectionRegistryData } from "~/registry";
+import type { IWebsocketsConnectionRegistry, IWebsocketsConnectionRegistryData } from "~/registry/index.js";
 import type {
     IWebsocketsContextObject,
     IWebsocketsContextDisconnectConnectionsParams,
     IWebsocketsContextListConnectionsParams,
     IWebsocketsIdentity
-} from "./abstractions/IWebsocketsContext";
+} from "./abstractions/IWebsocketsContext.js";
 import type {
     IWebsocketsTransport,
     IWebsocketsTransportSendConnection,
     IWebsocketsTransportSendData
-} from "~/transport";
-import type { GenericRecord } from "@webiny/api/types";
+} from "~/transport/index.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 
 export class WebsocketsContext implements IWebsocketsContextObject {
     public readonly registry: IWebsocketsConnectionRegistry;

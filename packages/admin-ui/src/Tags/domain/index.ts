@@ -1,4 +1,4 @@
-export * from "./TagItem";
-export type * from "./TagItemDto";
-export type * from "./TagItemFormatted";
-export * from "./TagItemMapper";
+export * from "./TagItem.js";
+export type * from "./TagItemDto.js";
+export type * from "./TagItemFormatted.js";
+export * from "./TagItemMapper.js";

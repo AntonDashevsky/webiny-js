@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "@webiny/react-router";
 import { DocumentEditor } from "~/DocumentEditor/DocumentEditor.js";
-import { useCreatePageRevisionFrom, useGetPage } from "~/features/pages";
+import { useCreatePageRevisionFrom, useGetPage } from "~/features/pages/index.js";
 import { OverlayLoader } from "@webiny/admin-ui";
-import { useGetWebsiteBuilderSettings } from "~/features";
-import { DefaultPageEditorConfig } from "./PageEditor/DefaultPageEditorConfig";
-import { DefaultEditorConfig } from "~/BaseEditor";
-import { EDITOR_NAME } from "~/modules/pages/constants";
-import { WB_PAGE_EDITOR_ROUTE, WbPageStatus } from "~/constants";
+import { useGetWebsiteBuilderSettings } from "~/features/index.js";
+import { DefaultPageEditorConfig } from "./PageEditor/DefaultPageEditorConfig.js";
+import { DefaultEditorConfig } from "~/BaseEditor/index.js";
+import { EDITOR_NAME } from "~/modules/pages/constants.js";
+import { WB_PAGE_EDITOR_ROUTE, WbPageStatus } from "~/constants.js";
 import type { EditorPage } from "@webiny/website-builder-sdk";
-import type { Page } from "~/domain/Page";
+import type { Page } from "~/domain/Page/index.js";
 
 const getPageDataFromPage = (page: Page): EditorPage => {
     return {

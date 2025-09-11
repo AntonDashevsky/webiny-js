@@ -1,8 +1,8 @@
 import { Plugin } from "@webiny/plugins";
 import type { CmsPrivateModelFull } from "@webiny/api-headless-cms";
 import { createModelField } from "@webiny/api-headless-cms";
-import type { CmsModelField as BaseModelField } from "@webiny/api-headless-cms/types";
-import { FOLDER_MODEL_ID } from "~/folder/folder.model";
+import type { CmsModelField as BaseModelField } from "@webiny/api-headless-cms/types/index.js";
+import { FOLDER_MODEL_ID } from "~/folder/folder.model.js";
 
 export type CmsModelField = Omit<BaseModelField, "storageId"> & { modelIds?: string[] };
 

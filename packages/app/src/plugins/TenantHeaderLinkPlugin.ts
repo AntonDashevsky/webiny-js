@@ -1,7 +1,7 @@
 import { setContext } from "apollo-link-context";
-import { ApolloLinkPlugin } from "./ApolloLinkPlugin";
+import { ApolloLinkPlugin } from "./ApolloLinkPlugin.js";
 import type { ApolloLink } from "apollo-link";
-import { getTenantId } from "~/utils";
+import { getTenantId } from "~/utils/index.js";
 
 /**
  * Append `x-tenant` header from URL query (necessary for prerendering service).

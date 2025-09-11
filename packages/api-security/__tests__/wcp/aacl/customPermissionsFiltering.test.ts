@@ -1,5 +1,5 @@
-import { filterOutCustomWbyAppsPermissions } from "~/createSecurity/filterOutCustomWbyAppsPermissions";
-import { customPermissions } from "./mocks/customPermissions";
+import { filterOutCustomWbyAppsPermissions } from "~/createSecurity/filterOutCustomWbyAppsPermissions.js";
+import { customPermissions } from "./mocks/customPermissions.js";
 
 describe("Custom permissions filtering test", () => {
     it("should filter out all custom permission objects", async () => {

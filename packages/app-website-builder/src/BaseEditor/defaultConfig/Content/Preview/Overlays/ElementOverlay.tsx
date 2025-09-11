@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 import { cn } from "@webiny/admin-ui";
-import { useDocumentEditor } from "~/DocumentEditor";
-import type { Box } from "../Box";
-import { $selectElement } from "~/editorSdk/utils";
-import { Draggable } from "~/BaseEditor/components/Draggable";
-import { useIsDragging } from "~/BaseEditor/defaultConfig/Content/Preview/useIsDragging";
-import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
-import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import type { Box } from "../Box.js";
+import { $selectElement } from "~/editorSdk/utils/index.js";
+import { Draggable } from "~/BaseEditor/components/Draggable.js";
+import { useIsDragging } from "~/BaseEditor/defaultConfig/Content/Preview/useIsDragging.js";
+import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest.js";
+import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles.js";
 
 interface ElementOverlayProps {
     elementId: string;

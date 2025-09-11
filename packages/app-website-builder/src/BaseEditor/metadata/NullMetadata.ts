@@ -1,4 +1,4 @@
-import type { IMetadata } from "./IMetadata";
+import type { IMetadata } from "./IMetadata.js";
 
 export class NullMetadata implements IMetadata {
     applyToDocument(): void {}

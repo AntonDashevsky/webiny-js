@@ -1,10 +1,10 @@
 import React from "react";
 import { Icon, Link, Text } from "@webiny/admin-ui";
 import { ReactComponent as File } from "@webiny/icons/description.svg";
-import { PageListConfig } from "~/modules/pages/configs";
+import { PageListConfig } from "~/modules/pages/configs/index.js";
 import { useGetEditPageUrl } from "~/modules/pages/PagesList/hooks/useGetEditPageUrl.js";
-import { FolderCellName } from "~/modules/shared/FolderCellName";
-import type { PageDto } from "~/domain/Page";
+import { FolderCellName } from "~/modules/shared/FolderCellName.js";
+import type { PageDto } from "~/domain/Page/index.js";
 
 interface PageCellRowTitleProps {
     page: PageDto;

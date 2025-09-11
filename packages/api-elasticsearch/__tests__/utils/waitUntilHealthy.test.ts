@@ -1,8 +1,8 @@
-import { createWaitUntilHealthy } from "~/utils/waitUntilHealthy";
-import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
-import { ElasticsearchCatClusterHealthStatus } from "~/operations/types";
-import { UnhealthyClusterError } from "~/utils/waitUntilHealthy/UnhealthyClusterError";
-import { WaitingHealthyClusterAbortedError } from "~/utils/waitUntilHealthy/WaitingHealthyClusterAbortedError";
+import { createWaitUntilHealthy } from "~/utils/waitUntilHealthy/index.js";
+import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient.js";
+import { ElasticsearchCatClusterHealthStatus } from "~/operations/types.js";
+import { UnhealthyClusterError } from "~/utils/waitUntilHealthy/UnhealthyClusterError.js";
+import { WaitingHealthyClusterAbortedError } from "~/utils/waitUntilHealthy/WaitingHealthyClusterAbortedError.js";
 import { jest } from "@jest/globals";
 
 describe("wait until healthy", () => {

@@ -1,8 +1,8 @@
-import { CompressorPlugin, Context } from "~/index";
-import type { Context as ContextInterface } from "~/types";
-import { Benchmark } from "~/Benchmark";
-import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin";
-import { GzipCompression, JsonpackCompression } from "@webiny/utils/compression";
+import { CompressorPlugin, Context } from "~/index.js";
+import type { Context as ContextInterface } from "~/types.js";
+import { Benchmark } from "~/Benchmark.js";
+import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin.js";
+import { GzipCompression, JsonpackCompression } from "@webiny/utils/compression/index.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 interface DummyContextInterface extends ContextInterface {

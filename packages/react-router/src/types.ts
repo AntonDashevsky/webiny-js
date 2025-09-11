@@ -1,4 +1,4 @@
-import type { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types.js";
 import type { ApolloClient } from "apollo-client";
 
 export interface ReactRouterOnLinkPlugin extends Plugin {

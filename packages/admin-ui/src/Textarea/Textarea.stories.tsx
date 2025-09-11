@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Textarea } from "~/Textarea";
+import { Textarea } from "~/Textarea/index.js";
 
 const meta: Meta<typeof Textarea> = {
     title: "Components/Form/Textarea",

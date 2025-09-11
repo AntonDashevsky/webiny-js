@@ -1,9 +1,9 @@
-import type { ISaveSettingsFeature, SettingsDto } from "./abstractions/ISaveSettings.feature";
-import { Settings } from "~/domain/Settings";
-import type { ISaveSettingsRepository } from "./abstractions/ISaveSettings.repository";
-import { SaveSettingsGateway } from "~/infrastructure/SaveSettings.gateway";
-import { SaveSettingsRepository } from "~/features/saveSettings/SaveSettings.repository";
-import type { Context } from "~/types";
+import type { ISaveSettingsFeature, SettingsDto } from "./abstractions/ISaveSettings.feature.js";
+import { Settings } from "~/domain/Settings.js";
+import type { ISaveSettingsRepository } from "./abstractions/ISaveSettings.repository.js";
+import { SaveSettingsGateway } from "~/infrastructure/SaveSettings.gateway.js";
+import { SaveSettingsRepository } from "~/features/saveSettings/SaveSettings.repository.js";
+import type { Context } from "~/types.js";
 
 export class SaveSettings implements ISaveSettingsFeature {
     private repository: ISaveSettingsRepository;

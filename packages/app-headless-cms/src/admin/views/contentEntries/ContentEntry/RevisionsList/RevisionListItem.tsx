@@ -1,5 +1,5 @@
 import React from "react";
-import { Date } from "@webiny/ui/DateTime";
+import { Date } from "@webiny/ui/DateTime/index.js";
 import { DropdownMenu, Icon, IconButton, List, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as MoreVerticalIcon } from "@webiny/icons/more_vert.svg";
 import { ReactComponent as LockIcon } from "@webiny/icons/lock.svg";
@@ -10,12 +10,12 @@ import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as PublishIcon } from "@webiny/icons/visibility.svg";
 import { ReactComponent as UnpublishIcon } from "@webiny/icons/visibility_off.svg";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
-import type { CmsContentEntryRevision } from "~/types";
-import { i18n } from "@webiny/app/i18n";
-import { useRevision } from "./useRevision";
-import { usePermission } from "~/admin/hooks/usePermission";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
-import { PublishEntryRevisionListItem } from "./PublishEntryRevisionListItem";
+import type { CmsContentEntryRevision } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useRevision } from "./useRevision.js";
+import { usePermission } from "~/admin/hooks/usePermission.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
+import { PublishEntryRevisionListItem } from "./PublishEntryRevisionListItem.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/content-details/content-revisions");
 

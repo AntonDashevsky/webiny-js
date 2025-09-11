@@ -2,9 +2,9 @@ import React from "react";
 import { ReactComponent as ReplaceIcon } from "@webiny/icons/file_upload.svg";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as TrashIcon } from "@webiny/icons/delete.svg";
-import { IconButton } from "~/Button";
-import { Icon } from "~/Icon";
-import { cn } from "~/utils";
+import { IconButton } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
+import { cn } from "~/utils.js";
 
 interface ItemActionsProps extends React.HTMLAttributes<HTMLDivElement> {
     onRemoveItem?: () => void;

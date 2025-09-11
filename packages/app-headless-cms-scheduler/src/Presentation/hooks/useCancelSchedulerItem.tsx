@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import { useScheduler } from "./useScheduler";
-import type { SchedulerEntry } from "~/types";
+import { useScheduler } from "./useScheduler.js";
+import type { SchedulerEntry } from "~/types.js";
 
 interface UseCancelScheduleItemParams {
     item: Pick<SchedulerEntry, "id" | "title" | "type">;

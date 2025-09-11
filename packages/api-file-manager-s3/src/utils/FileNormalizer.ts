@@ -1,7 +1,7 @@
 import { mdbid } from "@webiny/utils";
-import type { FileData, PresignedPostPayloadData } from "~/types";
-import { FileKey } from "~/utils/FileKey";
-import type { FileModifier } from "./FileUploadModifier";
+import type { FileData, PresignedPostPayloadData } from "~/types.js";
+import { FileKey } from "~/utils/FileKey.js";
+import type { FileModifier } from "./FileUploadModifier.js";
 
 export interface FileToSign {
     name: string;

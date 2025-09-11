@@ -1,10 +1,10 @@
 import React from "react";
 import type { InputAstNode } from "@webiny/website-builder-sdk";
 // import { FieldArray } from "./FieldArray";
-import { useInputRenderer } from "./useInputRenderer";
-import { useInputValue } from "./useInputValue";
+import { useInputRenderer } from "./useInputRenderer.js";
+import { useInputValue } from "./useInputValue.js";
 import type { DocumentElement, DocumentElementBindings } from "@webiny/website-builder-sdk";
-import { InheritanceLabel } from "../InheritanceLabel";
+import { InheritanceLabel } from "../InheritanceLabel.js";
 
 interface InputFieldProps {
     node: InputAstNode;

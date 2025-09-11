@@ -1,1 +1,1 @@
-export * from "./FileDropArea";
+export * from "./FileDropArea.js";

@@ -1,1 +1,1 @@
-export * from "./CheckboxGroupPresenter";
+export * from "./CheckboxGroupPresenter.js";

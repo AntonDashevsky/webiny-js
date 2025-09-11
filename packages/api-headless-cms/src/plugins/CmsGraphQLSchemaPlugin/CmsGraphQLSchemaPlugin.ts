@@ -3,7 +3,7 @@ import type {
     IGraphQLSchemaPlugin
 } from "@webiny/handler-graphql";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import type { CmsContext } from "~/types";
+import type { CmsContext } from "~/types/index.js";
 
 export type ICmsGraphQLSchemaPlugin<T extends CmsContext = CmsContext> = IGraphQLSchemaPlugin<T>;
 

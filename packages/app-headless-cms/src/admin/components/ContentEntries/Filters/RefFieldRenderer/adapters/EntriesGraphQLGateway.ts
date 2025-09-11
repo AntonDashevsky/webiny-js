@@ -1,12 +1,12 @@
 import type { ApolloClient } from "apollo-client";
-import type { EntriesGatewayInterface } from "./EntriesGatewayInterface";
-import { GET_CONTENT_ENTRY, SEARCH_CONTENT_ENTRIES } from "./entries.gql";
+import type { EntriesGatewayInterface } from "./EntriesGatewayInterface.js";
+import { GET_CONTENT_ENTRY, SEARCH_CONTENT_ENTRIES } from "./entries.gql.js";
 import type {
     GetEntryQueryVariables,
     GetEntryResponse,
     ListEntriesQueryVariables,
     ListEntriesResponse
-} from "./entries.types";
+} from "./entries.types.js";
 
 export class EntriesGraphQLGateway implements EntriesGatewayInterface {
     private client: ApolloClient<any>;

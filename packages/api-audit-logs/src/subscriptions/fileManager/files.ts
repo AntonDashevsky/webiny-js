@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
 
-import { AUDIT } from "~/config";
-import { getAuditConfig } from "~/utils/getAuditConfig";
-import type { AuditLogsContext } from "~/types";
+import { AUDIT } from "~/config.js";
+import { getAuditConfig } from "~/utils/getAuditConfig.js";
+import type { AuditLogsContext } from "~/types.js";
 
 export const onFileAfterCreateHook = (context: AuditLogsContext) => {
     context.fileManager.onFileAfterCreate.subscribe(async ({ file }) => {

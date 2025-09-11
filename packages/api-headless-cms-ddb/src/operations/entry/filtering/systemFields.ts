@@ -1,10 +1,10 @@
-import type { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 import {
     ENTRY_META_FIELDS,
     isDateTimeEntryMetaField,
     isIdentityEntryMetaField
-} from "@webiny/api-headless-cms/constants";
-import lodashStartCase from "lodash/startCase";
+} from "@webiny/api-headless-cms/constants.js";
+import lodashStartCase from "lodash/startCase.js";
 
 type Field = Pick<CmsModelField, "id" | "type" | "storageId" | "fieldId" | "settings" | "label">;
 

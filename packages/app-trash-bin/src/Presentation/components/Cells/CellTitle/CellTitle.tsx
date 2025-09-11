@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as File } from "@webiny/icons/description.svg";
-import { TrashBinListConfig } from "~/Presentation/configs";
+import { TrashBinListConfig } from "~/Presentation/configs/index.js";
 import { Icon, Text } from "@webiny/admin-ui";
 
 export const CellTitle = () => {

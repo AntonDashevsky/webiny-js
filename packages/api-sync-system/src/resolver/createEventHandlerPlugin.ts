@@ -1,4 +1,4 @@
-import { createEventHandler as createSQSEventHandler } from "@webiny/handler-aws/sqs";
+import { createEventHandler as createSQSEventHandler } from "@webiny/handler-aws/sqs/index.js";
 import { createResolverApp } from "./app/ResolverApplication.js";
 import { convertException } from "@webiny/utils";
 import { createRecordHandler } from "./app/RecordHandler.js";

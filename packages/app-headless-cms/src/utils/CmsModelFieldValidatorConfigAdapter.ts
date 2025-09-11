@@ -4,7 +4,7 @@ import type {
     CmsModelFieldValidatorConfig,
     CmsModelFieldValidatorConfigAdapter as ICmsModelFieldValidatorConfigAdapter,
     CmsModelFieldValidatorPlugin
-} from "~/types";
+} from "~/types.js";
 
 function getValidator(name: string) {
     const allValidators = plugins.byType<CmsModelFieldValidatorPlugin>("cms-model-field-validator");

@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as File } from "@material-design-icons/svg/outlined/description.svg";
-import { RowIcon, RowText, RowTitle } from "./CellTitle.styled";
-import { SchedulerListConfig } from "~/Presentation/configs";
+import { RowIcon, RowText, RowTitle } from "./CellTitle.styled.js";
+import { SchedulerListConfig } from "~/Presentation/configs/index.js";
 
 export const CellTitle = () => {
     const { useTableRow } = SchedulerListConfig.Browser.Table.Column;

@@ -1,6 +1,6 @@
-import type { CmsGroup, CmsModelField } from "~/types";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import models from "./mocks/contentModels";
+import type { CmsGroup, CmsModelField } from "~/types/index.js";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import models from "./mocks/contentModels.js";
 
 describe("multiple values in field", () => {
     const manageOpts = { path: "manage/en-US" };

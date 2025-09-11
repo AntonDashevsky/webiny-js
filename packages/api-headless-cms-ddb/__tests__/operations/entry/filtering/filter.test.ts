@@ -1,15 +1,15 @@
-import { createEntries } from "./mocks/entry.model";
-import type { Expression } from "~/operations/entry/filtering/createExpressions";
-import { createExpressions } from "~/operations/entry/filtering/createExpressions";
+import { createEntries } from "./mocks/entry.model.js";
+import type { Expression } from "~/operations/entry/filtering/createExpressions.js";
+import { createExpressions } from "~/operations/entry/filtering/createExpressions.js";
 import type { PluginsContainer } from "@webiny/plugins";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
-import type { Field } from "~/operations/entry/filtering/types";
-import { createPluginsContainer } from "../../helpers/pluginsContainer";
-import { createModel } from "../../helpers/createModel";
-import { createFields } from "~/operations/entry/filtering/createFields";
-import { filter } from "~/operations/entry/filtering";
-import { getSearchableFields } from "@webiny/api-headless-cms/crud/contentEntry/searchableFields";
-import { searchableJsonFilterCreate } from "~/operations/entry/filtering/plugins/searchableJsonFilterCreate";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import type { Field } from "~/operations/entry/filtering/types.js";
+import { createPluginsContainer } from "../../helpers/pluginsContainer.js";
+import { createModel } from "../../helpers/createModel.js";
+import { createFields } from "~/operations/entry/filtering/createFields.js";
+import { filter } from "~/operations/entry/filtering/index.js";
+import { getSearchableFields } from "@webiny/api-headless-cms/crud/contentEntry/searchableFields.js";
+import { searchableJsonFilterCreate } from "~/operations/entry/filtering/plugins/searchableJsonFilterCreate.js";
 
 describe("filtering", () => {
     let plugins: PluginsContainer;

@@ -4,11 +4,11 @@ import { Grid } from "@webiny/admin-ui";
 import { useDialogs, useSnackbar } from "@webiny/app-admin";
 import type { GenericFormData } from "@webiny/form";
 import { useBind } from "@webiny/form";
-import { UsersTeamsMultiAutocomplete } from "./DialogSetPermissions/UsersTeamsMultiAutocomplete";
-import { UsersTeamsSelection } from "./DialogSetPermissions/UsersTeamsSelection";
-import { LIST_FOLDER_LEVEL_PERMISSIONS_TARGETS } from "./DialogSetPermissions/graphql";
-import { useUpdateFolder } from "~/features";
-import type { FolderItem, FolderLevelPermissionsTarget, FolderPermission } from "~/types";
+import { UsersTeamsMultiAutocomplete } from "./DialogSetPermissions/UsersTeamsMultiAutocomplete.js";
+import { UsersTeamsSelection } from "./DialogSetPermissions/UsersTeamsSelection.js";
+import { LIST_FOLDER_LEVEL_PERMISSIONS_TARGETS } from "./DialogSetPermissions/graphql.js";
+import { useUpdateFolder } from "~/features/index.js";
+import type { FolderItem, FolderLevelPermissionsTarget, FolderPermission } from "~/types.js";
 
 interface ShowDialogParams {
     folder: FolderItem;

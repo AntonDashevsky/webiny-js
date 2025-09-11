@@ -1,6 +1,6 @@
 import type { Document } from "@webiny/website-builder-sdk";
-import { $getElementById } from "./$getElementById";
-import { $removeElementReferenceFromParent } from "./$removeElementReferenceFromParent";
+import { $getElementById } from "./$getElementById.js";
+import { $removeElementReferenceFromParent } from "./$removeElementReferenceFromParent.js";
 
 export function $deleteElement(document: Document, id: string) {
     const elementToDelete = $getElementById(document, id);

@@ -1,8 +1,8 @@
 import React from "react";
 import type { FormRenderPropParams } from "@webiny/form";
-import type { InputElementRenderProps } from "@webiny/app-admin/ui/elements/form/InputElement";
-import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement";
-import { TeamAutocomplete } from "@webiny/app-security-access-management/components/TeamAutocomplete";
+import type { InputElementRenderProps } from "@webiny/app-admin/ui/elements/form/InputElement.js";
+import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement.js";
+import { TeamAutocomplete } from "@webiny/app-security-access-management/components/TeamAutocomplete/index.js";
 
 export class TeamAutocompleteElement extends InputElement {
     public override render(

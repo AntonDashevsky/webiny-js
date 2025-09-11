@@ -1,11 +1,11 @@
 import React, { useCallback } from "react";
 import type { GridCellProps } from "react-virtualized";
 import { Grid } from "react-virtualized";
-import { Text } from "~/Text";
-import { cn } from "~/utils";
-import type { IconPickerFontAwesome } from "../../domains";
-import { IconPickerIconFormatter } from "../../domains";
-import { IconPickerIcon } from "./IconPickerIcon";
+import { Text } from "~/Text/index.js";
+import { cn } from "~/utils.js";
+import type { IconPickerFontAwesome } from "../../domains/index.js";
+import { IconPickerIconFormatter } from "../../domains/index.js";
+import { IconPickerIcon } from "./IconPickerIcon.js";
 
 const COLUMN_COUNT = 5;
 const GRID_WIDTH = 424;

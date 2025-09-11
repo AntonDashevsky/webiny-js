@@ -1,8 +1,8 @@
 import React from "react";
 
-import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
 import { ReactComponent as LockIcon } from "@webiny/icons/lock.svg";
-import { RecordLockingPermissions } from "./RecordLockingPermissions";
+import { RecordLockingPermissions } from "./RecordLockingPermissions.js";
 import { Accordion } from "@webiny/admin-ui";
 
 export const recordLockingPermissionRenderer: AdminAppPermissionRendererPlugin = {

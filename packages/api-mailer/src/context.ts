@@ -1,7 +1,7 @@
 import { ContextPlugin } from "@webiny/api";
-import type { MailerContext } from "./types";
-import { createTransporterCrud } from "~/crud/transporter.crud";
-import { createSettingsCrud } from "~/crud/settings.crud";
+import type { MailerContext } from "./types.js";
+import { createTransporterCrud } from "~/crud/transporter.crud.js";
+import { createSettingsCrud } from "~/crud/settings.crud.js";
 
 export const createMailerContext = () => {
     return new ContextPlugin<MailerContext>(async context => {

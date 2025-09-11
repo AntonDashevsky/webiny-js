@@ -1,7 +1,7 @@
 import React from "react";
 import { CompositionScope } from "@webiny/app-admin";
-import { EditorConfig } from "~/BaseEditor";
-import { EDITOR_NAME } from "~/modules/pages/constants";
+import { EditorConfig } from "~/BaseEditor/index.js";
+import { EDITOR_NAME } from "~/modules/pages/constants.js";
 
 interface PageEditorConfigProps {
     children: React.ReactNode;

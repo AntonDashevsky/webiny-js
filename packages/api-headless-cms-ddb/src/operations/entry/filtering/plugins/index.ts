@@ -1,7 +1,7 @@
-import { createDefaultFilterCreate } from "./defaultFilterCreate";
-import { createRefFilterCreate } from "./refFilterCreate";
-import { objectFilterCreate } from "./objectFilterCreate";
-import { searchableJsonFilterCreate } from "./searchableJsonFilterCreate";
+import { createDefaultFilterCreate } from "./defaultFilterCreate.js";
+import { createRefFilterCreate } from "./refFilterCreate.js";
+import { objectFilterCreate } from "./objectFilterCreate.js";
+import { searchableJsonFilterCreate } from "./searchableJsonFilterCreate.js";
 
 export const createFilterCreatePlugins = () => {
     return [

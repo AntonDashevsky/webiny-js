@@ -1,10 +1,10 @@
 import React from "react";
-import { cn, makeDecoratable } from "~/utils";
-import { RichItemThumbnail } from "./RichItemThumbnail";
-import { ItemDescription } from "../ItemDescription";
-import { ItemActions } from "~/FilePicker/primitives/components/previews/ItemActions";
-import { previewVariants } from "../variants";
-import type { FilePreviewDefaultProps } from "../../types";
+import { cn, makeDecoratable } from "~/utils.js";
+import { RichItemThumbnail } from "./RichItemThumbnail.js";
+import { ItemDescription } from "../ItemDescription.js";
+import { ItemActions } from "~/FilePicker/primitives/components/previews/ItemActions.js";
+import { previewVariants } from "../variants.js";
+import type { FilePreviewDefaultProps } from "../../types.js";
 
 type RichItemPreviewProps = FilePreviewDefaultProps & {
     preview?: "thumbnail" | "file-type" | "placeholder";

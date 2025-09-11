@@ -2,11 +2,11 @@ import React from "react";
 import type {
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
-} from "@webiny/app-headless-cms/types";
-import { FileManager } from "@webiny/app-admin/components";
-import { EditFileUsingUrl } from "~/components/EditFileUsingUrl";
+} from "@webiny/app-headless-cms/types.js";
+import { FileManager } from "@webiny/app-admin/components/index.js";
+import { EditFileUsingUrl } from "~/components/EditFileUsingUrl/index.js";
 import { FilePicker } from "@webiny/admin-ui";
-import { getSupportedExtensionsLabelHint } from "~/modules/HeadlessCms/fileRenderer/utils";
+import { getSupportedExtensionsLabelHint } from "~/modules/HeadlessCms/fileRenderer/utils.js";
 
 const FieldRenderer = ({ field, getBind }: CmsModelFieldRendererProps) => {
     const Bind = getBind();

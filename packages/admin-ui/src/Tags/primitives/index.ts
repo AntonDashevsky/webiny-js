@@ -1,1 +1,1 @@
-export * from "./TagsPrimitive";
+export * from "./TagsPrimitive.js";

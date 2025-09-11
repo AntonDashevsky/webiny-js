@@ -4,8 +4,8 @@ import { observer } from "mobx-react-lite";
 import { Grid, Select } from "@webiny/admin-ui";
 import { Bind } from "@webiny/form";
 
-import { FieldRenderer } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/FieldRenderer";
-import type { OperationFormData } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter";
+import { FieldRenderer } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/FieldRenderer.js";
+import type { OperationFormData } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter.js";
 
 export interface OperationProps {
     operation: OperationFormData;

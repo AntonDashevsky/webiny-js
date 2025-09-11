@@ -1,4 +1,4 @@
-import type { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
 import type {
     IScheduleEntryValues,
     IScheduleFetcher,

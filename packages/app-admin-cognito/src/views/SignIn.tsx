@@ -3,13 +3,13 @@ import { Grid, Input, Alert, Link, OverlayLoader, Button, Text } from "@webiny/a
 import { makeDecoratable } from "@webiny/app-admin";
 import { Form, Bind, useForm } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator";
-import type { UseSignInCallableParams } from "@webiny/app-cognito-authenticator/hooks/useSignIn";
-import { useSignIn } from "@webiny/app-cognito-authenticator/hooks/useSignIn";
-import { View } from "~/components/View";
-import { FederatedLogin } from "./FederatedLogin";
-import type { FederatedIdentityProvider } from "~/federatedIdentityProviders";
-import { Divider } from "~/components/Divider";
+import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator.js";
+import type { UseSignInCallableParams } from "@webiny/app-cognito-authenticator/hooks/useSignIn.js";
+import { useSignIn } from "@webiny/app-cognito-authenticator/hooks/useSignIn.js";
+import { View } from "~/components/View.js";
+import { FederatedLogin } from "./FederatedLogin.js";
+import type { FederatedIdentityProvider } from "~/federatedIdentityProviders.js";
+import { Divider } from "~/components/Divider.js";
 
 export interface SignInProps {
     title?: string;

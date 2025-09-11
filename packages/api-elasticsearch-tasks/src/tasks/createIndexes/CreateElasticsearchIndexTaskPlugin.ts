@@ -1,6 +1,6 @@
 import { Plugin } from "@webiny/plugins";
-import type { Context } from "@webiny/api/types";
-import type { ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types";
+import type { Context } from "@webiny/api/types.js";
+import type { ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types.js";
 
 export interface CreateElasticsearchIndexTaskPluginIndex {
     index: string;

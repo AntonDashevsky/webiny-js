@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useWebsiteBuilderTheme } from "~/BaseEditor/components";
+import { useWebsiteBuilderTheme } from "~/BaseEditor/components/index.js";
 
 export const ApplyTheme = () => {
     const { theme } = useWebsiteBuilderTheme();

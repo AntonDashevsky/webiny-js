@@ -1,10 +1,10 @@
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import type { WebsiteBuilderContext } from "~/context/types";
-import type { WbPageCrud } from "./pages/pages.types";
-import type { WbRedirectCrud } from "./redirects/redirects.types";
-import { PagesContext } from "./pages/pages.context";
-import { RedirectsContext } from "~/context/redirects/redirects.context";
-import { InvalidateRedirectsCache } from "~/features/redirects";
+import type { WebsiteBuilderContext } from "~/context/types.js";
+import type { WbPageCrud } from "./pages/pages.types.js";
+import type { WbRedirectCrud } from "./redirects/redirects.types.js";
+import { PagesContext } from "./pages/pages.context.js";
+import { RedirectsContext } from "~/context/redirects/redirects.context.js";
+import { InvalidateRedirectsCache } from "~/features/redirects/index.js";
 
 export class WebsiteBuilder {
     private readonly context: WebsiteBuilderContext;

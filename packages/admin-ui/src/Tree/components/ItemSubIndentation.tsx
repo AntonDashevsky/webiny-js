@@ -1,6 +1,6 @@
 import React from "react";
-import { Separator } from "~/Separator";
-import { makeDecoratable } from "~/utils";
+import { Separator } from "~/Separator/index.js";
+import { makeDecoratable } from "~/utils.js";
 
 interface ItemSubIndentationProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "content"> {
     level: number;

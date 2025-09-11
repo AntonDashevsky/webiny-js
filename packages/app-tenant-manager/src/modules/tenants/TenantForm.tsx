@@ -1,20 +1,20 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as TenantIcon } from "@webiny/icons/domain.svg";
 import { Form } from "@webiny/form";
-import { Tags } from "@webiny/ui/Tags";
+import { Tags } from "@webiny/ui/Tags/index.js";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
 import { validation } from "@webiny/validation";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
-import { useTenantForm } from "./hooks/useTenantForm";
-import { TenantFormFields } from "~/components/TenantFormFields";
-import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { useTenantForm } from "./hooks/useTenantForm.js";
+import { TenantFormFields } from "~/components/TenantFormFields.js";
+import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload.js";
 import { Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-i18n/admin/locales/form");

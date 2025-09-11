@@ -1,5 +1,5 @@
-import type { IIsAuthorizationEnabledGateway } from "./IIsAuthorizationEnabledGateway";
-import type { AcoContext } from "~/types";
+import type { IIsAuthorizationEnabledGateway } from "./IIsAuthorizationEnabledGateway.js";
+import type { AcoContext } from "~/types.js";
 
 export class IsAuthorizationEnabledGatewayFromContext implements IIsAuthorizationEnabledGateway {
     private context: AcoContext;

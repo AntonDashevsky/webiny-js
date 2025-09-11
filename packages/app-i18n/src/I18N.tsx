@@ -1,11 +1,11 @@
 import React, { Fragment, memo } from "react";
 import { plugins } from "@webiny/plugins";
 import { Provider } from "@webiny/app-admin";
-import { I18NProvider as ContextProvider } from "./contexts/I18N";
+import { I18NProvider as ContextProvider } from "./contexts/I18N/index.js";
 import { HasPermission } from "@webiny/app-security";
 import { Layout } from "@webiny/app-admin";
-import { LocalesView } from "./admin/views/locales";
-import i18nPlugins from "./admin/plugins";
+import { LocalesView } from "./admin/views/locales/index.js";
+import i18nPlugins from "./admin/plugins/index.js";
 import { AdminConfig } from "@webiny/app-admin";
 
 const { Menu, Route } = AdminConfig;

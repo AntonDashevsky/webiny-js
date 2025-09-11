@@ -1,7 +1,7 @@
 import type { CreateElasticsearchIndexTaskPluginIndex } from "@webiny/api-elasticsearch-tasks";
 import { createElasticsearchIndexTaskPlugin } from "@webiny/api-elasticsearch-tasks";
-import { configurations } from "~/configurations";
-import type { CmsContext } from "~/types";
+import { configurations } from "~/configurations.js";
+import type { CmsContext } from "~/types.js";
 
 export const createIndexTaskPluginTest = () => {
     return createElasticsearchIndexTaskPlugin<CmsContext>({

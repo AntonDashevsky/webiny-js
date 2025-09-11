@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import orderBy from "lodash/orderBy";
+import orderBy from "lodash/orderBy.js";
 import { loadingActions, ROOT_FOLDER, WB_PAGE_APP } from "~/constants.js";
 import type { ISortingRepository } from "@webiny/app-utils";
 import {

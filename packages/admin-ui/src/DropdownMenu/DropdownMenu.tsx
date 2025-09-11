@@ -1,15 +1,15 @@
 import * as React from "react";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import { DropdownMenuRoot } from "./components/DropdownMenuRoot";
-import { DropdownMenuTrigger } from "./components/DropdownMenuTrigger";
-import { DropdownMenuContent } from "./components/DropdownMenuContent";
-import { DropdownMenuSeparator } from "./components/DropdownMenuSeparator";
-import { DropdownMenuItem, type DropdownMenuItemProps } from "./components/DropdownMenuItem";
-import { DropdownMenuLink, type DropdownMenuLinkProps } from "./components/DropdownMenuLink";
-import { DropdownMenuCheckboxItem } from "./components/DropdownMenuCheckboxItem";
-import { DropdownMenuLabel } from "./components/DropdownMenuLabel";
-import { DropdownMenuGroup } from "./components/DropdownMenuGroup";
-import { DropdownMenuPortal } from "./components/DropdownMenuPortal";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import { DropdownMenuRoot } from "./components/DropdownMenuRoot.js";
+import { DropdownMenuTrigger } from "./components/DropdownMenuTrigger.js";
+import { DropdownMenuContent } from "./components/DropdownMenuContent.js";
+import { DropdownMenuSeparator } from "./components/DropdownMenuSeparator.js";
+import { DropdownMenuItem, type DropdownMenuItemProps } from "./components/DropdownMenuItem.js";
+import { DropdownMenuLink, type DropdownMenuLinkProps } from "./components/DropdownMenuLink.js";
+import { DropdownMenuCheckboxItem } from "./components/DropdownMenuCheckboxItem.js";
+import { DropdownMenuLabel } from "./components/DropdownMenuLabel.js";
+import { DropdownMenuGroup } from "./components/DropdownMenuGroup.js";
+import { DropdownMenuPortal } from "./components/DropdownMenuPortal.js";
 
 interface DropdownMenuProps
     extends React.ComponentPropsWithoutRef<typeof DropdownMenuRoot>,

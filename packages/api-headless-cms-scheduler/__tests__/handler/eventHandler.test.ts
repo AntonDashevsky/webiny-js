@@ -1,4 +1,4 @@
-import { RawEventHandler } from "@webiny/handler-aws/raw";
+import { RawEventHandler } from "@webiny/handler-aws/raw/index.js";
 import { createScheduledCmsActionEventHandler } from "~/handler/index.js";
 import { registry } from "@webiny/handler-aws/registry.js";
 import type { LambdaContext } from "@webiny/handler-aws/types.js";

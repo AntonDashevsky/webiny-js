@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import FormSettings from "./FormSettings";
+import FormSettings from "./FormSettings.js";
 
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { IconButton, Tooltip } from "@webiny/admin-ui";

@@ -1,9 +1,9 @@
 import React from "react";
 import { Alert, Grid, Input, Select, Switch, Tabs } from "@webiny/admin-ui";
 import { Bind } from "@webiny/form";
-import { toTitleCaseLabel } from "~/ecommerce/components/toTitleCaseLabel";
+import { toTitleCaseLabel } from "~/ecommerce/components/toTitleCaseLabel.js";
 import { validation } from "@webiny/validation";
-import { type EcommerceApiManifest } from "~/features";
+import { type EcommerceApiManifest } from "~/features/index.js";
 
 export const IntegrationsSettings = ({ manifests }: { manifests: EcommerceApiManifest[] }) => {
     if (!manifests.length) {

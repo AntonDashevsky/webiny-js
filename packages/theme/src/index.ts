@@ -1,4 +1,4 @@
-import type { BaseTheme, DecoratedTypography, Theme } from "~/types";
+import type { BaseTheme, DecoratedTypography, Theme } from "~/types.js";
 
 export const createTheme = (theme: BaseTheme): Theme => {
     // Wrap all typography types into a Proxy instance, adding the `stylesById` method.

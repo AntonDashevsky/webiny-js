@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useMemo } from "react";
-import { useComponent } from "./Context";
-import type { DecoratableComponent, DecoratableHook, GenericComponent, GenericHook } from "~/types";
-import { withDecoratorFactory, withHookDecoratorFactory } from "~/decorators";
+import { useComponent } from "./Context.js";
+import type { DecoratableComponent, DecoratableHook, GenericComponent, GenericHook } from "~/types.js";
+import { withDecoratorFactory, withHookDecoratorFactory } from "~/decorators.js";
 
 const ComposableContext = createContext<string[]>([]);
 ComposableContext.displayName = "ComposableContext";

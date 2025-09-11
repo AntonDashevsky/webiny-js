@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
-import type { CmsErrorResponse, CmsModelField } from "@webiny/app-headless-cms-common/types";
-import type { ImportAction, ValidatedCmsGroup, ValidatedCmsModel } from "./types";
+import type { CmsErrorResponse, CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
+import type { ImportAction, ValidatedCmsGroup, ValidatedCmsModel } from "./types.js";
 
 const ERROR = /* GraphQL */ `
     error {

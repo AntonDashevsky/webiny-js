@@ -1,5 +1,6 @@
 import { Scheduler } from "~/scheduler/Scheduler.js";
 import { type ISchedulerInput, ScheduleType } from "~/scheduler/types.js";
+import { jest } from "@jest/globals";
 
 describe("Scheduler", () => {
     const fetcher = {

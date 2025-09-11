@@ -1,9 +1,9 @@
 import React from "react";
 import { Separator } from "@webiny/admin-ui";
 import { Search } from "@webiny/app-aco";
-import { ButtonFilters } from "./ButtonFilters";
-import { ButtonsCreate } from "./ButtonsCreate";
-import { Title } from "./Title";
+import { ButtonFilters } from "./ButtonFilters/index.js";
+import { ButtonsCreate } from "./ButtonsCreate/index.js";
+import { Title } from "./Title/index.js";
 
 interface HeaderProps {
     isRoot: boolean;

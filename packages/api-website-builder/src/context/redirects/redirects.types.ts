@@ -1,10 +1,10 @@
-import type { WbIdentity, WbLocation } from "~/context/types";
-import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
-import type { Topic } from "@webiny/pubsub/types";
+import type { WbIdentity, WbLocation } from "~/context/types.js";
+import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
+import type { Topic } from "@webiny/pubsub/types.js";
 import type {
     ListWbRedirectsParams,
     WbListMeta
-} from "~/features/redirects/ListRedirects/IListRedirects";
+} from "~/features/redirects/ListRedirects/IListRedirects.js";
 
 export interface WbRedirect {
     id: string;

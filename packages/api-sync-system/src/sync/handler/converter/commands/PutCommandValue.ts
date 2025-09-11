@@ -1,4 +1,4 @@
-import type { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
+import type { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import type { ICommandValue, ICommandValueItemExtended } from "~/sync/types.js";
 import type { NonEmptyArray } from "@webiny/api/types.js";
 import { getTableType } from "~/sync/utils/getTableType.js";

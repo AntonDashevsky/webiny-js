@@ -1,5 +1,5 @@
-import type { FileItem } from "./FileItem";
-import type { FileItemFormatted } from "./FileItemFormatted";
+import type { FileItem } from "./FileItem.js";
+import type { FileItemFormatted } from "./FileItemFormatted.js";
 
 export class FileItemFormatter {
     static format(item: FileItem): FileItemFormatted {

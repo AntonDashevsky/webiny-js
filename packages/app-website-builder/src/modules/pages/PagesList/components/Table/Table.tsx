@@ -3,7 +3,7 @@ import { createFoldersData, createRecordsData, Table as AcoTable } from "@webiny
 import { useDocumentList } from "~/modules/pages/PagesList/useDocumentList.js";
 import { useSortPages } from "~/features/pages/index.js";
 import { useSelectPages } from "~/features/pages/selectPages/useSelectPages.js";
-import type { TableRow } from "~/modules/pages/types";
+import type { TableRow } from "~/modules/pages/types.js";
 
 export const Table = () => {
     const { vm } = useDocumentList();

@@ -1,8 +1,8 @@
 import React from "react";
 import { css } from "emotion";
-import type { UiElementRenderProps } from "~/ui/UIElement";
-import { UIElement } from "~/ui/UIElement";
-import { TopAppBarSection } from "@webiny/ui/TopAppBar";
+import type { UiElementRenderProps } from "~/ui/UIElement.js";
+import { UIElement } from "~/ui/UIElement.js";
+import { TopAppBarSection } from "@webiny/ui/TopAppBar/index.js";
 
 const middleBar = css({
     width: "50%"

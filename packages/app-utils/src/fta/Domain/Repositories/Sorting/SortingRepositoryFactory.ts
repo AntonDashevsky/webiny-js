@@ -1,4 +1,4 @@
-import { SortingRepository } from "./SortingRepository";
+import { SortingRepository } from "./SortingRepository.js";
 import type { ISortingRepository } from "~/fta/index.js";
 
 export class SortingRepositoryFactory {

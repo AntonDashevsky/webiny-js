@@ -1,6 +1,6 @@
-import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import type { Tenancy, TenancyStorageOperations } from "~/types";
-import { createTenancy } from "~/createTenancy";
+import { getStorageOps } from "@webiny/project-utils/testing/environment/index.js";
+import type { Tenancy, TenancyStorageOperations } from "~/types.js";
+import { createTenancy } from "~/createTenancy.js";
 
 describe(`Test "Tenancy" install`, () => {
     const { storageOperations } = getStorageOps<TenancyStorageOperations>("tenancy");

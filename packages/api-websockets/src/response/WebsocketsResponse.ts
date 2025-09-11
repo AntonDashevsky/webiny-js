@@ -4,7 +4,7 @@ import type {
     IWebsocketsResponseErrorResult,
     IWebsocketsResponseOkParams,
     IWebsocketsResponseOkResult
-} from "./abstractions/IWebsocketsResponse";
+} from "./abstractions/IWebsocketsResponse.js";
 
 export class WebsocketsResponse implements IWebsocketsResponse {
     public ok(params?: IWebsocketsResponseOkParams): IWebsocketsResponseOkResult {

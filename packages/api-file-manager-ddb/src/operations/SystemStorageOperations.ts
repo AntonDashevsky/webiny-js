@@ -1,12 +1,12 @@
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import type { Entity } from "@webiny/db-dynamodb/toolbox.js";
 import type {
     FileManagerSystem,
     FileManagerSystemStorageOperations,
     FileManagerSystemStorageOperationsCreateParams,
     FileManagerSystemStorageOperationsGetParams,
     FileManagerSystemStorageOperationsUpdateParams
-} from "@webiny/api-file-manager/types";
+} from "@webiny/api-file-manager/types.js";
 import WebinyError from "@webiny/error";
 import { createLegacyEntity, createTable, get, put } from "@webiny/db-dynamodb";
 

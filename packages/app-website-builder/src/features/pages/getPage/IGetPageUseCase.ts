@@ -1,4 +1,4 @@
-import type { Page } from "~/domain/Page";
+import type { Page } from "~/domain/Page/index.js";
 
 export interface GetPageParams {
     id: string;

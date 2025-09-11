@@ -6,7 +6,7 @@
  * This will be used for executing the commands in the target systems.
  */
 import type { IBundle } from "./types.js";
-import type { IIngestorResultItem } from "../ingestor/types";
+import type { IIngestorResultItem } from "../ingestor/types.js";
 import type { IBaseBundleParams } from "./BaseBundle.js";
 import { BaseBundle } from "./BaseBundle.js";
 

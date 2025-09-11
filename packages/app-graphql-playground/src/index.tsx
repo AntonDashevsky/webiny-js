@@ -2,8 +2,8 @@ import React, { memo } from "react";
 import type { ApolloClient } from "apollo-client";
 import { plugins } from "@webiny/plugins";
 import { AdminConfig, Layout } from "@webiny/app-admin";
-import Playground from "./plugins/Playground";
-import playgroundPlugins from "./plugins";
+import Playground from "./plugins/Playground.js";
+import playgroundPlugins from "./plugins/index.js";
 
 const { Route } = AdminConfig;
 

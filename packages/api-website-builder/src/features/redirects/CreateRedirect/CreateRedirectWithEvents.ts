@@ -1,6 +1,6 @@
-import type { ICreateRedirect } from "./ICreateRedirect";
-import type { CreateRedirectUseCasesTopics } from "./index";
-import type { CreateWbRedirectData } from "~/context/redirects/redirects.types";
+import type { ICreateRedirect } from "./ICreateRedirect.js";
+import type { CreateRedirectUseCasesTopics } from "./index.js";
+import type { CreateWbRedirectData } from "~/context/redirects/redirects.types.js";
 
 export class CreateRedirectWithEvents implements ICreateRedirect {
     private topics: CreateRedirectUseCasesTopics;

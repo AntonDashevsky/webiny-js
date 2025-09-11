@@ -1,11 +1,11 @@
 import React from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useRouter } from "@webiny/react-router";
 import { Button, DropdownMenu, Text } from "@webiny/admin-ui";
 import { ReactComponent as DownButton } from "@webiny/icons/keyboard_arrow_down.svg";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
-import { statuses as statusLabels } from "~/admin/constants";
-import type { CmsContentEntryRevision } from "~/types";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
+import { statuses as statusLabels } from "~/admin/constants.js";
+import type { CmsContentEntryRevision } from "~/types.js";
 
 interface CmsEntryRevision extends Pick<CmsContentEntryRevision, "id"> {
     meta: Pick<CmsContentEntryRevision["meta"], "version" | "status">;

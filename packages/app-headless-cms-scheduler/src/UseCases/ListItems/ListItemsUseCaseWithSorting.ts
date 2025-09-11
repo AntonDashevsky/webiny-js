@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import type { ISortingRepository } from "@webiny/app-utils";
 import { SortingMapper } from "@webiny/app-utils";
-import type { IListItemsUseCase } from "./IListItemsUseCase";
+import type { IListItemsUseCase } from "./IListItemsUseCase.js";
 import type {
     ISchedulerListExecuteParams,
     ISchedulerListExecuteParamsSort

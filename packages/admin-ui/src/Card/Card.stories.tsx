@@ -1,9 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as MoreVertical } from "@webiny/icons/more_vert.svg";
-import { Card } from "./Card";
-import { Button, IconButton } from "~/Button";
-import { Icon } from "~/Icon";
+import { Card } from "./Card.js";
+import { Button, IconButton } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
 
 const meta: Meta<typeof Card> = {
     title: "Components/Card",

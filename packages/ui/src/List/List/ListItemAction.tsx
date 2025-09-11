@@ -1,6 +1,6 @@
 import type React from "react";
 import { useContext, useEffect } from "react";
-import { DeprecatedListItemContext } from "~/List";
+import { DeprecatedListItemContext } from "~/List/index.js";
 
 export type ListActionsProps = {
     children: React.ReactNode;

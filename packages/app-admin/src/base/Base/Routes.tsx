@@ -1,6 +1,6 @@
 import React from "react";
-import { Dashboard, Layout, NotFound } from "~/index";
-import { AdminConfig } from "~/config/AdminConfig";
+import { Dashboard, Layout, NotFound } from "~/index.js";
+import { AdminConfig } from "~/config/AdminConfig.js";
 
 const { Route } = AdminConfig;
 

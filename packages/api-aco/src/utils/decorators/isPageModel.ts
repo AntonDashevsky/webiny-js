@@ -1,4 +1,4 @@
-import type { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 /**
  * Keep this until we figure out how to fetch the folders.

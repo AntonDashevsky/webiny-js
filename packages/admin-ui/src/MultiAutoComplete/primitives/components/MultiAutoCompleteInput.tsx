@@ -1,10 +1,10 @@
 import React from "react";
-import type { InputPrimitiveProps } from "~/Input";
-import { InputIcon, inputVariants } from "~/Input";
-import type { CommandOptionFormatted } from "~/Command";
-import { Command } from "~/Command";
-import { Tag } from "~/Tag";
-import { cn, cva, type VariantProps } from "~/utils";
+import type { InputPrimitiveProps } from "~/Input/index.js";
+import { InputIcon, inputVariants } from "~/Input/index.js";
+import type { CommandOptionFormatted } from "~/Command/index.js";
+import { Command } from "~/Command/index.js";
+import { Tag } from "~/Tag/index.js";
+import { cn, cva, type VariantProps } from "~/utils.js";
 
 const multiAutoCompleteInputVariants = cva("wby-relative placeholder:wby-text-neutral-dimmed", {
     variants: {

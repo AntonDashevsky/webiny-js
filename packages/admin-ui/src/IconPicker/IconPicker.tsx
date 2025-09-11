@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
-import { makeDecoratable } from "~/utils";
-import type { IconPickerPrimitiveProps } from "./primitives";
-import { IconPickerPrimitive } from "./primitives";
-import type { FormComponentProps } from "~/FormComponent";
+import { makeDecoratable } from "~/utils.js";
+import type { IconPickerPrimitiveProps } from "./primitives/index.js";
+import { IconPickerPrimitive } from "./primitives/index.js";
+import type { FormComponentProps } from "~/FormComponent/index.js";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
     FormComponentNote
-} from "~/FormComponent";
+} from "~/FormComponent/index.js";
 
 type IconPickerProps = IconPickerPrimitiveProps & FormComponentProps;
 

@@ -1,21 +1,21 @@
 import React, { Fragment } from "react";
-import get from "lodash/get";
-import { i18n } from "@webiny/app/i18n";
+import get from "lodash/get.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as DragIcon } from "@webiny/icons/drag_indicator.svg";
-import { Center, Vertical, Horizontal } from "../DropZone";
-import Draggable from "../Draggable";
-import EditFieldDialog from "./EditFieldDialog";
-import Field from "./Field";
-import { useModelFieldEditor } from "./useModelFieldEditor";
-import type { IsVisibleCallable } from "./FieldEditorContext";
-import { FieldEditorProvider } from "./FieldEditorContext";
+import { Center, Vertical, Horizontal } from "../DropZone/index.js";
+import Draggable from "../Draggable.js";
+import EditFieldDialog from "./EditFieldDialog.js";
+import Field from "./Field.js";
+import { useModelFieldEditor } from "./useModelFieldEditor.js";
+import type { IsVisibleCallable } from "./FieldEditorContext.js";
+import { FieldEditorProvider } from "./FieldEditorContext.js";
 import type {
     CmsModelField,
     CmsEditorFieldsLayout,
     CmsModelFieldTypePlugin,
     DragSource
-} from "~/types";
-import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider";
+} from "~/types.js";
+import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider/index.js";
 import { cn, Icon } from "@webiny/admin-ui";
 
 const t = i18n.namespace("app-headless-cms/admin/components/editor");

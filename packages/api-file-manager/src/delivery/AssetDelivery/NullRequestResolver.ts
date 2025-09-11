@@ -1,4 +1,4 @@
-import type { AssetRequest, AssetRequestResolver } from "~/delivery";
+import type { AssetRequest, AssetRequestResolver } from "~/delivery/index.js";
 
 export class NullRequestResolver implements AssetRequestResolver {
     resolve(): Promise<AssetRequest | undefined> {

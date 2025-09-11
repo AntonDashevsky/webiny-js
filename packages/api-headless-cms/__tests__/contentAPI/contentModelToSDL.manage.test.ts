@@ -1,13 +1,13 @@
 import prettier from "prettier";
-import contentModels from "./mocks/contentModels";
-import { createGraphQLFields } from "~/graphqlFields";
-import categoryManage from "./snapshots/category.manage";
-import productManage from "./snapshots/product.manage";
-import reviewManage from "./snapshots/review.manage";
-import type { CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types";
-import { createManageSDL } from "~/graphql/schema/createManageSDL";
-import { pageModel } from "./mocks/pageWithDynamicZonesModel";
-import pageManage from "./snapshots/page.manage";
+import contentModels from "./mocks/contentModels.js";
+import { createGraphQLFields } from "~/graphqlFields/index.js";
+import categoryManage from "./snapshots/category.manage.js";
+import productManage from "./snapshots/product.manage.js";
+import reviewManage from "./snapshots/review.manage.js";
+import type { CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
+import { createManageSDL } from "~/graphql/schema/createManageSDL.js";
+import { pageModel } from "./mocks/pageWithDynamicZonesModel.js";
+import pageManage from "./snapshots/page.manage.js";
 
 describe("MANAGE - ContentModel to SDL", () => {
     const fieldTypePlugins = createGraphQLFields().reduce<

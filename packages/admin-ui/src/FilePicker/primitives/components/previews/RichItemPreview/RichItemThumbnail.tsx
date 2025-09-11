@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as PlaceholderIcon } from "@webiny/icons/image.svg";
-import type { FileItemFormatted } from "~/FilePicker";
-import { Icon } from "~/Icon";
-import { cn } from "~/utils";
-import type { RichItemPreviewProps } from "~/FilePicker/primitives/components";
+import type { FileItemFormatted } from "~/FilePicker/index.js";
+import { Icon } from "~/Icon/index.js";
+import { cn } from "~/utils.js";
+import type { RichItemPreviewProps } from "~/FilePicker/primitives/components/index.js";
 
 import csvThumb from "../assets/csv.svg";
 import docThumb from "../assets/doc.svg";

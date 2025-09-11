@@ -1,1 +1,1 @@
-export * from "./useGetFolderHierarchy";
+export * from "./useGetFolderHierarchy.js";

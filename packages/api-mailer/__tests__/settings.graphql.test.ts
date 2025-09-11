@@ -1,4 +1,4 @@
-import { createGraphQLHandler } from "./graphQLHandler";
+import { createGraphQLHandler } from "./graphQLHandler.js";
 import { jest } from "@jest/globals";
 
 jest.mock("nodemailer", () => {

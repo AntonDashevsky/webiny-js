@@ -12,6 +12,7 @@ import {
     LambdaClient
 } from "@webiny/aws-sdk/client-lambda/index.js";
 import { mockClient } from "aws-sdk-client-mock";
+import { jest } from "@jest/globals";
 
 describe("CopyUser", () => {
     it("should create a new user if it does not exist in the target user pool", async () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
 import { AcoConfig, type RecordActionConfig } from "@webiny/app-aco";
-import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel";
+import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel.js";
 
 const { Record } = AcoConfig;
 

@@ -1,8 +1,8 @@
 import React from "react";
 import classNames from "classnames";
 import { IconButton, Tooltip, Text, Heading } from "@webiny/admin-ui";
-import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint.js";
+import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg.js";
 
 export const BreakpointSelector = () => {
     const { breakpoint, breakpoints, setBreakpoint } = useBreakpoint();

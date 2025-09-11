@@ -9,7 +9,7 @@ import type {
     CmsContentEntry,
     CmsMetaResponse,
     CmsModel
-} from "@webiny/app-headless-cms-common/types";
+} from "@webiny/app-headless-cms-common/types/index.js";
 
 export class TrashBinListGraphQLGateway implements ITrashBinListGateway<CmsContentEntry> {
     private client: ApolloClient<any>;

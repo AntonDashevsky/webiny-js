@@ -1,8 +1,8 @@
-import { registry } from "~/registry";
-import type { DynamoDBStreamEvent } from "@webiny/aws-sdk/types";
-import { createSourceHandler } from "~/sourceHandler";
-import type { HandlerParams } from "~/dynamodb/index";
-import { createHandler } from "~/dynamodb/index";
+import { registry } from "~/registry.js";
+import type { DynamoDBStreamEvent } from "@webiny/aws-sdk/types/index.js";
+import { createSourceHandler } from "~/sourceHandler.js";
+import type { HandlerParams } from "~/dynamodb/index.js";
+import { createHandler } from "~/dynamodb/index.js";
 
 const handler = createSourceHandler<DynamoDBStreamEvent, HandlerParams>({
     name: "handler-aws-dynamodb-stream",

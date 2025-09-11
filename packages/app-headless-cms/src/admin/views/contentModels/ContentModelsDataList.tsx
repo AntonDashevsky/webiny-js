@@ -2,7 +2,7 @@
  * TODO remove regular model delete at some point.
  */
 import React, { useCallback, useMemo, useState } from "react";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
 import { useRouter } from "@webiny/react-router";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as DownloadFileIcon } from "@webiny/icons/file_download.svg";
@@ -13,19 +13,19 @@ import { ReactComponent as MoreVertIcon } from "@webiny/icons/more_vert.svg";
 import { ReactComponent as ExportIcon } from "@webiny/icons/file_download.svg";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { ReactComponent as CloneIcon } from "@webiny/icons/flip_to_front.svg";
-import { useModels } from "../../hooks";
-import * as UIL from "@webiny/ui/List";
-import { i18n } from "@webiny/app/i18n";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { deserializeSorters } from "../utils";
-import orderBy from "lodash/orderBy";
-import type { CmsEditorContentModel, CmsModel } from "~/types";
-import { usePermission } from "~/admin/hooks/usePermission";
+import { useModels } from "../../hooks/index.js";
+import * as UIL from "@webiny/ui/List/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { deserializeSorters } from "../utils.js";
+import orderBy from "lodash/orderBy.js";
+import type { CmsEditorContentModel, CmsModel } from "~/types.js";
+import { usePermission } from "~/admin/hooks/usePermission.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { useModelExport } from "./exporting/useModelExport";
-import { ModelIsBeingDeleted } from "./fullDelete/ModelIsBeingDeleted";
-import { FullyDeleteModelDialog } from "~/admin/views/contentModels/fullDelete/FullyDeleteModelDialog";
+import { useModelExport } from "./exporting/useModelExport.js";
+import { ModelIsBeingDeleted } from "./fullDelete/ModelIsBeingDeleted.js";
+import { FullyDeleteModelDialog } from "~/admin/views/contentModels/fullDelete/FullyDeleteModelDialog.js";
 import { Button, DropdownMenu, Icon, IconButton, Select, Tooltip } from "@webiny/admin-ui";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/app-headless-cms-common";
 

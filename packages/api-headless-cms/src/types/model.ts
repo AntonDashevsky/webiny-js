@@ -1,6 +1,6 @@
-import type { CmsIdentity } from "./identity";
-import type { CmsModelField, CmsModelFieldInput, LockedField } from "./modelField";
-import type { CmsModelGroup } from "./modelGroup";
+import type { CmsIdentity } from "./identity.js";
+import type { CmsModelField, CmsModelFieldInput, LockedField } from "./modelField.js";
+import type { CmsModelGroup } from "./modelGroup.js";
 
 /**
  * Base CMS Model. Should not be exported and used outside of this package.

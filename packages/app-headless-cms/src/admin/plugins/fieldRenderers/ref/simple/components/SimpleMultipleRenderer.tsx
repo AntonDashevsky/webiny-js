@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
-import type { BindComponentRenderProp, CmsModelField } from "~/types";
-import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { useContentModels } from "./useContentModels";
-import { useReferences } from "./useReferences";
+import type { BindComponentRenderProp, CmsModelField } from "~/types.js";
+import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { useContentModels } from "./useContentModels.js";
+import { useReferences } from "./useReferences.js";
 import { CheckboxGroup } from "@webiny/admin-ui";
-import { Loader } from "./Loader";
+import { Loader } from "./Loader.js";
 
 interface SimpleMultipleRendererProps {
     bind: BindComponentRenderProp<CmsReferenceValue[] | undefined | null>;

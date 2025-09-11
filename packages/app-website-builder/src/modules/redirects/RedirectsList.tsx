@@ -5,8 +5,8 @@ import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
 import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
 import { DocumentList } from "./RedirectsList/DocumentList.js";
 import { WB_REDIRECTS_APP } from "~/constants.js";
-import { NavigateFolderProvider } from "~/modules/redirects/RedirectsList/NavigateFolderProvider";
-import { RedirectListWithConfig } from "~/modules/redirects/configs";
+import { NavigateFolderProvider } from "~/modules/redirects/RedirectsList/NavigateFolderProvider.js";
+import { RedirectListWithConfig } from "~/modules/redirects/configs/index.js";
 
 export const RedirectsList = () => {
     return (

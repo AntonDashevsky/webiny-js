@@ -1,8 +1,8 @@
-import useGqlHandler from "./useGqlHandler";
-import mocks from "./mocks/securityTeam";
-import { createSecurityRolePlugin } from "~/plugins/SecurityRolePlugin";
-import { createSecurityTeamPlugin } from "~/plugins/SecurityTeamPlugin";
-import { createTestWcpLicense } from "@webiny/wcp/testing/createTestWcpLicense";
+import useGqlHandler from "./useGqlHandler.js";
+import mocks from "./mocks/securityTeam.js";
+import { createSecurityRolePlugin } from "~/plugins/SecurityRolePlugin.js";
+import { createSecurityTeamPlugin } from "~/plugins/SecurityTeamPlugin.js";
+import { createTestWcpLicense } from "@webiny/wcp/testing/createTestWcpLicense.js";
 
 describe("Security Team CRUD Test", () => {
     const { install, securityTeam } = useGqlHandler({

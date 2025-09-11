@@ -1,7 +1,7 @@
-import type { IGetDescendantFoldersUseCase } from "./IGetDescendantFoldersUseCase";
-import { GetDescendantFoldersRepository } from "./GetDescendantFoldersRepository";
-import { GetDescendantFoldersUseCase } from "./GetDescendantFoldersUseCase";
-import { folderCacheFactory } from "../cache";
+import type { IGetDescendantFoldersUseCase } from "./IGetDescendantFoldersUseCase.js";
+import { GetDescendantFoldersRepository } from "./GetDescendantFoldersRepository.js";
+import { GetDescendantFoldersUseCase } from "./GetDescendantFoldersUseCase.js";
+import { folderCacheFactory } from "../cache/index.js";
 
 export class GetDescendantFolders {
     public static getInstance(type: string): IGetDescendantFoldersUseCase {

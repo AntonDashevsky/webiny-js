@@ -1,11 +1,11 @@
 import React from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { ListMenuCmsGroupsQueryResponse } from "~/admin/viewsGraphql";
-import { LIST_MENU_CONTENT_GROUPS_MODELS } from "~/admin/viewsGraphql";
-import useQuery from "~/admin/hooks/useQuery";
-import usePermission from "~/admin/hooks/usePermission";
-import type { CmsGroup, CmsModel } from "~/types";
+import type { ListMenuCmsGroupsQueryResponse } from "~/admin/viewsGraphql.js";
+import { LIST_MENU_CONTENT_GROUPS_MODELS } from "~/admin/viewsGraphql.js";
+import useQuery from "~/admin/hooks/useQuery.js";
+import usePermission from "~/admin/hooks/usePermission.js";
+import type { CmsGroup, CmsModel } from "~/types.js";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { AdminConfig } from "@webiny/app-admin";
 

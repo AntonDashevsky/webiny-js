@@ -1,4 +1,4 @@
-import useGqlHandler from "./useGqlHandler";
+import useGqlHandler from "./useGqlHandler.js";
 
 describe(`Test "Tenant Manager"`, () => {
     test(`should create/update/list/delete tenants`, async () => {

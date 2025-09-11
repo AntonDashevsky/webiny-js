@@ -1,8 +1,8 @@
 import React from "react";
 import { List, OverlayLoader } from "@webiny/admin-ui";
-import { i18n } from "@webiny/app/i18n";
-import RevisionListItem from "./RevisionListItem";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
+import { i18n } from "@webiny/app/i18n/index.js";
+import RevisionListItem from "./RevisionListItem.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/content-details/content-revisions");
 

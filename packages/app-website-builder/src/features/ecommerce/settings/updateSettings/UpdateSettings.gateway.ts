@@ -1,9 +1,9 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import type { GenericRecord } from "@webiny/app/types";
+import type { GenericRecord } from "@webiny/app/types.js";
 import { WebinyError } from "@webiny/error";
-import type { IUpdateSettings } from "./IUpdateSettings";
-import type { AllEcommerceSettings } from "~/features/ecommerce/settings/types";
+import type { IUpdateSettings } from "./IUpdateSettings.js";
+import type { AllEcommerceSettings } from "~/features/ecommerce/settings/types.js";
 
 const MUTATION = gql`
     mutation UpdateWebsiteBuilderSettings($settings: JSON!) {

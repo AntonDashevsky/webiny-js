@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { useSecurity } from "@webiny/app-security";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import ContentModelGroupsDataList from "./ContentModelGroupsDataList";
-import ContentModelGroupsForm from "./ContentModelGroupsForm";
-import type { CmsSecurityPermission } from "~/types";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import ContentModelGroupsDataList from "./ContentModelGroupsDataList.js";
+import ContentModelGroupsForm from "./ContentModelGroupsForm.js";
+import type { CmsSecurityPermission } from "~/types.js";
 
 const ContentModelGroups = () => {
     const { identity, getPermission } = useSecurity();

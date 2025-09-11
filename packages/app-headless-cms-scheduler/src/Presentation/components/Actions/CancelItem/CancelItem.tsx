@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Cancel } from "@material-design-icons/svg/outlined/delete.svg";
-import { useCancelSchedulerItem, useSchedulerItem } from "~/Presentation/hooks";
-import { SchedulerListConfig } from "~/Presentation/configs";
+import { useCancelSchedulerItem, useSchedulerItem } from "~/Presentation/hooks/index.js";
+import { SchedulerListConfig } from "~/Presentation/configs/index.js";
 
 export const CancelItemAction = () => {
     const { item } = useSchedulerItem();

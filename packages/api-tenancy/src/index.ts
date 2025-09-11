@@ -1,14 +1,14 @@
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
 import { createWcpContext } from "@webiny/api-wcp";
-import type { TenancyContext, TenancyStorageOperations } from "./types";
-import { createTenancy } from "./createTenancy";
-import graphql from "./graphql/full.gql";
-import baseGraphQLTypes from "./graphql/types.gql";
-import { GetTenantById } from "~/features/GetTenantById/feature";
-import { GetRootTenant } from "~/features/GetRootTenant/feature";
-import { GetCurrentTenant } from "~/features/GetCurrentTenant/feature";
-import { UpdateTenant } from "~/features/UpdateTenant/feature";
+import type { TenancyContext, TenancyStorageOperations } from "./types.js";
+import { createTenancy } from "./createTenancy.js";
+import graphql from "./graphql/full.gql.js";
+import baseGraphQLTypes from "./graphql/types.gql.js";
+import { GetTenantById } from "~/features/GetTenantById/feature.js";
+import { GetRootTenant } from "~/features/GetRootTenant/feature.js";
+import { GetCurrentTenant } from "~/features/GetCurrentTenant/feature.js";
+import { UpdateTenant } from "~/features/UpdateTenant/feature.js";
 
 interface TenancyPluginsParams {
     storageOperations: TenancyStorageOperations;
@@ -94,4 +94,4 @@ export {
     GetTenantByIdUseCase,
     GetCurrentTenantUseCase,
     UpdateTenantUseCase
-} from "./features";
+} from "./features/index.js";

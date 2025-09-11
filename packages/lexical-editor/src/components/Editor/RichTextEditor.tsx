@@ -13,16 +13,16 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
 import { createTheme, toTypographyEmotionMap } from "@webiny/lexical-theme";
 import { allNodes } from "@webiny/lexical-nodes";
-import { RichTextEditorProvider } from "~/context/RichTextEditorContext";
-import { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin";
-import type { LexicalValue, ToolbarActionPlugin } from "~/types";
-import { Placeholder } from "~/ui/Placeholder";
-import { SharedHistoryContext, useSharedHistoryContext } from "~/context/SharedHistoryContext";
+import { RichTextEditorProvider } from "~/context/RichTextEditorContext.js";
+import { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin.js";
+import type { LexicalValue, ToolbarActionPlugin } from "~/types.js";
+import { Placeholder } from "~/ui/Placeholder.js";
+import { SharedHistoryContext, useSharedHistoryContext } from "~/context/SharedHistoryContext.js";
 import {
     LexicalEditorWithConfig,
     useLexicalEditorConfig
-} from "~/components/LexicalEditorConfig/LexicalEditorConfig";
-import { StateHandlingPlugin } from "~/plugins/StateHandlingPlugin";
+} from "~/components/LexicalEditorConfig/LexicalEditorConfig.js";
+import { StateHandlingPlugin } from "~/plugins/StateHandlingPlugin.js";
 
 export interface RichTextEditorProps {
     children?: React.ReactNode | React.ReactNode[];

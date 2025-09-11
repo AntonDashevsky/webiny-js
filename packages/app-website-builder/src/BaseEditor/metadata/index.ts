@@ -1,6 +1,6 @@
-export type * from "./IMetadata";
-export * from "./InputMetadata";
-export * from "./ElementMetadata";
-export * from "./BreakpointElementMetadata";
-export * from "./StylesMetadata";
-export * from "./NullMetadata";
+export type * from "./IMetadata.js";
+export * from "./InputMetadata.js";
+export * from "./ElementMetadata.js";
+export * from "./BreakpointElementMetadata.js";
+export * from "./StylesMetadata.js";
+export * from "./NullMetadata.js";

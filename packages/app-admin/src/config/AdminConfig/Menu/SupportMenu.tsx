@@ -1,8 +1,8 @@
 import React from "react";
-import { makeDecoratable } from "~/index";
+import { makeDecoratable } from "~/index.js";
 import { ConnectToProperties, Property, useIdGenerator } from "@webiny/react-properties";
-import { SupportMenuItem } from "./SupportMenu/SupportMenuItem";
-import { SupportMenuLink } from "./SupportMenu/SupportMenuLink";
+import { SupportMenuItem } from "./SupportMenu/SupportMenuItem.js";
+import { SupportMenuLink } from "./SupportMenu/SupportMenuLink.js";
 
 export interface SupportMenuProps {
     name: string;

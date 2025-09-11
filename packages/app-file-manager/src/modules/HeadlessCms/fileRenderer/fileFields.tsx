@@ -4,12 +4,12 @@ import type {
     BindComponentRenderProp,
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
-} from "@webiny/app-headless-cms/types";
-import { i18n } from "@webiny/app/i18n";
-import { FileManager } from "@webiny/app-admin/components";
-import { getSupportedExtensionsLabelHint } from "./utils";
-import { EditFileUsingUrl } from "~/components/EditFileUsingUrl";
-import type { FileItem } from "@webiny/app-admin/types";
+} from "@webiny/app-headless-cms/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { FileManager } from "@webiny/app-admin/components/index.js";
+import { getSupportedExtensionsLabelHint } from "./utils.js";
+import { EditFileUsingUrl } from "~/components/EditFileUsingUrl/index.js";
+import type { FileItem } from "@webiny/app-admin/types.js";
 import { MultiFilePicker } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/file");

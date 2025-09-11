@@ -4,7 +4,7 @@ import { ReactComponent as PublishIcon } from "@webiny/icons/visibility.svg";
 import { observer } from "mobx-react-lite";
 import { getPagesLabel } from "~/modules/pages/PagesList/components/BulkActions/BulkActions.js";
 import { usePublishPage } from "~/features/pages/index.js";
-import { PageListConfig } from "~/modules/pages/configs";
+import { PageListConfig } from "~/modules/pages/configs/index.js";
 
 export const BulkActionPublish = observer(() => {
     const { useWorker, useButtons, useDialog } = PageListConfig.Browser.BulkAction;

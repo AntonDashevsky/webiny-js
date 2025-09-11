@@ -10,7 +10,7 @@ import type {
     Value,
     Settings,
     SettingsDTO
-} from "./Field";
+} from "./Field.js";
 
 export class FieldMapper {
     static toDTO(configuration: Field[]): FieldDTO[] {

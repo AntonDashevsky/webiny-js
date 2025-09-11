@@ -1,2 +1,2 @@
-export * from "./useEcommerceApiProvider";
-export * from "./useEcommerceApi";
+export * from "./useEcommerceApiProvider.js";
+export * from "./useEcommerceApi.js";

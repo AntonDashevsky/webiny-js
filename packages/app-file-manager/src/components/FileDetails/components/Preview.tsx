@@ -1,5 +1,5 @@
 import React from "react";
-import { Thumbnail } from "./Thumbnail";
+import { Thumbnail } from "./Thumbnail.js";
 import { cn } from "@webiny/admin-ui";
 
 export const Preview = () => {

@@ -1,6 +1,6 @@
-import type { IUpdatePage } from "./IUpdatePage";
-import type { UpdatePageUseCasesTopics } from "./index";
-import type { UpdateWbPageData, WbPagesStorageOperations } from "~/context/pages/pages.types";
+import type { IUpdatePage } from "./IUpdatePage.js";
+import type { UpdatePageUseCasesTopics } from "./index.js";
+import type { UpdateWbPageData, WbPagesStorageOperations } from "~/context/pages/pages.types.js";
 import { WebinyError } from "@webiny/error";
 
 export class UpdatePageWithEvents implements IUpdatePage {

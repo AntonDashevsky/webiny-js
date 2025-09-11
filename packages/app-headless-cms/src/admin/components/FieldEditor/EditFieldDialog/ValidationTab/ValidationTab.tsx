@@ -1,12 +1,12 @@
 import React from "react";
-import { ValidationsSection } from "~/admin/components/FieldEditor/EditFieldDialog/ValidationTab/ValidationsSection";
+import { ValidationsSection } from "~/admin/components/FieldEditor/EditFieldDialog/ValidationTab/ValidationsSection.js";
 import {
     getFieldValidators,
     getListValidators
-} from "~/admin/components/FieldEditor/EditFieldDialog/getValidators";
-import { useModelField } from "~/admin/components/ModelFieldProvider";
-import { ValidatorsList } from "~/admin/components/FieldEditor/EditFieldDialog/ValidationTab/ValidatorsList";
-import type { CmsModelField } from "@webiny/app-headless-cms-common/types";
+} from "~/admin/components/FieldEditor/EditFieldDialog/getValidators.js";
+import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
+import { ValidatorsList } from "~/admin/components/FieldEditor/EditFieldDialog/ValidationTab/ValidatorsList.js";
+import type { CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
 
 interface ValidationTabProps {
     field: CmsModelField;

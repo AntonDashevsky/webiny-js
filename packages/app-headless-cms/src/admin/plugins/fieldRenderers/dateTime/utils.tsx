@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, IconButton } from "@webiny/admin-ui";
-import type { CmsModelField } from "~/types";
+import type { CmsModelField } from "~/types.js";
 
 export const DEFAULT_TIMEZONE = "+01:00";
 

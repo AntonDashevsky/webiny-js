@@ -1,6 +1,6 @@
-import type { UpdateFolderParams, IUpdateFolderUseCase } from "./IUpdateFolderUseCase";
-import type { IUpdateFolderRepository } from "./IUpdateFolderRepository";
-import { Folder } from "../Folder";
+import type { UpdateFolderParams, IUpdateFolderUseCase } from "./IUpdateFolderUseCase.js";
+import type { IUpdateFolderRepository } from "./IUpdateFolderRepository.js";
+import { Folder } from "../Folder.js";
 
 export class UpdateFolderUseCase implements IUpdateFolderUseCase {
     private repository: IUpdateFolderRepository;

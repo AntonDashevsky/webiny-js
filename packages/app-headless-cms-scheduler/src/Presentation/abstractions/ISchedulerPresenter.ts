@@ -1,6 +1,6 @@
 import type { ColumnSorting } from "@webiny/app-utils";
 import type { SchedulerMetaResponse } from "~/types.js";
-import type { SchedulerItem } from "~/Domain";
+import type { SchedulerItem } from "~/Domain/index.js";
 
 export interface SchedulerPresenterViewModel {
     items: SchedulerItem[];

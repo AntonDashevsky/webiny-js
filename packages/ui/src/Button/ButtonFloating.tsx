@@ -1,6 +1,6 @@
 import React from "react";
-import type { IconButtonProps } from "./IconButton";
-import { IconButton } from "./IconButton";
+import type { IconButtonProps } from "./IconButton.js";
+import { IconButton } from "./IconButton.js";
 
 /**
  * @deprecated This component is deprecated and will be removed in future releases.

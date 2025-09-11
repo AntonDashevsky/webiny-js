@@ -1,5 +1,5 @@
-import { createDatetimeTransformValuePlugin } from "~/dynamoDb/transformValue/datetime";
-import type { CmsModelField } from "@webiny/api-headless-cms/types";
+import { createDatetimeTransformValuePlugin } from "~/dynamoDb/transformValue/datetime.js";
+import type { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 
 const createField = (fieldType: string): CmsModelField => {
     return {

@@ -1,7 +1,7 @@
 import React from "react";
-import type { RichTextEditorProps } from "@webiny/ui/RichTextEditor";
-import { RichTextEditor as UiRichTextEditor } from "@webiny/ui/RichTextEditor";
-import { FileManager } from "~/components";
+import type { RichTextEditorProps } from "@webiny/ui/RichTextEditor/index.js";
+import { RichTextEditor as UiRichTextEditor } from "@webiny/ui/RichTextEditor/index.js";
+import { FileManager } from "~/components/index.js";
 
 export const RichTextEditor = (props: RichTextEditorProps) => {
     return (

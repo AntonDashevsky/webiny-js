@@ -1,4 +1,4 @@
-export { CoreOutput, configureAdminCognitoFederation } from "~/pulumi";
+export { CoreOutput, configureAdminCognitoFederation } from "~/pulumi/index.js";
 
 export function createCoreApp() {
     return {

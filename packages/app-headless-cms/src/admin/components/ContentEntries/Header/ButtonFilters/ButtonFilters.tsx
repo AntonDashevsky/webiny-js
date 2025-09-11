@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { FiltersToggle } from "@webiny/app-admin";
-import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
+import { useContentEntriesList } from "~/admin/views/contentEntries/hooks/index.js";
 
 export const ButtonFilters = () => {
     const list = useContentEntriesList();

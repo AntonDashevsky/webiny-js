@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, type IconProps } from "~/Icon";
+import { Icon, type IconProps } from "~/Icon/index.js";
 
 interface DropdownMenuItemIconProps extends Omit<IconProps, "icon"> {
     element: React.ReactNode;

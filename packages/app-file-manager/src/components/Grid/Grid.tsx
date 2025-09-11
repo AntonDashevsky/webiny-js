@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
 import { cn, OverlayLoader } from "@webiny/admin-ui";
 import { FolderGridItem, FolderProvider } from "@webiny/app-aco";
-import { i18n } from "@webiny/app/i18n";
-import type { FolderItem } from "@webiny/app-aco/types";
-import type { FileItem } from "@webiny/app-admin/types";
-import { FileProvider } from "~/contexts/FileProvider";
-import { Thumbnail } from "../Thumbnail";
-import { File } from "./File";
+import { i18n } from "@webiny/app/i18n/index.js";
+import type { FolderItem } from "@webiny/app-aco/types.js";
+import type { FileItem } from "@webiny/app-admin/types.js";
+import { FileProvider } from "~/contexts/FileProvider.js";
+import { Thumbnail } from "../Thumbnail/index.js";
+import { File } from "./File.js";
 
 const t = i18n.ns("app-admin/file-manager/components/grid");
 

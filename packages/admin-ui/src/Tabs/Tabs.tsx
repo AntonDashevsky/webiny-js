@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { Tabs as TabsPrimitive } from "radix-ui";
-import { makeDecoratable, type VariantProps, withStaticProps } from "~/utils";
-import type { ITabsContext, TabItem, TabProps, tabListVariants } from "./components";
-import { Content, List, Tab, TabsContext, Trigger } from "./components";
+import { makeDecoratable, type VariantProps, withStaticProps } from "~/utils.js";
+import type { ITabsContext, TabItem, TabProps, tabListVariants } from "./components/index.js";
+import { Content, List, Tab, TabsContext, Trigger } from "./components/index.js";
 
 const Root = TabsPrimitive.Root;
 

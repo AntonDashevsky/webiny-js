@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
-import { ApiGraphql } from "~/pulumi/apps";
+import { ApiGraphql } from "~/pulumi/apps/index.js";
 
 export type ApiWebsocket = PulumiAppModule<typeof ApiWebsocket>;
 

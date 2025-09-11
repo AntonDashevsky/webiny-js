@@ -1,4 +1,4 @@
-import type { S3 } from "@webiny/aws-sdk/client-s3";
+import type { S3 } from "@webiny/aws-sdk/client-s3/index.js";
 import type { Asset, AssetContentsReader } from "@webiny/api-file-manager";
 
 export class S3ContentsReader implements AssetContentsReader {

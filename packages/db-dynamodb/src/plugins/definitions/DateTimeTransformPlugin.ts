@@ -1,8 +1,8 @@
 import type {
     ValueTransformPluginParams,
     ValueTransformPluginParamsTransformParams
-} from "./ValueTransformPlugin";
-import { ValueTransformPlugin } from "./ValueTransformPlugin";
+} from "./ValueTransformPlugin.js";
+import { ValueTransformPlugin } from "./ValueTransformPlugin.js";
 import WebinyError from "@webiny/error";
 import { parseISO } from "date-fns";
 

@@ -1,9 +1,9 @@
 import type * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import type { PulumiApp } from "@webiny/pulumi";
-import { VpcConfig } from "./common";
+import { VpcConfig } from "./common/index.js";
 
-export * from "../utils/lambdaEnvVariables";
+export * from "../utils/lambdaEnvVariables.js";
 
 interface LambdaRoleParams {
     name: string;

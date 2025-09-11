@@ -1,5 +1,5 @@
-import { useGraphQlHandler } from "./utils/useGraphQlHandler";
-import type { SecurityIdentity } from "@webiny/api-security/types";
+import { useGraphQlHandler } from "./utils/useGraphQlHandler.js";
+import type { SecurityIdentity } from "@webiny/api-security/types.js";
 
 const identityA: SecurityIdentity = { id: "1", type: "admin", displayName: "A" };
 const identityB: SecurityIdentity = { id: "2", type: "admin", displayName: "B" };

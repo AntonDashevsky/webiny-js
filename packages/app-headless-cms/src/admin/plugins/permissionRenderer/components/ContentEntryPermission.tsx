@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import get from "lodash/get";
-import { i18n } from "@webiny/app/i18n";
-import type { BindComponent } from "@webiny/form/types";
-import type { CmsSecurityPermission } from "~/types";
+import get from "lodash/get.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import type { BindComponent } from "@webiny/form/types.js";
+import type { CmsSecurityPermission } from "~/types.js";
 import { CheckboxGroup, FormComponentNote, Grid, Select } from "@webiny/admin-ui";
-import { PermissionsGroup } from "@webiny/app-admin/components/Permissions";
+import { PermissionsGroup } from "@webiny/app-admin/components/Permissions/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 

@@ -5,7 +5,7 @@ import { validation } from "@webiny/validation";
 import type {
     CmsModelFieldValidatorPlugin,
     CmsModelFieldRegexValidatorExpressionPlugin
-} from "~/types";
+} from "~/types.js";
 import { useForm, Bind } from "@webiny/form";
 
 const PatternSettings = () => {

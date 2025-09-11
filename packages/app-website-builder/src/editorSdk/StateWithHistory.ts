@@ -1,7 +1,7 @@
 import { makeObservable, autorun, observable } from "mobx";
 import type { GenericRecord } from "@webiny/app/types.js";
 import { EditorHistory } from "./EditorHistory.js";
-import { type IState, type MutableState, State } from "./State";
+import { type IState, type MutableState, State } from "./State.js";
 import { jsonPatch, type JsonPatchOperation } from "@webiny/website-builder-sdk";
 
 export type StateChangeEvent<TState> = {

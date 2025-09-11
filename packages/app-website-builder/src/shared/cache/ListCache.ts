@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction, toJS } from "mobx";
-import unionBy from "lodash/unionBy";
-import type { IListCache, IListCacheItemUpdater, IListCachePredicate } from "./IListCache";
+import unionBy from "lodash/unionBy.js";
+import type { IListCache, IListCacheItemUpdater, IListCachePredicate } from "./IListCache.js";
 
 export type Constructor<T> = new (...args: any[]) => T;
 

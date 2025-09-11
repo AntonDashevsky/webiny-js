@@ -1,7 +1,7 @@
-import { createContextHandler } from "./contextHandler";
-import { GetSettings } from "~/features/getSettings/GetSettings.feature";
-import { SaveSettings } from "~/features/saveSettings/SaveSettings.feature";
-import type { Context } from "./types";
+import { createContextHandler } from "./contextHandler.js";
+import { GetSettings } from "~/features/getSettings/GetSettings.feature.js";
+import { SaveSettings } from "~/features/saveSettings/SaveSettings.feature.js";
+import type { Context } from "./types.js";
 
 describe("Settings", () => {
     const { handle } = createContextHandler();

@@ -1,9 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Label } from "./Label";
-import { Tooltip } from "~/Tooltip";
-import { Input } from "~/Input";
+import { Label } from "./Label.js";
+import { Tooltip } from "~/Tooltip/index.js";
+import { Input } from "~/Input/index.js";
 
 const meta: Meta<typeof Label> = {
     title: "Components/Form/Label",

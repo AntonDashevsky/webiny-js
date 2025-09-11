@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as Publish } from "@webiny/icons/publish.svg";
 import { ReactComponent as Unpublish } from "@webiny/icons/unpublished.svg";
-import { RowIcon, RowText, RowType } from "./CellType.styled";
-import { SchedulerListConfig } from "~/Presentation/configs";
+import { RowIcon, RowText, RowType } from "./CellType.styled.js";
+import { SchedulerListConfig } from "~/Presentation/configs/index.js";
 
 export const CellType = () => {
     const { useTableRow } = SchedulerListConfig.Browser.Table.Column;

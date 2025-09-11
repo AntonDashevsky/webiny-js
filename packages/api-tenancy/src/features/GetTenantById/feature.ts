@@ -1,7 +1,7 @@
 import { createFeature } from "@webiny/feature";
-import { GetTenantByIdUseCase } from "./abstractions";
-import { GetTenantByIdUseCase as GetTenantByIdUseCaseImpl } from "./GetTenantByIdUseCase";
-import type { TenancyContext } from "~/types";
+import { GetTenantByIdUseCase } from "./abstractions.js";
+import { GetTenantByIdUseCase as GetTenantByIdUseCaseImpl } from "./GetTenantByIdUseCase.js";
+import type { TenancyContext } from "~/types.js";
 
 export { GetTenantByIdUseCase };
 

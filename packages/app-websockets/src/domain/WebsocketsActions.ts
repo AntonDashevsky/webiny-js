@@ -4,7 +4,7 @@ import type {
     IWebsocketsActionsRunParams,
     IWebsocketsManager,
     IWebsocketManagerSendData
-} from "./types";
+} from "./types.js";
 
 export interface IWebsocketActionsParams {
     manager: IWebsocketsManager;

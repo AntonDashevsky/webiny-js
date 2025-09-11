@@ -1,5 +1,5 @@
-import { createTimeSearchPlugin } from "~/elasticsearch/search/timeSearch";
-import type { TransformCallableParams } from "~/plugins";
+import { createTimeSearchPlugin } from "~/elasticsearch/search/timeSearch.js";
+import type { TransformCallableParams } from "~/plugins/index.js";
 
 const timeField = {
     settings: {

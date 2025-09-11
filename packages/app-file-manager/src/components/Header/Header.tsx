@@ -2,8 +2,8 @@ import React from "react";
 import type { FilesRenderChildren } from "react-butterfiles";
 import { Grid, Separator } from "@webiny/admin-ui";
 
-import { Actions } from "./Actions";
-import { Title } from "./Title";
+import { Actions } from "./Actions.js";
+import { Title } from "./Title.js";
 
 export interface BrowseFilesHandler {
     browseFiles: FilesRenderChildren["browseFiles"];

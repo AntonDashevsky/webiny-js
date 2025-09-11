@@ -1,5 +1,5 @@
 import type * as React from "react";
-import { Plugin } from "@webiny/plugins/types";
+import { Plugin } from "@webiny/plugins/types.js";
 import type { ApolloClient } from "apollo-client";
 import type { CSSProperties } from "react";
 

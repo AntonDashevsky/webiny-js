@@ -1,5 +1,5 @@
-import type { IPublishPage } from "./IPublishPage";
-import type { PublishWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
+import type { IPublishPage } from "./IPublishPage.js";
+import type { PublishWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types.js";
 
 export class PublishPage implements IPublishPage {
     private readonly publishOperation: WbPagesStorageOperations["publish"];

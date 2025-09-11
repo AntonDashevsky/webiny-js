@@ -1,9 +1,9 @@
 import type { RefObject } from "react";
 import React from "react";
 import { ReactComponent as DragIndicator } from "@webiny/icons/drag_indicator.svg";
-import { IconButton } from "~/Button";
-import { Icon } from "~/Icon";
-import { cn, makeDecoratable } from "~/utils";
+import { IconButton } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
+import { cn, makeDecoratable } from "~/utils.js";
 
 type ItemDragHandleProps = {
     handleRef?: RefObject<HTMLDivElement | null>;

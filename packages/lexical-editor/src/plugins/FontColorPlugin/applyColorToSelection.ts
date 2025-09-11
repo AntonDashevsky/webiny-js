@@ -1,7 +1,7 @@
 import type { RangeSelection } from "lexical";
 import { TextNode } from "lexical";
 import type { ThemeColorValue } from "@webiny/lexical-nodes";
-import { applyColorToNode } from "~/plugins/FontColorPlugin/applyColorToNode";
+import { applyColorToNode } from "~/plugins/FontColorPlugin/applyColorToNode.js";
 
 export function applyColorToSelection(selection: RangeSelection, color: ThemeColorValue) {
     // Basic variables

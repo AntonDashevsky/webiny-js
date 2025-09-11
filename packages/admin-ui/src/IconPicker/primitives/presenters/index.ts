@@ -1,1 +1,1 @@
-export * from "./IconPickerPresenter";
+export * from "./IconPickerPresenter.js";

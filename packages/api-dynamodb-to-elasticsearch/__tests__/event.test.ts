@@ -1,7 +1,8 @@
-import { createEventHandler } from "~/index";
+import { createEventHandler } from "~/index.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { marshall as baseMarshall } from "@webiny/aws-sdk/client-dynamodb";
-import type { DynamoDBRecord } from "@webiny/handler-aws/types";
+import { marshall as baseMarshall } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import type { DynamoDBRecord } from "@webiny/handler-aws/types.js";
+import { jest } from "@jest/globals";
 
 interface Event {
     Records: DynamoDBRecord[];

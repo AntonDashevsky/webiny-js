@@ -9,4 +9,4 @@ export * from "./movePage/index.js";
 export * from "./publishPage/index.js";
 export * from "./unpublishPage/index.js";
 export * from "./updatePage/index.js";
-export * from "./useGetPageGraphQLFields";
+export * from "./useGetPageGraphQLFields.js";

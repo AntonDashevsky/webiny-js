@@ -1,7 +1,7 @@
-import richTextIndexingPlugin from "~/elasticsearch/indexing/richTextIndexing";
-import type { CmsModelField, CmsModelFieldToGraphQLPlugin } from "@webiny/api-headless-cms/types";
+import richTextIndexingPlugin from "~/elasticsearch/indexing/richTextIndexing.js";
+import type { CmsModelField, CmsModelFieldToGraphQLPlugin } from "@webiny/api-headless-cms/types/index.js";
 import { PluginsContainer } from "@webiny/plugins";
-import type { CmsModelFieldToElasticsearchPlugin } from "~/types";
+import type { CmsModelFieldToElasticsearchPlugin } from "~/types.js";
 
 const mockValue = [
     {

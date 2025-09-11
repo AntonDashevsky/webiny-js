@@ -1,5 +1,5 @@
 import React from "react";
-import { cva, type VariantProps, makeDecoratable, cn } from "~/utils";
+import { cva, type VariantProps, makeDecoratable, cn } from "~/utils.js";
 import {
     Link as WebinyReactRouterLink,
     type LinkProps as WebinyReactRouterLinkProps

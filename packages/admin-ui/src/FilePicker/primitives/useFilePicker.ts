@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import { FilePickerPresenter, type FilePickerPresenterParams } from "./presenters";
-import type { FilePickerPrimitiveProps } from "~/FilePicker";
+import { FilePickerPresenter, type FilePickerPresenterParams } from "./presenters/index.js";
+import type { FilePickerPrimitiveProps } from "~/FilePicker/index.js";
 
 type IFilePickerPrimitiveProps = Pick<FilePickerPrimitiveProps, "value">;
 

@@ -1,4 +1,4 @@
-import type { Filter, FilterDTO, FilterStorage } from "../domain";
+import type { Filter, FilterDTO, FilterStorage } from "../domain/index.js";
 
 export class FilterMapper {
     static toDTO(configuration: Filter | FilterDTO): FilterDTO {

@@ -1,51 +1,51 @@
 // render
-export { LexicalHtmlRenderer } from "~/components/LexicalHtmlRenderer";
+export { LexicalHtmlRenderer } from "~/components/LexicalHtmlRenderer.js";
 // hooks
-export * from "./hooks";
+export * from "./hooks/index.js";
 // UI elements
-export { Divider } from "~/ui/Divider";
-export { DropDownItem } from "~/ui/DropDown";
-export { DropDown } from "~/ui/DropDown";
+export { Divider } from "~/ui/Divider.js";
+export { DropDownItem } from "~/ui/DropDown.js";
+export { DropDown } from "~/ui/DropDown.js";
 // actions
-export { BoldAction } from "~/components/ToolbarActions/BoldAction";
-export { BulletListAction } from "~/components/ToolbarActions/BulletListAction";
-export { CodeHighlightAction } from "~/components/ToolbarActions/CodeHighlightAction";
-export { FontSizeAction } from "~/components/ToolbarActions/FontSizeAction";
-export { FontColorAction } from "~/components/ToolbarActions/FontColorAction";
-export { ItalicAction } from "~/components/ToolbarActions/ItalicAction";
-export { LinkAction } from "~/components/ToolbarActions/LinkAction";
-export { NumberedListAction } from "~/components/ToolbarActions/NumberedListAction";
-export { QuoteAction } from "~/components/ToolbarActions/QuoteAction";
-export { UnderlineAction } from "~/components/ToolbarActions/UnderlineAction";
-export { TypographyAction } from "~/components/ToolbarActions/TypographyAction";
-export { TextAlignmentAction } from "~/components/ToolbarActions/TextAlignmentAction";
-export { ImageAction } from "~/components/ToolbarActions/ImageAction";
+export { BoldAction } from "~/components/ToolbarActions/BoldAction.js";
+export { BulletListAction } from "~/components/ToolbarActions/BulletListAction.js";
+export { CodeHighlightAction } from "~/components/ToolbarActions/CodeHighlightAction.js";
+export { FontSizeAction } from "~/components/ToolbarActions/FontSizeAction.js";
+export { FontColorAction } from "~/components/ToolbarActions/FontColorAction.js";
+export { ItalicAction } from "~/components/ToolbarActions/ItalicAction.js";
+export { LinkAction } from "~/components/ToolbarActions/LinkAction.js";
+export { NumberedListAction } from "~/components/ToolbarActions/NumberedListAction.js";
+export { QuoteAction } from "~/components/ToolbarActions/QuoteAction.js";
+export { UnderlineAction } from "~/components/ToolbarActions/UnderlineAction.js";
+export { TypographyAction } from "~/components/ToolbarActions/TypographyAction.js";
+export { TextAlignmentAction } from "~/components/ToolbarActions/TextAlignmentAction.js";
+export { ImageAction } from "~/components/ToolbarActions/ImageAction.js";
 // toolbars
-export { Toolbar } from "~/components/Toolbar/Toolbar";
-export { StaticToolbar } from "~/components/Toolbar/StaticToolbar";
+export { Toolbar } from "~/components/Toolbar/Toolbar.js";
+export { StaticToolbar } from "~/components/Toolbar/StaticToolbar.js";
 // editor
-export { RichTextEditor } from "~/components/Editor/RichTextEditor";
-export { HeadingEditor } from "~/components/Editor/HeadingEditor";
-export { ParagraphEditor } from "~/components/Editor/ParagraphEditor";
+export { RichTextEditor } from "~/components/Editor/RichTextEditor.js";
+export { HeadingEditor } from "~/components/Editor/HeadingEditor.js";
+export { ParagraphEditor } from "~/components/Editor/ParagraphEditor.js";
 // plugins
-export { LinkPlugin } from "~/plugins/LinkPlugin/LinkPlugin";
-export { FloatingLinkEditorPlugin } from "~/plugins/FloatingLinkEditorPlugin/FloatingLinkEditorPlugin";
-export { CodeHighlightPlugin } from "~/plugins/CodeHighlightPlugin/CodeHighlightPlugin";
-export { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin";
-export { FontColorPlugin } from "~/plugins/FontColorPlugin/FontColorPlugin";
-export { TypographyPlugin } from "~/plugins/TypographyPlugin/TypographyPlugin";
-export { QuotePlugin } from "~/plugins/QuoteNodePlugin/QuoteNodePlugin";
-export { ListPlugin } from "~/plugins/ListPLugin/ListPlugin";
-export { ImagesPlugin } from "~/plugins/ImagesPlugin/ImagesPlugin";
-export { StateHandlingPlugin } from "~/plugins/StateHandlingPlugin";
+export { LinkPlugin } from "~/plugins/LinkPlugin/LinkPlugin.js";
+export { FloatingLinkEditorPlugin } from "~/plugins/FloatingLinkEditorPlugin/FloatingLinkEditorPlugin.js";
+export { CodeHighlightPlugin } from "~/plugins/CodeHighlightPlugin/CodeHighlightPlugin.js";
+export { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin.js";
+export { FontColorPlugin } from "~/plugins/FontColorPlugin/FontColorPlugin.js";
+export { TypographyPlugin } from "~/plugins/TypographyPlugin/TypographyPlugin.js";
+export { QuotePlugin } from "~/plugins/QuoteNodePlugin/QuoteNodePlugin.js";
+export { ListPlugin } from "~/plugins/ListPLugin/ListPlugin.js";
+export { ImagesPlugin } from "~/plugins/ImagesPlugin/ImagesPlugin.js";
+export { StateHandlingPlugin } from "~/plugins/StateHandlingPlugin.js";
 // utils
-export { isValidLexicalData } from "~/utils/isValidLexicalData";
+export { isValidLexicalData } from "~/utils/isValidLexicalData.js";
 // Commands
-export * from "~/commands";
+export * from "~/commands/index.js";
 // types
-export * as types from "./types";
+export * as types from "./types.js";
 // config
 export {
     LexicalEditorConfig,
     useLexicalEditorConfig
-} from "~/components/LexicalEditorConfig/LexicalEditorConfig";
+} from "~/components/LexicalEditorConfig/LexicalEditorConfig.js";

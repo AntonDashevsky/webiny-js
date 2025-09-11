@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { WcpContextProvider } from "./contexts";
+import { WcpContextProvider } from "./contexts/index.js";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import type { GetWcpProjectGqlResponse } from "~/types";
-import type { DecryptedWcpProjectLicense, ILicense } from "@webiny/wcp/types";
+import type { GetWcpProjectGqlResponse } from "~/types.js";
+import type { DecryptedWcpProjectLicense, ILicense } from "@webiny/wcp/types.js";
 import { License, NullLicense } from "@webiny/wcp";
-import { ReactLicense } from "./ReactLicense";
+import { ReactLicense } from "./ReactLicense.js";
 
 const LOCAL_STORAGE_KEY = `webiny_wcp_project`;
 

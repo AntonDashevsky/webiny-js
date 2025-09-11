@@ -8,18 +8,18 @@ import type {
     CmsModelFieldToGraphQLPluginValidateChildFieldsValidate,
     CmsModelLockedFieldPlugin,
     LockedField
-} from "~/types";
-import { createManageSDL } from "~/graphql/schema/createManageSDL";
-import { createFieldStorageId } from "./createFieldStorageId";
+} from "~/types/index.js";
+import { createManageSDL } from "~/graphql/schema/createManageSDL.js";
+import { createFieldStorageId } from "./createFieldStorageId.js";
 import type { GraphQLError } from "graphql";
-import { getBaseFieldType } from "~/utils/getBaseFieldType";
-import { getContentModelTitleFieldId } from "./fields/titleField";
-import { getContentModelDescriptionFieldId } from "./fields/descriptionField";
-import { getContentModelImageFieldId } from "./fields/imageField";
-import type { ICmsGraphQLSchemaPlugin } from "~/plugins";
-import { CmsGraphQLSchemaPlugin, CmsGraphQLSchemaSorterPlugin } from "~/plugins";
-import { buildSchemaPlugins } from "~/graphql/buildSchemaPlugins";
-import { createExecutableSchema } from "~/graphql/createExecutableSchema";
+import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
+import { getContentModelTitleFieldId } from "./fields/titleField.js";
+import { getContentModelDescriptionFieldId } from "./fields/descriptionField.js";
+import { getContentModelImageFieldId } from "./fields/imageField.js";
+import type { ICmsGraphQLSchemaPlugin } from "~/plugins/index.js";
+import { CmsGraphQLSchemaPlugin, CmsGraphQLSchemaSorterPlugin } from "~/plugins/index.js";
+import { buildSchemaPlugins } from "~/graphql/buildSchemaPlugins.js";
+import { createExecutableSchema } from "~/graphql/createExecutableSchema.js";
 import { generateAlphaNumericId } from "@webiny/utils";
 
 const extractInvalidField = (model: CmsModel, err: GraphQLError) => {

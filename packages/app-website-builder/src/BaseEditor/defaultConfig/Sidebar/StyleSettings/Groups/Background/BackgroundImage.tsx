@@ -2,10 +2,10 @@ import React, { useEffect, useState, useMemo } from "react";
 import { observer } from "mobx-react-lite";
 import { FileManager } from "@webiny/app-admin";
 import { FilePicker } from "@webiny/admin-ui";
-import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
-import { BackgroundImageParser } from "./BackgroundImageParser";
-import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { InheritanceLabel } from "../../../InheritanceLabel";
+import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles.js";
+import { BackgroundImageParser } from "./BackgroundImageParser.js";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint.js";
+import { InheritanceLabel } from "../../../InheritanceLabel.js";
 
 type FileInfo = {
     id: string;

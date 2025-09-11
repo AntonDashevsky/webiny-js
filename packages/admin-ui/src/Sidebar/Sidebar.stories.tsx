@@ -12,11 +12,11 @@ import { ReactComponent as DocsIcon } from "@webiny/icons/summarize.svg";
 import { ReactComponent as ApiPlaygroundIcon } from "@webiny/icons/swap_horiz.svg";
 import { ReactComponent as MoreVertIcon } from "@webiny/icons/more_vert.svg";
 import { ReactComponent as FileManagerIcon } from "@webiny/icons/insert_drive_file.svg";
-import { Sidebar } from "./Sidebar";
-import { SidebarProvider } from "~/Sidebar/components/SidebarProvider";
-import { DropdownMenu } from "~/DropdownMenu";
-import { Tag } from "~/Tag";
-import { Tooltip } from "~/Tooltip";
+import { Sidebar } from "./Sidebar.js";
+import { SidebarProvider } from "~/Sidebar/components/SidebarProvider.js";
+import { DropdownMenu } from "~/DropdownMenu/index.js";
+import { Tag } from "~/Tag/index.js";
+import { Tooltip } from "~/Tooltip/index.js";
 
 const meta: Meta<typeof Sidebar> = {
     title: "Components/Sidebar",

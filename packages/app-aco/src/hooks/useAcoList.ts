@@ -1,8 +1,8 @@
 import type { Context } from "react";
 import { useContext } from "react";
-import type { AcoListContextData } from "~/contexts/acoList";
-import { AcoListContext } from "~/contexts/acoList";
-import type { GenericSearchData } from "~/types";
+import type { AcoListContextData } from "~/contexts/acoList.js";
+import { AcoListContext } from "~/contexts/acoList.js";
+import type { GenericSearchData } from "~/types.js";
 
 export const useAcoList = <T extends GenericSearchData>() => {
     const context = useContext<AcoListContextData<T>>(

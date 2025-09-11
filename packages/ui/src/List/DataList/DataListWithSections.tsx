@@ -1,8 +1,8 @@
 import React from "react";
 import { DataListWithSections as AdminDataListWithSections, List } from "@webiny/admin-ui";
-import type { ListProps } from "../List";
-import type { DataListProps } from "@webiny/admin-ui/DataList/types";
-import type { ListItem } from "@webiny/admin-ui/List/components";
+import type { ListProps } from "../List/index.js";
+import type { DataListProps } from "@webiny/admin-ui/DataList/types.js";
+import type { ListItem } from "@webiny/admin-ui/List/components/index.js";
 
 interface DataListData {
     [key: string]: Record<string, any>[];

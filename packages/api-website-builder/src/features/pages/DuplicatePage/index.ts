@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { DuplicatePage } from "./DuplicatePage";
-import { DuplicatePageWithEvents } from "./DuplicatePageWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { DuplicatePage } from "./DuplicatePage.js";
+import { DuplicatePageWithEvents } from "./DuplicatePageWithEvents.js";
 import type {
     OnPageAfterDuplicateTopicParams,
     OnPageBeforeDuplicateTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 
 export interface DuplicatePageUseCasesTopics {
     onPageBeforeDuplicate: Topic<OnPageBeforeDuplicateTopicParams>;

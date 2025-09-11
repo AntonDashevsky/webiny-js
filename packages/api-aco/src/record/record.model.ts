@@ -1,5 +1,5 @@
-import type { CmsModelField } from "@webiny/api-headless-cms/types";
-import { createModelField } from "~/utils/createModelField";
+import type { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import { createModelField } from "~/utils/createModelField.js";
 import { createPrivateModel } from "@webiny/api-headless-cms";
 
 const typeField = () =>

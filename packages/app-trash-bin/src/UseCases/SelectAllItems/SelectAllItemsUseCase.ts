@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import type { ISelectedItemsRepository } from "~/Domain";
-import type { ISelectAllItemsUseCase } from "./ISelectAllItemsUseCase";
+import type { ISelectedItemsRepository } from "~/Domain/index.js";
+import type { ISelectAllItemsUseCase } from "./ISelectAllItemsUseCase.js";
 
 export class SelectAllItemsUseCase implements ISelectAllItemsUseCase {
     private repository: ISelectedItemsRepository;

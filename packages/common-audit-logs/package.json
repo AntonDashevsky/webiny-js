@@ -9,7 +9,6 @@
   "description": "",
   "license": "MIT",
   "devDependencies": {
-    "@webiny/project-utils": "0.0.0",
     "execa": "^5.1.1",
     "rimraf": "^6.0.1",
     "typescript": "5.9.2"
@@ -17,9 +16,5 @@
   "publishConfig": {
     "access": "public",
     "directory": "dist"
-  },
-  "scripts": {
-    "build": "node ../cli/bin.js run build",
-    "watch": "node ../cli/bin.js run watch"
   }
 }

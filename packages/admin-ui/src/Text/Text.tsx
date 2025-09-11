@@ -1,5 +1,5 @@
 import React from "react";
-import { cn, cva, makeDecoratable, type VariantProps } from "~/utils";
+import { cn, cva, makeDecoratable, type VariantProps } from "~/utils.js";
 
 type TextTags = "span" | "div";
 

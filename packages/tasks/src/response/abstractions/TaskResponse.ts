@@ -1,5 +1,5 @@
-import type { ITaskDataInput, TaskResponseStatus } from "~/types";
-import type { IResponseError } from "./ResponseErrorResult";
+import type { ITaskDataInput, TaskResponseStatus } from "~/types.js";
+import type { IResponseError } from "./ResponseErrorResult.js";
 
 export type ITaskResponseResult<
     I = ITaskDataInput,

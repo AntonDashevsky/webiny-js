@@ -1,11 +1,11 @@
 import React from "react";
-import { Layout } from "./Layout";
-import { Navigation } from "./Navigation";
-import { UserMenu } from "~/UserMenu";
-import { Dialog } from "./Dialog";
-import { NotFound } from "./NotFound";
-import { Dashboard } from "./Dashboard";
-import { Logo } from "./Logo";
+import { Layout } from "./Layout.js";
+import { Navigation } from "./Navigation.js";
+import { UserMenu } from "~/UserMenu.js";
+import { Dialog } from "./Dialog.js";
+import { NotFound } from "./NotFound.js";
+import { Dashboard } from "./Dashboard.js";
+import { Logo } from "./Logo.js";
 
 export const AdminUI = () => {
     return (

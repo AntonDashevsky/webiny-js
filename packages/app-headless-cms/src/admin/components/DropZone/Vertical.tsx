@@ -1,7 +1,7 @@
 import React from "react";
-import type { IsVisibleCallable } from "../Droppable";
-import { Droppable } from "../Droppable";
-import type { DragSource } from "~/types";
+import type { IsVisibleCallable } from "../Droppable.js";
+import { Droppable } from "../Droppable.js";
+import type { DragSource } from "~/types.js";
 import { cn } from "@webiny/admin-ui";
 
 interface OuterDivVerticalProps {

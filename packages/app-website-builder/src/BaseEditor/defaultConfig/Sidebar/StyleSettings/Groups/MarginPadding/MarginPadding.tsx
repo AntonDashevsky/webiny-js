@@ -1,6 +1,6 @@
 import React from "react";
-import { Margin } from "./Margin";
-import { Padding } from "./Padding";
+import { Margin } from "./Margin.js";
+import { Padding } from "./Padding.js";
 
 export const MarginPaddingControl = ({ elementId }: { elementId: string }) => {
     return (

@@ -1,7 +1,7 @@
-import type { AcoFolderStorageOperations } from "~/folder/folder.types";
-import { GetFolder } from "./GetFolder";
-import { GetFolderWithFolderLevelPermissions } from "./GetFolderWithFolderLevelPermissions";
-import type { FolderLevelPermissions } from "~/flp";
+import type { AcoFolderStorageOperations } from "~/folder/folder.types.js";
+import { GetFolder } from "./GetFolder.js";
+import { GetFolderWithFolderLevelPermissions } from "./GetFolderWithFolderLevelPermissions.js";
+import type { FolderLevelPermissions } from "~/flp/index.js";
 
 interface GetFolderUseCasesParams {
     getOperation: AcoFolderStorageOperations["getFolder"];

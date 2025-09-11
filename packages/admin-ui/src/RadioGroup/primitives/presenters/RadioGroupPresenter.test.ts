@@ -1,4 +1,5 @@
-import { RadioGroupPresenter } from "./RadioGroupPresenter";
+import { RadioGroupPresenter } from "./RadioGroupPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("RadioGroupPresenter", () => {
     const onValueChange = jest.fn();

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { type VariantProps } from "~/utils";
-import type { filePickerVariants } from "~/FilePicker";
-import type { FilePreviewDefaultProps } from "../types";
-import { RichItemPreview, TextOnlyPreview } from "../previews";
+import { type VariantProps } from "~/utils.js";
+import type { filePickerVariants } from "~/FilePicker/index.js";
+import type { FilePreviewDefaultProps } from "../types.js";
+import { RichItemPreview, TextOnlyPreview } from "../previews/index.js";
 
 type FilePreviewProps = FilePreviewDefaultProps & {
     type: VariantProps<typeof filePickerVariants>["type"];

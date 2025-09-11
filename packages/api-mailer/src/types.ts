@@ -1,5 +1,5 @@
-import type { CmsContext } from "@webiny/api-headless-cms/types";
-import type { Topic } from "@webiny/pubsub/types";
+import type { CmsContext } from "@webiny/api-headless-cms/types/index.js";
+import type { Topic } from "@webiny/pubsub/types.js";
 
 export interface MailerTransporterContext<T extends Transport = Transport> {
     onTransportBeforeSend: Topic<OnTransportBeforeSendParams>;

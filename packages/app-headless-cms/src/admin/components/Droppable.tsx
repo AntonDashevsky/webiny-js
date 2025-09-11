@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { ConnectDropTarget } from "react-dnd";
 import { useDrop } from "react-dnd";
-import type { DragSource } from "~/types";
+import type { DragSource } from "~/types.js";
 
 export interface DroppableChildrenFunctionParams {
     isDragging: boolean;

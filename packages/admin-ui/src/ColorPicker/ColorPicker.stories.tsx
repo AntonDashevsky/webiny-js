@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ColorPicker } from "./ColorPicker";
+import { ColorPicker } from "./ColorPicker.js";
 
 const meta: Meta<typeof ColorPicker> = {
     title: "Components/Form/ColorPicker",

@@ -1,17 +1,17 @@
 // Suppress punycode warnings. This is a known issue which we can't fix.
-import "./suppressPunycodeWarnings";
+import "./suppressPunycodeWarnings.js";
 
-export * from "~/fastify";
-export * from "~/Context";
-export * from "~/ResponseHeaders";
-export * from "~/plugins/EventPlugin";
-export * from "~/plugins/RoutePlugin";
-export * from "~/plugins/BeforeHandlerPlugin";
-export * from "~/plugins/HandlerErrorPlugin";
-export * from "~/plugins/HandlerResultPlugin";
-export * from "~/plugins/HandlerOnRequestPlugin";
-export * from "~/plugins/ModifyFastifyPlugin";
-export * from "~/plugins/ModifyResponseHeadersPlugin";
+export * from "~/fastify.js";
+export * from "~/Context.js";
+export * from "~/ResponseHeaders.js";
+export * from "~/plugins/EventPlugin.js";
+export * from "~/plugins/RoutePlugin.js";
+export * from "~/plugins/BeforeHandlerPlugin.js";
+export * from "~/plugins/HandlerErrorPlugin.js";
+export * from "~/plugins/HandlerResultPlugin.js";
+export * from "~/plugins/HandlerOnRequestPlugin.js";
+export * from "~/plugins/ModifyFastifyPlugin.js";
+export * from "~/plugins/ModifyResponseHeadersPlugin.js";
 export * from "~/plugins/OnRequestResponseSendPlugin.js";
 export * from "~/plugins/OnRequestTimeoutPlugin.js";
-export * from "./ResponseHeaders";
+export * from "./ResponseHeaders.js";

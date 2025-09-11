@@ -1,16 +1,17 @@
-import type { HeadObjectCommandInput } from "@webiny/aws-sdk/client-s3";
+import type { HeadObjectCommandInput } from "@webiny/aws-sdk/client-s3/index.js";
 import {
     CreateMultipartUploadCommand,
     createS3Client,
     HeadObjectCommand,
     S3Client
-} from "@webiny/aws-sdk/client-s3";
+} from "@webiny/aws-sdk/client-s3/index.js";
 import { mockClient } from "aws-sdk-client-mock";
 import { CopyFile } from "~/worker/actions/copyFile/CopyFile.js";
 import {
     createMockSourceDeployment,
     createMockTargetDeployment
 } from "~tests/mocks/deployments.js";
+import { jest } from "@jest/globals";
 
 describe("CopyFile", () => {
     const targetDeployment = createMockTargetDeployment();

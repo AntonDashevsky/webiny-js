@@ -1,4 +1,4 @@
-import type { CmsFieldValueTransformer } from "~/types";
+import type { CmsFieldValueTransformer } from "~/types.js";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
 
 export const createObjectTransformer = (): CmsFieldValueTransformer => ({

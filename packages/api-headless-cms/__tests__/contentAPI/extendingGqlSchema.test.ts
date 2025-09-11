@@ -1,5 +1,5 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { createCmsGraphQLSchemaPlugin } from "~/plugins";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { createCmsGraphQLSchemaPlugin } from "~/plugins/index.js";
 
 const graphqlSchemaPlugin = createCmsGraphQLSchemaPlugin({
     typeDefs: /* GraphQL */ `

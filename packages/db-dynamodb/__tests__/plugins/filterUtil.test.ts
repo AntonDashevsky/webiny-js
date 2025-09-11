@@ -1,7 +1,7 @@
-import { filterItems } from "~/utils/filter";
-import filters from "~/plugins/filters";
+import { filterItems } from "~/utils/filter.js";
+import filters from "~/plugins/filters/index.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { FieldPlugin } from "~/plugins/definitions/FieldPlugin";
+import { FieldPlugin } from "~/plugins/definitions/FieldPlugin.js";
 
 const itemJohn = {
     id: 1,

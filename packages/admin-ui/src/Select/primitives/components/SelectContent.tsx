@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Select as SelectPrimitives } from "radix-ui";
-import { cn } from "~/utils";
-import { SelectScrollUpButton } from "./SelectScrollUpButton";
-import { SelectScrollDownButton } from "./SelectScrollDownButton";
+import { cn } from "~/utils.js";
+import { SelectScrollUpButton } from "./SelectScrollUpButton.js";
+import { SelectScrollDownButton } from "./SelectScrollDownButton.js";
 
 type SelectContentProps = SelectPrimitives.SelectContentProps;
 

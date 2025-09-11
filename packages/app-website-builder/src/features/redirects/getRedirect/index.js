@@ -1,1 +1,1 @@
-export * from "./useGetRedirect";
+export * from "./useGetRedirect.js";

@@ -1,2 +1,2 @@
-export * from "./IsAuthorizationEnabledGatewayFromContext";
-export type * from "./IIsAuthorizationEnabledGateway";
+export * from "./IsAuthorizationEnabledGatewayFromContext.js";
+export type * from "./IIsAuthorizationEnabledGateway.js";

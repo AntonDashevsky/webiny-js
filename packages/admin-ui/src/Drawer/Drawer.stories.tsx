@@ -1,9 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Drawer } from "./Drawer";
-import { Button } from "~/Button";
-import { DropdownMenu } from "~/DropdownMenu";
-import { Tabs } from "~/Tabs";
+import { Drawer } from "./Drawer.js";
+import { Button } from "~/Button/index.js";
+import { DropdownMenu } from "~/DropdownMenu/index.js";
+import { Tabs } from "~/Tabs/index.js";
 import { ReactComponent as DoorbellIcon } from "@webiny/icons/ring_volume.svg";
 
 const meta: Meta<typeof Drawer> = {

@@ -5,8 +5,8 @@ import type {
     CmsEntryBulkActionMutationVariables
 } from "@webiny/app-headless-cms-common";
 import { createBulkActionMutation } from "@webiny/app-headless-cms-common";
-import type { CmsModel } from "@webiny/app-headless-cms-common/types";
-import type { TrashBinBulkActionsGatewayParams } from "@webiny/app-trash-bin/types";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import type { TrashBinBulkActionsGatewayParams } from "@webiny/app-trash-bin/types.js";
 
 export class TrashBinBulkActionsGraphQLGateway implements ITrashBinBulkActionsGateway {
     private client: ApolloClient<any>;

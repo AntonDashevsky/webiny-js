@@ -3,7 +3,7 @@ import {
     equalKeys,
     skipModels,
     startsWithKeys
-} from "~/sync/filter/createDefaultFilterOutRecordPlugins";
+} from "~/sync/filter/createDefaultFilterOutRecordPlugins.js";
 
 describe("createDefaultFilterOutRecordPlugins", () => {
     it("should create default filter out record plugins", () => {

@@ -1,4 +1,5 @@
-import { SliderPresenter } from "./SliderPresenter";
+import { SliderPresenter } from "./SliderPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("SliderPresenter", () => {
     const onValueChange = jest.fn();

@@ -1,6 +1,6 @@
 import React from "react";
 import { CopyButton, Text, Tooltip, useToast } from "@webiny/admin-ui";
-import { usePreviewLink } from "./usePreviewLink";
+import { usePreviewLink } from "./usePreviewLink.js";
 
 export const PreviewInNewTab = () => {
     const link = usePreviewLink();

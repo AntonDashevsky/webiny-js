@@ -1,8 +1,8 @@
 import React from "react";
 import { useAcoConfig } from "@webiny/app-aco";
 import { OptionsMenu } from "@webiny/app-admin";
-import { SchedulerListConfig } from "~/Presentation/configs";
-import { SchedulerItemProvider } from "~/Presentation/hooks";
+import { SchedulerListConfig } from "~/Presentation/configs/index.js";
+import { SchedulerItemProvider } from "~/Presentation/hooks/index.js";
 
 export const CellActions = () => {
     const { useTableRow } = SchedulerListConfig.Browser.Table.Column;

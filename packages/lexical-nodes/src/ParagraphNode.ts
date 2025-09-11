@@ -15,8 +15,8 @@ import type { EditorConfig } from "lexical";
 import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
 import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
-import type { TypographyStylesNode, ThemeStyleValue } from "~/types";
-import { getStyleId } from "./utils/getStyleId";
+import type { TypographyStylesNode, ThemeStyleValue } from "~/types.js";
+import { getStyleId } from "./utils/getStyleId.js";
 
 function convertParagraphElement(element: HTMLElement): DOMConversionOutput {
     const node = $createParagraphNode();

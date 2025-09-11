@@ -1,5 +1,5 @@
-import type { HandlerCallable, HandlerParams } from "@webiny/handler-aws/sqs";
-import { createHandler as createSQSHandler } from "@webiny/handler-aws/sqs";
+import type { HandlerCallable, HandlerParams } from "@webiny/handler-aws/sqs/index.js";
+import { createHandler as createSQSHandler } from "@webiny/handler-aws/sqs/index.js";
 import { PluginsContainer } from "@webiny/plugins";
 import { createEventHandlerPlugin } from "./createEventHandlerPlugin.js";
 import type { TransformRecordPlugin } from "./plugins/TransformRecordPlugin.js";

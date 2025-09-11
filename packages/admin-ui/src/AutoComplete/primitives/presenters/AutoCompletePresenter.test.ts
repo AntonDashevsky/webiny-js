@@ -1,6 +1,7 @@
-import { AutoCompletePresenter } from "./AutoCompletePresenter";
-import { AutoCompleteInputPresenter } from "./AutoCompleteInputPresenter";
-import { AutoCompleteListOptionsPresenter } from "./AutoCompleteListOptionsPresenter";
+import { AutoCompletePresenter } from "./AutoCompletePresenter.js";
+import { AutoCompleteInputPresenter } from "./AutoCompleteInputPresenter.js";
+import { AutoCompleteListOptionsPresenter } from "./AutoCompleteListOptionsPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("AutoCompletePresenter", () => {
     const inputPresenter = new AutoCompleteInputPresenter();

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { statuses } from "~/admin/constants";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
+import { statuses } from "~/admin/constants.js";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
 import { Tag } from "@webiny/admin-ui";
 
 export const CellStatus = () => {

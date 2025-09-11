@@ -2,8 +2,8 @@ import React from "react";
 import type {
     FormFieldElementConfig,
     FormFieldElementRenderProps
-} from "~/ui/elements/form/FormFieldElement";
-import { FormFieldElement } from "~/ui/elements/form/FormFieldElement";
+} from "~/ui/elements/form/FormFieldElement.js";
+import { FormFieldElement } from "~/ui/elements/form/FormFieldElement.js";
 
 export class HiddenElement extends FormFieldElement {
     public constructor(id: string, config: FormFieldElementConfig) {

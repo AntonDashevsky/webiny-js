@@ -1,5 +1,5 @@
 import { validation } from "@webiny/validation";
-import type { CmsModelFieldValidatorPlugin } from "~/types";
+import type { CmsModelFieldValidatorPlugin } from "~/types/index.js";
 
 export const createTimeGteValidator = (): CmsModelFieldValidatorPlugin => ({
     type: "cms-model-field-validator",

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { type FileItemDto, FilePicker } from "~/FilePicker";
-import { Providers } from "~/Providers";
+import { type FileItemDto, FilePicker } from "~/FilePicker/index.js";
+import { Providers } from "~/Providers/index.js";
 
 const getRandomNumber = (min: number, max: number): number =>
     Math.floor(Math.random() * (max - min + 1)) + min;

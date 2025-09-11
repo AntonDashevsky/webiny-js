@@ -10,10 +10,10 @@ import {
 } from "@minoru/react-dnd-treeview";
 
 import { DndProvider, type DragSourceMonitor } from "react-dnd";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import { Item } from "./components";
-import type { NodeDto, WithDefaultNodeData } from "./domains";
-import { useTree } from "./useTree";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import { Item } from "./components/index.js";
+import type { NodeDto, WithDefaultNodeData } from "./domains/index.js";
+import { useTree } from "./useTree.js";
 
 export interface DropOptions<TData = Record<string, any>> {
     dragSourceId?: NodeDto<TData>["id"];

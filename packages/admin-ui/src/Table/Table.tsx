@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn, cva, type VariantProps, withStaticProps } from "~/utils";
+import { cn, cva, type VariantProps, withStaticProps } from "~/utils.js";
 import {
     Body,
     Caption,
@@ -10,7 +10,7 @@ import {
     Header,
     Resizer,
     Row
-} from "~/Table/components";
+} from "~/Table/components/index.js";
 
 const tableWrapperVariants = cva("wby-relative wby-w-full wby-overflow-auto", {
     variants: {

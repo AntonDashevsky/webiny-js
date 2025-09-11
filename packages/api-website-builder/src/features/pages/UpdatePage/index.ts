@@ -1,11 +1,11 @@
-import type { Topic } from "@webiny/pubsub/types";
-import { UpdatePage } from "./UpdatePage";
-import { UpdatePageWithEvents } from "./UpdatePageWithEvents";
+import type { Topic } from "@webiny/pubsub/types.js";
+import { UpdatePage } from "./UpdatePage.js";
+import { UpdatePageWithEvents } from "./UpdatePageWithEvents.js";
 import type {
     OnPageAfterUpdateTopicParams,
     OnPageBeforeUpdateTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/pages.types";
+} from "~/context/pages/pages.types.js";
 
 export interface UpdatePageUseCasesTopics {
     onPageBeforeUpdate: Topic<OnPageBeforeUpdateTopicParams>;

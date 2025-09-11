@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
 import { useApolloClient } from "@apollo/react-hooks";
-import { ListFoldersByParentIdsGqlGateway } from "./ListFoldersByParentIdsGqlGateway";
-import { ListFoldersByParentIds } from "./ListFoldersByParentIds";
-import { FolderDtoMapper } from "./FolderDto";
-import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks";
-import type { FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+import { ListFoldersByParentIdsGqlGateway } from "./ListFoldersByParentIdsGqlGateway.js";
+import { ListFoldersByParentIds } from "./ListFoldersByParentIds.js";
+import { FolderDtoMapper } from "./FolderDto.js";
+import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks/index.js";
+import type { FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export const useListFoldersByParentIds = () => {
     const client = useApolloClient();

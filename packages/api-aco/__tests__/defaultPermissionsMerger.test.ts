@@ -1,7 +1,7 @@
-import { DefaultPermissionsMerger } from "~/flp/FolderLevelPermissions/useCases/GetDefaultPermissions/DefaultPermissionsMerger";
-import { createIdentity } from "./utils/identity";
-import type { SecurityPermission } from "@webiny/api-security/types";
-import type { FolderPermission } from "~/flp/flp.types";
+import { DefaultPermissionsMerger } from "~/flp/FolderLevelPermissions/useCases/GetDefaultPermissions/DefaultPermissionsMerger.js";
+import { createIdentity } from "./utils/identity.js";
+import type { SecurityPermission } from "@webiny/api-security/types.js";
+import type { FolderPermission } from "~/flp/flp.types.js";
 
 const identity1 = createIdentity({ id: "1", type: "admin", displayName: "Identity 1" });
 

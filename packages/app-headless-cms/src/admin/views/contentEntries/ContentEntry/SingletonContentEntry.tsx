@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Grid, OverlayLoader } from "@webiny/admin-ui";
-import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm";
+import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm.js";
 import { makeDecoratable } from "@webiny/app";
-import { useSingletonContentEntry } from "../hooks/useSingletonContentEntry";
-import type { PartialCmsContentEntryWithId } from "~/admin/contexts/Cms";
-import { SingletonHeader } from "~/admin/components/ContentEntryForm/SingletonHeader";
+import { useSingletonContentEntry } from "../hooks/useSingletonContentEntry.js";
+import type { PartialCmsContentEntryWithId } from "~/admin/contexts/Cms/index.js";
+import { SingletonHeader } from "~/admin/components/ContentEntryForm/SingletonHeader/index.js";
 
 const Container = styled.div`
     // This is a workaround for the fact that the ContentEntryForm component is used by many views.

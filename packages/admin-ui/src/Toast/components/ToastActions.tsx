@@ -1,5 +1,5 @@
 import React from "react";
-import { cn, makeDecoratable } from "~/utils";
+import { cn, makeDecoratable } from "~/utils.js";
 
 const DecoratableToastActions = ({
     children,

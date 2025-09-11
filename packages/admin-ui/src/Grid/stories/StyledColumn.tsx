@@ -1,5 +1,5 @@
 import React from "react";
-import { type ColumnProps, Grid } from "~/Grid";
+import { type ColumnProps, Grid } from "~/Grid/index.js";
 
 export interface StyledColumnProps extends ColumnProps {
     index: number;

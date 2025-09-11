@@ -1,5 +1,5 @@
-import type { IListPermissionsGateway } from "./IListPermissionsGateway";
-import type { AcoContext } from "~/types";
+import type { IListPermissionsGateway } from "./IListPermissionsGateway.js";
+import type { AcoContext } from "~/types.js";
 
 export class ListPermissionsGatewayFromContext implements IListPermissionsGateway {
     private context: AcoContext;

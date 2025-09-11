@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
-import { MultiAutoCompletePrimitive } from "./MultiAutoCompletePrimitive";
-import { Button } from "~/Button";
-import { Icon } from "~/Icon";
-import { Tag } from "~/Tag";
+import { MultiAutoCompletePrimitive } from "./MultiAutoCompletePrimitive.js";
+import { Button } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
+import { Tag } from "~/Tag/index.js";
 
 const meta: Meta<typeof MultiAutoCompletePrimitive> = {
     title: "Components/Form Primitives/Multi Autocomplete",

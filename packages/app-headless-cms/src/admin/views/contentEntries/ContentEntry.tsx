@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { makeDecoratable } from "@webiny/app";
-import { RevisionsList } from "./ContentEntry/RevisionsList/RevisionsList";
-import { useContentEntry } from "./hooks/useContentEntry";
-import { Header } from "~/admin/components/ContentEntryForm/Header";
-import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm";
-import { usePersistEntry } from "~/admin/hooks/usePersistEntry";
+import { RevisionsList } from "./ContentEntry/RevisionsList/RevisionsList.js";
+import { useContentEntry } from "./hooks/useContentEntry.js";
+import { Header } from "~/admin/components/ContentEntryForm/Header/index.js";
+import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm.js";
+import { usePersistEntry } from "~/admin/hooks/usePersistEntry.js";
 import type { FormValidation } from "@webiny/form";
-import { ValidationIndicators } from "./ValidationIndicators";
+import { ValidationIndicators } from "./ValidationIndicators.js";
 import { OverlayLoader, Tabs } from "@webiny/admin-ui";
 
 declare global {

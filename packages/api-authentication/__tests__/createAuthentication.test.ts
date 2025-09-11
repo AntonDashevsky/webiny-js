@@ -1,5 +1,5 @@
-import { createAuthentication } from "~/createAuthentication";
-import type { Authenticator, Identity } from "~/types";
+import { createAuthentication } from "~/createAuthentication.js";
+import type { Authenticator, Identity } from "~/types.js";
 
 const identity: Identity = {
     id: "1",

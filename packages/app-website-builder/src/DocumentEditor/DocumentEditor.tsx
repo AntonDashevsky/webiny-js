@@ -2,10 +2,10 @@ import React, { useMemo } from "react";
 import type { EditorDocument } from "@webiny/website-builder-sdk";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
-import { Editor as EditorComponent } from "~/BaseEditor/components";
-import { Editor } from "~/editorSdk/Editor";
+import { Editor as EditorComponent } from "~/BaseEditor/components/index.js";
+import { Editor } from "~/editorSdk/Editor.js";
 import { observer } from "mobx-react-lite";
-import { StateInspector } from "./StateInspector";
+import { StateInspector } from "./StateInspector.js";
 import { CompositionScope } from "@webiny/react-composition";
 import { DialogsProvider } from "@webiny/app-admin";
 

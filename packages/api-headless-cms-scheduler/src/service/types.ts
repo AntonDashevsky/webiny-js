@@ -3,7 +3,7 @@ import type {
     CreateScheduleCommandOutput,
     DeleteScheduleCommandOutput,
     UpdateScheduleCommandOutput
-} from "@webiny/aws-sdk/client-scheduler";
+} from "@webiny/aws-sdk/client-scheduler/index.js";
 
 export interface ISchedulerServiceCreateInput {
     id: string;

@@ -1,3 +1,3 @@
-export * from "./SteppedProgressIcon";
-export * from "./SteppedProgressIndicator";
-export * from "./SteppedProgressLabel";
+export * from "./SteppedProgressIcon.js";
+export * from "./SteppedProgressIndicator.js";
+export * from "./SteppedProgressLabel.js";

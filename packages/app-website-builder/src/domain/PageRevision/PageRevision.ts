@@ -1,5 +1,5 @@
 import { type WbStatus } from "~/constants.js";
-import { toTitleCaseLabel } from "~/shared/toTitleCaseLabel";
+import { toTitleCaseLabel } from "~/shared/toTitleCaseLabel.js";
 
 export interface PageRevisionData {
     id: string;

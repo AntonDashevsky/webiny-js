@@ -1,7 +1,7 @@
-import HandlerClient from "./HandlerClient";
-import type { ClientContext } from "~/types";
+import HandlerClient from "./HandlerClient.js";
+import type { ClientContext } from "~/types.js";
 
-export * from "./HandlerClientPlugin";
+export * from "./HandlerClientPlugin.js";
 
 export const createHandlerClient = () => ({
     type: "context",

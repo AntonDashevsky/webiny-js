@@ -1,11 +1,11 @@
 import React from "react";
 import { Loader } from "@webiny/app-aco";
-import { Empty } from "./Empty";
-import { FilterSelect } from "./FilterSelect";
-import { FilterStatus } from "./FilterStatus";
-import { Tags } from "./Tags";
+import { Empty } from "./Empty.js";
+import { FilterSelect } from "./FilterSelect.js";
+import { FilterStatus } from "./FilterStatus.js";
+import { Tags } from "./Tags.js";
 
-import type { TagItem } from "@webiny/app-aco/types";
+import type { TagItem } from "@webiny/app-aco/types.js";
 
 interface TagListProps {
     loading: boolean;

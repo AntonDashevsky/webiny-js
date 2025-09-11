@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import type { CreateAuthenticationConfig } from "~/createAuthentication";
-import { createAuthentication } from "~/createAuthentication";
+import type { CreateAuthenticationConfig } from "~/createAuthentication/index.js";
+import { createAuthentication } from "~/createAuthentication/index.js";
 import { AdminConfig, LoginScreenRenderer } from "@webiny/app-admin";
-import { UserInfo } from "~/plugins/userMenu/UserInfo";
-import { SignOut } from "~/plugins/userMenu/SignOut";
+import { UserInfo } from "~/plugins/userMenu/UserInfo.js";
+import { SignOut } from "~/plugins/userMenu/SignOut.js";
 
 const { Menu } = AdminConfig;
 

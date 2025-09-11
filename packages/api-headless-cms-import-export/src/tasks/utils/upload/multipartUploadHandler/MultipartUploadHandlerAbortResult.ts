@@ -1,4 +1,4 @@
-import type { AbortMultipartUploadCommandOutput } from "@webiny/aws-sdk/client-s3";
+import type { AbortMultipartUploadCommandOutput } from "@webiny/aws-sdk/client-s3/index.js";
 import type {
     IMultipartUploadHandlerAbortResult,
     IPart

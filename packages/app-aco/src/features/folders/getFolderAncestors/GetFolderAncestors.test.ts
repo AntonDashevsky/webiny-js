@@ -1,6 +1,6 @@
-import { folderCacheFactory } from "../cache/FoldersCacheFactory";
-import { Folder } from "../Folder";
-import { GetFolderAncestors } from "./GetFolderAncestors";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
+import { Folder } from "../Folder.js";
+import { GetFolderAncestors } from "./GetFolderAncestors.js";
 
 describe("GetFolderAncestors", () => {
     const type = "abc";

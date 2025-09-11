@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import type { InputPrimitiveProps } from "~/Input";
-import { inputVariants } from "~/Input";
-import { PopoverPrimitive } from "~/Popover";
-import { cn, cva, type VariantProps } from "~/utils";
-import { IconPickerGrid, IconPickerInput, IconPickerTrigger } from "./components";
-import type { IconPickerIconDto } from "../domains";
-import { useIconPicker } from "./useIconPicker";
+import type { InputPrimitiveProps } from "~/Input/index.js";
+import { inputVariants } from "~/Input/index.js";
+import { PopoverPrimitive } from "~/Popover/index.js";
+import { cn, cva, type VariantProps } from "~/utils.js";
+import { IconPickerGrid, IconPickerInput, IconPickerTrigger } from "./components/index.js";
+import type { IconPickerIconDto } from "../domains/index.js";
+import { useIconPicker } from "./useIconPicker.js";
 
 const iconPickerVariants = cva("wby-cursor-pointer wby-text-neutral-strong", {
     variants: {

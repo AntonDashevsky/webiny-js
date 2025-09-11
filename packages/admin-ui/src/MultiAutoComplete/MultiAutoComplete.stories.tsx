@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { MultiAutoComplete } from "./MultiAutoComplete";
+import { MultiAutoComplete } from "./MultiAutoComplete.js";
 
 const meta: Meta<typeof MultiAutoComplete> = {
     title: "Components/Form/Multi AutoComplete",

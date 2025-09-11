@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { observer } from "mobx-react-lite";
 import { Select } from "@webiny/admin-ui";
-import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
-import { BackgroundImageParser } from "./BackgroundImageParser";
-import { toTitleCaseLabel } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/Groups/Background/toTitleCaseLabel";
-import { InheritanceLabel } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
+import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles.js";
+import { BackgroundImageParser } from "./BackgroundImageParser.js";
+import { toTitleCaseLabel } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/Groups/Background/toTitleCaseLabel.js";
+import { InheritanceLabel } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel.js";
 
 interface Scaling {
     name: string;

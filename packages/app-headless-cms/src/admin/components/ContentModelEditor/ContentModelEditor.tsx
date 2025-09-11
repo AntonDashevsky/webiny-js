@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Prompt } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
 import { Heading, OverlayLoader, Separator, Tabs, Text, TimeAgo } from "@webiny/admin-ui";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as PreviewIcon } from "@webiny/icons/fullscreen.svg";
-import { FieldsSidebar } from "./FieldsSidebar";
-import { FieldEditor } from "../FieldEditor";
-import { PreviewTab } from "./PreviewTab";
-import Header from "./Header";
-import DragPreview from "../DragPreview";
-import { useModelEditor } from "./useModelEditor";
-import type { CmsEditorFieldsLayout, CmsModelField } from "~/types";
-import { ContentEntryEditorWithConfig } from "~/admin/config/contentEntries";
-import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext";
-import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext";
-import { ModelIsBeingDeletedError } from "~/admin/components/ContentModelEditor/ModelIsBeingDeletedError";
+import { FieldsSidebar } from "./FieldsSidebar.js";
+import { FieldEditor } from "../FieldEditor/index.js";
+import { PreviewTab } from "./PreviewTab.js";
+import Header from "./Header.js";
+import DragPreview from "../DragPreview.js";
+import { useModelEditor } from "./useModelEditor.js";
+import type { CmsEditorFieldsLayout, CmsModelField } from "~/types.js";
+import { ContentEntryEditorWithConfig } from "~/admin/config/contentEntries/index.js";
+import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
+import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext.js";
+import { ModelIsBeingDeletedError } from "~/admin/components/ContentModelEditor/ModelIsBeingDeletedError/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/editor");
 

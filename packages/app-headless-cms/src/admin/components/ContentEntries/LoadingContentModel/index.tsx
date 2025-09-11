@@ -1,1 +1,1 @@
-export * from "./LoadingContentModel";
+export * from "./LoadingContentModel.js";

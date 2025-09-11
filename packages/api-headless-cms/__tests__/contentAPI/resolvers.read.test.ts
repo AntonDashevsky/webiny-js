@@ -1,11 +1,11 @@
-import type { CmsGroup } from "~/types";
-import type { GraphQLHandlerParams } from "../testHelpers/useGraphQLHandler";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import models from "./mocks/contentModels";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
-import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";
-import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
-import { useProductReadHandler } from "../testHelpers/useProductReadHandler";
+import type { CmsGroup } from "~/types/index.js";
+import type { GraphQLHandlerParams } from "../testHelpers/useGraphQLHandler.js";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import models from "./mocks/contentModels.js";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
+import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler.js";
+import { useProductManageHandler } from "../testHelpers/useProductManageHandler.js";
+import { useProductReadHandler } from "../testHelpers/useProductReadHandler.js";
 import { jest } from "@jest/globals";
 
 const createPermissions = ({ groups, models }: { groups?: string[]; models?: string[] }) => [

@@ -1,7 +1,7 @@
 import { GetFolderModel } from "./GetFolderModel.js";
 import { jest } from "@jest/globals";
-import type { IGetFolderModelGateway } from "~/features/folders/getFolderModel/IGetFolderModelGateway";
-import type { FolderModelDto } from "~/features";
+import type { IGetFolderModelGateway } from "~/features/folders/getFolderModel/IGetFolderModelGateway.js";
+import type { FolderModelDto } from "~/features/index.js";
 
 describe("GetFolderModel", () => {
     const mockFolderModel = {

@@ -1,5 +1,5 @@
 import React from "react";
-import type { CmsModel } from "~/types";
+import type { CmsModel } from "~/types/index.js";
 
 export type ModelContext = CmsModel;
 

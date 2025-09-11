@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
-import { createContextHandler } from "./contextHandler";
-import type { TransportSendData } from "~/types";
+import { createContextHandler } from "./contextHandler.js";
+import type { TransportSendData } from "~/types.js";
 
 jest.mock("nodemailer", () => {
     return {

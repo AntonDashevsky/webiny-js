@@ -1,4 +1,4 @@
-import type { AssetContentsReader, AssetOutputStrategy } from "~/delivery";
+import type { AssetContentsReader, AssetOutputStrategy } from "~/delivery/index.js";
 
 type Setter<T> = (arg: T | undefined) => T;
 

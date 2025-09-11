@@ -1,14 +1,14 @@
 import { createHandler as createBaseHandler } from "@webiny/handler";
-import { registerDefaultPlugins } from "@webiny/handler-aws/plugins";
-import { execute } from "@webiny/handler-aws/execute";
-import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types";
-import type { Context } from "~/types";
-import { TaskResponseStatus } from "~/types";
-import type { HandlerParams, ITaskRawEvent } from "~/handler/types";
-import { TaskRunner } from "~/runner";
+import { registerDefaultPlugins } from "@webiny/handler-aws/plugins/index.js";
+import { execute } from "@webiny/handler-aws/execute.js";
+import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types/index.js";
+import type { Context } from "~/types.js";
+import { TaskResponseStatus } from "~/types.js";
+import type { HandlerParams, ITaskRawEvent } from "~/handler/types.js";
+import { TaskRunner } from "~/runner/index.js";
 import type WebinyError from "@webiny/error";
-import { timerFactory } from "@webiny/handler-aws/utils";
-import { TaskEventValidation } from "~/runner/TaskEventValidation";
+import { timerFactory } from "@webiny/handler-aws/utils/index.js";
+import { TaskEventValidation } from "~/runner/TaskEventValidation.js";
 
 export interface HandlerCallable {
     (event: ITaskRawEvent, context: LambdaContext): Promise<APIGatewayProxyResult>;

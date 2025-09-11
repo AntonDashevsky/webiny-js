@@ -5,7 +5,7 @@ import { Property, useIdGenerator } from "@webiny/react-properties";
 import { useDocumentList } from "~/modules/redirects/RedirectsList/useDocumentList.js";
 import { Redirect, type RedirectDto, RedirectDtoMapper } from "~/domain/Redirect/index.js";
 import type { TableRow } from "~/modules/redirects/RedirectsList/presenters/index.js";
-import { useSelectRedirects } from "~/features/redirects/selectRedirects/useSelectRedirects";
+import { useSelectRedirects } from "~/features/redirects/selectRedirects/useSelectRedirects.js";
 
 export interface BulkActionConfig {
     name: string;

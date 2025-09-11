@@ -1,4 +1,4 @@
-import type { CommandOptionDto } from "./CommandOptionDto";
+import type { CommandOptionDto } from "./CommandOptionDto.js";
 
 export class CommandOption {
     private readonly _label: string;

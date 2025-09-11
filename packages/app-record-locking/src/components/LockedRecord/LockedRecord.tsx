@@ -1,10 +1,10 @@
 import React from "react";
 import { ReactComponent as LockIcon } from "@webiny/icons/lock.svg";
 import { Grid, Heading, Icon, Text } from "@webiny/admin-ui";
-import { useRecordLocking } from "~/hooks";
+import { useRecordLocking } from "~/hooks/index.js";
 import { useContentEntry } from "@webiny/app-headless-cms";
-import { LockedRecordForceUnlock } from "./LockedRecordForceUnlock";
-import type { IRecordLockingLockRecord } from "~/types";
+import { LockedRecordForceUnlock } from "./LockedRecordForceUnlock.js";
+import type { IRecordLockingLockRecord } from "~/types.js";
 
 interface IWrapperProps {
     children: React.ReactNode;

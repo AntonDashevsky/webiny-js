@@ -1,11 +1,11 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { createDeleteEntry, createListDeletedEntries } from "~/useCases";
+import { createDeleteEntry, createListDeletedEntries } from "~/useCases/index.js";
 import type {
     HcmsBulkActionsContext,
     IEmptyTrashBinsInput,
     IEmptyTrashBinsOutput,
     IEmptyTrashBinsTaskParams
-} from "~/types";
+} from "~/types.js";
 
 const calculateDateTimeString = () => {
     // Retrieve the retention period from the environment variable WEBINY_TRASH_BIN_RETENTION_PERIOD_DAYS,

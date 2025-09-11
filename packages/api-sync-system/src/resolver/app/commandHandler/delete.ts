@@ -2,7 +2,7 @@ import {
     CommandHandlerPlugin,
     createCommandHandlerPlugin
 } from "~/resolver/plugins/CommandHandlerPlugin.js";
-import { DeleteCommandHandler } from "./DeleteCommandHandler";
+import { DeleteCommandHandler } from "./DeleteCommandHandler.js";
 
 export const createDeleteCommandHandlerPlugin = () => {
     const plugin = createCommandHandlerPlugin({

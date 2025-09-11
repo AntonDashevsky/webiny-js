@@ -1,8 +1,8 @@
 import React from "react";
-import type { ProgressItemParams } from "./domains";
-import { SteppedProgressItem } from "~/SteppedProgress/SteppedProgressItem";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import { useSteppedProgress } from "~/SteppedProgress/useSteppedProgress";
+import type { ProgressItemParams } from "./domains/index.js";
+import { SteppedProgressItem } from "~/SteppedProgress/SteppedProgressItem.js";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import { useSteppedProgress } from "~/SteppedProgress/useSteppedProgress.js";
 
 interface SteppedProgressProps extends React.HTMLAttributes<HTMLDivElement> {
     items: ProgressItemParams[];

@@ -1,5 +1,5 @@
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Route, type RouteConfig } from "./RouterConfig/Route";
+import { Route, type RouteConfig } from "./RouterConfig/Route.js";
 
 const base = createConfigurableComponent<RouterConfig>("RouterConfig");
 

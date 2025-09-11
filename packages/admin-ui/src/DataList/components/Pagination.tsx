@@ -1,8 +1,8 @@
 import React from "react";
-import { DropdownMenu } from "~/DropdownMenu";
-import { NextPageIcon, OptionsIcon, PreviousPageIcon } from "../DataListIcons";
-import type { DataListProps } from "../types";
-import { Tooltip } from "~/Tooltip";
+import { DropdownMenu } from "~/DropdownMenu/index.js";
+import { NextPageIcon, OptionsIcon, PreviousPageIcon } from "../DataListIcons.js";
+import type { DataListProps } from "../types.js";
+import { Tooltip } from "~/Tooltip/index.js";
 
 const Pagination = (props: DataListProps) => {
     const { pagination } = props;

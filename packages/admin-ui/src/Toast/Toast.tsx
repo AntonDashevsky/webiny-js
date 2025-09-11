@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Toaster, type ToasterProps } from "sonner";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import { type IconButtonProps } from "~/Button";
-import type { Icon as BaseIcon } from "~/Icon";
-import { Portal } from "~/Portal";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import { type IconButtonProps } from "~/Button/index.js";
+import type { Icon as BaseIcon } from "~/Icon/index.js";
+import { Portal } from "~/Portal/index.js";
 import {
     ToastActions,
     ToastClose,
@@ -12,7 +12,7 @@ import {
     ToastRoot,
     ToastTitle,
     type ToastRootProps
-} from "./components";
+} from "./components/index.js";
 
 interface ToastProps extends Omit<ToastRootProps, "title" | "content" | "children"> {
     title: React.ReactElement<typeof ToastTitle>;

@@ -1,14 +1,14 @@
 import WebinyError from "@webiny/error";
-import type { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
-import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
-import type { CmsFieldFilterValueTransformPlugin } from "~/types";
+import type { CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
+import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin.js";
+import type { CmsFieldFilterValueTransformPlugin } from "~/types.js";
 import type { PluginsContainer } from "@webiny/plugins";
-import type { Field } from "./types";
-import { getMappedPlugins } from "./mapPlugins";
-import { extractWhereParams } from "./where";
-import { transformValue } from "./transform";
-import { CmsEntryFieldFilterPlugin } from "~/plugins/CmsEntryFieldFilterPlugin";
-import { getWhereValues } from "~/operations/entry/filtering/values";
+import type { Field } from "./types.js";
+import { getMappedPlugins } from "./mapPlugins.js";
+import { extractWhereParams } from "./where.js";
+import { transformValue } from "./transform.js";
+import { CmsEntryFieldFilterPlugin } from "~/plugins/CmsEntryFieldFilterPlugin.js";
+import { getWhereValues } from "~/operations/entry/filtering/values.js";
 
 interface CreateExpressionParams {
     where: Partial<CmsEntryListWhere>;

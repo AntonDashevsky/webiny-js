@@ -1,5 +1,5 @@
-import { WebsocketsEventValidator } from "~/validator/WebsocketsEventValidator";
-import { WebsocketsEventRequestContextEventType } from "~/handler/types";
+import { WebsocketsEventValidator } from "~/validator/WebsocketsEventValidator.js";
+import { WebsocketsEventRequestContextEventType } from "~/handler/types.js";
 
 const connectedAt = new Date().getTime() / 1000;
 

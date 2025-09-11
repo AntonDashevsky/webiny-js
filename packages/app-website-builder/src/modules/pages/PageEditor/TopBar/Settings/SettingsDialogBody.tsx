@@ -5,9 +5,9 @@ import { Bind } from "@webiny/form";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { ReactComponent as SeoIcon } from "@webiny/icons/search.svg";
 import { ReactComponent as SocialIcon } from "@webiny/icons/thumb_up.svg";
-import { MetaTags } from "./MetaTags";
-import { SimpleTags } from "~/modules/pages/PageEditor/TopBar/Settings/SimpleTags";
-import { fileManagerItemToValue } from "~/shared/fileManagerItemToValue";
+import { MetaTags } from "./MetaTags.js";
+import { SimpleTags } from "~/modules/pages/PageEditor/TopBar/Settings/SimpleTags.js";
+import { fileManagerItemToValue } from "~/shared/fileManagerItemToValue.js";
 
 export const SettingsDialogBody = () => {
     return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Add } from "@webiny/icons/add.svg";
-import { i18n } from "@webiny/app/i18n";
-import { useModel } from "~/admin/hooks";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useModel } from "~/admin/hooks/index.js";
 import { Button, Tooltip } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/components/content-entries/header/buttons/create");

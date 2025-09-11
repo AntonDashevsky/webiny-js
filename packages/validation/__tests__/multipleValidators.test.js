@@ -1,4 +1,4 @@
-import { validation, ValidationError } from "../src";
+import { validation, ValidationError } from "../src/index.js";
 
 describe("multiple validators test", () => {
     it("should fail -  e-mail set but not valid", async () => {

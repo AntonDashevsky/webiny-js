@@ -1,9 +1,9 @@
 import * as React from "react";
 import { ReactComponent as ImageIcon } from "@webiny/icons/image.svg";
-import { cn, cva, type VariantProps } from "~/utils";
-import type { TriggerDefaultProps } from "~/FilePicker/primitives/components/types";
-import { Icon } from "~/Icon";
-import { Text } from "~/Text";
+import { cn, cva, type VariantProps } from "~/utils.js";
+import type { TriggerDefaultProps } from "~/FilePicker/primitives/components/types.js";
+import { Icon } from "~/Icon/index.js";
+import { Text } from "~/Text/index.js";
 
 const triggerVariants = cva(
     [

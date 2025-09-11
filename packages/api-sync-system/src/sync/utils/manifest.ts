@@ -1,7 +1,7 @@
 import { ServiceDiscovery } from "@webiny/api";
 import zod from "zod";
 import { createZodError } from "@webiny/utils";
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 
 const validateManifest = zod.object({
     sync: zod.object({

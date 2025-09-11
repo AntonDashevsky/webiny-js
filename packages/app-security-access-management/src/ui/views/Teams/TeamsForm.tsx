@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import pick from "lodash/pick";
-import get from "lodash/get";
+import pick from "lodash/pick.js";
+import get from "lodash/get.js";
 import { useRouter } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import {
@@ -11,14 +11,14 @@ import {
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CREATE_TEAM, LIST_TEAMS, READ_TEAM, UPDATE_TEAM } from "./graphql";
-import isEmpty from "lodash/isEmpty";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CREATE_TEAM, LIST_TEAMS, READ_TEAM, UPDATE_TEAM } from "./graphql.js";
+import isEmpty from "lodash/isEmpty.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { GroupsMultiAutocomplete } from "~/components/GroupsMultiAutocomplete";
-import type { Team } from "~/types";
+import { GroupsMultiAutocomplete } from "~/components/GroupsMultiAutocomplete/index.js";
+import type { Team } from "~/types.js";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { Alert, Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 

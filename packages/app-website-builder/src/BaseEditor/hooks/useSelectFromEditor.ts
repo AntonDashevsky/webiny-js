@@ -1,7 +1,7 @@
 import deepEqual from "deep-equal";
-import { useDocumentEditor } from "~/DocumentEditor";
-import type { EditorState } from "~/editorSdk/Editor";
-import { useSelectFromState } from "~/BaseEditor/hooks/useSelectFromState";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import type { EditorState } from "~/editorSdk/Editor.js";
+import { useSelectFromState } from "~/BaseEditor/hooks/useSelectFromState.js";
 
 type Equals<T> = (a: T, b: T) => boolean;
 

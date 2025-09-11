@@ -1,9 +1,9 @@
 import { ServiceDiscovery } from "@webiny/api";
-import { CloudFront } from "@webiny/aws-sdk/client-cloudfront";
-import type { ITaskRunParams } from "@webiny/tasks/types";
-import type { FileManagerContext } from "@webiny/api-file-manager/types";
+import { CloudFront } from "@webiny/aws-sdk/client-cloudfront/index.js";
+import type { ITaskRunParams } from "@webiny/tasks/types.js";
+import type { FileManagerContext } from "@webiny/api-file-manager/types.js";
 import { executeWithRetry } from "@webiny/utils";
-import type { ITaskResponseResult } from "@webiny/tasks/response/abstractions";
+import type { ITaskResponseResult } from "@webiny/tasks/response/abstractions/index.js";
 
 class ReturnContinue extends Error {}
 

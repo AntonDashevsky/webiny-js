@@ -1,5 +1,5 @@
-import { GetRedirectById } from "./GetRedirectById";
-import type { WbRedirectsStorageOperations } from "~/context/redirects/redirects.types";
+import { GetRedirectById } from "./GetRedirectById.js";
+import type { WbRedirectsStorageOperations } from "~/context/redirects/redirects.types.js";
 
 interface GetRedirectByIdUseCasesParams {
     getOperation: WbRedirectsStorageOperations["getById"];

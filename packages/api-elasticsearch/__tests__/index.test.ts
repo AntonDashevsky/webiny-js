@@ -1,7 +1,7 @@
-import { getBaseConfiguration, getJapaneseConfiguration } from "~/indexConfiguration";
-import type { ElasticsearchIndexRequestBody } from "~/types";
-import { createElasticsearchClient } from "./helpers";
-import { getElasticsearchIndexPrefix } from "~/indexPrefix";
+import { getBaseConfiguration, getJapaneseConfiguration } from "~/indexConfiguration/index.js";
+import type { ElasticsearchIndexRequestBody } from "~/types.js";
+import { createElasticsearchClient } from "./helpers.js";
+import { getElasticsearchIndexPrefix } from "~/indexPrefix.js";
 
 /**
  * Add configurations when added to the code.

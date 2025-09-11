@@ -1,13 +1,13 @@
-import type { CmsModel } from "~/types";
-import { useApolloClient } from "~/admin/hooks";
+import type { CmsModel } from "~/types.js";
+import { useApolloClient } from "~/admin/hooks/index.js";
 import type {
     ICancelDeleteCmsModelMutationResponse,
     ICancelDeleteCmsModelMutationVariables
-} from "~/admin/viewsGraphql";
-import { CANCEL_DELETE_CONTENT_MODEL } from "~/admin/viewsGraphql";
-import { updateModelInCache } from "../cache";
+} from "~/admin/viewsGraphql.js";
+import { CANCEL_DELETE_CONTENT_MODEL } from "~/admin/viewsGraphql.js";
+import { updateModelInCache } from "../cache.js";
 import { useSnackbar } from "@webiny/app-admin";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/views/content-models/fully-delete-model");
 

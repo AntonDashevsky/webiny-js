@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
-import type { FileItem } from "@webiny/app-admin/types";
-import type { Settings } from "~/types";
-import type { ListTagsResponseItem } from "~/modules/FileManagerApiProvider/FileManagerApiContext/FileManagerApiContext";
+import type { FileItem } from "@webiny/app-admin/types.js";
+import type { Settings } from "~/types.js";
+import type { ListTagsResponseItem } from "~/modules/FileManagerApiProvider/FileManagerApiContext/FileManagerApiContext.js";
 
 export interface FmError {
     code: string;

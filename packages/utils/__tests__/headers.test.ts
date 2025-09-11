@@ -1,5 +1,5 @@
-import { getWebinyVersionHeaders } from "~/index";
-import { WEBINY_VERSION_HEADER } from "~/headers";
+import { getWebinyVersionHeaders } from "~/index.js";
+import { WEBINY_VERSION_HEADER } from "~/headers.js";
 
 describe("webiny headers", () => {
     const notEnabledValues = [

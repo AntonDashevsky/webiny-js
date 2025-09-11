@@ -6,7 +6,7 @@ import type {
     GetRecordParams,
     ScanParams,
     ScanResponse
-} from "@webiny/db-dynamodb/utils";
+} from "@webiny/db-dynamodb/utils/index.js";
 import {
     batchReadAll,
     batchWriteAll,

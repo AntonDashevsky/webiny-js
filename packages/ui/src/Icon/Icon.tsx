@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon as AdminUiIcon } from "@webiny/admin-ui/Icon";
+import { Icon as AdminUiIcon } from "@webiny/admin-ui/Icon/index.js";
 
 export type IconProps = {
     /**

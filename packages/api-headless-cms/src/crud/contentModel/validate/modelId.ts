@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import type { CmsModel } from "~/types";
+import type { CmsModel } from "~/types/index.js";
 
 const disallowedModelIdList: string[] = [
     "contentModel",

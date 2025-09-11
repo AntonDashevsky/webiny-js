@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import type { RedirectGatewayDto } from "~/features/redirects/loadRedirects/RedirectGatewayDto.js";
 import type { IListRedirectsGateway } from "./IListRedirectsGateway.js";
 import { type ListRedirectsGatewayParams } from "./IListRedirectsGateway.js";
-import { type WbError, type WbListMeta } from "~/types";
+import { type WbError, type WbListMeta } from "~/types.js";
 
 const LIST_META_FIELD = /* GraphQL */ `
     meta {

@@ -1,6 +1,6 @@
-import type { Table } from "@webiny/db-dynamodb/toolbox";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import type { Attributes } from "~/types";
+import type { Table } from "@webiny/db-dynamodb/toolbox.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import type { Attributes } from "~/types.js";
 
 export interface CreateSystemEntityParams {
     table: Table<string, string, string>;

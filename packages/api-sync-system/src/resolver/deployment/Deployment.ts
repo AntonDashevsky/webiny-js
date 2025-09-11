@@ -1,5 +1,5 @@
 import type { SemVer } from "semver";
-import type { IDeployment, IDeploymentServices } from "./types";
+import type { IDeployment, IDeploymentServices } from "./types.js";
 import type { DynamoDBTableType } from "~/types.js";
 import type { ITable } from "~/sync/types.js";
 

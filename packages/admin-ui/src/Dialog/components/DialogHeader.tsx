@@ -1,8 +1,8 @@
 import * as React from "react";
-import { cn, cva } from "~/utils";
-import { type DialogProps } from "../Dialog";
-import { DialogTitle } from "./DialogTitle";
-import { DialogDescription } from "./DialogDescription";
+import { cn, cva } from "~/utils.js";
+import { type DialogProps } from "../Dialog.js";
+import { DialogTitle } from "./DialogTitle.js";
+import { DialogDescription } from "./DialogDescription.js";
 
 const dialogHeaderVariants = cva(
     ["wby-flex wby-flex-col wby-gap-sm", "wby-text-neutral-primary", "wby-sm:text-left"],

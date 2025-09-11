@@ -1,4 +1,4 @@
-import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
 
 const emptyResolver = () => ({});
 

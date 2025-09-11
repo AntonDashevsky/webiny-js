@@ -1,4 +1,4 @@
-import type { ScheduleType } from "~/types";
+import type { ScheduleType } from "~/types.js";
 
 export interface IScheduleDialogScheduleActionExecuteParams {
     id: string;

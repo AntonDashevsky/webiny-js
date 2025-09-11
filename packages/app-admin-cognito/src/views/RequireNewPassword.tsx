@@ -2,8 +2,8 @@ import React from "react";
 import { Button, Grid, Heading, Input } from "@webiny/admin-ui";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { useRequireNewPassword } from "@webiny/app-cognito-authenticator/hooks/useRequireNewPassword";
-import { View } from "~/components/View";
+import { useRequireNewPassword } from "@webiny/app-cognito-authenticator/hooks/useRequireNewPassword.js";
+import { View } from "~/components/View.js";
 
 const sentenceCase = (str: string) => {
     const lower = str.toLowerCase();

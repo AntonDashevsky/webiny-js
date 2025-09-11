@@ -1,6 +1,6 @@
-import type { MovePageUseCasesTopics } from "./index";
-import type { MoveWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
-import type { IMovePage } from "~/features/pages/MovePage/IMovePage";
+import type { MovePageUseCasesTopics } from "./index.js";
+import type { MoveWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types.js";
+import type { IMovePage } from "~/features/pages/MovePage/IMovePage.js";
 import { WebinyError } from "@webiny/error";
 
 export class MovePageWithEvents implements IMovePage {

@@ -2,15 +2,15 @@ import React from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { observer } from "mobx-react-lite";
 import { Button } from "@webiny/admin-ui";
-import type { FileManagerFileItem } from "~/base/ui/FileManager";
-import { FileManager } from "~/base/ui/FileManager";
-import { IconPickerTab } from "../IconPickerTab";
+import type { FileManagerFileItem } from "~/base/ui/FileManager.js";
+import { FileManager } from "~/base/ui/FileManager.js";
+import { IconPickerTab } from "../IconPickerTab.js";
 import { useIcon } from "..";
-import { useIconPicker } from "../IconPickerPresenterProvider";
-import { IconPickerConfig } from "../config";
-import type { ListCustomIconsQueryResponse } from "./graphql";
-import { LIST_CUSTOM_ICONS } from "./graphql";
-import type { Icon } from "../types";
+import { useIconPicker } from "../IconPickerPresenterProvider.js";
+import { IconPickerConfig } from "../config/index.js";
+import type { ListCustomIconsQueryResponse } from "./graphql.js";
+import { LIST_CUSTOM_ICONS } from "./graphql.js";
+import type { Icon } from "../types.js";
 
 /**
  * NOTE: Avoid using `@emotion/styled` in icon renderer components across all plugins.

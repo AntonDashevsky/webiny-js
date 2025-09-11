@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { makeDecoratable } from "@webiny/react-composition";
-import { EditorConfig } from "./EditorConfig";
+import { EditorConfig } from "./EditorConfig.js";
 import styled from "@emotion/styled";
 
 const EditorLayoutContainer = styled.div`

@@ -1,24 +1,24 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import * as GQL from "~/admin/viewsGraphql";
-import type { ListCmsModelsQueryResponse } from "~/admin/viewsGraphql";
-import { withoutBeingDeletedModels } from "~/admin/viewsGraphql";
+import * as GQL from "~/admin/viewsGraphql.js";
+import type { ListCmsModelsQueryResponse } from "~/admin/viewsGraphql.js";
+import { withoutBeingDeletedModels } from "~/admin/viewsGraphql.js";
 import type {
     BindComponentRenderProp,
     CmsContentEntry,
     CmsModel,
     CmsModelFieldRendererProps
-} from "~/types";
-import { Options } from "./Options";
-import { useReferences } from "../hooks/useReferences";
-import { Entry } from "./Entry";
-import { Container } from "./Container";
-import { ReferencesDialog } from "./ReferencesDialog";
-import { useModelFieldGraphqlContext, useQuery } from "~/admin/hooks";
+} from "~/types.js";
+import { Options } from "./Options.js";
+import { useReferences } from "../hooks/useReferences.js";
+import { Entry } from "./Entry.js";
+import { Container } from "./Container.js";
+import { ReferencesDialog } from "./ReferencesDialog.js";
+import { useModelFieldGraphqlContext, useQuery } from "~/admin/hooks/index.js";
 import { useSnackbar } from "@webiny/app-admin";
-import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { parseIdentifier } from "@webiny/utils";
-import { Entries } from "./Entries";
-import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog";
+import { Entries } from "./Entries.js";
+import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog.js";
 import {
     FormComponentErrorMessage,
     FormComponentLabel,

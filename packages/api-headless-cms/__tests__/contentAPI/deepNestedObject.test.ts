@@ -1,8 +1,8 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { createCarsMutation, createInitializeModelMutation } from "./deepNestedObject/mutation";
-import { createCarsModel } from "./deepNestedObject/model";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { createCarsMutation, createInitializeModelMutation } from "./deepNestedObject/mutation.js";
+import { createCarsModel } from "./deepNestedObject/model.js";
 import { ContextPlugin } from "@webiny/api";
-import type { CmsContext } from "~/types";
+import type { CmsContext } from "~/types/index.js";
 
 const LIST_CARS_QUERY = `
     query ListCarsQuery($where: CarsListWhereInput, $sort: [CarsListSorter], $limit: Int, $after: String) {

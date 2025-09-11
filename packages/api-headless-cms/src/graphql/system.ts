@@ -1,5 +1,5 @@
 import { ErrorResponse, GraphQLSchemaPlugin, Response } from "@webiny/handler-graphql";
-import type { CmsContext } from "~/types";
+import type { CmsContext } from "~/types/index.js";
 
 const emptyResolver = () => ({});
 

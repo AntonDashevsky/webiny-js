@@ -1,13 +1,13 @@
 import { ContextPlugin } from "@webiny/api";
-import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types.js";
 import type { Config as CognitoConfig, TokenData } from "@webiny/api-cognito-authenticator";
 import { createAuthenticator } from "@webiny/api-cognito-authenticator";
 import { createGroupsTeamsAuthorizerHandler } from "@webiny/api-security";
-import type { CoreContext } from "~/types";
-import { createAdminUsersHooks } from "./createAdminUsersHooks";
-import adminUsersGqlPlugins from "./graphql/user.gql";
-import installGqlPlugins from "./graphql/install.gql";
-import { createExternalIdpAdminUserHooks } from "@webiny/api-admin-users/createExternalIdpAdminUserHooks";
+import type { CoreContext } from "~/types.js";
+import { createAdminUsersHooks } from "./createAdminUsersHooks.js";
+import adminUsersGqlPlugins from "./graphql/user.gql.js";
+import installGqlPlugins from "./graphql/install.gql.js";
+import { createExternalIdpAdminUserHooks } from "@webiny/api-admin-users/createExternalIdpAdminUserHooks.js";
 
 interface GetIdentityParams<TContext, TToken, TIdentity> {
     identity: TIdentity;

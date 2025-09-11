@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import type { SelectPresenterParams } from "./presenters/SelectPresenter";
-import { SelectPresenter } from "./presenters/SelectPresenter";
-import type { SelectPrimitiveProps } from "./SelectPrimitive";
+import type { SelectPresenterParams } from "./presenters/SelectPresenter.js";
+import { SelectPresenter } from "./presenters/SelectPresenter.js";
+import type { SelectPrimitiveProps } from "./SelectPrimitive.js";
 
 export const useSelect = (props: SelectPrimitiveProps) => {
     const params: SelectPresenterParams = useMemo(

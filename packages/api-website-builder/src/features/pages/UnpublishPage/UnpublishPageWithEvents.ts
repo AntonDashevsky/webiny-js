@@ -1,7 +1,7 @@
 import { WebinyError } from "@webiny/error";
-import type { UnpublishPageUseCasesTopics } from "./index";
-import type { UnpublishWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
-import type { IUnpublishPage } from "./IUnpublishPage";
+import type { UnpublishPageUseCasesTopics } from "./index.js";
+import type { UnpublishWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types.js";
+import type { IUnpublishPage } from "./IUnpublishPage.js";
 
 export class UnpublishPageWithEvents implements IUnpublishPage {
     private topics: UnpublishPageUseCasesTopics;

@@ -4,9 +4,9 @@ import type {
     CmsModel,
     CmsModelField,
     CmsModelFieldToGraphQLPlugin
-} from "~/types";
-import { getBaseFieldType } from "~/utils/getBaseFieldType";
-import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants";
+} from "~/types/index.js";
+import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
+import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants.js";
 
 interface RenderListFilterFieldsParams {
     model: CmsModel;

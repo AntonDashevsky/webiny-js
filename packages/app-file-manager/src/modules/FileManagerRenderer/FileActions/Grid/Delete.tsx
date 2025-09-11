@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
-import { FileManagerViewConfig, useFile, useFileManagerApi } from "~/index";
-import { useDeleteFile } from "~/hooks/useDeleteFile";
+import { FileManagerViewConfig, useFile, useFileManagerApi } from "~/index.js";
+import { useDeleteFile } from "~/hooks/useDeleteFile.js";
 
 const { Browser } = FileManagerViewConfig;
 

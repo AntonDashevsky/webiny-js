@@ -1,12 +1,12 @@
 import type { GroupsTeamsAuthorizerConfig } from "@webiny/api-security";
 import { createGroupsTeamsAuthorizer } from "@webiny/api-security";
-import { createExternalIdpAdminUserHooksPlugin } from "@webiny/api-admin-users/createExternalIdpAdminUserHooks";
-import type { AuthenticatorConfig } from "~/createAuthenticator";
-import { createAuthenticator } from "~/createAuthenticator";
-import { createIdentityType } from "~/createIdentityType";
-import { extendTenancy } from "./extendTenancy";
+import { createExternalIdpAdminUserHooksPlugin } from "@webiny/api-admin-users/createExternalIdpAdminUserHooks.js";
+import type { AuthenticatorConfig } from "~/createAuthenticator.js";
+import { createAuthenticator } from "~/createAuthenticator.js";
+import { createIdentityType } from "~/createIdentityType.js";
+import { extendTenancy } from "./extendTenancy.js";
 
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 
 export interface CreateOktaConfig<TContext extends Context = Context>
     extends AuthenticatorConfig,

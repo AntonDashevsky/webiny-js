@@ -1,6 +1,6 @@
 import { createTopic } from "@webiny/pubsub";
 
-import type { CreateAcoParams } from "~/types";
+import type { CreateAcoParams } from "~/types.js";
 import type {
     AcoFilterCrud,
     OnFilterAfterCreateTopicParams,
@@ -9,7 +9,7 @@ import type {
     OnFilterBeforeCreateTopicParams,
     OnFilterBeforeDeleteTopicParams,
     OnFilterBeforeUpdateTopicParams
-} from "./filter.types";
+} from "./filter.types.js";
 
 export const createFilterCrudMethods = ({ storageOperations }: CreateAcoParams): AcoFilterCrud => {
     // create

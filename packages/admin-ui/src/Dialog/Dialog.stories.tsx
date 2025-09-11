@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Dialog } from "./Dialog";
-import { Button } from "~/Button";
-import { DropdownMenu } from "~/DropdownMenu";
+import { Dialog } from "./Dialog.js";
+import { Button } from "~/Button/index.js";
+import { DropdownMenu } from "~/DropdownMenu/index.js";
 import { ReactComponent as NotificationIcon } from "@webiny/icons/notifications_active.svg";
-import { Tabs } from "~/Tabs";
-import { IconPicker } from "~/IconPicker";
+import { Tabs } from "~/Tabs/index.js";
+import { IconPicker } from "~/IconPicker/index.js";
 
 // @ts-expect-error
 library.add(fas);

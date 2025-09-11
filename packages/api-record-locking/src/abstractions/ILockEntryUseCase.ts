@@ -1,4 +1,4 @@
-import type { IRecordLockingLockRecord, IRecordLockingLockRecordEntryType } from "~/types";
+import type { IRecordLockingLockRecord, IRecordLockingLockRecordEntryType } from "~/types.js";
 
 export interface ILockEntryUseCaseExecuteParams {
     id: string;

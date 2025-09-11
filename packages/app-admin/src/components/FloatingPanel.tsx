@@ -4,7 +4,7 @@ import Draggable, { type DraggableEventHandler } from "react-draggable";
 import type { ResizableProps } from "react-resizable";
 import { Resizable } from "react-resizable";
 import styled from "@emotion/styled";
-import { useKeyHandler } from "~/hooks";
+import { useKeyHandler } from "~/hooks/index.js";
 
 const PanelRoot = styled.div`
     position: fixed;

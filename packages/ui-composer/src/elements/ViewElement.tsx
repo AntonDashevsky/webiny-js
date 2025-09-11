@@ -1,8 +1,8 @@
 import React from "react";
-import type { UIElementConfig } from "~/UIElement";
-import { UIElement } from "~/UIElement";
-import type { UIView } from "~/UIView";
-import { UIViewComponent } from "~/UIView";
+import type { UIElementConfig } from "~/UIElement.js";
+import { UIElement } from "~/UIElement.js";
+import type { UIView } from "~/UIView.js";
+import { UIViewComponent } from "~/UIView.js";
 
 interface ViewElementConfig extends UIElementConfig {
     view: UIView;

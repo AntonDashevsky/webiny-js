@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Slider as SliderPrimitives } from "radix-ui";
-import { useSlider } from "./useSlider";
-import { SliderRoot, SliderThumb, SliderTrack, type SliderThumbProps } from "./components";
+import { useSlider } from "./useSlider.js";
+import { SliderRoot, SliderThumb, SliderTrack, type SliderThumbProps } from "./components/index.js";
 
 type SliderRootProps = Omit<SliderPrimitives.SliderProps, "min"> & {
     min: number;

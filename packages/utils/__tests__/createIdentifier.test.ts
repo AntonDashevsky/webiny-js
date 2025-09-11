@@ -1,4 +1,4 @@
-import { createIdentifier } from "~/createIdentifier";
+import { createIdentifier } from "~/createIdentifier.js";
 
 describe("create identifier", () => {
     const inputs: [string, number, string][] = [

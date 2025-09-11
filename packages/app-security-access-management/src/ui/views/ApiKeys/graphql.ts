@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import type { ApiKey } from "~/types";
+import type { ApiKey } from "~/types.js";
 
 const fields = `
     id

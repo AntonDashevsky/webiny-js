@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 
 export interface HandlerResultCallable<T extends Context = Context> {
     (context: T, result: any): Promise<any>;

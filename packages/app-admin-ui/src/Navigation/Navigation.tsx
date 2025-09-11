@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationRenderer, useAdminConfig } from "@webiny/app-admin";
 import { Sidebar } from "@webiny/admin-ui";
-import { SidebarMenuItems } from "./SidebarMenuItems";
+import { SidebarMenuItems } from "./SidebarMenuItems.js";
 import { Link } from "@webiny/react-router";
 
 export const Navigation = NavigationRenderer.createDecorator(() => {

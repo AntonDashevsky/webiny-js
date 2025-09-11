@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import { useStyles } from "./useStyles";
-import { UnitValue } from "./UnitValue";
+import { useStyles } from "./useStyles.js";
+import { UnitValue } from "./UnitValue.js";
 
 export const useStyleValue = (elementId: string, propertyName: string, defaultValue?: string) => {
     const { styles, onChange, onPreviewChange, inheritanceMap, store } = useStyles(elementId);

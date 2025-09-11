@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import type { File } from "~/types";
+import type { File } from "~/types.js";
 
 export interface FileStorageTransformPluginToParams {
     /**

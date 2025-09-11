@@ -1,1 +1,1 @@
-export * from "./DocumentEditor";
+export * from "./DocumentEditor.js";

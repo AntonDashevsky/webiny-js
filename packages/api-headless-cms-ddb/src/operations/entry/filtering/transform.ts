@@ -1,4 +1,4 @@
-import type { Field } from "./types";
+import type { Field } from "./types.js";
 
 interface Params extends Pick<Field, "transform"> {
     value: any;

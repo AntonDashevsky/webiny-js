@@ -6,7 +6,7 @@ import type {
     IListAuditLogsResult,
     OnAuditLogBeforeCreateTopicParams,
     OnAuditLogBeforeUpdateTopicParams
-} from "~/types";
+} from "~/types.js";
 import { createTopic } from "@webiny/pubsub";
 import { convertExpiresAtDaysToDate } from "~/utils/expiresAt.js";
 import type { IAuditLog, IAuditLogCreatedBy } from "~/storage/types.js";

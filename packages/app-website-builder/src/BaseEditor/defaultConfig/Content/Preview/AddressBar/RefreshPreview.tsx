@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { IconButton, Text, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as RefreshIcon } from "@webiny/icons/refresh.svg";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { Commands } from "~/BaseEditor";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { Commands } from "~/BaseEditor/index.js";
 
 export const RefreshPreview = () => {
     const editor = useDocumentEditor();

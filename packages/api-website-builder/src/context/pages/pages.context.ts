@@ -1,9 +1,9 @@
-import type { WebsiteBuilderContext } from "~/context/types";
-import type { WbPageCrud } from "~/context/pages/pages.types";
-import { BaseContext } from "~/context/BaseContext";
+import type { WebsiteBuilderContext } from "~/context/types.js";
+import type { WbPageCrud } from "~/context/pages/pages.types.js";
+import { BaseContext } from "~/context/BaseContext.js";
 import { CmsModelPlugin, createModelField, createPrivateModel } from "@webiny/api-headless-cms";
-import { PagesStorage } from "~/context/pages/PagesStorage";
-import { createPagesCrud } from "~/context/pages/pages.crud";
+import { PagesStorage } from "~/context/pages/PagesStorage.js";
+import { createPagesCrud } from "~/context/pages/pages.crud.js";
 
 export const PAGE_MODEL_ID = "wbPage";
 

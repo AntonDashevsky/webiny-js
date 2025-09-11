@@ -1,7 +1,7 @@
-import type { ColumnConfig } from "./Column";
-import { Column } from "./Column";
-import type { ThumbnailConfig } from "./Thumbnail";
-import { Thumbnail } from "./Thumbnail";
+import type { ColumnConfig } from "./Column.js";
+import { Column } from "./Column.js";
+import type { ThumbnailConfig } from "./Thumbnail.js";
+import { Thumbnail } from "./Thumbnail.js";
 
 export interface TableConfig {
     columns: ColumnConfig[];

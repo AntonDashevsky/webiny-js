@@ -3,7 +3,7 @@ import { Table as AcoTable } from "@webiny/app-aco";
 import type { TableRow } from "~/modules/redirects/RedirectsList/presenters/index.js";
 import { useDocumentList } from "~/modules/redirects/RedirectsList/useDocumentList.js";
 import { useSortRedirects } from "~/features/redirects/index.js";
-import { useSelectRedirects } from "~/features/redirects/selectRedirects/useSelectRedirects";
+import { useSelectRedirects } from "~/features/redirects/selectRedirects/useSelectRedirects.js";
 
 export const Table = () => {
     const { vm } = useDocumentList();

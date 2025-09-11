@@ -1,10 +1,12 @@
 #!/usr/bin/env node
-const { getPackages, getPackage } = require("./utils/getPackages");
-const { relative } = require("path");
-const prettier = require("prettier");
-const fs = require("fs");
-const argv = require("yargs").argv;
+import { getPackages, getPackage } from "./utils/getPackages.js";
+import { relative } from "path";
+import prettier from "prettier";
+import fs from "fs";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 
+const argv = yargs(hideBin(process.argv)).parse();
 const { _: packagesToCheck } = argv;
 
 /**

@@ -1,4 +1,4 @@
-import type { CmsContext, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { CmsContext, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
 import type { IScheduler } from "~/scheduler/types.js";
 
 export interface CmsScheduleCallable {

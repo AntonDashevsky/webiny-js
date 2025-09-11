@@ -1,8 +1,8 @@
 import React from "react";
 import { useAcoConfig } from "@webiny/app-aco";
 import { Sorting } from "@webiny/app-utils";
-import type { SchedulerProps } from "~/Presentation";
-import { Scheduler } from "../Scheduler";
+import type { SchedulerProps } from "~/Presentation/index.js";
+import { Scheduler } from "../Scheduler/index.js";
 
 export type SchedulerRendererProps = Omit<SchedulerProps, "render"> & {
     onClose: () => void;

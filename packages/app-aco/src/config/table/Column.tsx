@@ -1,8 +1,8 @@
 import type { ReactElement } from "react";
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { createUseTableRow } from "~/components/Table/useTableRow";
-import type { FolderTableRow, TableRow } from "~/table.types";
+import { createUseTableRow } from "~/components/Table/useTableRow.js";
+import type { FolderTableRow, TableRow } from "~/table.types.js";
 
 export interface ColumnConfig {
     cell: string | ReactElement;

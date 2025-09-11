@@ -1,14 +1,14 @@
-import omit from "lodash/omit";
+import omit from "lodash/omit.js";
 import WebinyError from "@webiny/error";
-import { FOLDER_MODEL_ID } from "./folder.model";
-import type { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations";
-import { createListSort } from "~/utils/createListSort";
-import { createOperationsWrapper } from "~/utils/createOperationsWrapper";
-import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues";
-import { Path } from "~/utils/Path";
-import type { AcoFolderStorageOperations, Folder } from "./folder.types";
-import { ENTRY_META_FIELDS } from "@webiny/api-headless-cms/constants";
-import type { ListSort } from "~/types";
+import { FOLDER_MODEL_ID } from "./folder.model.js";
+import type { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations.js";
+import { createListSort } from "~/utils/createListSort.js";
+import { createOperationsWrapper } from "~/utils/createOperationsWrapper.js";
+import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues.js";
+import { Path } from "~/utils/Path.js";
+import type { AcoFolderStorageOperations, Folder } from "./folder.types.js";
+import { ENTRY_META_FIELDS } from "@webiny/api-headless-cms/constants.js";
+import type { ListSort } from "~/types.js";
 
 interface AcoCheckExistingFolderParams {
     params: {

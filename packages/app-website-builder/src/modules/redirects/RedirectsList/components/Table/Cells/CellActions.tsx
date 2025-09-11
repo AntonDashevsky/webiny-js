@@ -2,8 +2,8 @@ import React from "react";
 import { FolderProvider, useAcoConfig } from "@webiny/app-aco";
 import { makeDecoratable, OptionsMenu } from "@webiny/app-admin";
 import { RedirectProvider } from "~/modules/redirects/RedirectsList/hooks/useRedirect.js";
-import { RedirectListConfig } from "~/modules/redirects/configs";
-import type { RedirectDto } from "~/domain/Redirect";
+import { RedirectListConfig } from "~/modules/redirects/configs/index.js";
+import type { RedirectDto } from "~/domain/Redirect/index.js";
 
 const { useTableRow, isFolderRow } = RedirectListConfig.Browser.Table.Column;
 

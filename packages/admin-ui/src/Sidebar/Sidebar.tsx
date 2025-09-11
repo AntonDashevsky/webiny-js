@@ -1,14 +1,14 @@
 import * as React from "react";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import { SidebarRoot } from "./components/SidebarRoot";
-import { SidebarHeader } from "./components/SidebarHeader";
-import { SidebarContent } from "./components/SidebarContent";
-import { SidebarIcon } from "./components/SidebarIcon";
-import { SidebarFooter } from "./components/SidebarFooter";
-import { SidebarMenuItem } from "./components/items/SidebarMenuItem";
-import { SidebarMenuLink } from "./components/items/SidebarMenuLink";
-import { SidebarMenuRoot } from "./components/items/SidebarMenuRoot";
-import { SidebarMenuGroup } from "~/Sidebar/components/items/SidebarMenuGroup";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import { SidebarRoot } from "./components/SidebarRoot.js";
+import { SidebarHeader } from "./components/SidebarHeader.js";
+import { SidebarContent } from "./components/SidebarContent.js";
+import { SidebarIcon } from "./components/SidebarIcon.js";
+import { SidebarFooter } from "./components/SidebarFooter.js";
+import { SidebarMenuItem } from "./components/items/SidebarMenuItem.js";
+import { SidebarMenuLink } from "./components/items/SidebarMenuLink.js";
+import { SidebarMenuRoot } from "./components/items/SidebarMenuRoot.js";
+import { SidebarMenuGroup } from "~/Sidebar/components/items/SidebarMenuGroup.js";
 
 interface SidebarProps
     extends Omit<React.ComponentPropsWithoutRef<typeof SidebarRoot>, "title">,

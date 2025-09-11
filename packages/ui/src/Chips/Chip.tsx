@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Tag as AdminTag } from "@webiny/admin-ui";
-import omit from "lodash/omit";
+import omit from "lodash/omit.js";
 
 export interface RmwcChipProps {
     /** Text for your Chip. */

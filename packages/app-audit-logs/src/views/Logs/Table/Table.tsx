@@ -2,12 +2,12 @@ import React, { forwardRef, useMemo } from "react";
 import { format, addMinutes } from "date-fns";
 
 import { ReactComponent as PreviewIcon } from "@webiny/icons/info.svg";
-import type { Columns, OnSortingChange, Sorting } from "@webiny/ui/DataTable";
-import { DataTable } from "@webiny/ui/DataTable";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import type { Columns, OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
+import { DataTable } from "@webiny/ui/DataTable/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 
-import { Text } from "~/components/Text";
+import { Text } from "~/components/Text.js";
 import {
     ActionWrapper,
     TextGray,
@@ -15,8 +15,8 @@ import {
     wideColumn,
     appColumn,
     previewColumn
-} from "./styled";
-import type { ActionType } from "~/types";
+} from "./styled.js";
+import type { ActionType } from "~/types.js";
 import type { IAuditLog } from "~/types.js";
 
 interface ActionProps {

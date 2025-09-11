@@ -1,6 +1,6 @@
 import { DynamoDBTableType } from "~/types.js";
 import { createDeployment } from "~/resolver/deployment/Deployment.js";
-import SemVer from "semver/classes/semver";
+import SemVer from "semver/classes/semver.js";
 
 describe("Deployment", () => {
     it("should get table information", () => {

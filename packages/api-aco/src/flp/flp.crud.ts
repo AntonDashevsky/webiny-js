@@ -1,5 +1,5 @@
-import type { I18NLocale } from "@webiny/api-i18n/types";
-import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types.js";
+import type { Tenant } from "@webiny/api-tenancy/types.js";
 import { createTopic } from "@webiny/pubsub";
 import {
     type AcoFolderLevelPermissionsCrud,
@@ -14,7 +14,7 @@ import {
     type OnFlpBatchBeforeUpdateTopicParams,
     type OnFlpBatchAfterUpdateTopicParams,
     type UpdateFlpParams
-} from "~/types";
+} from "~/types.js";
 import { WebinyError } from "@webiny/error";
 
 export interface CreateFlpCrudMethodsParams {

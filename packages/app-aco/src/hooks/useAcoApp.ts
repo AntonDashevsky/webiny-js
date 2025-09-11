@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import type { AcoAppProviderContext } from "~/contexts/app";
-import { AcoAppContext } from "~/contexts/app";
+import type { AcoAppProviderContext } from "~/contexts/app.js";
+import { AcoAppContext } from "~/contexts/app.js";
 
 export const useAcoApp = (): AcoAppProviderContext => {
     const context = useContext(AcoAppContext);

@@ -1,8 +1,8 @@
 import type {
     GetFolderAncestorsParams,
     IGetFolderAncestorsUseCase
-} from "./IGetFolderAncestorsUseCase";
-import type { IGetFolderAncestorsRepository } from "./IGetFolderAncestorsRepository";
+} from "./IGetFolderAncestorsUseCase.js";
+import type { IGetFolderAncestorsRepository } from "./IGetFolderAncestorsRepository.js";
 
 export class GetFolderAncestorsUseCase implements IGetFolderAncestorsUseCase {
     private repository: IGetFolderAncestorsRepository;

@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDeleteRedirect } from "~/features/redirects/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import type { RedirectDto } from "~/domain/Redirect";
+import type { RedirectDto } from "~/domain/Redirect/index.js";
 
 interface UseDeleteRedirectConfirmationDialogProps {
     redirect: RedirectDto;

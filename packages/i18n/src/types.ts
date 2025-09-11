@@ -1,4 +1,4 @@
-import type I18N from "./I18n";
+import type I18N from "./I18n.js";
 import type { ReactElement } from "react";
 
 export interface I18NDataValues {

@@ -1,4 +1,4 @@
-import type { MigrationStatus } from "~/types";
+import type { MigrationStatus } from "~/types.js";
 
 export interface MigrationStatusReporter {
     report(status: MigrationStatus): void;

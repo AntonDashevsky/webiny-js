@@ -2,16 +2,16 @@ import React, { useCallback } from "react";
 import type {
     CmsReferenceContentEntry,
     CmsReferenceValue
-} from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { Image } from "./entry/Image";
-import { Title } from "./entry/Title";
-import { View } from "./entry/View";
-import { Select } from "./entry/Select";
-import { Remove } from "./entry/Remove";
-import { MoveUp } from "./entry/MoveUp";
-import { MoveDown } from "./entry/MoveDown";
-import { Excerpt } from "./entry/Excerpt";
-import type { CmsModel } from "~/types";
+} from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { Image } from "./entry/Image.js";
+import { Title } from "./entry/Title.js";
+import { View } from "./entry/View.js";
+import { Select } from "./entry/Select.js";
+import { Remove } from "./entry/Remove.js";
+import { MoveUp } from "./entry/MoveUp.js";
+import { MoveDown } from "./entry/MoveDown.js";
+import { Excerpt } from "./entry/Excerpt.js";
+import type { CmsModel } from "~/types.js";
 
 interface EntryProps {
     model: CmsModel;

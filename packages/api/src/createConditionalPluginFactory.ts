@@ -1,4 +1,4 @@
-import type { PluginFactory } from "@webiny/plugins/types";
+import type { PluginFactory } from "@webiny/plugins/types.js";
 
 export type Condition = () => boolean;
 

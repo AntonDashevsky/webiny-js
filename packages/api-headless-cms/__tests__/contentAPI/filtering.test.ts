@@ -1,13 +1,14 @@
-import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { useFruitReadHandler } from "../testHelpers/useFruitReadHandler";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
-import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
-import { useProductReadHandler } from "../testHelpers/useProductReadHandler";
-import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler";
-import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler";
-import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
-import type { Fruit } from "./mocks/contentModels";
+import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler.js";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { useFruitReadHandler } from "../testHelpers/useFruitReadHandler.js";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
+import { useProductManageHandler } from "../testHelpers/useProductManageHandler.js";
+import { useProductReadHandler } from "../testHelpers/useProductReadHandler.js";
+import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler.js";
+import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler.js";
+import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup.js";
+import type { Fruit } from "./mocks/contentModels.js";
+import { jest } from "@jest/globals";
 
 const appleData: Fruit = {
     name: "Apple",

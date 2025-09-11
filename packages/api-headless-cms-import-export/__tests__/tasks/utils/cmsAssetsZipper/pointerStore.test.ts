@@ -1,4 +1,4 @@
-import { PointerStore } from "~/tasks/utils/cmsAssetsZipper/PointerStore";
+import { PointerStore } from "~/tasks/utils/cmsAssetsZipper/PointerStore.js";
 
 describe("pointer store", () => {
     it("should have defaults on class init", () => {

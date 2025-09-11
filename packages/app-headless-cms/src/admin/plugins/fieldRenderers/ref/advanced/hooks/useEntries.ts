@@ -1,12 +1,12 @@
 import { useCallback, useMemo, useState } from "react";
-import type { CmsModel, CmsModelField } from "~/types";
-import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { useApolloClient } from "~/admin/hooks";
+import type { CmsModel, CmsModelField } from "~/types.js";
+import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { useApolloClient } from "~/admin/hooks/index.js";
 import type {
     SearchQueryResponse,
     SearchQueryVariables
-} from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/graphql";
-import { createSearchQuery } from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/graphql";
+} from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/graphql.js";
+import { createSearchQuery } from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/graphql.js";
 
 const searchableFieldTypes = ["text", "long-text"];
 const isFieldSearchable = (field: CmsModelField): boolean => {

@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from "react";
-import type { CmsErrorResponse, CmsModel } from "~/types";
-import { Input } from "@webiny/ui/Input";
-import { createValidationValue } from "./validationValue";
+import type { CmsErrorResponse, CmsModel } from "~/types.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { createValidationValue } from "./validationValue.js";
 import { Alert } from "@webiny/admin-ui";
 
 export interface IConfirmationProps {

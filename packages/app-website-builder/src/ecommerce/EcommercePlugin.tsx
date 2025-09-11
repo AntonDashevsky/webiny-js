@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { Editor } from "~/index";
-import type { IEcommerceApiFactory, SettingsInput } from "./types";
-import { CreateInputRenderers } from "./CreateInputRenderers";
-import type { ResourcePageProps } from "./components/ResourcePage";
-import { ResourcePage } from "./components/ResourcePage";
+import { Editor } from "~/index.js";
+import type { IEcommerceApiFactory, SettingsInput } from "./types.js";
+import { CreateInputRenderers } from "./CreateInputRenderers.js";
+import type { ResourcePageProps } from "./components/ResourcePage.js";
+import { ResourcePage } from "./components/ResourcePage.js";
 import { createGenericContext } from "@webiny/app";
-import { EcommerceApiManifest, useEcommerceApiProvider, usePageTypes } from "~/features";
+import { EcommerceApiManifest, useEcommerceApiProvider, usePageTypes } from "~/features/index.js";
 
 export interface CustomResourcePickerProps<T = any> {
     value?: T;

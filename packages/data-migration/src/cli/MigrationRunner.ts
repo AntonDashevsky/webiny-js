@@ -1,14 +1,14 @@
-import type { LambdaClient } from "@webiny/aws-sdk/client-lambda";
-import { InvokeCommand } from "@webiny/aws-sdk/client-lambda";
-import type { MigrationStatusReporter } from "~/cli/MigrationStatusReporter";
+import type { LambdaClient } from "@webiny/aws-sdk/client-lambda/index.js";
+import { InvokeCommand } from "@webiny/aws-sdk/client-lambda/index.js";
+import type { MigrationStatusReporter } from "~/cli/MigrationStatusReporter.js";
 import type {
     MigrationEventHandlerResponse,
     MigrationInvocationErrorResponse,
     MigrationStatus,
     MigrationStatusResponse
-} from "~/types";
+} from "~/types.js";
 import { executeWithRetry } from "@webiny/utils";
-import { VoidStatusReporter } from "./VoidStatusReporter";
+import { VoidStatusReporter } from "./VoidStatusReporter.js";
 
 interface MigrationRunnerConfig {
     lambdaClient: LambdaClient;

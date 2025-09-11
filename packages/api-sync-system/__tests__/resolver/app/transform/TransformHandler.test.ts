@@ -9,6 +9,7 @@ import { createMockTableItemData } from "~tests/mocks/tableItem.js";
 import { SemVer } from "semver";
 import { DynamoDBTableType } from "~/types.js";
 import { createMockPluginsContainer } from "~tests/mocks/plugins.js";
+import { jest } from "@jest/globals";
 
 const item1 = createMockTableItemData({
     order: 1

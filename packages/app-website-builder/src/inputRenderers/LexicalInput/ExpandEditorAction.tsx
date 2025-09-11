@@ -1,5 +1,5 @@
 import React from "react";
-import { useExpandedEditor } from "./ExpandedEditor";
+import { useExpandedEditor } from "./ExpandedEditor.js";
 
 export const ExpandEditorAction = () => {
     const { setExpanded } = useExpandedEditor();

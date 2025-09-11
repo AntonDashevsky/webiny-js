@@ -1,5 +1,5 @@
-import useGqlHandler from "./utils/useGqlHandler";
-import { fileAData, ids } from "./mocks/files";
+import useGqlHandler from "./utils/useGqlHandler.js";
+import { fileAData, ids } from "./mocks/files.js";
 
 describe("file custom dates", () => {
     const { createFile, updateFile } = useGqlHandler();

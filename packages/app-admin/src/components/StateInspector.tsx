@@ -1,7 +1,7 @@
 import React from "react";
 import Editor from "@monaco-editor/react";
 import { Tabs } from "@webiny/admin-ui";
-import { FloatingPanel } from "~/components";
+import { FloatingPanel } from "~/components/index.js";
 
 const monacoTheme = "vs-light";
 const monacoOptions = { minimap: { enabled: false } };

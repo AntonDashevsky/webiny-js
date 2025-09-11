@@ -1,4 +1,4 @@
-import { calculateAmounts } from "~/tasks/MockDataManager/calculateAmounts";
+import { calculateAmounts } from "~/tasks/MockDataManager/calculateAmounts.js";
 
 describe("calculateAmounts", () => {
     it.skip("should properly calculate the amount of tasks and records - 50", async () => {

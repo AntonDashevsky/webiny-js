@@ -1,6 +1,6 @@
 import React from "react";
 import { Tag as AdminTag } from "@webiny/admin-ui";
-import type { TagItem } from "@webiny/app-aco/types";
+import type { TagItem } from "@webiny/app-aco/types.js";
 
 type TagProps = {
     tagItem: TagItem;

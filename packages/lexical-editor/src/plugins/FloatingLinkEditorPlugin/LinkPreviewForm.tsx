@@ -1,5 +1,5 @@
 import React from "react";
-import type { LinkData } from "./FloatingLinkEditor";
+import type { LinkData } from "./FloatingLinkEditor.js";
 
 interface LinkFormProps {
     linkData: LinkData;

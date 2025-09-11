@@ -3,19 +3,19 @@
  * TODO @ts-refactor
  */
 import React, { Fragment, useCallback, useMemo } from "react";
-import ContentModelGroupPermission from "./components/ContentModelGroupPermission";
-import { i18n } from "@webiny/app/i18n";
+import ContentModelGroupPermission from "./components/ContentModelGroupPermission.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     CannotUseAaclAlert,
     PermissionInfo,
     gridWithPaddingClass
-} from "@webiny/app-admin/components/Permissions";
+} from "@webiny/app-admin/components/Permissions/index.js";
 import { Form } from "@webiny/form";
-import { ContentModelPermission } from "./components/ContentModelPermission";
-import { ContentEntryPermission } from "./components/ContentEntryPermission";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
+import { ContentModelPermission } from "./components/ContentModelPermission.js";
+import { ContentEntryPermission } from "./components/ContentEntryPermission.js";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
 import { Link } from "@webiny/react-router";
-import type { CmsSecurityPermission } from "~/types";
+import type { CmsSecurityPermission } from "~/types.js";
 import { useSecurity } from "@webiny/app-security";
 import type { AaclPermission } from "@webiny/app-admin";
 import { CheckboxGroup, Grid, Select } from "@webiny/admin-ui";

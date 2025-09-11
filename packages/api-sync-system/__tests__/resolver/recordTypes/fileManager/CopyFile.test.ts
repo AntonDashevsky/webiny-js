@@ -5,8 +5,9 @@ import {
     createMockSourceDeployment,
     createMockTargetDeployment
 } from "~tests/mocks/deployments.js";
-import { createLambdaClient, InvokeCommand, LambdaClient } from "@webiny/aws-sdk/client-lambda";
+import { createLambdaClient, InvokeCommand, LambdaClient } from "@webiny/aws-sdk/client-lambda/index.js";
 import { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
+import { jest } from "@jest/globals";
 
 describe("CopyFile", () => {
     it("should return null if file already exists", async () => {

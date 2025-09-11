@@ -1,4 +1,4 @@
-import type { CloudFrontRequestHandler, CloudFrontResponseHandler } from "./types";
+import type { CloudFrontRequestHandler, CloudFrontResponseHandler } from "./types.js";
 
 declare const global: typeof globalThis & {
     handler: CloudFrontRequestHandler | CloudFrontResponseHandler;

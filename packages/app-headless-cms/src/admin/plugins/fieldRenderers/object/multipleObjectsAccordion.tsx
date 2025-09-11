@@ -1,10 +1,10 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
-import type { CmsModelFieldRendererPlugin, CmsModelFieldRendererProps } from "~/types";
-import { FieldSettings } from "./FieldSettings";
-import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings";
-import { MultiValueContainer } from "~/admin/plugins/fieldRenderers/object/MultiValueContainer";
-import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings";
+import { i18n } from "@webiny/app/i18n/index.js";
+import type { CmsModelFieldRendererPlugin, CmsModelFieldRendererProps } from "~/types.js";
+import { FieldSettings } from "./FieldSettings.js";
+import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings.js";
+import { MultiValueContainer } from "~/admin/plugins/fieldRenderers/object/MultiValueContainer.js";
+import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings.js";
 import { Accordion } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");

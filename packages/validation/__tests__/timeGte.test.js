@@ -1,4 +1,4 @@
-import { validation } from "../src";
+import { validation } from "../src/index.js";
 
 const gteValidationTimeCorrectValues = [
     ["02:34", "01:34"],

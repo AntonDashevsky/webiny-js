@@ -1,4 +1,4 @@
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { createStandardEntity, createTable } from "@webiny/db-dynamodb";
 
 interface CreateKeysParams {

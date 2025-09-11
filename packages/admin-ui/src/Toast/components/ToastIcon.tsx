@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as NotificationsIconActive } from "@webiny/icons/notifications_active.svg";
-import { Icon as BaseIcon } from "~/Icon";
+import { Icon as BaseIcon } from "~/Icon/index.js";
 
 const ToastNotificationIcon = (
     <BaseIcon

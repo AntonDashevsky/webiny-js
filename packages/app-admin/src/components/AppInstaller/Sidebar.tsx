@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import classSet from "classnames";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import signInDivider from "./assets/sign-in-divider.svg";
-import type { Installer } from "./useInstaller";
-import { Tags } from "~/base/ui/Tags";
-import { Logo } from "~/base/ui/Logo";
+import type { Installer } from "./useInstaller.js";
+import { Tags } from "~/base/ui/Tags.js";
+import { Logo } from "~/base/ui/Logo.js";
 
 const List = styled("ul")({
     li: {

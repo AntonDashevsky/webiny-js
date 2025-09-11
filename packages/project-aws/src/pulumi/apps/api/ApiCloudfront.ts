@@ -2,7 +2,7 @@ import * as aws from "@pulumi/aws";
 import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
 
-import { ApiGateway } from "./ApiGateway";
+import { ApiGateway } from "./ApiGateway.js";
 
 export type ApiCloudfront = PulumiAppModule<typeof ApiCloudfront>;
 

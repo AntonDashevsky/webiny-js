@@ -2,9 +2,9 @@ import * as React from "react";
 import { Alert, Button, Grid, Input, Label, Link, OverlayLoader, Text } from "@webiny/admin-ui";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator";
-import { useForgotPassword } from "@webiny/app-cognito-authenticator/hooks/useForgotPassword";
-import { View } from "~/components/View";
+import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator.js";
+import { useForgotPassword } from "@webiny/app-cognito-authenticator/hooks/useForgotPassword.js";
+import { View } from "~/components/View.js";
 
 export const ForgotPassword = () => {
     const { authData, changeState } = useAuthenticator();

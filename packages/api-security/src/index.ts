@@ -1,32 +1,32 @@
 import { ContextPlugin } from "@webiny/api";
-import type { TenancyContext } from "@webiny/api-tenancy/types";
-import type { WcpContext } from "@webiny/api-wcp/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types.js";
+import type { WcpContext } from "@webiny/api-wcp/types.js";
 import type {
     SecurityAuthenticationPlugin,
     SecurityAuthorizationPlugin,
     SecurityContext,
     SecurityStorageOperations
-} from "./types";
-import graphqlPlugins from "./graphql";
-import gqlInterfaces from "./graphql/interfaces.gql";
-import { createSecurity } from "~/createSecurity";
-import { attachGroupInstaller } from "~/installation/groups";
-import type { MultiTenancyAppConfig, MultiTenancyGraphQLConfig } from "~/enterprise/multiTenancy";
-import { applyMultiTenancyGraphQLPlugins } from "~/enterprise/multiTenancy";
-import { SecurityRolePlugin } from "~/plugins/SecurityRolePlugin";
-import { SecurityTeamPlugin } from "~/plugins/SecurityTeamPlugin";
+} from "./types.js";
+import graphqlPlugins from "./graphql/index.js";
+import gqlInterfaces from "./graphql/interfaces.gql.js";
+import { createSecurity } from "~/createSecurity.js";
+import { attachGroupInstaller } from "~/installation/groups.js";
+import type { MultiTenancyAppConfig, MultiTenancyGraphQLConfig } from "~/enterprise/multiTenancy/index.js";
+import { applyMultiTenancyGraphQLPlugins } from "~/enterprise/multiTenancy/index.js";
+import { SecurityRolePlugin } from "~/plugins/SecurityRolePlugin.js";
+import { SecurityTeamPlugin } from "~/plugins/SecurityTeamPlugin.js";
 
-export { default as NotAuthorizedResponse } from "./NotAuthorizedResponse";
-export { default as NotAuthorizedError } from "./NotAuthorizedError";
+export { default as NotAuthorizedResponse } from "./NotAuthorizedResponse.js";
+export { default as NotAuthorizedError } from "./NotAuthorizedError.js";
 
 export interface SecurityConfig extends MultiTenancyAppConfig {
     storageOperations: SecurityStorageOperations;
 }
 
-export * from "./utils/AppPermissions";
-export * from "./utils/getPermissionsFromSecurityGroupsForLocale";
-export * from "./utils/IdentityValue";
-export * from "./utils/createGroupsTeamsAuthorizer";
+export * from "./utils/AppPermissions.js";
+export * from "./utils/getPermissionsFromSecurityGroupsForLocale.js";
+export * from "./utils/IdentityValue.js";
+export * from "./utils/createGroupsTeamsAuthorizer.js";
 
 type Context = SecurityContext & TenancyContext & WcpContext;
 
@@ -86,5 +86,5 @@ export const createSecurityGraphQL = (config: MultiTenancyGraphQLConfig = {}) =>
     });
 };
 
-export { createSecurityRolePlugin } from "./plugins/SecurityRolePlugin";
-export { createSecurityTeamPlugin } from "./plugins/SecurityTeamPlugin";
+export { createSecurityRolePlugin } from "./plugins/SecurityRolePlugin.js";
+export { createSecurityTeamPlugin } from "./plugins/SecurityTeamPlugin.js";

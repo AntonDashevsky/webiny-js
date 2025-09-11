@@ -1,4 +1,4 @@
-export * from "./FileItem";
-export type * from "./FileItemDto";
-export type * from "./FileItemFormatted";
-export * from "./FileItemFormatter";
+export * from "./FileItem.js";
+export type * from "./FileItemDto.js";
+export type * from "./FileItemFormatted.js";
+export * from "./FileItemFormatter.js";

@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
 import { useApolloClient } from "@apollo/react-hooks";
-import { GetFolderHierarchyGqlGateway } from "./GetFolderHierarchyGqlGateway";
-import { GetFolderHierarchy } from "./GetFolderHierarchy";
-import { FolderDtoMapper } from "./FolderDto";
-import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks";
-import type { FolderItem } from "~/types";
-import { LoadingActionsEnum } from "~/types";
+import { GetFolderHierarchyGqlGateway } from "./GetFolderHierarchyGqlGateway.js";
+import { GetFolderHierarchy } from "./GetFolderHierarchy.js";
+import { FolderDtoMapper } from "./FolderDto.js";
+import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks/index.js";
+import type { FolderItem } from "~/types.js";
+import { LoadingActionsEnum } from "~/types.js";
 
 export const useGetFolderHierarchy = () => {
     const client = useApolloClient();

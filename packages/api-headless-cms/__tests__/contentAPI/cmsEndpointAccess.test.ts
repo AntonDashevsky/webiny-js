@@ -1,8 +1,8 @@
-import type { CmsGroup, CmsModel } from "~/types";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
-import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";
-import models from "./mocks/contentModels";
+import type { CmsGroup, CmsModel } from "~/types/index.js";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
+import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler.js";
+import models from "./mocks/contentModels.js";
 
 describe("Endpoint access", () => {
     let contentModelGroup: CmsGroup;

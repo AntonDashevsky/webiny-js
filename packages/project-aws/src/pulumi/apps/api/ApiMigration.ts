@@ -4,11 +4,11 @@ import * as aws from "@pulumi/aws";
 import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
 
-import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils";
-import { CoreOutput, VpcConfig } from "../common";
-import { ApiBackgroundTask, ApiGraphql } from "~/pulumi/apps";
-import { LAMBDA_RUNTIME } from "~/pulumi/constants";
-import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion";
+import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
+import { CoreOutput, VpcConfig } from "../common/index.js";
+import { ApiBackgroundTask, ApiGraphql } from "~/pulumi/apps/index.js";
+import { LAMBDA_RUNTIME } from "~/pulumi/constants.js";
+import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion.js";
 import { AuditLogsDynamo } from "~/pulumi/apps/api/AuditLogsDynamo.js";
 
 export type ApiMigration = PulumiAppModule<typeof ApiMigration>;

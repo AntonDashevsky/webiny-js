@@ -1,2 +1,2 @@
-export * from "./Toast";
-export * from "./useToast";
+export * from "./Toast.js";
+export * from "./useToast.js";

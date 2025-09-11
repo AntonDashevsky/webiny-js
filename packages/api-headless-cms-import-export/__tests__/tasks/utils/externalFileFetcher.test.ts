@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
-import { ExternalFileFetcher } from "~/tasks/utils/externalFileFetcher";
-import type { GenericRecord } from "@webiny/api/types";
+import { ExternalFileFetcher } from "~/tasks/utils/externalFileFetcher/index.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 
 const createFetcherResponse = (params: Partial<Response>): Response => {
     return {

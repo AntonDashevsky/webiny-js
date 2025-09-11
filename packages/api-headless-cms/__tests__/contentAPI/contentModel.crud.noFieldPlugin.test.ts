@@ -1,5 +1,5 @@
-import type { CmsGroup, CmsModelFieldToGraphQLPlugin } from "~/types";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import type { CmsGroup, CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
 
 const customFieldPlugin = (): CmsModelFieldToGraphQLPlugin => ({
     name: "cms-model-field-to-graphql-custom-test-field",

@@ -1,6 +1,6 @@
-import type { CloudFrontQuery, CloudFrontResponse } from "./types";
-import { setNoCacheHeaders } from "./headers";
-import { stringifyQuery } from "./querystring";
+import type { CloudFrontQuery, CloudFrontResponse } from "./types.js";
+import { setNoCacheHeaders } from "./headers.js";
+import { stringifyQuery } from "./querystring.js";
 
 interface RedirectParams {
     url: string;

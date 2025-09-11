@@ -1,9 +1,9 @@
-import type { IRestoreEntryFromBinOperation } from "~/crud/contentEntry/abstractions";
+import type { IRestoreEntryFromBinOperation } from "~/crud/contentEntry/abstractions/index.js";
 import type {
     CmsEntryStorageOperations,
     CmsEntryStorageOperationsRestoreFromBinParams,
     CmsModel
-} from "~/types";
+} from "~/types/index.js";
 import type { ITransformEntryCallable } from "~/utils/entryStorage.js";
 
 export class RestoreEntryFromBinOperation implements IRestoreEntryFromBinOperation {

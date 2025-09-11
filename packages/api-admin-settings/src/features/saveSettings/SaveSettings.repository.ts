@@ -1,7 +1,7 @@
-import type { Settings } from "~/domain/Settings";
-import type { ISaveSettingsRepository } from "./abstractions/ISaveSettings.repository";
-import type { ISaveSettingsGateway } from "./abstractions/ISaveSettings.gateway";
-import type { SettingsGatewayDto } from "~/shared/SettingsGatewayDto";
+import type { Settings } from "~/domain/Settings.js";
+import type { ISaveSettingsRepository } from "./abstractions/ISaveSettings.repository.js";
+import type { ISaveSettingsGateway } from "./abstractions/ISaveSettings.gateway.js";
+import type { SettingsGatewayDto } from "~/shared/SettingsGatewayDto.js";
 
 export type GetTenantId = () => string;
 

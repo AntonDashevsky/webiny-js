@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
-import { Separator as SeparatorPrimitive } from "~/Separator";
+import { Separator as SeparatorPrimitive } from "~/Separator/index.js";
 
 type SeparatorProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>;
 

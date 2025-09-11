@@ -1,7 +1,7 @@
 import type { Client } from "@elastic/elasticsearch";
 import type { PluginsContainer } from "@webiny/plugins";
-import { getLastAddedIndexPlugin } from "~/indices";
-import type { ElasticsearchIndexPlugin } from "~/plugins";
+import { getLastAddedIndexPlugin } from "~/indices.js";
+import type { ElasticsearchIndexPlugin } from "~/plugins/index.js";
 import WebinyError from "@webiny/error";
 
 interface OnExists {

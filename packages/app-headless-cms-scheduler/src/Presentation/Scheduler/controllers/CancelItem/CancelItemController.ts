@@ -1,5 +1,5 @@
-import type { ICancelItemUseCase } from "~/UseCases";
-import type { ICancelItemController } from "./ICancelItemController";
+import type { ICancelItemUseCase } from "~/UseCases/index.js";
+import type { ICancelItemController } from "./ICancelItemController.js";
 
 export class CancelItemController implements ICancelItemController {
     private readonly useCaseFactory: () => ICancelItemUseCase;

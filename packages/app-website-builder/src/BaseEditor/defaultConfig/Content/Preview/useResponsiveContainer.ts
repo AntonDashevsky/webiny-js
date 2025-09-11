@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint.js";
 import type { ViewportManager } from "@webiny/website-builder-sdk";
 
 /**

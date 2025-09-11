@@ -1,5 +1,5 @@
-import type { Plugin, PluginCollection, PluginFactory } from "~/types";
-import { PluginsContainer } from "~/types";
+import type { Plugin, PluginCollection, PluginFactory } from "~/types.js";
+import { PluginsContainer } from "~/types.js";
 
 const isPluginLoader = (value: unknown): value is PluginFactory => {
     return typeof value === "function";

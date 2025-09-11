@@ -1,9 +1,9 @@
 import { jest } from "@jest/globals";
-import { mockCreateGetWcpProjectEnvironment } from "./wcp/aacl/mocks/mockCreateGetWcpProjectEnvironment";
-import { mockCreateGetWcpProjectLicense } from "./wcp/aacl/mocks/mockCreateGetWcpProjectLicense";
-import useGqlHandler from "./useGqlHandler";
-import apiKeyAuthentication from "~/plugins/apiKeyAuthentication";
-import apiKeyAuthorization from "~/plugins/apiKeyAuthorization";
+import { mockCreateGetWcpProjectEnvironment } from "./wcp/aacl/mocks/mockCreateGetWcpProjectEnvironment.js";
+import { mockCreateGetWcpProjectLicense } from "./wcp/aacl/mocks/mockCreateGetWcpProjectLicense.js";
+import useGqlHandler from "./useGqlHandler.js";
+import apiKeyAuthentication from "~/plugins/apiKeyAuthentication.js";
+import apiKeyAuthorization from "~/plugins/apiKeyAuthorization.js";
 
 jest.mock("@webiny/api-wcp/utils", () => {
     // The mock returned only mocks the generateServerSeed method.

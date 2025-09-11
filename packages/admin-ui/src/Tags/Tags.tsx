@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from "react";
-import { makeDecoratable, generateId } from "~/utils";
-import { TagsPrimitive, type TagsPrimitiveProps } from "./primitives";
+import { makeDecoratable, generateId } from "~/utils.js";
+import { TagsPrimitive, type TagsPrimitiveProps } from "./primitives/index.js";
 
 import {
     FormComponentDescription,
@@ -8,7 +8,7 @@ import {
     FormComponentLabel,
     FormComponentNote,
     type FormComponentProps
-} from "~/FormComponent";
+} from "~/FormComponent/index.js";
 
 type TagsProps = TagsPrimitiveProps & FormComponentProps;
 

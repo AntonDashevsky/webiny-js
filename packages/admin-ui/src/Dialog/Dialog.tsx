@@ -1,17 +1,17 @@
 import * as React from "react";
-import { makeDecoratable, withStaticProps } from "~/utils";
-import { DialogContent } from "./components/DialogContent";
-import { DialogHeader } from "~/Dialog/components/DialogHeader";
-import { DialogBody } from "~/Dialog/components/DialogBody";
-import { DialogFooter } from "~/Dialog/components/DialogFooter";
-import { DialogOverlay } from "~/Dialog/components/DialogOverlay";
-import { DialogPortal } from "./components/DialogPortal";
-import { DialogRoot } from "./components/DialogRoot";
-import { DialogTrigger } from "./components/DialogTrigger";
-import { Icon } from "./components/Icon";
-import { ConfirmButton } from "./components/ConfirmButton";
-import { CancelButton } from "./components/CancelButton";
-import { DialogClose } from "~/Dialog/components/DialogClose";
+import { makeDecoratable, withStaticProps } from "~/utils.js";
+import { DialogContent } from "./components/DialogContent.js";
+import { DialogHeader } from "~/Dialog/components/DialogHeader.js";
+import { DialogBody } from "~/Dialog/components/DialogBody.js";
+import { DialogFooter } from "~/Dialog/components/DialogFooter.js";
+import { DialogOverlay } from "~/Dialog/components/DialogOverlay.js";
+import { DialogPortal } from "./components/DialogPortal.js";
+import { DialogRoot } from "./components/DialogRoot.js";
+import { DialogTrigger } from "./components/DialogTrigger.js";
+import { Icon } from "./components/Icon.js";
+import { ConfirmButton } from "./components/ConfirmButton.js";
+import { CancelButton } from "./components/CancelButton.js";
+import { DialogClose } from "~/Dialog/components/DialogClose.js";
 
 interface DialogProps
     extends React.ComponentPropsWithoutRef<typeof DialogRoot>,

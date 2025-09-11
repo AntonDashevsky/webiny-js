@@ -1,6 +1,6 @@
-import type { CmsModelCreateInput } from "@webiny/api-headless-cms/types";
-import type { CmsGroup } from "@webiny/api-headless-cms/types";
-import { CARS_MODEL_ID } from "./constants";
+import type { CmsModelCreateInput } from "@webiny/api-headless-cms/types/index.js";
+import type { CmsGroup } from "@webiny/api-headless-cms/types/index.js";
+import { CARS_MODEL_ID } from "./constants.js";
 
 export const createCarsModel = (group: CmsGroup): CmsModelCreateInput => {
     return {

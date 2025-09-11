@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import type { ISchedulerItemsRepository } from "~/Domain";
+import type { ISchedulerItemsRepository } from "~/Domain/index.js";
 import type { IGetScheduledItemUseCase } from "./IGetScheduledItemUseCase.js";
 
 export class GetScheduledItemUseCase implements IGetScheduledItemUseCase {

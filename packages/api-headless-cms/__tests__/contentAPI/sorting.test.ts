@@ -1,9 +1,9 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
-import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
-import { useFruitReadHandler } from "../testHelpers/useFruitReadHandler";
-import type { Fruit } from "./mocks/contentModels";
-import { createCmsGraphQLSchemaSorterPlugin } from "~/plugins";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler.js";
+import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup.js";
+import { useFruitReadHandler } from "../testHelpers/useFruitReadHandler.js";
+import type { Fruit } from "./mocks/contentModels.js";
+import { createCmsGraphQLSchemaSorterPlugin } from "~/plugins/index.js";
 import { jest } from "@jest/globals";
 
 const appleData: Fruit = {

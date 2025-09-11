@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useRef } from "react";
 import type { CallbackParams } from "@webiny/app-admin";
 import { useButtons, useDialogWithReport, Worker } from "@webiny/app-admin";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import type { FileItem } from "@webiny/app-admin/types";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import type { FileItem } from "@webiny/app-admin/types.js";
 
 export interface BulkActionConfig {
     name: string;

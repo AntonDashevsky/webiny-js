@@ -1,7 +1,7 @@
 import React from "react";
-import { makeDecoratable, withStaticProps, cva, type VariantProps, cn } from "~/utils";
-import type { AccordionRoot } from "./components/AccordionRoot";
-import { AccordionItem, type AccordionItemProps } from "./components/AccordionItem";
+import { makeDecoratable, withStaticProps, cva, type VariantProps, cn } from "~/utils.js";
+import type { AccordionRoot } from "./components/AccordionRoot.js";
+import { AccordionItem, type AccordionItemProps } from "./components/AccordionItem.js";
 
 const accordionVariants = cva("wby-group wby-w-full", {
     variants: {

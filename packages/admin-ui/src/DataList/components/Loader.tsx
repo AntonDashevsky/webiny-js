@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import React from "react";
-import { Skeleton } from "~/Skeleton";
-import { cn } from "~/utils";
+import { Skeleton } from "~/Skeleton/index.js";
+import { cn } from "~/utils.js";
 
 const Loader = (): ReactElement => {
     const lines = Array.from(Array(5).keys());

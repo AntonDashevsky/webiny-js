@@ -1,7 +1,7 @@
-import type { IUpdateSettings } from "./IUpdateSettings";
-import type { SettingsCache } from "~/shared/settingsCache";
-import type { AllEcommerceSettings } from "~/features/ecommerce/settings/types";
-import { SETTINGS_KEY } from "~/features/ecommerce/settings/constants";
+import type { IUpdateSettings } from "./IUpdateSettings.js";
+import type { SettingsCache } from "~/shared/settingsCache.js";
+import type { AllEcommerceSettings } from "~/features/ecommerce/settings/types.js";
+import { SETTINGS_KEY } from "~/features/ecommerce/settings/constants.js";
 
 export interface IWebsiteBuilderSettings {
     previewDomain: string;

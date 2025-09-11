@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import type { FormAPI, FormOnSubmit } from "@webiny/form";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import type { CmsDynamicZoneTemplate } from "~/types";
+import type { CmsDynamicZoneTemplate } from "~/types.js";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
-import { IconPicker } from "~/admin/components/IconPicker";
-import { Tags } from "@webiny/ui/Tags";
+import { IconPicker } from "~/admin/components/IconPicker.js";
+import { Tags } from "@webiny/ui/Tags/index.js";
 import { Alert, Dialog, Grid, Input, Textarea } from "@webiny/admin-ui";
 
 const typeNameValidator = (value: string) => {

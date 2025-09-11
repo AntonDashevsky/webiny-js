@@ -1,4 +1,4 @@
-import { zeroPad } from "~/zeroPad";
+import { zeroPad } from "~/zeroPad.js";
 
 describe("zero pad", () => {
     const inputs: [number | string, string][] = [

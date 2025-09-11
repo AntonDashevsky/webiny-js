@@ -7,10 +7,10 @@ import type {
     CmsModelField,
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
-} from "~/types";
-import { SingleValueDynamicZone } from "./SingleValueDynamicZone";
-import { MultiValueDynamicZone } from "./MultiValueDynamicZone";
-import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings";
+} from "~/types.js";
+import { SingleValueDynamicZone } from "./SingleValueDynamicZone.js";
+import { MultiValueDynamicZone } from "./MultiValueDynamicZone.js";
+import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings.js";
 import { makeDecoratable } from "@webiny/react-composition";
 import { Accordion, FormComponentErrorMessage } from "@webiny/admin-ui";
 

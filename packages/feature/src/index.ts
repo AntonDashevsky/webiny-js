@@ -1,6 +1,6 @@
 export { createDecorator, createImplementation } from "@webiny/di-container";
-export * from "./createFeature";
-export * from "./createAbstraction";
-export * from "./Result";
-export * from "./ResultAsync";
-export * from "./Brand";
+export * from "./createFeature.js";
+export * from "./createAbstraction.js";
+export * from "./Result.js";
+export * from "./ResultAsync.js";
+export * from "./Brand.js";

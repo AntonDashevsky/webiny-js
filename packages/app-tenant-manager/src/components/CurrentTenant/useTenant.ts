@@ -1,11 +1,11 @@
 import { useCallback } from "react";
-import get from "lodash/get";
-import omit from "lodash/omit";
+import get from "lodash/get.js";
+import omit from "lodash/omit.js";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useTenancy } from "@webiny/app-tenancy";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { GET_TENANT, UPDATE_TENANT } from "~/graphql";
-import type { TenantItem } from "~/types";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { GET_TENANT, UPDATE_TENANT } from "~/graphql/index.js";
+import type { TenantItem } from "~/types.js";
 
 interface Params {
     onSaved: () => void;

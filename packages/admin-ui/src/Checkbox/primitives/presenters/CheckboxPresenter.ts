@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx";
-import type { CheckboxPrimitiveVm } from "../CheckboxPrimitive";
-import { CheckboxItem } from "~/Checkbox/domains/CheckboxItem";
-import { type CheckboxItemDto } from "~/Checkbox/domains/CheckboxItemDto";
-import { CheckboxItemMapper } from "~/Checkbox/domains/CheckboxItemMapper";
+import type { CheckboxPrimitiveVm } from "../CheckboxPrimitive.js";
+import { CheckboxItem } from "~/Checkbox/domains/CheckboxItem.js";
+import { type CheckboxItemDto } from "~/Checkbox/domains/CheckboxItemDto.js";
+import { CheckboxItemMapper } from "~/Checkbox/domains/CheckboxItemMapper.js";
 
 type CheckboxPresenterParams = CheckboxItemDto & {
     onCheckedChange: (checked: boolean) => void;

@@ -4,19 +4,19 @@ import type {
     CmsContentEntry,
     CmsModelFieldRendererProps,
     CmsModel
-} from "~/types";
-import { Options } from "./Options";
-import { useReferences } from "../hooks/useReferences";
-import { Entry } from "./Entry";
-import { ReferencesDialog } from "./ReferencesDialog";
-import { NoEntries } from "./NoEntries";
-import { Container } from "./Container";
-import { useQuery, useModelFieldGraphqlContext } from "~/admin/hooks";
-import type { ListCmsModelsQueryResponse } from "~/admin/viewsGraphql";
-import * as GQL from "~/admin/viewsGraphql";
+} from "~/types.js";
+import { Options } from "./Options.js";
+import { useReferences } from "../hooks/useReferences.js";
+import { Entry } from "./Entry.js";
+import { ReferencesDialog } from "./ReferencesDialog.js";
+import { NoEntries } from "./NoEntries.js";
+import { Container } from "./Container.js";
+import { useQuery, useModelFieldGraphqlContext } from "~/admin/hooks/index.js";
+import type { ListCmsModelsQueryResponse } from "~/admin/viewsGraphql.js";
+import * as GQL from "~/admin/viewsGraphql.js";
 import { useSnackbar } from "@webiny/app-admin";
-import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog";
+import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog.js";
 import { FormComponentErrorMessage, FormComponentLabel, OverlayLoader } from "@webiny/admin-ui";
 
 interface AdvancedSingleReferenceFieldProps extends CmsModelFieldRendererProps {

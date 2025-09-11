@@ -1,11 +1,11 @@
 import WebinyError from "@webiny/error";
-import type { CmsEntry, CmsEntryListParams, CmsGroup, CmsModel } from "~/types";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
-import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";
-import models from "./mocks/contentModels";
-import modelsWithoutValidation from "./mocks/contentModels.noValidation";
-import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
+import type { CmsEntry, CmsEntryListParams, CmsGroup, CmsModel } from "~/types/index.js";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
+import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler.js";
+import models from "./mocks/contentModels.js";
+import modelsWithoutValidation from "./mocks/contentModels.noValidation.js";
+import { useProductManageHandler } from "../testHelpers/useProductManageHandler.js";
 import { jest } from "@jest/globals";
 
 interface CreateCategoriesResult {

@@ -1,12 +1,12 @@
 import type { IMetaRepository } from "@webiny/app-utils";
-import type { ITrashBinItemMapper } from "~/Domain";
+import type { ITrashBinItemMapper } from "~/Domain/index.js";
 import type {
     ITrashBinBulkActionsGateway,
     ITrashBinDeleteItemGateway,
     ITrashBinListGateway,
     ITrashBinRestoreItemGateway
-} from "~/Gateways";
-import { TrashBinItemsRepository } from "./TrashBinItemsRepository";
+} from "~/Gateways/index.js";
+import { TrashBinItemsRepository } from "./TrashBinItemsRepository.js";
 
 export class TrashBinItemsRepositoryFactory<TEntry extends Record<string, any>> {
     private cache: Map<string, TrashBinItemsRepository<TEntry>> = new Map();

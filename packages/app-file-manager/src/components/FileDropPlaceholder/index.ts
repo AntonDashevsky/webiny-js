@@ -1,1 +1,1 @@
-export * from "./FileDropPlaceholder";
+export * from "./FileDropPlaceholder.js";

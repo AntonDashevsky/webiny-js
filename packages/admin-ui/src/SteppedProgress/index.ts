@@ -1,2 +1,2 @@
-export * from "./domains";
-export * from "./SteppedProgress";
+export * from "./domains/index.js";
+export * from "./SteppedProgress.js";

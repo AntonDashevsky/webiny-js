@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import type { LexicalCommand } from "lexical";
 import { Compose, makeDecoratable } from "@webiny/react-composition";
-import { FontColorActionContext } from "~/context/FontColorActionContext";
+import { FontColorActionContext } from "~/context/FontColorActionContext.js";
 import type { FontColorPayload } from "@webiny/lexical-nodes";
 import { $isFontColorNode, ADD_FONT_COLOR_COMMAND, ThemeColorValue } from "@webiny/lexical-nodes";
-import { getSelectedNode } from "~/utils/getSelectedNode";
-import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection";
-import { useRichTextEditor } from "~/hooks";
+import { getSelectedNode } from "~/utils/getSelectedNode.js";
+import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection.js";
+import { useRichTextEditor } from "~/hooks/index.js";
 
 export const FontColorPicker = makeDecoratable("FontColorPicker", (): JSX.Element | null => {
     useEffect(() => {

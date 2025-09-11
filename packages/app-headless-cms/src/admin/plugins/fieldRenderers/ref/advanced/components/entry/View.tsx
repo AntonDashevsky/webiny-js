@@ -1,5 +1,5 @@
 import React from "react";
-import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { ReactComponent as ViewIcon } from "@webiny/icons/open_in_new.svg";
 import { IconButton, Link, Tooltip } from "@webiny/admin-ui";
 

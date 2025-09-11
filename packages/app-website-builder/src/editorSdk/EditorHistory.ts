@@ -1,4 +1,4 @@
-import pick from "lodash/pick";
+import pick from "lodash/pick.js";
 import { jsonPatch } from "@webiny/website-builder-sdk";
 import { HistorySnapshot, type SnapshotState } from "./HistorySnapshot.js";
 

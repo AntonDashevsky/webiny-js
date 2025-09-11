@@ -1,4 +1,4 @@
-import type { CognitoIdentityProviderClientConfig } from "@webiny/aws-sdk/client-cognito-identity-provider";
+import type { CognitoIdentityProviderClientConfig } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import {
     AdminDeleteUserCommand,
     type AdminDeleteUserCommandInput,
@@ -6,7 +6,7 @@ import {
     type AdminGetUserCommandInput,
     type AdminGetUserCommandOutput,
     type CognitoIdentityProvider
-} from "@webiny/aws-sdk/client-cognito-identity-provider";
+} from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import { convertException } from "@webiny/utils/exception.js";
 
 export interface IDeleteUserParams {

@@ -1,8 +1,8 @@
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
-import { assignEntryEvents, pubSubTracker } from "./mocks/lifecycleHooks";
-import models from "./mocks/contentModels";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import type { CmsGroup, CmsModel } from "~/types";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
+import { assignEntryEvents, pubSubTracker } from "./mocks/lifecycleHooks.js";
+import models from "./mocks/contentModels.js";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import type { CmsGroup, CmsModel } from "~/types/index.js";
 
 describe("contentEntryHooks", () => {
     let contentModelGroup: CmsGroup;

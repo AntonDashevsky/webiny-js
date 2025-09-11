@@ -1,5 +1,5 @@
-import type { IListRedirects, ListWbRedirectsParams, WbListMeta } from "./IListRedirects";
-import type { WbRedirect, WbRedirectsStorageOperations } from "~/context/redirects/redirects.types";
+import type { IListRedirects, ListWbRedirectsParams, WbListMeta } from "./IListRedirects.js";
+import type { WbRedirect, WbRedirectsStorageOperations } from "~/context/redirects/redirects.types.js";
 
 export class ListRedirects implements IListRedirects {
     private readonly listOperation: WbRedirectsStorageOperations["list"];

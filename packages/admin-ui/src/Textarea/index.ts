@@ -1,2 +1,2 @@
-export * from "./Textarea";
-export * from "./TextareaPrimitive";
+export * from "./Textarea.js";
+export * from "./TextareaPrimitive.js";

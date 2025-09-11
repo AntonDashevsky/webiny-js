@@ -6,8 +6,8 @@ import type {
     IWebsocketsManagerMessageEvent,
     IWebsocketsSubscriptionManager,
     WebsocketsCloseCode
-} from "./types";
-import { WebsocketsReadyState } from "./types";
+} from "./types.js";
+import { WebsocketsReadyState } from "./types.js";
 
 interface ICreateUrlResult {
     token: string;

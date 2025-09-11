@@ -1,5 +1,5 @@
-import DynamoDbDriver from "~/DynamoDbDriver";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import DynamoDbDriver from "~/DynamoDbDriver.js";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 
 describe("DynamoDbDriver", () => {
     const __testing = "aTestingTag";

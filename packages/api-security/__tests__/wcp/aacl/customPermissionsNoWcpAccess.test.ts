@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
-import { mockCreateGetWcpProjectEnvironment } from "./mocks/mockCreateGetWcpProjectEnvironment";
-import { mockCreateGetWcpProjectLicense } from "./mocks/mockCreateGetWcpProjectLicense";
+import { mockCreateGetWcpProjectEnvironment } from "./mocks/mockCreateGetWcpProjectEnvironment.js";
+import { mockCreateGetWcpProjectLicense } from "./mocks/mockCreateGetWcpProjectLicense.js";
 
 jest.mock("@webiny/api-wcp/utils", () => {
     // The mock returned only mocks the generateServerSeed method.
@@ -24,7 +24,7 @@ jest.mock("@webiny/wcp", () => {
 
 // This import statement needs to be here.
 // @see https://stackoverflow.com/a/67114668
-import { createMockContextHandler } from "./mockContextHandler";
+import { createMockContextHandler } from "./mockContextHandler.js";
 
 describe(`Custom permissions (no WCP access) test`, () => {
     test("should not be able to use custom permissions if the license doesn't permit it", async () => {

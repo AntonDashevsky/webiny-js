@@ -1,4 +1,4 @@
-import type { CmsIdentity, CmsModel } from "@webiny/app-headless-cms-common/types";
+import type { CmsIdentity, CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 import type { TableRow } from "@webiny/app-aco";
 
 export type { CmsIdentity, CmsModel };

@@ -1,5 +1,5 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
 
 const pageModelPlugin = new CmsModelPlugin({
     locale: "en-US",

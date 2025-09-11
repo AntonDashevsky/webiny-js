@@ -1,4 +1,4 @@
-export * from "./CommandOption";
-export type * from "./CommandOptionDto";
-export type * from "./CommandOptionFormatted";
-export * from "./CommandOptionFormatter";
+export * from "./CommandOption.js";
+export type * from "./CommandOptionDto.js";
+export type * from "./CommandOptionFormatted.js";
+export * from "./CommandOptionFormatter.js";

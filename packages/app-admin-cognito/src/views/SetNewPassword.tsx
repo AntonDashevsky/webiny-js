@@ -1,10 +1,10 @@
 import React from "react";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { View } from "~/components/View";
-import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator";
-import type { UseSetNewPasswordCallableParams } from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword";
-import { useSetNewPassword } from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword";
+import { View } from "~/components/View.js";
+import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator.js";
+import type { UseSetNewPasswordCallableParams } from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword.js";
+import { useSetNewPassword } from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword.js";
 import { Button, Grid, Input, Link, OverlayLoader, Text } from "@webiny/admin-ui";
 
 export const SetNewPassword = () => {

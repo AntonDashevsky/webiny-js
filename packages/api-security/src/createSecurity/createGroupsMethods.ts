@@ -14,16 +14,16 @@ import type {
     PermissionsTenantLink,
     Security,
     SecurityConfig
-} from "~/types";
-import NotAuthorizedError from "../NotAuthorizedError";
+} from "~/types.js";
+import NotAuthorizedError from "../NotAuthorizedError.js";
 import {
     type ListGroupsFromPluginsParams,
     listGroupsFromProvider as baseListGroupsFromPlugins
-} from "./groupsTeamsPlugins/listGroupsFromProvider";
+} from "./groupsTeamsPlugins/listGroupsFromProvider.js";
 import {
     type GetGroupFromPluginsParams,
     getGroupFromProvider as baseGetGroupFromPlugins
-} from "./groupsTeamsPlugins/getGroupFromProvider";
+} from "./groupsTeamsPlugins/getGroupFromProvider.js";
 import zod from "zod";
 
 const createGroupValidation = zod.object({

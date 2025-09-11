@@ -1,8 +1,8 @@
 import React from "react";
-import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
 import { ReactComponent as PermissionsIcon } from "@webiny/icons/how_to_vote.svg";
-import { ContentPermissions } from "./ContentPermissions";
-import { i18n } from "@webiny/app/i18n";
+import { ContentPermissions } from "./ContentPermissions.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Accordion } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-i18n/admin/plugins/permissionRenderer");

@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { action, runInAction } from "mobx";
 import { observer, useLocalObservable } from "mobx-react-lite";
-import capitalize from "lodash/capitalize";
+import capitalize from "lodash/capitalize.js";
 import pluralize from "pluralize";
-import type { ResourcePreviewCellProps, ResourcePickerProps } from "./ResourcesPicker";
-import { ResourcePreviewCell, ResourcePicker } from "./ResourcesPicker";
+import type { ResourcePreviewCellProps, ResourcePickerProps } from "./ResourcesPicker.js";
+import { ResourcePreviewCell, ResourcePicker } from "./ResourcesPicker.js";
 import { useDialogs } from "@webiny/app-admin";
 import { Loader, Button, Text, List } from "@webiny/admin-ui";
 import { ReactComponent as Delete } from "@webiny/icons/delete.svg";
-import type { IEcommerceApi, Resource } from "~/ecommerce";
+import type { IEcommerceApi, Resource } from "~/ecommerce/index.js";
 
 export type PickResourceListProps = {
     api: IEcommerceApi;

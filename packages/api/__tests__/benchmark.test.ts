@@ -1,7 +1,7 @@
-import { Context } from "~/Context";
-import type { BenchmarkMeasurement } from "~/types";
-import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin";
-import { ContextPlugin } from "~/plugins/ContextPlugin";
+import { Context } from "~/Context.js";
+import type { BenchmarkMeasurement } from "~/types.js";
+import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin.js";
+import { ContextPlugin } from "~/plugins/ContextPlugin.js";
 import { jest } from "@jest/globals";
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

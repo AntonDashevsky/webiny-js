@@ -4,9 +4,9 @@ import type ApolloClient from "apollo-client";
 import type {
     ListCmsModelsQueryResponse,
     ListMenuCmsGroupsQueryResponse
-} from "../../viewsGraphql";
-import { LIST_CONTENT_MODELS, LIST_MENU_CONTENT_GROUPS_MODELS } from "../../viewsGraphql";
-import type { CmsEditorContentModel, CmsModel } from "~/types";
+} from "../../viewsGraphql.js";
+import { LIST_CONTENT_MODELS, LIST_MENU_CONTENT_GROUPS_MODELS } from "../../viewsGraphql.js";
+import type { CmsEditorContentModel, CmsModel } from "~/types.js";
 
 export const addModelToListCache = (cache: DataProxy, model: CmsEditorContentModel): void => {
     const response = cache.readQuery<ListCmsModelsQueryResponse>({

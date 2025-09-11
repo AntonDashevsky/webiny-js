@@ -1,13 +1,13 @@
 import React, { useCallback } from "react";
 import { Accordion } from "@webiny/admin-ui";
-import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
+import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement.js";
 import type { DocumentElement } from "@webiny/website-builder-sdk";
-import { Background } from "./Groups/Background";
-import { MarginPadding } from "./Groups/MarginPadding";
-import { VisibilityGroup } from "./Groups/VisibilityGroup";
-import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
+import { Background } from "./Groups/Background.js";
+import { MarginPadding } from "./Groups/MarginPadding.js";
+import { VisibilityGroup } from "./Groups/VisibilityGroup.js";
+import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest.js";
 import { StyleSettings } from "@webiny/website-builder-sdk";
-import { Layout } from "./Groups/Layout";
+import { Layout } from "./Groups/Layout.js";
 
 export const StyleProperties = () => {
     const [element] = useActiveElement();

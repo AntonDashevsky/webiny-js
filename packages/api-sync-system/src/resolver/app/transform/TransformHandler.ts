@@ -1,9 +1,9 @@
-import type { ITable } from "~/sync/types";
+import type { ITable } from "~/sync/types.js";
 import type { IDeployment } from "~/resolver/deployment/types.js";
-import type { PluginsContainer } from "@webiny/plugins/types";
+import type { PluginsContainer } from "@webiny/plugins/types.js";
 import { TransformRecordPlugin } from "~/resolver/plugins/TransformRecordPlugin.js";
 import { middleware } from "./middleware.js";
-import type { IStoreItem } from "../storer/types";
+import type { IStoreItem } from "../storer/types.js";
 
 export interface IMiddlewareParams {
     readonly plugins: PluginsContainer;

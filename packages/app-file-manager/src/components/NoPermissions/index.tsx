@@ -1,1 +1,1 @@
-export * from "./NoPermissions";
+export * from "./NoPermissions.js";

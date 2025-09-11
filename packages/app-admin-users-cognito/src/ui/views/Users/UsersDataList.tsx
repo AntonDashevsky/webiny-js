@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import orderBy from "lodash/orderBy";
+import orderBy from "lodash/orderBy.js";
 import { Avatar, Button, Grid, Select, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useSecurity } from "@webiny/app-security";
 import {
     DataList,
@@ -17,15 +17,15 @@ import {
     DataListModalOverlayAction,
     DataListModalOverlay,
     ListItemTextPrimary
-} from "@webiny/ui/List";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
+} from "@webiny/ui/List/index.js";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { DELETE_USER, LIST_USERS } from "./graphql";
-import { deserializeSorters } from "../utils";
-import type { UserItem } from "~/UserItem";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { DELETE_USER, LIST_USERS } from "./graphql.js";
+import { deserializeSorters } from "../utils.js";
+import type { UserItem } from "~/UserItem.js";
 
 const t = i18n.ns("app-identity/admin/users/data-list");
 

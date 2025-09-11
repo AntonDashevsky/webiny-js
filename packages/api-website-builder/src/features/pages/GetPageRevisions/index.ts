@@ -1,5 +1,5 @@
-import { GetPageRevisions } from "./GetPageRevisions";
-import type { WbPagesStorageOperations } from "~/context/pages/pages.types";
+import { GetPageRevisions } from "./GetPageRevisions.js";
+import type { WbPagesStorageOperations } from "~/context/pages/pages.types.js";
 
 interface GetPageRevisionsUseCasesParams {
     getRevisions: WbPagesStorageOperations["getRevisions"];

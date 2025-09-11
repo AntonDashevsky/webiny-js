@@ -1,6 +1,6 @@
 import React from "react";
-import type { CmsModel } from "~/types";
-import { OptionsModelListItem } from "./OptionsModelListItem";
+import type { CmsModel } from "~/types.js";
+import { OptionsModelListItem } from "./OptionsModelListItem.js";
 
 interface OptionsModelListProps {
     models: CmsModel[];

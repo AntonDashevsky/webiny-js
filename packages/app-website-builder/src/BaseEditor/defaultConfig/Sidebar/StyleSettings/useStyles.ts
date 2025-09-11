@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import { useDocumentEditor } from "~/DocumentEditor";
-import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { StylesStore, type ElementBreakpointStyles } from "./StylesStore";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint.js";
+import { StylesStore, type ElementBreakpointStyles } from "./StylesStore.js";
 
 // Singleton store container
 const stylesStores = new Map<string, StylesStore>();

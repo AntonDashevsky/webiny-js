@@ -3,7 +3,7 @@ import type {
     CreateAcoParams,
     OnSearchRecordAfterMoveTopicParams,
     OnSearchRecordBeforeMoveTopicParams
-} from "~/types";
+} from "~/types.js";
 import type {
     AcoSearchRecordCrud,
     OnSearchRecordAfterCreateTopicParams,
@@ -12,7 +12,7 @@ import type {
     OnSearchRecordBeforeCreateTopicParams,
     OnSearchRecordBeforeDeleteTopicParams,
     OnSearchRecordBeforeUpdateTopicParams
-} from "./record.types";
+} from "./record.types.js";
 
 export const createSearchRecordCrudMethods = ({
     storageOperations

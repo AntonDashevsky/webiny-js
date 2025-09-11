@@ -1,7 +1,7 @@
 import React from "react";
-import type { LoaderProps } from "./Loader";
-import { Loader } from "./Loader";
-import { cn, makeDecoratable } from "~/utils";
+import type { LoaderProps } from "./Loader.js";
+import { Loader } from "./Loader.js";
+import { cn, makeDecoratable } from "~/utils.js";
 
 type OverlayLoaderProps = LoaderProps;
 

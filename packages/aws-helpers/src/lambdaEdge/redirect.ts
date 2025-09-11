@@ -1,5 +1,5 @@
-import type { CloudFrontResponse } from "./types";
-import { setHeader } from "./headers";
+import type { CloudFrontResponse } from "./types.js";
+import { setHeader } from "./headers.js";
 
 interface RedirectParams {
     url: string;

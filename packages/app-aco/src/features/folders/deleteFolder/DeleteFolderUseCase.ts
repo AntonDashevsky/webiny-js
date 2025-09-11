@@ -1,6 +1,6 @@
-import type { DeleteFolderParams, IDeleteFolderUseCase } from "./IDeleteFolderUseCase";
-import type { IDeleteFolderRepository } from "./IDeleteFolderRepository";
-import { Folder } from "../Folder";
+import type { DeleteFolderParams, IDeleteFolderUseCase } from "./IDeleteFolderUseCase.js";
+import type { IDeleteFolderRepository } from "./IDeleteFolderRepository.js";
+import { Folder } from "../Folder.js";
 
 export class DeleteFolderUseCase implements IDeleteFolderUseCase {
     private repository: IDeleteFolderRepository;

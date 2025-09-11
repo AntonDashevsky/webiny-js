@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as Delete } from "@webiny/icons/delete.svg";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
-import { useDeleteFile } from "~/hooks/useDeleteFile";
-import { useFile } from "~/hooks/useFile";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
+import { useDeleteFile } from "~/hooks/useDeleteFile.js";
+import { useFile } from "~/hooks/useFile.js";
 
 export const DeleteFile = () => {
     const { file } = useFile();

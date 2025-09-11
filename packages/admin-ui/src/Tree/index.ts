@@ -1,2 +1,2 @@
-export * from "./Tree";
-export * from "./domains";
+export * from "./Tree.js";
+export * from "./domains/index.js";

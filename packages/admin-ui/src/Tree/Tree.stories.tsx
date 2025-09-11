@@ -3,7 +3,7 @@ import { ReactComponent as FolderIcon } from "@webiny/icons/folder.svg";
 import { ReactComponent as ArticleIcon } from "@webiny/icons/article.svg";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Tree } from "./Tree";
+import { Tree } from "./Tree.js";
 
 const meta: Meta<typeof Tree> = {
     title: "Components/Tree",

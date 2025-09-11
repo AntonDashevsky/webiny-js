@@ -1,7 +1,7 @@
 import type { interfaces } from "inversify";
 import { z } from "zod";
-import type { Container } from "~/index";
-import { createContainer } from "~/index";
+import type { Container } from "~/index.js";
+import { createContainer } from "~/index.js";
 type Constructor<T> = new (...args: never[]) => T;
 
 abstract class DataModel {

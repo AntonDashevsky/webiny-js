@@ -3,10 +3,10 @@ import { Bind } from "@webiny/form";
 
 import { AutoComplete, Grid, Select } from "@webiny/admin-ui";
 
-import { InputField } from "./InputField";
-import { RemoveFilter } from "./controls";
+import { InputField } from "./InputField.js";
+import { RemoveFilter } from "./controls/index.js";
 
-import type { FieldDTOWithElement, FilterGroupFilterDTO } from "../../../domain";
+import type { FieldDTOWithElement, FilterGroupFilterDTO } from "../../../domain/index.js";
 
 interface FilterProps {
     name: string;

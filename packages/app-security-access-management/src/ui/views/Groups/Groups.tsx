@@ -1,9 +1,9 @@
 import React from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import type { GroupsDataListProps } from "./GroupsDataList";
-import { GroupsDataList } from "./GroupsDataList";
-import type { GroupsFormProps } from "./GroupsForm";
-import { GroupsForm } from "./GroupsForm";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import type { GroupsDataListProps } from "./GroupsDataList.js";
+import { GroupsDataList } from "./GroupsDataList.js";
+import type { GroupsFormProps } from "./GroupsForm.js";
+import { GroupsForm } from "./GroupsForm.js";
 
 export interface GroupsProps {
     listProps?: GroupsDataListProps;

@@ -2,7 +2,7 @@ import type {
     CmsEntryStorageOperationsListParams,
     CmsEntryStorageOperationsListResponse,
     CmsModel
-} from "~/types";
+} from "~/types/index.js";
 
 export interface IListEntriesOperation {
     execute: (

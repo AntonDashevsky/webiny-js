@@ -1,6 +1,6 @@
 import sanitizeFilename from "sanitize-filename";
-import type { PresignedPostPayloadData } from "~/types";
-import { FileExtension } from "~/utils/FileExtension";
+import type { PresignedPostPayloadData } from "~/types.js";
+import { FileExtension } from "~/utils/FileExtension.js";
 
 export class FileKey {
     private data: PresignedPostPayloadData;

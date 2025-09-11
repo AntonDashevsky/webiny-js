@@ -1,4 +1,5 @@
-import { SelectPresenter } from "./SelectPresenter";
+import { SelectPresenter } from "./SelectPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("SelectPresenter", () => {
     const onValueChange = jest.fn();

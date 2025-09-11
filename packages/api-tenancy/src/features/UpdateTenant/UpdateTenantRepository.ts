@@ -1,5 +1,5 @@
-import type { Tenant } from "~/types";
-import type { UpdateTenantRepository as Repository } from "./abstractions";
+import type { Tenant } from "~/types.js";
+import type { UpdateTenantRepository as Repository } from "./abstractions.js";
 
 export class UpdateTenantRepository implements Repository.Interface {
     constructor(

@@ -1,2 +1,2 @@
-export * from "./Slider";
-export * from "./primitives";
+export * from "./Slider.js";
+export * from "./primitives/index.js";

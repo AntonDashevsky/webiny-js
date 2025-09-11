@@ -1,1 +1,1 @@
-export * from "./SelectPresenter";
+export * from "./SelectPresenter.js";

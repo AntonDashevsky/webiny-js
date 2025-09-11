@@ -1,5 +1,5 @@
-import type { Entity } from "~/toolbox";
-import { cleanupItem } from "~/utils/cleanup";
+import type { Entity } from "~/toolbox.js";
+import { cleanupItem } from "~/utils/cleanup.js";
 
 export interface GetRecordParamsKeys {
     PK: string;

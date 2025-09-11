@@ -1,9 +1,9 @@
-import { PageAction, type PageActionConfig } from "./PageAction";
-import { Table, type TableConfig } from "./Table";
+import { PageAction, type PageActionConfig } from "./PageAction.js";
+import { Table, type TableConfig } from "./Table/index.js";
 import { FiltersToWhere, type FiltersToWhereConverter } from "./FiltersToWhere.js";
 import { Filter, type FilterConfig } from "./Filter.js";
 import { FolderAction, type FolderActionConfig } from "./FolderAction.js";
-import { BulkAction, type BulkActionConfig } from "./BulkAction";
+import { BulkAction, type BulkActionConfig } from "./BulkAction.js";
 
 export interface BrowserConfig {
     bulkActions: BulkActionConfig[];

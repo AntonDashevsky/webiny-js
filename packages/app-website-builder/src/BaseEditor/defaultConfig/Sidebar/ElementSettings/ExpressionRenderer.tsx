@@ -1,8 +1,8 @@
 import React from "react";
 import { Select } from "@webiny/admin-ui";
 
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { StatePathsExtractor } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/StatePathsExtractor";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
+import { StatePathsExtractor } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/StatePathsExtractor.js";
 import type { ComponentInput, DocumentElement } from "@webiny/website-builder-sdk";
 
 interface ExpressionRendererProps {

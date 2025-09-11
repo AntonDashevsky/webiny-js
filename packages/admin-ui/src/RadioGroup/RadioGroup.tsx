@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
-import { makeDecoratable } from "~/utils";
-import type { RadioGroupPrimitiveProps } from "./primitives";
-import { RadioGroupPrimitive } from "./primitives";
-import type { FormComponentProps } from "~/FormComponent";
+import { makeDecoratable } from "~/utils.js";
+import type { RadioGroupPrimitiveProps } from "./primitives/index.js";
+import { RadioGroupPrimitive } from "./primitives/index.js";
+import type { FormComponentProps } from "~/FormComponent/index.js";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
     FormComponentNote
-} from "~/FormComponent";
+} from "~/FormComponent/index.js";
 
 type RadioGroupProps = RadioGroupPrimitiveProps & FormComponentProps;
 

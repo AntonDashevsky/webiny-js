@@ -1,23 +1,24 @@
-import { TrashBinPresenter } from "./TrashBinPresenter";
+import { TrashBinPresenter } from "./TrashBinPresenter.js";
 import type { Sorting } from "@webiny/app-utils";
 import { LoadingRepository, MetaRepository, SortingRepository } from "@webiny/app-utils";
-import type { TrashBinIdentity, TrashBinLocation } from "~/types";
-import { LoadingActions } from "~/types";
-import { TrashBinControllers } from "~/Presentation/TrashBin/TrashBinControllers";
+import type { TrashBinIdentity, TrashBinLocation } from "~/types.js";
+import { LoadingActions } from "~/types.js";
+import { TrashBinControllers } from "~/Presentation/TrashBin/TrashBinControllers.js";
 import type {
     ITrashBinBulkActionsGateway,
     ITrashBinDeleteItemGateway,
     ITrashBinListGateway,
     ITrashBinRestoreItemGateway
-} from "~/Gateways";
-import type { ITrashBinItemMapper } from "~/Domain/Models/TrashBinItem";
-import { SearchRepository } from "~/Domain/Repositories/Search";
-import { SelectedItemsRepository } from "~/Domain/Repositories/SelectedItems";
-import { SortingRepositoryWithDefaults } from "~/Domain/Repositories/Sorting";
+} from "~/Gateways/index.js";
+import type { ITrashBinItemMapper } from "~/Domain/Models/TrashBinItem/index.js";
+import { SearchRepository } from "~/Domain/Repositories/Search/index.js";
+import { SelectedItemsRepository } from "~/Domain/Repositories/SelectedItems/index.js";
+import { SortingRepositoryWithDefaults } from "~/Domain/Repositories/Sorting/index.js";
 import {
     TrashBinItemsRepository,
     TrashBinItemsRepositoryWithLoading
-} from "~/Domain/Repositories/TrashBinItems";
+} from "~/Domain/Repositories/TrashBinItems/index.js";
+import { jest } from "@jest/globals";
 
 interface Item {
     id: string;

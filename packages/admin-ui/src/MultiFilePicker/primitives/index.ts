@@ -1,1 +1,1 @@
-export * from "./MultiFilePickerPrimitive";
+export * from "./MultiFilePickerPrimitive.js";

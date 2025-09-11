@@ -1,5 +1,5 @@
-import { getImportExportFileType } from "~/tasks/utils/helpers/getImportExportFileType";
-import { CmsImportExportFileType } from "~/types";
+import { getImportExportFileType } from "~/tasks/utils/helpers/getImportExportFileType.js";
+import { CmsImportExportFileType } from "~/types.js";
 
 describe("getImportExportFileType", () => {
     it("should properly detect entries file type", () => {

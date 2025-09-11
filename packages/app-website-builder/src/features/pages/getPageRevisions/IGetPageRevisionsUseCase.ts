@@ -1,4 +1,4 @@
-import type { PageRevision } from "~/domain/PageRevision";
+import type { PageRevision } from "~/domain/PageRevision/index.js";
 
 export interface GetPageRevisionsParams {
     entryId: string;

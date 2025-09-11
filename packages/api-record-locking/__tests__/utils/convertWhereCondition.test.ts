@@ -1,5 +1,5 @@
-import { convertWhereCondition } from "~/utils/convertWhereCondition";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
+import { convertWhereCondition } from "~/utils/convertWhereCondition.js";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
 
 describe("it should properly convert where condition from record locking to standard cms where condition", () => {
     it("should return undefined if no where condition is provided", () => {

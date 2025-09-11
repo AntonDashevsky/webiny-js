@@ -1,6 +1,6 @@
 import React from "react";
 import { Drawer as AdminUiDrawer, type DrawerProps as AdminUiDrawerProps } from "@webiny/admin-ui";
-import { DrawerHeader as AdminUiDrawerHeader } from "@webiny/admin-ui/Drawer/components/DrawerHeader";
+import { DrawerHeader as AdminUiDrawerHeader } from "@webiny/admin-ui/Drawer/components/DrawerHeader.js";
 
 /**
  * Use Drawer component to display navigation for the whole app or just a small section of it.

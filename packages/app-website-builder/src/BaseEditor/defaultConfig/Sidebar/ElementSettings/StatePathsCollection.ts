@@ -1,4 +1,4 @@
-import type { PathType } from "./PathType";
+import type { PathType } from "./PathType.js";
 
 export type PathOption = {
     value: string;

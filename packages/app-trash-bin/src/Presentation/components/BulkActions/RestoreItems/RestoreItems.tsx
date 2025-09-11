@@ -2,11 +2,11 @@ import React, { useCallback, useMemo } from "react";
 import { ReactComponent as RestoreIcon } from "@webiny/icons/restore.svg";
 import { observer } from "mobx-react-lite";
 import { useSnackbar } from "@webiny/app-admin";
-import { TrashBinListConfig } from "~/Presentation/configs";
-import { useTrashBin } from "~/Presentation/hooks";
-import { getEntriesLabel } from "../BulkActions";
-import { RestoreItemsReportMessage } from "~/Presentation/components/BulkActions/RestoreItems/RestoreItemsReportMessage";
-import type { TrashBinItemDTO } from "~/Domain";
+import { TrashBinListConfig } from "~/Presentation/configs/index.js";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
+import { getEntriesLabel } from "../BulkActions/index.js";
+import { RestoreItemsReportMessage } from "~/Presentation/components/BulkActions/RestoreItems/RestoreItemsReportMessage.js";
+import type { TrashBinItemDTO } from "~/Domain/index.js";
 import { Tooltip } from "@webiny/admin-ui";
 
 export const BulkActionsRestoreItems = observer(() => {

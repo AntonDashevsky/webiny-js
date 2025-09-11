@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import type { CmsDynamicZoneTemplate } from "@webiny/app-headless-cms-common/types";
+import type { CmsDynamicZoneTemplate } from "@webiny/app-headless-cms-common/types/index.js";
 
 export interface TemplateContext {
     template: CmsDynamicZoneTemplate;

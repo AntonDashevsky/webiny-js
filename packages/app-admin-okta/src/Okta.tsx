@@ -1,15 +1,15 @@
 import React, { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import type { OktaAuth } from "@okta/okta-auth-js";
 import type OktaSignIn from "@okta/okta-signin-widget";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useApolloClient } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { Compose, LoginScreenRenderer, useTags, useTenancy } from "@webiny/app-serverless-cms";
-import type { Config } from "./createAuthentication";
-import { createAuthentication } from "./createAuthentication";
-import { UserMenuModule } from "~/modules/userMenu";
-import { AppClientModule } from "~/modules/appClient";
-import { NotAuthorizedError } from "./components";
+import type { Config } from "./createAuthentication.js";
+import { createAuthentication } from "./createAuthentication.js";
+import { UserMenuModule } from "~/modules/userMenu/index.js";
+import { AppClientModule } from "~/modules/appClient/index.js";
+import { NotAuthorizedError } from "./components/index.js";
 
 interface AppClientIdLoaderProps {
     oktaFactory: OktaFactory;

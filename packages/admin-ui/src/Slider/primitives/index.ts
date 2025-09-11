@@ -1,3 +1,3 @@
-export * from "./SliderPrimitive";
-export * from "./useSlider";
-export * from "./components";
+export * from "./SliderPrimitive.js";
+export * from "./useSlider.js";
+export * from "./components/index.js";

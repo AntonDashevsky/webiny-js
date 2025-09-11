@@ -1,2 +1,2 @@
-export * from "./Sidebar";
-export * from "./components/SidebarProvider";
+export * from "./Sidebar.js";
+export * from "./components/SidebarProvider.js";

@@ -1,8 +1,8 @@
 import { autorun, toJS } from "mobx";
 import { useCallback, useEffect, useState } from "react";
-import { useDocumentEditor } from "~/DocumentEditor";
+import { useDocumentEditor } from "~/DocumentEditor/index.js";
 import type { DocumentElement } from "@webiny/website-builder-sdk";
-import { Commands } from "../commands";
+import { Commands } from "../commands.js";
 import deepEqual from "deep-equal";
 
 export const useActiveElement = () => {

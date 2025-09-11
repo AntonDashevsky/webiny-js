@@ -3,9 +3,9 @@ import { useDrop } from "react-dnd";
 import { cn, Icon } from "@webiny/admin-ui";
 import { ReactComponent as InsertIcon } from "@webiny/icons/add_circle.svg";
 import { ReactComponent as BlockIcon } from "@webiny/icons/block.svg";
-import type { Box } from "~/BaseEditor/defaultConfig/Content/Preview/Box";
-import type { DropEvent } from "~/BaseEditor/defaultConfig/Content/Preview/useProximityDropzone";
-import { useIsDragging } from "~/BaseEditor/defaultConfig/Content/Preview/useIsDragging";
+import type { Box } from "~/BaseEditor/defaultConfig/Content/Preview/Box.js";
+import type { DropEvent } from "~/BaseEditor/defaultConfig/Content/Preview/useProximityDropzone.js";
+import { useIsDragging } from "~/BaseEditor/defaultConfig/Content/Preview/useIsDragging.js";
 import deepEqual from "deep-equal";
 
 interface DropBoxProps {

@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 
 export interface NextCallable {
     (): Promise<any>;

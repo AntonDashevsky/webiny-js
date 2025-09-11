@@ -1,4 +1,4 @@
-import { cva } from "~/utils";
+import { cva } from "~/utils.js";
 
 export const previewVariants = cva("wby-w-full", {
     variants: {

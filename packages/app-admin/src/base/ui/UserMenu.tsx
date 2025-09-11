@@ -1,9 +1,9 @@
 import React from "react";
 import { createVoidComponent, makeDecoratable } from "@webiny/app";
 
-export * from "./UserMenu/UserMenuItem";
-export * from "./UserMenu/UserMenuLink";
-export * from "./UserMenu/UserMenuSeparator";
+export * from "./UserMenu/UserMenuItem.js";
+export * from "./UserMenu/UserMenuLink.js";
+export * from "./UserMenu/UserMenuSeparator.js";
 
 // UserMenu
 export const UserMenu = makeDecoratable("UserMenu", () => {

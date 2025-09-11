@@ -1,5 +1,5 @@
 import type { ApolloClient } from "apollo-client";
-import type { CmsErrorResponse } from "@webiny/app-headless-cms-common/types";
+import type { CmsErrorResponse } from "@webiny/app-headless-cms-common/types/index.js";
 import gql from "graphql-tag";
 import zod from "zod";
 import { createZodError } from "@webiny/utils/createZodError.js";

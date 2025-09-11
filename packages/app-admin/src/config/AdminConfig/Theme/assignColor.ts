@@ -1,5 +1,5 @@
 import parseColor, { type Instance as TcColorInstance } from "tinycolor2";
-import type { ColorPalette, ColorShade } from "./types";
+import type { ColorPalette, ColorShade } from "./types.js";
 
 const generateShades = (color: TcColorInstance): Array<[ColorShade, TcColorInstance]> => {
     return [

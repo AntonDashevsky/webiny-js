@@ -1,4 +1,4 @@
-import type { Boxes } from "~/BaseEditor/hooks/Boxes";
+import type { Boxes } from "~/BaseEditor/hooks/Boxes.js";
 
 type HoverCallback = (id: string | null) => void;
 

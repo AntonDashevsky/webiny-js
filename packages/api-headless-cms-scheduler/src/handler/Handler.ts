@@ -1,4 +1,4 @@
-import { WebinyError } from "@webiny/error/index";
+import { WebinyError } from "@webiny/error/index.js";
 import { SCHEDULE_MODEL_ID, SCHEDULED_CMS_ACTION_EVENT_IDENTIFIER } from "~/constants.js";
 import type { IHandlerAction } from "~/handler/types.js";
 import type { IScheduleEntryValues } from "~/scheduler/types.js";

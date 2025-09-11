@@ -1,4 +1,4 @@
-import omitBy from "lodash/omitBy";
+import omitBy from "lodash/omitBy.js";
 import { makeAutoObservable } from "mobx";
 import type { IFilterRepository } from "./IFilterRepository.js";
 

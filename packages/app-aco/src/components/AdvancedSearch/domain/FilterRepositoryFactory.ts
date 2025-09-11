@@ -1,7 +1,7 @@
 import type { ApolloClient } from "apollo-client";
-import type { FiltersGatewayInterface } from "~/components/AdvancedSearch/gateways";
-import { FiltersGraphQLGateway } from "~/components/AdvancedSearch/gateways";
-import { FilterRepository } from "./FilterRepository";
+import type { FiltersGatewayInterface } from "~/components/AdvancedSearch/gateways/index.js";
+import { FiltersGraphQLGateway } from "~/components/AdvancedSearch/gateways/index.js";
+import { FilterRepository } from "./FilterRepository.js";
 
 class FilterRepositoryFactory {
     private gateway: FiltersGatewayInterface | undefined;

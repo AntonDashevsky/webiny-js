@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from "react";
-import get from "lodash/get";
-import orderBy from "lodash/orderBy";
+import get from "lodash/get.js";
+import orderBy from "lodash/orderBy.js";
 import dotProp from "dot-prop-immutable";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
 import {
     DataList,
     DataListModalOverlay,
@@ -16,17 +16,17 @@ import {
     ListItemText,
     ListItemTextPrimary,
     ListItemTextSecondary
-} from "@webiny/ui/List";
+} from "@webiny/ui/List/index.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useApolloClient, useQuery } from "../../hooks";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import * as GQL from "./graphql";
-import type { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { deserializeSorters } from "../utils";
-import usePermission from "../../hooks/usePermission";
-import type { CmsGroup } from "~/types";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useApolloClient, useQuery } from "../../hooks/index.js";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import * as GQL from "./graphql.js";
+import type { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { deserializeSorters } from "../utils.js";
+import usePermission from "../../hooks/usePermission.js";
+import type { CmsGroup } from "~/types.js";
 import { Button, Select, Tooltip } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/data-list");

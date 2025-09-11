@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { DropdownMenu } from "./DropdownMenu";
-import { Button } from "~/Button";
+import { DropdownMenu } from "./DropdownMenu.js";
+import { Button } from "~/Button/index.js";
 import { ReactComponent as Cloud } from "@webiny/icons/cloud.svg";
 import { ReactComponent as LogOut } from "@webiny/icons/logout.svg";
 import { ReactComponent as LifeBuoy } from "@webiny/icons/safety_check.svg";
@@ -16,7 +16,7 @@ import { ReactComponent as Keyboard } from "@webiny/icons/keyboard.svg";
 import { ReactComponent as Mail } from "@webiny/icons/mail.svg";
 import { ReactComponent as MessageSquare } from "@webiny/icons/chat_bubble.svg";
 import { ReactComponent as LinkIcon } from "@webiny/icons/link.svg";
-import { Text } from "~/Text";
+import { Text } from "~/Text/index.js";
 
 const meta: Meta<typeof DropdownMenu> = {
     title: "Components/Dropdown Menu",

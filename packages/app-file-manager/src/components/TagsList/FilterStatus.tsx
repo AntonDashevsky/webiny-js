@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Button, Text } from "@webiny/admin-ui";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 
 interface FilterStatusProps {
     activeTags: string[];

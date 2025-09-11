@@ -1,4 +1,5 @@
 import { createIngestorResult, IngestorResult } from "~/resolver/app/ingestor/IngestorResult.js";
+import { jest } from "@jest/globals";
 
 describe("IngestorResult", () => {
     it("should create result and have no items", async () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { OverlayLoader } from "./OverlayLoader";
+import { OverlayLoader } from "./OverlayLoader.js";
 
 const meta: Meta<typeof OverlayLoader> = {
     title: "Components/Overlay Loader",

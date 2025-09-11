@@ -1,6 +1,6 @@
 import React from "react";
-import { RowText, RowTitle } from "./CellRevision.styled";
-import { SchedulerListConfig } from "~/Presentation/configs";
+import { RowText, RowTitle } from "./CellRevision.styled.js";
+import { SchedulerListConfig } from "~/Presentation/configs/index.js";
 import { parseIdentifier } from "@webiny/utils/parseIdentifier.js";
 
 export const CellRevision = () => {

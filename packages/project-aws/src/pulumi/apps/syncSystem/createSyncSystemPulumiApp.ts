@@ -10,8 +10,8 @@ import { customApp } from "./customApp.js";
 import { SyncSystemDynamoDb } from "~/pulumi/apps/syncSystem/SyncSystemDynamoDb.js";
 import { SyncSystemWorkerLambda } from "~/pulumi/apps/syncSystem/SyncSystemWorkerLambda.js";
 import { getProjectSdk } from "@webiny/project";
-import { getVpcConfigFromExtension } from "~/pulumi/apps/extensions/getVpcConfigFromExtension";
-import { applyAwsResourceTags } from "~/pulumi/apps/awsUtils";
+import { getVpcConfigFromExtension } from "~/pulumi/apps/extensions/getVpcConfigFromExtension.js";
+import { applyAwsResourceTags } from "~/pulumi/apps/awsUtils.js";
 
 export function createSyncSystemPulumiApp() {
     return createPulumiApp({

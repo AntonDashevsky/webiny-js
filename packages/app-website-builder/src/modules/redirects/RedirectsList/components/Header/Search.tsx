@@ -3,7 +3,7 @@ import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
 import { DelayedOnChange, Icon, Input } from "@webiny/admin-ui";
 import { useNavigateFolder } from "@webiny/app-aco";
 import { useDocumentList } from "~/modules/redirects/RedirectsList/useDocumentList.js";
-import { useLoadRedirects, useSearchRedirects } from "~/features/redirects";
+import { useLoadRedirects, useSearchRedirects } from "~/features/redirects/index.js";
 
 export const Search = () => {
     const { vm } = useDocumentList();

@@ -1,13 +1,13 @@
-import { UrlSigner } from "~/tasks/utils/urlSigner";
+import { UrlSigner } from "~/tasks/utils/urlSigner/index.js";
 import {
     GetObjectCommand,
     HeadObjectCommand,
     ListObjectsCommand,
     S3Client
-} from "@webiny/aws-sdk/client-s3";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client";
+} from "@webiny/aws-sdk/client-s3/index.js";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
 
 describe("url signer", () => {
     beforeEach(async () => {

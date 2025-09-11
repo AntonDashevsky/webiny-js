@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import type { ProgressBarProps } from "./ProgressBar";
-import { ProgressBarPresenter, type ProgressBarPresenterParams } from "./presenters";
+import type { ProgressBarProps } from "./ProgressBar.js";
+import { ProgressBarPresenter, type ProgressBarPresenterParams } from "./presenters/index.js";
 
 export const useProgressBar = (props: ProgressBarProps) => {
     const params: ProgressBarPresenterParams = useMemo(

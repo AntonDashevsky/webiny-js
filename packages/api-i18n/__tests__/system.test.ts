@@ -1,4 +1,4 @@
-import useGqlHandler from "./useGqlHandler";
+import useGqlHandler from "./useGqlHandler.js";
 
 describe("System CRUD", () => {
     const { install, getVersion } = useGqlHandler();

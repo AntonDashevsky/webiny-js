@@ -5,8 +5,8 @@ import {
     TagsPresenter,
     type TagsPresenterParams,
     TagsValuesPresenter
-} from "./presenters";
-import type { TagsPrimitiveProps } from "./TagsPrimitive";
+} from "./presenters/index.js";
+import type { TagsPrimitiveProps } from "./TagsPrimitive.js";
 
 export const useTags = (props: TagsPrimitiveProps) => {
     const params: TagsPresenterParams = useMemo(

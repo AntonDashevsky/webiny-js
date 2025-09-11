@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import React, { useState } from "react";
 import type { GenericFormData } from "@webiny/form";
-import { useSnackbar } from "~/hooks";
-import { Dialog, type DialogProps } from "./Dialog";
-import { CustomDialog } from "./CustomDialog";
+import { useSnackbar } from "~/hooks/index.js";
+import { Dialog, type DialogProps } from "./Dialog.js";
+import { CustomDialog } from "./CustomDialog.js";
 import { createProvider } from "@webiny/app";
 import { generateId } from "@webiny/utils";
 

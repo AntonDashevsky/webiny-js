@@ -1,9 +1,9 @@
-import type { IGetSettingsFeature } from "./abstractions/IGetSettings.feature";
-import type { IGetSettingsRepository } from "./abstractions/IGetSettings.repository";
-import type { Settings } from "~/domain/Settings";
-import { GetSettingsRepository } from "./GetSettings.repository";
-import { GetSettingsGateway } from "~/infrastructure/GetSettings.gateway";
-import type { Context } from "~/types";
+import type { IGetSettingsFeature } from "./abstractions/IGetSettings.feature.js";
+import type { IGetSettingsRepository } from "./abstractions/IGetSettings.repository.js";
+import type { Settings } from "~/domain/Settings.js";
+import { GetSettingsRepository } from "./GetSettings.repository.js";
+import { GetSettingsGateway } from "~/infrastructure/GetSettings.gateway.js";
+import type { Context } from "~/types.js";
 
 export class GetSettings implements IGetSettingsFeature {
     private repository: IGetSettingsRepository;

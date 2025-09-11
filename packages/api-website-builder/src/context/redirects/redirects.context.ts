@@ -1,9 +1,9 @@
 import { CmsModelPlugin, createModelField, createPrivateModel } from "@webiny/api-headless-cms";
-import type { WebsiteBuilderContext } from "~/context/types";
-import { BaseContext } from "~/context/BaseContext";
-import { RedirectsStorage } from "./RedirectsStorage";
-import type { WbRedirectCrud } from "~/context/redirects/redirects.types";
-import { createRedirectsCrud } from "~/context/redirects/redirects.crud";
+import type { WebsiteBuilderContext } from "~/context/types.js";
+import { BaseContext } from "~/context/BaseContext.js";
+import { RedirectsStorage } from "./RedirectsStorage.js";
+import type { WbRedirectCrud } from "~/context/redirects/redirects.types.js";
+import { createRedirectsCrud } from "~/context/redirects/redirects.crud.js";
 
 export const REDIRECT_MODEL_ID = "wbRedirect";
 

@@ -1,5 +1,5 @@
 import { createGenericContext } from "@webiny/app-admin";
-import type { SchedulerEntry } from "~/types";
+import type { SchedulerEntry } from "~/types.js";
 
 export interface SchedulerItemContext {
     item: SchedulerEntry;

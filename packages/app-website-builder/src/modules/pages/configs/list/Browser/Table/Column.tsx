@@ -5,7 +5,7 @@ import {
     type FolderTableRow
 } from "@webiny/app-aco";
 import { makeDecoratable } from "@webiny/react-composition";
-import type { TableRow } from "~/modules/pages/types";
+import type { TableRow } from "~/modules/pages/types.js";
 
 const { Table } = AcoConfig;
 

@@ -1,13 +1,13 @@
 import React, { useCallback, useMemo } from "react";
-import { makeDecoratable, generateId } from "~/utils";
-import { InputPrimitive, type InputPrimitiveProps } from "./InputPrimitive";
+import { makeDecoratable, generateId } from "~/utils.js";
+import { InputPrimitive, type InputPrimitiveProps } from "./InputPrimitive.js";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
     FormComponentNote,
     type FormComponentProps
-} from "~/FormComponent";
+} from "~/FormComponent/index.js";
 
 type InputProps = InputPrimitiveProps & FormComponentProps;
 

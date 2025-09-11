@@ -1,7 +1,7 @@
-import type { EntryActionConfig } from "./EntryAction";
-import { EntryAction } from "./EntryAction";
-import type { TableConfig } from "./Table";
-import { Table } from "./Table";
+import type { EntryActionConfig } from "./EntryAction.js";
+import { EntryAction } from "./EntryAction.js";
+import type { TableConfig } from "./Table/index.js";
+import { Table } from "./Table/index.js";
 
 export interface BrowserConfig {
     entryActions: EntryActionConfig[];

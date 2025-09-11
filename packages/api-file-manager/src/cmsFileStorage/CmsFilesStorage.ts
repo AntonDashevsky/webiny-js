@@ -1,6 +1,6 @@
-import omit from "lodash/omit";
-import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
-import type { Security } from "@webiny/api-security/types";
+import omit from "lodash/omit.js";
+import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import type { Security } from "@webiny/api-security/types.js";
 import type {
     File,
     FileManagerAliasesStorageOperations,
@@ -14,10 +14,10 @@ import type {
     FileManagerFilesStorageOperationsTagsParams,
     FileManagerFilesStorageOperationsTagsResponse,
     FileManagerFilesStorageOperationsUpdateParams
-} from "~/types";
-import { ListFilesWhereProcessor } from "~/cmsFileStorage/ListFilesWhereProcessor";
-import { ListTagsWhereProcessor } from "~/cmsFileStorage/ListTagsWhereProcessor";
-import { ROOT_FOLDER } from "~/contants";
+} from "~/types.js";
+import { ListFilesWhereProcessor } from "~/cmsFileStorage/ListFilesWhereProcessor.js";
+import { ListTagsWhereProcessor } from "~/cmsFileStorage/ListTagsWhereProcessor.js";
+import { ROOT_FOLDER } from "~/contants.js";
 
 interface ModelContext {
     tenant: string;

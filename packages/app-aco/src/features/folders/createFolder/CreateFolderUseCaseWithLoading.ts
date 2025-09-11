@@ -1,6 +1,6 @@
 import type { ILoadingRepository } from "@webiny/app-utils";
-import type { CreateFolderParams, ICreateFolderUseCase } from "./ICreateFolderUseCase";
-import { LoadingActionsEnum } from "~/types";
+import type { CreateFolderParams, ICreateFolderUseCase } from "./ICreateFolderUseCase.js";
+import { LoadingActionsEnum } from "~/types.js";
 
 export class CreateFolderUseCaseWithLoading implements ICreateFolderUseCase {
     private loadingRepository: ILoadingRepository;

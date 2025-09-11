@@ -12,9 +12,9 @@ import { ReactComponent as Upload } from "@webiny/icons/file_upload.svg";
 import { ReactComponent as ListView } from "@webiny/icons/list.svg";
 import { ReactComponent as Clone } from "@webiny/icons/library_add.svg";
 import { ReactComponent as Login } from "@webiny/icons/login.svg";
-import type { IconButtonProps } from "~/Button";
-import { IconButton } from "~/Button";
-import { List } from "~/List";
+import type { IconButtonProps } from "~/Button/index.js";
+import { IconButton } from "~/Button/index.js";
+import { List } from "~/List/index.js";
 
 export const RefreshIcon = (props: IconButtonProps) => {
     return (

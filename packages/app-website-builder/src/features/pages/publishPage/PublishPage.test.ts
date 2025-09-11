@@ -1,6 +1,7 @@
 import { PublishPage } from "./PublishPage.js";
 import { WbPageStatus } from "~/constants.js";
 import { Page, pageListCache } from "~/domain/Page/index.js";
+import { jest } from "@jest/globals";
 
 describe("PublishPage", () => {
     const gateway = {

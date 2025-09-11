@@ -1,14 +1,14 @@
 import React from "react";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 import { OverlayLayout } from "@webiny/app-admin";
 import { Scrollbar } from "@webiny/admin-ui";
-import { Title } from "~/Presentation/components/Title";
-import { SearchInput } from "~/Presentation/components/SearchInput";
-import { BulkActions } from "~/Presentation/components/BulkActions";
-import { Empty } from "~/Presentation/components/Empty";
-import { Table } from "~/Presentation/components/Table";
-import { BottomInfoBar } from "~/Presentation/components/BottomInfoBar";
-import { useTrashBin } from "~/Presentation/hooks";
+import { Title } from "~/Presentation/components/Title/index.js";
+import { SearchInput } from "~/Presentation/components/SearchInput/index.js";
+import { BulkActions } from "~/Presentation/components/BulkActions/index.js";
+import { Empty } from "~/Presentation/components/Empty/index.js";
+import { Table } from "~/Presentation/components/Table/index.js";
+import { BottomInfoBar } from "~/Presentation/components/BottomInfoBar/index.js";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
 
 interface TrashBinOverlayProps {
     title: string;

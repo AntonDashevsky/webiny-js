@@ -1,7 +1,7 @@
-import type { FilterConfig } from "./Filter";
-import { Filter } from "./Filter";
-import type { FiltersToWhereConverter } from "./FiltersToWhere";
-import { FiltersToWhere } from "./FiltersToWhere";
+import type { FilterConfig } from "./Filter.js";
+import { Filter } from "./Filter.js";
+import type { FiltersToWhereConverter } from "./FiltersToWhere.js";
+import { FiltersToWhere } from "./FiltersToWhere.js";
 
 export interface BrowserConfig {
     filters: FilterConfig[];

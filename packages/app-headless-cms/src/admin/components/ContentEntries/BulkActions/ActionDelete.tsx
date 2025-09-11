@@ -1,12 +1,12 @@
 import React from "react";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { observer } from "mobx-react-lite";
-import { parseIdentifier } from "@webiny/utils/parseIdentifier";
+import { parseIdentifier } from "@webiny/utils/parseIdentifier.js";
 import { useRecords } from "@webiny/app-aco";
 import { useSnackbar } from "@webiny/app-admin";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useCms, useModel } from "~/admin/hooks";
-import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useCms, useModel } from "~/admin/hooks/index.js";
+import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions.js";
 import { Tooltip } from "@webiny/admin-ui";
 
 export const ActionDelete = observer(() => {

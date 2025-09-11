@@ -1,2 +1,2 @@
-export type * from "./IListPermissionsGateway";
-export * from "./ListPermissionsGatewayFromContext";
+export type * from "./IListPermissionsGateway.js";
+export * from "./ListPermissionsGatewayFromContext.js";

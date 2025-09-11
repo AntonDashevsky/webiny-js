@@ -1,4 +1,4 @@
-import type { SelectOptionDto } from "./SelectOptionDto";
+import type { SelectOptionDto } from "./SelectOptionDto.js";
 
 export class SelectOption {
     private readonly _label: string;

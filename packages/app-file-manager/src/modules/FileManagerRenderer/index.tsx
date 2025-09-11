@@ -1,11 +1,11 @@
 import React from "react";
 import { Wcp } from "@webiny/app-admin";
 import { DeleteFolder, EditFolder, SetFolderPermissions } from "@webiny/app-aco";
-import { FileManagerViewConfig as FileManagerConfig } from "~/index";
-import { FileManagerRenderer } from "./FileManagerView";
-import { FilterByType } from "./filters/FilterByType";
-import { ActionDelete, ActionEdit, ActionMove } from "~/components/BulkActions";
-import { Name, Tags, Aliases, AccessControl } from "~/components/fields";
+import { FileManagerViewConfig as FileManagerConfig } from "~/index.js";
+import { FileManagerRenderer } from "./FileManagerView/index.js";
+import { FilterByType } from "./filters/FilterByType.js";
+import { ActionDelete, ActionEdit, ActionMove } from "~/components/BulkActions/index.js";
+import { Name, Tags, Aliases, AccessControl } from "~/components/fields/index.js";
 import {
     CellActions,
     CellAuthor,
@@ -18,14 +18,14 @@ import {
     DeleteFile,
     EditFile,
     MoveFile
-} from "~/components/Table";
-import { GridItemDefaultRenderer } from "~/modules/ThumbnailRenderers/GridItemDefaultRenderer";
-import { GridItemImageRenderer } from "~/modules/ThumbnailRenderers/GridItemImageRenderer";
-import { FileActions } from "~/modules/FileManagerRenderer/FileActions";
-import { FilePreviewImageRenderer } from "~/modules/ThumbnailRenderers/FilePreviewImageRenderer";
-import { TableItemDefaultRenderer } from "~/modules/ThumbnailRenderers/TableItemDefaultRenderer";
-import { TableItemImageRenderer } from "~/modules/ThumbnailRenderers/TableItemImageRenderer";
-import { FilePreviewDefaultRenderer } from "~/modules/ThumbnailRenderers/FilePreviewDefaultRenderer";
+} from "~/components/Table/index.js";
+import { GridItemDefaultRenderer } from "~/modules/ThumbnailRenderers/GridItemDefaultRenderer.js";
+import { GridItemImageRenderer } from "~/modules/ThumbnailRenderers/GridItemImageRenderer.js";
+import { FileActions } from "~/modules/FileManagerRenderer/FileActions/index.js";
+import { FilePreviewImageRenderer } from "~/modules/ThumbnailRenderers/FilePreviewImageRenderer.js";
+import { TableItemDefaultRenderer } from "~/modules/ThumbnailRenderers/TableItemDefaultRenderer.js";
+import { TableItemImageRenderer } from "~/modules/ThumbnailRenderers/TableItemImageRenderer.js";
+import { FilePreviewDefaultRenderer } from "~/modules/ThumbnailRenderers/FilePreviewDefaultRenderer.js";
 
 const { Browser, FileDetails } = FileManagerConfig;
 

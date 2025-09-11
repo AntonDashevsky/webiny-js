@@ -1,4 +1,4 @@
-import type { IRecordLockingIsLockedParams, IRecordLockingLockRecord } from "~/types";
+import type { IRecordLockingIsLockedParams, IRecordLockingLockRecord } from "~/types.js";
 
 export type IGetLockedEntryLockRecordUseCaseExecuteParams = IRecordLockingIsLockedParams;
 

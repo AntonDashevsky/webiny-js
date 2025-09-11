@@ -1,7 +1,7 @@
 import React from "react";
 import { DataList as AdminDatalist, List } from "@webiny/admin-ui";
-import type { ListProps, ListItemProps } from "../List";
-import type { DataListProps } from "@webiny/admin-ui/DataList/types";
+import type { ListProps, ListItemProps } from "../List/index.js";
+import type { DataListProps } from "@webiny/admin-ui/DataList/types.js";
 
 /**
  * @deprecated This component is deprecated and will be removed in future releases.

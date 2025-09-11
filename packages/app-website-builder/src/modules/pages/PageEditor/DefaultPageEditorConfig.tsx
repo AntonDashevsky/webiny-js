@@ -1,11 +1,11 @@
 import React from "react";
-import { PageEditorConfig } from "~/modules/pages/PageEditor/PageEditorConfig";
-import { AutoSaveIndicator, PageAutoSave } from "~/modules/pages/PageEditor/PageAutoSave";
-import { BackButton } from "./TopBar/BackButton";
-import { Title } from "./TopBar/Title";
-import { PublishButton } from "./TopBar/PublishButton";
-import { RevisionsMenu } from "~/modules/pages/PageEditor/TopBar/RevisionsMenu";
-import { SettingsButton } from "./TopBar/SettingsButton";
+import { PageEditorConfig } from "~/modules/pages/PageEditor/PageEditorConfig.js";
+import { AutoSaveIndicator, PageAutoSave } from "~/modules/pages/PageEditor/PageAutoSave.js";
+import { BackButton } from "./TopBar/BackButton.js";
+import { Title } from "./TopBar/Title.js";
+import { PublishButton } from "./TopBar/PublishButton.js";
+import { RevisionsMenu } from "~/modules/pages/PageEditor/TopBar/RevisionsMenu.js";
+import { SettingsButton } from "./TopBar/SettingsButton.js";
 
 const { Ui } = PageEditorConfig;
 

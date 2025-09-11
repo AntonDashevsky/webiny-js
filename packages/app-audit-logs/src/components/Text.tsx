@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import type { TypographyProps } from "@webiny/ui/Typography";
-import { Typography as BaseTypography } from "@webiny/ui/Typography";
+import type { TypographyProps } from "@webiny/ui/Typography/index.js";
+import { Typography as BaseTypography } from "@webiny/ui/Typography/index.js";
 
 const Typography = (props: TypographyProps) => {
     return <BaseTypography tag={"span"} {...props} />;

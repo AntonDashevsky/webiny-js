@@ -1,6 +1,6 @@
 import type { ApolloClient, ApolloQueryResult, MutationOptions, QueryOptions } from "apollo-client";
 import type { FetchResult } from "apollo-link";
-import type { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient";
+import type { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient.js";
 
 export interface IRecordLockingClientParams {
     client: ApolloClient<any>;

@@ -1,8 +1,8 @@
-import extract from "@webiny/i18n/extractor/extract";
+import extract from "@webiny/i18n/extractor/extract.js";
 
-import example1 from "./extract/example1";
-import example2 from "./extract/example2";
-import example3 from "./extract/example3";
+import example1 from "./extract/example1.js";
+import example2 from "./extract/example2.js";
+import example3 from "./extract/example3.js";
 
 describe("extractor test", () => {
     test("should extract sources correctly", () => {

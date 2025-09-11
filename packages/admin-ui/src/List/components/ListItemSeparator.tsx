@@ -1,6 +1,6 @@
 import * as React from "react";
-import { makeDecoratable } from "~/utils";
-import { Separator, type SeparatorProps } from "~/Separator";
+import { makeDecoratable } from "~/utils.js";
+import { Separator, type SeparatorProps } from "~/Separator/index.js";
 
 type ListItemSeparatorProps = SeparatorProps;
 

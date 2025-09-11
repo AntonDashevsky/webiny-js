@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
-import { RedirectListConfig } from "~/modules/redirects/configs";
-import { useEditRedirectDialog } from "~/modules/redirects/RedirectsList/hooks/useEditRedirectDialog";
+import { RedirectListConfig } from "~/modules/redirects/configs/index.js";
+import { useEditRedirectDialog } from "~/modules/redirects/RedirectsList/hooks/useEditRedirectDialog.js";
 import { useRedirect } from "~/modules/redirects/RedirectsList/hooks/useRedirect.js";
 
 const { OptionsMenuItem } = RedirectListConfig.Browser.Record.Action;

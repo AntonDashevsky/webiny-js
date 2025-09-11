@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from "react";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import type { Column } from "@tanstack/react-table";
-import { IconButton } from "~/Button";
-import { Checkbox } from "~/Checkbox";
-import { DropdownMenu } from "~/DropdownMenu";
+import { IconButton } from "~/Button/index.js";
+import { Checkbox } from "~/Checkbox/index.js";
+import { DropdownMenu } from "~/DropdownMenu/index.js";
 
 interface ColumnsVisibilityProps<T> {
     columns: Column<T>[];

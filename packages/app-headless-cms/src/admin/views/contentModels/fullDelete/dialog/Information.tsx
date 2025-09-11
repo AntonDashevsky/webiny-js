@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "@webiny/admin-ui";
-import type { CmsModel } from "~/types";
+import type { CmsModel } from "~/types.js";
 
 export interface IInformationProps {
     model: Pick<CmsModel, "plugin">;

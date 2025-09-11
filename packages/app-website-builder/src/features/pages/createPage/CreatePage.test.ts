@@ -1,5 +1,6 @@
 import { CreatePage } from "~/features/pages/createPage/CreatePage.js";
 import { pageListCache } from "~/domain/Page/index.js";
+import { jest } from "@jest/globals";
 
 describe("CreatePage", () => {
     const gateway = {

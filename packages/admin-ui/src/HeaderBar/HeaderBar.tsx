@@ -1,6 +1,6 @@
 import React from "react";
-import { cn, makeDecoratable } from "~/utils";
-import { Separator } from "~/Separator";
+import { cn, makeDecoratable } from "~/utils.js";
+import { Separator } from "~/Separator/index.js";
 
 interface HeaderBarProps extends React.HTMLAttributes<HTMLDivElement> {
     start?: React.ReactNode;

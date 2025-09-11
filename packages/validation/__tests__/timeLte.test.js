@@ -1,4 +1,4 @@
-import { validation } from "../src";
+import { validation } from "../src/index.js";
 
 const lteValidationTimeCorrectValues = [
     ["02:34", "02:34"],

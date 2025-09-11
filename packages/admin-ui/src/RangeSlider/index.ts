@@ -1,2 +1,2 @@
-export * from "./RangeSlider";
-export * from "./primitives/RangeSliderPrimitive";
+export * from "./RangeSlider.js";
+export * from "./primitives/RangeSliderPrimitive.js";

@@ -18,6 +18,7 @@ import {
     createMockTargetDeployment
 } from "~tests/mocks/deployments.js";
 import { mockClient } from "aws-sdk-client-mock";
+import { jest } from "@jest/globals";
 
 describe("usersOnDelete", () => {
     it("should be able to handle target record", async () => {

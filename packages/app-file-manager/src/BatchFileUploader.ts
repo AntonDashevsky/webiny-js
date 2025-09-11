@@ -1,7 +1,7 @@
 import { generateId } from "@webiny/utils";
 import { makeAutoObservable, runInAction, action } from "mobx";
-import type { FileItem } from "@webiny/app-admin/types";
-import type { FileManagerViewContext } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import type { FileItem } from "@webiny/app-admin/types.js";
+import type { FileManagerViewContext } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 
 export interface FileError {
     file: File;

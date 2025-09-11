@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CheckboxGroupPrimitive } from "./CheckboxGroupPrimitive";
-import { Button } from "~/Button";
+import { CheckboxGroupPrimitive } from "./CheckboxGroupPrimitive.js";
+import { Button } from "~/Button/index.js";
 
 const meta: Meta<typeof CheckboxGroupPrimitive> = {
     title: "Components/Form Primitives/CheckboxGroup",

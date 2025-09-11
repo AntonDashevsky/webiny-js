@@ -6,12 +6,12 @@ import { ReactComponent as FolderShared } from "@webiny/icons/folder_shared.svg"
 import { ReactComponent as File } from "@webiny/icons/description.svg";
 import { useNavigateFolder } from "@webiny/app-aco";
 
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
-import { usePermission } from "~/admin/hooks";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useContentEntriesList } from "~/admin/views/contentEntries/hooks/index.js";
+import { usePermission } from "~/admin/hooks/index.js";
 
-import type { FolderItem } from "@webiny/app-aco/types";
-import type { CmsContentEntry } from "~/types";
+import type { FolderItem } from "@webiny/app-aco/types.js";
+import type { CmsContentEntry } from "~/types.js";
 
 interface FolderCellNameProps {
     folder: FolderItem;

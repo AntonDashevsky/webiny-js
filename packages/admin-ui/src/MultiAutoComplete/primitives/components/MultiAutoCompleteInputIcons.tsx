@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as Close } from "@webiny/icons/close.svg";
 import { ReactComponent as ChevronDown } from "@webiny/icons/keyboard_arrow_down.svg";
-import { IconButton } from "~/Button";
-import { Icon } from "~/Icon";
-import { Loader } from "~/Loader";
+import { IconButton } from "~/Button/index.js";
+import { Icon } from "~/Icon/index.js";
+import { Loader } from "~/Loader/index.js";
 
 interface MultiAutoCompleteInputIconsProps {
     displayResetAction: boolean;

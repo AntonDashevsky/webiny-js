@@ -7,9 +7,9 @@ import {
     getHHmm,
     getHHmmss,
     RemoveFieldButton
-} from "./utils";
-import { Input } from "./Input";
-import type { CmsModelField } from "~/types";
+} from "./utils.js";
+import { Input } from "./Input.js";
+import type { CmsModelField } from "~/types.js";
 import type { BindComponentRenderProp } from "@webiny/form";
 
 interface State {

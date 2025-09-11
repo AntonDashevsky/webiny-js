@@ -1,13 +1,13 @@
-import type { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types.js";
 import {
     type AcoFolderStorageOperations,
     type OnFolderAfterCreateTopicParams,
     type OnFolderBeforeCreateTopicParams
-} from "~/folder/folder.types";
-import { CreateFolder } from "./CreateFolder";
-import { CreateFolderWithEvents } from "./CreateFolderWithEvents";
-import { CreateFolderWithFolderLevelPermissions } from "./CreateFolderWithFolderLevelPermissions";
-import type { FolderLevelPermissions } from "~/flp";
+} from "~/folder/folder.types.js";
+import { CreateFolder } from "./CreateFolder.js";
+import { CreateFolderWithEvents } from "./CreateFolderWithEvents.js";
+import { CreateFolderWithFolderLevelPermissions } from "./CreateFolderWithFolderLevelPermissions.js";
+import type { FolderLevelPermissions } from "~/flp/index.js";
 
 export interface CreateFolderUseCasesTopics {
     onFolderBeforeCreate: Topic<OnFolderBeforeCreateTopicParams>;

@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as DownloadIcon } from "@webiny/icons/file_download.svg";
-import { FileManagerViewConfig, useFile } from "~/index";
+import { FileManagerViewConfig, useFile } from "~/index.js";
 
 const { Browser } = FileManagerViewConfig;
 

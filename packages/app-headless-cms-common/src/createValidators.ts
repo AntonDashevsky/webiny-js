@@ -1,7 +1,7 @@
 import { plugins } from "@webiny/plugins";
-import type { CmsModelField, CmsModelFieldValidator, CmsModelFieldValidatorPlugin } from "~/types";
-import type { Validator } from "@webiny/validation/types";
-import camelCase from "lodash/camelCase";
+import type { CmsModelField, CmsModelFieldValidator, CmsModelFieldValidatorPlugin } from "~/types/index.js";
+import type { Validator } from "@webiny/validation/types.js";
+import camelCase from "lodash/camelCase.js";
 
 export const createValidators = (
     field: CmsModelField,

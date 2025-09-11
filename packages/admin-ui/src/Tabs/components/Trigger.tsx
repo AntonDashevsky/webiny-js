@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Tabs as TabsPrimitive } from "radix-ui";
-import { cn, cva, type VariantProps } from "~/utils";
-import { Icon } from "~/Icon";
+import { cn, cva, type VariantProps } from "~/utils.js";
+import { Icon } from "~/Icon/index.js";
 
 const tabTriggerVariants = cva(
     [

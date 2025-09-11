@@ -1,2 +1,2 @@
-export * from "./TooltipArrow";
-export * from "./TooltipContent";
+export * from "./TooltipArrow.js";
+export * from "./TooltipContent.js";

@@ -1,12 +1,12 @@
-import omit from "lodash/omit";
+import omit from "lodash/omit.js";
 import WebinyError from "@webiny/error";
-import type { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations";
-import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues";
-import type { AcoSearchRecordStorageOperations, SearchRecord } from "./record.types";
-import type { CmsModel, UpdateCmsEntryInput } from "@webiny/api-headless-cms/types";
-import { attachAcoRecordPrefix } from "~/utils/acoRecordId";
-import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model";
-import { ENTRY_META_FIELDS, pickEntryMetaFields } from "@webiny/api-headless-cms/constants";
+import type { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations.js";
+import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues.js";
+import type { AcoSearchRecordStorageOperations, SearchRecord } from "./record.types.js";
+import type { CmsModel, UpdateCmsEntryInput } from "@webiny/api-headless-cms/types/index.js";
+import { attachAcoRecordPrefix } from "~/utils/acoRecordId.js";
+import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model.js";
+import { ENTRY_META_FIELDS, pickEntryMetaFields } from "@webiny/api-headless-cms/constants.js";
 
 export const createSearchRecordOperations = (
     params: CreateAcoStorageOperationsParams

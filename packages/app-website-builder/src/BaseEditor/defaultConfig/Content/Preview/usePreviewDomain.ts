@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { useGetWebsiteBuilderSettings } from "~/features";
-import { useSubscribeToLocalStorage } from "./useSubscribeToLocalStorage";
+import { useGetWebsiteBuilderSettings } from "~/features/index.js";
+import { useSubscribeToLocalStorage } from "./useSubscribeToLocalStorage.js";
 
 const CUSTOM_PREVIEW_DOMAIN = "webiny_wb_custom_preview_domain";
 

@@ -1,4 +1,4 @@
-import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin";
+import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin.js";
 import { CompressorPlugin } from "@webiny/api";
 import { WebinyError } from "@webiny/error";
 

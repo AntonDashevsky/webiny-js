@@ -1,11 +1,11 @@
-import type { File, FileManagerContext } from "~/types";
-import type { Asset, AssetProcessor, AssetRequest } from "~/delivery";
-import type { AssetAuthorizer } from "./AssetAuthorizer";
-import { NotAuthorizedOutputStrategy } from "./NotAuthorizedOutputStrategy";
-import { RedirectToPublicUrlOutputStrategy } from "./RedirectToPublicUrlOutputStrategy";
-import { RedirectToPrivateUrlOutputStrategy } from "./RedirectToPrivateUrlOutputStrategy";
-import { PrivateCache } from "./PrivateCache";
-import { PublicCache } from "./PublicCache";
+import type { File, FileManagerContext } from "~/types.js";
+import type { Asset, AssetProcessor, AssetRequest } from "~/delivery/index.js";
+import type { AssetAuthorizer } from "./AssetAuthorizer.js";
+import { NotAuthorizedOutputStrategy } from "./NotAuthorizedOutputStrategy.js";
+import { RedirectToPublicUrlOutputStrategy } from "./RedirectToPublicUrlOutputStrategy.js";
+import { RedirectToPrivateUrlOutputStrategy } from "./RedirectToPrivateUrlOutputStrategy.js";
+import { PrivateCache } from "./PrivateCache.js";
+import { PublicCache } from "./PublicCache.js";
 
 interface MaybePrivate {
     private?: boolean;

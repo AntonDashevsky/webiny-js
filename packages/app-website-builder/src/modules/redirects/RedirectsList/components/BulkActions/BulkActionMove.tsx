@@ -4,9 +4,9 @@ import { type NodeDto, Tooltip } from "@webiny/admin-ui";
 import { useMoveToFolderDialog, useNavigateFolder } from "@webiny/app-aco";
 import { observer } from "mobx-react-lite";
 import { getRedirectsLabel } from "~/modules/redirects/RedirectsList/components/BulkActions/BulkActions.js";
-import { ROOT_FOLDER } from "~/constants";
-import { RedirectListConfig } from "~/modules/redirects/configs";
-import { useMoveRedirect } from "~/features/redirects";
+import { ROOT_FOLDER } from "~/constants.js";
+import { RedirectListConfig } from "~/modules/redirects/configs/index.js";
+import { useMoveRedirect } from "~/features/redirects/index.js";
 
 export const BulkActionMove = observer(() => {
     const { useWorker, useButtons, useDialog } = RedirectListConfig.Browser.BulkAction;

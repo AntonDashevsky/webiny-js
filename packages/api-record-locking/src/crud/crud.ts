@@ -17,20 +17,20 @@ import type {
     OnEntryUnlockErrorTopicParams,
     OnEntryUnlockRequestErrorTopicParams,
     RecordLockingSecurityPermission
-} from "~/types";
-import { RECORD_LOCKING_MODEL_ID } from "./model";
-import type { IGetLockRecordUseCaseExecute } from "~/abstractions/IGetLockRecordUseCase";
-import type { IIsEntryLockedUseCaseExecute } from "~/abstractions/IIsEntryLocked";
-import type { ILockEntryUseCaseExecute } from "~/abstractions/ILockEntryUseCase";
-import type { IUnlockEntryUseCaseExecute } from "~/abstractions/IUnlockEntryUseCase";
-import { createUseCases } from "~/useCases";
-import type { IUnlockEntryRequestUseCaseExecute } from "~/abstractions/IUnlockEntryRequestUseCase";
+} from "~/types.js";
+import { RECORD_LOCKING_MODEL_ID } from "./model.js";
+import type { IGetLockRecordUseCaseExecute } from "~/abstractions/IGetLockRecordUseCase.js";
+import type { IIsEntryLockedUseCaseExecute } from "~/abstractions/IIsEntryLocked.js";
+import type { ILockEntryUseCaseExecute } from "~/abstractions/ILockEntryUseCase.js";
+import type { IUnlockEntryUseCaseExecute } from "~/abstractions/IUnlockEntryUseCase.js";
+import { createUseCases } from "~/useCases/index.js";
+import type { IUnlockEntryRequestUseCaseExecute } from "~/abstractions/IUnlockEntryRequestUseCase.js";
 import { createTopic } from "@webiny/pubsub";
-import type { IListAllLockRecordsUseCaseExecute } from "~/abstractions/IListAllLockRecordsUseCase";
-import type { IListLockRecordsUseCaseExecute } from "~/abstractions/IListLockRecordsUseCase";
-import type { IUpdateEntryLockUseCaseExecute } from "~/abstractions/IUpdateEntryLockUseCase";
-import type { IGetLockedEntryLockRecordUseCaseExecute } from "~/abstractions/IGetLockedEntryLockRecordUseCase";
-import { getTimeout as baseGetTimeout } from "~/utils/getTimeout";
+import type { IListAllLockRecordsUseCaseExecute } from "~/abstractions/IListAllLockRecordsUseCase.js";
+import type { IListLockRecordsUseCaseExecute } from "~/abstractions/IListLockRecordsUseCase.js";
+import type { IUpdateEntryLockUseCaseExecute } from "~/abstractions/IUpdateEntryLockUseCase.js";
+import type { IGetLockedEntryLockRecordUseCaseExecute } from "~/abstractions/IGetLockedEntryLockRecordUseCase.js";
+import { getTimeout as baseGetTimeout } from "~/utils/getTimeout.js";
 
 interface Params {
     context: Pick<Context, "plugins" | "cms" | "benchmark" | "security" | "websockets">;

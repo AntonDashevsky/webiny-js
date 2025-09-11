@@ -6,8 +6,8 @@ import type {
     CmsModelFieldValidatorsGroup,
     CmsModelFieldValidatorConfig,
     CmsModelFieldValidatorsFactory
-} from "~/types";
-import { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter";
+} from "~/types.js";
+import { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
 
 export interface Validator {
     optional: boolean;

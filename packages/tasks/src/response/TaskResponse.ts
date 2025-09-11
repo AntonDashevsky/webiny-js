@@ -8,9 +8,9 @@ import type {
     ITaskResponseDoneResult,
     ITaskResponseDoneResultOutput,
     ITaskResponseErrorResult
-} from "./abstractions";
-import type { ITaskDataInput } from "~/types";
-import { getErrorProperties } from "~/utils/getErrorProperties";
+} from "./abstractions/index.js";
+import type { ITaskDataInput } from "~/types.js";
+import { getErrorProperties } from "~/utils/getErrorProperties.js";
 
 /**
  * 355 days transformed into seconds.

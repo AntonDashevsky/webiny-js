@@ -1,12 +1,12 @@
 import type { IMetaRepository } from "@webiny/app-utils";
-import type { ISchedulerListGateway } from "~/Gateways";
+import type { ISchedulerListGateway } from "~/Gateways/index.js";
 import {
     type ISchedulerCancelGateway,
     type ISchedulerGetGateway,
     type ISchedulerPublishGateway,
     type ISchedulerUnpublishGateway
-} from "~/Gateways";
-import { SchedulerItemsRepository } from "./SchedulerItemsRepository";
+} from "~/Gateways/index.js";
+import { SchedulerItemsRepository } from "./SchedulerItemsRepository.js";
 import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 
 export interface ISchedulerItemsRepositoryFactoryGetParams {

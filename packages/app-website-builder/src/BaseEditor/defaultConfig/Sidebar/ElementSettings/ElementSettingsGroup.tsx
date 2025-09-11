@@ -1,6 +1,6 @@
 import React from "react";
-import { Sidebar } from "~/BaseEditor/config/Sidebar/Sidebar";
-import { ScrollableContainer } from "~/BaseEditor/config/Sidebar/ScrollableContainer";
+import { Sidebar } from "~/BaseEditor/config/Sidebar/Sidebar.js";
+import { ScrollableContainer } from "~/BaseEditor/config/Sidebar/ScrollableContainer.js";
 
 export const ElementSettingsGroup = () => {
     return (

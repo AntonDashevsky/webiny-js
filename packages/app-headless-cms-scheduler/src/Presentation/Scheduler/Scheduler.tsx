@@ -6,24 +6,24 @@ import {
     metaRepositoryFactory,
     sortRepositoryFactory
 } from "@webiny/app-utils";
-import { SchedulerProvider } from "../hooks";
-import { SchedulerOverlay } from "../components/SchedulerOverlay";
-import { SchedulerPresenter } from "./SchedulerPresenter";
+import { SchedulerProvider } from "../hooks/index.js";
+import { SchedulerOverlay } from "../components/SchedulerOverlay/index.js";
+import { SchedulerPresenter } from "./SchedulerPresenter.js";
 import {
     schedulerItemsRepositoryFactory,
     SchedulerItemsRepositoryWithLoading,
     searchRepositoryFactory,
     selectedItemsRepositoryFactory,
     SortingRepositoryWithDefaults
-} from "~/Domain";
+} from "~/Domain/index.js";
 import type {
     ISchedulerCancelGateway,
     ISchedulerGetGateway,
     ISchedulerListGateway,
     ISchedulerPublishGateway,
     ISchedulerUnpublishGateway
-} from "~/Gateways";
-import { SchedulerControllers } from "~/Presentation/Scheduler/SchedulerControllers";
+} from "~/Gateways/index.js";
+import { SchedulerControllers } from "~/Presentation/Scheduler/SchedulerControllers.js";
 import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 
 export interface SchedulerProps {

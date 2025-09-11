@@ -1,6 +1,6 @@
 import React from "react";
 import { MultiAutoComplete } from "@webiny/admin-ui";
-import type { FolderLevelPermissionsTarget, FolderPermission } from "~/types";
+import type { FolderLevelPermissionsTarget, FolderPermission } from "~/types.js";
 
 interface UsersTeamsMultiAutocompleteProps {
     options: FolderLevelPermissionsTarget[];

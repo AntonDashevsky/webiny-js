@@ -5,25 +5,25 @@ import type {
     IWebsocketsEventRequestContext,
     IWebsocketsIncomingEvent,
     WebsocketsEventRoute
-} from "~/handler/types";
-import { WebsocketsEventRequestContextEventType } from "~/handler/types";
-import type { Context } from "~/types";
-import type { IWebsocketsEventValidator } from "~/validator";
+} from "~/handler/types.js";
+import { WebsocketsEventRequestContextEventType } from "~/handler/types.js";
+import type { Context } from "~/types.js";
+import type { IWebsocketsEventValidator } from "~/validator/index.js";
 import type {
     IWebsocketsRunner,
     IWebsocketsRunnerResponse
-} from "./abstractions/IWebsocketsRunner";
-import type { IWebsocketsRoutePluginCallableParams } from "~/plugins";
-import { WebsocketsRoutePlugin } from "~/plugins";
-import { middleware } from "~/utils/middleware";
-import type { IWebsocketsConnectionRegistry } from "~/registry";
+} from "./abstractions/IWebsocketsRunner.js";
+import type { IWebsocketsRoutePluginCallableParams } from "~/plugins/index.js";
+import { WebsocketsRoutePlugin } from "~/plugins/index.js";
+import { middleware } from "~/utils/middleware.js";
+import type { IWebsocketsConnectionRegistry } from "~/registry/index.js";
 import type {
     IWebsocketsResponse,
     IWebsocketsResponseErrorResult,
     IWebsocketsResponseOkResult
-} from "~/response";
-import type { IWebsocketsTransportSendConnection } from "~/transport";
-import type { IWebsocketsIdentity } from "~/context";
+} from "~/response/index.js";
+import type { IWebsocketsTransportSendConnection } from "~/transport/index.js";
+import type { IWebsocketsIdentity } from "~/context/index.js";
 
 type MiddlewareParams<C extends Context = Context> = Pick<
     IWebsocketsRoutePluginCallableParams<C>,

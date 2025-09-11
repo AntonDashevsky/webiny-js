@@ -1,2 +1,2 @@
-export * from "./AutoComplete";
-export * from "./primitives";
+export * from "./AutoComplete.js";
+export * from "./primitives/index.js";

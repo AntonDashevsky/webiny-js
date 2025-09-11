@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ButtonFloating } from "@webiny/ui/Button";
+import { ButtonFloating } from "@webiny/ui/Button/index.js";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 
 interface FloatingActionButtonProps {

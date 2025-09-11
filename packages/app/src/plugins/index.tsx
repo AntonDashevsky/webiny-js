@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import React from "react";
 import warning from "warning";
 import { plugins } from "@webiny/plugins";
-import type { Plugin } from "@webiny/plugins/types";
-import imagePlugin from "./image";
+import type { Plugin } from "@webiny/plugins/types.js";
+import imagePlugin from "./image.js";
 
 export { imagePlugin };
 

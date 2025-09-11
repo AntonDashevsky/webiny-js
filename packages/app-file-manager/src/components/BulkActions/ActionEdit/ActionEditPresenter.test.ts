@@ -1,5 +1,6 @@
-import { ActionEditPresenter } from "./ActionEditPresenter";
-import type { FieldRaw } from "~/components/BulkActions/ActionEdit/domain";
+import { ActionEditPresenter } from "./ActionEditPresenter.js";
+import type { FieldRaw } from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { jest } from "@jest/globals";
 
 describe("ActionEditPresenter", () => {
     const extensionFields = [

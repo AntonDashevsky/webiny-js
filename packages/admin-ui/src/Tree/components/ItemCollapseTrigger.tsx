@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as ChevronRight } from "@webiny/icons/chevron_right.svg";
-import { IconButton, type IconButtonProps } from "~/Button";
-import { Loader } from "~/Loader";
-import { Icon } from "~/Icon";
-import { makeDecoratable, cn } from "~/utils";
+import { IconButton, type IconButtonProps } from "~/Button/index.js";
+import { Loader } from "~/Loader/index.js";
+import { Icon } from "~/Icon/index.js";
+import { makeDecoratable, cn } from "~/utils.js";
 
 interface ItemCollapseTriggerProps extends IconButtonProps {
     open?: boolean;

@@ -1,7 +1,7 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
-import { ResultDialogMessage } from "./DialogMessage";
-import type { Result } from "../Worker";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ResultDialogMessage } from "./DialogMessage.js";
+import type { Result } from "../Worker.js";
 import { useDialogs } from "~/components/Dialogs/useDialogs.js";
 
 const t = i18n.ns("app-admin/hooks/use-dialog-with-report");

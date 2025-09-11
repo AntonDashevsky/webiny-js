@@ -1,3 +1,3 @@
-import type { CommandOptionDto } from "~/Command";
+import type { CommandOptionDto } from "~/Command/index.js";
 
 export type AutoCompleteOptionDto = CommandOptionDto;

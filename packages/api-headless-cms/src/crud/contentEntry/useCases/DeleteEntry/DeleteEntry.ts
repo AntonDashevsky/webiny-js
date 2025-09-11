@@ -4,9 +4,9 @@ import type {
     IDeleteEntry,
     IDeleteEntryOperation,
     IGetLatestRevisionByEntryId
-} from "../../abstractions";
-import type { CmsDeleteEntryOptions, CmsEntry, CmsModel } from "~/types";
-import type { TransformEntryDelete } from "./TransformEntryDelete";
+} from "../../abstractions/index.js";
+import type { CmsDeleteEntryOptions, CmsEntry, CmsModel } from "~/types/index.js";
+import type { TransformEntryDelete } from "./TransformEntryDelete.js";
 
 export class DeleteEntry implements IDeleteEntry {
     private getEntry: IGetLatestRevisionByEntryId;
