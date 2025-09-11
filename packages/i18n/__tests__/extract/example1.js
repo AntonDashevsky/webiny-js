@@ -1,5 +1,5 @@
 export default `
-    import i18n from "@webiny/i18n";
+    import i18n from "~/index";
     
     const t1 = i18n.namespace('ns1');
     const t2 = i18n.namespace('ns2');

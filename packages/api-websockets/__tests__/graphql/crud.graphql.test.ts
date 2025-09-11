@@ -1,11 +1,11 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, vi } from "vitest";
 import { useGraphQLHandler } from "~tests/helpers/useGraphQLHandler";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import type { IWebsocketsConnectionRegistryData } from "~/registry";
 import { WebsocketsConnectionRegistry } from "~/registry";
 import type { IWebsocketsIdentity } from "~/context";
 
-jest.mock("@webiny/aws-sdk/client-apigatewaymanagementapi", () => {
+vi.mock("@webiny/aws-sdk/client-apigatewaymanagementapi", () => {
     return {
         ApiGatewayManagementApiClient: class ApiGatewayManagementApiClient {
             async send(cmd: any) {

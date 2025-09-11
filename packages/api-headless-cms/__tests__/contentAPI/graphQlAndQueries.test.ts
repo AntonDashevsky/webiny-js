@@ -1,7 +1,8 @@
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
-import { setupGroupAndModels } from "../testHelpers/setup.js";
-import { useProductManageHandler } from "../testHelpers/useProductManageHandler.js";
-import lodashCamelCase from "lodash/camelCase.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
+import { setupGroupAndModels } from "../testHelpers/setup";
+import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
+import lodashCamelCase from "lodash/camelCase";
 
 const createProductsData = (category: string) => {
     return {

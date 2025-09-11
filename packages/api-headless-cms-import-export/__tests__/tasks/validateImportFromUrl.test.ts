@@ -1,4 +1,4 @@
-import { jest } from "@jest/globals";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { createRunner } from "@webiny/project-utils/testing/tasks";
 import { useHandler } from "~tests/helpers/useHandler";
 import type { Context, ICmsImportExportFile } from "~/types";
@@ -10,7 +10,7 @@ import type { IValidateImportFromUrlInput } from "~/tasks/domain/abstractions/Va
 import { HeadObjectCommand, S3Client } from "@webiny/aws-sdk/client-s3";
 import { mockClient } from "aws-sdk-client-mock";
 
-jest.mock("~/tasks/utils/externalFileFetcher", () => {
+vi.mock("~/tasks/utils/externalFileFetcher", () => {
     return {
         ExternalFileFetcher: function () {
             return {

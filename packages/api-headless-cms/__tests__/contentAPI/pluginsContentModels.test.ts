@@ -1,6 +1,7 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import type { CmsGroup, CmsModel } from "~/types/index.js";
-import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import { CmsGroup, CmsModel } from "~/types";
+import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
 
 const contentModelPlugin = new CmsModelPlugin({
     name: "Product",
@@ -160,7 +161,7 @@ describe("content model plugins", () => {
         });
     });
 
-    test("must not be able to create, update, or delete a content model that was registered via plugins", async () => {
+    it("must not be able to create, update, or delete a content model that was registered via plugins", async () => {
         const {
             createContentModelMutation,
             createContentModelGroupMutation,
@@ -264,7 +265,7 @@ describe("content model plugins", () => {
         });
     });
 
-    test("content model must be returned in the content models list and get queries", async () => {
+    it("content model must be returned in the content models list and get queries", async () => {
         const { listContentModelsQuery, getContentModelQuery } = useGraphQLHandler({
             path: "manage/en-US",
             plugins: [contentModelPlugin]
@@ -458,7 +459,7 @@ describe("content model plugins", () => {
         });
     });
 
-    test("must be able to perform basic CRUD operations with content models registered via plugin", async () => {
+    it("must be able to perform basic CRUD operations with content models registered via plugin", async () => {
         const { invoke } = useGraphQLHandler({
             path: "manage/en-US",
             plugins: [contentModelPlugin]
@@ -624,7 +625,7 @@ describe("content model plugins", () => {
         });
     });
 
-    test(`"plugin" GraphQL field must have the correct value`, async () => {
+    it(`"plugin" GraphQL field must have the correct value`, async () => {
         const {
             createContentModelMutation,
             createContentModelGroupMutation,

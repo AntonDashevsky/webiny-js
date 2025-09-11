@@ -1,13 +1,14 @@
-import { MultipartUploadHandler, MultipartUploadFactory } from "~/tasks/utils/upload/index.js";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
-import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
+import { describe, expect, it, vi, beforeEach } from "vitest";
+import { MultipartUploadHandler, MultipartUploadFactory } from "~/tasks/utils/upload";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client";
+import { getBucket } from "~/tasks/utils/helpers/getBucket";
 import {
     CompleteMultipartUploadCommand,
     AbortMultipartUploadCommand,
     CreateMultipartUploadCommand,
     ListPartsCommand,
     S3Client
-} from "@webiny/aws-sdk/client-s3/index.js";
+} from "@webiny/aws-sdk/client-s3";
 import { mockClient } from "aws-sdk-client-mock";
 
 describe("multipart upload factory", () => {

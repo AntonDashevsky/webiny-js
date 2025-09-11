@@ -1,4 +1,5 @@
-import { validation } from "../src/index.js";
+import { describe, it, expect } from "vitest";
+import { validation } from "../src";
 
 describe("empty validators test", () => {
     it("should pass - no validators sent", async () => {
@@ -11,7 +12,7 @@ describe("empty validators test", () => {
 
         try {
             validation.validateSync("", {});
-        } catch {
+        } catch (e) {
             return;
         }
 

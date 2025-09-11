@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, expect, vi } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import { Property, toObject } from "~/index";
@@ -11,7 +9,7 @@ const { AddWidget } = DashboardConfig;
 
 describe("Dashboard", () => {
     it("should contain 2 widgets (the built-in one, and the custom one)", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         /**
          * <App/> contains the built-in widget, and we're using the <DashboardConfig/> component to register more widgets.
          */
@@ -52,7 +50,7 @@ describe("Dashboard", () => {
     });
 
     it("should contain the built-in widget with modified values", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const view = (
             <App onProperties={onChange}>
                 <DashboardConfig>
@@ -121,7 +119,7 @@ describe("Dashboard", () => {
             );
         };
 
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <App onProperties={onChange}>

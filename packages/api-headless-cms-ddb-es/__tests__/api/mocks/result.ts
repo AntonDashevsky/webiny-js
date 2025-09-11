@@ -1,3 +1,5 @@
+import { expect } from "vitest";
+
 export const createExpectedGetResult = () => {
     return {
         values: {

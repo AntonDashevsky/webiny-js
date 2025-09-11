@@ -1,7 +1,8 @@
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
-import camelCase from "lodash/camelCase.js";
-import type { CmsGroup } from "~/types/index.js";
-import models from "./mocks/contentModels.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
+import camelCase from "lodash/camelCase";
+import { CmsGroup } from "~/types";
+import models from "./mocks/contentModels";
 
 const categories = [
     "Fruit",

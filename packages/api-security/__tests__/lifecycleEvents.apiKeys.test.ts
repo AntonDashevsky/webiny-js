@@ -1,6 +1,7 @@
-import useGqlHandler from "./useGqlHandler.js";
+import { describe, it, expect, beforeEach } from "vitest";
+import useGqlHandler from "./useGqlHandler";
 
-import { assignApiKeyLifecycleEvents, tracker } from "./mocks/lifecycleEvents.js";
+import { assignApiKeyLifecycleEvents, tracker } from "./mocks/lifecycleEvents";
 
 describe("API Key Lifecycle Events", () => {
     const { install, securityApiKeys } = useGqlHandler({

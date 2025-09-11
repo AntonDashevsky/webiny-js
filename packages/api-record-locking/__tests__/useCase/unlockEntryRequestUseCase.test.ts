@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { UnlockEntryRequestUseCase } from "~/useCases/UnlockRequestUseCase/UnlockEntryRequestUseCase";
 import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
 import { getSecurityIdentity } from "~tests/helpers/identity";

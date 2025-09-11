@@ -1,4 +1,5 @@
-import { DateTimeZScalar } from "~/builtInTypes/index.js";
+import { describe, test, expect } from "vitest";
+import { DateTimeZScalar } from "~/builtInTypes";
 
 describe("DateTimeZScalar", () => {
     test("should not change the input dateTime - it is correct", () => {

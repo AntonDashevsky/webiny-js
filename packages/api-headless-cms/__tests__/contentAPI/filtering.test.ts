@@ -1,14 +1,14 @@
-import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import { useFruitReadHandler } from "../testHelpers/useFruitReadHandler.js";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
-import { useProductManageHandler } from "../testHelpers/useProductManageHandler.js";
-import { useProductReadHandler } from "../testHelpers/useProductReadHandler.js";
-import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler.js";
-import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler.js";
-import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup.js";
-import type { Fruit } from "./mocks/contentModels.js";
-import { jest } from "@jest/globals";
+import { describe, expect, it, vi } from "vitest";
+import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import { useFruitReadHandler } from "../testHelpers/useFruitReadHandler";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
+import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
+import { useProductReadHandler } from "../testHelpers/useProductReadHandler";
+import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler";
+import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler";
+import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
+import { Fruit } from "./mocks/contentModels";
 
 const appleData: Fruit = {
     name: "Apple",
@@ -61,7 +61,9 @@ const bananaData: Fruit = {
     slug: null
 };
 
-jest.setTimeout(100000);
+vi.setConfig({
+    testTimeout: 100_000
+});
 
 describe("filtering", () => {
     const manageOpts = { path: "manage/en-US" };
@@ -109,7 +111,7 @@ describe("filtering", () => {
         return createFruits();
     };
 
-    test("should filter fruits by date and sort asc", async () => {
+    it("should filter fruits by date and sort asc", async () => {
         const { apple, strawberry } = await setupFruits();
 
         const handler = useFruitReadHandler({
@@ -139,7 +141,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter fruits by date and sort desc", async () => {
+    it("should filter fruits by date and sort desc", async () => {
         const { apple, strawberry } = await setupFruits();
 
         const handler = useFruitReadHandler({
@@ -169,7 +171,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter fruits by dateTime and sort asc", async () => {
+    it("should filter fruits by dateTime and sort asc", async () => {
         const { banana } = await setupFruits();
 
         const handler = useFruitReadHandler({
@@ -200,7 +202,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter fruits by dateTimeZ and sort desc", async () => {
+    it("should filter fruits by dateTimeZ and sort desc", async () => {
         const { apple, strawberry } = await setupFruits();
 
         const handler = useFruitReadHandler({
@@ -231,7 +233,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter fruits by date, dateTime, dateTimeZ and sort desc", async () => {
+    it("should filter fruits by date, dateTime, dateTimeZ and sort desc", async () => {
         const { apple, banana } = await setupFruits();
 
         const handler = useFruitReadHandler({
@@ -266,7 +268,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter fruits by time and sort desc", async () => {
+    it("should filter fruits by time and sort desc", async () => {
         const { strawberry, banana } = await setupFruits();
 
         const handler = useFruitReadHandler({
@@ -297,7 +299,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should sort by time asc", async () => {
+    it("should sort by time asc", async () => {
         const { apple, strawberry, banana } = await setupFruits();
 
         const handler = useFruitReadHandler({
@@ -325,7 +327,7 @@ describe("filtering", () => {
     });
 
     describe("GraphQL Data Filtering Tests", () => {
-        test("should be able to filter fruits by a boolean attribute", async () => {
+        it("should be able to filter fruits by a boolean attribute", async () => {
             await setupFruits();
 
             const handler = useFruitReadHandler({
@@ -395,7 +397,7 @@ describe("filtering", () => {
             });
         });
 
-        test("should be able to filter fruits by a number attribute", async () => {
+        it("should be able to filter fruits by a number attribute", async () => {
             await setupFruits();
 
             const handler = useFruitReadHandler({
@@ -500,7 +502,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter by reference field", async () => {
+    it("should filter by reference field", async () => {
         const categoryManager = useCategoryManageHandler(manageOpts);
         const productManager = useProductManageHandler(manageOpts);
         const productReader = useProductReadHandler(readOpts);
@@ -1031,7 +1033,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter entries by empty datetime field", async () => {
+    it("should filter entries by empty datetime field", async () => {
         const categoryManager = useCategoryManageHandler(manageOpts);
         const productManager = useProductManageHandler(manageOpts);
 
@@ -1178,7 +1180,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter entries by entryId", async () => {
+    it("should filter entries by entryId", async () => {
         const articleManager = useArticleManageHandler(manageOpts);
         const articleReader = useArticleReadHandler(readOpts);
 
@@ -1520,7 +1522,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter entries by revisionCreatedBy", async () => {
+    it("should filter entries by revisionCreatedBy", async () => {
         const articleManager = useArticleManageHandler(manageOpts);
         const articleAnotherManager = useArticleManageHandler({
             ...manageOpts,
@@ -1681,7 +1683,7 @@ describe("filtering", () => {
         });
     });
 
-    test("should filter entries by createdBy", async () => {
+    it("should filter entries by createdBy", async () => {
         const articleManager = useArticleManageHandler(manageOpts);
         const articleAnotherManager = useArticleManageHandler({
             ...manageOpts,

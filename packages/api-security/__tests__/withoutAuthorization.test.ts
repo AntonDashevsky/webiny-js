@@ -1,5 +1,6 @@
-import { createSecurity } from "~/createSecurity.js";
-import type { Security, SecurityConfig, SecurityStorageOperations } from "~/types.js";
+import { describe, it, expect, beforeEach } from "vitest";
+import { createSecurity } from "~/createSecurity";
+import { Security, SecurityConfig, SecurityStorageOperations } from "~/types";
 
 const fullPermissions = {
     name: "*"

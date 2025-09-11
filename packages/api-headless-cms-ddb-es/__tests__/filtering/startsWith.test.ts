@@ -1,9 +1,8 @@
-import type { CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
-import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
-import type { Query } from "./mocks/index.js";
-import { createQuery, createPluginsContainer } from "./mocks/index.js";
-import type { CreateExecFilteringResponse } from "./mocks/filtering.js";
-import { createExecFiltering } from "./mocks/filtering.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import { createPluginsContainer, createQuery, Query } from "./mocks";
+import { createExecFiltering, CreateExecFilteringResponse } from "./mocks/filtering";
 
 describe("startsWith filter", () => {
     let query: Query;

@@ -1,6 +1,6 @@
-import { jest } from "@jest/globals";
-import { ExternalFileFetcher } from "~/tasks/utils/externalFileFetcher/index.js";
-import type { GenericRecord } from "@webiny/api/types.js";
+import { describe, expect, it, vi } from "vitest";
+import { ExternalFileFetcher } from "~/tasks/utils/externalFileFetcher";
+import type { GenericRecord } from "@webiny/api/types";
 
 const createFetcherResponse = (params: Partial<Response>): Response => {
     return {
@@ -12,13 +12,13 @@ const createFetcherResponse = (params: Partial<Response>): Response => {
         ok: true,
         status: 200,
         statusText: "OK",
-        clone: jest.fn(),
+        clone: vi.fn(),
         redirected: false,
-        arrayBuffer: jest.fn(),
-        blob: jest.fn(),
-        formData: jest.fn(),
-        json: jest.fn(),
-        text: jest.fn(),
+        arrayBuffer: vi.fn(),
+        blob: vi.fn(),
+        formData: vi.fn(),
+        json: vi.fn(),
+        text: vi.fn(),
         ...params
     };
 };

@@ -1,4 +1,5 @@
-import useGqlHandler from "./useGqlHandler.js";
+import { describe, test, expect } from "vitest";
+import useGqlHandler from "./useGqlHandler";
 
 describe(`Test "Tenant Manager"`, () => {
     test(`should create/update/list/delete tenants`, async () => {

@@ -1,9 +1,9 @@
-import type { Expression } from "~/operations/entry/filtering/createExpressions.js";
-import { createExpressions } from "~/operations/entry/filtering/createExpressions.js";
-import type { PluginsContainer } from "@webiny/plugins";
-import type { Field } from "~/operations/entry/filtering/types.js";
-import { createPluginsContainer } from "../../helpers/pluginsContainer.js";
-import { createFields } from "./mocks/fields.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import { createExpressions, Expression } from "~/operations/entry/filtering/createExpressions";
+import { PluginsContainer } from "@webiny/plugins";
+import { Field } from "~/operations/entry/filtering/types";
+import { createPluginsContainer } from "../../helpers/pluginsContainer";
+import { createFields } from "./mocks/fields";
 
 describe("create expressions from where conditions", () => {
     let plugins: PluginsContainer;

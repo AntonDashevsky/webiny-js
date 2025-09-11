@@ -1,8 +1,9 @@
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
-import { assignEntryEvents, pubSubTracker } from "./mocks/lifecycleHooks.js";
-import models from "./mocks/contentModels.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import type { CmsGroup, CmsModel } from "~/types/index.js";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
+import { assignEntryEvents, pubSubTracker } from "./mocks/lifecycleHooks";
+import models from "./mocks/contentModels";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import { CmsGroup, CmsModel } from "~/types";
 
 describe("contentEntryHooks", () => {
     let contentModelGroup: CmsGroup;
@@ -66,7 +67,7 @@ describe("contentEntryHooks", () => {
         pubSubTracker.reset();
     });
 
-    test("should execute hooks on create", async () => {
+    it("should execute hooks on create", async () => {
         const { createCategory } = useCategoryManageHandler({
             ...manageOpts,
             plugins: [assignEntryEvents()]
@@ -104,7 +105,7 @@ describe("contentEntryHooks", () => {
         expect(pubSubTracker.isExecutedOnce("contentEntry:afterUnpublish")).toEqual(false);
     });
 
-    test("should execute hooks on create from revision", async () => {
+    it("should execute hooks on create from revision", async () => {
         const { createCategory, createCategoryFrom } = useCategoryManageHandler({
             ...manageOpts,
             plugins: [assignEntryEvents()]
@@ -148,7 +149,7 @@ describe("contentEntryHooks", () => {
         expect(pubSubTracker.isExecutedOnce("contentEntry:afterUnpublish")).toEqual(false);
     });
 
-    test("should execute hooks on update", async () => {
+    it("should execute hooks on update", async () => {
         const { createCategory, updateCategory } = useCategoryManageHandler({
             ...manageOpts,
             plugins: [assignEntryEvents()]
@@ -198,7 +199,7 @@ describe("contentEntryHooks", () => {
         expect(pubSubTracker.isExecutedOnce("contentEntry:afterUnpublish")).toEqual(false);
     });
 
-    test("should execute hooks on delete revision", async () => {
+    it("should execute hooks on delete revision", async () => {
         const { createCategory, createCategoryFrom, deleteCategory } = useCategoryManageHandler({
             ...manageOpts,
             plugins: [assignEntryEvents()]
@@ -251,7 +252,7 @@ describe("contentEntryHooks", () => {
         expect(pubSubTracker.isExecutedOnce("contentEntry:afterUnpublish")).toEqual(false);
     });
 
-    test("should execute hooks on delete whole entry and its versions", async () => {
+    it("should execute hooks on delete whole entry and its versions", async () => {
         const { createCategory, deleteCategory } = useCategoryManageHandler({
             ...manageOpts,
             plugins: [assignEntryEvents()]
@@ -301,7 +302,7 @@ describe("contentEntryHooks", () => {
         expect(pubSubTracker.isExecutedOnce("contentEntry:afterUnpublish")).toEqual(false);
     });
 
-    test("should execute hooks on publish", async () => {
+    it("should execute hooks on publish", async () => {
         const { createCategory, publishCategory } = useCategoryManageHandler({
             ...manageOpts,
             plugins: [assignEntryEvents()]
@@ -349,7 +350,7 @@ describe("contentEntryHooks", () => {
         expect(pubSubTracker.isExecutedOnce("contentEntry:afterUnpublish")).toEqual(false);
     });
 
-    test("should execute hooks on unpublish", async () => {
+    it("should execute hooks on unpublish", async () => {
         const { createCategory, unpublishCategory, publishCategory } = useCategoryManageHandler({
             ...manageOpts,
             plugins: [assignEntryEvents()]
@@ -401,7 +402,7 @@ describe("contentEntryHooks", () => {
         expect(pubSubTracker.isExecutedOnce("contentEntry:afterUnpublish")).toEqual(true);
     });
 
-    test("should execute hooks on get and list", async () => {
+    it("should execute hooks on get and list", async () => {
         const { createCategory, getCategory, listCategories } = useCategoryManageHandler({
             ...manageOpts,
             plugins: [assignEntryEvents()]

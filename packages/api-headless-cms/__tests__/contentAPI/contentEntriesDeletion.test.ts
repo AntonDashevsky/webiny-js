@@ -1,3 +1,4 @@
+import { describe, expect, beforeEach, it } from "vitest";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import { identityA } from "./security/utils";
 
@@ -10,7 +11,7 @@ describe("Content entries - Entry Deletion", () => {
         await manage.setup();
     });
 
-    test("MANAGE/READ GraphQL APIs should reflect revision deletions correctly", async () => {
+    it("MANAGE/READ GraphQL APIs should reflect revision deletions correctly", async () => {
         const { data: revision1 } = await manage.createTestEntry({ data: { title: "Revision 1" } });
 
         const { data: revision2 } = await manage.createTestEntryFrom({

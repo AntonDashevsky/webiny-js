@@ -1,9 +1,7 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach } from "vitest";
 import { useGraphQlHandler } from "./utils/useGraphQlHandler";
 import { assignRecordLifecycleEvents, tracker } from "./mocks/lifecycle.mock";
 import { createMockAcoApp } from "~tests/mocks/app";
-
-jest.retryTimes(0);
 
 const id = "id-lifecycle-events";
 const type = "demo-lifecycle-events";
@@ -72,7 +70,7 @@ describe("Search Record Lifecycle Events", () => {
             });
     });
 
-    it("should trigger create lifecycle events", async () => {
+    it("should trigger create lifecycle events", { retry: 0 }, async () => {
         const [response] = await search.createRecord({
             data: {
                 id,
@@ -118,7 +116,7 @@ describe("Search Record Lifecycle Events", () => {
         expect(tracker.isExecuted("searchRecord:afterDelete")).toEqual(false);
     });
 
-    it("should trigger update lifecycle events", async () => {
+    it("should trigger update lifecycle events", { retry: 0 }, async () => {
         await search.createRecord({
             data: {
                 id,
@@ -180,7 +178,7 @@ describe("Search Record Lifecycle Events", () => {
         expect(tracker.isExecuted("searchRecord:afterDelete")).toEqual(false);
     });
 
-    it("should trigger move lifecycle events", async () => {
+    it("should trigger move lifecycle events", { retry: 0 }, async () => {
         await search.createRecord({
             data: {
                 id,
@@ -241,7 +239,7 @@ describe("Search Record Lifecycle Events", () => {
         });
     });
 
-    it("should trigger delete lifecycle events", async () => {
+    it("should trigger delete lifecycle events", { retry: 0 }, async () => {
         await search.createRecord({
             data: {
                 id,

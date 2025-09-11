@@ -1,4 +1,5 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach } from "vitest";
+
 import {
     assertNotError,
     createDdbEsMigrationHandler,
@@ -9,8 +10,6 @@ import {
 } from "~tests/utils";
 import { migrations as ddbMigrations } from "~/ddb";
 import { migrations as ddbEsMigrations } from "~/ddb-es";
-
-jest.retryTimes(0);
 
 // This test runs all migrations to make sure that they have unique IDs, and that
 // they're executable without any obvious errors. Individual migration tests are located

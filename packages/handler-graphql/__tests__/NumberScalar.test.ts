@@ -1,4 +1,5 @@
-import { NumberScalar } from "~/builtInTypes/index.js";
+import { describe, test, expect } from "vitest";
+import { NumberScalar } from "~/builtInTypes";
 
 describe("NumberScalar", () => {
     const correctInputValues = [

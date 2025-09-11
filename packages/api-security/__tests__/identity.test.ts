@@ -1,10 +1,11 @@
-import type { Security, SecurityStorageOperations } from "~/types.js";
-import { createSecurity } from "~/createSecurity.js";
-import { getStorageOps } from "@webiny/project-utils/testing/environment/index.js";
+import { describe, it, expect, beforeAll } from "vitest";
+import { Security, SecurityStorageOperations } from "~/types";
+import { createSecurity } from "~/createSecurity";
+import { getStorageOps } from "@webiny/project-utils/testing/environment";
 
 describe("identity test", () => {
     const tenant = "root";
-    // @ts-expect-error
+
     const { storageOperations } = getStorageOps<SecurityStorageOperations>("security");
     let security: Security;
 

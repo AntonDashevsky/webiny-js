@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { createMockEvent } from "~tests/mocks";
 import { createLiveContextFactory } from "~tests/live";
 import { createTaskDefinition } from "~/task";

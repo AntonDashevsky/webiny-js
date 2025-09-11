@@ -1,5 +1,6 @@
-import { createHandler, RoutePlugin } from "~/index.js";
-import type { DefinedContextRoutes } from "~/types.js";
+import { describe, it, expect } from "vitest";
+import { createHandler, RoutePlugin } from "~/index";
+import { DefinedContextRoutes } from "~/types";
 
 describe("route plugins", () => {
     it("should add routes and they must be visible in the defined property", async () => {

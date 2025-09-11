@@ -1,13 +1,14 @@
-import { UrlSigner } from "~/tasks/utils/urlSigner/index.js";
+import { describe, expect, it, beforeEach } from "vitest";
+import { UrlSigner } from "~/tasks/utils/urlSigner";
 import {
     GetObjectCommand,
     HeadObjectCommand,
     ListObjectsCommand,
     S3Client
-} from "@webiny/aws-sdk/client-s3/index.js";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
+} from "@webiny/aws-sdk/client-s3";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client";
 import { mockClient } from "aws-sdk-client-mock";
-import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
+import { getBucket } from "~/tasks/utils/helpers/getBucket";
 
 describe("url signer", () => {
     beforeEach(async () => {
@@ -30,9 +31,9 @@ describe("url signer", () => {
         });
         expect(result).toEqual({
             bucket: getBucket(),
-            expiresOn: expect.toBeValidDate(),
+            expiresOn: expect.toBeDate(),
             key: "a-key.zip",
-            url: expect.toBeString()
+            url: expect.any(String)
         });
     });
 
@@ -52,9 +53,9 @@ describe("url signer", () => {
         });
         expect(result).toEqual({
             bucket: getBucket(),
-            expiresOn: expect.toBeValidDate(),
+            expiresOn: expect.toBeDate(),
             key: "a-key.zip",
-            url: expect.toBeString()
+            url: expect.any(String)
         });
 
         expect(result.url).toContain("x-id=GetObject");

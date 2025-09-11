@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import { identityA } from "./security/utils";
 
@@ -10,7 +11,7 @@ describe("Content entries - Entry Publishing", () => {
         await manage.setup();
     });
 
-    test("should be able to publish a previously published revision (entry already has the latest revision published)", async () => {
+    it("should be able to publish a previously published revision (entry already has the latest revision published)", async () => {
         const { data: revision1 } = await manage.createTestEntry({ data: { title: "Revision 1" } });
 
         await manage.publishTestEntry({
@@ -43,7 +44,7 @@ describe("Content entries - Entry Publishing", () => {
         expect(readEntriesList).toMatchObject([{ id: revision1.id, title: "Revision 1" }]);
     });
 
-    test("should be able to publish a previously published revision (entry already has a non-latest revision published)", async () => {
+    it("should be able to publish a previously published revision (entry already has a non-latest revision published)", async () => {
         const { data: revision1 } = await manage.createTestEntry({
             data: { title: "Revision 1" }
         });
@@ -161,7 +162,7 @@ describe("Content entries - Entry Publishing", () => {
         }
     });
 
-    test("should be able to publish a previously published revision (entry already has a non-latest revision published, using `createFrom` mutations to publish in this test)", async () => {
+    it("should be able to publish a previously published revision (entry already has a non-latest revision published, using `createFrom` mutations to publish in this test)", async () => {
         const { data: revision1 } = await manage.createTestEntry({
             data: { title: "Revision 1" }
         });

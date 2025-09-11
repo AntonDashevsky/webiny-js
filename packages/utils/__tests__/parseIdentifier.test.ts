@@ -1,5 +1,5 @@
-import type { ParseIdentifierResult } from "~/parseIdentifier.js";
-import { parseIdentifier } from "~/parseIdentifier.js";
+import { describe, test, expect } from "vitest";
+import { parseIdentifier, ParseIdentifierResult } from "~/parseIdentifier";
 
 type Input = [string, ParseIdentifierResult];
 

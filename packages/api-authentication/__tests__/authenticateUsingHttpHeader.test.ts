@@ -1,6 +1,7 @@
-import type { AuthenticationContext, Authenticator, Identity } from "~/types.js";
-import { createAuthentication } from "~/createAuthentication.js";
-import { authenticateUsingHttpHeader } from "~/authenticateUsingHttpHeader.js";
+import { describe, it, expect } from "vitest";
+import { AuthenticationContext, Authenticator, Identity } from "~/types";
+import { createAuthentication } from "~/createAuthentication";
+import { authenticateUsingHttpHeader } from "~/authenticateUsingHttpHeader";
 
 const identity: Identity = {
     id: "1",

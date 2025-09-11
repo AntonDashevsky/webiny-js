@@ -1,4 +1,5 @@
-import { getIdentity } from "~/index.js";
+import { describe, test, expect } from "vitest";
+import { getIdentity } from "~/index";
 
 describe("getIdentity Test", () => {
     test("full identity information should be returned correctly", async () => {

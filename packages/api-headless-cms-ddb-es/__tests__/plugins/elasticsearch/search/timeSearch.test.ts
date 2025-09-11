@@ -1,5 +1,6 @@
-import { createTimeSearchPlugin } from "~/elasticsearch/search/timeSearch.js";
-import type { TransformCallableParams } from "~/plugins/index.js";
+import { describe, expect, it } from "vitest";
+import { createTimeSearchPlugin } from "~/elasticsearch/search/timeSearch";
+import { TransformCallableParams } from "~/plugins";
 
 const timeField = {
     settings: {
@@ -21,7 +22,7 @@ describe("timeSearch", () => {
         ["13:45:55", 49555],
         ["23:59:59", 86399]
     ];
-    test.each(correctValues)("should transform value correctly", (value, expected) => {
+    it.each(correctValues)("should transform value correctly", (value, expected) => {
         const result = plugin.transform({
             field: timeField,
             value

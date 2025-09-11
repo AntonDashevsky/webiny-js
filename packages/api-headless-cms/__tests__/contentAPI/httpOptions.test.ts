@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { ContextPlugin } from "@webiny/api";
 import type { CmsContext } from "~/types/index.js";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
@@ -20,7 +21,7 @@ describe("HTTP Options request", () => {
         ]
     };
 
-    test(`http options`, async () => {
+    it(`http options`, async () => {
         const { invoke } = useCategoryManageHandler(manageOpts);
 
         const response = await invoke({

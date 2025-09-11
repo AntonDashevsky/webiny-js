@@ -1,4 +1,5 @@
-import type { CmsDynamicZoneTemplate, CmsModelFieldInput } from "~/types";
+import { expect } from "vitest";
+import { CmsDynamicZoneTemplate, CmsModelFieldInput } from "~/types";
 
 const nestedErrorRegex = /^(nested|dz)([A-Za-z]+)$/;
 export const isNestedError = (error: FieldError): boolean => {

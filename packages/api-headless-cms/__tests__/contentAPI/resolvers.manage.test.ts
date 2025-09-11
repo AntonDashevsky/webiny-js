@@ -1,12 +1,12 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import WebinyError from "@webiny/error";
 import type { CmsEntry, CmsEntryListParams, CmsGroup, CmsModel } from "~/types/index.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
-import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler.js";
-import models from "./mocks/contentModels.js";
-import modelsWithoutValidation from "./mocks/contentModels.noValidation.js";
-import { useProductManageHandler } from "../testHelpers/useProductManageHandler.js";
-import { jest } from "@jest/globals";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
+import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";
+import models from "./mocks/contentModels";
+import modelsWithoutValidation from "./mocks/contentModels.noValidation";
+import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
 
 interface CreateCategoriesResult {
     fruits: CmsEntry;
@@ -42,7 +42,9 @@ const createPermissions = ({ groups, models }: { groups?: string[]; models?: str
     }
 ];
 
-jest.setTimeout(100000);
+vi.setConfig({
+    testTimeout: 100_000,
+})
 
 describe("MANAGE - Resolvers", () => {
     let contentModelGroup: CmsGroup;
@@ -128,7 +130,7 @@ describe("MANAGE - Resolvers", () => {
         return categories;
     };
 
-    test(`get category`, async () => {
+    it(`get category`, async () => {
         await setupModel();
         const { createCategory, getCategory } = useCategoryManageHandler(manageOpts);
 
@@ -173,7 +175,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test(`error when getting category without specific groups and models permissions`, async () => {
+    it(`error when getting category without specific groups and models permissions`, async () => {
         await setupModel();
         const { createCategory } = useCategoryManageHandler(manageOpts);
 
@@ -201,7 +203,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test(`get category with specific groups and models permissions`, async () => {
+    it(`get category with specific groups and models permissions`, async () => {
         await setupModel();
         const { createCategory } = useCategoryManageHandler(manageOpts);
 
@@ -255,7 +257,7 @@ describe("MANAGE - Resolvers", () => {
         expect(response.data.getCategory.error).toEqual(null);
     });
 
-    test(`list categories (no parameters)`, async () => {
+    it(`list categories (no parameters)`, async () => {
         await setupModel();
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory, listCategories } =
@@ -325,7 +327,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test("get entries by given ids", async () => {
+    it("get entries by given ids", async () => {
         await setupModel();
         // Use "manage" API to create and publish entries
         const { createCategory, getCategoriesByIds } = useCategoryManageHandler(manageOpts);
@@ -372,7 +374,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test(`should create category`, async () => {
+    it(`should create category`, async () => {
         await setupModel();
         const { createCategory } = useCategoryManageHandler(manageOpts);
         const [create1] = await createCategory({ data: { title: "Hardware", slug: "hardware" } });
@@ -414,7 +416,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test(`should return validation error`, async () => {
+    it(`should return validation error`, async () => {
         await setupModel();
         const { createCategory } = useCategoryManageHandler(manageOpts);
 
@@ -442,7 +444,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test(`should create an entry (fields without validation)`, async () => {
+    it(`should create an entry (fields without validation)`, async () => {
         const model = modelsWithoutValidation.find(m => m.modelId === "category");
         await setupModel(model);
 
@@ -506,7 +508,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test(`create category revision`, async () => {
+    it(`create category revision`, async () => {
         await setupModel();
 
         const { createCategory, createCategoryFrom, listCategories } =
@@ -585,7 +587,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test(`update category`, async () => {
+    it(`update category`, async () => {
         await setupModel();
         const { createCategory, updateCategory, listCategories } =
             useCategoryManageHandler(manageOpts);
@@ -669,7 +671,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test(`delete category`, async () => {
+    it(`delete category`, async () => {
         await setupModel();
         const { createCategory, createCategoryFrom, getCategory, listCategories, deleteCategory } =
             useCategoryManageHandler(manageOpts);
@@ -754,7 +756,7 @@ describe("MANAGE - Resolvers", () => {
         expect(meta.revisions[0].id).toEqual(id2);
     });
 
-    test(`publish and unpublish a category`, async () => {
+    it(`publish and unpublish a category`, async () => {
         await setupModel();
         const { createCategory, createCategoryFrom, publishCategory, unpublishCategory } =
             useCategoryManageHandler(manageOpts);
@@ -848,7 +850,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test(`list categories (contains, not_contains, in, not_in)`, async () => {
+    it(`list categories (contains, not_contains, in, not_in)`, async () => {
         const { animals, fruits, vegetables, trees } = await createCategories();
         const { listCategories } = useCategoryManageHandler(manageOpts);
 
@@ -977,7 +979,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test("should store and retrieve nested objects", async () => {
+    it("should store and retrieve nested objects", async () => {
         const model = models.find(model => model.modelId === "product");
         await setupModel(model);
 
@@ -1162,7 +1164,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test("should have all entry revisions published", async () => {
+    it("should have all entry revisions published", async () => {
         const { getCategory, createCategory, publishCategory, createCategoryFrom, listCategories } =
             useCategoryManageHandler(manageOpts);
 
@@ -1437,7 +1439,7 @@ describe("MANAGE - Resolvers", () => {
         });
     });
 
-    test("should get latest, published or exact category", async () => {
+    it("should get latest, published or exact category", async () => {
         const { getCategory, createCategory, publishCategory, createCategoryFrom } =
             useCategoryManageHandler(manageOpts);
 

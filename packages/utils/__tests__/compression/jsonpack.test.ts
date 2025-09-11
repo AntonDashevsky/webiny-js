@@ -1,4 +1,5 @@
-import { compress, decompress } from "~/compression/jsonpack.js";
+import { describe, it, expect } from "vitest";
+import { compress, decompress } from "~/compression/jsonpack";
 
 const testingData = Object.freeze({
     name: "John Doe",

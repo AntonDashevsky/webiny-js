@@ -1,4 +1,5 @@
-import { toSlug } from "~/utils/toSlug.js";
+import { describe, expect, it } from "vitest";
+import { toSlug } from "~/utils/toSlug";
 
 describe("toSlug", () => {
     const cases: [string, string][] = [

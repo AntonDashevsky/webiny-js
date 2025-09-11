@@ -1,3 +1,4 @@
+import { describe, test, expect } from "vitest";
 import prettier from "prettier";
 import { useHandler } from "./utils/useHandler.js";
 import { createFilesTypeDefs } from "~/graphql/createFilesTypeDefs.js";

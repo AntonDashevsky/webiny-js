@@ -1,6 +1,6 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useGraphQLHandler } from "~tests/testHelpers/useGraphQLHandler";
 import { ContextPlugin } from "@webiny/api";
-import { jest } from "@jest/globals";
 
 describe("benchmark points", () => {
     let elapsed = 0;
@@ -23,7 +23,7 @@ describe("benchmark points", () => {
 
     it("should run benchmark and have required points present in the log", async () => {
         const logs: any[] = [];
-        jest.spyOn(console, "log").mockImplementation((...args) => {
+        vi.spyOn(console, "log").mockImplementation((...args) => {
             logs.push(...args);
         });
 

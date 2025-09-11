@@ -1,8 +1,11 @@
-// @ts-nocheck TODO: v6 @pavel
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { GetFolderHierarchy } from "./GetFolderHierarchy.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { loadedFolderCacheFactory } from "../cache/LoadedFoldersCacheFactory.js";
-import { jest } from "@jest/globals";
+import {
+    GetFolderHierarchyGatewayResponse,
+    IGetFolderHierarchyGateway
+} from "~/features/folders/getFolderHierarchy/IGetFolderHierarchyGateway";
 
 describe("GetFolderHierarchy", () => {
     const type = "abc";
@@ -13,53 +16,66 @@ describe("GetFolderHierarchy", () => {
     beforeEach(() => {
         foldersCache.clear();
         loadedFoldersCache.clear();
-        jest.resetAllMocks();
+        vi.resetAllMocks();
     });
 
+    class GetFolderHierarchyMockGateway implements IGetFolderHierarchyGateway {
+        mockResponse: GetFolderHierarchyGatewayResponse;
+
+        // Had to use `any` as the mock folders passed in the tests below are also partial objects.
+        constructor(mockResponse: any) {
+            this.mockResponse = mockResponse as GetFolderHierarchyGatewayResponse;
+        }
+
+        async execute() {
+            return this.mockResponse;
+        }
+    }
+
     it("should update the list of folders in both `cache` and `loadedCache` when `parents` and `children` are returned by the gateway", async () => {
-        const gateway = {
-            execute: jest.fn().mockResolvedValue({
-                parents: [
-                    {
-                        id: "folder-1",
-                        title: "Folder 1",
-                        slug: "folder-1",
-                        parentId: null,
-                        type
-                    },
-                    {
-                        id: "folder-2",
-                        title: "Folder 2",
-                        slug: "folder-2",
-                        parentId: "folder-1",
-                        type
-                    },
-                    {
-                        id: "folder-3",
-                        title: "Folder 3",
-                        slug: "folder-3",
-                        parentId: "folder-2",
-                        type
-                    }
-                ],
-                siblings: [
-                    {
-                        id: "folder-4",
-                        title: "Folder 4",
-                        slug: "folder-4",
-                        parentId: "folder-3",
-                        type
-                    },
-                    {
-                        id: "folder-5",
-                        title: "Folder 5",
-                        slug: "folder-5",
-                        parentId: "folder-3",
-                        type
-                    }
-                ]
-            })
-        };
+        const gateway = new GetFolderHierarchyMockGateway({
+            parents: [
+                {
+                    id: "folder-1",
+                    title: "Folder 1",
+                    slug: "folder-1",
+                    parentId: null,
+                    type
+                },
+                {
+                    id: "folder-2",
+                    title: "Folder 2",
+                    slug: "folder-2",
+                    parentId: "folder-1",
+                    type
+                },
+                {
+                    id: "folder-3",
+                    title: "Folder 3",
+                    slug: "folder-3",
+                    parentId: "folder-2",
+                    type
+                }
+            ],
+            siblings: [
+                {
+                    id: "folder-4",
+                    title: "Folder 4",
+                    slug: "folder-4",
+                    parentId: "folder-3",
+                    type
+                },
+                {
+                    id: "folder-5",
+                    title: "Folder 5",
+                    slug: "folder-5",
+                    parentId: "folder-3",
+                    type
+                }
+            ]
+        });
+
+        const spy = vi.spyOn(gateway, "execute");
 
         const getFolderHierarchy = GetFolderHierarchy.getInstance(type, gateway);
 
@@ -67,8 +83,8 @@ describe("GetFolderHierarchy", () => {
         expect(loadedFoldersCache.hasItems()).toBeFalse();
         await getFolderHierarchy.useCase.execute({ id: "folder-0" });
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
-        expect(gateway.execute).toHaveBeenCalledWith({ type, id: "folder-0" });
+        expect(spy).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledWith({ type, id: "folder-0" });
 
         expect(foldersCache.hasItems()).toBeTrue();
         expect(foldersCache.count()).toEqual(5);
@@ -83,27 +99,27 @@ describe("GetFolderHierarchy", () => {
     });
 
     it("should only  update the list of folders in `cache` when `children` are returned by the gateway", async () => {
-        const gateway = {
-            execute: jest.fn().mockResolvedValue({
-                parents: [],
-                siblings: [
-                    {
-                        id: "folder-1",
-                        title: "Folder 1",
-                        slug: "folder-1",
-                        parentId: null,
-                        type
-                    },
-                    {
-                        id: "folder-2",
-                        title: "Folder 2",
-                        slug: "folder-2",
-                        parentId: null,
-                        type
-                    }
-                ]
-            })
-        };
+        const gateway = new GetFolderHierarchyMockGateway({
+            parents: [],
+            siblings: [
+                {
+                    id: "folder-1",
+                    title: "Folder 1",
+                    slug: "folder-1",
+                    parentId: null,
+                    type
+                },
+                {
+                    id: "folder-2",
+                    title: "Folder 2",
+                    slug: "folder-2",
+                    parentId: null,
+                    type
+                }
+            ]
+        });
+
+        const spy = vi.spyOn(gateway, "execute");
 
         const getFolderHierarchy = GetFolderHierarchy.getInstance(type, gateway);
 
@@ -111,8 +127,8 @@ describe("GetFolderHierarchy", () => {
         expect(loadedFoldersCache.hasItems()).toBeFalse();
         await getFolderHierarchy.useCase.execute({ id: "folder-0" });
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
-        expect(gateway.execute).toHaveBeenCalledWith({ type, id: "folder-0" });
+        expect(spy).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledWith({ type, id: "folder-0" });
 
         expect(foldersCache.hasItems()).toBeTrue();
         expect(foldersCache.count()).toEqual(2);
@@ -121,10 +137,16 @@ describe("GetFolderHierarchy", () => {
     });
 
     it("should handle gateway errors gracefully", async () => {
-        const errorGateway = {
-            execute: jest.fn().mockRejectedValue(new Error("Gateway error"))
-        };
-        const getFolderHierarchy = GetFolderHierarchy.getInstance(type, errorGateway);
+        class GetFolderHierarchyErrorMockGateway implements IGetFolderHierarchyGateway {
+            async execute(): Promise<GetFolderHierarchyGatewayResponse> {
+                throw new Error("Gateway error");
+            }
+        }
+
+        const gateway = new GetFolderHierarchyErrorMockGateway();
+        const spy = vi.spyOn(gateway, "execute");
+
+        const getFolderHierarchy = GetFolderHierarchy.getInstance(type, gateway);
 
         expect(foldersCache.hasItems()).toBeFalse();
 
@@ -132,85 +154,84 @@ describe("GetFolderHierarchy", () => {
             "Gateway error"
         );
 
-        expect(errorGateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(foldersCache.hasItems()).toBeFalse();
     });
 
     it("should clear cache when type changes", async () => {
-        const gatewayAbc = {
-            execute: jest.fn().mockResolvedValue({
-                parents: [
-                    {
-                        id: "folder-1",
-                        title: "Folder 1",
-                        slug: "folder-1",
-                        parentId: null,
-                        type
-                    },
-                    {
-                        id: "folder-2",
-                        title: "Folder 2",
-                        slug: "folder-2",
-                        parentId: "folder-1",
-                        type
-                    },
-                    {
-                        id: "folder-3",
-                        title: "Folder 3",
-                        slug: "folder-3",
-                        parentId: "folder-2",
-                        type
-                    }
-                ],
-                siblings: [
-                    {
-                        id: "folder-4",
-                        title: "Folder 4",
-                        slug: "folder-4",
-                        parentId: "folder-3",
-                        type
-                    },
-                    {
-                        id: "folder-5",
-                        title: "Folder 5",
-                        slug: "folder-5",
-                        parentId: "folder-3",
-                        type
-                    }
-                ]
-            })
-        };
+        const gatewayAbc = new GetFolderHierarchyMockGateway({
+            parents: [
+                {
+                    id: "folder-1",
+                    title: "Folder 1",
+                    slug: "folder-1",
+                    parentId: null,
+                    type
+                },
+                {
+                    id: "folder-2",
+                    title: "Folder 2",
+                    slug: "folder-2",
+                    parentId: "folder-1",
+                    type
+                },
+                {
+                    id: "folder-3",
+                    title: "Folder 3",
+                    slug: "folder-3",
+                    parentId: "folder-2",
+                    type
+                }
+            ],
+            siblings: [
+                {
+                    id: "folder-4",
+                    title: "Folder 4",
+                    slug: "folder-4",
+                    parentId: "folder-3",
+                    type
+                },
+                {
+                    id: "folder-5",
+                    title: "Folder 5",
+                    slug: "folder-5",
+                    parentId: "folder-3",
+                    type
+                }
+            ]
+        });
 
         const newType = "xyz";
-        const gatewayXyz = {
-            execute: jest.fn().mockResolvedValue({
-                parents: [
-                    {
-                        id: "folder-1",
-                        title: "Folder 1",
-                        slug: "folder-1",
-                        parentId: null,
-                        type
-                    },
-                    {
-                        id: "folder-2",
-                        title: "Folder 2",
-                        slug: "folder-2",
-                        parentId: "folder-1",
-                        type
-                    }
-                ],
-                siblings: [
-                    {
-                        id: "folder-3",
-                        title: "Folder 3",
-                        slug: "folder-4",
-                        parentId: "folder-2",
-                        type
-                    }
-                ]
-            })
-        };
+        const gatewayXyz = new GetFolderHierarchyMockGateway({
+            parents: [
+                {
+                    id: "folder-1",
+                    title: "Folder 1",
+                    slug: "folder-1",
+                    parentId: null,
+                    type
+                },
+                {
+                    id: "folder-2",
+                    title: "Folder 2",
+                    slug: "folder-2",
+                    parentId: "folder-1",
+                    type
+                }
+            ],
+            siblings: [
+                {
+                    id: "folder-3",
+                    title: "Folder 3",
+                    slug: "folder-4",
+                    parentId: "folder-2",
+                    type
+                }
+            ]
+        });
+
+        const spyAbc = vi.spyOn(gatewayAbc, "execute");
+        const spyXzy = vi.spyOn(gatewayXyz, "execute");
 
         const getFolderHierarchyAbc = GetFolderHierarchy.getInstance(type, gatewayAbc);
 
@@ -218,7 +239,7 @@ describe("GetFolderHierarchy", () => {
 
         await getFolderHierarchyAbc.useCase.execute({ id: "folder-0" });
 
-        expect(gatewayAbc.execute).toHaveBeenCalledTimes(1);
+        expect(spyAbc).toHaveBeenCalledTimes(1);
         expect(foldersCache.count()).toEqual(5);
         expect(loadedFoldersCache.count()).toEqual(3);
 
@@ -231,7 +252,7 @@ describe("GetFolderHierarchy", () => {
 
         await getFolderHierarchyXyz.useCase.execute({ id: "folder-0" });
 
-        expect(gatewayXyz.execute).toHaveBeenCalledTimes(1);
+        expect(spyXzy).toHaveBeenCalledTimes(1);
         expect(foldersCacheXyz.count()).toEqual(3);
         expect(loadedFoldersCacheXyz.count()).toEqual(2);
     });

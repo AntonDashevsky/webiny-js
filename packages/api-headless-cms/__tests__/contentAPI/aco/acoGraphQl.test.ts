@@ -1,8 +1,6 @@
-import { useGraphQLHandler } from "./setup/useGraphQLHandler.js";
-import { ROOT_FOLDER } from "~/constants.js";
-import { jest } from "@jest/globals";
-
-jest.retryTimes(0);
+import { describe, it, expect } from "vitest";
+import { useGraphQLHandler } from "./setup/useGraphQLHandler";
+import { ROOT_FOLDER } from "~/constants";
 
 const entryId = `custom-entry-id`;
 const id = `${entryId}#0001`;

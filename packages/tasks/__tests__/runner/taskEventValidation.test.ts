@@ -1,6 +1,7 @@
-import { TaskEventValidation } from "~/runner/TaskEventValidation.js";
-import type { ITaskEvent } from "~/handler/types.js";
-import type WebinyError from "@webiny/error";
+import { describe, it, expect } from "vitest";
+import { TaskEventValidation } from "~/runner/TaskEventValidation";
+import { ITaskEvent } from "~/handler/types";
+import WebinyError from "@webiny/error";
 
 describe("task event validation", () => {
     it("should pass the validation", async () => {

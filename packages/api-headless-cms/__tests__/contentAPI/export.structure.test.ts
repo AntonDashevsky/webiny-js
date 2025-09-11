@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useGraphQLHandler } from "~tests/testHelpers/useGraphQLHandler";
 import type { CmsGroup } from "~tests/types";
 import models from "./mocks/contentModels";

@@ -88,7 +88,6 @@ export class FileManagerContextSetup {
 
     private async setupCmsStorageOperations(aliases: FileManagerAliasesStorageOperations) {
         if (!(await isHeadlessCmsReady(this.context))) {
-            console.log("Installation pending!");
             return;
         }
 

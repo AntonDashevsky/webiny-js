@@ -1,4 +1,5 @@
-import { assignFields } from "~/plugins/definitions/assignFields.js";
+import { describe, it, expect } from "vitest";
+import { assignFields } from "~/plugins/definitions/assignFields";
 
 describe("assign fields", () => {
     it("should properly assign a single field", () => {

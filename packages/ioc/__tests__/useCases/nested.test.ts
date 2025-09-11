@@ -1,39 +1,4 @@
-import { jest } from "@jest/globals";
-
-// export default withFields({
-//     name: string({ validation: "required,maxLength:500" }),
-//     websiteUrl: onSet(trimTrailingSlashes)(string({ validation: "url,maxLength:500" })),
-//     websitePreviewUrl: onSet(trimTrailingSlashes)(string({ validation: "url,maxLength:500" })),
-//     favicon: object({}),
-//     logo: object({}),
-//     social: fields({
-//         value: {},
-//         instanceOf: withFields({
-//             facebook: string({ validation: "url,maxLength:500" }),
-//             twitter: string({ validation: "url,maxLength:500" }),
-//             instagram: string({ validation: "url,maxLength:500" }),
-//             image: object({})
-//         })()
-//     }),
-//     htmlTags: fields({
-//         value: {},
-//         instanceOf: withFields({
-//             header: string(),
-//             footer: string()
-//         })()
-//     }),
-//     pages: fields({
-//         value: {},
-//         instanceOf: withFields({
-//             home: onSet(extractPid)(string()),
-//             notFound: onSet(extractPid)(string())
-//         })()
-//     }),
-//     // TODO: implement this via a plugin when https://github.com/webiny/webiny-js/issues/2168 is resolved.
-//     theme: string()
-// })();
-
-jest.retryTimes(0);
+import { describe, it, expect } from "vitest";
 
 const trimTrailingSlashes = (value: string): string => value.replace(/\/$/, "");
 

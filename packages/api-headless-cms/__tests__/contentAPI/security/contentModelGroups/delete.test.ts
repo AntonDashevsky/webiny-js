@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import type { SecurityIdentity } from "@webiny/api-security/types";
 import { CmsTestPermissions, expectNotAuthorized } from "../utils";
@@ -6,7 +7,7 @@ const identityA: SecurityIdentity = { id: "a", type: "admin", displayName: "A" }
 const identityB: SecurityIdentity = { id: "b", type: "admin", displayName: "B" };
 
 describe("Delete Permissions Checks", () => {
-    test("should allow deletion of groups only with sufficient permission", async () => {
+    it("should allow deletion of groups only with sufficient permission", async () => {
         const permissions = new CmsTestPermissions({
             groups: { rwd: "rw" }
         });

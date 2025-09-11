@@ -1,7 +1,8 @@
-import { createHandler } from "~/fastify.js";
-import { createRoute } from "~/plugins/RoutePlugin.js";
+import { describe, it, expect } from "vitest";
+import { createHandler } from "~/fastify";
+import { createRoute } from "~/plugins/RoutePlugin";
 import WebinyError from "@webiny/error";
-import { createModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin.js";
+import { createModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin";
 
 describe("custom error handler", () => {
     const data = {

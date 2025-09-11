@@ -1,11 +1,11 @@
-import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import { describe, it, expect, beforeEach } from "vitest";
+import { Entity } from "@webiny/db-dynamodb/toolbox";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { create } from "~/db";
 import { DynamoDbStorageOperations } from "~/logger/dynamodb/DynamoDbStorageOperations";
 import { DynamoDbLoggerKeys } from "~/logger";
 import { mdbid } from "@webiny/utils";
-import type { ILoggerLog } from "~/types";
-import { LogType } from "~/types";
+import { ILoggerLog, LogType } from "~/types";
 import { getTenant } from "~tests/mocks/getTenant";
 import { getLocale } from "~tests/mocks/getLocale";
 

@@ -1,4 +1,5 @@
-import { TimeScalar } from "~/builtInTypes/index.js";
+import { describe, test, expect } from "vitest";
+import { TimeScalar } from "~/builtInTypes";
 
 describe("TimeScalar", () => {
     const correctTime = [

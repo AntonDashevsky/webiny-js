@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { QueryBuilderDrawerPresenter } from "./QueryBuilderDrawerPresenter.js";
 import type { FilterDTO } from "~/components/AdvancedSearch/domain/index.js";
 import { Operation } from "~/components/AdvancedSearch/domain/index.js";
@@ -276,8 +277,8 @@ describe("QueryBuilderDrawerPresenter", () => {
         // let's load a filter
         presenter.load(filter);
 
-        const onSuccess = jest.fn();
-        const onError = jest.fn();
+        const onSuccess = vi.fn();
+        const onError = vi.fn();
 
         presenter.setFilter({
             operation: Operation.OR,
@@ -336,8 +337,8 @@ describe("QueryBuilderDrawerPresenter", () => {
         // let's load a filter
         presenter.load(filter);
 
-        const onSuccess = jest.fn();
-        const onError = jest.fn();
+        const onSuccess = vi.fn();
+        const onError = vi.fn();
 
         presenter.setFilter({
             operation: Operation.OR,

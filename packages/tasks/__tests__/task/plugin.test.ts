@@ -1,6 +1,7 @@
-import type WebinyError from "@webiny/error";
-import type { Context } from "../types";
-import type { ITaskDefinition, ITaskDefinitionField, ITaskRunParams } from "~/types";
+import { describe, it, expect } from "vitest";
+import WebinyError from "@webiny/error";
+import { Context } from "../types";
+import { ITaskDefinition, ITaskDefinitionField, ITaskRunParams } from "~/types";
 import { createTaskDefinition, createTaskDefinitionField } from "~/task/plugin";
 import { createMockTaskDefinition } from "~tests/mocks/definition";
 import zod from "zod";

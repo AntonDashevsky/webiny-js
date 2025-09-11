@@ -1,4 +1,5 @@
-import useGqlHandler from "./useGqlHandler.js";
+import { describe, test, expect, beforeEach } from "vitest";
+import useGqlHandler from "./useGqlHandler";
 
 describe(`Test "Security" install`, () => {
     const { install, securityGroup } = useGqlHandler();

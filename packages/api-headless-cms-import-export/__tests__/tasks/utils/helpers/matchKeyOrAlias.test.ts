@@ -1,5 +1,6 @@
-import { matchKeyOrAlias } from "~/tasks/utils/helpers/matchKeyOrAlias.js";
-import type { GenericRecord } from "@webiny/api/types.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import { matchKeyOrAlias } from "~/tasks/utils/helpers/matchKeyOrAlias";
+import { GenericRecord } from "@webiny/api/types";
 
 const cloudfrontUrl = "https://d1zqvydzhnfn89.cloudfront.net";
 

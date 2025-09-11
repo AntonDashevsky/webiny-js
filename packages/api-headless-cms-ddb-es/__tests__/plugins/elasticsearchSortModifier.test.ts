@@ -1,6 +1,7 @@
-import type { Sort } from "@webiny/api-elasticsearch/types.js";
-import { CmsEntryElasticsearchSortModifierPlugin } from "~/plugins/index.js";
-import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { describe, expect, it } from "vitest";
+import { Sort } from "@webiny/api-elasticsearch/types";
+import { CmsEntryElasticsearchSortModifierPlugin } from "~/plugins";
+import { CmsModel } from "@webiny/api-headless-cms/types";
 
 const model = {} as unknown as CmsModel;
 
@@ -11,6 +12,7 @@ describe("Elasticsearch sort modifier plugin", () => {
                 if (typeof sort !== "object") {
                     return;
                 }
+                // @ts-expect-error
                 sort["newField"] = {
                     order: "asc"
                 };
@@ -46,8 +48,10 @@ describe("Elasticsearch sort modifier plugin", () => {
                 }
 
                 for (const key in sort) {
+                    // @ts-expect-error
                     delete sort[key];
                 }
+                // @ts-expect-error
                 sort["_script"] = {
                     type: "number",
                     script: {

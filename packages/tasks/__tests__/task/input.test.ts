@@ -1,4 +1,5 @@
-import { createTaskInput } from "~/task/index.js";
+import { describe, it, expect } from "vitest";
+import { createTaskInput } from "~/task";
 
 interface MyInput {
     test: boolean;

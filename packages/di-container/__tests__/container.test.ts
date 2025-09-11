@@ -1,3 +1,4 @@
+import { describe, test, expect, beforeEach, vi } from "vitest";
 import {
     Container,
     Abstraction,
@@ -7,7 +8,6 @@ import {
     createComposite,
     isComposite
 } from "~/index.js";
-import { jest } from "@jest/globals";
 // Mock implementations for testing
 interface ILogger {
     log(...args: unknown[]): void;
@@ -294,7 +294,7 @@ describe("DIContainer", () => {
         expect(decoratedLogger).toBeInstanceOf(LoggerDecorator);
 
         // Verify that the decorator actually calls the original implementation
-        const consoleSpy = jest.spyOn(console, "log");
+        const consoleSpy = vi.spyOn(console, "log");
         decoratedLogger.log("Testing decorator on instance");
         expect(consoleSpy).toHaveBeenCalledWith("Decorated:");
         expect(consoleSpy).toHaveBeenCalledWith("ConsoleLogger:", "Testing decorator on instance");
@@ -402,7 +402,7 @@ describe("DIContainer", () => {
         expect(logger).toBeInstanceOf(FormattingLoggerDecorator);
 
         // Verify that the decorator uses both the formatter and the decoratee
-        const consoleSpy = jest.spyOn(console, "log");
+        const consoleSpy = vi.spyOn(console, "log");
         logger.log("hello world");
         expect(consoleSpy).toHaveBeenCalledWith("ConsoleLogger:", "HELLO WORLD");
         consoleSpy.mockRestore();

@@ -1,6 +1,7 @@
-import { createBlankQuery } from "../../helpers.js";
-import type { ElasticsearchBoolQueryConfig } from "~/types.js";
-import { ElasticsearchQueryBuilderOperatorEqualPlugin } from "~/plugins/operator/index.js";
+import { describe, expect, it } from "vitest";
+import { createBlankQuery } from "../../helpers";
+import { ElasticsearchBoolQueryConfig } from "~/types";
+import { ElasticsearchQueryBuilderOperatorEqualPlugin } from "~/plugins/operator";
 
 describe("ElasticsearchQueryBuilderOperatorEqualPlugin", () => {
     const plugin = new ElasticsearchQueryBuilderOperatorEqualPlugin();

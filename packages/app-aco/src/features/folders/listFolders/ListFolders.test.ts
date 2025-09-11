@@ -1,8 +1,8 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { ListFolders } from "./ListFolders.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
-import { jest } from "@jest/globals";
-import type { IListFoldersGateway } from "~/features/folders/listFolders/IListFoldersGateway.js";
-import type { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto.js";
+import type { IListFoldersGateway } from "~/features/folders/listFolders/IListFoldersGateway";
+import type { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto";
 
 describe("ListFolders", () => {
     class ListFoldersMockGateway implements IListFoldersGateway {
@@ -31,23 +31,25 @@ describe("ListFolders", () => {
     }
 
     const type = "abc";
-    const gateway = new ListFoldersMockGateway();
 
     const foldersCache = folderCacheFactory.getCache(type);
 
     beforeEach(() => {
         foldersCache.clear();
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should be able to list folders", async () => {
+        const gateway = new ListFoldersMockGateway();
         const listFolders = ListFolders.getInstance(type, gateway);
+
+        const spy = vi.spyOn(gateway, "execute");
 
         expect(foldersCache.hasItems()).toBeFalse();
 
         await listFolders.useCase.execute();
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(foldersCache.hasItems()).toBeTrue();
 
         const items = foldersCache.getItems();
@@ -63,12 +65,13 @@ describe("ListFolders", () => {
 
         const emptyGateway = new ListFoldersEmptyMockGateway();
         const listFolders = ListFolders.getInstance(type, emptyGateway);
+        const spy = vi.spyOn(emptyGateway, "execute");
 
         expect(foldersCache.hasItems()).toBeFalse();
 
         await listFolders.useCase.execute();
 
-        expect(emptyGateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(foldersCache.hasItems()).toBeFalse();
 
         const items = foldersCache.getItems();
@@ -84,23 +87,26 @@ describe("ListFolders", () => {
 
         const errorGateway = new ListFoldersErrorMockGateway();
         const listFolders = ListFolders.getInstance(type, errorGateway);
+        const spy = vi.spyOn(errorGateway, "execute");
 
         expect(foldersCache.hasItems()).toBeFalse();
 
         await expect(listFolders.useCase.execute()).rejects.toThrow("Gateway error");
 
-        expect(errorGateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(foldersCache.hasItems()).toBeFalse();
     });
 
     it("should NOT cache folders after listing", async () => {
+        const gateway = new ListFoldersMockGateway();
         const listFolders = ListFolders.getInstance(type, gateway);
+        const spy = vi.spyOn(gateway, "execute");
 
         expect(foldersCache.hasItems()).toBeFalse();
 
         await listFolders.useCase.execute();
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(foldersCache.hasItems()).toBeTrue();
 
         const items = foldersCache.getItems();
@@ -108,17 +114,19 @@ describe("ListFolders", () => {
 
         // Execute again, it should execute the gateway again
         await listFolders.useCase.execute();
-        expect(gateway.execute).toHaveBeenCalledTimes(2);
+        expect(spy).toHaveBeenCalledTimes(2);
     });
 
     it("should clear cache when type changes", async () => {
+        const gateway = new ListFoldersMockGateway();
         const listFolders = ListFolders.getInstance(type, gateway);
+        const spy = vi.spyOn(gateway, "execute");
 
         expect(foldersCache.hasItems()).toBeFalse();
 
         await listFolders.useCase.execute();
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(foldersCache.hasItems()).toBeTrue();
 
         const newType = "xyz";
@@ -129,7 +137,7 @@ describe("ListFolders", () => {
 
         await newListFolders.useCase.execute();
 
-        expect(gateway.execute).toHaveBeenCalledTimes(2);
+        expect(spy).toHaveBeenCalledTimes(2);
         expect(newFoldersCache.hasItems()).toBeTrue();
     });
 });

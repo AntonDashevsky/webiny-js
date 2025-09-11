@@ -1,7 +1,7 @@
-import { createGraphQLHandler } from "./graphQLHandler.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { createGraphQLHandler } from "./graphQLHandler";
 
-jest.mock("nodemailer", () => {
+vi.mock("nodemailer", () => {
     return {
         createTransport: () => {
             throw new Error("Transport should not be created at this point.");

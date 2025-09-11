@@ -1,10 +1,10 @@
-import { jest } from "@jest/globals";
+import { describe, expect, it, vi } from "vitest";
 import { createRunner } from "@webiny/project-utils/testing/tasks";
 import { useHandler } from "~tests/helpers/useHandler";
 import { createExportContentEntriesTask } from "~/tasks";
 import type { ITaskRunParams } from "@webiny/tasks";
 
-jest.mock("~/tasks/domain/createExportContentEntries", () => {
+vi.mock("~/tasks/domain/createExportContentEntries", () => {
     return {
         createExportContentEntries: () => {
             return {

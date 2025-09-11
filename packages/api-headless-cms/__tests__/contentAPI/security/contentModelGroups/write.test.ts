@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import type { SecurityIdentity } from "@webiny/api-security/types";
 import { CmsTestPermissions, expectNotAuthorized } from "../utils";
@@ -7,7 +8,7 @@ const identityB: SecurityIdentity = { id: "b", type: "admin", displayName: "B" }
 const identityC: SecurityIdentity = { id: "c", type: "admin", displayName: "C" };
 
 describe("Write Permissions Checks", () => {
-    test("should allow creation of groups only with sufficient permission", async () => {
+    it("should allow creation of groups only with sufficient permission", async () => {
         const permissions = new CmsTestPermissions({
             groups: { rwd: "r" }
         });
@@ -51,7 +52,7 @@ describe("Write Permissions Checks", () => {
         });
     });
 
-    test("should allow update of groups only with sufficient permission", async () => {
+    it("should allow update of groups only with sufficient permission", async () => {
         const { manage: manageApiA } = useTestModelHandler({ identity: identityA });
         const [modelGroup] = await manageApiA.createContentModelGroupMutation({
             data: { name: "Group 1", icon: "x" }

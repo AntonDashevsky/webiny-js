@@ -1,4 +1,5 @@
-import { createIdentifier } from "~/createIdentifier.js";
+import { describe, test, expect } from "vitest";
+import { createIdentifier } from "~/createIdentifier";
 
 describe("create identifier", () => {
     const inputs: [string, number, string][] = [

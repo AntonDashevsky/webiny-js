@@ -1,4 +1,5 @@
-import { validation, ValidationError } from "../src/index.js";
+import { describe, it, expect } from "vitest";
+import { validation, ValidationError } from "../src";
 
 describe("disabling error throwing test", () => {
     it("by default it must throw errors on invalid data", async () => {

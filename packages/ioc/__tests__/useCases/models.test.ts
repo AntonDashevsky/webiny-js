@@ -1,7 +1,8 @@
-import type { interfaces } from "inversify";
+import { describe, it, beforeEach, expect } from "vitest";
+
+import { interfaces } from "inversify";
 import { z } from "zod";
-import type { Container } from "~/index.js";
-import { createContainer } from "~/index.js";
+import { Container, createContainer } from "~/index";
 type Constructor<T> = new (...args: never[]) => T;
 
 abstract class DataModel {
@@ -58,6 +59,7 @@ describe("Extend model via DI container activation", () => {
         container.bind(PageModelToken).toConstructor(Page);
 
         createPageModelPlugin = (cb: PageModelModifier) => {
+            // @ts-expect-error We don't care about this error because this whole package is being deprecated.
             container.onActivation<interfaces.Newable<Page>>(PageModelToken, (_, Dep) => {
                 return cb(Dep);
             });

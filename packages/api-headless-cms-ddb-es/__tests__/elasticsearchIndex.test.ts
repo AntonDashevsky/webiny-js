@@ -1,5 +1,6 @@
-import { configurations } from "~/configurations.js";
-import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import { configurations } from "~/configurations";
+import { CmsModel } from "@webiny/api-headless-cms/types";
 import { getElasticsearchIndexPrefix } from "@webiny/api-elasticsearch";
 
 describe("Elasticsearch index", () => {
@@ -49,7 +50,9 @@ describe("Elasticsearch index", () => {
                     modelId: "testModel"
                 }
             });
-        }).toThrow(`Missing "tenant" parameter when trying to create Elasticsearch index name.`);
+        }).toThrowError(
+            `Missing "tenant" parameter when trying to create Elasticsearch index name.`
+        );
     });
 
     it("should throw error when missing locale but it is required", async () => {
@@ -65,7 +68,9 @@ describe("Elasticsearch index", () => {
                     modelId: "testModel"
                 }
             });
-        }).toThrow(`Missing "locale" parameter when trying to create Elasticsearch index name.`);
+        }).toThrowError(
+            `Missing "locale" parameter when trying to create Elasticsearch index name.`
+        );
     });
 
     it.each(withLocaleItems)(

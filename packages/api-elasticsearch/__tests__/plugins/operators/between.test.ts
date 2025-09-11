@@ -1,6 +1,7 @@
-import { ElasticsearchQueryBuilderOperatorBetweenPlugin } from "~/plugins/operator/index.js";
-import { createBlankQuery } from "../../helpers.js";
-import type { ElasticsearchBoolQueryConfig } from "~/types.js";
+import { describe, expect, it } from "vitest";
+import { ElasticsearchQueryBuilderOperatorBetweenPlugin } from "~/plugins/operator";
+import { createBlankQuery } from "../../helpers";
+import { ElasticsearchBoolQueryConfig } from "~/types";
 
 describe("ElasticsearchQueryBuilderOperatorBetweenPlugin", () => {
     const plugin = new ElasticsearchQueryBuilderOperatorBetweenPlugin();

@@ -1,4 +1,5 @@
-import i18n, { defaultProcessor } from "@webiny/i18n";
+import { describe, test, expect } from "vitest";
+import i18n, { defaultProcessor } from "~/index";
 
 const t = i18n.namespace("Some.Namespace");
 i18n.registerProcessor(defaultProcessor);

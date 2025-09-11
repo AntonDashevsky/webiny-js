@@ -5,7 +5,6 @@ import type { HcmsAcoContext } from "~/types.js";
 export const createAcoHcmsContext = () => {
     const plugin = new ContextPlugin<HcmsAcoContext>(async context => {
         if (!context.aco) {
-            console.log(`There is no ACO initialized so we will not initialize the HCMS ACO.`);
             return;
         }
         createEntryHooks(context);

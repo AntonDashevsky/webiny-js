@@ -1,7 +1,8 @@
-import { createHandler, S3EventHandler } from "~/index.js";
-import { createLambdaContext } from "./mocks/lambdaContext.js";
-import { createS3Event } from "./mocks/s3Event.js";
-import type { S3Event } from "@webiny/aws-sdk/types/index.js";
+import { describe, it, expect } from "vitest";
+import { createHandler, S3EventHandler } from "~/index";
+import { createLambdaContext } from "./mocks/lambdaContext";
+import { createS3Event } from "./mocks/s3Event";
+import type { S3Event } from "@webiny/aws-sdk/types";
 
 describe("s3", () => {
     it("should create handler", async () => {

@@ -1,4 +1,5 @@
-import { validateStorageId } from "~/crud/contentModel/validateStorageId.js";
+import { describe, expect, it } from "vitest";
+import { validateStorageId } from "~/crud/contentModel/validateStorageId";
 
 describe("validateStorageId", () => {
     it.each([

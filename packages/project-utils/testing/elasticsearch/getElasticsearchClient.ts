@@ -1,3 +1,4 @@
+import { expect } from "vitest";
 import path from "path";
 import { ContextPlugin } from "@webiny/api";
 import elasticsearchClientContextPlugin, {
@@ -49,11 +50,11 @@ interface OnBeforeEach {
 }
 
 export class ElasticsearchClientConfig {
-    public elasticsearchClient: ElasticsearchClient;
-    public plugins: PluginCollection;
+    public readonly elasticsearchClient: ElasticsearchClient;
+    public readonly plugins: PluginCollection;
     private onBeforeEach: { name: string; cb: OnBeforeEach }[] = [];
 
-    constructor(prefix: string) {
+    public constructor(prefix: string) {
         if (prefix !== "") {
             // Prefix will only be handled once, for the first processed storage operations.
             const indexPrefix = getElasticsearchIndexPrefix();
@@ -65,7 +66,7 @@ export class ElasticsearchClientConfig {
         logger.debug(`ES index prefix = "%s"`, getElasticsearchIndexPrefix());
 
         const documentClient = getDocumentClient();
-        this.elasticsearchClient = createElasticsearchClient() as ElasticsearchClient;
+        this.elasticsearchClient = createElasticsearchClient();
         const elasticsearchClientContext = elasticsearchClientContextPlugin(
             this.elasticsearchClient
         );

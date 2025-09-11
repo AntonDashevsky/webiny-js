@@ -1,10 +1,11 @@
-import { useProductManageHandler } from "../testHelpers/useProductManageHandler.js";
-import { createInitFactory } from "./product/init.js";
-import { createEntriesFactory } from "./product/entries.js";
-import { createCategoryFactory } from "./product/category.js";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
-import type { Product, ProductCategory } from "../types.js";
-import { createGetProduct } from "./product/getProductFactory.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
+import { createInitFactory } from "./product/init";
+import { createEntriesFactory } from "./product/entries";
+import { createCategoryFactory } from "./product/category";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
+import { Product, ProductCategory } from "../types";
+import { createGetProduct } from "./product/getProductFactory";
 
 describe("complex product conditional filtering", () => {
     const options = {

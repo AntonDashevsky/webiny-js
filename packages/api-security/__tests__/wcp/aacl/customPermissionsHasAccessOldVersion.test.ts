@@ -1,6 +1,7 @@
-import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
-import { createMockContextHandler } from "./mockContextHandler.js";
-import { customPermissions } from "./mocks/customPermissions.js";
+import { describe, test, expect } from "vitest";
+import { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
+import { createMockContextHandler } from "./mockContextHandler";
+import { customPermissions } from "./mocks/customPermissions";
 
 describe(`Custom permissions test (no WCP access but we're dealing with an old project)`, () => {
     test("should be able to use custom permissions if dealing with an old version of Webiny, even if the project wasn't connected with WCP", async () => {

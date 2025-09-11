@@ -1,12 +1,12 @@
 import { makeAutoObservable } from "mobx";
 
-import type {
-    BatchDTO,
-    FieldDTO,
-    OperationDTO,
-    OperatorDTO
+import {
+    Batch,
+    type BatchDTO,
+    type FieldDTO,
+    type OperationDTO,
+    type OperatorDTO
 } from "~/components/BulkActions/ActionEdit/domain/index.js";
-import { Batch } from "~/components/BulkActions/ActionEdit/domain/index.js";
 import type { FormInvalidFields } from "@webiny/form";
 
 export interface IBatchEditorDialogPresenter {
@@ -57,7 +57,7 @@ export class BatchEditorDialogPresenter implements IBatchEditorDialogPresenter {
 
     get vm() {
         const operations = this.getOperations();
-        const canAddOperation = operations[operations.length - 1]?.fieldOptions.length > 1 || false;
+        const canAddOperation = operations[operations.length - 1].fieldOptions.length > 1;
 
         return {
             invalidFields: this.invalidFields,

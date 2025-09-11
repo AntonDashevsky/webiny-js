@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import prettier from "prettier";
 import contentModels from "./mocks/contentModels.js";
 import { createGraphQLFields } from "~/graphqlFields/index.js";
@@ -19,7 +20,7 @@ describe("MANAGE - ContentModel to SDL", () => {
 
     const models = [...contentModels];
 
-    test("Category SDL", async () => {
+    it("Category SDL", async () => {
         const model = contentModels.find(c => c.modelId === "category") as CmsModel;
         const sdl = createManageSDL({ models, model, fieldTypePlugins, sorterPlugins: [] });
         const prettyGql = await prettier.format(sdl.trim(), { parser: "graphql" });
@@ -27,7 +28,7 @@ describe("MANAGE - ContentModel to SDL", () => {
         expect(prettyGql).toBe(prettySnapshot);
     });
 
-    test("Product SDL", async () => {
+    it("Product SDL", async () => {
         const model = contentModels.find(c => c.modelId === "product") as CmsModel;
         const sdl = createManageSDL({ models, model, fieldTypePlugins, sorterPlugins: [] });
         const prettyGql = await prettier.format(sdl.trim(), { parser: "graphql" });
@@ -35,7 +36,7 @@ describe("MANAGE - ContentModel to SDL", () => {
         expect(prettyGql).toBe(prettySnapshot);
     });
 
-    test("Review SDL", async () => {
+    it("Review SDL", async () => {
         const model = contentModels.find(c => c.modelId === "review") as CmsModel;
         const sdl = createManageSDL({ models, model, fieldTypePlugins, sorterPlugins: [] });
         const prettyGql = await prettier.format(sdl.trim(), { parser: "graphql" });
@@ -43,7 +44,7 @@ describe("MANAGE - ContentModel to SDL", () => {
         expect(prettyGql).toBe(prettySnapshot);
     });
 
-    test("Dynamic Zone SDL", async () => {
+    it("Dynamic Zone SDL", async () => {
         const sdl = createManageSDL({
             models,
             model: pageModel as CmsModel,

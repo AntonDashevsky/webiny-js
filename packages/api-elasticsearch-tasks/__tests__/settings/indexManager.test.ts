@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { IndexManager } from "~/settings";
 import { createElasticsearchClientMock, indexSettings } from "~tests/mocks/elasticsearch";
 

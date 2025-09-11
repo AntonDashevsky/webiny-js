@@ -1,11 +1,12 @@
-import { createElasticsearchClient } from "../helpers.js";
-import { getJapaneseConfiguration } from "~/indexConfiguration/index.js";
-import { ElasticsearchQueryBuilderJapaneseOperatorContainsPlugin } from "~/plugins/operator/japanese/contains.js";
-import type { ElasticsearchBoolQueryConfig } from "~/types.js";
-import { entries, searchTargets } from "./japanese.entries.js";
-import type * as RequestParams from "@elastic/elasticsearch/api/requestParams.js";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { createElasticsearchClient } from "../helpers";
+import { getJapaneseConfiguration } from "~/indexConfiguration";
+import { ElasticsearchQueryBuilderJapaneseOperatorContainsPlugin } from "~/plugins/operator/japanese/contains";
+import { ElasticsearchBoolQueryConfig } from "~/types";
+import { entries, searchTargets } from "./japanese.entries";
+import * as RequestParams from "@elastic/elasticsearch/api/requestParams";
 import WebinyError from "@webiny/error";
-import { getElasticsearchIndexPrefix } from "~/indexPrefix.js";
+import { getElasticsearchIndexPrefix } from "~/indexPrefix";
 
 describe("Japanese search", () => {
     const client = createElasticsearchClient();

@@ -1,8 +1,8 @@
-import { jest } from "@jest/globals";
-import { WebsocketsTransport } from "~/transport/WebsocketsTransport.js";
-import type { GenericRecord } from "@webiny/api/types.js";
+import { describe, it, expect, vi } from "vitest";
+import { WebsocketsTransport } from "~/transport/WebsocketsTransport";
+import { GenericRecord } from "@webiny/api/types";
 
-jest.mock("@webiny/aws-sdk/client-apigatewaymanagementapi", () => {
+vi.mock("@webiny/aws-sdk/client-apigatewaymanagementapi", () => {
     return {
         ApiGatewayManagementApiClient: class ApiGatewayManagementApiClient {
             async send(cmd: any) {
@@ -48,10 +48,10 @@ describe("WebsocketsTransport", () => {
 
         const transport = new WebsocketsTransport();
 
-        jest.spyOn(console, "error").mockImplementation((error: string) => {
+        vi.spyOn(console, "error").mockImplementation((error: string) => {
             consoleLogs.error.push(error);
         });
-        jest.spyOn(console, "log").mockImplementation((log: GenericRecord) => {
+        vi.spyOn(console, "log").mockImplementation((log: GenericRecord) => {
             consoleLogs.log.push(log);
         });
 
@@ -83,10 +83,10 @@ describe("WebsocketsTransport", () => {
 
         const transport = new WebsocketsTransport();
 
-        jest.spyOn(console, "error").mockImplementation((error: string) => {
+        vi.spyOn(console, "error").mockImplementation((error: string) => {
             consoleLogs.error.push(error);
         });
-        jest.spyOn(console, "log").mockImplementation((log: GenericRecord) => {
+        vi.spyOn(console, "log").mockImplementation((log: GenericRecord) => {
             consoleLogs.log.push(log);
         });
 

@@ -1,4 +1,5 @@
-import { PointerStore } from "~/tasks/utils/cmsAssetsZipper/PointerStore.js";
+import { describe, expect, it } from "vitest";
+import { PointerStore } from "~/tasks/utils/cmsAssetsZipper/PointerStore";
 
 describe("pointer store", () => {
     it("should have defaults on class init", () => {

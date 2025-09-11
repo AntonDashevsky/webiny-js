@@ -1,5 +1,5 @@
-import type { CursorInput, CursorOutput } from "~/cursor.js";
-import { encodeCursor, decodeCursor } from "~/cursor.js";
+import { describe, it, expect } from "vitest";
+import { encodeCursor, decodeCursor, CursorInput, CursorOutput } from "~/cursor";
 
 describe("Cursor", () => {
     const rawValues: [CursorInput, CursorOutput][] = [

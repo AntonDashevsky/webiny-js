@@ -1,9 +1,7 @@
-import { createHandler } from "~/fastify.js";
-import { createRoute } from "~/plugins/RoutePlugin.js";
-import { createHandlerOnRequest } from "~/plugins/HandlerOnRequestPlugin.js";
-import { jest } from "@jest/globals";
-
-jest.setTimeout(5000);
+import { describe, it, expect } from "vitest";
+import { createHandler } from "~/fastify";
+import { createRoute } from "~/plugins/RoutePlugin";
+import { createHandlerOnRequest } from "~/plugins/HandlerOnRequestPlugin";
 
 const createRoutes = () => {
     return createRoute(({ onPost, onOptions }) => {
@@ -20,7 +18,7 @@ const createRoutes = () => {
     });
 };
 
-describe("fastify onRequest event", () => {
+describe("fastify onRequest event", { timeout: 5000 }, () => {
     it("should return our built-in headers when sending options request", async () => {
         const app = createHandler({
             plugins: [createRoutes()]

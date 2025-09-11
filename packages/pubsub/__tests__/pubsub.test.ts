@@ -1,5 +1,7 @@
-import { createTopic } from "../src/index.js";
-import type { Event } from "~/types.js";
+import { describe, test, expect } from "vitest";
+
+import { createTopic } from "../src";
+import { Event } from "~/types";
 
 interface TestEvent extends Event {
     [key: string]: number;

@@ -1,7 +1,8 @@
-import { filterItems } from "~/utils/filter.js";
-import filters from "~/plugins/filters/index.js";
+import { describe, it, expect, beforeEach } from "vitest";
+import { filterItems } from "~/utils/filter";
+import filters from "~/plugins/filters";
 import { PluginsContainer } from "@webiny/plugins";
-import { FieldPlugin } from "~/plugins/definitions/FieldPlugin.js";
+import { FieldPlugin } from "~/plugins/definitions/FieldPlugin";
 
 const itemJohn = {
     id: 1,

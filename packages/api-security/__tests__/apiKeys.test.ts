@@ -1,13 +1,13 @@
-import { jest } from "@jest/globals";
-import { mockCreateGetWcpProjectEnvironment } from "./wcp/aacl/mocks/mockCreateGetWcpProjectEnvironment.js";
-import { mockCreateGetWcpProjectLicense } from "./wcp/aacl/mocks/mockCreateGetWcpProjectLicense.js";
-import useGqlHandler from "./useGqlHandler.js";
-import apiKeyAuthentication from "~/plugins/apiKeyAuthentication.js";
-import apiKeyAuthorization from "~/plugins/apiKeyAuthorization.js";
+import { describe, test, expect, vi, beforeEach } from "vitest";
+import { mockCreateGetWcpProjectEnvironment } from "./wcp/aacl/mocks/mockCreateGetWcpProjectEnvironment";
+import { mockCreateGetWcpProjectLicense } from "./wcp/aacl/mocks/mockCreateGetWcpProjectLicense";
+import useGqlHandler from "./useGqlHandler";
+import apiKeyAuthentication from "~/plugins/apiKeyAuthentication";
+import apiKeyAuthorization from "~/plugins/apiKeyAuthorization";
 
-jest.mock("@webiny/api-wcp/utils", () => {
+vi.mock("@webiny/api-wcp/utils", async () => {
     // The mock returned only mocks the generateServerSeed method.
-    const actual = jest.requireActual("@webiny/api-wcp/utils");
+    const actual = await vi.importActual("@webiny/api-wcp/utils");
 
     return {
         ...actual,
@@ -15,9 +15,9 @@ jest.mock("@webiny/api-wcp/utils", () => {
     };
 });
 
-jest.mock("@webiny/wcp", () => {
+vi.mock("@webiny/wcp", async () => {
     // The mock returned only mocks the generateServerSeed method.
-    const actual = jest.requireActual("@webiny/wcp");
+    const actual = await vi.importActual("@webiny/wcp");
 
     return {
         ...actual,

@@ -1,4 +1,5 @@
-import { Operations } from "~/Operations.js";
+import { describe, it, expect } from "vitest";
+import { Operations } from "~/Operations";
 
 describe("Operations", () => {
     it("should insert an item", async () => {

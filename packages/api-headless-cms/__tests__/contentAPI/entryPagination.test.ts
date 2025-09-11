@@ -1,14 +1,16 @@
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { mdbid } from "@webiny/utils";
-import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler.js";
-import type { CmsEntry, CmsModel } from "~/types/index.js";
-import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup.js";
-import { jest } from "@jest/globals";
+import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
+import { CmsEntry, CmsModel } from "~/types";
+import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
 
 const NUMBER_OF_FRUITS = 200;
 
-jest.setTimeout(100000);
+vi.setConfig({
+    testTimeout: 100_000
+});
 
-const createFruitData = (counter: number): CmsEntry => {
+const createFruitData = (counter: number) => {
     const entryId = mdbid();
     const id = `${entryId}#${String(counter).padStart(4, "0")}`;
     return {
@@ -46,7 +48,7 @@ const createFruitData = (counter: number): CmsEntry => {
         createdOn: new Date().toISOString(),
         status: "draft",
         locked: false
-    };
+    } as unknown as CmsEntry;
 };
 
 describe("entry pagination", () => {

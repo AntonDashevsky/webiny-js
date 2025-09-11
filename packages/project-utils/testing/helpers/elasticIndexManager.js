@@ -1,4 +1,4 @@
-const { logger } = require("../logger");
+import { logger } from "../logger";
 
 module.exports.elasticIndexManager = ({ global, client, onBeforeEach }) => {
     const clearEsIndices = async () => {

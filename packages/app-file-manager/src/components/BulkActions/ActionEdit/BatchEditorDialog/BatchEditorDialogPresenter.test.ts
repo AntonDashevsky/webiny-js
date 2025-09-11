@@ -1,7 +1,11 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter.js";
-import type { BatchDTO, FieldDTO, OperatorDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
-import { OperatorType } from "~/components/BulkActions/ActionEdit/domain/index.js";
-import { jest } from "@jest/globals";
+import {
+    type BatchDTO,
+    type FieldDTO,
+    type OperatorDTO,
+    OperatorType
+} from "~/components/BulkActions/ActionEdit/domain/index.js";
 
 describe("BatchEditorDialogPresenter", () => {
     const batch: BatchDTO = {
@@ -85,7 +89,7 @@ describe("BatchEditorDialogPresenter", () => {
     let presenter: BatchEditorDialogPresenter;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         presenter = new BatchEditorDialogPresenter();
     });
 
@@ -347,8 +351,8 @@ describe("BatchEditorDialogPresenter", () => {
     it("should perform validation and call provided callbacks `onApply`", () => {
         presenter.load(batch, fields);
 
-        const onSuccess = jest.fn();
-        const onError = jest.fn();
+        const onSuccess = vi.fn();
+        const onError = vi.fn();
 
         presenter.setBatch({
             operations: [
@@ -368,7 +372,7 @@ describe("BatchEditorDialogPresenter", () => {
 
         presenter.onApply(onSuccess, onError);
 
-        expect(onError).toHaveBeenCalledTimes(1);
+        expect(onError).toBeCalledTimes(1);
         expect(Object.keys(presenter.vm.invalidFields).length).toBe(1);
 
         presenter.setBatch({
@@ -391,7 +395,7 @@ describe("BatchEditorDialogPresenter", () => {
 
         presenter.onApply(onSuccess, onError);
 
-        expect(onSuccess).toHaveBeenCalledTimes(1);
+        expect(onSuccess).toBeCalledTimes(1);
         expect(presenter.vm.invalidFields).toEqual({});
     });
 });

@@ -1,4 +1,5 @@
-import { validation, ValidationError } from "../src/index.js";
+import { describe, it, expect } from "vitest";
+import { validation, ValidationError } from "../src";
 
 describe("required test", () => {
     it("should fail - empty string", async () => {

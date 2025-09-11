@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { createIdentity } from "~tests/helpers/identity";
 import { useGraphQLHandler } from "~tests/helpers/useGraphQLHandler";
 

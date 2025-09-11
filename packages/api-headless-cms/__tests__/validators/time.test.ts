@@ -1,6 +1,7 @@
-import { createTimeLteValidator } from "~/validators/timeLte.js";
-import { createTimeGteValidator } from "~/validators/timeGte.js";
-import type { CmsModel, CmsModelField, CmsModelFieldValidation } from "~/types/index.js";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { createTimeLteValidator } from "~/validators/timeLte";
+import { createTimeGteValidator } from "~/validators/timeGte";
+import { CmsModel, CmsModelField, CmsModelFieldValidation } from "~/types";
 
 const createValidator = (args: Record<string, any>): CmsModelFieldValidation => {
     return {
@@ -27,7 +28,7 @@ describe("time validators", () => {
         ["11:23", "11:22"]
     ];
 
-    test.each(gteValidationCorrectValues)(
+    it.each(gteValidationCorrectValues)(
         "should pass gte validation - %s - %s",
         async (value, gteValue) => {
             const validator = createValidator({
@@ -53,7 +54,7 @@ describe("time validators", () => {
         ["11:22", "11:22:01"]
     ];
 
-    test.each(gteValidationIncorrectValues)(
+    it.each(gteValidationIncorrectValues)(
         "should not pass gte validation - %s - %s",
         async (value, gteValue) => {
             const validator = createValidator({
@@ -80,7 +81,7 @@ describe("time validators", () => {
         ["11:22:33", "12:23"]
     ];
 
-    test.each(lteValidationCorrectValues)(
+    it.each(lteValidationCorrectValues)(
         "name should pass lte validation - %s - %s",
         async (value, lteValue) => {
             const validator = createValidator({
@@ -105,7 +106,7 @@ describe("time validators", () => {
         ["11:23", "11:22:33"]
     ];
 
-    test.each(lteValidationIncorrectValues)(
+    it.each(lteValidationIncorrectValues)(
         "name should not pass lte validation - %s - %s",
         async (value, lteValue) => {
             const validator = createValidator({
@@ -147,7 +148,7 @@ describe("time validators", () => {
         return lteValid && gteValid;
     };
 
-    test.each(rangeValidationCorrectValues)(
+    it.each(rangeValidationCorrectValues)(
         "time should pass validation for being in given range - %s - %s - %s",
         async (value, gte, lte) => {
             const lteValidator = createValidator({
@@ -171,7 +172,7 @@ describe("time validators", () => {
         ["22:00:00", "10:00:00", "21:00:00"]
     ];
 
-    test.each(rangeValidationIncorrectValues)(
+    it.each(rangeValidationIncorrectValues)(
         "time should not pass validation because it is not in range - %s - %s - %s",
         async (value, gte, lte) => {
             const lteValidator = createValidator({

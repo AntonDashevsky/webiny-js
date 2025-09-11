@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { ReindexingTaskRunner } from "~/tasks/reindexing/ReindexingTaskRunner";
 import { Manager } from "~/tasks/Manager";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
@@ -13,6 +14,7 @@ import { createTaskManagerStoreMock } from "~tests/mocks/store";
 import { createContextMock } from "~tests/mocks/context";
 import { createIndexManagerMock } from "~tests/mocks/indexManager";
 import { createElasticsearchClientMock } from "~tests/mocks/elasticsearch";
+import { timerFactory } from "@webiny/handler-aws";
 
 describe("reindexing task runner", () => {
     it("should run a task and receive a continue response", async () => {
@@ -27,7 +29,8 @@ describe("reindexing task runner", () => {
             },
             isAborted: () => {
                 return false;
-            }
+            },
+            timer: timerFactory()
         });
         const indexManager = createIndexManagerMock();
         const runner = new ReindexingTaskRunner(manager, indexManager);
@@ -67,7 +70,8 @@ describe("reindexing task runner", () => {
             },
             isAborted: () => {
                 return true;
-            }
+            },
+            timer: timerFactory()
         });
         const indexManager = createIndexManagerMock();
         const runner = new ReindexingTaskRunner(manager, indexManager);
@@ -101,7 +105,8 @@ describe("reindexing task runner", () => {
             },
             isAborted: () => {
                 return false;
-            }
+            },
+            timer: timerFactory()
         });
         const indexManager = createIndexManagerMock();
         const runner = new ReindexingTaskRunner(manager, indexManager);

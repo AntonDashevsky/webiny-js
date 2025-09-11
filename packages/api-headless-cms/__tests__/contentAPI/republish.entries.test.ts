@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { mdbid } from "@webiny/utils";
 import models from "./mocks/contentModels";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
@@ -159,12 +160,12 @@ describe("Republish entries", () => {
                     type: "admin",
                     displayName: "Admin"
                 }
-            },
+            } as unknown as CmsEntry,
             input
         };
     };
 
-    test("should republish entries without changing them", async () => {
+    it("should republish entries without changing them", async () => {
         const group = await setupGroup();
         await setupModel(group, "category");
 
@@ -277,7 +278,7 @@ describe("Republish entries", () => {
      * This test checks values directly in the storage operations, so we make sure there are required values in ref objects.
      * We check in both latest and published records because in different storages that can be two different records.
      */
-    test("storage operations - should republish entries without changing them", async () => {
+    it("storage operations - should republish entries without changing them", async () => {
         const group = await setupGroup();
         const categoryModel = await setupModel(group, "category");
         const productModel = await setupModel(group, "product");

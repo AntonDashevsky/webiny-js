@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import prettier from "prettier";
 import { createGraphQLFields } from "~/graphqlFields/index.js";
 import { createReadSDL } from "~/graphql/schema/createReadSDL.js";
@@ -34,7 +35,7 @@ describe("READ - ContentModel to SDL", () => {
 
     const models = [...contentModels];
 
-    test("Category SDL", async () => {
+    it("Category SDL", async () => {
         const model = getModel("category");
 
         const sdl = createReadSDL({ models, model, fieldTypePlugins, sorterPlugins: [] });
@@ -43,7 +44,7 @@ describe("READ - ContentModel to SDL", () => {
         expect(prettyGql).toBe(prettySnapshot);
     });
 
-    test("Product SDL", async () => {
+    it("Product SDL", async () => {
         const model = getModel("product");
 
         const sdl = createReadSDL({ models, model, fieldTypePlugins, sorterPlugins: [] });
@@ -52,7 +53,7 @@ describe("READ - ContentModel to SDL", () => {
         expect(prettyGql).toBe(prettySnapshot);
     });
 
-    test("Review SDL", async () => {
+    it("Review SDL", async () => {
         const model = getModel("review");
 
         const sdl = createReadSDL({ models, model, fieldTypePlugins, sorterPlugins: [] });
@@ -61,7 +62,7 @@ describe("READ - ContentModel to SDL", () => {
         expect(prettyGql).toBe(prettySnapshot);
     });
 
-    test("Dynamic Zone SDL", async () => {
+    it("Dynamic Zone SDL", async () => {
         const sdl = createReadSDL({
             models,
             model: pageModel as CmsModel,

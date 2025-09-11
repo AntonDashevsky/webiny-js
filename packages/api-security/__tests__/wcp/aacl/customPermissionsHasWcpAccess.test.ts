@@ -1,11 +1,11 @@
-import { jest } from "@jest/globals";
-import { customPermissions } from "./mocks/customPermissions.js";
-import { mockCreateGetWcpProjectEnvironment } from "./mocks/mockCreateGetWcpProjectEnvironment.js";
-import { mockCreateGetWcpProjectLicense } from "./mocks/mockCreateGetWcpProjectLicense.js";
+import { describe, test, expect, vi } from "vitest";
+import { customPermissions } from "./mocks/customPermissions";
+import { mockCreateGetWcpProjectEnvironment } from "./mocks/mockCreateGetWcpProjectEnvironment";
+import { mockCreateGetWcpProjectLicense } from "./mocks/mockCreateGetWcpProjectLicense";
 
-jest.mock("@webiny/wcp", () => {
+vi.mock("@webiny/wcp", async () => {
     // The mock returned only mocks the generateServerSeed method.
-    const actual = jest.requireActual("@webiny/wcp");
+    const actual = await vi.importActual("@webiny/wcp");
 
     return {
         ...actual,
@@ -19,7 +19,7 @@ jest.mock("@webiny/wcp", () => {
 
 // This import statement needs to be here.
 // @see https://stackoverflow.com/a/67114668
-import { createMockContextHandler } from "./mockContextHandler.js";
+import { createMockContextHandler } from "./mockContextHandler";
 
 describe(`Custom permissions (no WCP access) test`, () => {
     test("should not be able to use custom permissions if the license doesn't permit it", async () => {

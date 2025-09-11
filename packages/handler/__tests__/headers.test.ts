@@ -1,7 +1,8 @@
-import { ResponseHeaders } from "~/ResponseHeaders.js";
-import { createHandler } from "~/fastify.js";
-import { createRoute } from "~/plugins/RoutePlugin.js";
-import { createModifyResponseHeaders } from "~/plugins/ModifyResponseHeadersPlugin.js";
+import { describe, it, expect } from "vitest";
+import { ResponseHeaders } from "~/ResponseHeaders";
+import { createHandler } from "~/fastify";
+import { createRoute } from "~/plugins/RoutePlugin";
+import { createModifyResponseHeaders } from "~/plugins/ModifyResponseHeadersPlugin";
 
 const createOptionsRoute = () => {
     return createRoute(({ onOptions }) => {

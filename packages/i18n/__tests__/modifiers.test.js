@@ -1,4 +1,6 @@
-import i18n, { defaultProcessor, defaultModifiers } from "@webiny/i18n";
+import { describe, test, expect } from "vitest";
+
+import i18n, { defaultProcessor, defaultModifiers } from "~/index.js";
 
 i18n.registerProcessor(defaultProcessor);
 i18n.registerModifiers(defaultModifiers);

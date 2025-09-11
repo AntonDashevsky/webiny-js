@@ -1,7 +1,8 @@
-import { useGraphQlHandler } from "./utils/useGraphQlHandler.js";
+import { describe, it, expect, beforeEach } from "vitest";
+import { useGraphQlHandler } from "./utils/useGraphQlHandler";
 
-import { assignFilterLifecycleEvents, tracker } from "./mocks/lifecycle.mock.js";
-import { Operation } from "~/filter/filter.types.js";
+import { assignFilterLifecycleEvents, tracker } from "./mocks/lifecycle.mock";
+import { Operation } from "~/filter/filter.types";
 
 const id = "filter-id";
 const name = "Filter Lifecycle Events";

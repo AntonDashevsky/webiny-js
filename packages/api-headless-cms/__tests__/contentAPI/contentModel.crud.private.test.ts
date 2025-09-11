@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin";
 import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
@@ -31,7 +32,6 @@ const privateAuthorsModel = new CmsModelPlugin({
         id: privateGroup.contentModelGroup.id,
         name: privateGroup.contentModelGroup.name
     },
-    description: "Authors model with one basic field"
 });
 
 describe("Private Groups and Models", function () {

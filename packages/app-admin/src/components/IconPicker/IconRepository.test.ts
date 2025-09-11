@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { IconRepository } from "./IconRepository.js";
 import type { Icon } from "./types.js";
 

@@ -1,6 +1,7 @@
-import { useGraphQlHandler } from "./utils/useGraphQlHandler.js";
-import { assignCmsLifecycleEvents, tracker } from "./mocks/lifecycle.mock.js";
-import { ROOT_FOLDER } from "@webiny/api-headless-cms/constants.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import { useGraphQlHandler } from "./utils/useGraphQlHandler";
+import { assignCmsLifecycleEvents, tracker } from "./mocks/lifecycle.mock";
+import { ROOT_FOLDER } from "@webiny/api-headless-cms/constants";
 
 describe("HCMS Entries -> onEntryBeforeRestoreFromBin", () => {
     beforeEach(async () => {

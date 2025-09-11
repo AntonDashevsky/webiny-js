@@ -1,17 +1,13 @@
+import { describe, expect, it } from "vitest";
 import { useSingletonCategoryHandler } from "~tests/testHelpers/useSingletonCategoryHandler";
 import { createPluginFromCmsModel, getCmsModel } from "~tests/contentAPI/mocks/contentModels";
 import { CMS_MODEL_SINGLETON_TAG } from "~/constants";
-// import { useHandler } from "~tests/testHelpers/useHandler";
 
 describe("singleton model content entries", () => {
     const plugins = createPluginFromCmsModel({
         ...getCmsModel("categorySingleton"),
         tags: [CMS_MODEL_SINGLETON_TAG]
     });
-
-    // const { handler: contextHandler } = useHandler({
-    //     plugins
-    // });
 
     const manager = useSingletonCategoryHandler({
         path: `manage/en-US`,

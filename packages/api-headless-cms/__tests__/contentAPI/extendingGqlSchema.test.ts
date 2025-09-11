@@ -1,5 +1,6 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import { createCmsGraphQLSchemaPlugin } from "~/plugins/index.js";
+import { describe, expect, it } from "vitest";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import { createCmsGraphQLSchemaPlugin } from "~/plugins";
 
 const graphqlSchemaPlugin = createCmsGraphQLSchemaPlugin({
     typeDefs: /* GraphQL */ `
@@ -25,7 +26,7 @@ const graphqlSchemaPlugin = createCmsGraphQLSchemaPlugin({
 });
 
 describe("content model test no field plugin", () => {
-    test("prevent content model update if a backend plugin for a field does not exist", async () => {
+    it("prevent content model update if a backend plugin for a field does not exist", async () => {
         const { invoke } = useGraphQLHandler({
             path: "manage/en-US",
             plugins: [graphqlSchemaPlugin]

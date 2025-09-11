@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from "vitest";
 import { createEventHandler, OperationType } from "~/index";
 import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
 // @ts-expect-error
@@ -48,7 +49,7 @@ describe("transfer data", () => {
                 ]
             },
             lambdaContext: {} as LambdaContext,
-            next: jest.fn()
+            next: vi.fn()
         });
 
         expect(result).toEqual(null);

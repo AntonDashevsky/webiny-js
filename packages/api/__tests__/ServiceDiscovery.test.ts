@@ -1,6 +1,7 @@
-import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
-import { ServiceDiscovery } from "~/ServiceDiscovery.js";
+import { describe, it, expect } from "vitest";
+import { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { ServiceDiscovery } from "~/ServiceDiscovery";
 
 describe("Service Discovery", () => {
     it("should load service manifests and combine them into one manifest object", async () => {

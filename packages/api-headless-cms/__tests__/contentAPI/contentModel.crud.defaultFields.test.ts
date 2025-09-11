@@ -1,5 +1,6 @@
-import type { CmsGroup } from "~/types/index.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { describe, it, expect, beforeEach } from "vitest";
+import { CmsGroup } from "~/types";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 
 const name = "Model with default fields";
 const modelId = "modelWithDefaultFields";

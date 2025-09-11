@@ -1,5 +1,6 @@
-import useGqlHandler from "./useGqlHandler.js";
-import { defaultIdentity } from "./mocks/defaultIdentity.js";
+import { describe, test, expect, beforeEach } from "vitest";
+import useGqlHandler from "./useGqlHandler";
+import { defaultIdentity } from "./mocks/defaultIdentity";
 
 describe(`"Login" test`, () => {
     const { install, securityIdentity } = useGqlHandler({ plugins: [defaultIdentity()] });

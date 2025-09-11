@@ -1,8 +1,9 @@
-import { OperationsBuilder } from "~/OperationsBuilder.js";
-import { createDefaultCompressor } from "@webiny/utils/compression/index.js";
-import type { DynamoDBRecord } from "@webiny/handler-aws/types.js";
-import { marshall } from "~/marshall.js";
-import { OperationType } from "~/Operations.js";
+import { describe, it, expect } from "vitest";
+import { OperationsBuilder } from "~/OperationsBuilder";
+import { createDefaultCompressor } from "@webiny/utils/compression";
+import { DynamoDBRecord } from "@webiny/handler-aws/types";
+import { marshall } from "~/marshall";
+import { OperationType } from "~/Operations";
 import { PluginsContainer } from "@webiny/plugins";
 
 describe("OperationsBuilder", () => {

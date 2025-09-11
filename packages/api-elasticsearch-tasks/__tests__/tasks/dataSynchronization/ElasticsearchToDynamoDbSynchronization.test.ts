@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { ElasticsearchToDynamoDbSynchronization } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchToDynamoDbSynchronization";
 import { useHandler } from "~tests/helpers/useHandler";
 import { createManagers } from "./managers";

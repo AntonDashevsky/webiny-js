@@ -1,5 +1,6 @@
-import { createCmsEntryElasticsearchValuesModifier } from "~/plugins/index.js";
-import type { CmsEntry, CmsIdentity, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { describe, expect, it } from "vitest";
+import { createCmsEntryElasticsearchValuesModifier } from "~/plugins";
+import { CmsEntry, CmsIdentity, CmsModel } from "@webiny/api-headless-cms/types";
 
 interface MockCmsEntryValues {
     title: string;
@@ -51,7 +52,7 @@ const mockEntry: CmsEntry<MockCmsEntryValues> = {
     savedOn: new Date().toISOString(),
     modelId: mockModel.modelId,
     version: 1
-};
+} as CmsEntry<MockCmsEntryValues>;
 
 const getMockData = () => {
     return {
@@ -76,6 +77,7 @@ describe("entry values modifier", () => {
             }
         );
 
+        // @ts-expect-error
         values = await modifier.modify({
             entry,
             model,
@@ -101,6 +103,7 @@ describe("entry values modifier", () => {
             }
         );
 
+        // @ts-expect-error
         values = await titleModifier.modify({
             entry,
             model,
@@ -123,6 +126,7 @@ describe("entry values modifier", () => {
             }
         );
 
+        // @ts-expect-error
         values = await ageModifier.modify({
             entry,
             model,

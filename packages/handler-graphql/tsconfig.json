@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src", "__tests__"],
+  "include": ["src", "__tests__", "vitest.config.ts"],
   "references": [
     { "path": "../api" },
     { "path": "../error" },

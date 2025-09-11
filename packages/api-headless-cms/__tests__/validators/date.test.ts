@@ -1,6 +1,7 @@
-import { createDateLteValidator } from "~/validators/dateLte.js";
-import { createDateGteValidator } from "~/validators/dateGte.js";
-import type { CmsModel, CmsModelField, CmsModelFieldValidation } from "~/types/index.js";
+import { describe, expect, it } from "vitest";
+import { createDateLteValidator } from "~/validators/dateLte";
+import { createDateGteValidator } from "~/validators/dateGte";
+import { CmsModel, CmsModelField, CmsModelFieldValidation } from "~/types";
 
 const createValidator = (args: Record<string, any>): CmsModelFieldValidation => {
     return {
@@ -24,7 +25,7 @@ describe("date validators", () => {
         ["2020-06-06", "2020-06-05"]
     ];
 
-    test.each(gteValidationDateCorrectValues)(
+    it.each(gteValidationDateCorrectValues)(
         "should pass gte validation - %s - %s",
         async (value, gteValue) => {
             const validator = createValidator({
@@ -48,7 +49,7 @@ describe("date validators", () => {
         ["2020-06-06", "2020-06-07"]
     ];
 
-    test.each(gteValidationDateIncorrectValues)(
+    it.each(gteValidationDateIncorrectValues)(
         "should not pass gte validation - %s - %s",
         async (value, gteValue) => {
             const validator = createValidator({
@@ -72,7 +73,7 @@ describe("date validators", () => {
         ["2020-06-06", "2020-06-07"]
     ];
 
-    test.each(lteValidationDateCorrectValues)(
+    it.each(lteValidationDateCorrectValues)(
         "name should pass lte validation - %s - %s",
         async (value, lteValue) => {
             const validator = createValidator({
@@ -96,7 +97,7 @@ describe("date validators", () => {
         ["2020-06-06", "2020-06-05"]
     ];
 
-    test.each(lteValidationDateIncorrectValues)(
+    it.each(lteValidationDateIncorrectValues)(
         "name should not pass lte validation - %s - %s",
         async (value, lteValue) => {
             const validator = createValidator({
@@ -121,7 +122,7 @@ describe("date validators", () => {
         ["10:00:01", "10:00"],
         ["10:00", "10:00"]
     ];
-    test.each(timeValidationGteCorrectValues)(
+    it.each(timeValidationGteCorrectValues)(
         "gte - should pass validation when type is time - %s - %s",
         async (value, gteValue) => {
             const validator = createValidator({
@@ -145,7 +146,7 @@ describe("date validators", () => {
         ["10:00", "10:00:01"],
         ["10:00:00", "10:01"]
     ];
-    test.each(timeValidationGteIncorrectValues)(
+    it.each(timeValidationGteIncorrectValues)(
         "gte - should fail validation when type is time - %s - %s",
         async (value, gteValue) => {
             const validator = createValidator({
@@ -171,7 +172,7 @@ describe("date validators", () => {
         ["10:00:01", "10:01"],
         ["10:00", "10:00"]
     ];
-    test.each(timeValidationLteCorrectValues)(
+    it.each(timeValidationLteCorrectValues)(
         "lte - should pass validation when type is time - %s - %s",
         async (value, lteValue) => {
             const validator = createValidator({
@@ -197,7 +198,7 @@ describe("date validators", () => {
         ["10:01:01", "10:01"],
         ["10:01", "10:00"]
     ];
-    test.each(timeValidationLteIncorrectValues)(
+    it.each(timeValidationLteIncorrectValues)(
         "lte - should not pass validation when type is time - %s - %s",
         async (value, lteValue) => {
             const validator = createValidator({

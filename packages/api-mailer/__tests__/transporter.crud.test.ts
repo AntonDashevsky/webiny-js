@@ -1,22 +1,24 @@
-import { jest } from "@jest/globals";
-import { createContextHandler } from "./contextHandler.js";
-import type { TransportSendData } from "~/types.js";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { createContextHandler } from "./contextHandler";
+import { TransportSendData } from "~/types";
 
-jest.mock("nodemailer", () => {
+vi.mock("nodemailer", () => {
     return {
-        createTransport: () => {
-            return {
-                sendMail: async (params: TransportSendData) => {
-                    return {
-                        envelope: "envelope",
-                        messageId: "123",
-                        accepted: [params.to],
-                        rejected: [],
-                        pending: [],
-                        response: "ok"
-                    };
-                }
-            };
+        default: {
+            createTransport: () => {
+                return {
+                    sendMail: async (params: TransportSendData) => {
+                        return {
+                            envelope: "envelope",
+                            messageId: "123",
+                            accepted: [params.to],
+                            rejected: [],
+                            pending: [],
+                            response: "ok"
+                        };
+                    }
+                };
+            }
         }
     };
 });

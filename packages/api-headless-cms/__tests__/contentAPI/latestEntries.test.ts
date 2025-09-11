@@ -1,12 +1,15 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import type { CmsModel, CmsGroup } from "~/types/index.js";
-import models from "./mocks/contentModels.js";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
-import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler.js";
-import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import { CmsModel, CmsGroup } from "~/types";
+import models from "./mocks/contentModels";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
+import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler";
+import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler";
 
-jest.setTimeout(100000);
+
+vi.setConfig({
+    testTimeout: 100_000,
+})
 
 describe("latest entries", function () {
     const manageOpts = { path: "manage/en-US" };

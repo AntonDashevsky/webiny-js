@@ -1,11 +1,11 @@
-import type {
-    FilterDTO,
-    FilterGroupDTO,
-    FilterGroupFilterDTO
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import {
+    type FilterDTO,
+    type FilterGroupDTO,
+    type FilterGroupFilterDTO,
+    Operation
 } from "~/components/AdvancedSearch/domain/index.js";
-import { Operation } from "~/components/AdvancedSearch/domain/index.js";
 import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";
-import { jest } from "@jest/globals";
 
 describe("QuerySaverDialogPresenter", () => {
     const demoFilter: FilterGroupFilterDTO = {
@@ -64,8 +64,8 @@ describe("QuerySaverDialogPresenter", () => {
         // let's load a filter
         presenter.load(filter);
 
-        const onSuccess = jest.fn();
-        const onError = jest.fn();
+        const onSuccess = vi.fn();
+        const onError = vi.fn();
 
         presenter.setFilter({
             name: "", // empty value -> this should trigger the error
@@ -74,7 +74,7 @@ describe("QuerySaverDialogPresenter", () => {
 
         presenter.onSave(onSuccess, onError);
 
-        expect(onError).toHaveBeenCalledTimes(1);
+        expect(onError).toBeCalledTimes(1);
         expect(Object.keys(presenter.vm.invalidFields).length).toBe(1);
 
         // let's change back `name` value so the validation will pass
@@ -85,7 +85,7 @@ describe("QuerySaverDialogPresenter", () => {
 
         presenter.onSave(onSuccess, onError);
 
-        expect(onSuccess).toHaveBeenCalledTimes(1);
+        expect(onSuccess).toBeCalledTimes(1);
         expect(presenter.vm.invalidFields).toEqual({});
     });
 });

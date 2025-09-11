@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { WebsocketsRunner } from "~/runner";
 import { useHandler } from "~tests/helpers/useHandler";
 import { WebsocketsEventValidator } from "~/validator";

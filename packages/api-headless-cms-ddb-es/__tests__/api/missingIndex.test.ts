@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useHandler } from "~tests/graphql/handler";
 import { createMockPlugins } from "~tests/converters/mocks";
 import { createGlobalModifierPlugin } from "~tests/api/mocks/plugins";

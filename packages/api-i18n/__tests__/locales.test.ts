@@ -1,4 +1,5 @@
-import useGqlHandler from "./useGqlHandler.js";
+import { describe, test, expect } from "vitest";
+import useGqlHandler from "./useGqlHandler";
 
 describe("CRUD Test", () => {
     const { createI18NLocale, updateI18NLocale, deleteI18NLocale, listI18NLocales, getI18NLocale } =

@@ -1,12 +1,9 @@
-import defaultFieldIndexPlugin from "~/elasticsearch/indexing/defaultFieldIndexing.js";
+import { describe, expect, it } from "vitest";
+import defaultFieldIndexPlugin from "~/elasticsearch/indexing/defaultFieldIndexing";
 import { createGraphQLFields } from "@webiny/api-headless-cms";
-import type {
-    CmsEntry,
-    CmsModel,
-    CmsModelFieldToGraphQLPlugin
-} from "@webiny/api-headless-cms/types/index.js";
-import { PluginsContainer } from "@webiny/plugins/PluginsContainer.js";
-import type { CmsModelFieldToElasticsearchPlugin } from "~/types.js";
+import { CmsEntry, CmsModel, CmsModelFieldToGraphQLPlugin } from "@webiny/api-headless-cms/types";
+import { PluginsContainer } from "@webiny/plugins/PluginsContainer";
+import { CmsModelFieldToElasticsearchPlugin } from "~/types";
 
 const mockRichTextValue = [
     {
@@ -69,7 +66,7 @@ const getFieldTypePlugin = (fieldType: string) => {
 };
 
 describe("defaultFieldIndexPlugin", () => {
-    test("toIndex should return transformed objects", () => {
+    it("toIndex should return transformed objects", () => {
         const plugin = defaultFieldIndexPlugin() as Required<CmsModelFieldToElasticsearchPlugin>;
 
         const result = mockModel.fields.reduce(
@@ -100,7 +97,7 @@ describe("defaultFieldIndexPlugin", () => {
         expect(result).toEqual(mockIndexedEntry);
     });
 
-    test("fromIndex should return transformed objects", () => {
+    it("fromIndex should return transformed objects", () => {
         const plugin = defaultFieldIndexPlugin() as Required<CmsModelFieldToElasticsearchPlugin>;
         const result = mockModel.fields.reduce((entry: any, field) => {
             const value = plugin.fromIndex({

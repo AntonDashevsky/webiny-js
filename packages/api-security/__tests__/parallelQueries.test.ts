@@ -1,5 +1,6 @@
-import useGqlHandler from "./useGqlHandler.js";
-import { PARALLEL_QUERY, withoutAuthorizationPlugin } from "./graphql/parallelQueries.js";
+import { describe, test, expect, beforeEach } from "vitest";
+import useGqlHandler from "./useGqlHandler";
+import { PARALLEL_QUERY, withoutAuthorizationPlugin } from "./graphql/parallelQueries";
 
 describe("Security Parallel Queries", () => {
     const { install, invoke } = useGqlHandler({ plugins: [withoutAuthorizationPlugin] });

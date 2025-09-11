@@ -1,16 +1,10 @@
-import { jest } from "@jest/globals";
+import { describe, test, it, beforeAll, expect } from "vitest";
 import { mdbid } from "@webiny/utils";
 import useGqlHandler from "~tests/utils/useGqlHandler";
 import testFiles from "./data";
 import { ids, fileDData, fileCData, fileBData, fileAData } from "./mocks/files";
 
-jest.retryTimes(3);
-
-// const LONG_STRING = "pneumonoultramicroscopicsilicovolcanoconiosispneumonoultramicroscopi";
-
-jest.setTimeout(100000);
-
-describe("Files CRUD test", () => {
+describe("Files CRUD test", { timeout: 100_000, retry: 3 }, () => {
     const { createFile, updateFile, createFiles, getFile, listFiles, listTags } = useGqlHandler();
 
     beforeAll(() => {

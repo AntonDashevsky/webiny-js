@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { LockEntryUseCase } from "~/useCases/LockEntryUseCase/LockEntryUseCase";
 import { WebinyError } from "@webiny/error";
 import type { IIsEntryLockedUseCase } from "~/abstractions/IIsEntryLocked";

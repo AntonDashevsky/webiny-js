@@ -1,5 +1,6 @@
-import { createIdentity } from "../testHelpers/helpers.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { describe, expect, it } from "vitest";
+import { createIdentity } from "../testHelpers/helpers";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 
 describe("Settings crud test", () => {
     const manageOpts = {
@@ -14,7 +15,7 @@ describe("Settings crud test", () => {
 
     const { listContentModelGroupsQuery } = useGraphQLHandler(manageOpts);
 
-    test("graphql schema must not produce error", async () => {
+    it("graphql schema must not produce error", async () => {
         const [response] = await introspect();
 
         expect(response).toEqual({
@@ -24,7 +25,7 @@ describe("Settings crud test", () => {
         });
     });
 
-    test("cms is not installed yet", async () => {
+    it("cms is not installed yet", async () => {
         const [response] = await isInstalledQuery();
         expect(response).toEqual({
             data: {
@@ -35,7 +36,7 @@ describe("Settings crud test", () => {
         });
     });
 
-    test("cms is being installed", async () => {
+    it("cms is being installed", async () => {
         const [installResponse] = await installMutation();
 
         expect(installResponse).toEqual({
@@ -81,7 +82,7 @@ describe("Settings crud test", () => {
         });
     });
 
-    test("cms is already installed", async () => {
+    it("cms is already installed", async () => {
         await installMutation();
 
         const [response] = await installMutation();
@@ -101,7 +102,7 @@ describe("Settings crud test", () => {
         });
     });
 
-    test("cms install", async () => {
+    it("cms install", async () => {
         const [response] = await installMutation();
         expect(response).toEqual({
             data: {
@@ -124,7 +125,7 @@ describe("Settings crud test", () => {
         });
     });
 
-    test("should not install due to lack of permissions", async () => {
+    it("should not install due to lack of permissions", async () => {
         const [response] = await installMutationNoPermission();
 
         expect(response).toEqual({

@@ -1,8 +1,9 @@
-import models from "../contentAPI/mocks/contentModels.js";
-import { renderSortEnum } from "~/utils/renderSortEnum.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import type { CmsFieldTypePlugins, CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
-import { createCmsGraphQLSchemaSorterPlugin } from "~/plugins/index.js";
+import { describe, expect, it } from "vitest";
+import models from "../contentAPI/mocks/contentModels";
+import { renderSortEnum } from "~/utils/renderSortEnum";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import { CmsFieldTypePlugins, CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types";
+import { createCmsGraphQLSchemaSorterPlugin } from "~/plugins";
 
 const sortPlugin = createCmsGraphQLSchemaSorterPlugin(({ sorters }) => {
     return [...sorters, "testSorter_ASC", "testSorter_DESC"];

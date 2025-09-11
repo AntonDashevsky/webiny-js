@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { IsEntryLockedUseCase } from "~/useCases/IsEntryLocked/IsEntryLockedUseCase";
 import { WebinyError } from "@webiny/error";
 import type { IRecordLockingLockRecord } from "~/types";

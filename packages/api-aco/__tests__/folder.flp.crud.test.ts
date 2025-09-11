@@ -1,6 +1,7 @@
-import { useGraphQlHandler } from "./utils/useGraphQlHandler.js";
-import type { SecurityIdentity } from "@webiny/api-security/types.js";
-import { expectNotAuthorized } from "./utils/expectNotAuthorized.js";
+import { describe, it, test, expect } from "vitest";
+import { useGraphQlHandler } from "./utils/useGraphQlHandler";
+import { SecurityIdentity } from "@webiny/api-security/types";
+import { expectNotAuthorized } from "./utils/expectNotAuthorized";
 
 const FOLDER_TYPE = "test-folders";
 

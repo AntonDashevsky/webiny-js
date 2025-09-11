@@ -1,11 +1,10 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { recordMocks } from "./mocks/record.mock";
 import { userMock } from "~tests/mocks/user.mock";
 import { useGraphQlHandler } from "./utils/useGraphQlHandler";
 import { createMockAcoApp } from "~tests/mocks/app";
-import { jest } from "@jest/globals";
-jest.setTimeout(500000);
 
-describe("`search` CRUD", () => {
+describe("`search` CRUD", { timeout: 500_000 }, () => {
     let folder1: Record<string, any>;
     let folder2: Record<string, any>;
     let search: ReturnType<typeof useGraphQlHandler>["search"];

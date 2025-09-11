@@ -1,6 +1,7 @@
-import useGqlHandler from "./useGqlHandler.js";
-import mocks from "./mocks/securityGroup.js";
-import { createSecurityRolePlugin } from "~/plugins/SecurityRolePlugin.js";
+import { describe, test, expect, beforeEach } from "vitest";
+import useGqlHandler from "./useGqlHandler";
+import mocks from "./mocks/securityGroup";
+import { createSecurityRolePlugin } from "~/plugins/SecurityRolePlugin";
 
 describe("Security Group CRUD Test", () => {
     const { install, securityGroup } = useGqlHandler({

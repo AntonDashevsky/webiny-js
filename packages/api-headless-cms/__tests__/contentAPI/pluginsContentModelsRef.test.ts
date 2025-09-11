@@ -1,5 +1,6 @@
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
+import { describe, expect, it } from "vitest";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
 
 const pageModelPlugin = new CmsModelPlugin({
     locale: "en-US",
@@ -335,7 +336,7 @@ describe("content model plugins - nested `ref` field union types", () => {
         path: "read/en-US"
     });
 
-    test("must generate valid schema for nested `ref` field union", async () => {
+    it("must generate valid schema for nested `ref` field union", async () => {
         const [, response] = await introspect();
         expect(response.statusCode).toBe(200);
     });

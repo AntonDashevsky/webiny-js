@@ -1,11 +1,19 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src", "__tests__"],
+  "include": ["src", "__tests__", "vitest.config.ts"],
   "references": [
-    { "path": "../aws-sdk" },
-    { "path": "../di-container" },
-    { "path": "../plugins" },
-    { "path": "../utils" }
+    {
+      "path": "../aws-sdk"
+    },
+    {
+      "path": "../plugins"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../project"
+    }
   ],
   "compilerOptions": {
     "rootDirs": ["./src", "./__tests__"],
@@ -16,12 +24,12 @@
       "~tests/*": ["./__tests__/*"],
       "@webiny/aws-sdk/*": ["../aws-sdk/src/*"],
       "@webiny/aws-sdk": ["../aws-sdk/src"],
-      "@webiny/di-container/*": ["../di-container/src/*"],
-      "@webiny/di-container": ["../di-container/src"],
       "@webiny/plugins/*": ["../plugins/src/*"],
       "@webiny/plugins": ["../plugins/src"],
       "@webiny/utils/*": ["../utils/src/*"],
-      "@webiny/utils": ["../utils/src"]
+      "@webiny/utils": ["../utils/src"],
+      "@webiny/project/*": ["../project/src/*"],
+      "@webiny/project": ["../project/src"]
     },
     "baseUrl": "."
   }

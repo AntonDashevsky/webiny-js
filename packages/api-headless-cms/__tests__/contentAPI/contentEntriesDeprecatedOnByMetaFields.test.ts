@@ -1,13 +1,13 @@
-import type { SecurityIdentity } from "@webiny/api-security/types";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { SecurityIdentity } from "@webiny/api-security/types";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { PutCommand, QueryCommand, unmarshall } from "@webiny/aws-sdk/client-dynamodb";
 import { CmsGraphQLSchemaPlugin } from "@webiny/api-headless-cms/plugins";
-import { jest } from "@jest/globals";
 
 const identityA: SecurityIdentity = { id: "a", type: "admin", displayName: "A" };
 
-jest.mock("~/graphql/getSchema/generateCacheId", () => {
+vi.mock("~/graphql/getSchema/generateCacheId", () => {
     return {
         generateCacheId: () => Date.now()
     };
@@ -22,7 +22,7 @@ describe("Content entries - Entry Meta Fields", () => {
         await manageApiIdentityA.setup();
     });
 
-    test("deprecated 'publishedOn' and 'ownedBy' GraphQL fields should still return values", async () => {
+    it("deprecated 'publishedOn' and 'ownedBy' GraphQL fields should still return values", async () => {
         const { data: testEntry } = await manageApiIdentityA.createTestEntry();
 
         // Let's directly insert values for deprecated fields.
@@ -105,7 +105,7 @@ describe("Content entries - Entry Meta Fields", () => {
         }
     });
 
-    test("deprecated 'publishedOn' and 'ownedBy' GraphQL fields should fall back to new fields if no value is present", async () => {
+    it("deprecated 'publishedOn' and 'ownedBy' GraphQL fields should fall back to new fields if no value is present", async () => {
         const { data: testEntry } = await manageApiIdentityA.createTestEntry();
 
         const { data: publishedTestEntry } = await manageApiIdentityA.publishTestEntry({

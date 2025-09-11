@@ -1,12 +1,11 @@
-import type { CmsGroup } from "~/types/index.js";
-import type { GraphQLHandlerParams } from "../testHelpers/useGraphQLHandler.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import models from "./mocks/contentModels.js";
-import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler.js";
-import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler.js";
-import { useProductManageHandler } from "../testHelpers/useProductManageHandler.js";
-import { useProductReadHandler } from "../testHelpers/useProductReadHandler.js";
-import { jest } from "@jest/globals";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { CmsGroup } from "~/types";
+import { GraphQLHandlerParams, useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import models from "./mocks/contentModels";
+import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
+import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";
+import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
+import { useProductReadHandler } from "../testHelpers/useProductReadHandler";
 
 const createPermissions = ({ groups, models }: { groups?: string[]; models?: string[] }) => [
     {
@@ -78,7 +77,9 @@ const categoryManagerHelper = async (manageOpts: GraphQLHandlerParams) => {
     };
 };
 
-jest.setTimeout(100000);
+vi.setConfig({
+    testTimeout: 100_000
+});
 
 describe("READ - Resolvers", () => {
     let contentModelGroup: CmsGroup;
@@ -148,7 +149,7 @@ describe("READ - Resolvers", () => {
         await setupModel("category", contentModelGroup);
     });
 
-    test("should return a record by id", async () => {
+    it("should return a record by id", async () => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -198,7 +199,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test(`should return a NOT_FOUND error when getting an entry by non-existing ID`, async () => {
+    it(`should return a NOT_FOUND error when getting an entry by non-existing ID`, async () => {
         const { getCategory } = useCategoryReadHandler(readOpts);
 
         const [response] = await getCategory({
@@ -221,7 +222,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test(`list entries`, async () => {
+    it(`list entries`, async () => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -263,7 +264,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test(`list entries with specific group and model permissions`, async () => {
+    it(`list entries with specific group and model permissions`, async () => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -311,7 +312,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test(`should return an error when getting entry without specific group permissions`, async () => {
+    it(`should return an error when getting entry without specific group permissions`, async () => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -353,7 +354,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test(`should return an error when getting entry without specific model permissions`, async () => {
+    it(`should return an error when getting entry without specific model permissions`, async () => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -391,7 +392,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test(`list entries (limit)`, async () => {
+    it(`list entries (limit)`, async () => {
         const { vegetables, animals } = await categoryManagerHelper(manageOpts);
 
         // See if entries are available via "read" API
@@ -431,7 +432,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test(`list entries (limit + after)`, async () => {
+    it(`list entries (limit + after)`, async () => {
         const { fruits, vegetables, animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -557,7 +558,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test(`list entries (sort ASC)`, async () => {
+    it(`list entries (sort ASC)`, async () => {
         const { fruits, vegetables, animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -603,7 +604,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test(`list entries (sort DESC)`, async () => {
+    it(`list entries (sort DESC)`, async () => {
         const { fruits, vegetables, animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -649,7 +650,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that contains given value", async () => {
+    it("list entries that contains given value", async () => {
         const { animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -683,7 +684,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that do not contains given value", async () => {
+    it("list entries that do not contains given value", async () => {
         const { vegetables, animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -724,7 +725,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that are in given values", async () => {
+    it("list entries that are in given values", async () => {
         const { vegetables, animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -765,7 +766,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that are not in given values", async () => {
+    it("list entries that are not in given values", async () => {
         const { fruits, vegetables, animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -799,7 +800,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that are created after given date", async () => {
+    it("list entries that are created after given date", async () => {
         const { fruits, vegetables, animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -850,7 +851,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that are created after or at given date: one returned", async () => {
+    it("list entries that are created after or at given date: one returned", async () => {
         const { animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -885,7 +886,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that are created before given date: none returned", async () => {
+    it("list entries that are created before given date: none returned", async () => {
         const { listCategories } = useCategoryReadHandler(readOpts);
 
         const date = new Date();
@@ -913,7 +914,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that are created before or at given date: one returned", async () => {
+    it("list entries that are created before or at given date: one returned", async () => {
         const { fruits, vegetables } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -955,7 +956,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that are not created between given dates", async () => {
+    it("list entries that are not created between given dates", async () => {
         const { fruits, vegetables, animals } = await categoryManagerHelper(manageOpts);
 
         const { listCategories } = useCategoryReadHandler(readOpts);
@@ -1002,7 +1003,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("list entries that have price in given range", async () => {
+    it("list entries that have price in given range", async () => {
         await setupModel("product", contentModelGroup);
 
         const { vegetables } = await categoryManagerHelper({
@@ -1081,7 +1082,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("sort entries by title", async () => {
+    it("sort entries by title", async () => {
         await setupModel("product", contentModelGroup);
 
         const { vegetables } = await categoryManagerHelper({
@@ -1177,7 +1178,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("should sort products by price", async () => {
+    it("should sort products by price", async () => {
         await setupModel("product", contentModelGroup);
 
         const { vegetables } = await categoryManagerHelper({
@@ -1273,7 +1274,7 @@ describe("READ - Resolvers", () => {
         });
     });
 
-    test("should store and retrieve nested objects", async () => {
+    it("should store and retrieve nested objects", async () => {
         await setupModel("product", contentModelGroup);
 
         const { vegetables } = await categoryManagerHelper({

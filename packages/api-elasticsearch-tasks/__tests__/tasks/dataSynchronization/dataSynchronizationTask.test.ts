@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { createDataSynchronization, DATA_SYNCHRONIZATION_TASK } from "~/tasks";
 import { TaskDefinitionPlugin, TaskResponseStatus } from "@webiny/tasks";
 import { createRunner } from "@webiny/project-utils/testing/tasks";

@@ -1,4 +1,4 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
 import { useHandler } from "~tests/useHandler";
 import { createTable } from "~/createTable";
@@ -14,8 +14,6 @@ import { MigrationRepositoryImpl } from "~/repository/migrations.repository";
 import { createDdbProjectMigration } from "~/handlers/createDdbProjectMigration";
 import type { DbItem } from "@webiny/db-dynamodb";
 import { scan } from "@webiny/db-dynamodb";
-
-jest.retryTimes(0);
 
 function assertNotError(
     error: MigrationInvocationErrorResponse["error"] | undefined
@@ -42,7 +40,7 @@ const groupMigrations = (migrations: MigrationRunItem[]) => {
     };
 };
 
-describe("Migration Lambda Handler", () => {
+describe("Migration Lambda Handler", { retry: 0 }, () => {
     const documentClient = getDocumentClient({
         endpoint: process.env.MOCK_DYNAMODB_ENDPOINT || "http://localhost:8001",
         tls: false,
@@ -165,7 +163,7 @@ describe("Migration Lambda Handler", () => {
             createDdbMigration("0.1.0-003")
         ];
 
-        const spy = jest.spyOn(allMigrations[0].prototype, "execute");
+        const spy = vi.spyOn(allMigrations[0].prototype, "execute");
 
         const handler = useHandler(
             createDdbProjectMigration({
@@ -238,7 +236,7 @@ describe("Migration Lambda Handler", () => {
             createDdbMigration("3.0.0-002")
         ];
 
-        const spies = allMigrations.map(klass => jest.spyOn(klass.prototype, "execute"));
+        const spies = allMigrations.map(klass => vi.spyOn(klass.prototype, "execute"));
 
         const handler = useHandler(
             createDdbProjectMigration({
@@ -273,7 +271,7 @@ describe("Migration Lambda Handler", () => {
 
         // Should NOT run any migrations.
         {
-            jest.clearAllMocks();
+            vi.clearAllMocks();
             const { data, error } = await handler({ version: "0.1.0" });
             assertNotError(error);
 

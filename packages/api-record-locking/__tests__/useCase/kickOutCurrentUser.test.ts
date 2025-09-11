@@ -1,11 +1,12 @@
+import { describe, it, expect, vi } from "vitest";
 import { KickOutCurrentUserUseCase } from "~/useCases/KickOutCurrentUser/KickOutCurrentUserUseCase";
-import type { IWebsocketsContextObject } from "@webiny/api-websockets";
+import { IWebsocketsContextObject } from "@webiny/api-websockets";
 import { createIdentity } from "~tests/helpers/identity";
-import type { IRecordLockingLockRecord } from "~/types";
+import { IRecordLockingLockRecord } from "~/types";
 
 describe("kick out current user", () => {
     it("should send message via websockets to kick out current user", async () => {
-        const websocketsSend = jest.fn(async () => {
+        const websocketsSend = vi.fn(async () => {
             return;
         });
 

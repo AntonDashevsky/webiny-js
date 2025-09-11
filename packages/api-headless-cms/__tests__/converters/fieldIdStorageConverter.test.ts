@@ -1,14 +1,12 @@
-import { createRawEntry, createStoredEntry, createModel } from "./mocks/fieldIdStorageConverter.js";
+import { describe, expect, it } from "vitest";
+import { createModel, createRawEntry, createStoredEntry } from "./mocks/fieldIdStorageConverter";
 import { PluginsContainer } from "@webiny/plugins";
-import { createFieldConverters } from "~/fieldConverters/index.js";
+import { createFieldConverters } from "~/fieldConverters";
 import {
-    createValueKeyToStorageConverter,
-    createValueKeyFromStorageConverter
-} from "~/utils/converters/valueKeyStorageConverter.js";
-import { createGraphQLFields } from "~/graphqlFields/index.js";
-import { jest } from "@jest/globals";
-
-jest.setTimeout(10000);
+    createValueKeyFromStorageConverter,
+    createValueKeyToStorageConverter
+} from "~/utils/converters/valueKeyStorageConverter";
+import { createGraphQLFields } from "~/graphqlFields";
 
 const plugins = new PluginsContainer([...createFieldConverters(), ...createGraphQLFields()]);
 

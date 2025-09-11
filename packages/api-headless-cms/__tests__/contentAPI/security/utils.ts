@@ -1,4 +1,5 @@
-import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import { expect } from "vitest";
+import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
 
 export const identityA: SecurityIdentity = { id: "a", type: "admin", displayName: "A" };
 export const identityB: SecurityIdentity = { id: "b", type: "admin", displayName: "B" };

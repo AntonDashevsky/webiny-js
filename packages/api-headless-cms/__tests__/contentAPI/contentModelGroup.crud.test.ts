@@ -1,6 +1,7 @@
-import { identity } from "../testHelpers/helpers.js";
-import { toSlug } from "~/utils/toSlug.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { describe, expect, it } from "vitest";
+import { identity } from "../testHelpers/helpers";
+import { toSlug } from "~/utils/toSlug";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 
 enum TestHelperEnum {
     MODELS_AMOUNT = 3,
@@ -62,7 +63,7 @@ describe("Cms Group crud test", () => {
         deleteContentModelGroupMutation
     } = useGraphQLHandler({ path: "manage/en-us" });
 
-    test("content model group create, read, update, delete and list all at once", async () => {
+    it("content model group create, read, update, delete and list all at once", async () => {
         const updatedContentModelGroups = [];
         const prefixes = Array.from(Array(TestHelperEnum.MODELS_AMOUNT).keys()).map(prefix => {
             return createContentModelGroupPrefix(prefix);
@@ -177,7 +178,7 @@ describe("Cms Group crud test", () => {
         });
     });
 
-    test("error when getting non-existing content model group", async () => {
+    it("error when getting non-existing content model group", async () => {
         const [response] = await getContentModelGroupQuery({
             id: "nonExistingId"
         });
@@ -195,7 +196,7 @@ describe("Cms Group crud test", () => {
         });
     });
 
-    test("error when trying to update non-existing content model group", async () => {
+    it("error when trying to update non-existing content model group", async () => {
         const [response] = await updateContentModelGroupMutation({
             id: "nonExistingIdUpdate",
             data: {
@@ -217,7 +218,7 @@ describe("Cms Group crud test", () => {
         });
     });
 
-    test("error when trying to delete non-existing content model group", async () => {
+    it("error when trying to delete non-existing content model group", async () => {
         const [response] = await deleteContentModelGroupMutation({
             id: "nonExistingIdDelete"
         });
@@ -235,7 +236,7 @@ describe("Cms Group crud test", () => {
         });
     });
 
-    test("error when trying to create a content model group with incomplete data", async () => {
+    it("error when trying to create a content model group with incomplete data", async () => {
         const [nameResponse] = await createContentModelGroupMutation({
             data: {
                 name: "",
@@ -288,7 +289,7 @@ describe("Cms Group crud test", () => {
         });
     });
 
-    test("error when trying to create a new content model group with no name or slug", async () => {
+    it("error when trying to create a new content model group with no name or slug", async () => {
         const [response] = await createContentModelGroupMutation({
             data: {
                 name: "",
@@ -315,7 +316,7 @@ describe("Cms Group crud test", () => {
         });
     });
 
-    test("error when trying to create a new content model group with same slug as existing one in the database", async () => {
+    it("error when trying to create a new content model group with same slug as existing one in the database", async () => {
         await createContentModelGroupMutation({
             data: {
                 name: "content model group",
@@ -347,7 +348,7 @@ describe("Cms Group crud test", () => {
         });
     });
 
-    test("list specific content model groups", async () => {
+    it("list specific content model groups", async () => {
         // Create few content model groups
         const prefixes = Array.from(Array(TestHelperEnum.MODELS_AMOUNT).keys()).map(prefix => {
             return createContentModelGroupPrefix(prefix);

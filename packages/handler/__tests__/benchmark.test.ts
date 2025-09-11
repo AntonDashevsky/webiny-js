@@ -1,7 +1,7 @@
-import { createHandler } from "~/fastify.js";
-import { createRoute } from "~/plugins/RoutePlugin.js";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { createHandler } from "~/fastify";
+import { createRoute } from "~/plugins/RoutePlugin";
 import type { FastifyInstance } from "fastify";
-import { jest } from "@jest/globals";
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -41,7 +41,7 @@ describe("benchmark", () => {
 
         const logs: any[] = [];
 
-        jest.spyOn(console, "log").mockImplementation((...args) => {
+        vi.spyOn(console, "log").mockImplementation((...args) => {
             logs.push(...args);
         });
 

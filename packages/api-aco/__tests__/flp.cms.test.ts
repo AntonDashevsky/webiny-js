@@ -1,6 +1,7 @@
-import { useGraphQlHandler } from "./utils/useGraphQlHandler.js";
-import type { SecurityIdentity } from "@webiny/api-security/types.js";
-import { expectNotAuthorized } from "./utils/expectNotAuthorized.js";
+import { describe, test, expect } from "vitest";
+import { useGraphQlHandler } from "./utils/useGraphQlHandler";
+import { SecurityIdentity } from "@webiny/api-security/types";
+import { expectNotAuthorized } from "./utils/expectNotAuthorized";
 
 const identityA: SecurityIdentity = { id: "1", type: "admin", displayName: "A" };
 const identityB: SecurityIdentity = { id: "2", type: "admin", displayName: "B" };
@@ -435,7 +436,7 @@ describe("Folder Level Permissions - CMS GraphQL API", () => {
         }
     });
 
-    it("as a user with 'viewer' access to a folder, I should not be able to create, update, or delete content in it", async () => {
+    test("as a user with 'viewer' access to a folder, I should not be able to create, update, or delete content in it", async () => {
         const gqlIdentityA = useGraphQlHandler({ identity: identityA });
         const gqlIdentityC = useGraphQlHandler({
             identity: identityC,

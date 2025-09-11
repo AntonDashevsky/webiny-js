@@ -1,4 +1,5 @@
-import { validation } from "../src/index.js";
+import { describe, it, expect } from "vitest";
+import { validation } from "../src";
 
 describe("create test", () => {
     it("should create async validator function", async () => {

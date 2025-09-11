@@ -1,4 +1,5 @@
-import { validation, ValidationError } from "../src/index.js";
+import { describe, it, expect } from "vitest";
+import { validation, ValidationError } from "../src";
 
 describe("slug test", () => {
     it("should not get triggered if empty value was set", async () => {

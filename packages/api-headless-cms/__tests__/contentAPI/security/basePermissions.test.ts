@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import type { SecurityIdentity } from "@webiny/api-security/types";
 
@@ -12,7 +13,7 @@ const gqlApiTypesPermissions = [
 ];
 
 describe("Content Groups / Models / Entries - Base Permissions Checks", () => {
-    test("group access scope: only groups created by the user", async () => {
+    it("group access scope: only groups created by the user", async () => {
         const permissions = [
             ...gqlApiTypesPermissions,
             { _src: "x", name: "cms.contentModel", own: true, rwd: "rwd", pw: "" },
@@ -85,7 +86,7 @@ describe("Content Groups / Models / Entries - Base Permissions Checks", () => {
         });
     });
 
-    test("group access scope: only specific groups", async () => {
+    it("group access scope: only specific groups", async () => {
         // Identity A's content model group and content model.
         const { manage: manageApiA } = useTestModelHandler({
             identity: identityA
@@ -182,7 +183,7 @@ describe("Content Groups / Models / Entries - Base Permissions Checks", () => {
         });
     });
 
-    test("model access scope: only models created by the user", async () => {
+    it("model access scope: only models created by the user", async () => {
         const permissions = [
             ...gqlApiTypesPermissions,
             { name: "cms.contentModel", own: true, rwd: "rwd", pw: "" },
@@ -251,7 +252,7 @@ describe("Content Groups / Models / Entries - Base Permissions Checks", () => {
         });
     });
 
-    test("model access scope: only specific models", async () => {
+    it("model access scope: only specific models", async () => {
         // Identity A's content model group and content model.
         const { manage: manageApiA } = useTestModelHandler({
             identity: identityA

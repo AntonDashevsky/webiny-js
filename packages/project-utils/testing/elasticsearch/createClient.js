@@ -1,5 +1,5 @@
-const { logger } = require("@webiny/project-utils/testing/logger");
-const { createElasticsearchClient } = require("@webiny/api-elasticsearch");
+import { logger } from "@webiny/project-utils/testing/logger";
+import { createElasticsearchClient } from "@webiny/api-elasticsearch";
 
 const ELASTICSEARCH_PORT = process.env.ELASTICSEARCH_PORT || 9200;
 

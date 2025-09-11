@@ -1,9 +1,6 @@
-/**
-* @jest-environment jsdom
-*/
+import { describe, test, expect, vi, MockedFunction, afterEach } from "vitest";
 import React from "react";
-import { jest } from "@jest/globals";
-import { render, screen, waitFor, fireEvent, act } from "@testing-library/react";
+import { render, screen, waitFor, fireEvent, act, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import type { FormProps as BaseFormProps, BindComponentProps, FormAPI } from "~/index";
 import { Form, useBind, Bind } from "~/index";
@@ -122,7 +119,7 @@ const FormViewWithHooks = ({
     );
 };
 
-const assert = async (view: React.ReactElement, onSubmit: jest.MockedFunction<any>) => {
+const assert = async (view: React.ReactElement, onSubmit: MockedFunction<any>) => {
     render(view);
     const user = userEvent.setup();
     const submitBtn = screen.getByRole("button", { name: /submit/i });
@@ -142,26 +139,22 @@ const assert = async (view: React.ReactElement, onSubmit: jest.MockedFunction<an
 };
 
 describe("Form", () => {
-    // beforeEach(() => {
-    //     jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb());
-    // });
-    //
-    // afterEach(() => {
-    //     window.requestAnimationFrame.mockRestore();
-    // });
+    afterEach(() => {
+        cleanup();
+    });
 
     test("should call `onSubmit` callback with correct field values using `<Bind>`", async () => {
-        const onSubmit = jest.fn();
+        const onSubmit = vi.fn();
         await assert(<FormViewWithBind onSubmit={onSubmit} />, onSubmit);
     });
 
     test("should call `onSubmit` callback with correct field values using `useBind()`", async () => {
-        const onSubmit = jest.fn();
+        const onSubmit = vi.fn();
         await assert(<FormViewWithHooks onSubmit={onSubmit} />, onSubmit);
     });
 
     test("should render validation error specified via the `invalidFields` prop", async () => {
-        const onSubmit = jest.fn();
+        const onSubmit = vi.fn();
         const { rerender } = render(<FormViewWithHooks onSubmit={onSubmit} />);
 
         // anchor
@@ -179,8 +172,8 @@ describe("Form", () => {
 
     test("should validate data on form submit", async () => {
         const user = userEvent.setup();
-        const onSubmit = jest.fn();
-        const onInvalid = jest.fn();
+        const onSubmit = vi.fn();
+        const onInvalid = vi.fn();
 
         const formElement = (
             <FormViewWithHooks onSubmit={onSubmit} onInvalid={onInvalid}>
@@ -242,7 +235,7 @@ describe("Form", () => {
     });
 
     test("should validate data change immediately, without form submission", async () => {
-        const onInvalid = jest.fn();
+        const onInvalid = vi.fn();
 
         const formElement = (
             <FormViewWithHooks onInvalid={onInvalid} validateOnFirstSubmit={false}>
@@ -269,7 +262,7 @@ describe("Form", () => {
     });
 
     test("should submit form when Enter is pressed (if `submitOnEnter` prop is set)", async () => {
-        const onSubmit = jest.fn();
+        const onSubmit = vi.fn();
 
         const hitEnter = () => {
             const inputElement = screen.getByTestId("name");
@@ -289,7 +282,7 @@ describe("Form", () => {
     });
 
     test("should execute the `onChange` callback whenever data is changed", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const user = userEvent.setup();
 
         const formElement = (
@@ -317,7 +310,7 @@ describe("Form", () => {
 
     test("should set new data through props", async () => {
         const user = userEvent.setup();
-        const onSubmit = jest.fn();
+        const onSubmit = vi.fn();
 
         const { rerender } = render(<EmptyForm onSubmit={onSubmit} data={{}} />);
 
@@ -335,7 +328,7 @@ describe("Form", () => {
 
     test("should set default field value on first render cycle", async () => {
         const ref = React.createRef<FormAPI>();
-        const onSubmit = jest.fn();
+        const onSubmit = vi.fn();
 
         render(
             <EmptyForm onSubmit={onSubmit} imperativeHandle={ref}>
@@ -345,9 +338,12 @@ describe("Form", () => {
             </EmptyForm>
         );
 
+        await new Promise(resolve => setTimeout(resolve, 20));
+
         // Assert
         await act(() => ref.current?.submit());
         await waitFor(() => onSubmit.mock.calls.length > 0);
+
         expect(onSubmit).toHaveBeenLastCalledWith({ folder: { id: "root" } });
 
         const folderDiv = screen.getByTestId("folderId");
@@ -358,7 +354,7 @@ describe("Form", () => {
     test("should submit the form using imperative handle", async () => {
         const user = userEvent.setup();
         const ref = React.createRef<FormAPI>();
-        const onSubmit = jest.fn();
+        const onSubmit = vi.fn();
 
         render(<FormViewWithHooks onSubmit={onSubmit} imperativeHandle={ref} />);
 

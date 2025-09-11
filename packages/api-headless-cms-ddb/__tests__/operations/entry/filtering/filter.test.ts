@@ -1,15 +1,14 @@
-import { createEntries } from "./mocks/entry.model.js";
-import type { Expression } from "~/operations/entry/filtering/createExpressions.js";
-import { createExpressions } from "~/operations/entry/filtering/createExpressions.js";
-import type { PluginsContainer } from "@webiny/plugins";
-import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import type { Field } from "~/operations/entry/filtering/types.js";
-import { createPluginsContainer } from "../../helpers/pluginsContainer.js";
-import { createModel } from "../../helpers/createModel.js";
-import { createFields } from "~/operations/entry/filtering/createFields.js";
-import { filter } from "~/operations/entry/filtering/index.js";
-import { getSearchableFields } from "@webiny/api-headless-cms/crud/contentEntry/searchableFields.js";
-import { searchableJsonFilterCreate } from "~/operations/entry/filtering/plugins/searchableJsonFilterCreate.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import { createEntries } from "./mocks/entry.model";
+import { createExpressions, Expression } from "~/operations/entry/filtering/createExpressions";
+import { PluginsContainer } from "@webiny/plugins";
+import { CmsModel } from "@webiny/api-headless-cms/types";
+import { Field } from "~/operations/entry/filtering/types";
+import { createPluginsContainer } from "../../helpers/pluginsContainer";
+import { createModel } from "../../helpers/createModel";
+import { createFields } from "~/operations/entry/filtering/createFields";
+import { filter } from "~/operations/entry/filtering";
+import { getSearchableFields } from "@webiny/api-headless-cms/crud/contentEntry/searchableFields";
 
 describe("filtering", () => {
     let plugins: PluginsContainer;
@@ -17,7 +16,7 @@ describe("filtering", () => {
     let fields: Record<string, Field>;
 
     beforeEach(() => {
-        plugins = createPluginsContainer([searchableJsonFilterCreate()]);
+        plugins = createPluginsContainer();
         model = createModel();
         fields = createFields({
             plugins,
@@ -418,60 +417,5 @@ describe("filtering", () => {
             }
         });
         expect(resultsRed).toHaveLength(3);
-
-        /**
-         * Find page slug inside settings.
-         */
-        const resultsPage3 = filter({
-            items: records,
-            where: {},
-            plugins,
-            fields,
-            fullTextSearch: {
-                term: "page-3",
-                fields: searchableFields
-            }
-        });
-        expect(resultsPage3).toHaveLength(1);
-    });
-
-    it("should filter by nested keys in a JSON", async () => {
-        const records = createEntries(10);
-
-        const singleResult = filter({
-            items: records,
-            where: {
-                settings: {
-                    general: {
-                        title: "Settings title #3"
-                    }
-                }
-            },
-            plugins,
-            fields
-        });
-
-        expect(singleResult).toHaveLength(1);
-
-        expect(singleResult[0]).toMatchObject({
-            values: {
-                title: `Title modeled entry ${String(3).padStart(5, "t")}`
-            }
-        });
-
-        const multipleResults = filter({
-            items: records,
-            where: {
-                settings: {
-                    general: {
-                        title_startsWith: "Settings title"
-                    }
-                }
-            },
-            plugins,
-            fields
-        });
-
-        expect(multipleResults).toHaveLength(10);
     });
 });

@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { ContextPlugin } from "@webiny/api";
 import { Context } from "@webiny/api";
 import { createWcpContext } from "~/context.js";

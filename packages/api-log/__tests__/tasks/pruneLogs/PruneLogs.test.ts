@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { PruneLogs } from "~/tasks/pruneLogs/PruneLogs";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { DynamoDbLoggerKeys, DynamoDbStorageOperations } from "~/logger";

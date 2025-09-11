@@ -1,7 +1,8 @@
-import type { CmsGroup, CmsModel } from "~/types/index.js";
-import models from "./mocks/contentModels.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
-import { useBugManageHandler } from "../testHelpers/useBugManageHandler.js";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { CmsGroup, CmsModel } from "~/types";
+import models from "./mocks/contentModels";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
+import { useBugManageHandler } from "../testHelpers/useBugManageHandler";
 
 describe("predefined values", () => {
     const manageOpts = { path: "manage/en-US" };
@@ -59,7 +60,7 @@ describe("predefined values", () => {
         return update.data.updateContentModel.data;
     };
 
-    test("should create an entry with predefined values selected", async () => {
+    it("should create an entry with predefined values selected", async () => {
         const contentModelGroup = await setupContentModelGroup();
         await setupBugModel(contentModelGroup);
 
@@ -109,7 +110,7 @@ describe("predefined values", () => {
         });
     });
 
-    test("should fail creating an entry with wrong predefined text value selected", async () => {
+    it("should fail creating an entry with wrong predefined text value selected", async () => {
         const contentModelGroup = await setupContentModelGroup();
         await setupBugModel(contentModelGroup);
 
@@ -148,7 +149,7 @@ describe("predefined values", () => {
         });
     });
 
-    test("should fail creating an entry with wrong predefined number value selected", async () => {
+    it("should fail creating an entry with wrong predefined number value selected", async () => {
         const contentModelGroup = await setupContentModelGroup();
         await setupBugModel(contentModelGroup);
 
@@ -187,7 +188,7 @@ describe("predefined values", () => {
         });
     });
 
-    test("should fail creating an entry with wrong predefined number and text values selected", async () => {
+    it("should fail creating an entry with wrong predefined number and text values selected", async () => {
         const contentModelGroup = await setupContentModelGroup();
         await setupBugModel(contentModelGroup);
 

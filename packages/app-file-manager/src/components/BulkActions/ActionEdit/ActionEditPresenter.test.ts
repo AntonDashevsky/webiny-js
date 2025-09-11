@@ -1,6 +1,6 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { ActionEditPresenter } from "./ActionEditPresenter.js";
-import type { FieldRaw } from "~/components/BulkActions/ActionEdit/domain/index.js";
-import { jest } from "@jest/globals";
+import { type FieldRaw } from "~/components/BulkActions/ActionEdit/domain/index.js";
 
 describe("ActionEditPresenter", () => {
     const extensionFields = [
@@ -99,7 +99,7 @@ describe("ActionEditPresenter", () => {
     let presenter: ActionEditPresenter;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         presenter = new ActionEditPresenter();
     });
 

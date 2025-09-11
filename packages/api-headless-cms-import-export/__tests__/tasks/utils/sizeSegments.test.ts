@@ -1,9 +1,10 @@
-import { createSizeSegments } from "~/tasks/utils/helpers/sizeSegments.js";
+import { describe, expect, it } from "vitest";
+import { createSizeSegments } from "~/tasks/utils/helpers/sizeSegments";
 import bytes from "bytes";
 
 describe("file segments", () => {
     it("should create file segments - 10MB / 1MB", async () => {
-        const oneMb = bytes.parse("1MB");
+        const oneMb = bytes.parse("1MB") as number;
 
         const segments = createSizeSegments(10000000, oneMb);
 

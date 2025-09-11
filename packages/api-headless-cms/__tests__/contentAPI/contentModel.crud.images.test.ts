@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { useGraphQLHandler } from "~tests/testHelpers/useGraphQLHandler";
 import { CmsGroupPlugin } from "~/plugins";
 import { createContentModelGroup } from "~tests/contentAPI/mocks/contentModelGroup";
@@ -14,7 +15,9 @@ describe("Content Model Nested Object Images", () => {
         const model = createImageModel(group);
         const [result] = await handler.createContentModelMutation({
             data: {
-                ...model
+                ...model,
+                icon: model.icon || undefined,
+                description: undefined,
             }
         });
 

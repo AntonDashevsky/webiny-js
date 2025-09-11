@@ -1,9 +1,10 @@
-import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient.js";
-import { people } from "./base.entries.js";
-import { getBaseConfiguration } from "~/indexConfiguration/index.js";
-import type { ElasticsearchBoolQueryConfig } from "~/types.js";
-import { ElasticsearchQueryBuilderOperatorContainsPlugin } from "~/plugins/operator/contains.js";
-import { getElasticsearchIndexPrefix } from "~/indexPrefix.js";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
+import { people } from "./base.entries";
+import { getBaseConfiguration } from "~/indexConfiguration";
+import { ElasticsearchBoolQueryConfig } from "~/types";
+import { ElasticsearchQueryBuilderOperatorContainsPlugin } from "~/plugins/operator/contains";
+import { getElasticsearchIndexPrefix } from "~/indexPrefix";
 
 describe("Elasticsearch Base Search", () => {
     const client = createElasticsearchClient();

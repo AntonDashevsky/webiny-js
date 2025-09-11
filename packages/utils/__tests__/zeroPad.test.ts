@@ -1,4 +1,5 @@
-import { zeroPad } from "~/zeroPad.js";
+import { describe, test, expect } from "vitest";
+import { zeroPad } from "~/zeroPad";
 
 describe("zero pad", () => {
     const inputs: [number | string, string][] = [

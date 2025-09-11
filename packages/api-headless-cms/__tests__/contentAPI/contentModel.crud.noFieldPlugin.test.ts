@@ -1,5 +1,6 @@
-import type { CmsGroup, CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
-import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler.js";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { CmsGroup, CmsModelFieldToGraphQLPlugin } from "~/types";
+import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 
 const customFieldPlugin = (): CmsModelFieldToGraphQLPlugin => ({
     name: "cms-model-field-to-graphql-custom-test-field",
@@ -50,7 +51,7 @@ describe("content model test no field plugin", () => {
         contentModelGroup = createCMG.data.createContentModelGroup.data;
     });
 
-    test("prevent content model update if a backend plugin for a field does not exist", async () => {
+    it("prevent content model update if a backend plugin for a field does not exist", async () => {
         await createContentModelMutation({
             data: {
                 name: "Test Content model",
@@ -128,7 +129,7 @@ describe("content model test no field plugin", () => {
         });
     });
 
-    test("schema generation should not break if an old field type still exists", async () => {
+    it("schema generation should not break if an old field type still exists", async () => {
         const customField = customFieldPlugin();
         const manageModelAPI = useGraphQLHandler({
             ...manageHandlerOpts,

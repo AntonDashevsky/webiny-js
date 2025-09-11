@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { DeleteFolder } from "./DeleteFolder.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { Folder } from "../Folder.js";
@@ -28,6 +29,7 @@ describe("DeleteFolder", () => {
     });
 
     it("should be able to delete a folder", async () => {
+        const spy = vi.spyOn(gateway, "execute");
         const deleteFolder = DeleteFolder.getInstance(type, gateway);
 
         expect(foldersCache.hasItems()).toBeTrue();
@@ -43,7 +45,7 @@ describe("DeleteFolder", () => {
             type
         });
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(foldersCache.hasItems()).toBeFalse();
     });
 });

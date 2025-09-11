@@ -1,5 +1,6 @@
-import type { ToStorageParams } from "~/plugins/StorageTransformPlugin.js";
-import { createDateStorageTransformPlugin } from "~/storage/date.js";
+import { describe, expect, it } from "vitest";
+import { ToStorageParams } from "~/plugins/StorageTransformPlugin";
+import { createDateStorageTransformPlugin } from "~/storage/date";
 
 const createDefaultArgs = ({ storageId = "storageId", type = "", multipleValues = false }) => {
     return {
@@ -33,7 +34,7 @@ describe("dateStoragePlugin", () => {
         [new Date("2021-02-22T01:01:01.003Z"), "2021-02-22T01:01:01.003Z"],
         ["2021-01-01T01:01:52.003Z", "2021-01-01T01:01:52.003Z"]
     ];
-    test.each(correctSingleToStorageDateValues)(
+    it.each(correctSingleToStorageDateValues)(
         "toStorage should transform single value for storage",
         async (value, expected) => {
             const plugin = createDateStorageTransformPlugin();
@@ -61,7 +62,7 @@ describe("dateStoragePlugin", () => {
             ["2021-01-01T01:01:52.003Z", "2021-01-01T05:01:52.003Z"]
         ]
     ];
-    test.each(correctMultipleToStorageDateValues)(
+    it.each(correctMultipleToStorageDateValues)(
         "toStorage should transform multiple value for storage",
         async (value, expected) => {
             const plugin = createDateStorageTransformPlugin();
@@ -81,7 +82,7 @@ describe("dateStoragePlugin", () => {
         ["2021-01-01T01:01:52.003Z", new Date("2021-01-01T01:01:52.003Z")]
     ];
 
-    test.each(correctSingleFromStorageDateValues)(
+    it.each(correctSingleFromStorageDateValues)(
         "fromStorage should transform single value for output",
         async (value, expected) => {
             const plugin = createDateStorageTransformPlugin();
@@ -110,7 +111,7 @@ describe("dateStoragePlugin", () => {
         ]
     ];
 
-    test.each(correctMultipleFromStorageDateValues)(
+    it.each(correctMultipleFromStorageDateValues)(
         "fromStorage should transform multiple value for output",
         async (value, expected) => {
             const plugin = createDateStorageTransformPlugin();

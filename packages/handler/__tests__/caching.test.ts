@@ -1,8 +1,9 @@
-import { createHandler } from "~/fastify.js";
-import { DummyCache } from "./caching/DummyCache.js";
-import { createCachingPlugin } from "./caching/cachePlugin.js";
-import { createPostRoute } from "./caching/createPostRoute.js";
-import { createRequestBody, createRequestBodyValue } from "./caching/requestBody.js";
+import { describe, it, expect } from "vitest";
+import { createHandler } from "~/fastify";
+import { DummyCache } from "./caching/DummyCache";
+import { createCachingPlugin } from "./caching/cachePlugin";
+import { createPostRoute } from "./caching/createPostRoute";
+import { createRequestBody, createRequestBodyValue } from "./caching/requestBody";
 
 describe("request caching", () => {
     it("should store the request response", async () => {

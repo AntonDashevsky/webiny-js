@@ -1,6 +1,7 @@
-import { getJapaneseConfiguration } from "~/indexConfiguration/index.js";
-import { createElasticsearchClient } from "../helpers.js";
-import { getElasticsearchIndexPrefix } from "~/indexPrefix.js";
+import { describe, expect, it, beforeEach, afterEach } from "vitest";
+import { getJapaneseConfiguration } from "~/indexConfiguration";
+import { createElasticsearchClient } from "../helpers";
+import { getElasticsearchIndexPrefix } from "~/indexPrefix";
 
 describe("Elasticsearch Japanese", () => {
     const client = createElasticsearchClient();

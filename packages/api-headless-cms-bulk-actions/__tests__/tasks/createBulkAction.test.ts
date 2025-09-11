@@ -1,4 +1,5 @@
-import type { IntrospectionField, IntrospectionInterfaceType } from "graphql";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { IntrospectionField, IntrospectionInterfaceType } from "graphql";
 import { useGraphQlHandler } from "~tests/context/useGraphQLHandler";
 import { createBulkAction } from "~/plugins";
 import { createMockModels, createPrivateMockModels } from "~tests/mocks";
@@ -74,8 +75,8 @@ describe("createBulkAction", () => {
     });
 
     it("should update the ENUMS when a new bulk action is created, only for the provided `modelIds`", async () => {
-        const dataLoader = jest.fn();
-        const dataProcessor = jest.fn();
+        const dataLoader = vi.fn();
+        const dataProcessor = vi.fn();
 
         const { introspect } = useGraphQlHandler({
             plugins: [

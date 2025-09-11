@@ -1,10 +1,11 @@
-import elasticsearchContext from "~/index.js";
+import { describe, expect, it } from "vitest";
+import elasticsearchContext from "~/index";
 import { ContextPlugin } from "@webiny/api";
 import { PluginsContainer } from "@webiny/plugins";
-import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin.js";
+import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin";
 import { Client } from "@elastic/elasticsearch";
-import type { ElasticsearchContext } from "~/types.js";
-import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient.js";
+import { ElasticsearchContext } from "~/types";
+import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
 
 /**
  * If adding new default operators, they must be added here as well.
@@ -67,7 +68,7 @@ describe("ElasticsearchContext", () => {
         expect(context.elasticsearch).toBeInstanceOf(Client);
     });
 
-    test.each(operators)(`should initialize the plugin "%s"`, async (operator: string) => {
+    it.each(operators)(`should initialize the plugin "%s"`, async (operator: string) => {
         const context = {
             plugins: new PluginsContainer()
         } as unknown as ElasticsearchContext;

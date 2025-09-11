@@ -1,4 +1,6 @@
-import { createContainer, makeInjectable, inject, AbstractDecorator } from "~/index.js";
+import { describe, it, beforeEach, expect } from "vitest";
+
+import { createContainer, makeInjectable, inject, AbstractDecorator } from "~/index";
 
 describe("Decorators", () => {
     let container: ReturnType<typeof createContainer>;
