@@ -8,7 +8,7 @@ import type {
 import type { ISchedulerListParams } from "~/scheduler/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { dateToISOString } from "~/scheduler/dates.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("ScheduleFetcher", () => {
     const targetModel: CmsModel = { modelId: "targetModel", titleFieldId: "title" } as any;
@@ -17,8 +17,8 @@ describe("ScheduleFetcher", () => {
 
     function createMockCms(overrides: Partial<HeadlessCms> = {}) {
         return {
-            getEntryById: jest.fn(),
-            listLatestEntries: jest.fn(),
+            getEntryById: vi.fn(),
+            listLatestEntries: vi.fn(),
             ...overrides
         } as unknown as HeadlessCms;
     }
@@ -43,7 +43,7 @@ describe("ScheduleFetcher", () => {
             savedBy: identity
         };
         const cms = createMockCms({
-            getEntryById: jest.fn().mockResolvedValue(mockedEntry)
+            getEntryById: vi.fn().mockResolvedValue(mockedEntry)
         });
         const fetcher = new ScheduleFetcher({ cms, targetModel, schedulerModel });
         const result = await fetcher.getScheduled("target-1");
@@ -54,7 +54,7 @@ describe("ScheduleFetcher", () => {
 
     it("getScheduled returns null if not found", async () => {
         const cms = createMockCms({
-            getEntryById: jest.fn().mockRejectedValue(new NotFoundError("not found"))
+            getEntryById: vi.fn().mockRejectedValue(new NotFoundError("not found"))
         });
         const fetcher = new ScheduleFetcher({ cms, targetModel, schedulerModel });
         const result = await fetcher.getScheduled("target-1");
@@ -63,7 +63,7 @@ describe("ScheduleFetcher", () => {
 
     it("getScheduled throws on unknown error", async () => {
         const cms = createMockCms({
-            getEntryById: jest.fn().mockRejectedValue(new Error("unknown"))
+            getEntryById: vi.fn().mockRejectedValue(new Error("unknown"))
         });
         const fetcher = new ScheduleFetcher({ cms, targetModel, schedulerModel });
         await expect(fetcher.getScheduled("target-1")).rejects.toThrow("unknown");
@@ -83,7 +83,7 @@ describe("ScheduleFetcher", () => {
             savedBy: { id: "user-1" }
         };
         const cms = createMockCms({
-            listLatestEntries: jest.fn().mockResolvedValue([[entry], entryMeta])
+            listLatestEntries: vi.fn().mockResolvedValue([[entry], entryMeta])
         });
         const fetcher = new ScheduleFetcher({ cms, targetModel, schedulerModel });
         const params: ISchedulerListParams = {

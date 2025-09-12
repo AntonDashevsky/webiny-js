@@ -12,11 +12,11 @@ import {
     LambdaClient
 } from "@webiny/aws-sdk/client-lambda/index.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("CopyUser", () => {
     it("should create a new user if it does not exist in the target user pool", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
 
         const mockedCognitoClient = mockClient(CognitoIdentityProviderClient);
         mockedCognitoClient.on(AdminGetUserCommand).callsFake(() => {
@@ -84,7 +84,7 @@ describe("CopyUser", () => {
     });
 
     it("should update existing user", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
 
         const mockedCognitoClient = mockClient(CognitoIdentityProviderClient);
         mockedCognitoClient.on(AdminGetUserCommand).resolves({

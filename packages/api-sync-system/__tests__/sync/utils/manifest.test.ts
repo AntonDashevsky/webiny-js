@@ -2,7 +2,7 @@ import { ServiceDiscovery } from "@webiny/api";
 import { getManifest } from "~/sync/utils/manifest.js";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("manifest", () => {
     let client: DynamoDBDocument;
@@ -110,7 +110,7 @@ describe("manifest", () => {
     it("should return error because some strange error happened on ServiceDiscovery", async () => {
         const original = ServiceDiscovery.load;
 
-        ServiceDiscovery.load = jest.fn(() => {
+        ServiceDiscovery.load = vi.fn(() => {
             throw new Error("Some strange error.");
         });
 

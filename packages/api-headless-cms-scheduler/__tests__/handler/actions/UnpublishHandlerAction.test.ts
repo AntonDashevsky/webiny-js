@@ -4,7 +4,7 @@ import { createMockScheduleClient } from "~tests/mocks/scheduleClient.js";
 import { MOCK_TARGET_MODEL_ID } from "~tests/mocks/targetModel.js";
 import type { ScheduleContext } from "~/types.js";
 import { ScheduleType } from "~/scheduler/types.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("UnpublishHandlerAction", () => {
     it("should only handle unpublish action", async () => {
@@ -61,7 +61,7 @@ describe("UnpublishHandlerAction", () => {
         });
         expect(entry.id).toEqual("target-id#0001");
 
-        console.warn = jest.fn();
+        console.warn = vi.fn();
 
         const result = await action.handle({
             targetId: "target-id#0001",

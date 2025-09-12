@@ -1,6 +1,9 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
-const { getProject } = require("@webiny/cli/utils");
-const project = getProject();
+import { fontFamily } from "tailwindcss/defaultTheme";
+import { getProjectSdk } from "@webiny/project";
+
+const projectSdk = await getProjectSdk();
+const project = projectSdk.getProject();
+
 const webinyPackagesGlob = `${project.root}/node_modules/@webiny/app*/**/*.{js,ts,tsx}`;
 const webinyAdminUiPackageGlob = `${project.root}/node_modules/@webiny/admin-ui/**/*.{js,ts,tsx}`;
 const webinyUiPackageGlob = `${project.root}/node_modules/@webiny/ui/**/*.{js,ts,tsx}`;

@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from "vitest";
 import { CopyUser } from "~/resolver/recordTypes/users/CopyUser.js";
 import { createUserOnPutPlugin } from "~/resolver/recordTypes/users/usersOnPut.js";
 import { createElasticsearchMockTable, createRegularMockTable } from "~tests/mocks/table.js";
@@ -18,7 +19,6 @@ import {
 } from "@webiny/aws-sdk/client-lambda/index.js";
 import { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
 
 describe("usersOnPut", () => {
     it("should be able to handle target record", async () => {
@@ -187,7 +187,7 @@ describe("usersOnPut", () => {
     });
 
     it("should handle user create", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
 
         const mockedCognito = mockClient(CognitoIdentityProviderClient);
         mockedCognito.on(AdminGetUserCommand).resolves({
@@ -255,7 +255,7 @@ describe("usersOnPut", () => {
     });
 
     it("should handle user update", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
 
         const mockedCognito = mockClient(CognitoIdentityProviderClient);
         mockedCognito.on(AdminGetUserCommand).resolves({
@@ -346,8 +346,8 @@ describe("usersOnPut", () => {
             copyUser
         });
 
-        console.error = jest.fn();
-        console.log = jest.fn();
+        console.error = vi.fn();
+        console.log = vi.fn();
 
         const result = await plugin.handle({
             target: createMockTargetDeployment(),

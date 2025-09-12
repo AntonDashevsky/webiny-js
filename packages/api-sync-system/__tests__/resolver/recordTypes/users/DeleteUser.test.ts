@@ -12,11 +12,11 @@ import {
     LambdaClient
 } from "@webiny/aws-sdk/client-lambda/index.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("DeleteUser", () => {
     it("should delete a user from the target user pool", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
         const mockedCognitoClient = mockClient(CognitoIdentityProviderClient);
         mockedCognitoClient.on(AdminGetUserCommand).callsFake(() => {
             return {
@@ -76,7 +76,7 @@ describe("DeleteUser", () => {
     });
 
     it("should not trigger a user deletion when user does not exist in the cognito pool", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
         const mockedCognitoClient = mockClient(CognitoIdentityProviderClient);
         mockedCognitoClient.on(AdminGetUserCommand).callsFake(() => {
             throw new Error("User does not exist.");

@@ -1,5 +1,5 @@
 import { middleware } from "~/resolver/app/transform/middleware.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("middleware", () => {
     it("should not have any middlewares to call - return default value", async () => {
@@ -18,7 +18,7 @@ describe("middleware", () => {
     });
 
     it("should call a middleware", async () => {
-        console.log = jest.fn();
+        console.log = vi.fn();
 
         const runner = middleware([
             async (input, next) => {

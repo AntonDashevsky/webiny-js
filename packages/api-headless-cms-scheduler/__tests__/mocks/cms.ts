@@ -5,13 +5,13 @@ export const createMockCms = (
     cms?: Partial<ScheduleExecutorCms & ScheduleFetcherCms>
 ): ScheduleExecutorCms & ScheduleFetcherCms => {
     return {
-        listLatestEntries: jest.fn(),
-        publishEntry: jest.fn(),
-        unpublishEntry: jest.fn(),
-        updateEntry: jest.fn(),
-        createEntry: jest.fn(),
-        deleteEntry: jest.fn(),
-        getEntryById: jest.fn(),
+        listLatestEntries: vi.fn(),
+        publishEntry: vi.fn(),
+        unpublishEntry: vi.fn(),
+        updateEntry: vi.fn(),
+        createEntry: vi.fn(),
+        deleteEntry: vi.fn(),
+        getEntryById: vi.fn(),
         ...cms
     };
 };

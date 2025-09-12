@@ -9,7 +9,7 @@ import { createMockTableItemData } from "~tests/mocks/tableItem.js";
 import { SemVer } from "semver";
 import { DynamoDBTableType } from "~/types.js";
 import { createMockPluginsContainer } from "~tests/mocks/plugins.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 const item1 = createMockTableItemData({
     order: 1
@@ -64,7 +64,7 @@ const plugins = createMockPluginsContainer([
 
 describe("TransformHandler", () => {
     it("should transform the data in correct order", async () => {
-        console.info = jest.fn();
+        console.info = vi.fn();
         const canTransform = () => {
             return true;
         };

@@ -3,7 +3,7 @@ import { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
 import type { IDeployment } from "~/resolver/deployment/types.js";
 import { Deployment } from "~/resolver/deployment/Deployment.js";
 import { SemVer } from "semver";
-import { version } from "@webiny/cli/package.json";
+import { version } from "@webiny/build-tools/package.json";
 
 const currentVersion = new SemVer(version);
 

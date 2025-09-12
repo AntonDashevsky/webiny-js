@@ -14,7 +14,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@jest/globals": "^29.7.0",
     "@smithy/node-http-handler": "^2.1.6",
     "@webiny/api-file-manager": "0.0.0",
     "@webiny/api-headless-cms": "0.0.0",
@@ -49,7 +48,8 @@
     "adm-zip": "^0.5.14",
     "aws-sdk-client-mock": "^4.1.0",
     "graphql": "^16.11.0",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "vitest": "^3.2.4"
   },
   "publishConfig": {
     "access": "public",

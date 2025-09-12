@@ -1,7 +1,7 @@
 import { createDeploymentsFetcher } from "~/resolver/deployment/DeploymentsFetcher.js";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { createMockDeploymentData, storeDeployment } from "~tests/mocks/deployments.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("DeploymentsFetcher", () => {
     const table = process.env.DB_TABLE as string;
@@ -115,7 +115,7 @@ describe("DeploymentsFetcher", () => {
 
     it("should throw an error on client.send", async () => {
         const client = {
-            send: jest.fn(() => {
+            send: vi.fn(() => {
                 throw new Error("Unspecified error.");
             })
         };

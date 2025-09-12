@@ -8,7 +8,7 @@ import {
     createCognitoIdentityProviderClient
 } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("updateUserAction", () => {
     beforeEach(() => {
@@ -16,7 +16,7 @@ describe("updateUserAction", () => {
     });
 
     it("should fail to parse invalid input data", () => {
-        console.log = jest.fn();
+        console.log = vi.fn();
 
         const action = createUpdateUserAction({
             createCognitoProvider: createCognitoIdentityProviderClient
@@ -116,7 +116,7 @@ describe("updateUserAction", () => {
                 Username: input.Username
             };
         });
-        const send = jest.fn();
+        const send = vi.fn();
         mockedClient
             .on(AdminUpdateUserAttributesCommand)
             .callsFake((input: AdminUpdateUserAttributesCommandInput) => {

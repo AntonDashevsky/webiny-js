@@ -12,7 +12,7 @@ import {
     SchedulerClient,
     UpdateScheduleCommand
 } from "@webiny/aws-sdk/client-scheduler/index.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("SchedulerService", () => {
     const lambdaArn = "arn:aws:lambda:us-east-1:123456789012:function:test";
@@ -139,7 +139,7 @@ describe("SchedulerService", () => {
             getClient: () => client,
             config
         });
-        jest.spyOn(service, "exists").mockResolvedValue(true);
+        vi.spyOn(service, "exists").mockResolvedValue(true);
 
         const result = await service.delete("schedule-1");
 
@@ -156,7 +156,7 @@ describe("SchedulerService", () => {
             getClient: () => client,
             config
         });
-        jest.spyOn(service, "exists").mockResolvedValue(false);
+        vi.spyOn(service, "exists").mockResolvedValue(false);
 
         try {
             const result = await service.delete("schedule-1");

@@ -5,9 +5,13 @@ import {
     createMockSourceDeployment,
     createMockTargetDeployment
 } from "~tests/mocks/deployments.js";
-import { createLambdaClient, InvokeCommand, LambdaClient } from "@webiny/aws-sdk/client-lambda/index.js";
+import {
+    createLambdaClient,
+    InvokeCommand,
+    LambdaClient
+} from "@webiny/aws-sdk/client-lambda/index.js";
 import { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("CopyFile", () => {
     it("should return null if file already exists", async () => {
@@ -46,7 +50,7 @@ describe("CopyFile", () => {
     });
 
     it("should copy file if error happens during HeadObjectCommand operation", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
 
         const mockedS3Client = mockClient(S3Client);
         mockedS3Client.on(HeadObjectCommand).callsFake(input => {

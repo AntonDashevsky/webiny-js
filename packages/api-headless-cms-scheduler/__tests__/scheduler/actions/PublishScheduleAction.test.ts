@@ -74,7 +74,7 @@ describe("PublishScheduleAction", () => {
     });
 
     it("should publish an entry immediately if the scheduleOn is in the past", async () => {
-        const updateEntryMock = jest.fn(async <T = CmsEntryValues>() => {
+        const updateEntryMock = vi.fn(async <T = CmsEntryValues>() => {
             return {} as CmsEntry<T>;
         });
         const cms = createMockCms({
@@ -152,7 +152,7 @@ describe("PublishScheduleAction", () => {
         });
         const scheduleOn = new Date(Date.now() + 1000000);
 
-        const crateEntryMock = jest.fn(async () => {
+        const crateEntryMock = vi.fn(async () => {
             const entry: Pick<CmsEntry<IScheduleEntryValues>, "id" | "values" | "savedBy"> = {
                 id: createScheduleRecordIdWithVersion(`target-id#0002`),
                 values: {

@@ -1,5 +1,5 @@
 import { createIngestorResult, IngestorResult } from "~/resolver/app/ingestor/IngestorResult.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("IngestorResult", () => {
     it("should create result and have no items", async () => {
@@ -12,7 +12,7 @@ describe("IngestorResult", () => {
     it("should fail on adding item without source table", async () => {
         const result = createIngestorResult();
 
-        console.error = jest.fn();
+        console.error = vi.fn();
 
         result.add({
             item: {

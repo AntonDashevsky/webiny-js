@@ -10,7 +10,7 @@ export const createMockRequest = () => {
 
 export const createMockReply = () => {
     const sent: unknown[] = [];
-    const send = jest.fn();
+    const send = vi.fn();
     return {
         sent,
         send,
