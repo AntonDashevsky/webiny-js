@@ -22,11 +22,11 @@
     "glob": "^7.2.3",
     "humanize-duration": "3.32.1",
     "listr": "^0.14.3",
-    "load-json-file": "^7.0.1",
+    "load-json-file": "6.2.0",
     "ora": "4.1.1",
     "semver": "^7.7.2",
     "type-fest": "^3.4.0",
-    "write-json-file": "^6.0.0",
+    "write-json-file": "^4.3.0",
     "yargs": "^17.7.2",
     "zod": "^3.25.76"
   },
