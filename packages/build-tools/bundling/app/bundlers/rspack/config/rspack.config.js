@@ -4,7 +4,6 @@ import {
     HotModuleReplacementPlugin,
     ProgressPlugin,
     DefinePlugin,
-    ProvidePlugin,
     HtmlRspackPlugin,
     CssExtractRspackPlugin
 } from "@rspack/core";
@@ -72,7 +71,6 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
                 .map(ext => `.${ext}`)
                 .filter(ext => useTypeScript || !ext.includes("ts")),
             alias: {
-                os: require.resolve("os-browserify/browser"),
                 "react/jsx-runtime": require.resolve("react/jsx-runtime"),
                 react: require.resolve("react"),
                 // Allows for better profiling with ReactDevTools
@@ -181,10 +179,6 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
                     filename: "static/css/[name].[contenthash:8].css",
                     chunkFilename: "static/css/[name].[contenthash:8].chunk.css"
                 }),
-            new ProvidePlugin({
-                Buffer: ["buffer", "Buffer"],
-                process: "process/browser.js"
-            }),
             new DefinePlugin(env.stringified),
             new HtmlRspackPlugin({
                 inject: true,

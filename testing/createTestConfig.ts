@@ -22,7 +22,7 @@ export const createTestConfig = async ({
 }: CreateTestConfigParams): Promise<NonNullable<ViteUserConfig["test"]>> => {
     const name = basename(path);
 
-    const { PackageJson } = await import("@webiny/project-utils/utils/PackageJson.js");
+    const { PackageJson } = await import("@webiny/build-tools/utils/PackageJson.js");
     const cliPackage = await PackageJson.fromPackage("@webiny/cli");
     const version = cliPackage.getJson().version;
 

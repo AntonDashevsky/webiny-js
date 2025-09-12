@@ -1,9 +1,9 @@
 import { createImplementation } from "@webiny/di-container";
+import { PackageJson } from "@webiny/build-tools/utils/PackageJson.js";
 import { GetAppPackagesService } from "~/abstractions/index.js";
 import { type AppModel, AppPackageModel } from "~/models/index.js";
 import glob from "fast-glob";
 import { dirname } from "path";
-import { PackageJson } from "~/utils/PackageJson.js";
 
 export class DefaultGetAppPackagesService implements GetAppPackagesService.Interface {
     async execute(app: AppModel) {

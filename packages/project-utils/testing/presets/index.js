@@ -3,13 +3,13 @@ import fs from "fs";
 import getYarnWorkspaces from "get-yarn-workspaces";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { PackageJson } from "../../utils/PackageJson.js";
+import { PackageJson } from "@webiny/build-tools/utils/PackageJson.js";
 
 const getAllPackages = (targetKeywords) => {
-    
+
     const envVarStorage = process.env.WEBINY_STORAGE || "ddb";
     const { storage = envVarStorage} = yargs(hideBin(process.argv));
-    
+
 
     if (!storage) {
         throw Error(`Missing required --storage parameter!`);

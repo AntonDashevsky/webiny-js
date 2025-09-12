@@ -1,4 +1,3 @@
-// @ts-expect-error `read-json-sync` has no type declarations.
 import readJson from "read-json-sync";
 import findUp from "find-up";
 

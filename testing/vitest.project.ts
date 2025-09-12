@@ -9,7 +9,7 @@ const getPackageMetaFromPackageJson = (pkgJson: any) => {
 };
 
 const getPackageMetaFromPath = async (value: string) => {
-    const { PackageJson } = await import("@webiny/project-utils/utils/PackageJson.js");
+    const { PackageJson } = await import("@webiny/build-tools/utils/PackageJson.js");
     // The exact test file path usually happens when we run tests via IDE.
     const request = path.resolve(value);
 

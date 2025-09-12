@@ -23,4 +23,4 @@ export type * from "./abstractions/models/index.js";
 
 export type { IStackOutput } from "~/abstractions/features/GetAppStackOutput.js";
 
-export { PackageJson } from "./utils/PackageJson.js";
+export { PackageJson } from "@webiny/build-tools/utils/PackageJson.js";
