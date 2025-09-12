@@ -43,7 +43,7 @@ export default () => {
                 users will use to add their own extensions. */}
             <Admin.Extension src={"./extensions/myAdminExtension.tsx"} />
             {/*<Backend.Security.Authenticator src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
-            <Backend.Cms.OnEntryBeforeCreate src={"./extensions/myOnEntryBeforeCreate.ts"} />
+            {/*<Backend.Cms.OnEntryBeforeCreate src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
             {/*<Backend.Cms.Model src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
             {/*<Backend.Cms.ModelGroup src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
             {/*<Backend.Fm.FileModelModifier src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
