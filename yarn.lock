@@ -16303,6 +16303,7 @@ __metadata:
     "@webiny/telemetry": "npm:0.0.0"
     camelcase: "npm:^6.3.0"
     case-sensitive-paths-webpack-plugin: "npm:2.4.0"
+    chalk: "npm:^4.1.2"
     ci-info: "npm:^4.1.0"
     css-loader: "npm:^6.10.0"
     eslint: "npm:^8.57.1"
