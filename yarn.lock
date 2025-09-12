@@ -2411,14 +2411,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/compat-data@npm:^7.20.5, @babel/compat-data@npm:^7.27.2, @babel/compat-data@npm:^7.27.7, @babel/compat-data@npm:^7.28.0, @babel/compat-data@npm:^7.28.4":
+"@babel/compat-data@npm:^7.20.5, @babel/compat-data@npm:^7.27.2, @babel/compat-data@npm:^7.27.7, @babel/compat-data@npm:^7.28.0":
   version: 7.28.4
   resolution: "@babel/compat-data@npm:7.28.4"
   checksum: 10/95b7864e6b210c84c069743966da448c0cb50015a4de5e18dd755776a0b5e53c4653e74f26700aed8de922eaa3b8844fc5fc5b29bc64830249d2abe914aec832
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.18.9, @babel/core@npm:^7.19.6, @babel/core@npm:^7.23.0, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.9, @babel/core@npm:^7.27.4, @babel/core@npm:^7.28.4":
+"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.18.9, @babel/core@npm:^7.19.6, @babel/core@npm:^7.23.0, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.9, @babel/core@npm:^7.27.4, @babel/core@npm:^7.28.3, @babel/core@npm:^7.28.4":
   version: 7.28.4
   resolution: "@babel/core@npm:7.28.4"
   dependencies:
@@ -13052,6 +13052,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/inquirer@npm:^8.2.12":
+  version: 8.2.12
+  resolution: "@types/inquirer@npm:8.2.12"
+  dependencies:
+    "@types/through": "npm:*"
+    rxjs: "npm:^7.2.0"
+  checksum: 10/b382693011a5f33c92ac1f90a16f3d6fa600c2a294433ca5dc65ab108eccd658b9293e968c34a738ef60d5cd1f2f150ebef7da731aa302201d9978abad1fcb94
+  languageName: node
+  linkType: hard
+
 "@types/invariant@npm:^2.2.35":
   version: 2.2.37
   resolution: "@types/invariant@npm:2.2.37"
@@ -13692,6 +13702,15 @@ __metadata:
   version: 2.0.5
   resolution: "@types/store@npm:2.0.5"
   checksum: 10/fd7fbc41805749d6b5180af335928b9b28ef0632fda8f240d4fb4f018a910a626bfa7f9f710e750adfd951ea1fc296b1f0527d1bfcebc0ee7dc136fb5c9e59c7
+  languageName: node
+  linkType: hard
+
+"@types/through@npm:*":
+  version: 0.0.33
+  resolution: "@types/through@npm:0.0.33"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10/fd0b73f873a64ed5366d1d757c42e5dbbb2201002667c8958eda7ca02fff09d73de91360572db465ee00240c32d50c6039ea736d8eca374300f9664f93e8da39
   languageName: node
   linkType: hard
 
@@ -27130,7 +27149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inquirer@npm:^8.2.4":
+"inquirer@npm:^8.2.4, inquirer@npm:^8.2.7":
   version: 8.2.7
   resolution: "inquirer@npm:8.2.7"
   dependencies:
@@ -35892,11 +35911,11 @@ __metadata:
   dependencies:
     "@babel/cli": "npm:^7.28.3"
     "@babel/code-frame": "npm:^7.27.1"
-    "@babel/compat-data": "npm:^7.28.4"
-    "@babel/core": "npm:^7.28.4"
+    "@babel/compat-data": "npm:^7.28.0"
+    "@babel/core": "npm:^7.28.3"
     "@babel/helper-define-polyfill-provider": "npm:^0.6.5"
     "@babel/helper-environment-visitor": "npm:^7.24.7"
-    "@babel/parser": "npm:^7.28.4"
+    "@babel/parser": "npm:^7.28.3"
     "@babel/plugin-proposal-class-properties": "npm:^7.18.6"
     "@babel/plugin-proposal-object-rest-spread": "npm:^7.20.7"
     "@babel/plugin-proposal-throw-expressions": "npm:^7.27.1"
@@ -35907,16 +35926,17 @@ __metadata:
     "@babel/preset-react": "npm:^7.27.1"
     "@babel/preset-typescript": "npm:^7.27.1"
     "@babel/register": "npm:^7.28.3"
-    "@babel/runtime": "npm:^7.28.4"
+    "@babel/runtime": "npm:^7.28.3"
     "@babel/template": "npm:7.27.2"
-    "@babel/traverse": "npm:^7.28.4"
-    "@babel/types": "npm:^7.28.4"
+    "@babel/traverse": "npm:^7.28.3"
+    "@babel/types": "npm:^7.28.2"
     "@commitlint/cli": "npm:^11.0.0"
     "@commitlint/config-conventional": "npm:^11.0.0"
     "@grpc/grpc-js": "npm:^1.11.1"
     "@octokit/rest": "npm:^20.0.2"
     "@types/fs-extra": "npm:^11.0.4"
     "@types/hoist-non-react-statics": "npm:^3.3.5"
+    "@types/inquirer": "npm:^8.2.12"
     "@types/node": "npm:^22.18.0"
     "@types/prettier": "npm:^2.7.3"
     "@types/react": "npm:18.2.79"
@@ -35956,7 +35976,7 @@ __metadata:
     glob: "npm:^7.2.3"
     graphql: "npm:^16.11.0"
     husky: "npm:^4.2.5"
-    inquirer: "npm:^12.9.4"
+    inquirer: "npm:^8.2.7"
     inquirer-autocomplete-prompt: "npm:^1.4.0"
     inquirer-checkbox-plus-prompt: "npm:^1.4.2"
     inquirer-maxlength-input-prompt: "npm:^1.0.2"
@@ -36058,7 +36078,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.5.1, rxjs@npm:^7.5.5, rxjs@npm:^7.8.0, rxjs@npm:^7.8.2":
+"rxjs@npm:^7.2.0, rxjs@npm:^7.5.1, rxjs@npm:^7.5.5, rxjs@npm:^7.8.0, rxjs@npm:^7.8.2":
   version: 7.8.2
   resolution: "rxjs@npm:7.8.2"
   dependencies:
@@ -37796,7 +37816,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:^5.7":
+"systeminformation@npm:^5.23.18":
   version: 5.27.8
   resolution: "systeminformation@npm:5.27.8"
   bin:

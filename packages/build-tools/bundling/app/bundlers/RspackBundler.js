@@ -1,10 +1,10 @@
 import path from "path";
 import fs from "fs-extra";
 import { rspack } from "@rspack/core";
-import formatWebpackMessages from "react-dev-utils/formatWebpackMessages.js";
 import { BaseAppBundler } from "./BaseAppBundler.js";
 import { createRspackConfig } from "./rspack/createRspackConfig.js";
 import { TailwindSuppressor } from "./rspack/TailwindSuppressor.js";
+import { formatWebpackMessages } from "./rspack/formatWebpackMessages.js";
 import createPaths from "./rspack/config/paths.js";
 
 export class RspackBundler extends BaseAppBundler {
@@ -53,12 +53,14 @@ export class RspackBundler extends BaseAppBundler {
                             errors: true
                         })
                     );
+
                 }
 
                 if (Array.isArray(messages.errors) && messages.errors.length) {
                     if (messages.errors.length > 1) {
                         messages.errors.length = 1;
                     }
+                    console.log(messages);
 
                     const errorMessages = messages.errors.join("\n\n");
                     console.error(errorMessages);
