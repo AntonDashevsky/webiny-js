@@ -56,6 +56,10 @@ export class VerifyDepsCommand implements Command.Interface<{}> {
                         throw new Error(
                             "Duplicates are not in sync. Please run `yarn webiny sync-dependencies` command."
                         );
+                    } else if (Array.isArray(json) && json.length > 0) {
+                        throw new Error(
+                            "There are still duplicates in the project. Please sort them out and run `yarn webiny sync-dependencies` command to regenerate files."
+                        );
                     }
                 } else {
                     throw new Error(

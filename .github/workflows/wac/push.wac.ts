@@ -340,6 +340,11 @@ const createPushWorkflow = (branchName: string) => {
                         name: "Sync Dependencies Verification",
                         run: "yarn verify-dependencies",
                         "working-directory": DIR_WEBINY_JS
+                    },
+                    {
+                        name: "Check Package Node Modules",
+                        run: "yarn check-package-dependencies",
+                        "working-directory": DIR_WEBINY_JS
                     }
                 ]
             }),
