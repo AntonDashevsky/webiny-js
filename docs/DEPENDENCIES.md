@@ -68,3 +68,20 @@ yarn generate-ts-configs
 ```
 yarn check-ts-configs
 ```
+
+## Updating Dependencies
+
+To make it easy for us to update dependencies across our packages, we have created a command that will do it for us.
+
+It is a cli command tool with choices on what to update:
+```
+yarn update-packages
+```
+
+When you run it, you will be presented with a list of choices (presets) or you can write your custom matcher.
+
+This will help with updating, for example, `babel` packages. Why?
+
+Because `babel` is not only that. There are numerous related packages which we want to update (and possibly we do not want update some with `babel` in the package name).
+
+To add a new preset, you can add it into `scripts/updatePackagesLib/presets`. There are multiple presets there for examples.
