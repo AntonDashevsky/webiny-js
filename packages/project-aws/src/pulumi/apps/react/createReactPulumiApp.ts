@@ -73,7 +73,7 @@ export const createReactPulumiApp = (projectAppParams: CreateReactPulumiAppParam
                 name: `${name}-app-cdn`,
                 config: {
                     enabled: true,
-                    waitForDeployment: false,
+                    waitForDeployment: true,
                     origins: [bucket.origin],
                     defaultRootObject: "index.html",
                     defaultCacheBehavior: {
