@@ -1,4 +1,4 @@
-import { createJob } from "./createJob";
+import { createJob } from "./createJob.js";
 import { NormalJob } from "github-actions-wac";
 
 type CreateValidateWorkflowsJobParams = Partial<NormalJob>;

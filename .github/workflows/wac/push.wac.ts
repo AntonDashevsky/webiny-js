@@ -5,8 +5,8 @@ import {
     listPackagesWithJestTests,
     NODE_VERSION,
     runNodeScript
-} from "./utils";
-import { createJob } from "./jobs";
+} from "./utils/index.js";
+import { createJob } from "./jobs/index.js";
 import {
     createDeployWebinySteps,
     createGlobalBuildCacheSteps,
@@ -15,7 +15,7 @@ import {
     createSetupVerdaccioSteps,
     createYarnCacheSteps,
     withCommonParams
-} from "./steps";
+} from "./steps/index.js";
 
 const createPushWorkflow = (branchName: string) => {
     const ucFirstBranchName = branchName.charAt(0).toUpperCase() + branchName.slice(1);

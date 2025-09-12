@@ -1,5 +1,5 @@
 import { NormalJob } from "github-actions-wac";
-import { NODE_VERSION, AWS_REGION, NODE_OPTIONS } from "../utils";
+import { NODE_VERSION, AWS_REGION, NODE_OPTIONS } from "../utils/index.js";
 
 interface CreateJobParams extends Partial<NormalJob> {
     awsAuth?: boolean;

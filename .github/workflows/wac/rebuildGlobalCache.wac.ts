@@ -1,9 +1,9 @@
-import { createJob } from "./jobs";
+import { createJob } from "./jobs/index.js";
 import {
     createGlobalBuildCacheSteps,
     createInstallBuildSteps,
     createYarnCacheSteps
-} from "./steps";
+} from "./steps/index.js";
 
 const createRebuildGlobalCacheWorkflow = (branchName: string) => ({
     name: `Rebuild Global Cache ("${branchName}" branch)`,

@@ -1,4 +1,4 @@
-import { addToOutputs } from "./addToOutputs";
+import { addToOutputs } from "./addToOutputs.js";
 
 interface RunNodeScriptOptions {
     outputAs?: string;

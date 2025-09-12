@@ -7,15 +7,15 @@ import {
     createGlobalBuildCacheSteps,
     createRunBuildCacheSteps,
     withCommonParams
-} from "./steps";
+} from "./steps/index.js";
 import {
     NODE_OPTIONS,
     NODE_VERSION,
     BUILD_PACKAGES_RUNNER,
     AWS_REGION,
     runNodeScript
-} from "./utils";
-import { createJob, createValidateWorkflowsJob } from "./jobs";
+} from "./utils/index.js";
+import { createJob, createValidateWorkflowsJob } from "./jobs/index.js";
 
 // Will print "next" or "dev". Important for caching (via actions/cache).
 const DIR_WEBINY_JS = "${{ needs.baseBranch.outputs.base-branch }}";

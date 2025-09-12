@@ -1,7 +1,7 @@
 import { createWorkflow } from "github-actions-wac";
-import { createJob, createValidateWorkflowsJob } from "./jobs";
-import { createRunBuildCacheSteps, createYarnCacheSteps, createInstallBuildSteps } from "./steps";
-import { BUILD_PACKAGES_RUNNER } from "./utils";
+import { createJob, createValidateWorkflowsJob } from "./jobs/index.js";
+import { createRunBuildCacheSteps, createYarnCacheSteps, createInstallBuildSteps } from "./steps/index.js";
+import { BUILD_PACKAGES_RUNNER } from "./utils/index.js";
 
 const installBuildSteps = createInstallBuildSteps({ workingDirectory: "" });
 const yarnCacheSteps = createYarnCacheSteps({ workingDirectory: "" });

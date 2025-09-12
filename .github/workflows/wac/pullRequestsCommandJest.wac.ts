@@ -5,15 +5,15 @@ import {
     createRunBuildCacheSteps,
     createYarnCacheSteps,
     withCommonParams
-} from "./steps";
+} from "./steps/index.js";
 import {
     AWS_REGION,
     BUILD_PACKAGES_RUNNER,
     listPackagesWithJestTests,
     NODE_OPTIONS,
     NODE_VERSION
-} from "./utils";
-import { createJob, createValidateWorkflowsJob } from "./jobs";
+} from "./utils/index.js";
+import { createJob, createValidateWorkflowsJob } from "./jobs/index.js";
 
 // Will print "next" or "dev". Important for caching (via actions/cache).
 const DIR_WEBINY_JS = "${{ needs.baseBranch.outputs.base-branch }}";

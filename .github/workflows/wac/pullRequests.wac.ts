@@ -1,5 +1,5 @@
 import { createWorkflow, NormalJob } from "github-actions-wac";
-import { createJob } from "./jobs";
+import { createJob } from "./jobs/index.js";
 import {
     NODE_VERSION,
     BUILD_PACKAGES_RUNNER,
@@ -7,14 +7,14 @@ import {
     AWS_REGION,
     runNodeScript,
     addToOutputs
-} from "./utils";
+} from "./utils/index.js";
 import {
     createGlobalBuildCacheSteps,
     createInstallBuildSteps,
     createRunBuildCacheSteps,
     createYarnCacheSteps,
     withCommonParams
-} from "./steps";
+} from "./steps/index.js";
 
 // Will print "next" or "dev". Important for caching (via actions/cache).
 const DIR_WEBINY_JS = "${{ github.base_ref }}";

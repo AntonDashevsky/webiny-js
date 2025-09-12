@@ -1,4 +1,4 @@
-import { withCommonParams } from "./withCommonParams";
+import { withCommonParams } from "./withCommonParams.js";
 
 interface CreateInstallBuildStepsParams {
     workingDirectory: string;

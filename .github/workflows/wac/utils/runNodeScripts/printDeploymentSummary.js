@@ -1,5 +1,5 @@
 // This script can only be run if we previously checked out the project and installed all dependencies.
-const { getStackOutput } = require("@webiny/project");
+import { getStackOutput } from "@webiny/project";
 
 const args = process.argv.slice(2); // Removes the first two elements
 const [cwd] = args;
