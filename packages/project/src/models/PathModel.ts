@@ -1,5 +1,6 @@
 import path from "path";
 import { type IPathModel, type IPathModelDto } from "~/abstractions/models/index.js";
+import fs from "fs";
 
 export class PathModel implements IPathModel {
     constructor(private value: string) {}
@@ -7,6 +8,10 @@ export class PathModel implements IPathModel {
     join(...paths: string[]) {
         const joinedPath = path.join(this.value, ...paths);
         return PathModel.from(joinedPath);
+    }
+
+    existsSync() {
+        return fs.existsSync(this.value);
     }
 
     toString(): string {
