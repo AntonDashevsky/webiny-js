@@ -32,6 +32,7 @@
     "bufferutil": "^4.0.1",
     "camelcase": "^6.3.0",
     "case-sensitive-paths-webpack-plugin": "2.4.0",
+    "chalk": "^4.1.2",
     "chokidar": "^4.0.0",
     "ci-info": "^4.1.0",
     "crypto-browserify": "^3.12.0",
