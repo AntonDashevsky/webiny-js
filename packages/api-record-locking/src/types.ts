@@ -14,7 +14,7 @@ import type {
 } from "@webiny/api-websockets/types.js";
 import type { SecurityPermission } from "@webiny/api-security/types.js";
 
-export { CmsError, CmsEntry };
+export type { CmsError, CmsEntry };
 
 export type IRecordLockingIdentity = CmsIdentity;
 

@@ -134,6 +134,7 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                 await buildRunner.run();
                 ui.newLine();
             } catch (error) {
+                console.log("error", error);
                 throw HandledError.from(error);
             }
         }
@@ -159,6 +160,7 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                 }
             });
         } catch (error) {
+            console.log("error", error);
             throw HandledError.from(error);
         }
     }
