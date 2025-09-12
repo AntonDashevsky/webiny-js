@@ -1,3 +1,3 @@
-const { createDynaliteTables } = require("../../jest.config.base");
+const { createDynaliteTables } = require("../../vi.config.base");
 
 module.exports = createDynaliteTables();

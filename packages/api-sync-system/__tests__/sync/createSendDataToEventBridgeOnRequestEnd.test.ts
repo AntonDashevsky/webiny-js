@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from "vitest";
 import { createSendDataToEventBridgeOnRequestEnd } from "~/sync/createSendDataToEventBridgeOnRequestEnd.js";
 import { createMockSyncHandler } from "~tests/mocks/syncHandler.js";
 import { OnRequestResponseSendPlugin } from "@webiny/handler/plugins/OnRequestResponseSendPlugin.js";
@@ -10,7 +11,6 @@ import {
     PutEventsCommand
 } from "@webiny/aws-sdk/client-eventbridge/index.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
 
 describe("createSendDataToEventBridgeOnRequestEnd", () => {
     it("should create plugins to attach handler to request end", () => {
@@ -33,7 +33,7 @@ describe("createSendDataToEventBridgeOnRequestEnd", () => {
     });
 
     it("should trigger flush on request end", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
         const mockedEventBridgeClient = mockClient(EventBridgeClient);
         mockedEventBridgeClient.on(PutEventsCommand).callsFake(input => {
             send(input);
@@ -69,7 +69,7 @@ describe("createSendDataToEventBridgeOnRequestEnd", () => {
     });
 
     it("should trigger flush on request timeout", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
         const mockedEventBridgeClient = mockClient(EventBridgeClient);
         mockedEventBridgeClient.on(PutEventsCommand).callsFake(input => {
             send(input);
@@ -109,7 +109,7 @@ describe("createSendDataToEventBridgeOnRequestEnd", () => {
 
         const unspecifiedEventBridgeError = "Unspecified Event Bridge error.";
 
-        const send = jest.fn();
+        const send = vi.fn();
 
         const mockedEventBridgeClient = mockClient(EventBridgeClient);
         mockedEventBridgeClient.on(PutEventsCommand).callsFake(input => {
@@ -129,7 +129,7 @@ describe("createSendDataToEventBridgeOnRequestEnd", () => {
         const target = plugins[0];
         expect(target).toBeInstanceOf(OnRequestResponseSendPlugin);
 
-        const logError = jest.fn();
+        const logError = vi.fn();
         console.error = logError;
 
         expect(send).not.toHaveBeenCalled();

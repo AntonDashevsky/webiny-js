@@ -2,7 +2,6 @@ import { describe, it, expect, beforeEach, vi } from "vitest";
 import { QueryBuilderDrawerPresenter } from "./QueryBuilderDrawerPresenter.js";
 import type { FilterDTO } from "~/components/AdvancedSearch/domain/index.js";
 import { Operation } from "~/components/AdvancedSearch/domain/index.js";
-import { jest } from "@jest/globals";
 
 describe("QueryBuilderDrawerPresenter", () => {
     const defaultFilter = { field: "", value: "", condition: "" };

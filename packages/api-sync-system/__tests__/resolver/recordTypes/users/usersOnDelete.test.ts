@@ -18,7 +18,7 @@ import {
     createMockTargetDeployment
 } from "~tests/mocks/deployments.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("usersOnDelete", () => {
     it("should be able to handle target record", async () => {
@@ -186,7 +186,7 @@ describe("usersOnDelete", () => {
     });
 
     it("should handle user deletion", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
 
         const mockedCognito = mockClient(CognitoIdentityProviderClient);
         mockedCognito.on(AdminGetUserCommand).resolves({
@@ -273,8 +273,8 @@ describe("usersOnDelete", () => {
             deleteUser
         });
 
-        console.error = jest.fn();
-        console.log = jest.fn();
+        console.error = vi.fn();
+        console.log = vi.fn();
 
         const result = await plugin.handle({
             target: createMockTargetDeployment(),

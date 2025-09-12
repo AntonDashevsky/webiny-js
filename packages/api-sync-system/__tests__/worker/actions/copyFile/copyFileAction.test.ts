@@ -11,7 +11,7 @@ import {
 } from "@webiny/aws-sdk/client-s3/index.js";
 import { mockClient } from "aws-sdk-client-mock";
 import { createCopyFileAction } from "~/worker/actions/copyFile/copyFileAction.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("copyFileAction", () => {
     beforeEach(() => {
@@ -19,7 +19,7 @@ describe("copyFileAction", () => {
     });
 
     it("should fail to parse invalid input data", () => {
-        console.log = jest.fn();
+        console.log = vi.fn();
 
         const action = createCopyFileAction({
             createS3Client

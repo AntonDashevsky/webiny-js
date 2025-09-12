@@ -11,7 +11,7 @@ import {
     createMockSourceDeployment,
     createMockTargetDeployment
 } from "~tests/mocks/deployments.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("CopyFile", () => {
     const targetDeployment = createMockTargetDeployment();
@@ -93,7 +93,7 @@ describe("CopyFile", () => {
     });
 
     it("should break if target exists", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
         const clientMock = mockClient(S3Client);
         clientMock.on(HeadObjectCommand).callsFake((input: HeadObjectCommandInput) => {
             send(input);

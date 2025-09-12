@@ -1,4 +1,4 @@
-const base = require("../../jest.config.base");
+const base = require("../../vi.config.base");
 const presets = require("@webiny/project-utils/testing/presets")(["storage-operations"]);
 
 module.exports = {

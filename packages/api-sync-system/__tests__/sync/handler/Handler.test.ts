@@ -20,7 +20,7 @@ import {
 } from "@webiny/aws-sdk/client-eventbridge/index.js";
 import { generateAlphaNumericId } from "@webiny/utils";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("Handler", () => {
     const tableName = process.env.DB_TABLE as string;
@@ -41,7 +41,7 @@ describe("Handler", () => {
     });
 
     it("should add commands and flush them", async () => {
-        const send = jest.fn(
+        const send = vi.fn(
             async (input: PutEventsCommandInput): Promise<PutEventsCommandOutput> => {
                 return {
                     Entries: (input.Entries || []).map(entry => {
@@ -248,7 +248,7 @@ describe("Handler", () => {
             })
         );
 
-        const errorFn = jest.fn();
+        const errorFn = vi.fn();
 
         console.error = errorFn;
 

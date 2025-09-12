@@ -1,7 +1,7 @@
 import type { SchedulerClient } from "@webiny/aws-sdk/client-scheduler";
 
-export const createMockScheduleClient = (send = jest.fn()): Pick<SchedulerClient, "send"> => {
+export const createMockScheduleClient = (send = vi.fn()): Pick<SchedulerClient, "send"> => {
     return {
-        send: send || jest.fn()
+        send: send || vi.fn()
     };
 };

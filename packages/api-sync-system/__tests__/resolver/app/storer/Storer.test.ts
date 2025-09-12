@@ -14,7 +14,7 @@ import {
 } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { createCommandBundle } from "~/resolver/app/bundler/CommandBundle.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 const item1 = createMockTableItemData({
     order: 1,
@@ -91,7 +91,7 @@ describe("Storer", () => {
             }
         });
 
-        console.error = jest.fn();
+        console.error = vi.fn();
 
         const command = "unsupported";
 
@@ -107,7 +107,7 @@ describe("Storer", () => {
     });
 
     it("should delete items sent", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
 
         const mockedClient = mockClient(DynamoDBDocument);
         mockedClient.on(DeleteCommand).callsFake((input: DeleteCommandInput) => {
@@ -162,7 +162,7 @@ describe("Storer", () => {
         const mockedClient = mockClient(DynamoDBDocument);
         mockedClient.on(DeleteCommand).rejects("Testing error.");
 
-        const onError = jest.fn();
+        const onError = vi.fn();
 
         const storer = createStorer({
             maxRetries: 1,
@@ -176,8 +176,8 @@ describe("Storer", () => {
             }
         });
 
-        console.error = jest.fn();
-        console.log = jest.fn();
+        console.error = vi.fn();
+        console.log = vi.fn();
 
         try {
             const result = await storer.store({

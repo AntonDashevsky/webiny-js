@@ -5,7 +5,7 @@ import type {
 } from "~/resolver/recordTypes/fileManager/types.js";
 import { createRegularMockTable } from "~tests/mocks/table.js";
 import { createMockDeployment } from "~tests/mocks/deployments.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("fileManagerOnDelete", () => {
     it("should check if the plugin can handle the delete command", () => {
@@ -113,8 +113,8 @@ describe("fileManagerOnDelete", () => {
             deleteFile
         });
 
-        console.error = jest.fn();
-        console.log = jest.fn();
+        console.error = vi.fn();
+        console.log = vi.fn();
 
         await plugin.handle({
             item: {

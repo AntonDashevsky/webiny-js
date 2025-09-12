@@ -16,7 +16,7 @@ import { dateToISOString } from "~/scheduler/dates.js";
 import { CreateScheduleCommand, SchedulerClient } from "@webiny/aws-sdk/client-scheduler/index.js";
 import { SchedulerService } from "~/service/SchedulerService.js";
 import { createMockFetcher } from "~tests/mocks/fetcher.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("UnpublishScheduleAction", () => {
     const service = createMockService();
@@ -142,7 +142,7 @@ describe("UnpublishScheduleAction", () => {
 
         const scheduleOn = new Date(Date.now() + 1000000);
 
-        const createEntryMock = jest.fn(async () => {
+        const createEntryMock = vi.fn(async () => {
             const entry: Pick<CmsEntry<IScheduleEntryValues>, "id" | "values" | "savedBy"> = {
                 id: createScheduleRecordIdWithVersion(`target-id#0002`),
                 values: {

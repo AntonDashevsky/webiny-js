@@ -1,7 +1,7 @@
 import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { createHandlerConverter, HandlerConverter } from "~/sync/handler/HandlerConverter.js";
 import { NullCommandValue } from "~/sync/handler/converter/commands/NullCommandValue.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("HandlerConverter", () => {
     beforeEach(() => {
@@ -53,8 +53,8 @@ describe("HandlerConverter", () => {
             defaultValue: def
         });
 
-        console.error = jest.fn();
-        console.log = jest.fn();
+        console.error = vi.fn();
+        console.log = vi.fn();
 
         const result = handlerConverter.convert({} as any);
         expect(result).toEqual(def);
@@ -71,8 +71,8 @@ describe("HandlerConverter", () => {
             defaultValue: def
         });
 
-        console.error = jest.fn();
-        console.log = jest.fn();
+        console.error = vi.fn();
+        console.log = vi.fn();
 
         const value = {
             constructor: {

@@ -22,7 +22,7 @@ import {
     PutEventsCommand
 } from "@webiny/aws-sdk/client-eventbridge/index.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("attachToDynamoDbDocument", () => {
     it("should not have attached decorator", async () => {
@@ -67,11 +67,11 @@ describe("attachToDynamoDbDocument", () => {
     });
 
     it("should directly decorate DynamoDB DocumentClient", async () => {
-        const clientBatchWrite = jest.fn();
-        const clientDelete = jest.fn();
-        const clientPut = jest.fn();
-        const clientUpdate = jest.fn();
-        const clientSend = jest.fn();
+        const clientBatchWrite = vi.fn();
+        const clientDelete = vi.fn();
+        const clientPut = vi.fn();
+        const clientUpdate = vi.fn();
+        const clientSend = vi.fn();
 
         const client = {
             batchWrite: function (args, options) {

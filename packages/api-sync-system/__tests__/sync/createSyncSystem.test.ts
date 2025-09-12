@@ -9,7 +9,7 @@ import {
     PutEventsCommand
 } from "@webiny/aws-sdk/client-eventbridge/index.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("createSyncSystem", () => {
     let client: DynamoDBDocument;
@@ -27,7 +27,7 @@ describe("createSyncSystem", () => {
             }
         });
 
-        const error = jest.fn();
+        const error = vi.fn();
 
         console.error = error;
 

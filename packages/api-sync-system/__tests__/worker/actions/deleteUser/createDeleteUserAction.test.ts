@@ -8,7 +8,7 @@ import {
     createCognitoIdentityProviderClient
 } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import { mockClient } from "aws-sdk-client-mock";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("deleteUserAction", () => {
     beforeEach(() => {
@@ -16,7 +16,7 @@ describe("deleteUserAction", () => {
     });
 
     it("should fail to parse invalid input data", () => {
-        console.log = jest.fn();
+        console.log = vi.fn();
 
         const action = createDeleteUserAction({
             createCognitoProvider: createCognitoIdentityProviderClient
@@ -113,7 +113,7 @@ describe("deleteUserAction", () => {
     });
 
     it("should delete user", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
         const mockedClient = mockClient(CognitoIdentityProviderClient);
         mockedClient.on(AdminGetUserCommand).callsFake((input: AdminGetUserCommandInput) => {
             return {

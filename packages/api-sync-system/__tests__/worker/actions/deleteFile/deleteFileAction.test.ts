@@ -7,7 +7,7 @@ import {
 } from "@webiny/aws-sdk/client-s3/index.js";
 import { mockClient } from "aws-sdk-client-mock";
 import { createDeleteFileAction } from "~/worker/actions/deleteFile/deleteFileAction.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("deleteFileAction", () => {
     beforeEach(() => {
@@ -15,7 +15,7 @@ describe("deleteFileAction", () => {
     });
 
     it("should fail to parse invalid input data", () => {
-        console.log = jest.fn();
+        console.log = vi.fn();
         const action = createDeleteFileAction({
             createS3Client
         });
@@ -100,7 +100,7 @@ describe("deleteFileAction", () => {
     });
 
     it("should handle file deletion", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
         const mockedS3Client = mockClient(S3Client);
         mockedS3Client.on(DeleteObjectCommand).callsFake((input: DeleteObjectCommandInput) => {
             send(input);
@@ -140,7 +140,7 @@ describe("deleteFileAction", () => {
     });
 
     it("should not run delete if file does not exist", async () => {
-        const send = jest.fn();
+        const send = vi.fn();
         const mockedS3Client = mockClient(S3Client);
         mockedS3Client.on(DeleteObjectCommand).callsFake((input: DeleteObjectCommandInput) => {
             send(input);

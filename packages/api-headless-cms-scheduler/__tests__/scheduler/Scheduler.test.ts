@@ -1,19 +1,19 @@
 import { Scheduler } from "~/scheduler/Scheduler.js";
 import { type ISchedulerInput, ScheduleType } from "~/scheduler/types.js";
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 describe("Scheduler", () => {
     const fetcher = {
-        getScheduled: jest.fn(),
-        listScheduled: jest.fn()
+        getScheduled: vi.fn(),
+        listScheduled: vi.fn()
     };
     const executor = {
-        schedule: jest.fn(),
-        cancel: jest.fn()
+        schedule: vi.fn(),
+        cancel: vi.fn()
     };
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should create an instance of Scheduler", () => {

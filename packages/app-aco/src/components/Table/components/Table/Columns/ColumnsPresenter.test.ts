@@ -3,7 +3,6 @@ import { ColumnsPresenter } from "./ColumnsPresenter.js";
 import { Column } from "./Column.js";
 import type { ColumnConfig } from "~/config/table/Column.js";
 import { ColumnsRepository } from "./ColumnsRepository.js";
-import { jest } from "@jest/globals";
 
 describe("ColumnsPresenter", () => {
     const columnConfigs: ColumnConfig[] = [
