@@ -84,7 +84,7 @@
     "@types/lodash": "^4.17.13",
     "@types/ncp": "^2.0.8",
     "@webiny/build-tools": "0.0.0",
-    "typescript": "5.3.3"
+    "typescript": "5.9.2"
   },
   "adio": {
     "ignoreDirs": [
