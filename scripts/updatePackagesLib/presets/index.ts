@@ -10,6 +10,7 @@ import { ts } from "./ts";
 import { graphql } from "./graphql";
 import { eslint } from "./eslint";
 import { prettier } from "./prettier";
+import { vitest } from "./vitest";
 
 export const presets = [
     react,
@@ -23,5 +24,6 @@ export const presets = [
     ts,
     graphql,
     eslint,
-    prettier
+    prettier,
+    vitest
 ];
