@@ -17,8 +17,11 @@ const hasWebinyPackageVersion = pkg => {
         for (const p in packages) {
             if (p.startsWith("@webiny/") === false) {
                 continue;
+            } else if (packages[p] === "*") {
+                // we can safely continue here as it means that, probably, peerDependency for @webiny is set to anything.
+                continue;
             }
-            if (packages[p] !== "0.0.0") {
+            else if (packages[p] !== "0.0.0") {
                 return true;
             }
         }
