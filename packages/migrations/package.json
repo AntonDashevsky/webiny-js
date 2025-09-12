@@ -20,7 +20,6 @@
     "directory": "dist"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
     "@webiny/api-headless-cms": "0.0.0",
     "@webiny/api-headless-cms-ddb-es": "0.0.0",
     "@webiny/build-tools": "0.0.0",

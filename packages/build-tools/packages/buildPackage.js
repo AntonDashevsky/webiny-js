@@ -3,7 +3,7 @@ import * as rimraf from "rimraf";
 import { join, dirname, extname, relative, parse } from "path";
 import * as babel from "@babel/core";
 import ts from "ts-patch/compiler/typescript.js";
-import glob from "glob";
+import glob from "fast-glob";
 import merge from "lodash/merge.js";
 
 export default async options => {
@@ -58,7 +58,7 @@ const babelCompile = async ({ cwd }) => {
     // We want to have the same behaviour that the Babel CLI's "--copy-files" flag provides.
     const pattern = join(cwd, "src/**/*.*").replace(/\\/g, "/");
     const files = glob.sync(pattern, {
-        nodir: true,
+        onlyFiles: true,
         dot: true
     });
 

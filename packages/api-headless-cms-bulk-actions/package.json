@@ -21,7 +21,6 @@
     "@webiny/utils": "0.0.0"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
     "@webiny/api": "0.0.0",
     "@webiny/api-admin-users": "0.0.0",
     "@webiny/api-i18n": "0.0.0",

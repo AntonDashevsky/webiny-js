@@ -42,12 +42,6 @@
     "access": "public",
     "directory": "dist"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    },
-    "setupTestFrameworkScriptFile": "jest-extended"
-  },
   "adio": {
     "ignore": {
       "dependencies": [

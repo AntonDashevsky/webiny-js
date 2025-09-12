@@ -27,6 +27,8 @@ export * from "./utils/AppPermissions.js";
 export * from "./utils/getPermissionsFromSecurityGroupsForLocale.js";
 export * from "./utils/IdentityValue.js";
 export * from "./utils/createGroupsTeamsAuthorizer.js";
+export { verifyJwtUsingJwk } from "./utils/verifyJwtUsingJwk.js";
+export { isJwt } from "./utils/isJwt.js";
 
 type Context = SecurityContext & TenancyContext & WcpContext;
 

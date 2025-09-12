@@ -38,7 +38,7 @@ const srcToDist = filePath =>
 export default async options => {
     const srcDir = path.join(options.cwd, "src");
 
-    const filePaths = glob.sync("**/*.{ts,tsx}", { cwd: srcDir }).map(f => path.join(srcDir, f));
+    const filePaths = glob.sync("**/*.{ts,tsx}", { cwd: srcDir}).map(f => path.join(srcDir, f));
 
     const watcher = chokidar.watch(filePaths);
 

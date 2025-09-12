@@ -10,7 +10,6 @@
     "lexical": "0.23.1"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
     "@types/jsdom": "^21.1.7",
     "@webiny/build-tools": "0.0.0",
     "jsdom": "^25.0.1",
@@ -19,6 +18,5 @@
   "publishConfig": {
     "access": "public",
     "directory": "dist"
-  },
-  "test": "jest --verbose --runInBand --detectOpenHandles --forceExit"
+  }
 }
