@@ -1,5 +1,5 @@
-const glob = require("glob");
-const loadJsonFile = require("load-json-file");
+import glob from "glob";
+import loadJsonFile from "load-json-file";
 
 const target = "./packages/*/package.json";
 
