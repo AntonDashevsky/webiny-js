@@ -57,11 +57,9 @@ export class RspackBundler extends BaseAppBundler {
                 }
 
                 if (Array.isArray(messages.errors) && messages.errors.length) {
-                    if (messages.errors.length > 1) {
-                        messages.errors.length = 1;
-                    }
-                    console.log(messages);
-
+                    // if (messages.errors.length > 1) {
+                    //     messages.errors.length = 1;
+                    // }
                     const errorMessages = messages.errors.join("\n\n");
                     console.error(errorMessages);
                     return reject(new Error(errorMessages));

@@ -12,6 +12,10 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
     ) {}
 
     async execute(params: ListPackagesService.Params) {
+        if (!params.app && !params.whitelist) {
+            throw new Error(`Either "whitelist" or "app" argument must be provided.`);
+        }
+
         const { whitelist = [], ...restParams } = params;
         const project = this.getProjectService.execute();
         const app = restParams.app ? this.getApp.execute(restParams.app) : null;
@@ -28,7 +32,7 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
                 }
 
                 return {
-                    name,
+                    name: `@webiny/${name}`,
                     paths: {
                         packageFolder: pkgFolderPath,
                         webinyConfigFile: webinyConfigPath
@@ -60,8 +64,10 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
             packagesFullList.push(...appPackages);
         }
 
+        const packagesToWatch = [];
+
         if (whitelist.length) {
-            return whitelist
+            const whitelistedPackages = whitelist
                 .map(whitelistedPkgName => {
                     return whitelistedPkgName.split(",");
                 })
@@ -82,23 +88,31 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
                 })
                 .flat()
                 .filter(Boolean) as ListPackagesService.Result;
+
+            packagesToWatch.push(...whitelistedPackages);
         }
 
         if (app) {
             // We've hardcoded this filtering here just because of lack of time.
             // With v5, these "presets" were located within `webiny.application.ts` files.
             if (app.name === "api") {
-                return packagesFullList.filter(pkg => {
-                    return pkg.name === "@api/graphql";
-                });
+                packagesToWatch.push(
+                    ...packagesFullList.filter(pkg => {
+                        return pkg.name === "@api/graphql";
+                    })
+                );
+
+                return packagesToWatch;
             }
 
-            return packagesFullList.filter(pkg => {
-                return pkg.name.startsWith(`@${app.name}`);
-            });
+            packagesToWatch.push(
+                ...packagesFullList.filter(pkg => {
+                    return pkg.name.startsWith(`@${app.name}`);
+                })
+            );
         }
 
-        throw new Error(`Either "whitelist" or "app" argument must be provided.`);
+        return packagesToWatch;
     }
 }
 

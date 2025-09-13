@@ -1,8 +1,10 @@
-const { createWatchPackage, createBuildPackage } = require("@webiny/build-tools");
-const path = require("path");
-const fs = require("node:fs");
+import { createWatchPackage, createBuildPackage } from "@webiny/build-tools";
+import path from "path";
+import fs from "node:fs";
 
-module.exports = {
+const __dirname = import.meta.dirname;
+
+export default {
     commands: {
         build: async (options, context) => {
             await createBuildPackage({ cwd: __dirname })(options, context);

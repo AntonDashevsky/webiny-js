@@ -1,6 +1,7 @@
 {
   "name": "@webiny/shared-aco",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "keywords": [
     "shared-aco:base"

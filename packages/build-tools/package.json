@@ -1,8 +1,8 @@
 {
   "name": "@webiny/build-tools",
   "version": "0.0.0",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "description": "A collection of utilities for Webiny project.",
   "repository": {
     "type": "git",
@@ -41,10 +41,10 @@
     "import-meta-resolve": "^4.1.0",
     "lodash": "^4.17.21",
     "path-browserify": "^1.0.1",
-    "postcss-flexbugs-fixes": "5.0.2",
-    "postcss-loader": "6.2.1",
-    "postcss-normalize": "10.0.1",
-    "postcss-preset-env": "9.4.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "^8.2.0",
+    "postcss-normalize": "^13.0.1",
+    "postcss-preset-env": "^10.3.1",
     "process": "^0.11.10",
     "react": "18.2.0",
     "react-dev-utils": "^12.0.1",
@@ -56,10 +56,12 @@
     "sass-loader": "12.3.0",
     "scheduler": "0.19.1",
     "style-loader": "3.3.1",
+    "tailwindcss": "^3.4.6",
     "ts-checker-rspack-plugin": "^1.0.3",
     "ts-patch": "^3.3.0",
     "tsx": "^4.16.2",
     "typescript": "5.9.2",
+    "url-loader": "^4.1.1",
     "utf-8-validate": ">=5.0.2"
   },
   "peerDependencies": {
@@ -70,6 +72,9 @@
   "license": "MIT",
   "adio": {
     "ignore": {
+      "src": [
+        "@webiny/admin-ui"
+      ],
       "dependencies": [
         "@babel/preset-react",
         "@svgr/webpack",

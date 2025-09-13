@@ -1,8 +1,8 @@
 {
   "name": "@webiny/api-headless-cms-scheduler",
   "version": "0.0.0",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "description": "Schedule for Webiny Headless CMS",
   "keywords": [
     "api-headless-cms-scheduler:base"

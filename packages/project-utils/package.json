@@ -1,8 +1,8 @@
 {
   "name": "@webiny/project-utils",
   "version": "0.0.0",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "description": "A collection of utilities for Webiny project.",
   "repository": {
     "type": "git",

@@ -1,6 +1,7 @@
 {
   "name": "@webiny/website-builder-react",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",

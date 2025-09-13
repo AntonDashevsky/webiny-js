@@ -1,7 +1,7 @@
 {
   "name": "create-webiny-project",
-  "type": "module",
   "version": "0.0.0",
+  "type": "module",
   "description": "Webiny project bootstrap tool.",
   "main": "index.js",
   "bin": "./bin.js",

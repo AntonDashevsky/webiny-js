@@ -1,8 +1,8 @@
 {
   "name": "@webiny/api-file-manager-aco",
   "version": "0.0.0",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "keywords": [
     "api-file-manager-aco:base"
   ],

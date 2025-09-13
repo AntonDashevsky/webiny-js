@@ -8,6 +8,7 @@ import {
     CssExtractRspackPlugin
 } from "@rspack/core";
 import ReactRefreshPlugin from "@rspack/plugin-react-refresh";
+import tailwindcss from "tailwindcss";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 import getCSSModuleLocalIdent from "react-dev-utils/getCSSModuleLocalIdent.js";
 import ESLintPlugin from "eslint-webpack-plugin";
@@ -17,6 +18,7 @@ import { createSwcConfig } from "../createSwcConfig.js";
 import modulesFactory from "./modules.js";
 import { createRequire } from "module";
 import { getAppName } from "./getAppName.js";
+import tailwindConfig from "@webiny/admin-ui/tailwind.config.js";
 
 const require = createRequire(import.meta.url);
 
@@ -111,6 +113,14 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
                                     ]
                                 }
                             }
+                        },
+                        // Case 2: All other imports (e.g. from CSS or HTML) → emit as asset
+                        {
+                            loader: "url-loader",
+                            options: {
+                                limit: 10000,
+                                name: "static/media/[name].[hash:8].[ext]"
+                            }
                         }
                     ]
                 },
@@ -150,7 +160,8 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
                                             stage: 3,
                                             features: { "custom-properties": false }
                                         }),
-                                        require("postcss-normalize")()
+                                        require("postcss-normalize")(),
+                                        tailwindcss(tailwindConfig)
                                     ]
                                 },
                                 sourceMap: shouldUseSourceMap

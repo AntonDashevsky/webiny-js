@@ -1,13 +1,16 @@
-import { fontFamily } from "tailwindcss/defaultTheme";
+import twFontFamily from "tailwindcss/defaultTheme";
+import tailwindAnimate from "tailwindcss-animate";
 import { getProjectSdk } from "@webiny/project";
 
 const projectSdk = await getProjectSdk();
 const project = projectSdk.getProject();
 
-const webinyPackagesGlob = `${project.root}/node_modules/@webiny/app*/**/*.{js,ts,tsx}`;
-const webinyAdminUiPackageGlob = `${project.root}/node_modules/@webiny/admin-ui/**/*.{js,ts,tsx}`;
-const webinyUiPackageGlob = `${project.root}/node_modules/@webiny/ui/**/*.{js,ts,tsx}`;
-const adminAppSourceGlob = `${project.root}/apps/admin`;
+const webinyPackagesGlob = `${project.paths.rootFolder}/node_modules/@webiny/app*/**/*.{js,ts,tsx}`;
+const webinyAdminUiPackageGlob = `${project.paths.rootFolder}/node_modules/@webiny/admin-ui/**/*.{js,ts,tsx}`;
+const webinyUiPackageGlob = `${project.paths.rootFolder}/node_modules/@webiny/ui/**/*.{js,ts,tsx}`;
+const adminAppSourceGlob = `${project.paths.workspacesFolder}/apps/admin`;
+import theme from "./tailwind.config.theme.js";
+
 const {
     animation,
     backgroundColor,
@@ -25,10 +28,10 @@ const {
     spacing,
     textColor,
     zIndex
-} = require("./tailwind.config.theme");
+} = theme;
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
     prefix: "wby-",
     darkMode: ["class"],
     content: [
@@ -58,9 +61,9 @@ module.exports = {
         textColor,
 
         fontFamily: {
-            sans: ["var(--font-sans)", ...fontFamily.sans],
-            serif: ["var(--font-serif)", ...fontFamily.serif],
-            mono: ["var(--font-mono)", ...fontFamily.mono]
+            sans: ["var(--font-sans)", ...twFontFamily.fontFamily.sans],
+            serif: ["var(--font-serif)", ...twFontFamily.fontFamily.serif],
+            mono: ["var(--font-mono)", ...twFontFamily.fontFamily.mono]
         },
 
         extend: {
@@ -74,5 +77,5 @@ module.exports = {
         }
     },
 
-    plugins: [require("tailwindcss-animate")]
+    plugins: [tailwindAnimate]
 };
