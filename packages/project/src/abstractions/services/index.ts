@@ -2,6 +2,7 @@ export * from "./ProjectInfoService/index.js";
 export { GetCwdService } from "./GetCwdService.js";
 export { GetProjectConfigService } from "./GetProjectConfigService.js";
 export { GetProjectService } from "./GetProjectService.js";
+export { GetProjectVersionService } from "./GetProjectVersionService.js";
 export { GetPulumiService } from "./GetPulumiService.js";
 export { ListAppLambdaFunctionsService } from "./ListAppLambdaFunctionsService.js";
 export { ListPackagesService } from "./ListPackagesService.js";
