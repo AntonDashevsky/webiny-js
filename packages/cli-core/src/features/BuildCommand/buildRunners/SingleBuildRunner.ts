@@ -10,8 +10,6 @@ export class SingleBuildRunner extends BaseBuildRunner {
 
         const pkg = buildProcess.getPackage();
 
-        ui.info(`Building %s package... `, pkg.name);
-
         buildProcess.setForkOptions({
             stdio: "inherit",
             env: process.env
