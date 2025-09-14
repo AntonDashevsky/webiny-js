@@ -16454,6 +16454,7 @@ __metadata:
     "@webiny/handler-aws": "npm:0.0.0"
     "@webiny/ioc": "npm:0.0.0"
     "@webiny/logger": "npm:0.0.0"
+    "@webiny/project": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     center-align: "npm:^1.0.1"
