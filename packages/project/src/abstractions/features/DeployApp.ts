@@ -7,6 +7,7 @@ type IPulumiProcess = ExecaChildProcess<string>;
 interface IDeployAppParams extends IBaseAppParams {
     preview?: boolean;
     debug?: boolean;
+    dataMigrationLogStreaming?: boolean;
     output?: (pulumiProcess: IPulumiProcess) => Promise<void>;
 }
 
