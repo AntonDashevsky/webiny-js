@@ -1,39 +1,46 @@
-// @ts-nocheck TODO v6 @adrian
 import type { MigrationRunnerResult, MigrationRunReporter } from "~/cli/index.js";
 import center from "center-align";
-// import type { CliContext } from "@webiny/cli/types.js";
 import type { LogReporter } from "~/cli/index.js";
+import { UiService } from "@webiny/project/abstractions";
+
+export interface CliMigrationRunReporterDi {
+    uiService: UiService.Interface;
+}
 
 export class CliMigrationRunReporter implements MigrationRunReporter {
-    private context: CliContext;
+    private di: {
+        uiService: UiService.Interface;
+    };
     private logReporter: LogReporter;
 
-    constructor(logReporter: LogReporter, context: CliContext) {
+    constructor(logReporter: LogReporter, di: CliMigrationRunReporterDi) {
         this.logReporter = logReporter;
-        this.context = context;
+        this.di = di;
     }
 
     report(result: MigrationRunnerResult): Promise<void> {
+        const { uiService: ui } = this.di;
+
         result.onSuccess(data => {
             const functionName = result.getFunctionName().split(":").pop();
             process.stdout.write("\n");
-            this.context.success(`Data migration Lambda %s executed successfully!`, functionName);
+            ui.success(`Data migration Lambda %s executed successfully!`, functionName);
 
             const { migrations, ...run } = data;
             if (!migrations.length) {
-                this.context.info(`No applicable migrations were found!`);
+                ui.info(`No applicable migrations were found!`);
                 return;
             }
 
             const maxLength = Math.max(...migrations.map(mig => mig.status.length)) + 2;
-            this.context.info(`Migration run: %s`, run.id);
-            this.context.info(`Status: %s`, run.status);
-            this.context.info(`Started on: %s`, run.startedOn);
+            ui.info(`Migration run: %s`, run.id);
+            ui.info(`Status: %s`, run.status);
+            ui.info(`Started on: %s`, run.startedOn);
             if (run.status === "done") {
-                this.context.info(`Finished on: %s`, run.finishedOn);
+                ui.info(`Finished on: %s`, run.finishedOn);
             }
             for (const migration of migrations) {
-                this.context.info(
+                ui.info(
                     ...[
                         `[%s] %s: ${migration.description}`,
                         center(this.makeEven(migration.status), maxLength),
@@ -46,7 +53,7 @@ export class CliMigrationRunReporter implements MigrationRunReporter {
         });
 
         result.onError(error => {
-            this.context.error(error.message);
+            ui.error(error.message);
         });
 
         // Process the result!
