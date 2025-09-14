@@ -11,5 +11,5 @@ export const GetProjectService = new Abstraction<IGetProjectService>("GetProject
 
 export namespace GetProjectService {
     export type Interface = IGetProjectService;
-    export type Result = IGetProjectService;
+    export type Result = IGetProjectServiceResult;
 }
