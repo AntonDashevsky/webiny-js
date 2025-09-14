@@ -29,6 +29,7 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
 
     async execute(): Promise<Command.CommandDefinition<IDeployCommandParams>> {
         const projectSdk = await this.getProjectSdkService.execute();
+        const ui = this.uiService;
 
         return {
             name: "deploy",
@@ -107,8 +108,14 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                     await this.deployApp(params);
                 } else {
                     // Deploy all apps in the project.
+                    ui.info("Deploying %s app...", "Core");
                     await this.deployApp({ ...params, app: "core" });
+                    ui.newLine();
+
+                    ui.info("Deploying %s app...", "API");
                     await this.deployApp({ ...params, app: "api" });
+                    ui.newLine();
+                    ui.info("Deploying %s app...", "Admin");
                     await this.deployApp({ ...params, app: "admin" });
                 }
             }
@@ -122,20 +129,17 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
         const stdio = this.stdioService;
 
         if (params.build !== false) {
-            try {
-                const packagesBuilder = await projectSdk.buildApp(params);
+            const packagesBuilder = await projectSdk.buildApp(params);
 
-                const buildRunner = new BuildRunner({
-                    stdio,
-                    ui,
-                    packagesBuilder
-                });
+            const buildRunner = new BuildRunner({
+                stdio,
+                ui,
+                packagesBuilder
+            });
 
+            if (!buildRunner.isEmpty()) {
                 await buildRunner.run();
                 ui.newLine();
-            } catch (error) {
-                console.log("error", error);
-                throw HandledError.from(error);
             }
         }
 
@@ -144,25 +148,20 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
             projectSdk.isCi() || params.preview || params.deploymentLogs
         );
 
-        try {
-            return await projectSdk.deployApp({
-                ...params,
-                output: pulumiProcess => {
-                    const deployOutput = new DeployOutput({
-                        stdio,
-                        ui,
-                        showDeploymentLogs,
-                        deployProcess: pulumiProcess,
-                        deployParams: params
-                    });
+        return await projectSdk.deployApp({
+            ...params,
+            output: pulumiProcess => {
+                const deployOutput = new DeployOutput({
+                    stdio,
+                    ui,
+                    showDeploymentLogs,
+                    deployProcess: pulumiProcess,
+                    deployParams: params
+                });
 
-                    return deployOutput.output();
-                }
-            });
-        } catch (error) {
-            console.log("error", error);
-            throw HandledError.from(error);
-        }
+                return deployOutput.output();
+            }
+        });
     }
 }
 
