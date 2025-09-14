@@ -29,6 +29,13 @@ export default () => {
             {/* On the other hand, for some of the `Infra.` namespace extensions,
             we don't expect the user to be familiar with the Pulumi apps. */}
             <Infra.Core.Pulumi src={"./extensions/myCorePulumiHandler2.ts"} />
+
+            {/*<Infra.Admin.CustomDomains*/}
+            {/*    domains={["my.domain.com"]}*/}
+            {/*    sslMethod="sni-only"*/}
+            {/*    certificateArn="arn:aws:acm:us-east-1:636962863878:certificate/3baf9092-fb27-4efb-9409-XXXXXXXX"*/}
+            {/*/>*/}
+
             <Infra.Vpc enabled={false} />
             <Infra.OpenSearch enabled={false} />
             <Infra.ElasticSearch enabled={false} />

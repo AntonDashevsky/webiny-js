@@ -2,7 +2,7 @@ import { z } from "zod";
 import { defineExtension } from "@webiny/project/extensions/defineExtension/index.js";
 
 export const awsTags = defineExtension({
-    type: "Deployments/AwsTags",
+    type: "Infra/AwsTags",
     tags: { runtimeContext: "project" },
     description: "Apply tags to AWS resources during deployment.",
     multiple: true,

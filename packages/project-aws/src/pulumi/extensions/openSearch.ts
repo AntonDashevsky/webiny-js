@@ -2,7 +2,7 @@ import { defineExtension } from "@webiny/project/extensions/defineExtension/inde
 import { z } from "zod";
 
 export const openSearch = defineExtension({
-    type: "Deployments/OpenSearch",
+    type: "Infra/OpenSearch",
     tags: { runtimeContext: "project" },
     description: "Enable and configure Opensearch integration.",
     paramsSchema: z.object({

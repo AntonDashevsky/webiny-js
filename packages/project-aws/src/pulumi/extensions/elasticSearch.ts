@@ -2,7 +2,7 @@ import { defineExtension } from "@webiny/project/extensions/defineExtension/inde
 import { z } from "zod";
 
 export const elasticSearch = defineExtension({
-    type: "Deployments/ElasticSearch",
+    type: "Infra/ElasticSearch",
     tags: { runtimeContext: "project" },
     description: "Enable and configure Elasticsearch integration.",
     paramsSchema: z.object({

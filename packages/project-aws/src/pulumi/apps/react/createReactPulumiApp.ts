@@ -7,7 +7,6 @@ import { applyCustomDomain, type CustomDomainParams } from "../customDomain.js";
 import { withServiceManifest } from "~/pulumi/utils/withServiceManifest.js";
 import { ApiOutput, CoreOutput } from "~/pulumi/apps/index.js";
 import { type AppName, getProjectSdk } from "@webiny/project";
-import { getAwsTagsFromExtension } from "~/pulumi/apps/extensions/getAwsTagsFromExtension.js";
 import { applyAwsResourceTags } from "~/pulumi/apps/awsUtils.js";
 
 export type ReactPulumiApp = ReturnType<typeof createReactPulumiApp>;
@@ -40,10 +39,8 @@ export const createReactPulumiApp = (projectAppParams: CreateReactPulumiAppParam
         config: projectAppParams,
         program: async app => {
             const sdk = await getProjectSdk();
-            const projectConfig = await sdk.getProjectConfig();
 
             const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
-            const awsTagsFromExtensions = getAwsTagsFromExtension(projectConfig);
 
             if (pulumiResourceNamePrefix) {
                 app.onResource(resource => {

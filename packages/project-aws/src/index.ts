@@ -21,7 +21,7 @@ import {
     Telemetry
 } from "@webiny/project/extensions/index.js";
 
-import { AwsTags, Vpc } from "~/pulumi/extensions/index.js";
+import { AwsTags, Vpc, AdminCustomDomains } from "~/pulumi/extensions/index.js";
 import { ElasticSearch } from "./extensions/ElasticSearch.js";
 import { OpenSearch } from "./extensions/OpenSearch.js";
 
@@ -58,7 +58,8 @@ export const Infra = {
         BeforeDeploy: AdminBeforeDeploy,
         AfterBuild: AdminAfterBuild,
         AfterDeploy: AdminAfterDeploy,
-        Pulumi: AdminPulumi
+        Pulumi: AdminPulumi,
+        CustomDomains: AdminCustomDomains
     },
     Api: {
         BeforeBuild: ApiBeforeBuild,
