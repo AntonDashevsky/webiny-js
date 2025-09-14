@@ -16,6 +16,10 @@ export class BuildRunner extends BaseBuildRunner {
         return runner.run();
     }
 
+    isEmpty() {
+        return this.packagesBuilder.getPackages().length === 0;
+    }
+
     private getRunnerClass() {
         const packagesCount = this.packagesBuilder.getPackages().length;
         if (packagesCount === 0) {
