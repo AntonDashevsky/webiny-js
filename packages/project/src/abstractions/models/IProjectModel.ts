@@ -2,6 +2,7 @@ import { type IPathModel, type IPathModelDto } from "./IPathModel.js";
 
 export interface IProjectModelDto {
     name: string;
+    version: string;
     paths: {
         webinyConfigFile: IPathModelDto;
         rootFolder: IPathModelDto;
@@ -13,6 +14,7 @@ export interface IProjectModelDto {
 
 export interface IProjectModel {
     name: string;
+    version: string;
     paths: {
         webinyConfigFile: IPathModel;
         rootFolder: IPathModel;
