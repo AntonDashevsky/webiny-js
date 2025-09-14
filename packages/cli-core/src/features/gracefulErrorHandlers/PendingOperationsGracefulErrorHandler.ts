@@ -19,7 +19,8 @@ export class PendingOperationsGracefulErrorHandler
             return;
         }
 
-        const cmd = `yarn webiny pulumi ${params.app} --env ${params.env} -- cancel`;
+        const appName = params.app ? params.app : "{APP_NAME}";
+        const cmd = `yarn webiny pulumi ${appName} --env ${params.env} -- cancel`;
 
         throw new GracefulError(
             [
