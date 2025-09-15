@@ -37,9 +37,9 @@ export const zodPathToAbstraction = (
 
             const metadata = new Metadata(exportedImplementation);
             const metadataName = metadata.getAbstraction().toString();
-
             const defName = expectedAbstraction.toString();
             const isCorrectAbstraction = metadataName === defName;
+
             if (!isCorrectAbstraction) {
                 ctx.addIssue({
                     code: z.ZodIssueCode.custom,
