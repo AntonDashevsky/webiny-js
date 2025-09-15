@@ -1,13 +1,11 @@
-const rimraf = require("rimraf");
-const { join } = require("path");
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path, { join } from "path";
 
-module.exports = {
+export default {
     commands: {
         build: async () => {
-            rimraf.sync(join(__dirname, "./dist"));
-            const destDir = path.resolve(__dirname, "dist");
+            fs.rmSync(join(import.meta.dirname, "./dist"), { recursive: true, force: true });
+            const destDir = path.resolve(import.meta.dirname, "dist");
             fs.mkdirSync(destDir, { recursive: true });
 
             copyToDist("package.json");
@@ -17,9 +15,9 @@ module.exports = {
             // Copy all icons from `@material-design-icons/svg/outlined` folder to `dist` folder.
             // We're doing this because simply re-exporting icons from `@material-ui/icons` package
             // was not possible.
-            const pkgDirPath = path.dirname(
-                require.resolve("@material-design-icons/svg/package.json")
-            );
+            const pkgUrl = await import.meta.resolve("@material-design-icons/svg/package.json");
+            const pkgDirPath = path.dirname(new URL(pkgUrl).pathname);
+
             const outlinedIconsDirPath = path.resolve(pkgDirPath, "outlined");
 
             fs.readdirSync(outlinedIconsDirPath).forEach(file => {
@@ -41,7 +39,7 @@ module.exports = {
 };
 
 const copyToDist = path => {
-    const from = join(__dirname, path);
-    const to = join(__dirname, "dist", path);
+    const from = join(import.meta.dirname, path);
+    const to = join(import.meta.dirname, "dist", path);
     fs.copyFileSync(from, to);
 };
