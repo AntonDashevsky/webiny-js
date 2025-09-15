@@ -62,6 +62,12 @@ export const getPackages = (args = {}) => {
                 }
             }
 
+            let hasWebinyConfig = fs.existsSync(path + "/webiny.config.ts");
+            if (!hasWebinyConfig) {
+                // Check if there's a `webiny.config.js` file, but only if `webiny.config.ts` does not exist.
+                hasWebinyConfig = fs.existsSync(path + "/webiny.config.js");
+            }
+
             const hasTypescriptInDeps =
                 packageJson.devDependencies && Boolean(packageJson.devDependencies["typescript"]);
 
@@ -75,7 +81,7 @@ export const getPackages = (args = {}) => {
             try {
                 return {
                     isTs: Boolean(tsConfigJson || tsConfigBuildJson || hasTypescriptInDeps),
-                    mustBuild: Boolean(tsConfigBuildJson),
+                    mustBuild: Boolean(hasWebinyConfig),
                     hasTests,
                     name: packageJson.name,
                     folderName: basename(path),
