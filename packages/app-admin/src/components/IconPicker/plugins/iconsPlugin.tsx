@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { DelayedOnChange, ColorPicker } from "@webiny/admin-ui";
 
-import { useIcon } from "..";
+import { useIcon } from "../index.js";
 import { IconPickerTab } from "../IconPickerTab.js";
 import { useIconPicker } from "../IconPickerPresenterProvider.js";
 import { IconPickerConfig } from "../config/index.js";

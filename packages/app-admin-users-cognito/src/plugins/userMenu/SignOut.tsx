@@ -1,5 +1,5 @@
 import React from "react";
-import { useSecurity } from "@webiny/app-security/hooks/useSecurity";
+import { useSecurity } from "@webiny/app-security/hooks/useSecurity.js";
 import { ReactComponent as SignOutIcon } from "@webiny/icons/logout.svg";
 import { AdminConfig } from "@webiny/app-admin";
 

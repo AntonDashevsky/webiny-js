@@ -5,7 +5,7 @@ import { Button } from "@webiny/admin-ui";
 import type { FileManagerFileItem } from "~/base/ui/FileManager.js";
 import { FileManager } from "~/base/ui/FileManager.js";
 import { IconPickerTab } from "../IconPickerTab.js";
-import { useIcon } from "..";
+import { useIcon } from "../index.js";
 import { useIconPicker } from "../IconPickerPresenterProvider.js";
 import { IconPickerConfig } from "../config/index.js";
 import type { ListCustomIconsQueryResponse } from "./graphql.js";

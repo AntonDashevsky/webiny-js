@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react-lite";
 import { cn, PopoverPrimitive } from "@webiny/admin-ui";
-import { useIcon } from "..";
+import { useIcon } from "../index.js";
 import { IconPickerTab } from "../IconPickerTab.js";
 import { IconProvider } from "../IconRenderer.js";
 import { useIconPicker } from "../IconPickerPresenterProvider.js";
