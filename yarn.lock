@@ -34262,7 +34262,6 @@ __metadata:
     load-json-file: "npm:^6.2.0"
     lodash: "npm:^4.17.21"
     longest: "npm:^2.0.1"
-    micromatch: "npm:^4.0.8"
     minimatch: "npm:^5.1.6"
     nanoid: "npm:^3.3.11"
     node-fetch: "npm:2.6.7"

@@ -93,7 +93,6 @@
     "load-json-file": "^6.2.0",
     "lodash": "^4.17.21",
     "longest": "^2.0.1",
-    "micromatch": "^4.0.8",
     "minimatch": "^5.1.6",
     "nanoid": "^3.3.11",
     "node-fetch": "2.6.7",

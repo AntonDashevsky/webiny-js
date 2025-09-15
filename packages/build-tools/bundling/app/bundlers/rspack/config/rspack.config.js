@@ -18,7 +18,6 @@ import { createSwcConfig } from "../createSwcConfig.js";
 import modulesFactory from "./modules.js";
 import { createRequire } from "module";
 import { getAppName } from "./getAppName.js";
-import tailwindConfig from "@webiny/admin-ui/tailwind.config.js";
 
 const require = createRequire(import.meta.url);
 
@@ -34,6 +33,8 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
     const isEnvDevelopment = webpackEnv === "development";
     const isEnvProduction = webpackEnv === "production";
     const isEnvProductionProfile = isEnvProduction && process.argv.includes("--profile");
+
+    const { default: tailwindConfig } = await import("@webiny/admin-ui/tailwind.config.js");
 
     const modules = modulesFactory({ paths });
     const swcConfig = createSwcConfig(options.cwd);
@@ -83,9 +84,6 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
                 // This is a temporary fix, until we sort out the `react-butterfiles` dependency.
                 "react-butterfiles": require.resolve("@webiny/app/react-butterfiles"),
                 ...(modules.webpackAliases || {})
-            },
-            fallback: {
-                path: require.resolve("path-browserify")
             }
         },
         module: {
