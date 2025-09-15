@@ -51,6 +51,7 @@ import {
     getNpxVersionService,
     getProjectConfigService,
     getProjectService,
+    getProjectVersionService,
     getPulumiService,
     getPulumiVersionService,
     getYarnVersionService,
@@ -95,6 +96,7 @@ export const createProjectSdkContainer = async (
     container.register(getNpxVersionService).inSingletonScope();
     container.register(getProjectConfigService).inSingletonScope();
     container.register(getProjectService).inSingletonScope();
+    container.register(getProjectVersionService).inSingletonScope();
     container.register(getPulumiService).inSingletonScope();
     container.register(getPulumiVersionService).inSingletonScope();
     container.register(getYarnVersionService).inSingletonScope();
