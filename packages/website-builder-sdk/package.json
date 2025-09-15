@@ -21,7 +21,7 @@
     "is-hotkey": "^0.2.0",
     "lexical": "0.23.1",
     "lodash": "^4.17.21",
-    "micromatch": "^4.0.8",
+    "matcher": "^5.0.0",
     "mobx": "^6.9.0",
     "nanoid": "^3.3.11",
     "nanoid-dictionary": "^4.3.0",
@@ -31,7 +31,6 @@
   "devDependencies": {
     "@types/deep-equal": "^1.0.4",
     "@types/is-hotkey": "^0.1.10",
-    "@types/micromatch": "^4.0.9",
     "@webiny/build-tools": "0.0.0",
     "typescript": "5.9.2",
     "vitest": "^3.2.4"

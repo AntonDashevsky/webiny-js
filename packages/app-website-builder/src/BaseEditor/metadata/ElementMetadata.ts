@@ -1,4 +1,4 @@
-import micromatch from "micromatch";
+import { matcher } from "matcher";
 import type { Document } from "@webiny/website-builder-sdk";
 import type { IMetadata, Metadata } from "./IMetadata.js";
 
@@ -23,7 +23,7 @@ export class ElementMetadata implements IMetadata {
         // Support wildcard paths using micromatch
         if (id.includes("*")) {
             const keys = Object.keys(this.metadata);
-            const matches = micromatch(keys, id);
+            const matches = matcher(keys, id);
             for (const key of matches) {
                 delete this.metadata[key];
             }

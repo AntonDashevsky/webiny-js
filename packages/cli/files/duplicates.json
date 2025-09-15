@@ -1,1 +1,1 @@
-[]
+[{"name":"postcss-loader","versions":[{"version":"6.2.1","files":[{"file":"/packages/admin-ui/package.json","types":["devDependencies"]}]},{"version":"8.2.0","files":[{"file":"/packages/build-tools/package.json","types":["dependencies"]}]}]}]

@@ -1,4 +1,4 @@
-import micromatch from "micromatch";
+import { isMatch } from "matcher";
 import type { MessageOrigin } from "./MessageOrigin.js";
 import { logger } from "../Logger.js";
 
@@ -41,7 +41,7 @@ export class Messenger {
             return;
         }
 
-        if (!type || !micromatch.isMatch(type, this.pattern)) {
+        if (!type || !isMatch(type, this.pattern)) {
             return;
         }
 
