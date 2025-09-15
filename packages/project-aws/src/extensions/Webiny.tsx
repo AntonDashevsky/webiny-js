@@ -1,19 +1,19 @@
+import React from "react";
 import {
     AdminAfterDeploy,
     ExtensionDefinitions,
     BeforeBuild
 } from "@webiny/project/extensions/index.js";
-import path from "path";
-import React from "react";
+import { createPathResolver } from "@webiny/project";
 
-const src = (src: string) => path.join(import.meta.dirname, "Webiny", src);
+const p = createPathResolver(import.meta.dirname);
 
 export const Webiny = () => {
     return (
         <>
-            <BeforeBuild src={src("BuildAppWorkspace.js")} />
-            <AdminAfterDeploy src={src("UploadAdminAppToS3.js")} />
-            <ExtensionDefinitions src={src("definitions.js")} />
+            <BeforeBuild src={p("Webiny/BuildAppWorkspace.js")} />
+            <AdminAfterDeploy src={p("Webiny/UploadAdminAppToS3.js")} />
+            <ExtensionDefinitions src={p("Webiny/definitions.js")} />
         </>
     );
 };
