@@ -7,7 +7,7 @@ export const getProjectSdk = (...params: Parameters<(typeof ProjectSdk)["init"]>
 
 // A temporary convenience function to get the stack output for a specific app. We might revisit this in the
 // future and double check if there's a better way to expose this functionality.
-const getStackOutput = async <
+export const getStackOutput = async <
     TOutput extends GetAppStackOutput.StackOutput = GetAppStackOutput.StackOutput
 >(
     params: GetAppStackOutput.Params
@@ -16,7 +16,7 @@ const getStackOutput = async <
     return sdk.getAppStackOutput<TOutput>(params);
 };
 
-export { ProjectSdk, getStackOutput };
+export { ProjectSdk };
 
 export type { AppName } from "./abstractions/types.js";
 export type * from "./abstractions/models/index.js";
@@ -24,3 +24,5 @@ export type * from "./abstractions/models/index.js";
 export type { IStackOutput } from "~/abstractions/features/GetAppStackOutput.js";
 
 export { PackageJson } from "@webiny/build-tools/utils/PackageJson.js";
+
+export { createPathResolver } from "./utils/createPathResolver.js";
