@@ -1,8 +1,14 @@
-import React, { useMemo } from "react";
-import { Property, useIdGenerator } from "@webiny/react-properties";
+import React from "react";
+import { Property, useIdGenerator, useParentProperty } from "@webiny/react-properties";
 import { type DefineExtensionParams } from "./types.js";
-import { nanoid } from "nanoid";
 import { type z } from "zod";
+
+const KeyValues = (props: Record<string, any>) => {
+    const getId = useIdGenerator("");
+    return Object.entries(props).map(([key, value]) => {
+        return <Property key={key} name={key} id={getId(key)} value={value} />;
+    });
+};
 
 export function createExtensionReactComponent<TParamsSchema extends z.ZodTypeAny>(
     extensionParams: DefineExtensionParams<TParamsSchema>
@@ -11,32 +17,31 @@ export function createExtensionReactComponent<TParamsSchema extends z.ZodTypeAny
         remove?: boolean;
         before?: string;
         after?: string;
+        name?: string;
     };
 
     const ExtensionReactComponent: React.FC<ExtensionReactComponentProps> = props => {
-        const id = useMemo(() => {
-            return nanoid();
-        }, []);
-        const { name = id, remove, before, after, ...extraProps } = props;
-        const getId = useIdGenerator(name || "");
+        const { name, remove, before, after, ...keyValues } = props;
+
+        const getId = useIdGenerator(extensionParams.type);
+
+        // By passing undefined, we're letting RP generate a unique ID for us.
+        const propertyId = name ? getId(name) : undefined;
+        const propertyName = name || extensionParams.type;
 
         const placeAfter = after !== undefined ? getId(after) : undefined;
         const placeBefore = before !== undefined ? getId(before) : undefined;
 
         return (
             <Property
-                id={getId(extensionParams.type)}
+                id={propertyId}
+                name={propertyName}
                 array={extensionParams.multiple}
-                name={extensionParams.type}
                 remove={remove}
                 before={placeBefore}
                 after={placeAfter}
             >
-                {/*{name && <Property id={getId(name, "name")} name={"name"} value={name} />}*/}
-                {Object.entries(extraProps).map(([key, value]) => {
-                    const id = name ? `${name}.${key}` : key;
-                    return <Property key={key} name={key} id={id} value={value} />;
-                })}
+                <KeyValues {...keyValues} />
             </Property>
         );
     };
