@@ -15,12 +15,14 @@ import {
     GetPulumiResourceNamePrefix,
     IsCi,
     IsTelemetryEnabled,
+    LocalStorageService,
     LoggerService,
     type ProjectSdkParamsService,
     RefreshApp,
     RunPulumiCommand,
     ValidateProjectConfig,
-    Watch
+    Watch,
+    WcpService
 } from "~/abstractions/index.js";
 import { isValidRegionName, isValidVariantName } from "./utils/index.js";
 
@@ -109,6 +111,14 @@ export class ProjectSdk {
 
     watch(params: Watch.Params) {
         return this.container.resolve(Watch).execute(params);
+    }
+
+    get wcp() {
+        return this.container.resolve(WcpService);
+    }
+
+    get localStorage() {
+        return this.container.resolve(LocalStorageService);
     }
 
     // Utility methods.

@@ -25,7 +25,12 @@ import {
     refreshCommand,
     syncDepsCommand,
     verifyDepsCommand,
-    watchCommand
+    watchCommand,
+
+    // WCP
+    loginCommand,
+    logoutCommand,
+    whoAmICommand
 } from "./features/index.js";
 
 import chalk from "chalk";
@@ -58,6 +63,9 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
     container.register(infoCommand).inSingletonScope();
     container.register(outputCommand).inSingletonScope();
     container.register(watchCommand).inSingletonScope();
+    container.register(loginCommand).inSingletonScope();
+    container.register(logoutCommand).inSingletonScope();
+    container.register(whoAmICommand).inSingletonScope();
 
     // Graceful error handlers.
     container.register(ddbPutItemConditionalCheckFailedGracefulErrorHandler).inSingletonScope();

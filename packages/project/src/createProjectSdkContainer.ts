@@ -58,6 +58,7 @@ import {
     listAppLambdaFunctionsService,
     listPackagesInAppWorkspaceService,
     listPackagesService,
+    localStorageService,
     loggerService,
     projectInfoService,
     projectSdkParamsService,
@@ -69,7 +70,8 @@ import {
     pulumiSelectStackService,
     stdioService,
     uiService,
-    validateProjectConfigService
+    validateProjectConfigService,
+    wcpService
 } from "./services/index.js";
 
 import { buildAppWithHooks, deployAppWithHooks } from "./decorators/index.js";
@@ -102,6 +104,7 @@ export const createProjectSdkContainer = async (
     container.register(getYarnVersionService).inSingletonScope();
     container.register(listAppLambdaFunctionsService).inSingletonScope();
     container.register(listPackagesService).inSingletonScope();
+    container.register(localStorageService).inSingletonScope();
     container.register(listPackagesInAppWorkspaceService).inSingletonScope();
     container.register(loggerService).inSingletonScope();
     container.register(projectInfoService).inSingletonScope();
@@ -114,6 +117,7 @@ export const createProjectSdkContainer = async (
     container.register(stdioService).inSingletonScope();
     container.register(uiService).inSingletonScope();
     container.register(validateProjectConfigService).inSingletonScope();
+    container.register(wcpService).inSingletonScope();
 
     // Features.
     container.register(buildApp).inSingletonScope();

@@ -27,6 +27,10 @@ export class DefaultUiService implements UiService.Interface {
         this.newLine();
     }
 
+    textBold(text: string) {
+        this.text(chalk.bold(text));
+    }
+
     newLine() {
         this.stdio.getStdout().write(NEW_LINE);
     }

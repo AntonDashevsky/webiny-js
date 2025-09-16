@@ -5,6 +5,8 @@ export interface IUiService {
 
     text(text: string): void;
 
+    textBold(text: string): void;
+
     newLine(): void;
 
     info(text: string, ...args: any[]): void;

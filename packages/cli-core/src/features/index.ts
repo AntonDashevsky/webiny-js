@@ -8,4 +8,7 @@ export * from "./PulumiCommand/index.js";
 export * from "./RefreshCommand/index.js";
 export * from "./DepsSync/index.js";
 export * from "./WatchCommand/index.js";
+export * from "./Wcp/LoginCommand.js";
+export * from "./Wcp/LogoutCommand.js";
+export * from "./Wcp/WhoAmICommand.js";
 export * from "./gracefulErrorHandlers/index.js";

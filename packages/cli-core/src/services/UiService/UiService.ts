@@ -10,7 +10,7 @@ const LOG_COLORS = {
     error: chalk.red,
     warning: chalk.yellow,
     success: chalk.green,
-    debug: chalk.gray,
+    debug: chalk.gray
 } as const;
 
 export class DefaultUiService implements UiService.Interface {
@@ -25,6 +25,10 @@ export class DefaultUiService implements UiService.Interface {
     text(text: string) {
         this.stdio.getStdout().write(text);
         this.newLine();
+    }
+
+    textBold(text: string) {
+        this.text(chalk.bold(text));
     }
 
     newLine() {
@@ -58,7 +62,7 @@ export class DefaultUiService implements UiService.Interface {
         // Replace all placeholders (match with `/%[a-zA-Z]/g` regex) with colorized values.
         const textWithColorizedPlaceholders = text.replace(/%[a-zA-Z]/g, match => {
             return LOG_COLORS[type](match);
-        })
+        });
 
         return this.text(prefix + util.format(textWithColorizedPlaceholders, ...args));
     }

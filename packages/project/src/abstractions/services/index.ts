@@ -1,12 +1,14 @@
 export * from "./ProjectInfoService/index.js";
+export { GetAppPackagesService } from "./GetAppPackagesService.js";
 export { GetCwdService } from "./GetCwdService.js";
 export { GetProjectConfigService } from "./GetProjectConfigService.js";
 export { GetProjectService } from "./GetProjectService.js";
 export { GetProjectVersionService } from "./GetProjectVersionService.js";
 export { GetPulumiService } from "./GetPulumiService.js";
 export { ListAppLambdaFunctionsService } from "./ListAppLambdaFunctionsService.js";
-export { ListPackagesService } from "./ListPackagesService.js";
 export { ListPackagesInAppWorkspaceService } from "./ListPackagesInAppWorkspaceService.js";
+export { ListPackagesService } from "./ListPackagesService.js";
+export { LocalStorageService } from "./LocalStorageService.js";
 export { LoggerService } from "./LoggerService.js";
 export { ProjectSdkParamsService } from "./ProjectSdkParamsService.js";
 export { PulumiGetConfigPassphraseService } from "./PulumiGetConfigPassphraseService.js";
@@ -18,6 +20,4 @@ export { PulumiSelectStackService } from "./PulumiSelectStackService.js";
 export { StdioService } from "./StdioService.js";
 export { UiService } from "./UiService.js";
 export { ValidateProjectConfigService } from "./ValidateProjectConfigService.js";
-
-// Apps.
-export { GetAppPackagesService } from "./GetAppPackagesService.js";
+export { WcpService } from "./WcpService.js";

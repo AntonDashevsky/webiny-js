@@ -28,6 +28,7 @@ cypress.config.ts
 cypress/screenshots/*
 cypress-tests/cypress/screenshots/*
 .pulumi
+logs.txt
 Pulumi.*
 !Pulumi.yaml
 !Pulumi.ts

@@ -8,6 +8,7 @@ export interface IBuildDependencyTreeParams {
     files: string[];
     ignore?: RegExp;
 }
+
 export class BuildDependencyTree {
     public build(params: IBuildDependencyTreeParams): IDependencyTree {
         const { basePath, files, ignore } = params;
