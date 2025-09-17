@@ -115,8 +115,7 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
             realError = error.cause as Error;
         }
 
-        ui.error("An error occurred while initializing the CLI:");
-        ui.text(realError.message);
+        ui.error(realError.message);
 
         // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
         const debugEnabled = process.argv.includes("--debug");

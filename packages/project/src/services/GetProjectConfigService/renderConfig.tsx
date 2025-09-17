@@ -1,6 +1,11 @@
 import { fork } from "child_process";
 import path from "path";
-import { type IProjectConfigDto, type IProjectModel, type IProjectModelDto } from "~/abstractions/models/index.js";
+import { deserializeError } from "serialize-error";
+import {
+    type IProjectConfigDto,
+    type IProjectModel,
+    type IProjectModelDto
+} from "~/abstractions/models/index.js";
 
 export interface RenderConfigParams {
     project: IProjectModel;
@@ -12,10 +17,16 @@ export interface RenderConfigParamsDto {
     args?: Record<string, any>;
 }
 
+export interface RenderConfigWorkerMessageDto {
+    type: "error" | "success";
+    error: Record<string, any> | null;
+    data: IProjectConfigDto | null;
+}
+
 const getWorkerPath = () => {
     // TODO: I have no idea why import.meta.dirname is sometimes undefined.
     // TODO: Would be nice to further investigate this, but don't have time right now.
-    return path.join(import.meta.dirname || __dirname, "renderConfigWorkerEntry.js");
+    return path.join(import.meta.dirname || __dirname, "renderConfigWorker.js");
 };
 
 export async function renderConfig(params: RenderConfigParams) {
@@ -30,26 +41,26 @@ export async function renderConfig(params: RenderConfigParams) {
     return new Promise<IProjectConfigDto>((resolve, reject) => {
         const workerPath = getWorkerPath();
 
-        const childProcess = fork(
-            workerPath,
-            [
-                JSON.stringify({
-                    project: params.project.toDto(),
-                    args: params.args || {}
-                })
-            ],
-            {
-                env: process.env
-            }
-        );
+        const args = [
+            JSON.stringify({
+                project: params.project.toDto(),
+                args: params.args || {}
+            })
+        ];
 
-        // The only message we expect to receive is the parsed project config.
-        childProcess.on("message", (data: IProjectConfigDto) => {
-            resolve(data);
+        const childProcess = fork(workerPath, args, {
+            stdio: ["pipe", "pipe", "pipe", "ipc"],
+            env: process.env
         });
 
-        childProcess.on("error", error => {
-            reject(new Error(`Error while rendering project config: ${error.message}`));
+        // The only message we expect to receive is the parsed project config.
+        childProcess.on("message", (message: RenderConfigWorkerMessageDto) => {
+            if (message.type === "error") {
+                const error = deserializeError(message.error);
+                return reject(error);
+            }
+
+            return resolve(message.data!);
         });
     });
 }

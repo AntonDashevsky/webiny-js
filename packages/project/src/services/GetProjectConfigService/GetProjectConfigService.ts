@@ -33,10 +33,21 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
 
         const cacheKey = JSON.stringify(params.renderArgs);
         if (!this.cachedRenderedConfigs[cacheKey]) {
-            this.cachedRenderedConfigs[cacheKey] = await renderConfig({
-                project,
-                args: params.renderArgs
-            });
+            try {
+                this.cachedRenderedConfigs[cacheKey] = await renderConfig({
+                    project,
+                    args: params.renderArgs
+                });
+            } catch (err) {
+                this.loggerService.error(
+                    { err },
+                    `There was an error while rendering the project config. `
+                );
+
+                throw new Error(
+                    `An error occurred while rendering "webiny.config.tsx" config file:\n${err.message}`
+                );
+            }
         }
 
         const renderedConfig = this.cachedRenderedConfigs[cacheKey];
