@@ -21,7 +21,8 @@ export default async options => {
         options.overrides = JSON.parse(options.overrides);
     }
 
-    await Promise.all([tsCompile(options), babelCompile(options)]);
+    await babelCompile(options);
+    await tsCompile(options);
 
     options.logs !== false && console.log("Copying meta files...");
     copyToDist("package.json", options);
