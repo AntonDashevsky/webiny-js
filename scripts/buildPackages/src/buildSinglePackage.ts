@@ -4,6 +4,7 @@ import { getBuildOutputFolder } from "./getBuildOutputFolder";
 import { CACHE_FOLDER_PATH } from "./constants";
 import { fork } from "child_process";
 import path from "path";
+import { deserializeError } from "serialize-error";
 
 export const buildPackage = async (pkg: Package, buildOverrides = "{}") => {
     const workerPath = path.join(import.meta.dirname, "buildPackageWorker.js");
@@ -15,20 +16,12 @@ export const buildPackage = async (pkg: Package, buildOverrides = "{}") => {
 
     await new Promise<void>((resolve, reject) => {
         childProcess.on("message", (message: Record<string, any>) => {
-            console.log(message);
-            if (message.error) {
-                reject(
-                    new Error(message.error.message || "Unknown error occurred in build process")
-                );
+            if (message.type === "error") {
+                const error = deserializeError(message.error);
+                return reject(error);
             }
-        });
 
-        childProcess.on("exit", code => {
-            if (code !== 0) {
-                reject(new Error(`Build process exited with code ${code}`));
-            }
-            // If the process exits successfully, we resolve the promise.
-            resolve();
+            return resolve();
         });
     });
 
