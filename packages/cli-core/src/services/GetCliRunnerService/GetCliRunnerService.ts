@@ -75,7 +75,6 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
                     }
 
                     ui.newLine();
-                    ui.error("Command execution was aborted.");
                     ui.error(invalidParamsMessage);
 
                     process.exit(1);
