@@ -12,20 +12,11 @@ import { getHardwareInfo } from "./getHardwareInfo";
 import execa from "execa";
 
 import { hideBin } from "yargs/helpers";
+import { PackageBuildError } from "./PackageBuildError";
 
 const argv = yargs(hideBin(process.argv)).parse();
 
 const { green, red } = chalk;
-
-class BuildError extends Error {
-    private packageName: string;
-
-    constructor(packageName: string, message: string) {
-        super("BuildError");
-        this.packageName = packageName;
-        this.message = message;
-    }
-}
 
 interface BuildOptions {
     p?: string | string[];
@@ -99,11 +90,12 @@ export const buildPackages = async () => {
 
                     const batchTasks = task.newListr([], {
                         concurrent: buildInParallel,
-                        exitOnError: true
+                        exitOnError: false,
+                        rendererOptions: { showErrorMessage: false }
                     });
 
                     packages.forEach(pkg => {
-                        batchTasks.add(createPackageTask(pkg, options, metaJson));
+                        batchTasks.add(createBuildPackageListrTask(pkg, options, metaJson));
                     });
 
                     return batchTasks;
@@ -114,19 +106,34 @@ export const buildPackages = async () => {
     );
 
     const start = Date.now();
-    const ctx = {};
-    try {
-        await tasks.run(ctx);
-    } catch (err) {
-        console.log(`\nError building ${red(err.packageName)}. Check the logs above.`);
+    await tasks.run();
+
+    const duration = (Date.now() - start) / 1000;
+
+    if (tasks.err.length) {
+        console.log();
+        console.log(`Error building ${red(tasks.err.length)} package(s). Check the logs below.`);
+        console.log();
+
+        tasks.err.forEach(listrError => {
+            const pkgBuildError = listrError.error as PackageBuildError;
+            console.log(red("✖ " + pkgBuildError.getPackage().name));
+            console.log(pkgBuildError.getBuildError().message);
+            console.log();
+        });
+
+        console.log(`Build failed in ${red(duration)} seconds.`);
         process.exit(1);
     }
-    const duration = (Date.now() - start) / 1000;
 
     console.log(`\nBuild finished in ${green(duration)} seconds.`);
 };
 
-const createPackageTask = (pkg: Package, options: BuildOptions, metaJson: MetaJSON) => {
+const createBuildPackageListrTask = (
+    pkg: Package,
+    options: BuildOptions,
+    metaJson: MetaJSON
+): ListrTask => {
     return {
         title: `${pkg.name}`,
         task: async () => {
@@ -139,20 +146,10 @@ const createPackageTask = (pkg: Package, options: BuildOptions, metaJson: MetaJS
 
                 await writeJson(META_FILE_PATH, metaJson);
             } catch (err) {
-                throw new BuildError(pkg.name, getCleanError(err.message));
+                throw new PackageBuildError(pkg, err);
             }
         }
     };
-};
-
-const getCleanError = (log: string) => {
-    const lines = log.split("\n");
-    const index = lines.findIndex(line => line.startsWith("webiny error"));
-    if (index > -1) {
-        lines[index] = lines[index].replace("webiny error: ", "");
-        return lines.slice(index).join("\n");
-    }
-    return log;
 };
 
 const toMB = (bytes: number) => {
