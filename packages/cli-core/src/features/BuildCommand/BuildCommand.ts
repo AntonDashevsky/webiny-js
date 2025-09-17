@@ -2,7 +2,6 @@ import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
 import { BuildRunner } from "~/features/BuildCommand/buildRunners/BuildRunner.js";
-import { HandledError } from "~/utils/HandledError.js";
 
 export type IBuildCommandParams = IBaseAppParams;
 
@@ -66,17 +65,13 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
 
                 const packagesBuilder = await projectSdk.buildApp(params);
 
-                try {
-                    const buildRunner = new BuildRunner({
-                        stdio,
-                        ui,
-                        packagesBuilder
-                    });
+                const buildRunner = new BuildRunner({
+                    stdio,
+                    ui,
+                    packagesBuilder
+                });
 
-                    return buildRunner.run();
-                } catch (error) {
-                    throw HandledError.from(error);
-                }
+                return buildRunner.run();
             }
         };
     }

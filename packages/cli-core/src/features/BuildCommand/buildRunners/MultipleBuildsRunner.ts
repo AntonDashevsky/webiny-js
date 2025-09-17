@@ -37,23 +37,18 @@ export class MultipleBuildsRunner extends BaseBuildRunner {
         return tasks
             .run()
             .catch(err => {
-                ui.newLine();
-                ui.error(`Failed to build all packages. For more details, check the logs below.`);
-                ui.newLine();
-
                 err.errors.forEach((err: Error, i: number) => {
                     const { pkg, error } = err.cause as Record<string, any>;
                     const number = `${i + 1}.`;
-                    const name = chalk.red(pkg.name);
-                    const relativePath = chalk.gray(`(${pkg.paths.packageFolder})`);
-                    const title = [number, name, relativePath].join(" ");
+                    const name = chalk.red("✖ " + pkg.name);
+                    const title = [number, name].join(" ");
 
+                    ui.newLine();
                     ui.text(title);
                     ui.text(error.message);
-                    ui.newLine();
                 });
 
-                throw new Error(`Failed to build all packages.`);
+                throw new Error(`Failed to build some packages. See the logs above for details.`);
             })
             .then(async () => {
                 const onAfterBuildCallbacks = builder.getOnAfterBuildCallbacks();

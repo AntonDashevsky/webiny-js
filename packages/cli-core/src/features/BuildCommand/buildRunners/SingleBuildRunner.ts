@@ -21,7 +21,7 @@ export class SingleBuildRunner extends BaseBuildRunner {
             await buildProcesses.run();
             ui.success(`Built %s package in %s.`, pkg.name, getBuildDuration());
         } catch {
-            ui.error("Build failed, please check the details above.");
+            throw new Error("Build failed. See the logs above for details.");
         }
     }
 }
