@@ -8,7 +8,7 @@ import { Admin, Cli, Project, Webiny, Infra, Backend } from "./packages/project-
 export default () => {
     return (
         <>
-            {/*Webiny AWS built-in extensions. Always here, can't be removed.*/}
+            {/*Webiny AWS built-in extensions. Always here, must not be removed.*/}
             <Webiny />
 
             {/*Project-lvl settings. All within the `Project.` namespace. */}

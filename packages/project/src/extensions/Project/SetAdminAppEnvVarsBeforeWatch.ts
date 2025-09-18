@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
 import {
-    AdminBeforeBuild,
+    AdminBeforeWatch,
     IsTelemetryEnabled,
     GetProjectIdService,
     GetProjectVersionService
@@ -9,7 +9,7 @@ import { isEnabled as telemetryEnabledViaGlobalCfg } from "@webiny/telemetry/cli
 import { globalConfig } from "@webiny/global-config";
 import { isCI } from "ci-info";
 
-class AssignAdminAppEnvVarsBeforeBuild implements AdminBeforeBuild.Interface {
+class SetAdminAppEnvVarsBeforeWatch implements AdminBeforeWatch.Interface {
     constructor(
         private isTelemetryEnabled: IsTelemetryEnabled.Interface,
         private getProjectIdService: GetProjectIdService.Interface,
@@ -31,6 +31,8 @@ class AssignAdminAppEnvVarsBeforeBuild implements AdminBeforeBuild.Interface {
         } else if (telemetryDisabledViaGlobalConfig) {
             telemetry = false;
         }
+
+        console.log("setao svasta nesta wwww", projectId, projectVersion, telemetry);
 
         if (projectId) {
             process.env.REACT_APP_WCP_PROJECT_ID = projectId;
@@ -64,7 +66,7 @@ class AssignAdminAppEnvVarsBeforeBuild implements AdminBeforeBuild.Interface {
 }
 
 export default createImplementation({
-    abstraction: AdminBeforeBuild,
-    implementation: AssignAdminAppEnvVarsBeforeBuild,
+    abstraction: AdminBeforeWatch,
+    implementation: SetAdminAppEnvVarsBeforeWatch,
     dependencies: [IsTelemetryEnabled, GetProjectIdService, GetProjectVersionService]
 });

@@ -7,8 +7,8 @@ const p = createPathResolver(import.meta.dirname);
 export const Project = () => {
     return (
         <>
-            <AdminBeforeBuild src={p("Project/AssignAdminAppEnvVarsBeforeBuild.js")} />
-            <AdminBeforeWatch src={p("Project/AssignAdminAppEnvVarsBeforeWatch.js")} />
+            <AdminBeforeBuild src={p("Project/SetAdminAppEnvVarsBeforeBuild.js")} />
+            <AdminBeforeWatch src={p("Project/SetAdminAppEnvVarsBeforeWatch.js")} />
         </>
     );
 };

@@ -2,21 +2,25 @@ import { Container } from "@webiny/di-container";
 import {
     beforeBuild,
     afterBuild,
+    beforeWatch,
     adminAfterBuild,
     adminAfterDeploy,
     adminBeforeBuild,
     adminBeforeDeploy,
+    adminBeforeWatch,
     adminPulumi,
     apiAfterBuild,
     apiAfterDeploy,
     apiBeforeBuild,
     apiBeforeDeploy,
+    apiBeforeWatch,
     apiPulumi,
     buildApp,
     coreAfterBuild,
     coreAfterDeploy,
     coreBeforeBuild,
     coreBeforeDeploy,
+    coreBeforeWatch,
     corePulumi,
     deployApp,
     destroyApp,
@@ -70,7 +74,7 @@ import {
     wcpService
 } from "./services/index.js";
 
-import { buildAppWithHooks, deployAppWithHooks } from "./decorators/index.js";
+import { buildAppWithHooks, deployAppWithHooks, watchWithHooks } from "./decorators/index.js";
 
 import {
     GetProject,
@@ -140,16 +144,20 @@ export const createProjectSdkContainer = async (
     // Hooks.
     container.registerComposite(beforeBuild);
     container.registerComposite(afterBuild);
+    container.registerComposite(beforeWatch);
     container.registerComposite(apiBeforeBuild);
     container.registerComposite(apiBeforeDeploy);
+    container.registerComposite(apiBeforeWatch);
     container.registerComposite(apiAfterBuild);
     container.registerComposite(apiAfterDeploy);
     container.registerComposite(adminBeforeBuild);
     container.registerComposite(adminBeforeDeploy);
+    container.registerComposite(adminBeforeWatch);
     container.registerComposite(adminAfterBuild);
     container.registerComposite(adminAfterDeploy);
     container.registerComposite(coreBeforeBuild);
     container.registerComposite(coreBeforeDeploy);
+    container.registerComposite(coreBeforeWatch);
     container.registerComposite(coreAfterBuild);
     container.registerComposite(coreAfterDeploy);
 
@@ -177,6 +185,7 @@ export const createProjectSdkContainer = async (
 
     // Hooks.
     const hooksExtensions = [
+        ...projectExtensions.extensionsByType<any>("Project/BeforeWatch"),
         ...projectExtensions.extensionsByType<any>("Project/BeforeBuild"),
         ...projectExtensions.extensionsByType<any>("Project/AfterBuild"),
         ...projectExtensions.extensionsByType<any>("Admin/BeforeBuild"),
@@ -217,6 +226,7 @@ export const createProjectSdkContainer = async (
     // Decorators that must be applied last on top of potentially custom ones.
     container.registerDecorator(buildAppWithHooks);
     container.registerDecorator(deployAppWithHooks);
+    container.registerDecorator(watchWithHooks);
 
     const projectDecorators = [...projectExtensions.extensionsByType<any>("Project/Decorator")];
 
