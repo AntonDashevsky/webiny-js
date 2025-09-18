@@ -15,7 +15,7 @@ interface ILoginCommandParams {
     pat?: string;
 }
 
-export class LoginCommand implements Command.Interface<{}> {
+export class LoginCommand implements Command.Interface<ILoginCommandParams> {
     constructor(
         private getProjectSdkService: GetProjectSdkService.Interface,
         private uiService: UiService.Interface,
@@ -117,8 +117,9 @@ export class LoginCommand implements Command.Interface<{}> {
                 projectSdk.wcp.storePatToLocalStorage(pat.token);
 
                 ui.success(`%s You've successfully logged in to Webiny Control Panel.`, "✔");
-
-                let projectInitialized = process.env.WCP_PROJECT_ID;
+                
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                const projectInitialized = process.env.WCP_PROJECT_ID;
 
                 console.log("pat", pat);
                 // If we have `orgId` and `projectId` in PAT's metadata, let's immediately link the project.

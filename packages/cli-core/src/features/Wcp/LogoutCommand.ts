@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, UiService } from "~/abstractions/index.js";
 
-export class LogoutCommand implements Command.Interface<{}> {
+export class LogoutCommand implements Command.Interface<void> {
     constructor(
         private getProjectSdkService: GetProjectSdkService.Interface,
         private uiService: UiService.Interface

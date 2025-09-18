@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, UiService } from "~/abstractions/index.js";
 
-export class WhoAmICommand implements Command.Interface<{}> {
+export class WhoAmICommand implements Command.Interface<void> {
     constructor(
         private getProjectSdkService: GetProjectSdkService.Interface,
         private uiService: UiService.Interface
@@ -23,7 +23,7 @@ export class WhoAmICommand implements Command.Interface<{}> {
                         throw new Error();
                     }
                     ui.info("You are logged in to Webiny Control Panel as %s.", user.email);
-                } catch (e) {
+                } catch {
                     throw new Error(
                         `It seems you are not logged in. Please login using the "yarn webiny login" command.`
                     );
