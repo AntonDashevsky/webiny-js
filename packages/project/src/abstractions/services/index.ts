@@ -18,6 +18,7 @@ export { PulumiGetStackExportService } from "./PulumiGetStackExportService.js";
 export { PulumiGetStackOutputService } from "./PulumiGetStackOutputService.js";
 export { PulumiLoginService } from "./PulumiLoginService.js";
 export { PulumiSelectStackService } from "./PulumiSelectStackService.js";
+export { SetProjectIdService } from "./SetProjectIdService.js";
 export { StdioService } from "./StdioService.js";
 export { UiService } from "./UiService.js";
 export { ValidateProjectConfigService } from "./ValidateProjectConfigService.js";
