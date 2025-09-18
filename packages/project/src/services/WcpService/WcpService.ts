@@ -9,6 +9,8 @@ import { getWcpGqlApiUrl, getWcpAppUrl } from "@webiny/wcp";
 import { LogoutUser } from "~/services/WcpService/LogoutUser.js";
 import { StorePatToLocalStorage } from "~/services/WcpService/StorePatToLocalStorage.js";
 import { UnsetPatFromLocalStorage } from "./UnsetPatFromLocalStorage.js";
+import { GetProjectEnvironment } from "./GetProjectEnvironment.js";
+import { IGetProjectEnvironmentParams } from "~/abstractions/services/WcpService";
 
 export class DefaultWcpService implements WcpService.Interface {
     constructor(
@@ -71,6 +73,13 @@ export class DefaultWcpService implements WcpService.Interface {
 
     getWcpAppUrl() {
         return UrlModel.from(getWcpAppUrl());
+    }
+
+    getProjectEnvironment(params: IGetProjectEnvironmentParams) {
+        const getProjectEnvironment = new GetProjectEnvironment({
+            localStorageService: this.localStorageService
+        });
+        return getProjectEnvironment.execute(params);
     }
 }
 
