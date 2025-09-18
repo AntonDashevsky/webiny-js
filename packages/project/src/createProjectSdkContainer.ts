@@ -109,9 +109,9 @@ import {
     corePulumi as corePulumiExt,
     apiPulumi as apiPulumiExt,
     adminPulumi as adminPulumiExt
-} from "./extensions/pulumi/index";
+} from "./extensions/pulumi/index.js";
 
-import { projectDecorator as projectDecoratorExt } from "./extensions/projectDecorator";
+import { projectDecorator as projectDecoratorExt } from "./extensions/projectDecorator.js";
 
 export const createProjectSdkContainer = async (
     params: Partial<ProjectSdkParamsService.Params>
