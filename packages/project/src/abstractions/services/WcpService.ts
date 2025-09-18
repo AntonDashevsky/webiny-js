@@ -10,10 +10,6 @@ export interface IGetProjectEnvironmentParams {
 }
 
 export interface IWcpService {
-    login(): Promise<string | null>;
-
-    logout(): void;
-
     getUser(): Promise<IWcpUserModel | null>;
 
     generateUserPat(): Promise<string>;
