@@ -16454,6 +16454,7 @@ __metadata:
     humanize-duration: "npm:3.32.1"
     listr: "npm:^0.14.3"
     load-json-file: "npm:6.2.0"
+    open: "npm:^10.2.0"
     ora: "npm:4.1.1"
     rimraf: "npm:^6.0.1"
     semver: "npm:^7.7.2"
@@ -30476,7 +30477,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open@npm:^10.0.3":
+"open@npm:^10.0.3, open@npm:^10.2.0":
   version: 10.2.0
   resolution: "open@npm:10.2.0"
   dependencies:
