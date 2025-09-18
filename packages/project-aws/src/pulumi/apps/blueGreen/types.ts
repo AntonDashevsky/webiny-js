@@ -14,8 +14,6 @@ export interface IDeploymentDomain {
     domains: {
         api: string;
         admin: string;
-        website: string | undefined;
-        preview: string | undefined;
     };
 }
 
@@ -33,8 +31,6 @@ export interface IBlueGreenDeployment {
 export interface IAttachedDomainsTypes {
     api: NonEmptyArray<string>;
     admin: NonEmptyArray<string>;
-    website: NonEmptyArray<string> | undefined;
-    preview: NonEmptyArray<string> | undefined;
 }
 
 export interface IAttachedDomains {
@@ -68,7 +64,7 @@ export interface IResolvedDomain {
      */
     name: string;
     /**
-     * Type of the domain (e.g. "api", "admin", "website", "preview").
+     * Type of the domain (e.g. "api", "admin").
      */
     type: IAttachedDomainKey;
     /**

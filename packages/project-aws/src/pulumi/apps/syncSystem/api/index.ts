@@ -3,7 +3,7 @@ import { attachEventBusPermissions } from "./attachEventBusPermissions.js";
 import { attachDynamoDbPermissions } from "~/pulumi/apps/syncSystem/api/attachDynamoDbPermissions.js";
 import { attachS3Permissions } from "~/pulumi/apps/syncSystem/api/attachS3Permissions.js";
 import { addServiceManifest } from "~/pulumi/apps/syncSystem/api/addServiceManifest.js";
-import type { PulumiApp } from "@webiny/pulumi/types";
+import type { PulumiApp } from "@webiny/pulumi/types.js";
 import type { CoreOutput } from "~/pulumi/apps/common/CoreOutput.js";
 import type { WithServiceManifest } from "~/pulumi/utils/withServiceManifest.js";
 import { attachCognitoPermissions } from "~/pulumi/apps/syncSystem/api/attachCognitoPermissions.js";

@@ -2,7 +2,7 @@ import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
-import { ApiGraphql } from "~/pulumi/apps";
+import { ApiGraphql } from "~/pulumi/apps/index.js";
 import { getAwsAccountId, getAwsRegion } from "~/pulumi/apps/awsUtils.js";
 import kebabCase from "lodash/kebabCase.js";
 

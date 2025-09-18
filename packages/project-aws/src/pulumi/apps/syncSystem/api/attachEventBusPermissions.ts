@@ -1,7 +1,7 @@
 import * as aws from "@pulumi/aws";
-import type { PulumiApp } from "@webiny/pulumi/types";
-import type { IGetSyncSystemOutputResult } from "../types";
-import { createSyncResourceName } from "../createSyncResourceName";
+import type { PulumiApp } from "@webiny/pulumi/types.js";
+import type { IGetSyncSystemOutputResult } from "../types.js";
+import { createSyncResourceName } from "../createSyncResourceName.js";
 import { ApiGraphql } from "~/pulumi/apps/api/ApiGraphql.js";
 import { ApiFileManager } from "~/pulumi/apps/api/ApiFileManager.js";
 import type { WithServiceManifest } from "~/pulumi/utils/withServiceManifest.js";

@@ -1,4 +1,4 @@
-import kebabCase from "lodash/kebabCase";
+import kebabCase from "lodash/kebabCase.js";
 
 /**
  * Need to have standardized resource names.

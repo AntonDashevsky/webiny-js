@@ -18,9 +18,7 @@ export const convertApplicationDomains = (
             variant: value.variant,
             domains: {
                 api: value.api,
-                admin: value.admin,
-                website: value.website,
-                preview: value.preview
+                admin: value.admin
             }
         };
     });

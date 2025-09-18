@@ -1,5 +1,5 @@
 import { vpc as vpcExt } from "~/pulumi/extensions/vpc.js";
-import { type IProjectConfigModel } from "@webiny/project/abstractions/models";
+import { type IProjectConfigModel } from "@webiny/project/abstractions/models/index.js";
 
 export const getVpcConfigFromExtension = (projectConfig: IProjectConfigModel) => {
     const [vpcExtension] = projectConfig.extensionsByType(vpcExt);

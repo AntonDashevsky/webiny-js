@@ -10,25 +10,25 @@ import {
     ApiWebsocket,
     CoreOutput,
     VpcConfig
-} from "~/pulumi/apps";
+} from "~/pulumi/apps/index.js";
 import {
     addDomainsUrlsOutputs,
     withCommonLambdaEnvVariables,
     withServiceManifest
-} from "~/pulumi/utils";
-import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion";
+} from "~/pulumi/utils/index.js";
+import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion.js";
 // import { attachSyncSystem } from "../syncSystem/api/index.js";
-import { applyAwsResourceTags, getAwsAccountId } from "~/pulumi/apps/awsUtils";
+import { applyAwsResourceTags, getAwsAccountId } from "~/pulumi/apps/awsUtils.js";
 import type { WithServiceManifest } from "~/pulumi/utils/withServiceManifest.js";
 import { ApiScheduler } from "~/pulumi/apps/api/ApiScheduler.js";
 import { AuditLogsDynamo } from "~/pulumi/apps/api/AuditLogsDynamo.js";
 import { getProjectSdk } from "@webiny/project";
-import { getVpcConfigFromExtension } from "~/pulumi/apps/extensions/getVpcConfigFromExtension";
-import { getEsConfigFromExtension } from "../extensions/getEsConfigFromExtension";
-import { getOsConfigFromExtension } from "~/pulumi/apps/extensions/getOsConfigFromExtension";
+import { getVpcConfigFromExtension } from "~/pulumi/apps/extensions/getVpcConfigFromExtension.js";
+import { getEsConfigFromExtension } from "../extensions/getEsConfigFromExtension.js";
+import { getOsConfigFromExtension } from "~/pulumi/apps/extensions/getOsConfigFromExtension.js";
 import { License } from "@webiny/wcp";
-import { handleGuardDutyEvents } from "./handleGuardDutyEvents";
-import { ApiPulumi } from "@webiny/project/abstractions";
+import { handleGuardDutyEvents } from "./handleGuardDutyEvents.js";
+import { ApiPulumi } from "@webiny/project/abstractions/index.js";
 
 export type ApiPulumiApp = ReturnType<typeof createApiPulumiApp>;
 

@@ -11,7 +11,7 @@ export interface IGetApplicationStacks {
     stacks: IGetStacksStack[];
 }
 
-const apps: AppName[] = ["api", "admin", "website"];
+const apps: AppName[] = ["api", "admin"];
 
 interface IPromiseResult {
     app: string;
@@ -26,8 +26,6 @@ export interface IGetApplicationStacksResultStack {
     variant: string | undefined;
     api: string;
     admin: string;
-    website: string | undefined;
-    preview: string | undefined;
 }
 
 export interface IGetApplicationStacksResult {
@@ -52,22 +50,6 @@ const getAdminDomainName = (results: IPromiseResult[], name: string): string => 
         throw new Error(`Missing Admin stack for "${name}" deployment.`);
     }
     return removeProtocol(admin.stack.appDomain);
-};
-
-const getWebsiteDomainName = (results: IPromiseResult[], name: string): string | undefined => {
-    const website = results.find(r => r.name === name && r.app === "website");
-    if (!website?.stack?.deliveryDomain) {
-        return undefined;
-    }
-    return removeProtocol(website.stack.deliveryDomain);
-};
-
-const getPreviewDomainName = (results: IPromiseResult[], name: string): string | undefined => {
-    const preview = results.find(r => r.name === name && r.app === "website");
-    if (!preview?.stack?.appDomain) {
-        return undefined;
-    }
-    return removeProtocol(preview.stack.appDomain);
 };
 
 const getEnv = (results: IPromiseResult[], name: string): string => {
@@ -121,20 +103,12 @@ export const getApplicationDomains = async (
             const variant = getVariant(results, name);
             const api = getApiDomainName(results, name);
             const admin = getAdminDomainName(results, name);
-            const website = getWebsiteDomainName(results, name);
-            const preview = getPreviewDomainName(results, name);
-            if (!website && preview) {
-                throw new Error(`Missing website stack for "${name}" deployment.`);
-            } else if (website && !preview) {
-                throw new Error(`Missing preview stack for "${name}" deployment.`);
-            }
+
             deployments[name] = {
                 env,
                 variant,
                 api,
-                admin,
-                website,
-                preview
+                admin
             };
         }
         return deployments;

@@ -16,11 +16,11 @@ import {
 import * as random from "@pulumi/random";
 import { LogDynamo } from "./LogDynamo.js";
 import { getProjectSdk } from "@webiny/project";
-import { CorePulumi } from "@webiny/project/abstractions";
-import { getEsConfigFromExtension } from "~/pulumi/apps/extensions/getEsConfigFromExtension";
-import { getOsConfigFromExtension } from "~/pulumi/apps/extensions/getOsConfigFromExtension";
-import { getVpcConfigFromExtension } from "~/pulumi/apps/extensions/getVpcConfigFromExtension";
-import { applyAwsResourceTags, getAwsRegion } from "~/pulumi/apps/awsUtils";
+import { CorePulumi } from "@webiny/project/abstractions/index.js";
+import { getEsConfigFromExtension } from "~/pulumi/apps/extensions/getEsConfigFromExtension.js";
+import { getOsConfigFromExtension } from "~/pulumi/apps/extensions/getOsConfigFromExtension.js";
+import { getVpcConfigFromExtension } from "~/pulumi/apps/extensions/getVpcConfigFromExtension.js";
+import { applyAwsResourceTags, getAwsRegion } from "~/pulumi/apps/awsUtils.js";
 import { License } from "@webiny/wcp";
 import { configureS3BucketMalwareProtection } from "./configureS3BucketMalwareProtection.js";
 import * as pulumi from "@pulumi/pulumi";

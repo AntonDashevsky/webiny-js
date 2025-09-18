@@ -1,5 +1,5 @@
-import { elasticSearch as elasticSearchExt } from "~/pulumi/extensions/elasticSearch";
-import { type IProjectConfigModel } from "@webiny/project/abstractions/models";
+import { elasticSearch as elasticSearchExt } from "~/pulumi/extensions/elasticSearch.js";
+import { type IProjectConfigModel } from "@webiny/project/abstractions/models/index.js";
 
 export const getEsConfigFromExtension = (projectConfig: IProjectConfigModel) => {
     const [elasticSearchExtension] = projectConfig.extensionsByType(elasticSearchExt);
