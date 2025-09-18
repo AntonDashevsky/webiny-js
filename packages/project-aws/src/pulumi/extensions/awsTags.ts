@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { defineExtension } from "@webiny/project/extensions/defineExtension/index.js";
+import { defineExtension } from "@webiny/project/defineExtension/index.js";
 
 export const awsTags = defineExtension({
     type: "Infra/AwsTags",
