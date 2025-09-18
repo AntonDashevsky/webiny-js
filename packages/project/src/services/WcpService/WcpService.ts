@@ -6,11 +6,10 @@ import { GetUserPat } from "./GetUserPat.js";
 import { CreateUserPat } from "~/services/WcpService/CreateUserPat.js";
 import { UrlModel } from "~/models/index.js";
 import { getWcpGqlApiUrl, getWcpAppUrl } from "@webiny/wcp";
-import { LogoutUser } from "~/services/WcpService/LogoutUser.js";
 import { StorePatToLocalStorage } from "~/services/WcpService/StorePatToLocalStorage.js";
 import { UnsetPatFromLocalStorage } from "./UnsetPatFromLocalStorage.js";
 import { GetProjectEnvironment } from "./GetProjectEnvironment.js";
-import { IGetProjectEnvironmentParams } from "~/abstractions/services/WcpService";
+import { IGetProjectEnvironmentParams } from "~/abstractions/services/WcpService.js";
 
 export class DefaultWcpService implements WcpService.Interface {
     constructor(

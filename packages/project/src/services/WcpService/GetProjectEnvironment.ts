@@ -1,8 +1,8 @@
 import { LocalStorageService } from "~/abstractions/index.js";
 import { WcpGqlClient } from "./WcpGqlClient.js";
 import { IGetProjectEnvironmentParams } from "~/abstractions/services/WcpService.js";
-import { IWcpEnvironmentDto } from "~/abstractions/models";
-import { WcpEnvironmentModel } from "~/models";
+import { IWcpEnvironmentDto } from "~/abstractions/models/index.js";
+import { WcpEnvironmentModel } from "~/models/index.js";
 
 const ENVIRONMENT_FIELDS = /* GraphQL */ `
     fragment EnvironmentFields on Environment {
