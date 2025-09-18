@@ -23,11 +23,6 @@ export class LoginCommand implements Command.Interface<ILoginCommandParams> {
     ) {}
 
     async execute(): Promise<Command.CommandDefinition<ILoginCommandParams>> {
-        const projectSdk = await this.getProjectSdkService.execute();
-        const wcp = projectSdk.wcp;
-        const ui = this.uiService;
-        const logger = this.loggerService;
-
         return {
             name: "login",
             description: "Log in to Webiny Control Panel",
@@ -40,6 +35,11 @@ export class LoginCommand implements Command.Interface<ILoginCommandParams> {
                 }
             ],
             handler: async ({ pat: patFromParams }: ILoginCommandParams) => {
+                const projectSdk = await this.getProjectSdkService.execute();
+                const wcp = projectSdk.wcp;
+                const ui = this.uiService;
+                const logger = this.loggerService;
+
                 let pat: IWcpUserPatModel | null = null;
 
                 if (patFromParams) {
@@ -53,7 +53,6 @@ export class LoginCommand implements Command.Interface<ILoginCommandParams> {
                 } else {
                     const generatedPat = await wcp.generateUserPat();
 
-                    console.log("generatedPat", generatedPat);
                     const queryParams = `pat=${generatedPat}&pat_name=${encodeURIComponent(
                         "Webiny CLI"
                     )}&ref=cli`;
@@ -117,31 +116,28 @@ export class LoginCommand implements Command.Interface<ILoginCommandParams> {
                 projectSdk.wcp.storePatToLocalStorage(pat.token);
 
                 ui.success(`%s You've successfully logged in to Webiny Control Panel.`, "✔");
-                
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                const projectInitialized = process.env.WCP_PROJECT_ID;
 
-                console.log("pat", pat);
-                // If we have `orgId` and `projectId` in PAT's metadata, let's immediately link the project.
-                if (pat.meta && pat.meta.orgId && pat.meta.projectId) {
-                    await sleep();
-                    ui.newLine();
+                let projectIdInitialized = await projectSdk.getProjectId();
+                if (projectIdInitialized) {
+                    return;
+                }
 
-                    const { orgId, projectId } = pat.meta;
+                if (!projectIdInitialized) {
+                    // If we have `orgId` and `projectId` in PAT's metadata, let's immediately link the project.
+                    if (pat.meta && pat.meta.orgId && pat.meta.projectId) {
+                        await sleep();
+                        ui.newLine();
 
-                    const id = `${orgId}/${projectId}`;
-                    ui.info(`Project %s detected. Linking...`, id);
+                        const { orgId, projectId } = pat.meta;
 
-                    await sleep();
+                        const id = `${orgId}/${projectId}`;
+                        ui.info(`Project %s detected. Linking...`, id);
+                        await projectSdk.setProjectId(id);
 
-                    // await setProjectId({
-                    //     project: context.project,
-                    //     orgId,
-                    //     projectId
-                    // });
-
-                    ui.success(`Project %s linked successfully.`, id);
-                    // projectInitialized = true;
+                        await sleep();
+                        ui.success(`Project %s linked successfully.`, id);
+                        projectIdInitialized = id;
+                    }
                 }
 
                 await sleep();
