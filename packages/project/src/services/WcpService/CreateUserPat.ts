@@ -37,8 +37,14 @@ export interface CreateUserPatDi {
 }
 
 export class CreateUserPat {
-    async execute(data: any, userPat: string, di: CreateUserPatDi) {
-        const { loggerService } = di;
+    di: CreateUserPatDi;
+
+    constructor(di: CreateUserPatDi) {
+        this.di = di;
+    }
+
+    async execute(data: any, userPat: string) {
+        const { loggerService } = this.di;
 
         return WcpGqlClient.execute<CreateUserPatResponse>(
             CREATE_USER_PAT,

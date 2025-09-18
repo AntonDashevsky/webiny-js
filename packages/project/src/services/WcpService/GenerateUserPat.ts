@@ -21,8 +21,14 @@ export interface GetUserPatDi {
 }
 
 export class GenerateUserPat {
-    async execute(di: GetUserPatDi) {
-        const { loggerService } = di;
+    di: GetUserPatDi;
+
+    constructor(di: GetUserPatDi) {
+        this.di = di;
+    }
+
+    async execute() {
+        const { loggerService } = this.di;
 
         return WcpGqlClient.execute<GenerateUserPatResponse>(GENERATE_USER_PAT)
             .then(({ users }) => users.generateUserPat)

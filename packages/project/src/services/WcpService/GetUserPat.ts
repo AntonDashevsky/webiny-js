@@ -29,8 +29,14 @@ export interface GetUserPatDi {
 }
 
 export class GetUserPat {
-    async execute(pat: string, di: GetUserPatDi) {
-        const { loggerService } = di;
+    di: GetUserPatDi;
+
+    constructor(di: GetUserPatDi) {
+        this.di = di;
+    }
+
+    async execute(pat: string) {
+        const { loggerService } = this.di;
         return WcpGqlClient.execute<GetUserPatResponse>(
             GET_USER_PAT,
             { token: pat },
