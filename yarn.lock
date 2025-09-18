@@ -17067,6 +17067,7 @@ __metadata:
     read-json-sync: "npm:2.0.1"
     rimraf: "npm:^6.0.1"
     serialize-error: "npm:^12.0.0"
+    ts-morph: "npm:^24.0.0"
     tsx: "npm:^4.16.2"
     type-fest: "npm:^4.41.0"
     typescript: "npm:5.9.2"
