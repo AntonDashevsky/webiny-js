@@ -9,6 +9,7 @@ export interface IProjectModelDto {
         dotWebinyFolder: IPathModelDto;
         workspacesFolder: IPathModelDto;
         localPulumiStateFilesFolder: IPathModelDto;
+        tsConfigFile: IPathModelDto;
     };
 }
 
@@ -21,6 +22,7 @@ export interface IProjectModel {
         dotWebinyFolder: IPathModel;
         workspacesFolder: IPathModel;
         localPulumiStateFilesFolder: IPathModel;
+        tsConfigFile: IPathModel;
     };
 
     toDto(): IProjectModelDto;
