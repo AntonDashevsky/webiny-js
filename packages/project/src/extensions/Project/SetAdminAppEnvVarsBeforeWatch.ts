@@ -32,8 +32,6 @@ class SetAdminAppEnvVarsBeforeWatch implements AdminBeforeWatch.Interface {
             telemetry = false;
         }
 
-        console.log("setao svasta nesta wwww", projectId, projectVersion, telemetry);
-
         if (projectId) {
             process.env.REACT_APP_WCP_PROJECT_ID = projectId;
         }

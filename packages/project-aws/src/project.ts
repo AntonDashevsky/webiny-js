@@ -7,14 +7,17 @@ export {
     AdminAfterDeploy,
     AdminBeforeBuild,
     AdminBeforeDeploy,
+    AdminBeforeWatch,
     ApiAfterBuild,
     ApiAfterDeploy,
     ApiBeforeBuild,
     ApiBeforeDeploy,
+    ApiBeforeWatch,
     CoreAfterBuild,
     CoreAfterDeploy,
     CoreBeforeBuild,
     CoreBeforeDeploy,
+    CoreBeforeWatch,
 
     // Pulumi.
     CorePulumi

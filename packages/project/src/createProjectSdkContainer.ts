@@ -1,3 +1,4 @@
+import path from "path";
 import { Container } from "@webiny/di-container";
 import {
     beforeBuild,
@@ -82,7 +83,27 @@ import {
     ProjectSdkParamsService,
     ValidateProjectConfig
 } from "~/abstractions/index.js";
-import path from "path";
+
+import {
+    adminAfterBuild as adminAfterBuildExt,
+    adminAfterDeploy as adminAfterDeployExt,
+    adminBeforeBuild as adminBeforeBuildExt,
+    adminBeforeDeploy as adminBeforeDeployExt,
+    adminBeforeWatch as adminBeforeWatchExt,
+    afterBuild as afterBuildExt,
+    beforeWatch as beforeWatchExt,
+    apiAfterBuild as apiAfterBuildExt,
+    apiAfterDeploy as apiAfterDeployExt,
+    apiBeforeBuild as apiBeforeBuildExt,
+    apiBeforeDeploy as apiBeforeDeployExt,
+    apiBeforeWatch as apiBeforeWatchExt,
+    beforeBuild as beforeBuildExt,
+    coreAfterBuild as coreAfterBuildExt,
+    coreAfterDeploy as coreAfterDeployExt,
+    coreBeforeBuild as coreBeforeBuildExt,
+    coreBeforeDeploy as coreBeforeDeployExt,
+    coreBeforeWatch as coreBeforeWatchExt
+} from "./extensions/hooks/index.js";
 
 export const createProjectSdkContainer = async (
     params: Partial<ProjectSdkParamsService.Params>
@@ -185,21 +206,25 @@ export const createProjectSdkContainer = async (
 
     // Hooks.
     const hooksExtensions = [
-        ...projectExtensions.extensionsByType<any>("Project/BeforeWatch"),
-        ...projectExtensions.extensionsByType<any>("Project/BeforeBuild"),
-        ...projectExtensions.extensionsByType<any>("Project/AfterBuild"),
-        ...projectExtensions.extensionsByType<any>("Admin/BeforeBuild"),
-        ...projectExtensions.extensionsByType<any>("Admin/BeforeDeploy"),
-        ...projectExtensions.extensionsByType<any>("Admin/AfterBuild"),
-        ...projectExtensions.extensionsByType<any>("Admin/AfterDeploy"),
-        ...projectExtensions.extensionsByType<any>("Api/BeforeBuild"),
-        ...projectExtensions.extensionsByType<any>("Api/BeforeDeploy"),
-        ...projectExtensions.extensionsByType<any>("Api/AfterBuild"),
-        ...projectExtensions.extensionsByType<any>("Api/AfterDeploy"),
-        ...projectExtensions.extensionsByType<any>("Core/BeforeBuild"),
-        ...projectExtensions.extensionsByType<any>("Core/BeforeDeploy"),
-        ...projectExtensions.extensionsByType<any>("Core/AfterBuild"),
-        ...projectExtensions.extensionsByType<any>("Core/AfterDeploy")
+        ...projectExtensions.extensionsByType(adminAfterBuildExt),
+        ...projectExtensions.extensionsByType(beforeBuildExt),
+        ...projectExtensions.extensionsByType(beforeWatchExt),
+        ...projectExtensions.extensionsByType(afterBuildExt),
+        ...projectExtensions.extensionsByType(adminBeforeBuildExt),
+        ...projectExtensions.extensionsByType(adminBeforeDeployExt),
+        ...projectExtensions.extensionsByType(adminBeforeWatchExt),
+        ...projectExtensions.extensionsByType(adminAfterBuildExt),
+        ...projectExtensions.extensionsByType(adminAfterDeployExt),
+        ...projectExtensions.extensionsByType(apiBeforeBuildExt),
+        ...projectExtensions.extensionsByType(apiBeforeDeployExt),
+        ...projectExtensions.extensionsByType(apiBeforeWatchExt),
+        ...projectExtensions.extensionsByType(apiAfterBuildExt),
+        ...projectExtensions.extensionsByType(apiAfterDeployExt),
+        ...projectExtensions.extensionsByType(coreBeforeBuildExt),
+        ...projectExtensions.extensionsByType(coreBeforeDeployExt),
+        ...projectExtensions.extensionsByType(coreBeforeWatchExt),
+        ...projectExtensions.extensionsByType(coreAfterBuildExt),
+        ...projectExtensions.extensionsByType(coreAfterDeployExt)
     ];
 
     for (const hookExtension of hooksExtensions) {

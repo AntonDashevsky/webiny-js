@@ -19,7 +19,6 @@ export class WatchWithHooks implements Watch.Interface {
     async execute(params: Watch.Params) {
         await this.beforeWatch.execute(params);
 
-        console.log("ROKA1!!!!!");
         if ("app" in params) {
             if (params.app === "core") {
                 await this.coreBeforeWatch.execute(params);

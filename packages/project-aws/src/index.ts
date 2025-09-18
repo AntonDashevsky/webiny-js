@@ -4,16 +4,19 @@ import {
     AdminAfterDeploy,
     AdminBeforeBuild,
     AdminBeforeDeploy,
+    AdminBeforeWatch,
     AdminPulumi,
     ApiAfterBuild,
     ApiAfterDeploy,
     ApiBeforeBuild,
     ApiBeforeDeploy,
+    ApiBeforeWatch,
     ApiPulumi,
     CoreAfterBuild,
     CoreAfterDeploy,
     CoreBeforeBuild,
     CoreBeforeDeploy,
+    CoreBeforeWatch,
     CorePulumi,
     ProductionEnvironments,
     ProjectId,
@@ -53,6 +56,7 @@ export const Infra = {
     Admin: {
         BeforeBuild: AdminBeforeBuild,
         BeforeDeploy: AdminBeforeDeploy,
+        BeforeWatch: AdminBeforeWatch,
         AfterBuild: AdminAfterBuild,
         AfterDeploy: AdminAfterDeploy,
         Pulumi: AdminPulumi,
@@ -61,6 +65,7 @@ export const Infra = {
     Api: {
         BeforeBuild: ApiBeforeBuild,
         BeforeDeploy: ApiBeforeDeploy,
+        BeforeWatch: ApiBeforeWatch,
         AfterBuild: ApiAfterBuild,
         AfterDeploy: ApiAfterDeploy,
         Pulumi: ApiPulumi
@@ -68,6 +73,7 @@ export const Infra = {
     Core: {
         BeforeBuild: CoreBeforeBuild,
         BeforeDeploy: CoreBeforeDeploy,
+        BeforeWatch: CoreBeforeWatch,
         AfterBuild: CoreAfterBuild,
         AfterDeploy: CoreAfterDeploy,
         Pulumi: CorePulumi
