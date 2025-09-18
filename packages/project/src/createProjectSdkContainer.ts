@@ -105,6 +105,14 @@ import {
     coreBeforeWatch as coreBeforeWatchExt
 } from "./extensions/hooks/index.js";
 
+import {
+    corePulumi as corePulumiExt,
+    apiPulumi as apiPulumiExt,
+    adminPulumi as adminPulumiExt
+} from "./extensions/pulumi/index";
+
+import { projectDecorator as projectDecoratorExt } from "./extensions/projectDecorator";
+
 export const createProjectSdkContainer = async (
     params: Partial<ProjectSdkParamsService.Params>
 ) => {
@@ -233,9 +241,9 @@ export const createProjectSdkContainer = async (
     }
 
     const pulumiExtensions = [
-        ...projectExtensions.extensionsByType<any>("Core/Pulumi"),
-        ...projectExtensions.extensionsByType<any>("Api/Pulumi"),
-        ...projectExtensions.extensionsByType<any>("Admin/Pulumi")
+        ...projectExtensions.extensionsByType(corePulumiExt),
+        ...projectExtensions.extensionsByType(apiPulumiExt),
+        ...projectExtensions.extensionsByType(adminPulumiExt)
     ];
 
     for (const pulumiExtension of pulumiExtensions) {
@@ -253,7 +261,7 @@ export const createProjectSdkContainer = async (
     container.registerDecorator(deployAppWithHooks);
     container.registerDecorator(watchWithHooks);
 
-    const projectDecorators = [...projectExtensions.extensionsByType<any>("Project/Decorator")];
+    const projectDecorators = [...projectExtensions.extensionsByType(projectDecoratorExt)];
 
     for (const projectDecorator of projectDecorators) {
         const { default: projectDecoratorImpl } = await importFromPath(projectDecorator.params.src);
