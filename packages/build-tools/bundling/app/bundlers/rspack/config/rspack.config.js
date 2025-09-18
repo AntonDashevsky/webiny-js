@@ -34,6 +34,7 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
     const isEnvProduction = webpackEnv === "production";
     const isEnvProductionProfile = isEnvProduction && process.argv.includes("--profile");
 
+    // eslint-disable-next-line import/dynamic-import-chunkname
     const { default: tailwindConfig } = await import("@webiny/admin-ui/tailwind.config.js");
 
     const modules = modulesFactory({ paths });
