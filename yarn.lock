@@ -15177,6 +15177,7 @@ __metadata:
     jest-dynalite: "npm:^3.6.1"
     rimraf: "npm:^6.0.1"
     typescript: "npm:5.9.2"
+    vitest: "npm:^3.2.4"
   languageName: unknown
   linkType: soft
 
@@ -16097,6 +16098,7 @@ __metadata:
     rimraf: "npm:^6.0.1"
     store: "npm:^2.0.12"
     typescript: "npm:5.9.2"
+    vitest: "npm:^3.2.4"
   languageName: unknown
   linkType: soft
 
@@ -16391,12 +16393,10 @@ __metadata:
     "@svgr/webpack": "npm:^6.1.1"
     "@swc/plugin-emotion": "npm:^11.1.0"
     "@types/webpack-env": "npm:^1.18.5"
-    "@webiny/global-config": "npm:0.0.0"
-    "@webiny/telemetry": "npm:0.0.0"
     camelcase: "npm:^6.3.0"
     case-sensitive-paths-webpack-plugin: "npm:2.4.0"
     chalk: "npm:^4.1.2"
-    ci-info: "npm:^4.1.0"
+    chokidar: "npm:^4.0.0"
     css-loader: "npm:^6.10.0"
     eslint: "npm:^9.35.0"
     eslint-webpack-plugin: "npm:^5.0.2"
@@ -16406,7 +16406,6 @@ __metadata:
     get-yarn-workspaces: "npm:1.0.2"
     import-meta-resolve: "npm:^4.1.0"
     lodash: "npm:^4.17.21"
-    path-browserify: "npm:^1.0.1"
     postcss-flexbugs-fixes: "npm:^5.0.2"
     postcss-loader: "npm:^8.2.0"
     postcss-normalize: "npm:^13.0.1"
@@ -16431,9 +16430,7 @@ __metadata:
     url-loader: "npm:^4.1.1"
     utf-8-validate: "npm:>=5.0.2"
   peerDependencies:
-    "@webiny/app": "*"
-    "@webiny/global-config": "*"
-    "@webiny/telemetry": "*"
+    "@webiny/project": 0.0.0
   languageName: unknown
   linkType: soft
 
@@ -17014,6 +17011,7 @@ __metadata:
   resolution: "@webiny/project-utils@workspace:packages/project-utils"
   dependencies:
     "@elastic/elasticsearch": "npm:7.12.0"
+    "@webiny/build-tools": "npm:0.0.0"
     get-yarn-workspaces: "npm:1.0.2"
     jest-dynalite: "npm:^3.6.1"
     listr2: "npm:^5.0.8"
@@ -17046,10 +17044,12 @@ __metadata:
     "@webiny/aws-sdk": "npm:0.0.0"
     "@webiny/build-tools": "npm:0.0.0"
     "@webiny/di-container": "npm:0.0.0"
+    "@webiny/global-config": "npm:0.0.0"
     "@webiny/logger": "npm:0.0.0"
     "@webiny/pulumi-sdk": "npm:0.0.0"
     "@webiny/react-properties": "npm:0.0.0"
     "@webiny/system-requirements": "npm:0.0.0"
+    "@webiny/telemetry": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     "@webiny/wcp": "npm:0.0.0"
     chalk: "npm:^4.1.2"
@@ -17066,7 +17066,6 @@ __metadata:
     lodash: "npm:^4.17.21"
     minimatch: "npm:^5.1.6"
     mqtt: "npm:^5.10.3"
-    nanoid: "npm:^3.3.11"
     neverthrow: "npm:^8.2.0"
     p-retry: "npm:^4.6.2"
     react: "npm:18.2.0"
