@@ -1,6 +1,14 @@
 import { Abstraction } from "@webiny/di-container";
 import { IUrlModel, IWcpUserModel, IWcpUserPatModel } from "~/abstractions/models/index.js";
 
+export interface IGetProjectEnvironmentParams {
+    orgId?: string;
+    projectId?: string;
+    userId?: string;
+    environmentId?: string;
+    apiKey?: string;
+}
+
 export interface IWcpService {
     login(): Promise<string | null>;
 
@@ -21,6 +29,8 @@ export interface IWcpService {
     getWcpApiUrl(): IUrlModel;
 
     getWcpAppUrl(): IUrlModel;
+
+    getProjectEnvironment(params: IGetProjectEnvironmentParams): Promise<any>;
 }
 
 export const WcpService = new Abstraction<IWcpService>("WcpService");
