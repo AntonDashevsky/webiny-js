@@ -31,24 +31,24 @@ export class DefaultWcpService implements WcpService.Interface {
     }
 
     async generateUserPat() {
-        const generateUserPat = new GenerateUserPat();
-        return generateUserPat.execute({
+        const generateUserPat = new GenerateUserPat({
             loggerService: this.loggerService
         });
+        return generateUserPat.execute();
     }
 
     async getUserPat(pat: string) {
-        const getUserPat = new GetUserPat();
-        return getUserPat.execute(pat, {
+        const getUserPat = new GetUserPat({
             loggerService: this.loggerService
         });
+        return getUserPat.execute(pat);
     }
 
     async createUserPat(data: any, userPat: string) {
-        const createUserPat = new CreateUserPat();
-        return createUserPat.execute(data, userPat, {
+        const createUserPat = new CreateUserPat({
             loggerService: this.loggerService
         });
+        return createUserPat.execute(data, userPat);
     }
 
     storePatToLocalStorage(pat: string) {
