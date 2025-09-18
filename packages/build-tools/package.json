@@ -25,12 +25,10 @@
     "@svgr/webpack": "^6.1.1",
     "@swc/plugin-emotion": "^11.1.0",
     "@types/webpack-env": "^1.18.5",
-    "@webiny/global-config": "0.0.0",
-    "@webiny/telemetry": "0.0.0",
     "camelcase": "^6.3.0",
     "case-sensitive-paths-webpack-plugin": "2.4.0",
     "chalk": "^4.1.2",
-    "ci-info": "^4.1.0",
+    "chokidar": "^4.0.0",
     "css-loader": "^6.10.0",
     "eslint": "^9.35.0",
     "eslint-webpack-plugin": "^5.0.2",
@@ -40,7 +38,6 @@
     "get-yarn-workspaces": "1.0.2",
     "import-meta-resolve": "^4.1.0",
     "lodash": "^4.17.21",
-    "path-browserify": "^1.0.1",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^8.2.0",
     "postcss-normalize": "^13.0.1",
@@ -66,15 +63,14 @@
     "utf-8-validate": ">=5.0.2"
   },
   "peerDependencies": {
-    "@webiny/app": "*",
-    "@webiny/global-config": "*",
-    "@webiny/telemetry": "*"
+    "@webiny/project": "0.0.0"
   },
   "license": "MIT",
   "adio": {
     "ignore": {
       "src": [
         "@webiny/admin-ui",
+        "@webiny/app",
         "!!raw-loader!"
       ],
       "dependencies": [
@@ -96,7 +92,8 @@
         "sass",
         "bufferutil",
         "utf-8-validate",
-        "css-loader"
+        "css-loader",
+        "url-loader"
       ]
     }
   },
