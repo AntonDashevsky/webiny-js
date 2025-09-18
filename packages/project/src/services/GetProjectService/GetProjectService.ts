@@ -28,7 +28,7 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
         const dotWebinyFolderPath = projectRootFolderPath.join(".webiny");
         const workspacesFolderPath = projectRootFolderPath.join(".webiny", "workspaces");
         const localPulumiStateFilesFolderPath = projectRootFolderPath.join(".pulumi");
-
+        const tsConfigFilePath = projectRootFolderPath.join("tsconfig.json");
         const projectVersion = this.getProjectVersionService.execute(cwd);
 
         this.cachedProject = new ProjectModel({
@@ -40,7 +40,8 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
                 rootFolder: projectRootFolderPath,
                 webinyConfigFile: webinyConfigFilePath,
                 workspacesFolder: workspacesFolderPath,
-                localPulumiStateFilesFolder: localPulumiStateFilesFolderPath
+                localPulumiStateFilesFolder: localPulumiStateFilesFolderPath,
+                tsConfigFile: tsConfigFilePath
             }
         });
 
