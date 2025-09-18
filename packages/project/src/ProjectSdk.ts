@@ -11,6 +11,7 @@ import {
     GetProductionEnvironments,
     GetProject,
     GetProjectIdService,
+    SetProjectIdService,
     GetProjectConfig,
     GetProjectInfo,
     GetPulumiResourceNamePrefix,
@@ -63,6 +64,9 @@ export class ProjectSdk {
 
     async getProjectId() {
         return this.container.resolve(GetProjectIdService).execute();
+    }
+    async setProjectId(projectId: string) {
+        return this.container.resolve(SetProjectIdService).execute(projectId);
     }
     async getProjectVersion() {
         return this.container.resolve(GetProjectVersionService).execute();
