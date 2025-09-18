@@ -17,7 +17,7 @@ export class LogoutCommand implements Command.Interface<void> {
             description: "Log out from Webiny Control Panel",
             examples: ["$0 logout"],
             handler: async () => {
-                wcp.logout();
+                wcp.unsetPatFromLocalStorage();
                 ui.success(`You've successfully logged out from Webiny Control Panel.`);
             }
         };
