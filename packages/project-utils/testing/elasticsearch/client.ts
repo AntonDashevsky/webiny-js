@@ -168,7 +168,7 @@ const attachCustomEvents = (client: Client): ElasticsearchClient => {
     return client as ElasticsearchClient;
 };
 
-export { ElasticsearchClientOptions, ElasticsearchClient };
+export type { ElasticsearchClientOptions, ElasticsearchClient };
 
 export const createElasticsearchClient = (
     options: Partial<ElasticsearchClientOptions> = {}

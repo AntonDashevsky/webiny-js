@@ -4,4 +4,5 @@ const projectSdk = await ProjectSdk.init();
 
 process.env.AWS_REGION = "eu-central-1";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const rez = await projectSdk.wcp.login();
