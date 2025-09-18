@@ -1,5 +1,5 @@
-import { LambdaClient } from "@webiny/aws-sdk/client-lambda";
-import type { MigrationStatusReporter } from "@webiny/data-migration/cli";
+import { LambdaClient } from "@webiny/aws-sdk/client-lambda/index.js";
+import type { MigrationStatusReporter } from "@webiny/data-migration/cli/index.js";
 import {
     CliMigrationRunReporter,
     InteractiveCliStatusReporter,
@@ -7,7 +7,7 @@ import {
     MigrationRunner,
     NonInteractiveCliStatusReporter,
     VoidStatusReporter
-} from "@webiny/data-migration/cli";
+} from "@webiny/data-migration/cli/index.js";
 import { createImplementation } from "@webiny/di-container";
 import {
     ApiAfterDeploy,
@@ -15,7 +15,7 @@ import {
     GetProject,
     UiService
 } from "@webiny/project/abstractions/index.js";
-import { IDefaultStackOutput } from "~/pulumi/types";
+import { IDefaultStackOutput } from "~/pulumi/types.js";
 
 /**
  * On every deployment of the API project application, this plugin invokes the data migrations Lambda.
