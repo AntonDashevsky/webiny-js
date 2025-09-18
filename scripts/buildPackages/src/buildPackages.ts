@@ -85,24 +85,44 @@ export const buildPackages = async () => {
 
             return {
                 title,
-                task: (_, task): Listr => {
+                skip: ctx => ctx.skip,
+                task: (ctx, task): Listr => {
                     const packages = allPackages.filter(pkg => packageNames.includes(pkg.name));
 
-                    const batchTasks = task.newListr([], {
+                    const subtasks = packages.map(pkg => {
+                        return {
+                            title: `${pkg.name}`,
+                            task: async () => {
+                                try {
+                                    await buildPackage(pkg, options.buildOverrides);
+
+                                    // Store package hash
+                                    const sourceHash = await getPackageSourceHash(pkg);
+                                    metaJson.packages[pkg.packageJson.name] = { sourceHash };
+
+                                    await writeJson(META_FILE_PATH, metaJson);
+                                } catch (err) {
+                                    ctx.skip = true;
+                                    throw new PackageBuildError(pkg, err);
+                                }
+                            }
+                        };
+                    });
+
+                    const batchTasks = task.newListr(subtasks, {
                         concurrent: buildInParallel,
                         exitOnError: false,
                         rendererOptions: { showErrorMessage: false }
-                    });
-
-                    packages.forEach(pkg => {
-                        batchTasks.add(createBuildPackageListrTask(pkg, options, metaJson));
                     });
 
                     return batchTasks;
                 }
             };
         }),
-        { concurrent: false, rendererOptions: { showTimer: true, collapse: true } }
+        {
+            concurrent: false,
+            rendererOptions: { showTimer: true, collapse: true }
+        }
     );
 
     const start = Date.now();
@@ -127,29 +147,6 @@ export const buildPackages = async () => {
     }
 
     console.log(`\nBuild finished in ${green(duration)} seconds.`);
-};
-
-const createBuildPackageListrTask = (
-    pkg: Package,
-    options: BuildOptions,
-    metaJson: MetaJSON
-): ListrTask => {
-    return {
-        title: `${pkg.name}`,
-        task: async () => {
-            try {
-                await buildPackage(pkg, options.buildOverrides);
-
-                // Store package hash
-                const sourceHash = await getPackageSourceHash(pkg);
-                metaJson.packages[pkg.packageJson.name] = { sourceHash };
-
-                await writeJson(META_FILE_PATH, metaJson);
-            } catch (err) {
-                throw new PackageBuildError(pkg, err);
-            }
-        }
-    };
 };
 
 const toMB = (bytes: number) => {
