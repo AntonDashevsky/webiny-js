@@ -23,15 +23,6 @@ export class DefaultWcpService implements WcpService.Interface {
         return getUser.execute();
     }
 
-    async login() {
-        return "asd";
-    }
-
-    async logout() {
-        const logout = new LogoutUser({ localStorageService: this.localStorageService });
-        return logout.execute();
-    }
-
     async generateUserPat() {
         const generateUserPat = new GenerateUserPat({
             loggerService: this.loggerService
