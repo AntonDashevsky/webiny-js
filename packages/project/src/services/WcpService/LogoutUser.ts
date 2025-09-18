@@ -1,5 +1,5 @@
 import { UnsetPatFromLocalStorage } from "./UnsetPatFromLocalStorage.js";
-import { LocalStorageService } from "~/abstractions";
+import { LocalStorageService } from "~/abstractions/index.js";
 
 export interface ILogoutUserDi {
     localStorageService: LocalStorageService.Interface;

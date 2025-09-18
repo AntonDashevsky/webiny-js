@@ -35,12 +35,7 @@ import {
     refreshApp,
     runPulumiCommand,
     validateProjectConfig,
-    watch,
-    websiteAfterBuild,
-    websiteAfterDeploy,
-    websiteBeforeBuild,
-    websiteBeforeDeploy,
-    websitePulumi
+    watch
 } from "./features/index.js";
 
 import {
@@ -51,6 +46,7 @@ import {
     getNpxVersionService,
     getProjectConfigService,
     getProjectService,
+    getProjectIdService,
     getProjectVersionService,
     getPulumiService,
     getPulumiVersionService,
@@ -98,6 +94,7 @@ export const createProjectSdkContainer = async (
     container.register(getNpxVersionService).inSingletonScope();
     container.register(getProjectConfigService).inSingletonScope();
     container.register(getProjectService).inSingletonScope();
+    container.register(getProjectIdService).inSingletonScope();
     container.register(getProjectVersionService).inSingletonScope();
     container.register(getPulumiService).inSingletonScope();
     container.register(getPulumiVersionService).inSingletonScope();
@@ -155,10 +152,6 @@ export const createProjectSdkContainer = async (
     container.registerComposite(coreBeforeDeploy);
     container.registerComposite(coreAfterBuild);
     container.registerComposite(coreAfterDeploy);
-    container.registerComposite(websiteBeforeBuild);
-    container.registerComposite(websiteBeforeDeploy);
-    container.registerComposite(websiteAfterBuild);
-    container.registerComposite(websiteAfterDeploy);
 
     // Immediately set CLI instance params via the `CliParamsService`.
     container.resolve(ProjectSdkParamsService).set(params);
@@ -177,7 +170,7 @@ export const createProjectSdkContainer = async (
             // If the path is not absolute, we assume it's relative to the current working directory.
             importPath = project.paths.rootFolder.join(filePath).toString();
         }
-        
+
         //eslint-disable-next-line import/dynamic-import-chunkname
         return import(importPath);
     };
@@ -197,11 +190,7 @@ export const createProjectSdkContainer = async (
         ...projectExtensions.extensionsByType<any>("Core/BeforeBuild"),
         ...projectExtensions.extensionsByType<any>("Core/BeforeDeploy"),
         ...projectExtensions.extensionsByType<any>("Core/AfterBuild"),
-        ...projectExtensions.extensionsByType<any>("Core/AfterDeploy"),
-        ...projectExtensions.extensionsByType<any>("Website/BeforeBuild"),
-        ...projectExtensions.extensionsByType<any>("Website/BeforeDeploy"),
-        ...projectExtensions.extensionsByType<any>("Website/AfterBuild"),
-        ...projectExtensions.extensionsByType<any>("Website/AfterDeploy")
+        ...projectExtensions.extensionsByType<any>("Core/AfterDeploy")
     ];
 
     for (const hookExtension of hooksExtensions) {
@@ -212,8 +201,7 @@ export const createProjectSdkContainer = async (
     const pulumiExtensions = [
         ...projectExtensions.extensionsByType<any>("Core/Pulumi"),
         ...projectExtensions.extensionsByType<any>("Api/Pulumi"),
-        ...projectExtensions.extensionsByType<any>("Admin/Pulumi"),
-        ...projectExtensions.extensionsByType<any>("Website/Pulumi")
+        ...projectExtensions.extensionsByType<any>("Admin/Pulumi")
     ];
 
     for (const pulumiExtension of pulumiExtensions) {
@@ -225,7 +213,6 @@ export const createProjectSdkContainer = async (
     container.registerComposite(corePulumi);
     container.registerComposite(apiPulumi);
     container.registerComposite(adminPulumi);
-    container.registerComposite(websitePulumi);
 
     // Decorators that must be applied last on top of potentially custom ones.
     container.registerDecorator(buildAppWithHooks);

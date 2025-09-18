@@ -3,6 +3,7 @@ export * from "./GetCwdService/index.js";
 export * from "./GetProjectConfigService/index.js";
 export * from "./GetProjectService/index.js";
 export * from "./GetProjectVersionService/index.js";
+export * from "./GetProjectIdService/index.js";
 export * from "./GetPulumiService/index.js";
 export * from "./ListAppLambdaFunctionsService/index.js";
 export * from "./ListPackagesInAppWorkspaceService/index.js";

@@ -6,9 +6,7 @@ import {
     ApiBeforeDeploy,
     ApiAfterDeploy,
     CoreBeforeDeploy,
-    CoreAfterDeploy,
-    WebsiteBeforeDeploy,
-    WebsiteAfterDeploy
+    CoreAfterDeploy
 } from "~/abstractions/index.js";
 
 export class DeployAppWithHooks implements DeployApp.Interface {
@@ -19,8 +17,6 @@ export class DeployAppWithHooks implements DeployApp.Interface {
         private apiAfterDeploy: ApiAfterDeploy.Interface,
         private coreBeforeDeploy: CoreBeforeDeploy.Interface,
         private coreAfterDeploy: CoreAfterDeploy.Interface,
-        private websiteBeforeDeploy: WebsiteBeforeDeploy.Interface,
-        private websiteAfterDeploy: WebsiteAfterDeploy.Interface,
         private decoratee: DeployApp.Interface
     ) {}
 
@@ -46,13 +42,6 @@ export class DeployAppWithHooks implements DeployApp.Interface {
             return result;
         }
 
-        if (params.app === "website") {
-            await this.websiteBeforeDeploy.execute(params);
-            const result = await this.decoratee.execute(params);
-            await this.websiteAfterDeploy.execute(params);
-            return result;
-        }
-
         return this.decoratee.execute(params);
     }
 }
@@ -66,8 +55,6 @@ export const deployAppWithHooks = createDecorator({
         ApiBeforeDeploy,
         ApiAfterDeploy,
         CoreBeforeDeploy,
-        CoreAfterDeploy,
-        WebsiteBeforeDeploy,
-        WebsiteAfterDeploy
+        CoreAfterDeploy
     ]
 });

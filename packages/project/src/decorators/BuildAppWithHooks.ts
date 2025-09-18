@@ -8,9 +8,7 @@ import {
     ApiBeforeBuild,
     BeforeBuild,
     CoreAfterBuild,
-    CoreBeforeBuild,
-    WebsiteAfterBuild,
-    WebsiteBeforeBuild
+    CoreBeforeBuild
 } from "~/abstractions/index.js";
 
 export class BuildAppWithHooks implements BuildApp.Interface {
@@ -23,8 +21,6 @@ export class BuildAppWithHooks implements BuildApp.Interface {
         private apiAfterBuild: ApiAfterBuild.Interface,
         private coreBeforeBuild: CoreBeforeBuild.Interface,
         private coreAfterBuild: CoreAfterBuild.Interface,
-        private websiteBeforeBuild: WebsiteBeforeBuild.Interface,
-        private websiteAfterBuild: WebsiteAfterBuild.Interface,
         private decoratee: BuildApp.Interface
     ) {}
 
@@ -65,17 +61,6 @@ export class BuildAppWithHooks implements BuildApp.Interface {
             return packagesBuilder;
         }
 
-        if (params.app === "website") {
-            await this.beforeBuild.execute(params);
-            await this.websiteBeforeBuild.execute(params);
-            const packagesBuilder = await this.decoratee.execute(params);
-            packagesBuilder.onAfterBuild(async () => {
-                await this.websiteAfterBuild.execute(params);
-                await this.afterBuild.execute(params);
-            });
-            return packagesBuilder;
-        }
-
         return this.decoratee.execute(params);
     }
 }
@@ -91,8 +76,6 @@ export const buildAppWithHooks = createDecorator({
         ApiBeforeBuild,
         ApiAfterBuild,
         CoreBeforeBuild,
-        CoreAfterBuild,
-        WebsiteBeforeBuild,
-        WebsiteAfterBuild
+        CoreAfterBuild
     ]
 });

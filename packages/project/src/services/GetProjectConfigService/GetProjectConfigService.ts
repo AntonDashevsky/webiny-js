@@ -12,8 +12,8 @@ import {
     type IHydratedProjectConfig,
     type IProjectConfigDto
 } from "~/abstractions/models/index.js";
-import { extensionDefinitions as extensionDefinitionsExtension } from "~/extensions/builtInExtensions/extensionDefinitions.js";
-import { ExtensionInstanceModel } from "~/extensions/index.js";
+import { extensionDefinitions as extensionDefinitionsExtension } from "~/extensions/extensionDefinitions.js";
+import { ExtensionInstanceModel } from "~/defineExtension/index.js";
 import { ProjectConfigModel } from "~/models/ProjectConfigModel.js";
 import { renderConfig } from "./renderConfig.js";
 

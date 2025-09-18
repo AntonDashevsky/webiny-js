@@ -11,7 +11,7 @@ export class DefaultGetApp implements GetApp.Interface {
             throw new Error("App name must be provided.");
         }
 
-        // App name must be one of the following: core, api, admin, or website.
+        // App name must be one of the following: core, api, or admin.
         const validAppNames = Object.values(APP_NAME);
         if (!validAppNames.includes(appName)) {
             throw new Error(

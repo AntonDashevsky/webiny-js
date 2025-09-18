@@ -1,7 +1,7 @@
 import { JsonObject } from "type-fest";
 import { WcpGqlClient } from "~/services/WcpService/WcpGqlClient.js";
 import { WcpUserModel } from "~/models/index.js";
-import { LocalStorageService } from "~/abstractions";
+import { LocalStorageService } from "~/abstractions/index.js";
 import { GetPatFromLocalStorage } from "./GetPatFromLocalStorage.js";
 
 const GET_CURRENT_USER = /* GraphQL */ `

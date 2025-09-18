@@ -1,7 +1,10 @@
-import { type IHydratedProjectConfig, type IProjectConfigModel } from "~/abstractions/models/index.js";
-import { type ExtensionInstanceModel } from "~/extensions/models/index.js";
+import {
+    type IHydratedProjectConfig,
+    type IProjectConfigModel
+} from "~/abstractions/models/index.js";
+import { type ExtensionInstanceModel } from "~/defineExtension/models/index.js";
 import { type z } from "zod";
-import { type DefinitionAndComponentPair } from "~/extensions/index.js";
+import { type DefinitionAndComponentPair } from "~/defineExtension/index.js";
 
 export class ProjectConfigModel implements IProjectConfigModel {
     public readonly config: IHydratedProjectConfig;

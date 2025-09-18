@@ -5,6 +5,5 @@ export const APP_NAME = {
     SYNC_SYSTEM: "sync",
     CORE: "core",
     ADMIN: "admin",
-    API: "api",
-    WEBSITE: "website"
+    API: "api"
 };

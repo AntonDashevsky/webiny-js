@@ -10,6 +10,7 @@ import {
     GetAppStackOutput,
     GetProductionEnvironments,
     GetProject,
+    GetProjectIdService,
     GetProjectConfig,
     GetProjectInfo,
     GetPulumiResourceNamePrefix,
@@ -22,7 +23,8 @@ import {
     RunPulumiCommand,
     ValidateProjectConfig,
     Watch,
-    WcpService
+    WcpService,
+    GetProjectVersionService
 } from "~/abstractions/index.js";
 import { isValidRegionName, isValidVariantName } from "./utils/index.js";
 
@@ -57,6 +59,13 @@ export class ProjectSdk {
 
     validateProjectConfig(projectConfig: ValidateProjectConfig.Params) {
         return this.container.resolve(ValidateProjectConfig).execute(projectConfig);
+    }
+
+    async getProjectId() {
+        return this.container.resolve(GetProjectIdService).execute();
+    }
+    async getProjectVersion() {
+        return this.container.resolve(GetProjectVersionService).execute();
     }
 
     getProjectInfo() {

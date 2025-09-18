@@ -13,6 +13,12 @@ class DefaultGetProjectVersionService implements GetProjectVersionService.Interf
             return this.cachedProjectVersion;
         }
 
+        const envProjectVersion = process.env.WEBINY_VERSION;
+        if (envProjectVersion) {
+            this.cachedProjectVersion = envProjectVersion;
+            return this.cachedProjectVersion;
+        }
+
         const webinyConfigFilePathString = findUp.sync("webiny.config.tsx", { cwd });
         if (!webinyConfigFilePathString) {
             throw new Error(`Could not detect project in given directory (${cwd}).`);
@@ -21,7 +27,12 @@ class DefaultGetProjectVersionService implements GetProjectVersionService.Interf
         const pkgJsonPath = path.join(dirname(webinyConfigFilePathString), "package.json");
         const pkgJson = readJsonSync(pkgJsonPath) as PackageJson;
 
-        return pkgJson.version || "0.0.0";
+        if (pkgJson.version) {
+            this.cachedProjectVersion = pkgJson.version;
+            return this.cachedProjectVersion;
+        }
+
+        return "0.0.0";
     }
 }
 
