@@ -50,6 +50,10 @@ interface ListOrgsResponse extends JsonObject {
                 projects: Array<{
                     id: string;
                     name: string;
+                    org: {
+                        id: string;
+                        name: string;
+                    };
                 }>;
             }>;
         };
