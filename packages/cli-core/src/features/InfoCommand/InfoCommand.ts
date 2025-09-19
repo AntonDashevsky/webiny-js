@@ -1,9 +1,6 @@
-import path from "path";
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.ts";
-import glob from "fast-glob";
-import { splitStackName } from "@webiny/project/utils/index.js";
 import { PrintInfoForEnv } from "./PrintInfoForEnv.js";
 
 export type IInfoCommandParams = Omit<IBaseAppParams, "app">;
@@ -37,23 +34,10 @@ export class InfoCommand implements Command.Interface<IInfoCommandParams> {
                         }
                         return true;
                     }
-                },
-                {
-                    name: "region",
-                    description: "Region to target",
-                    type: "string",
-                    validation: params => {
-                        const isValid = projectSdk.isValidRegionName(params.region);
-                        if (isValid.isErr()) {
-                            throw isValid.error;
-                        }
-                        return true;
-                    }
                 }
             ],
 
             handler: async params => {
-                const project = projectSdk.getProject();
                 const ui = this.uiService;
 
                 const printInfoForEnv = new PrintInfoForEnv({
@@ -61,21 +45,11 @@ export class InfoCommand implements Command.Interface<IInfoCommandParams> {
                     uiService: this.uiService
                 });
 
-                if (!params.env) {
-                    // We just get stack files for deployed Core application. That's enough
-                    // to determine into which environments the user has deployed their project.
-                    const pulumiAdminStackFilesPaths = glob.sync(
-                        ".pulumi/**/apps/core/.pulumi/stacks/**/*.json",
-                        {
-                            cwd: project.paths.rootFolder.toString(),
-                            onlyFiles: true,
-                            dot: true
-                        }
-                    );
-
-                    const existingEnvs = pulumiAdminStackFilesPaths.map(current => {
-                        return splitStackName(path.basename(current, ".json"));
-                    });
+                if (params.env) {
+                    await printInfoForEnv.execute({ env: params.env, variant: params.variant });
+                    ui.newLine();
+                } else {
+                    const existingEnvs = await projectSdk.listDeployedEnvironments();
 
                     if (existingEnvs.length === 0) {
                         ui.info(
@@ -100,9 +74,6 @@ export class InfoCommand implements Command.Interface<IInfoCommandParams> {
                         await printInfoForEnv.execute({ env, variant });
                         ui.newLine();
                     }
-                } else {
-                    await printInfoForEnv.execute({ env: params.env, variant: params.variant });
-                    ui.newLine();
                 }
 
                 ui.info(
