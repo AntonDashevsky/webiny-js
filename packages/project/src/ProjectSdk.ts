@@ -23,6 +23,7 @@ import {
     RefreshApp,
     RunPulumiCommand,
     ValidateProjectConfig,
+    ListDeployedEnvironmentsService,
     Watch,
     WcpService,
     GetProjectVersionService
@@ -140,6 +141,10 @@ export class ProjectSdk {
 
     getProductionEnvironments() {
         return this.container.resolve(GetProductionEnvironments).execute();
+    }
+
+    listDeployedEnvironments() {
+        return this.container.resolve(ListDeployedEnvironmentsService).execute();
     }
 
     // Utility methods.

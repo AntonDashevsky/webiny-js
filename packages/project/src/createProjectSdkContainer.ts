@@ -58,6 +58,7 @@ import {
     getPulumiVersionService,
     getYarnVersionService,
     listAppLambdaFunctionsService,
+    listDeployedEnvironmentsService,
     listPackagesInAppWorkspaceService,
     listPackagesService,
     localStorageService,
@@ -135,6 +136,7 @@ export const createProjectSdkContainer = async (
     container.register(getPulumiVersionService).inSingletonScope();
     container.register(getYarnVersionService).inSingletonScope();
     container.register(listAppLambdaFunctionsService).inSingletonScope();
+    container.register(listDeployedEnvironmentsService).inSingletonScope();
     container.register(listPackagesService).inSingletonScope();
     container.register(localStorageService).inSingletonScope();
     container.register(listPackagesInAppWorkspaceService).inSingletonScope();
