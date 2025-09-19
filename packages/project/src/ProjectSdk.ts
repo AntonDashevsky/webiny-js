@@ -134,6 +134,14 @@ export class ProjectSdk {
         return this.container.resolve(LocalStorageService);
     }
 
+    getPulumiResourceNamePrefix() {
+        return this.container.resolve(GetPulumiResourceNamePrefix).execute();
+    }
+
+    getProductionEnvironments() {
+        return this.container.resolve(GetProductionEnvironments).execute();
+    }
+
     // Utility methods.
     isValidRegionName(name?: string) {
         return isValidRegionName(name);
@@ -141,14 +149,6 @@ export class ProjectSdk {
 
     isValidVariantName(name?: string) {
         return isValidVariantName(name);
-    }
-
-    getPulumiResourceNamePrefix() {
-        return this.container.resolve(GetPulumiResourceNamePrefix).execute();
-    }
-
-    getProductionEnvironments() {
-        return this.container.resolve(GetProductionEnvironments).execute();
     }
 
     isTelemetryEnabled() {
