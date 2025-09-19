@@ -17,6 +17,7 @@
     "@webiny/api-headless-cms-ddb": "latest",
     "@webiny/api-headless-cms-tasks": "latest",
     "@webiny/api-log": "latest",
+    "@webiny/api-mailer": "latest",
     "@webiny/api-record-locking": "latest",
     "@webiny/api-security": "latest",
     "@webiny/api-security-cognito": "latest",

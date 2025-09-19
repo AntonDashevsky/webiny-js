@@ -26,6 +26,7 @@ import { createRecordLocking } from "@webiny/api-record-locking";
 import { createLogger } from "@webiny/api-log";
 import { createHeadlessCmsScheduler } from "@webiny/api-headless-cms-scheduler";
 import { createSchedulerClient } from "@webiny/aws-sdk/client-scheduler";
+import { createMailerContext, createMailerGraphQL } from "@webiny/api-mailer";
 
 import { extensions } from "./extensions";
 
@@ -64,6 +65,8 @@ export const handler = createHandler({
             })
         }),
         createHeadlessCmsGraphQL(),
+        createMailerContext(),
+        createMailerGraphQL(),
         createWebsiteBuilder(),
         createRecordLocking(),
         createBackgroundTasks(),
