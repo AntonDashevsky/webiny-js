@@ -16445,6 +16445,7 @@ __metadata:
     get-yarn-workspaces: "npm:1.0.2"
     glob: "npm:^7.2.3"
     humanize-duration: "npm:3.32.1"
+    inquirer: "npm:^12.9.4"
     listr: "npm:^0.14.3"
     load-json-file: "npm:6.2.0"
     open: "npm:^10.2.0"
