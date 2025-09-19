@@ -117,27 +117,25 @@ export class LoginCommand implements Command.Interface<ILoginCommandParams> {
 
                 ui.success(`%s You've successfully logged in to Webiny Control Panel.`, "✔");
 
-                let projectIdInitialized = await projectSdk.getProjectId();
-                if (projectIdInitialized) {
+                let projectLinked = await projectSdk.getProjectId().then(id => !!id);
+                if (projectLinked) {
                     return;
                 }
 
-                if (!projectIdInitialized) {
-                    // If we have `orgId` and `projectId` in PAT's metadata, let's immediately link the project.
-                    if (pat.meta && pat.meta.orgId && pat.meta.projectId) {
-                        await sleep();
-                        ui.newLine();
+                // If we have `orgId` and `projectId` in PAT's metadata, let's immediately link the project.
+                if (pat.meta && pat.meta.orgId && pat.meta.projectId) {
+                    await sleep();
+                    ui.newLine();
 
-                        const { orgId, projectId } = pat.meta;
+                    const { orgId, projectId } = pat.meta;
 
-                        const id = `${orgId}/${projectId}`;
-                        ui.info(`Project %s detected. Linking...`, id);
-                        await projectSdk.setProjectId(id);
+                    const id = `${orgId}/${projectId}`;
+                    ui.info(`Project %s detected. Linking...`, id);
+                    await projectSdk.setProjectId(id);
 
-                        await sleep();
-                        ui.success(`Project %s linked successfully.`, id);
-                        projectIdInitialized = id;
-                    }
+                    await sleep();
+                    ui.success(`Project %s linked successfully.`, id);
+                    projectLinked = true;
                 }
 
                 await sleep();
@@ -145,11 +143,11 @@ export class LoginCommand implements Command.Interface<ILoginCommandParams> {
                 ui.newLine();
                 ui.textBold("Next Steps");
 
-                // if (!projectInitialized) {
-                //     ui.text(`‣ link your project via the "yarn webiny project link" command`);
-                // }
+                if (!projectLinked) {
+                    ui.text(`‣ link your project via the "yarn webiny project link" command`);
+                }
 
-                ui.text(`‣ deploy your project via the "yarn webiny deploy" command`);
+                ui.text("‣ deploy your project via the %s command", "yarn webiny deploy");
             }
         };
     }

@@ -5,7 +5,7 @@ import { Project as TsMorphProject, SyntaxKind } from "ts-morph";
 class DefaultSetProjectIdService implements SetProjectIdService.Interface {
     constructor(private getProjectService: GetProjectService.Interface) {}
 
-    async execute(id: string) {
+    async execute(id: string, options: SetProjectIdService.Options = {}) {
         const project = this.getProjectService.execute();
         const webinyConfigFileTsx = project.paths.webinyConfigFile.toString();
 
@@ -37,7 +37,17 @@ class DefaultSetProjectIdService implements SetProjectIdService.Interface {
         // Check for <Project.Id />
         const hasProjectId = jsxElements.some(el => el.getTagNameNode().getText() === "Project.Id");
         if (hasProjectId) {
-            throw new Error("Project.Id already exists in the file.");
+            if (options.force !== true) {
+                throw new Error("Project.Id already exists in the file.");
+            } else {
+                // Remove existing <Project.Id />
+                const projectIdEl = jsxElements.find(
+                    el => el.getTagNameNode().getText() === "Project.Id"
+                );
+                if (projectIdEl) {
+                    projectIdEl.replaceWithText("");
+                }
+            }
         }
 
         // Insert after <Webiny />

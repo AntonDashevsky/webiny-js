@@ -1,3 +1,4 @@
+import { Project } from "@webiny/extensions";
 import React from "react";
 
 // Note: in a real project, these would be imported from `@webiny/extensions`
@@ -10,9 +11,10 @@ export default () => {
         <>
             {/*Webiny AWS built-in extensions. Always here, must not be removed.*/}
             <Webiny />
+            <Project.Id id={"webiny-test-project-without-fm-td"} />
 
             {/*Project-lvl settings. All within the `Project.` namespace. */}
-            <Project.Id id={"webiny/test-project"} />
+            
             <Project.Telemetry enabled={false} />
 
             {/* Cloud infrastructure related extensions. All within the `Infra.` namespace. */}

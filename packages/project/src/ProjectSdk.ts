@@ -65,8 +65,8 @@ export class ProjectSdk {
     async getProjectId() {
         return this.container.resolve(GetProjectIdService).execute();
     }
-    async setProjectId(projectId: string) {
-        return this.container.resolve(SetProjectIdService).execute(projectId);
+    async setProjectId(projectId: string, options: SetProjectIdService.Options = {}) {
+        return this.container.resolve(SetProjectIdService).execute(projectId, options);
     }
     async getProjectVersion() {
         return this.container.resolve(GetProjectVersionService).execute();
