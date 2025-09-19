@@ -7,4 +7,6 @@ export declare interface SendEventParams {
 
 export declare function sendEvent(params: SendEventParams): Promise<void>;
 
-export declare function isEnabled(): boolean
+export declare function isEnabled(): boolean;
+export declare function enable(): boolean;
+export declare function disable(): boolean;
