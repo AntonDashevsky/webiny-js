@@ -2,6 +2,7 @@ import React from "react";
 import {
     AdminBeforeBuild,
     AdminBeforeWatch,
+    ApiAfterBuild,
     BeforeBuild,
     BeforeWatch
 } from "~/extensions/index.js";
@@ -14,6 +15,7 @@ export const Project = () => {
         <>
             <AdminBeforeBuild src={p("Project/SetAdminAppEnvVarsBeforeBuild.js")} />
             <AdminBeforeWatch src={p("Project/SetAdminAppEnvVarsBeforeWatch.js")} />
+            <ApiAfterBuild src={p("Project/WcpInjectTelemetryClientAfterBuild.js")} />
             <BeforeBuild src={p("Project/WcpSetEnvVarsBeforeBuild.js")} />
             <BeforeWatch src={p("Project/WcpSetEnvVarsBeforeWatch.js")} />
         </>
