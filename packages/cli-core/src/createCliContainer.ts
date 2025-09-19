@@ -24,6 +24,8 @@ import {
     pendingOperationsGracefulErrorHandler,
     pulumiCommand,
     refreshCommand,
+    enableTelemetryCommand,
+    disableTelemetryCommand,
     syncDepsCommand,
     verifyDepsCommand,
     watchCommand,
@@ -59,6 +61,8 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
     container.register(deployCommand).inSingletonScope();
     container.register(pulumiCommand).inSingletonScope();
     container.register(refreshCommand).inSingletonScope();
+    container.register(enableTelemetryCommand).inSingletonScope();
+    container.register(disableTelemetryCommand).inSingletonScope();
     container.register(syncDepsCommand).inSingletonScope();
     container.register(verifyDepsCommand).inSingletonScope();
     container.register(destroyCommand).inSingletonScope();
