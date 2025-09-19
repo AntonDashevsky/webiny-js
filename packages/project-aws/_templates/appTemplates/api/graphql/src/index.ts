@@ -16,12 +16,15 @@ import { createHcmsTasks } from "@webiny/api-headless-cms-tasks";
 import { createAco } from "@webiny/api-aco";
 import { createAcoHcmsContext } from "@webiny/api-headless-cms-aco";
 import securityPlugins from "./security";
+import { createWebsiteBuilder } from "@webiny/api-website-builder";
 import tenantManager from "@webiny/api-tenant-manager";
 import { createAuditLogs } from "@webiny/api-audit-logs";
 import { createBackgroundTasks } from "@webiny/api-background-tasks-ddb";
 import { createWebsockets } from "@webiny/api-websockets";
 import { createRecordLocking } from "@webiny/api-record-locking";
 import { createLogger } from "@webiny/api-log";
+import { createHeadlessCmsScheduler } from "@webiny/api-headless-cms-scheduler";
+import { createSchedulerClient } from "@webiny/aws-sdk/client-scheduler";
 
 import { extensions } from "./extensions";
 
@@ -53,6 +56,7 @@ export const handler = createHandler({
             })
         }),
         createHeadlessCmsGraphQL(),
+        createWebsiteBuilder(),
         createRecordLocking(),
         createBackgroundTasks(),
         createFileManagerContext({
@@ -69,6 +73,11 @@ export const handler = createHandler({
         createAuditLogs(),
         createAcoHcmsContext(),
         createHcmsTasks(),
+        createHeadlessCmsScheduler({
+            getClient: config => {
+                return createSchedulerClient(config);
+            }
+        }),
         extensions()
     ],
     debug
