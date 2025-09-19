@@ -129,7 +129,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - uses: actions/cache@v4
         with:
@@ -178,7 +178,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -263,7 +263,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -356,7 +356,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -451,7 +451,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}

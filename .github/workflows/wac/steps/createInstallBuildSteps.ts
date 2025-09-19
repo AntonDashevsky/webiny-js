@@ -8,7 +8,7 @@ export const createInstallBuildSteps = (params: CreateInstallBuildStepsParams) =
     return withCommonParams(
         [
             { name: "Install dependencies", run: "yarn --immutable" },
-            { name: "Build packages", run: "yarn build:quick" }
+            { name: "Build packages", run: "yarn build" }
         ],
         { "working-directory": params.workingDirectory }
     );

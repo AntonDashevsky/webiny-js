@@ -58,7 +58,7 @@ jobs:
         run: yarn --immutable
         working-directory: ''
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ''
       - uses: actions/cache@v4
         with:
@@ -97,7 +97,7 @@ jobs:
         run: yarn --immutable
         working-directory: ''
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ''
       - name: Create ".npmrc" file in the project root
         run: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
@@ -140,7 +140,7 @@ jobs:
         run: yarn --immutable
         working-directory: ''
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ''
       - name: Create ".npmrc" file in the project root
         run: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc

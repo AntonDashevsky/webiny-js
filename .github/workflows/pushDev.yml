@@ -55,7 +55,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - uses: actions/cache@v4
         with:
@@ -127,7 +127,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Sync Dependencies Verification
         run: yarn verify-dependencies
@@ -202,7 +202,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -287,7 +287,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -380,7 +380,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -475,7 +475,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -549,7 +549,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Start Verdaccio local server
         working-directory: dev
@@ -680,7 +680,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Set up Cypress config
         run: >-
@@ -762,7 +762,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Start Verdaccio local server
         working-directory: dev
@@ -898,7 +898,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Set up Cypress config
         run: >-
@@ -980,7 +980,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Start Verdaccio local server
         working-directory: dev
@@ -1116,7 +1116,7 @@ jobs:
         run: yarn --immutable
         working-directory: dev
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: dev
       - name: Set up Cypress config
         run: >-

@@ -48,7 +48,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
     runs-on: ubuntu-latest
     env:

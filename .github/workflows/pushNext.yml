@@ -55,7 +55,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - uses: actions/cache@v4
         with:
@@ -127,7 +127,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Sync Dependencies Verification
         run: yarn verify-dependencies
@@ -202,7 +202,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -287,7 +287,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -380,7 +380,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -475,7 +475,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -549,7 +549,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Start Verdaccio local server
         working-directory: next
@@ -680,7 +680,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Set up Cypress config
         run: >-
@@ -762,7 +762,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Start Verdaccio local server
         working-directory: next
@@ -898,7 +898,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Set up Cypress config
         run: >-
@@ -980,7 +980,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Start Verdaccio local server
         working-directory: next
@@ -1116,7 +1116,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Set up Cypress config
         run: >-
@@ -1165,7 +1165,7 @@ jobs:
         run: yarn --immutable
         working-directory: next
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: next
       - name: Create ".npmrc" file in the project root
         run: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc

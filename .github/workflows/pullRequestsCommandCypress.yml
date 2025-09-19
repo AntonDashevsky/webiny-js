@@ -129,7 +129,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - uses: actions/cache@v4
         with:
@@ -219,7 +219,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Start Verdaccio local server
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
@@ -358,7 +358,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Set up Cypress config
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
@@ -454,7 +454,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Start Verdaccio local server
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
@@ -597,7 +597,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Set up Cypress config
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
@@ -694,7 +694,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Start Verdaccio local server
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
@@ -837,7 +837,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
       - name: Set up Cypress config
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}

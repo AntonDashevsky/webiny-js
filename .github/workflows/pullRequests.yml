@@ -142,7 +142,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ github.base_ref }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ github.base_ref }}
       - uses: actions/cache@v4
         with:
@@ -219,7 +219,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ github.base_ref }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ github.base_ref }}
       - name: Sync Dependencies Verification
         run: yarn verify-dependencies
@@ -324,7 +324,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ github.base_ref }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ github.base_ref }}
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -439,7 +439,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ github.base_ref }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ github.base_ref }}
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -565,7 +565,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ github.base_ref }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ github.base_ref }}
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
@@ -693,7 +693,7 @@ jobs:
         run: yarn --immutable
         working-directory: ${{ github.base_ref }}
       - name: Build packages
-        run: yarn build:quick
+        run: yarn build
         working-directory: ${{ github.base_ref }}
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
