@@ -28,6 +28,7 @@ import {
     watchCommand,
 
     // WCP
+    linkProjectCommand,
     loginCommand,
     logoutCommand,
     whoAmICommand
@@ -63,6 +64,8 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
     container.register(infoCommand).inSingletonScope();
     container.register(outputCommand).inSingletonScope();
     container.register(watchCommand).inSingletonScope();
+
+    container.register(linkProjectCommand).inSingletonScope();
     container.register(loginCommand).inSingletonScope();
     container.register(logoutCommand).inSingletonScope();
     container.register(whoAmICommand).inSingletonScope();
