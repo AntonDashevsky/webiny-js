@@ -1,8 +1,6 @@
-import { Project } from "@webiny/extensions";
 import React from "react";
-
 // Note: in a real project, these would be imported from `@webiny/extensions`
-import { Admin, Cli, Project, Webiny, Infra, Backend } from "./packages/project-aws/dist/index.js";
+import { Admin, Cli, Project, Webiny, Infra } from "./packages/project-aws/dist/index.js";
 
 // import { Okta } from "@webiny/okta";
 
@@ -14,7 +12,6 @@ export default () => {
             <Project.Id id={"webiny-test-project-without-fm-td"} />
 
             {/*Project-lvl settings. All within the `Project.` namespace. */}
-            
             <Project.Telemetry enabled={false} />
 
             {/* Cloud infrastructure related extensions. All within the `Infra.` namespace. */}
@@ -51,6 +48,13 @@ export default () => {
             {/* Notice the `Admin.` and `Backend.` namespaces. These are the prefixes
                 users will use to add their own extensions. */}
             <Admin.Extension src={"./extensions/myAdminExtension.tsx"} />
+
+            {/*<AuditLogs.RetentionPeriod days={90} />*/}
+            {/*<AuditLogs.Backend.RetentionPeriod days={90} />*/}
+            {/*<AuditLogs.Admin.RetentionPeriod days={90} />*/}
+
+            {/*<Cms.Backend.OnEntryBeforeCreate.../>*/}
+
             {/*<Backend.Security.Authenticator src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
             {/*<Backend.Cms.OnEntryBeforeCreate src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
             {/*<Backend.Cms.Model src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
