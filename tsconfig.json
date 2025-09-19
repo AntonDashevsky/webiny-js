@@ -5,7 +5,6 @@
     "noEmit": true,
     "noUnusedParameters": false,
     "noUnusedLocals": false,
-    "emitDeclarationOnly": false,
-    "composite": false
+    "emitDeclarationOnly": false
   }
 }
