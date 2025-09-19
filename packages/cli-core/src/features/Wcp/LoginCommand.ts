@@ -147,7 +147,7 @@ export class LoginCommand implements Command.Interface<ILoginCommandParams> {
                     ui.text(`‣ link your project via the "yarn webiny project link" command`);
                 }
 
-                ui.text("‣ deploy your project via the %s command", "yarn webiny deploy");
+                ui.text(`‣ deploy your project via the "yarn webiny deploy" command`);
             }
         };
     }
