@@ -6,7 +6,7 @@ export class WcpUserModel implements IWcpUserModel {
     firstName: string;
     lastName: string;
     orgs: Array<{ id: string; name: string }>;
-    projects: Array<{ id: string; name: string }>;
+    projects: Array<{ id: string; name: string; org: { id: string; name: string } }>;
 
     private constructor(dto: IWcpUserDto) {
         this.id = dto.id;

@@ -4,5 +4,5 @@ export interface IWcpUserDto {
     firstName: string;
     lastName: string;
     orgs: Array<{ id: string; name: string }>;
-    projects: Array<{ id: string; name: string }>;
+    projects: Array<{ id: string; name: string; org: { id: string; name: string } }>;
 }

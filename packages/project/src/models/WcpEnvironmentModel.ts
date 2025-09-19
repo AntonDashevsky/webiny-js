@@ -13,7 +13,7 @@ export class WcpEnvironmentModel implements IWcpEnvironmentModel {
         id: string;
         name: string;
     };
-    user: {
+    user: null | {
         id: string;
         email: string;
     };
@@ -31,10 +31,12 @@ export class WcpEnvironmentModel implements IWcpEnvironmentModel {
             id: dto.project.id,
             name: dto.project.name
         };
-        this.user = {
-            id: dto.user.id,
-            email: dto.user.email
-        };
+        this.user = dto.user
+            ? {
+                  id: dto.user.id,
+                  email: dto.user.email
+              }
+            : null;
     }
 
     static fromDto(dto: IWcpEnvironmentDto) {

@@ -11,7 +11,7 @@ export interface IWcpEnvironmentModel {
         id: string;
         name: string;
     };
-    user: {
+    user: null | {
         id: string;
         email: string;
     };
