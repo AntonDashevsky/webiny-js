@@ -3,6 +3,7 @@ export * from "./BuildCommand/index.js";
 export * from "./DeployCommand/index.js";
 export * from "./DestroyCommand/index.js";
 export * from "./InfoCommand.js";
+export * from "./OpenCommand.js";
 export * from "./OutputCommand.js";
 export * from "./PulumiCommand/index.js";
 export * from "./RefreshCommand/index.js";

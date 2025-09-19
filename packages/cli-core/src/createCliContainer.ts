@@ -18,6 +18,7 @@ import {
     deployCommand,
     destroyCommand,
     infoCommand,
+    openCommand,
     missingFilesInBuildGracefulErrorHandler,
     outputCommand,
     pendingOperationsGracefulErrorHandler,
@@ -62,6 +63,7 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
     container.register(verifyDepsCommand).inSingletonScope();
     container.register(destroyCommand).inSingletonScope();
     container.register(infoCommand).inSingletonScope();
+    container.register(openCommand).inSingletonScope();
     container.register(outputCommand).inSingletonScope();
     container.register(watchCommand).inSingletonScope();
 
