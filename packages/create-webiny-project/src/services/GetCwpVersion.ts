@@ -1,12 +1,19 @@
 import findUp from "find-up";
 import loadJsonFile from "load-json-file";
+import type { PackageJson } from "type-fest";
 
 export class GetCwpVersion {
-    execute() {
+    execute(): string {
         const cwpPackageJsonPath = findUp.sync("package.json", {
             cwd: import.meta.dirname
         });
-        const cwpPackageJson = loadJsonFile.sync(cwpPackageJsonPath);
+        if (!cwpPackageJsonPath) {
+            throw new Error("Could not find package.json for create-webiny-project.");
+        }
+        const cwpPackageJson = loadJsonFile.sync<PackageJson>(cwpPackageJsonPath);
+        if (!cwpPackageJson?.version) {
+            throw new Error("Could not find version in create-webiny-project's package.json.");
+        }
         return cwpPackageJson.version;
     }
 }

@@ -28,7 +28,7 @@ export class EnsureNoGlobalWebinyCli {
             );
 
             process.exit(1);
-        } catch (err) {
+        } catch {
             // @webiny/cli is not installed globally
         }
     }

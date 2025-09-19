@@ -1,4 +1,4 @@
-import { ContextPlugin } from "@webiny/api/index.js";
+import { ContextPlugin } from "@webiny/api";
 import type {
     SchedulerClient,
     SchedulerClientConfig

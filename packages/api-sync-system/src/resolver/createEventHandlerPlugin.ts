@@ -4,7 +4,7 @@ import { convertException } from "@webiny/utils";
 import { createRecordHandler } from "./app/RecordHandler.js";
 import { createFetcher } from "~/resolver/app/fetcher/Fetcher.js";
 import { createDeploymentsFetcher } from "~/resolver/deployment/DeploymentsFetcher.js";
-import { WebinyError } from "@webiny/error/index.js";
+import { WebinyError } from "@webiny/error";
 import type {
     DynamoDBClientConfig,
     DynamoDBDocument

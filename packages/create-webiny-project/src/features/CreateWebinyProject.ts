@@ -8,18 +8,18 @@ import yesno from "yesno";
 import { SetupBaseWebinyProject } from "./CreateWebinyProject/projects/base/SetupBaseWebinyProject.js";
 import { SetupAwsWebinyProject } from "./CreateWebinyProject/projects/aws/SetupAwsWebinyProject.js";
 import {
-    EnsureNoYarnLockPackageJson,
-    EnsureNoGlobalWebinyCli,
-    IsGitAvailable,
-    SetupYarn,
-    InitGit,
-    SetWebinyPackageVersions,
-    EnsureValidProjectName,
-    EnsureNoTargetFolder,
     Analytics,
-    PrintSystemInfo,
+    EnsureNoGlobalWebinyCli,
+    EnsureNoTargetFolder,
+    EnsureNoYarnLockPackageJson,
+    EnsureValidProjectName,
     GetProjectRootPath,
-    PrintErrorInfo
+    InitGit,
+    IsGitAvailable,
+    PrintErrorInfo,
+    PrintSystemInfo,
+    SetupYarn,
+    SetWebinyPackageVersions
 } from "../services/index.js";
 import { CliParams } from "../types.js";
 import ora from "ora";
@@ -50,7 +50,7 @@ export class CreateWebinyProject {
         const ensureNoGlobalWebinyCli = new EnsureNoGlobalWebinyCli();
         await ensureNoGlobalWebinyCli.execute();
 
-        let isGitAvailable = new IsGitAvailable().execute();
+        const isGitAvailable = new IsGitAvailable().execute();
 
         console.log(`Initializing a new Webiny project in ${green(projectRootPath)}...`);
 
@@ -81,7 +81,7 @@ export class CreateWebinyProject {
                         const initGit = new InitGit();
                         try {
                             initGit.execute(cliArgs);
-                        } catch (err) {
+                        } catch {
                             task.skip("Git repo not initialized");
                         }
                     }

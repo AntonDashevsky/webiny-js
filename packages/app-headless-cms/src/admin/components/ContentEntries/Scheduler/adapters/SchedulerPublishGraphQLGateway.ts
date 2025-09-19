@@ -10,7 +10,7 @@ import type {
     ISchedulerPublishExecuteParams,
     ISchedulerPublishGateway,
     ISchedulerPublishGatewayResponse
-} from "@webiny/app-headless-cms-scheduler/index.js";
+} from "@webiny/app-headless-cms-scheduler";
 import { createSchedulerEntryFields } from "./graphql/fields.js";
 
 const createSchedulerPublishMutation = () => {

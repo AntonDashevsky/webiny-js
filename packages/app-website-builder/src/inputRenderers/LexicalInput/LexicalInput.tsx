@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { DelayedOnChange, FormComponentLabel } from "@webiny/admin-ui";
 import { createLexicalStateTransformer } from "@webiny/lexical-converter";
-import { CompositionScope } from "@webiny/app-admin/index.js";
+import { CompositionScope } from "@webiny/app-admin";
 import { Dialog } from "@webiny/admin-ui";
 import { FloatingLinkEditorPlugin, LexicalEditorConfig } from "@webiny/lexical-editor";
 import { LexicalEditor } from "./LexicalEditor.js";

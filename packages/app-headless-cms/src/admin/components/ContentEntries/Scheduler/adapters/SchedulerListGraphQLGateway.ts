@@ -8,7 +8,7 @@ import type {
     ISchedulerListExecuteParams,
     ISchedulerListGateway,
     ISchedulerListGatewayResponse
-} from "@webiny/app-headless-cms-scheduler/index.js";
+} from "@webiny/app-headless-cms-scheduler";
 import type { SchedulerEntry } from "@webiny/app-headless-cms-scheduler/types.js";
 import { createSchedulerEntryFields } from "./graphql/fields.js";
 

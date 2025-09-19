@@ -34,7 +34,7 @@ export class PrintSystemInfo {
             cwpVersion = getCwpVersion.execute();
         } catch {}
 
-        const { templateOptions, debug } = cliArgs;
+        const { templateOptions } = cliArgs;
 
         console.log(
             [

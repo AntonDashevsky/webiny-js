@@ -1,5 +1,5 @@
 import { getAuditObject } from "~/utils/getAuditObject";
-import { apps as auditLogsApps } from "@webiny/common-audit-logs/index.js";
+import { apps as auditLogsApps } from "@webiny/common-audit-logs";
 
 describe("getAuditObject", () => {
     it("should construct audit object from apps", () => {

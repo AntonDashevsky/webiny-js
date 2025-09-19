@@ -1,4 +1,4 @@
-import { apps } from "@webiny/common-audit-logs/index.js";
+import { apps } from "@webiny/common-audit-logs";
 import type { IAuditLog, IAuditLogRaw } from "~/types.js";
 
 export interface ITransformRawAuditLogParams {

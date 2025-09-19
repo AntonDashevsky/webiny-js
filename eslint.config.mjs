@@ -34,31 +34,31 @@ export default defineConfig([
       parserOptions: {
         project: resolve(__dirname, "./tsconfig.json"),
         tsconfigRootDir: __dirname,
-        sourceType: "module",
+        sourceType: "module"
       },
       globals: {
         node: true,
         commonjs: true,
         window: true,
-        document: true,
-      },
+        document: true
+      }
     },
     plugins: {
       "@typescript-eslint": typescriptEslint,
       react,
       lodash,
       import: _import,
-      vitest,
+      vitest
     },
     extends: compat.extends(
       "plugin:@typescript-eslint/recommended",
-      "plugin:react/recommended",
+      "plugin:react/recommended"
       //"plugin:vitest/recommended"
     ),
     rules: {
       "react/prop-types": 0,
       "import/no-unresolved": 0,
-      "@typescript-eslint/no-namespace":"off",
+      "@typescript-eslint/no-namespace": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/ban-ts-comment": [
@@ -67,8 +67,8 @@ export default defineConfig([
           "ts-check": true,
           "ts-ignore": "allow-with-description",
           "ts-nocheck": "allow-with-description",
-          "ts-expect-error": false,
-        },
+          "ts-expect-error": false
+        }
       ],
       "@typescript-eslint/no-restricted-types": "error",
       "@typescript-eslint/no-use-before-define": 0,
@@ -88,29 +88,34 @@ export default defineConfig([
           patterns: [
             {
               group: ["@aws-sdk/*"],
-              message: "Please use @webiny/aws-sdk instead.",
+              message: "Please use @webiny/aws-sdk instead."
             },
-          ],
-        },
+            {
+              group: ["@webiny/*/index.*"],
+              message:
+                "Do not import index.js/ts/* explicitly. Import the package root instead (e.g. `@webiny/utils`)."
+            }
+          ]
+        }
       ],
       "import/dynamic-import-chunkname": [
         2,
         {
           importFunctions: ["dynamicImport"],
-          allowEmpty: false,
-        },
+          allowEmpty: false
+        }
       ],
       /**
        * Example of code: onOpen && onOpen();
        * Basically, this is instead of an if statement.
        */
-      "@typescript-eslint/no-unused-expressions": "off",
+      "@typescript-eslint/no-unused-expressions": "off"
     },
     settings: {
       react: {
-        version: "18.2.0",
-      },
-    },
+        version: "18.2.0"
+      }
+    }
   },
   {
     files: ["packages/**/*.{js,jsx}"],
@@ -120,17 +125,17 @@ export default defineConfig([
         node: true,
         commonjs: true,
         window: true,
-        document: true,
-      },
+        document: true
+      }
     },
     plugins: {
       react,
       lodash,
       import: _import,
-      vitest,
+      vitest
     },
     extends: compat.extends(
-      "plugin:react/recommended",
+      "plugin:react/recommended"
       //"plugin:vitest/recommended"
     ),
     rules: {
@@ -145,8 +150,8 @@ export default defineConfig([
         2,
         {
           importFunctions: ["dynamicImport"],
-          allowEmpty: false,
-        },
+          allowEmpty: false
+        }
       ],
       "no-restricted-imports": [
         "error",
@@ -154,17 +159,22 @@ export default defineConfig([
           patterns: [
             {
               group: ["@aws-sdk/*"],
-              message: "Please use @webiny/aws-sdk instead.",
+              message: "Please use @webiny/aws-sdk instead."
             },
-          ],
-        },
-      ],
+            {
+              group: ["@webiny/*/index.*"],
+              message:
+                "Do not import index.js/ts/* explicitly. Import the package root instead (e.g. `@webiny/utils`)."
+            }
+          ]
+        }
+      ]
     },
     settings: {
       react: {
-        version: "18.2.0",
-      },
-    },
+        version: "18.2.0"
+      }
+    }
   },
   {
     files: ["packages/aws-sdk/**/*.{ts,tsx,js,jsx}"],
@@ -186,7 +196,7 @@ export default defineConfig([
     "idea.js",
     "scripts/**/*.js",
     "packages/admin-ui/.storybook/**/*",
-    "packages/create-webiny-project/**/*",
-    "packages/create-webiny-project/_templates/**/*",
-  ]),
+    //"packages/create-webiny-project/**/*",
+    "packages/create-webiny-project/_templates/**/*"
+  ])
 ]);

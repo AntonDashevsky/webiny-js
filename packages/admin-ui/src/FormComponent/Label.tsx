@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { cn, makeDecoratable } from "~/utils.js";
 import type { LabelProps } from "~/Label/index.js";
 import { Label } from "~/Label/index.js";
-import type { GenericRecord } from "@webiny/utils/index.js";
+import type { GenericRecord } from "@webiny/utils";
 
 interface FormComponentLabelProps extends React.HTMLAttributes<HTMLDivElement> {
     text?: React.ReactElement<typeof Label> | React.ReactNode;
