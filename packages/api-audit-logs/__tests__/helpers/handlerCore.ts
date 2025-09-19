@@ -25,7 +25,7 @@ import { createMailerContext } from "@webiny/api-mailer";
 import { NullLicense } from "@webiny/wcp";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { createAcoAuditLogsContext } from "~/context/index.js";
-import { createWebsiteBuilder } from "@webiny/api-website-builder/index.js";
+import { createWebsiteBuilder } from "@webiny/api-website-builder";
 
 export interface CreateHandlerCoreParams {
     setupTenancyAndSecurityGraphQL?: boolean;

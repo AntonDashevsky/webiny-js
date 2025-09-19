@@ -4,7 +4,7 @@ import gql from "graphql-tag";
 import type {
     IScheduleCancelExecuteParams,
     ISchedulerCancelGateway
-} from "@webiny/app-headless-cms-scheduler/index.js";
+} from "@webiny/app-headless-cms-scheduler";
 
 const createSchedulerCancelMutation = () => {
     return gql`

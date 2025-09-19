@@ -12,7 +12,7 @@ import { Preview } from "~/views/Logs/Preview/index.js";
 import { useAuditLogsList } from "~/hooks/index.js";
 import { MainContainer, Wrapper } from "./styled.js";
 import type { IAuditLog } from "~/types.js";
-import { useSecurity } from "@webiny/app-security/index.js";
+import { useSecurity } from "@webiny/app-security";
 
 const t = i18n.ns("app-audit-logs/views/logs");
 

@@ -6,7 +6,7 @@ import { SchedulerPublishGraphQLGateway } from "../adapters/SchedulerPublishGrap
 import { SchedulerUnpublishGraphQLGateway } from "../adapters/SchedulerUnpublishGraphQLGateway.js";
 import { useApolloClient, useModel, usePermission } from "~/admin/hooks/index.js";
 import { SchedulerButton } from "./ScheduleSidebarButton.js";
-import { Scheduler as BaseScheduler } from "@webiny/app-headless-cms-scheduler/index.js";
+import { Scheduler as BaseScheduler } from "@webiny/app-headless-cms-scheduler";
 
 export const Scheduler = () => {
     const client = useApolloClient();

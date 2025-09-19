@@ -8,13 +8,13 @@ import type { IAuditLog } from "~/storage/types.js";
 import type { FileManagerContext } from "@webiny/api-file-manager/types.js";
 import type { AcoContext } from "@webiny/api-aco/types.js";
 import type { IStorageListParams } from "~/storage/abstractions/Storage.js";
-import type { App, Entity, Action } from "@webiny/common-audit-logs/types.js";
+import type { Action, App, Entity } from "@webiny/common-audit-logs/types.js";
 import type { DbContext } from "@webiny/handler-db/types.js";
 import type { AdminUsersContext } from "@webiny/api-admin-users/types.js";
 import type { I18NContext } from "@webiny/api-i18n/types.js";
 import type { CmsContext } from "@webiny/api-headless-cms/types/index.js";
 import type { WcpContext } from "@webiny/api-wcp/types.js";
-import type { WebsiteBuilderContext } from "@webiny/api-website-builder/index.js";
+import type { WebsiteBuilderContext } from "@webiny/api-website-builder";
 
 export interface AuditLogPayload
     extends Omit<IAuditLog, "id" | "tenant" | "createdOn" | "createdBy" | "expiresAt" | "content"> {
