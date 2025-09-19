@@ -24,6 +24,8 @@ export interface IWcpService {
 
     getWcpApiUrl(): IUrlModel;
 
+    getWcpGqlApiUrl(): IUrlModel;
+
     getWcpAppUrl(): IUrlModel;
 
     getProjectEnvironment(params: IGetProjectEnvironmentParams): Promise<any>;
