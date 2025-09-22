@@ -1,3 +1,4 @@
+import { describe, it, beforeEach, expect, vi } from "vitest";
 import { createMemoryHistory } from "history";
 import { HistoryRouterGateway } from "~/Router/HistoryRouterGateway";
 
@@ -5,13 +6,13 @@ const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 
 describe("Router Gateway", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should execute onMatch when history changes", async () => {
-        const spyHome = jest.fn();
-        const spyLogin = jest.fn();
-        const spyDynamic = jest.fn();
+        const spyHome = vi.fn();
+        const spyLogin = vi.fn();
+        const spyDynamic = vi.fn();
 
         // Create `history` and set the initial pathname to an unknown route
         const history = createMemoryHistory();
@@ -80,9 +81,9 @@ describe("Router Gateway", () => {
     });
 
     it("should generate route URLs", async () => {
-        const spyHome = jest.fn();
-        const spyLogin = jest.fn();
-        const spyDynamic = jest.fn();
+        const spyHome = vi.fn();
+        const spyLogin = vi.fn();
+        const spyDynamic = vi.fn();
 
         const history = createMemoryHistory();
         const gateway = new HistoryRouterGateway(history, "");

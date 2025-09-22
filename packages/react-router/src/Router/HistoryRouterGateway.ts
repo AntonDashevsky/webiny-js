@@ -54,7 +54,6 @@ export class HistoryRouterGateway implements IRouterGateway {
             const queryParams = Object.fromEntries(new URLSearchParams(location.search).entries());
             this.resolvePathname(location.pathname, queryParams);
         });
-
     }
 
     onRouteExit(cb: OnRouteExit): void {
@@ -147,6 +146,11 @@ export class HistoryRouterGateway implements IRouterGateway {
     }
 
     private guardRouteExit(onRouteExit: OnRouteExit): void {
+        if (this.unblock) {
+            // Remove existing blocker before installing a new one.
+            this.unblock();
+        }
+
         this.unblock = this.history.block(tx => {
             let resolved = false;
 
@@ -157,6 +161,7 @@ export class HistoryRouterGateway implements IRouterGateway {
                         // We need to unblock the transition before retying.
                         if (this.unblock) {
                             this.unblock();
+                            this.unblock = undefined;
                         }
                         // Perform transition.
                         tx.retry();
