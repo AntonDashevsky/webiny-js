@@ -11,6 +11,9 @@ export default async () => {
 
     return createTestConfig({
         path: import.meta.dirname,
-        presets
+        presets,
+        vitestConfig: {
+            fileParallelism: true
+        }
     });
 };

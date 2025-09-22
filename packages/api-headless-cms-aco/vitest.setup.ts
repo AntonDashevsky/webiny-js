@@ -11,5 +11,11 @@ export default async () => {
         ["@webiny/api-tenancy", "storage-operations"]
     );
 
-    return createTestConfig({ path: import.meta.dirname, presets });
+    return createTestConfig({
+        path: import.meta.dirname,
+        presets,
+        vitestConfig: {
+            fileParallelism: true
+        }
+    });
 };
