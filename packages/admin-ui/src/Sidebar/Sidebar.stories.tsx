@@ -1,4 +1,5 @@
 import React from "react";
+import { createBrowserHistory } from "history";
 import type { Meta, StoryObj } from "@storybook/react";
 import { BrowserRouter, Route, Routes, useLocation } from "@webiny/react-router";
 import { ReactComponent as AuditLogsIcon } from "@webiny/icons/assignment.svg";
@@ -17,6 +18,8 @@ import { SidebarProvider } from "~/Sidebar/components/SidebarProvider.js";
 import { DropdownMenu } from "~/DropdownMenu/index.js";
 import { Tag } from "~/Tag/index.js";
 import { Tooltip } from "~/Tooltip/index.js";
+
+const history = createBrowserHistory();
 
 const meta: Meta<typeof Sidebar> = {
     title: "Components/Sidebar",
@@ -47,7 +50,7 @@ type Story = StoryObj<typeof Sidebar>;
 
 export const MainMenu: Story = {
     render: () => (
-        <BrowserRouter>
+        <BrowserRouter history={history}>
             <Routes>
                 <Route path={"*"} element={<SidebarComponent />} />
             </Routes>
