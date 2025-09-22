@@ -17,7 +17,7 @@ import {
     withServiceManifest
 } from "~/pulumi/utils/index.js";
 import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion.js";
-import { attachSyncSystem } from "../syncSystem/api/index.js";
+// import { attachSyncSystem } from "../syncSystem/api/index.js";
 import { applyAwsResourceTags, getAwsAccountId } from "~/pulumi/apps/awsUtils.js";
 import type { WithServiceManifest } from "~/pulumi/utils/withServiceManifest.js";
 import { ApiScheduler } from "~/pulumi/apps/api/ApiScheduler.js";
@@ -295,11 +295,11 @@ export const createApiPulumiApp = () => {
             // /**
             //  * We need to attach the Sync System if it exists.
             //  */
-            await attachSyncSystem({
-                app,
-                core,
-                env: app.params.run.env
-            });
+            // await attachSyncSystem({
+            //     app,
+            //     core,
+            //     env: app.params.run.env
+            // });
 
             // Applies internal and user-defined AWS tags.
             await applyAwsResourceTags("api");
