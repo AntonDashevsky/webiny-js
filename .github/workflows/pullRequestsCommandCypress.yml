@@ -281,9 +281,6 @@ jobs:
       - name: Deploy Admin Area
         working-directory: new-webiny-project
         run: yarn webiny deploy apps/admin --env dev
-      - name: Deploy Website
-        working-directory: new-webiny-project
-        run: yarn webiny deploy apps/website --env dev
       - name: Deployment Summary
         run: >-
           node
@@ -516,9 +513,6 @@ jobs:
       - name: Deploy Admin Area
         working-directory: new-webiny-project
         run: yarn webiny deploy apps/admin --env dev
-      - name: Deploy Website
-        working-directory: new-webiny-project
-        run: yarn webiny deploy apps/website --env dev
       - name: Deployment Summary
         run: >-
           node
@@ -756,9 +750,6 @@ jobs:
       - name: Deploy Admin Area
         working-directory: new-webiny-project
         run: yarn webiny deploy apps/admin --env dev
-      - name: Deploy Website
-        working-directory: new-webiny-project
-        run: yarn webiny deploy apps/website --env dev
       - name: Deployment Summary
         run: >-
           node

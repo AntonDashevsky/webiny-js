@@ -10,15 +10,8 @@ const adminStackOutput = await getStackOutput({
     cwd
 });
 
-const websiteStackOutput = await getStackOutput({
-    folder: "apps/website",
-    env: "dev",
-    cwd
-});
-
 console.log(`### Deployment Summary
 | App | URL |
 |-|----|
 | Admin Area | [${adminStackOutput.appUrl}](${adminStackOutput.appUrl}) |
-| Website | [${websiteStackOutput.appUrl}](${websiteStackOutput.appUrl}) |
 `);

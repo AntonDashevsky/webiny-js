@@ -14,11 +14,6 @@ export const createDeployWebinySteps = ({ workingDirectory = "dev" } = {}) => {
             name: "Deploy Admin Area",
             "working-directory": workingDirectory,
             run: "yarn webiny deploy apps/admin --env dev"
-        },
-        {
-            name: "Deploy Website",
-            "working-directory": workingDirectory,
-            run: "yarn webiny deploy apps/website --env dev"
         }
     ];
 };
