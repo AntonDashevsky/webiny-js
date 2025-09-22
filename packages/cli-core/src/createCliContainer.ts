@@ -1,3 +1,4 @@
+import path from "path";
 import { Container } from "@webiny/di-container";
 import {
     cliParamsService,
@@ -111,11 +112,20 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
 
         const project = projectSdk.getProject();
 
+        const importFromPath = (filePath: string) => {
+            let importPath = filePath;
+            if (!path.isAbsolute(filePath)) {
+                // If the path is not absolute, we assume it's relative to the current working directory.
+                importPath = project.paths.rootFolder.join(filePath).toString();
+            }
+
+            return import(importPath);
+        };
+
         const commands = projectConfig.extensionsByType<any>("Cli/Command");
         for (const command of commands) {
-            const importPath = project.paths.rootFolder.join(command.params.src).toString();
-            //eslint-disable-next-line import/dynamic-import-chunkname
-            const { default: commandImplementation } = await import(importPath);
+            const { default: commandImplementation } = await importFromPath(command.params.src);
+
             container.register(commandImplementation).inSingletonScope();
         }
     } catch (error) {
