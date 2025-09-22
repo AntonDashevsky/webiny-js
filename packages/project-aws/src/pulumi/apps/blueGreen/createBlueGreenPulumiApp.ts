@@ -5,7 +5,6 @@ import { BlueGreenRouterCloudFront } from "./BlueGreenRouterCloudFront.js";
 import { createCloudFrontDefaultCacheBehaviorPolicies } from "./cloudfront/createCloudFrontDefaultCacheBehaviorPolicies.js";
 import { BlueGreenRouterApiGateway } from "./BlueGreenRouterApiGateway.js";
 import { BlueGreenRouterCloudFrontStore } from "./BlueGreenRouterCloudFrontStore.js";
-import type { IAttachDomainsCallable, IBlueGreenDeployment } from "./types.js";
 import { validateDeployments } from "./validation/validateDeployments.js";
 import { getApplicationDomains } from "./domains/getApplicationDomains.js";
 import { convertApplicationDomains } from "./domains/convertApplicationDomains.js";
@@ -15,39 +14,25 @@ import { attachDomainsToOutput } from "~/pulumi/apps/blueGreen/domains/attachDom
 import { BLUE_GREEN_ROUTER_STORE_KEY } from "./constants.js";
 import { getProjectSdk } from "@webiny/project";
 import { applyAwsResourceTags } from "~/pulumi/apps/awsUtils.js";
+import { getBgDeploymentsConfigFromExtension } from "~/pulumi/apps/extensions/getBgDeploymentsConfigFromExtension.js";
 
-export type BlueGreenRouterPulumiApp = ReturnType<typeof createBlueGreenPulumiApp>;
-
-export interface IDeploymentsCallableParams {
-    env: string;
-}
-
-export interface IDeploymentsCallable {
-    (params: IDeploymentsCallableParams): [IBlueGreenDeployment, IBlueGreenDeployment];
-}
-
-export interface CreateBlueGreenPulumiAppParams {
-    /**
-     * Available deployments for the Blue / Green switch.
-     * They will be validated before deploy.
-     */
-    deployments: IDeploymentsCallable;
-    /**
-     * Attach domains to the Blue/Green CloudFront.
-     */
-    domains: IAttachDomainsCallable;
-}
-
-export function createBlueGreenPulumiApp(projectAppParams: CreateBlueGreenPulumiAppParams) {
+export function createBlueGreenPulumiApp() {
     return createPulumiApp({
         name: "blueGreen",
         path: "apps/blueGreen",
-        config: projectAppParams,
         program: async app => {
             const sdk = await getProjectSdk();
-            const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
+            const projectConfig = await sdk.getProjectConfig();
 
-            const deployments = validateDeployments(projectAppParams.deployments(app.params.run));
+            const blueGreenConfig = getBgDeploymentsConfigFromExtension(projectConfig);
+            if (!blueGreenConfig) {
+                throw new Error(
+                    `Blue/Green deployments are not enabled. Please enable them in the project configuration.`
+                );
+            }
+
+            const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
+            const deployments = validateDeployments(blueGreenConfig.deployments);
 
             const applicationsDomains = await getApplicationDomains({
                 stacks: deployments
@@ -65,7 +50,7 @@ export function createBlueGreenPulumiApp(projectAppParams: CreateBlueGreenPulumi
                 input: applicationsDomains
             });
 
-            const attachedDomains = projectAppParams.domains(app.params.run);
+            const attachedDomains = blueGreenConfig.domains;
 
             const domains = resolveDomains({
                 attachedDomains,
