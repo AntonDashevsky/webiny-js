@@ -4,6 +4,8 @@ import {
     ExtensionDefinitions,
     BeforeBuild,
     ApiAfterDeploy,
+    AfterDeploy,
+    BeforeDeploy,
     Project
 } from "@webiny/project/extensions/index.js";
 import { createPathResolver } from "@webiny/project";
@@ -18,6 +20,10 @@ export const Webiny = () => {
             <AdminAfterDeploy src={p("Webiny/UploadAdminAppToS3.js")} />
             <ApiAfterDeploy src={p("Webiny/ExecuteDataMigrations.js")} />
             <ExtensionDefinitions src={p("Webiny/definitions.js")} />
+
+            {/* Blue-green */}
+            <BeforeDeploy src={p("Webiny/BlueGreenDeployments/EnsureVariantBeforeDeploy.js")} />
+            <AfterDeploy src={p("Webiny/BlueGreenDeployments/PrintDeploymentInfoAfterDeploy.js")} />
         </>
     );
 };
