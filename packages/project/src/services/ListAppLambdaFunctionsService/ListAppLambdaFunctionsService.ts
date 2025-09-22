@@ -48,7 +48,10 @@ export class DefaultListAppLambdaFunctionsService
             };
         }
 
-        const allFunctionsList = stackExport.deployment.resources
+        // If an app is not deployed, resources will not exist.
+        const resources = stackExport.deployment?.resources ?? [];
+
+        const allFunctionsList = resources
             .filter(r => r.type === "aws:lambda/function:Function")
             // We don't need to watch the authorizer function.
             .filter(resource => {
