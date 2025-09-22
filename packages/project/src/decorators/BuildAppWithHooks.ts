@@ -25,43 +25,39 @@ export class BuildAppWithHooks implements BuildApp.Interface {
     ) {}
 
     async execute(params: BuildApp.Params) {
-        if (params.app === "core") {
-            await this.beforeBuild.execute(params);
-            await this.coreBeforeBuild.execute(params);
-            const packagesBuilder = await this.decoratee.execute(params);
-            packagesBuilder.onAfterBuild(async () => {
-                await this.coreAfterBuild.execute(params);
-                await this.afterBuild.execute(params);
-            });
+        await this.beforeBuild.execute(params);
 
-            return packagesBuilder;
+        switch (params.app) {
+            case "core":
+                await this.coreBeforeBuild.execute(params);
+                break;
+            case "api":
+                await this.apiBeforeBuild.execute(params);
+                break;
+            case "admin":
+                await this.adminBeforeBuild.execute(params);
+                break;
         }
 
-        if (params.app === "api") {
-            await this.beforeBuild.execute(params);
-            await this.apiBeforeBuild.execute(params);
-            const packagesBuilder = await this.decoratee.execute(params);
-            packagesBuilder.onAfterBuild(async () => {
-                await this.apiAfterBuild.execute(params);
-                await this.afterBuild.execute(params);
-            });
+        const packagesBuilder = await this.decoratee.execute(params);
 
-            return packagesBuilder;
-        }
+        packagesBuilder.onAfterBuild(async () => {
+            switch (params.app) {
+                case "core":
+                    await this.coreAfterBuild.execute(params);
+                    break;
+                case "api":
+                    await this.apiAfterBuild.execute(params);
+                    break;
+                case "admin":
+                    await this.adminAfterBuild.execute(params);
+                    break;
+            }
 
-        if (params.app === "admin") {
-            await this.beforeBuild.execute(params);
-            await this.adminBeforeBuild.execute(params);
-            const packagesBuilder = await this.decoratee.execute(params);
-            packagesBuilder.onAfterBuild(async () => {
-                await this.adminAfterBuild.execute(params);
-                await this.afterBuild.execute(params);
-            });
+            await this.afterBuild.execute(params);
+        });
 
-            return packagesBuilder;
-        }
-
-        return this.decoratee.execute(params);
+        return packagesBuilder;
     }
 }
 
