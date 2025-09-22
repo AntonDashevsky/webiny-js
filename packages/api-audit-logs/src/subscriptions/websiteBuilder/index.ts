@@ -4,6 +4,10 @@ import type { AuditLogsContext } from "~/types.js";
 import { WebinyError } from "@webiny/error";
 
 export const createWebsiteBuilderHooks = (context: AuditLogsContext) => {
+    if (!context.websiteBuilder.pages) {
+        return;
+    }
+
     context.websiteBuilder.pages.onPageAfterCreate.subscribe(async ({ page }) => {
         try {
             const createAuditLog = getAuditConfig(AUDIT.WEBSITE_BUILDER.PAGE.CREATE);
