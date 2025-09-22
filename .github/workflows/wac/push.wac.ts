@@ -417,3 +417,4 @@ const createPushWorkflow = (branchName: string) => {
 };
 export const pushDev = createPushWorkflow("dev");
 export const pushNext = createPushWorkflow("next");
+export const pushV6EsmVitest = createPushWorkflow("v6-esm-vitest");
