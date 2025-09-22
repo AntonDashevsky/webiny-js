@@ -1,10 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
-import {
-    AdminAfterDeploy,
-    GetAppStackOutput,
-    UiService
-} from "@webiny/project/abstractions/index.js";
-import { IBlueGreenStackOutput } from "~/pulumi/apps/blueGreen/types.ts";
+import { AfterDeploy, GetAppStackOutput, UiService } from "@webiny/project/abstractions/index.js";
+import { IBlueGreenStackOutput } from "~/pulumi/apps/blueGreen/types.js";
 import chalk from "chalk";
 
 export interface IEnvironment {
@@ -16,13 +12,13 @@ export interface IEnvironment {
     };
 }
 
-class PrintDeploymentInfoAfterDeploy implements AdminAfterDeploy.Interface {
+class PrintDeploymentInfoAfterDeploy implements AfterDeploy.Interface {
     constructor(
         private ui: UiService.Interface,
         private getAppStackOutput: GetAppStackOutput.Interface
     ) {}
 
-    async execute(params: AdminAfterDeploy.Params) {
+    async execute(params: AfterDeploy.Params) {
         if (params.app !== "blueGreen") {
             return;
         }
@@ -96,7 +92,7 @@ class PrintDeploymentInfoAfterDeploy implements AdminAfterDeploy.Interface {
 }
 
 export default createImplementation({
-    abstraction: AdminAfterDeploy,
+    abstraction: AfterDeploy,
     implementation: PrintDeploymentInfoAfterDeploy,
     dependencies: [UiService, GetAppStackOutput]
 });

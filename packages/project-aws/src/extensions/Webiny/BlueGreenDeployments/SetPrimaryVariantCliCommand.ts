@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { Command, GetProjectSdkService } from "@webiny/cli-core/abstractions";
+import { Command, GetProjectSdkService } from "@webiny/cli-core/abstractions/index.js";
 
 export interface ISetPrimaryVariantCommandParams {
     env: string;
@@ -72,7 +72,7 @@ export class SetPrimaryVariantCommand
     }
 }
 
-export const setPrimaryVariantCommand = createImplementation({
+export default createImplementation({
     abstraction: Command,
     implementation: SetPrimaryVariantCommand,
     dependencies: [GetProjectSdkService]
