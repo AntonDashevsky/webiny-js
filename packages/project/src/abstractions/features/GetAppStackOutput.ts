@@ -1,6 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
 import { type IBaseAppParams } from "~/abstractions/types.js";
-import { type IPulumiGetStackOutputServiceParams } from "~/abstractions/services/PulumiGetStackOutputService.js";
 
 export type IGetAppStackOutputParams = IBaseAppParams;
 
@@ -23,7 +22,7 @@ export type IGetAppStackOutputResult<TOutput extends IStackOutput = IStackOutput
 
 export interface IGetAppStackOutput {
     execute<TOutput extends IStackOutput = IStackOutput>(
-        params: IPulumiGetStackOutputServiceParams
+        params: IGetAppStackOutputParams
     ): Promise<IGetAppStackOutputResult<TOutput>>;
 }
 
