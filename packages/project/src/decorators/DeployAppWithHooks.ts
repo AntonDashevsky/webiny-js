@@ -1,6 +1,8 @@
 import { createDecorator } from "@webiny/di-container";
-import { DeployApp } from "~/abstractions/index.js";
 import {
+    AfterDeploy,
+    BeforeDeploy,
+    DeployApp,
     AdminBeforeDeploy,
     AdminAfterDeploy,
     ApiBeforeDeploy,
@@ -11,6 +13,8 @@ import {
 
 export class DeployAppWithHooks implements DeployApp.Interface {
     constructor(
+        private beforeDeploy: BeforeDeploy.Interface,
+        private afterDeploy: AfterDeploy.Interface,
         private adminBeforeDeploy: AdminBeforeDeploy.Interface,
         private adminAfterDeploy: AdminAfterDeploy.Interface,
         private apiBeforeDeploy: ApiBeforeDeploy.Interface,
@@ -21,28 +25,37 @@ export class DeployAppWithHooks implements DeployApp.Interface {
     ) {}
 
     async execute(params: DeployApp.Params) {
-        if (params.app === "core") {
-            await this.coreBeforeDeploy.execute(params);
-            const result = await this.decoratee.execute(params);
-            await this.coreAfterDeploy.execute(params);
-            return result;
+        await this.beforeDeploy.execute(params);
+
+        switch (params.app) {
+            case "core":
+                await this.coreBeforeDeploy.execute(params);
+                break;
+            case "api":
+                await this.apiBeforeDeploy.execute(params);
+                break;
+            case "admin":
+                await this.adminBeforeDeploy.execute(params);
+                break;
         }
 
-        if (params.app === "api") {
-            await this.apiBeforeDeploy.execute(params);
-            const result = await this.decoratee.execute(params);
-            await this.apiAfterDeploy.execute(params);
-            return result;
+        const result = await this.decoratee.execute(params);
+
+        switch (params.app) {
+            case "core":
+                await this.coreAfterDeploy.execute(params);
+                break;
+            case "api":
+                await this.apiAfterDeploy.execute(params);
+                break;
+            case "admin":
+                await this.adminAfterDeploy.execute(params);
+                break;
         }
 
-        if (params.app === "admin") {
-            await this.adminBeforeDeploy.execute(params);
-            const result = await this.decoratee.execute(params);
-            await this.adminAfterDeploy.execute(params);
-            return result;
-        }
+        await this.afterDeploy.execute(params);
 
-        return this.decoratee.execute(params);
+        return result;
     }
 }
 
@@ -50,6 +63,8 @@ export const deployAppWithHooks = createDecorator({
     abstraction: DeployApp,
     decorator: DeployAppWithHooks,
     dependencies: [
+        AfterDeploy,
+        BeforeDeploy,
         AdminBeforeDeploy,
         AdminAfterDeploy,
         ApiBeforeDeploy,
