@@ -4,6 +4,8 @@ export * from "./AdminBeforeBuild/index.js";
 export * from "./AdminBeforeDeploy/index.js";
 export * from "./AdminBeforeWatch/index.js";
 export * from "./AfterBuild/index.js";
+export * from "./AfterDeploy/index.js";
+export * from "./BeforeDeploy/index.js";
 export * from "./ApiAfterBuild/index.js";
 export * from "./ApiAfterDeploy/index.js";
 export * from "./ApiBeforeBuild/index.js";

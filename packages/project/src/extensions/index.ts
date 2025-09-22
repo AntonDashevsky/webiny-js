@@ -11,6 +11,8 @@ import {
     adminBeforeDeploy,
     adminBeforeWatch,
     afterBuild,
+    afterDeploy,
+    beforeDeploy,
     beforeWatch,
     apiAfterBuild,
     apiAfterDeploy,
@@ -42,8 +44,10 @@ export const ExtensionDefinitions = extensionDefinitions.ReactComponent;
 
 // Hooks.
 export const BeforeBuild = beforeBuild.ReactComponent;
+export const BeforeDeploy = beforeDeploy.ReactComponent;
 export const BeforeWatch = beforeWatch.ReactComponent;
 export const AfterBuild = afterBuild.ReactComponent;
+export const AfterDeploy = afterDeploy.ReactComponent;
 export const AdminBeforeBuild = adminBeforeBuild.ReactComponent;
 export const AdminBeforeDeploy = adminBeforeDeploy.ReactComponent;
 export const AdminBeforeWatch = adminBeforeWatch.ReactComponent;
@@ -78,8 +82,10 @@ export const definitions = [
     adminAfterBuild.definition,
     adminAfterDeploy.definition,
     beforeBuild.definition,
+    beforeDeploy.definition,
     beforeWatch.definition,
     afterBuild.definition,
+    afterDeploy.definition,
     adminBeforeBuild.definition,
     adminBeforeDeploy.definition,
     adminBeforeWatch.definition,

@@ -4,6 +4,8 @@ import {
     beforeBuild,
     afterBuild,
     beforeWatch,
+    beforeDeploy,
+    afterDeploy,
     adminAfterBuild,
     adminAfterDeploy,
     adminBeforeBuild,
@@ -100,6 +102,8 @@ import {
     apiBeforeDeploy as apiBeforeDeployExt,
     apiBeforeWatch as apiBeforeWatchExt,
     beforeBuild as beforeBuildExt,
+    beforeDeploy as beforeDeployExt,
+    afterDeploy as afterDeployExt,
     coreAfterBuild as coreAfterBuildExt,
     coreAfterDeploy as coreAfterDeployExt,
     coreBeforeBuild as coreBeforeBuildExt,
@@ -178,6 +182,8 @@ export const createProjectSdkContainer = async (
     container.registerComposite(beforeBuild);
     container.registerComposite(afterBuild);
     container.registerComposite(beforeWatch);
+    container.registerComposite(beforeDeploy);
+    container.registerComposite(afterDeploy);
     container.registerComposite(apiBeforeBuild);
     container.registerComposite(apiBeforeDeploy);
     container.registerComposite(apiBeforeWatch);
@@ -222,6 +228,8 @@ export const createProjectSdkContainer = async (
         ...projectExtensions.extensionsByType(beforeBuildExt),
         ...projectExtensions.extensionsByType(beforeWatchExt),
         ...projectExtensions.extensionsByType(afterBuildExt),
+        ...projectExtensions.extensionsByType(beforeDeployExt),
+        ...projectExtensions.extensionsByType(afterDeployExt),
         ...projectExtensions.extensionsByType(adminBeforeBuildExt),
         ...projectExtensions.extensionsByType(adminBeforeDeployExt),
         ...projectExtensions.extensionsByType(adminBeforeWatchExt),
