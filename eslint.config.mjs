@@ -16,7 +16,7 @@ const __dirname = dirname(__filename);
 const compat = new FlatCompat({
   baseDirectory: __dirname,
   recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
+  allConfig: js.configs.all
 });
 
 function getNoUnusedVars() {
@@ -96,13 +96,6 @@ export default defineConfig([
                 "Do not import index.js/ts/* explicitly. Import the package root instead (e.g. `@webiny/utils`)."
             }
           ]
-        }
-      ],
-      "import/dynamic-import-chunkname": [
-        2,
-        {
-          importFunctions: ["dynamicImport"],
-          allowEmpty: false
         }
       ],
       /**

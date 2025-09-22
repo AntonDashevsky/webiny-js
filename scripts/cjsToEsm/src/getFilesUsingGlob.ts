@@ -26,7 +26,6 @@ export function getFilesUsingGlob(rootDir: string | string[]): string[] {
         ignore: [
             "node_modules/**",
             "**/*.d.ts",
-            "**/jest.config.js",
             "**/webiny.config.js",
             "**/webiny.config.ts",
             "**/babelrc.js",

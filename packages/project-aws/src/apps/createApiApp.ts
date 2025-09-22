@@ -16,7 +16,6 @@ export function createApiApp() {
             }
         },
         async getPulumi() {
-            // eslint-disable-next-line import/dynamic-import-chunkname
             const { createApiPulumiApp } = await import("~/pulumi/index.js");
 
             return createApiPulumiApp();
