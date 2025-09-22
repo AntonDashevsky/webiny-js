@@ -25,14 +25,39 @@ export default () => {
             <Infra.Api.AfterDeploy src={"./extensions/myApiAfterDeploy.ts"} />
             <Infra.Api.AfterBuild src={"./extensions/myApiAfterBuild.ts"} />
 
-            {/* On the other hand, for some of the `Infra.` namespace extensions,
-            we don't expect the user to be familiar with the Pulumi apps. */}
             <Infra.Core.Pulumi src={"./extensions/myCorePulumiHandler2.ts"} />
 
             {/*<Infra.Admin.CustomDomains*/}
             {/*    domains={["my.domain.com"]}*/}
             {/*    sslMethod="sni-only"*/}
             {/*    certificateArn="arn:aws:acm:us-east-1:636962863878:certificate/3baf9092-fb27-4efb-9409-XXXXXXXX"*/}
+            {/*/>*/}
+
+            {/*<Infra.BlueGreenDeployments*/}
+            {/*    enabled={true}*/}
+            {/*    domains={{*/}
+            {/*        acmCertificateArn:*/}
+            {/*            "arn:aws:acm:us-east-1:636962863878:certificate/3baf9092-fb27-4efb-9409-XXXXXXXX",*/}
+            {/*        sslSupportMethod: "sni-only",*/}
+            {/*        domains: {*/}
+            {/*            api: ["api.bg.webiny.com"],*/}
+            {/*            admin: ["admin.bg.webiny.com"],*/}
+            {/*            website: ["website.bg.webiny.com"],*/}
+            {/*            preview: ["preview.bg.webiny.com"]*/}
+            {/*        }*/}
+            {/*    }}*/}
+            {/*    deployments={[*/}
+            {/*        {*/}
+            {/*            name: "green",*/}
+            {/*            env: "dev",*/}
+            {/*            variant: "green"*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*            name: "blue",*/}
+            {/*            env: "dev",*/}
+            {/*            variant: "blue"*/}
+            {/*        }*/}
+            {/*    ]}*/}
             {/*/>*/}
 
             <Infra.Vpc enabled={false} />
