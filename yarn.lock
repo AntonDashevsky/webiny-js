@@ -14273,6 +14273,7 @@ __metadata:
     "@webiny/wcp": "npm:0.0.0"
     graphql: "npm:^16.11.0"
     typescript: "npm:5.9.2"
+    vitest: "npm:^3.2.4"
     zod: "npm:^3.25.76"
   languageName: unknown
   linkType: soft
@@ -14719,7 +14720,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/api-headless-cms-scheduler@workspace:packages/api-headless-cms-scheduler":
+"@webiny/api-headless-cms-scheduler@npm:0.0.0, @webiny/api-headless-cms-scheduler@workspace:packages/api-headless-cms-scheduler":
   version: 0.0.0-use.local
   resolution: "@webiny/api-headless-cms-scheduler@workspace:packages/api-headless-cms-scheduler"
   dependencies:
@@ -16952,11 +16953,13 @@ __metadata:
     "@webiny/api-headless-cms-aco": "npm:0.0.0"
     "@webiny/api-headless-cms-ddb": "npm:0.0.0"
     "@webiny/api-headless-cms-ddb-es": "npm:0.0.0"
+    "@webiny/api-headless-cms-scheduler": "npm:0.0.0"
     "@webiny/api-headless-cms-tasks": "npm:0.0.0"
     "@webiny/api-headless-cms-tasks-ddb-es": "npm:0.0.0"
     "@webiny/api-i18n": "npm:0.0.0"
     "@webiny/api-i18n-ddb": "npm:0.0.0"
     "@webiny/api-log": "npm:0.0.0"
+    "@webiny/api-mailer": "npm:0.0.0"
     "@webiny/api-record-locking": "npm:0.0.0"
     "@webiny/api-security": "npm:0.0.0"
     "@webiny/api-security-cognito": "npm:0.0.0"
@@ -16981,11 +16984,11 @@ __metadata:
     "@webiny/handler-db": "npm:0.0.0"
     "@webiny/handler-graphql": "npm:0.0.0"
     "@webiny/migrations": "npm:0.0.0"
-    "@webiny/plugins": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"
     "@webiny/pulumi": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     "@webiny/wcp": "npm:0.0.0"
+    chalk: "npm:^4.1.2"
     core-js: "npm:3.39.0"
     cross-fetch: "npm:^3.1.5"
     find-up: "npm:^5.0.0"
@@ -20908,6 +20911,7 @@ __metadata:
     ora: "npm:4.1.1"
     os: "npm:0.1.1"
     rimraf: "npm:^6.0.1"
+    type-fest: "npm:^4.41.0"
     uuid: "npm:^9.0.1"
     validate-npm-package-name: "npm:^6.0.2"
     write-json-file: "npm:^4.3.0"

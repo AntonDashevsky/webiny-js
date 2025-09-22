@@ -24,6 +24,7 @@
     "@webiny/project-utils": "0.0.0",
     "graphql": "^16.11.0",
     "typescript": "5.9.2",
+    "vitest": "^3.2.4",
     "zod": "^3.25.76"
   },
   "dependencies": {

@@ -9,6 +9,7 @@ import {
     Project
 } from "@webiny/project/extensions/index.js";
 import { createPathResolver } from "@webiny/project";
+import { CliCommand } from "@webiny/cli-core/extensions";
 
 const p = createPathResolver(import.meta.dirname);
 
@@ -22,6 +23,7 @@ export const Webiny = () => {
             <ExtensionDefinitions src={p("Webiny/definitions.js")} />
 
             {/* Blue-green */}
+            <CliCommand src={p("Webiny/BlueGreenDeployments/SetPrimaryVariantCliCommand.js")} />
             <BeforeDeploy src={p("Webiny/BlueGreenDeployments/EnsureVariantBeforeDeploy.js")} />
             <AfterDeploy src={p("Webiny/BlueGreenDeployments/PrintDeploymentInfoAfterDeploy.js")} />
         </>
