@@ -3,7 +3,7 @@ import { elasticSearch } from "./elasticSearch.js";
 import { openSearch } from "./openSearch.js";
 import { vpc } from "./vpc.js";
 import { adminCustomDomains } from "./adminCustomDomains.js";
-import { blueGreenDeployments } from "~/pulumi/extensions/blueGreenDeployments.ts";
+import { blueGreenDeployments } from "~/pulumi/extensions/blueGreenDeployments.js";
 
 export const AwsTags = awsTags.ReactComponent;
 export const Vpc = vpc.ReactComponent;
