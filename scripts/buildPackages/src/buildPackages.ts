@@ -7,7 +7,6 @@ import { META_FILE_PATH } from "./constants";
 import { getPackageSourceHash } from "./getPackageSourceHash";
 import { getBuildMeta } from "./getBuildMeta";
 import { buildPackage } from "./buildSinglePackage";
-import { MetaJSON, Package } from "./types";
 import { getHardwareInfo } from "./getHardwareInfo";
 import execa from "execa";
 
@@ -69,84 +68,93 @@ export const buildPackages = async () => {
         }
     }
 
-    console.log(
-        `\nThe build process will be performed in ${green(batches.length)} ${
-            batches.length > 1 ? "batches" : "batch"
-        }.\n`
-    );
-    const metaJson = getBuildMeta();
 
-    const totalBatches = `${batches.length}`.padStart(2, "0");
+    if (allPackages.length === 1) {
+        const [pkg] = allPackages;
+        await buildPackage(pkg, options.buildOverrides, 'inherit');
+    } else {
+        const start = Date.now();
 
-    const tasks = new Listr<BuildContext>(
-        batches.map<ListrTask>((packageNames, index) => {
-            const id = `${index + 1}`.padStart(2, "0");
-            const title = `[${id}/${totalBatches}] Batch #${id} (${packageNames.length} packages)`;
+        console.log(
+            `\nThe build process will be performed in ${green(batches.length)} ${
+                batches.length > 1 ? "batches" : "batch"
+            }.\n`
+        );
+        const metaJson = getBuildMeta();
 
-            return {
-                title,
-                skip: ctx => ctx.skip,
-                task: (ctx, task): Listr => {
-                    const packages = allPackages.filter(pkg => packageNames.includes(pkg.name));
+        const totalBatches = `${batches.length}`.padStart(2, "0");
 
-                    const subtasks = packages.map(pkg => {
-                        return {
-                            title: `${pkg.name}`,
-                            task: async () => {
-                                try {
-                                    await buildPackage(pkg, options.buildOverrides);
+        const tasks = new Listr<BuildContext>(
+            batches.map<ListrTask>((packageNames, index) => {
+                const id = `${index + 1}`.padStart(2, "0");
+                const title = `[${id}/${totalBatches}] Batch #${id} (${packageNames.length} packages)`;
 
-                                    // Store package hash
-                                    const sourceHash = await getPackageSourceHash(pkg);
-                                    metaJson.packages[pkg.packageJson.name] = { sourceHash };
+                return {
+                    title,
+                    skip: ctx => ctx.skip,
+                    task: (ctx, task): Listr => {
+                        const packages = allPackages.filter(pkg => packageNames.includes(pkg.name));
 
-                                    await writeJson(META_FILE_PATH, metaJson);
-                                } catch (err) {
-                                    ctx.skip = true;
-                                    throw new PackageBuildError(pkg, err);
+                        const subtasks = packages.map(pkg => {
+                            return {
+                                title: `${pkg.name}`,
+                                task: async () => {
+                                    try {
+                                        await buildPackage(pkg, options.buildOverrides);
+
+                                        // Store package hash
+                                        const sourceHash = await getPackageSourceHash(pkg);
+                                        metaJson.packages[pkg.packageJson.name] = { sourceHash };
+
+                                        await writeJson(META_FILE_PATH, metaJson);
+                                    } catch (err) {
+                                        ctx.skip = true;
+                                        throw new PackageBuildError(pkg, err);
+                                    }
                                 }
-                            }
-                        };
-                    });
+                            };
+                        });
 
-                    const batchTasks = task.newListr(subtasks, {
-                        concurrent: buildInParallel,
-                        exitOnError: false,
-                        rendererOptions: { showErrorMessage: false }
-                    });
+                        const batchTasks = task.newListr(subtasks, {
+                            concurrent: buildInParallel,
+                            exitOnError: false,
+                            rendererOptions: { showErrorMessage: false }
+                        });
 
-                    return batchTasks;
-                }
-            };
-        }),
-        {
-            concurrent: false,
-            rendererOptions: { showTimer: true, collapse: true }
-        }
-    );
+                        return batchTasks;
+                    }
+                };
+            }),
+            {
+                concurrent: false,
+                rendererOptions: { showTimer: true, collapse: true }
+            }
+        );
 
-    const start = Date.now();
-    await tasks.run();
+        await tasks.run();
 
-    const duration = (Date.now() - start) / 1000;
+        const duration = (Date.now() - start) / 1000;
 
-    if (tasks.err.length) {
-        console.log();
-        console.log(`Error building ${red(tasks.err.length)} package(s). Check the logs below.`);
-        console.log();
-
-        tasks.err.forEach(listrError => {
-            const pkgBuildError = listrError.error as PackageBuildError;
-            console.log(red("✖ " + pkgBuildError.getPackage().name));
-            console.log(pkgBuildError.getBuildError().message);
+        if (tasks.err.length) {
             console.log();
-        });
+            console.log(
+                `Error building ${red(tasks.err.length)} package(s). Check the logs below.`
+            );
+            console.log();
 
-        console.log(`Build failed in ${red(duration)} seconds.`);
-        process.exit(1);
+            tasks.err.forEach(listrError => {
+                const pkgBuildError = listrError.error as PackageBuildError;
+                console.log(red("✖ " + pkgBuildError.getPackage().name));
+                console.log(pkgBuildError.getBuildError().message);
+                console.log();
+            });
+
+            console.log(`Build failed in ${red(duration)} seconds.`);
+            process.exit(1);
+        }
+
+        console.log(`\nBuild finished in ${green(duration)} seconds.`);
     }
-
-    console.log(`\nBuild finished in ${green(duration)} seconds.`);
 };
 
 const toMB = (bytes: number) => {
