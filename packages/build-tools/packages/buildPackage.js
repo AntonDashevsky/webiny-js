@@ -1,6 +1,6 @@
 import fs from "fs";
 import * as rimraf from "rimraf";
-import { join, dirname, extname, relative, parse } from "path";
+import { dirname, extname, join, parse, relative } from "path";
 import * as babel from "@babel/core";
 import ts from "ts-patch/compiler/typescript.js";
 import glob from "fast-glob";
