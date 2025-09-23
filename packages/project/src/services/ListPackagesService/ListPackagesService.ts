@@ -3,7 +3,14 @@ import { GetApp, GetProjectService, ListPackagesService } from "~/abstractions/i
 import fs from "fs";
 import path from "path";
 import glob from "fast-glob";
-import minimatch from "minimatch";
+
+const globToRegex = (pattern: string) => {
+    // Escape regex special chars except *
+    const escaped = pattern.replace(/[-\/\\^$+?.()|[\]{}]/g, "\\$&");
+    // Replace * with .*
+    const regexStr = "^" + escaped.replace(/\*/g, ".*") + "$";
+    return new RegExp(regexStr);
+};
 
 export class DefaultListPackagesService implements ListPackagesService.Interface {
     constructor(
@@ -76,7 +83,8 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
                 .map(whitelistedPkgName => {
                     return packagesFullList.filter(pkg => {
                         if (whitelistedPkgName.includes("*")) {
-                            return minimatch(pkg.name, whitelistedPkgName);
+                            const re = globToRegex(whitelistedPkgName);
+                            return re.test(pkg.name);
                         }
 
                         // We consider both `name` and `@webiny/name` as valid package names.
