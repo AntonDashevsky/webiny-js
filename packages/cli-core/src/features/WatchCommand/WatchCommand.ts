@@ -144,6 +144,9 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                         `Watching ${watchProcesses.length} packages. Output will be displayed below:\n`
                     );
 
+                    stdio.getStdout().setMaxListeners(20);
+                    stdio.getStderr().setMaxListeners(20);
+
                     watchProcesses.forEach(watchProcess => {
                         const { pkg } = watchProcess;
                         const pkgPrefix = chalk.hex(getRandomColorForString(pkg.name))(pkg.name);
