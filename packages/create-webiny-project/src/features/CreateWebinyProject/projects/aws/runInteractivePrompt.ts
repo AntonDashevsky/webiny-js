@@ -7,8 +7,8 @@ const STORAGE_OPTIONS: Record<StorageOps, { value: StorageOps; name: string }> =
         value: "ddb",
         name: "DynamoDB (for small and medium sized projects)"
     },
-    "ddb-os": {
-        value: "ddb-os",
+    "ddb-os,ddb": {
+        value: "ddb-os,ddb",
         name: "Amazon DynamoDB + Amazon OpenSearch (for larger projects)"
     }
 };
@@ -31,7 +31,7 @@ export const runInteractivePrompt = async () => {
         {
             type: "list",
             name: "storageOps",
-            default: "ddb",
+            default: "ddb-os,ddb",
             message: `Please choose the database setup you wish to use with your project (cannot be changed later):`,
             choices: Object.values(STORAGE_OPTIONS)
         }
