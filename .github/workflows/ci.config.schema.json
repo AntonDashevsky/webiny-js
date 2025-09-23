@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CI Config",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to the JSON schema file (for editors like VS Code)"
+    },
+    "vitest": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable or disable Vitest in the CI pipeline",
+          "default": true
+        },
+        "storageOps": {
+          "type": "array",
+          "description": "Choose storage operation modes",
+          "items": {
+            "type": "string",
+            "enum": ["ddb", "ddb-es,ddb", "ddb-os,ddb"]
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["vitest"],
+  "additionalProperties": false
+}
