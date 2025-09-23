@@ -177,7 +177,7 @@
 		"test": "vitest --config testing/vitest.config.ts --run",
 		"test:ddb": "WEBINY_STORAGE=ddb vitest --config testing/vitest.config.ts --run",
 		"test:es": "WEBINY_STORAGE=ddb-es,ddb vitest --config testing/vitest.config.ts --run",
-		"test:os": "WEBINY_STORAGE=ddb-es,ddb vitest --config testing/vitest.config.ts --run",
+		"test:os": "WEBINY_STORAGE=ddb-os,ddb vitest --config testing/vitest.config.ts --run",
 		"validate-packages": "node scripts/validatePackages.js",
 		"verdaccio:start": "yarn verdaccio -c ./.verdaccio.yaml",
 		"verdaccio:start:detached": "yarn pm2 start \"yarn verdaccio:start\"",
