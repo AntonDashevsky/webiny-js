@@ -9,7 +9,7 @@ import {
 import {
     AWS_REGION,
     BUILD_PACKAGES_RUNNER,
-    listPackagesWithJestTests,
+    listPackagesWithVitestTests,
     NODE_OPTIONS,
     NODE_VERSION
 } from "./utils/index.js";
@@ -50,7 +50,7 @@ const createJestTestsJob = (storage: string | null) => {
         }
     }
 
-    const packages = listPackagesWithJestTests({ storage });
+    const packages = listPackagesWithVitestTests({ storageOps: storage });
 
     return createJob({
         needs: ["constants", "build"],

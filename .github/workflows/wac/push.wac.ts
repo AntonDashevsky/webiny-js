@@ -2,7 +2,7 @@ import { createWorkflow, NormalJob } from "github-actions-wac";
 import {
     AWS_REGION,
     BUILD_PACKAGES_RUNNER,
-    listPackagesWithJestTests,
+    listPackagesWithVitestTests,
     NODE_VERSION,
     runNodeScript
 } from "./utils/index.js";
@@ -16,6 +16,7 @@ import {
     createYarnCacheSteps,
     withCommonParams
 } from "./steps/index.js";
+import { StorageOps } from "./types.ts";
 
 const createPushWorkflow = (branchName: string) => {
     const ucFirstBranchName = branchName.charAt(0).toUpperCase() + branchName.slice(1);
@@ -28,17 +29,17 @@ const createPushWorkflow = (branchName: string) => {
     const globalBuildCacheSteps = createGlobalBuildCacheSteps({ workingDirectory: DIR_WEBINY_JS });
     const runBuildCacheSteps = createRunBuildCacheSteps({ workingDirectory: DIR_WEBINY_JS });
 
-    const createCypressJobs = (dbSetup: string) => {
-        const ucFirstDbSetup = dbSetup.charAt(0).toUpperCase() + dbSetup.slice(1);
+    const createCypressJobs = (storageOps: StorageOps) => {
+        const escapedStorageOps = storageOps.replace(",", "_");
 
         const jobNames = {
-            constants: `e2eTests${ucFirstDbSetup}-constants`,
-            projectSetup: `e2eTests${ucFirstDbSetup}-setup`,
-            cypressTests: `e2eTests${ucFirstDbSetup}-cypress`
+            constants: `e2eTests-${escapedStorageOps}-constants`,
+            projectSetup: `e2eTests-${escapedStorageOps}-setup`,
+            cypressTests: `e2eTests-${escapedStorageOps}-cypress`
         };
 
         const constantsJob: NormalJob = createJob({
-            name: `Constants - ${dbSetup.toUpperCase()}`,
+            name: `Constants - ${storageOps.toUpperCase()}`,
             needs: ["build"],
             outputs: {
                 "cypress-folders": "${{ steps.list-cypress-folders.outputs.cypress-folders }}",
@@ -53,7 +54,7 @@ const createPushWorkflow = (branchName: string) => {
                 {
                     name: "Get Pulumi backend URL",
                     id: "get-pulumi-backend-url",
-                    run: `echo "pulumi-backend-url=\${{ secrets.WEBINY_PULUMI_BACKEND }}\${{ github.run_id }}_${dbSetup}" >> $GITHUB_OUTPUT`
+                    run: `echo "pulumi-backend-url=\${{ secrets.WEBINY_PULUMI_BACKEND }}\${{ github.run_id }}_${escapedStorageOps}" >> $GITHUB_OUTPUT`
                 }
             ]
         });
@@ -66,11 +67,11 @@ const createPushWorkflow = (branchName: string) => {
             YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
         };
 
-        if (dbSetup === "ddb-es") {
+        if (storageOps === "ddb-es,ddb") {
             env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] = "${{ secrets.AWS_ELASTIC_SEARCH_DOMAIN_NAME }}";
             env["ELASTIC_SEARCH_ENDPOINT"] = "${{ secrets.ELASTIC_SEARCH_ENDPOINT }}";
             env["ELASTIC_SEARCH_INDEX_PREFIX"] = "${{ github.run_id }}_";
-        } else if (dbSetup === "ddb-os") {
+        } else if (storageOps === "ddb-os,ddb") {
             // We still use the same environment variables as for "ddb-es" setup, it's
             // just that the values are read from different secrets.
             env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] = "${{ secrets.AWS_OPEN_SEARCH_DOMAIN_NAME }}";
@@ -80,7 +81,7 @@ const createPushWorkflow = (branchName: string) => {
 
         const projectSetupJob: NormalJob = createJob({
             needs: ["constants", "build", jobNames.constants],
-            name: `E2E (${dbSetup.toUpperCase()}) - Project setup`,
+            name: `E2E (${storageOps.toUpperCase()}) - Project setup`,
             outputs: {
                 "cypress-config": "${{ steps.save-cypress-config.outputs.cypress-config }}"
             },
@@ -113,7 +114,7 @@ const createPushWorkflow = (branchName: string) => {
                     name: "Create verdaccio-files artifact",
                     uses: "actions/upload-artifact@v4",
                     with: {
-                        name: `verdaccio-files-${dbSetup}`,
+                        name: `verdaccio-files-${escapedStorageOps}`,
                         "retention-days": 1,
                         "include-hidden-files": true,
                         path: [
@@ -128,7 +129,7 @@ const createPushWorkflow = (branchName: string) => {
                 },
                 {
                     name: "Create a new Webiny project",
-                    run: `npx create-webiny-project@local-npm ${DIR_TEST_PROJECT} --tag local-npm --no-interactive --assign-to-yarnrc '{"npmRegistryServer":"http://localhost:4873","unsafeHttpWhitelist":["localhost"]}' --template-options '{"region":"${AWS_REGION}","storageOperations":"${dbSetup}"}'
+                    run: `npx create-webiny-project@local-npm ${DIR_TEST_PROJECT} --tag local-npm --no-interactive --assign-to-yarnrc '{"npmRegistryServer":"http://localhost:4873","unsafeHttpWhitelist":["localhost"]}' --template-options '{"region":"${AWS_REGION}","storageOperations":"${storageOps}"}'
 `
                 },
                 {
@@ -140,7 +141,7 @@ const createPushWorkflow = (branchName: string) => {
                     name: "Create project-files artifact",
                     uses: "actions/upload-artifact@v4",
                     with: {
-                        name: `project-files-${dbSetup}`,
+                        name: `project-files-${escapedStorageOps}`,
                         "retention-days": 1,
                         "include-hidden-files": true,
                         path: [
@@ -181,7 +182,7 @@ const createPushWorkflow = (branchName: string) => {
         });
 
         const cypressTestsJob = createJob({
-            name: `$\{{ matrix.cypress-folder }} (${dbSetup}, $\{{ matrix.os }}, Node v$\{{ matrix.node }})`,
+            name: `$\{{ matrix.cypress-folder }} (${storageOps}, $\{{ matrix.os }}, Node v$\{{ matrix.node }})`,
             needs: ["constants", jobNames.constants, jobNames.projectSetup],
             strategy: {
                 "fail-fast": false,
@@ -222,16 +223,17 @@ const createPushWorkflow = (branchName: string) => {
         };
     };
 
-    const createJestTestsJob = (storage: string | null) => {
+    const createJestTestsJob = (storageOps?: StorageOps) => {
         const env: Record<string, string> = { AWS_REGION };
 
-        if (storage) {
-            if (storage === "ddb-es") {
+        if (storageOps) {
+            env["WEBINY_STORAGE="] = storageOps;
+            if (storageOps === "ddb-es,ddb") {
                 env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] =
                     "${{ secrets.AWS_ELASTIC_SEARCH_DOMAIN_NAME }}";
                 env["ELASTIC_SEARCH_ENDPOINT"] = "${{ secrets.ELASTIC_SEARCH_ENDPOINT }}";
                 env["ELASTIC_SEARCH_INDEX_PREFIX"] = "${{ matrix.package.id }}";
-            } else if (storage === "ddb-os") {
+            } else if (storageOps === "ddb-os,ddb") {
                 // We still use the same environment variables as for "ddb-es" setup, it's
                 // just that the values are read from different secrets.
                 env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] =
@@ -241,11 +243,11 @@ const createPushWorkflow = (branchName: string) => {
             }
         }
 
-        const packages = listPackagesWithJestTests({ storage });
+        const packages = listPackagesWithVitestTests(storageOps);
 
         return createJob({
             needs: ["constants", "build"],
-            name: "${{ matrix.package.cmd }}",
+            name: "${{ matrix.package.name }}",
             strategy: {
                 "fail-fast": false,
                 matrix: {
@@ -256,14 +258,14 @@ const createPushWorkflow = (branchName: string) => {
             },
             "runs-on": "${{ matrix.os }}",
             env,
-            awsAuth: storage === "ddb-es" || storage === "ddb-os",
+            awsAuth: storageOps === "ddb-es,ddb" || storageOps === "ddb-os,ddb",
             checkout: { path: DIR_WEBINY_JS },
             steps: [
                 ...yarnCacheSteps,
                 ...runBuildCacheSteps,
                 ...installBuildSteps,
                 ...withCommonParams(
-                    [{ name: "Run tests", run: "yarn test ${{ matrix.package.cmd }}" }],
+                    [{ name: "Run tests", run: "yarn test packages/${{ matrix.package.name }}" }],
                     { "working-directory": DIR_WEBINY_JS }
                 )
             ]
@@ -274,7 +276,6 @@ const createPushWorkflow = (branchName: string) => {
         name: `${ucFirstBranchName} Branch - Push`,
         on: { push: { branches: [branchName] } },
         jobs: {
-            // validateWorkflows: createValidateWorkflowsJob(),
             constants: createJob({
                 name: "Create constants",
                 outputs: {
@@ -368,13 +369,13 @@ const createPushWorkflow = (branchName: string) => {
                     )
                 ]
             }),
-            jestTestsNoStorage: createJestTestsJob(null),
+            jestTestsNoStorage: createJestTestsJob(),
             jestTestsDdb: createJestTestsJob("ddb"),
-            jestTestsDdbEs: createJestTestsJob("ddb-es"),
-            jestTestsDdbOs: createJestTestsJob("ddb-os"),
+            jestTestsDdbEs: createJestTestsJob("ddb-es,ddb"),
+            jestTestsDdbOs: createJestTestsJob("ddb-os,ddb"),
             ...createCypressJobs("ddb"),
-            ...createCypressJobs("ddb-es"),
-            ...createCypressJobs("ddb-os")
+            ...createCypressJobs("ddb-es,ddb"),
+            ...createCypressJobs("ddb-os,ddb")
         }
     });
 
