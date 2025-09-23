@@ -2,16 +2,16 @@ import fs from "fs-extra";
 import { Package } from "./types";
 import { getBuildOutputFolder } from "./getBuildOutputFolder";
 import { CACHE_FOLDER_PATH } from "./constants";
-import { fork } from "child_process";
+import { fork, type StdioOptions } from "child_process";
 import path from "path";
 import { deserializeError } from "serialize-error";
 
-export const buildPackage = async (pkg: Package, buildOverrides = "{}") => {
+export const buildPackage = async (pkg: Package, buildOverrides = "{}", stdio?: StdioOptions) => {
     const workerPath = path.join(import.meta.dirname, "buildPackageWorker.js");
     const childProcess = fork(workerPath, [buildOverrides], {
         env: process.env,
         cwd: pkg.packageFolder,
-        stdio: ["pipe", "pipe", "pipe", "ipc"]
+        stdio: stdio || ["pipe", "pipe", "pipe", "ipc"]
     });
 
     await new Promise<void>((resolve, reject) => {
