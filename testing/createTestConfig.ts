@@ -44,6 +44,7 @@ export const createTestConfig = async ({
         name: name,
         include: [`${path}/**/*${type}.test.[jt]s?(x)`],
         dir: path,
+        fileParallelism: false,
         ...vitestConfig,
         css: false,
         alias: [

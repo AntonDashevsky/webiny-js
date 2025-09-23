@@ -2,6 +2,7 @@ import { createHandler, createSQSEventHandler } from "~/index.js";
 import { createLambdaContext } from "./mocks/lambdaContext.js";
 import { createSQSEvent } from "./mocks/sqsEvent.js";
 import type { SQSEvent } from "@webiny/aws-sdk/types/index.js";
+import { describe, it, expect } from "vitest";
 
 describe("sqs", () => {
     it("should create handler", async () => {
