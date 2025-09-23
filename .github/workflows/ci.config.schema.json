@@ -26,6 +26,17 @@
         }
       },
       "additionalProperties": false
+    },
+    "sharding": {
+      "type": "object",
+      "properties": {
+        "shardsCount": {
+          "type": "integer",
+          "description": "Number of shards for sharding"
+        }
+      },
+      "required": ["shardsCount"],
+      "additionalProperties": false
     }
   },
   "required": ["vitest"],
