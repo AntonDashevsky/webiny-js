@@ -1,4 +1,3 @@
-import routes from "./routes.js";
 import icons from "./icons.js";
 import install from "./install.js";
 import contentFormTransformers from "./transformers/index.js";
@@ -9,7 +8,6 @@ import getObjectId from "./getObjectId.js";
 
 export default () => [
     install,
-    routes,
     icons,
     contentFormTransformers(),
     defaultBar,

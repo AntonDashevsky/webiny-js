@@ -37,7 +37,6 @@ const MailerSettings = () => {
             <HasPermission name={"mailer.settings"}>
                 <Route
                     name={"mailer.settings"}
-                    exact
                     path={"/mailer/settings"}
                     element={
                         <Layout>

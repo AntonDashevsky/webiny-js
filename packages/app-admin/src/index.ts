@@ -29,6 +29,7 @@ export * from "./plugins/PermissionRendererPlugin.js";
 
 // Components
 export { AppInstaller } from "./components/AppInstaller/index.js";
+export * from "./components/AdminLayout.js";
 export * from "./components/Buttons/index.js";
 export { DialogsProvider } from "./components/Dialogs/DialogsContext.js";
 export * from "./components/OptionsMenu/index.js";

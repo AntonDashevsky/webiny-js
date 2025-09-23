@@ -295,9 +295,3 @@ export const usePermission = makeDecoratable(() => {
         canAccessManageEndpoint
     };
 });
-
-/**
- * Default export is deprecated, use the named one.
- * @deprecated
- */
-export default usePermission;

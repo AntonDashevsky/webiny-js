@@ -99,6 +99,7 @@ export const AppBase = ({
 
     const AppRouter = useMemo(() => {
         return function AppRouter() {
+            // TODO: no need to mount `<Route>` components - I can just set routes programmatically!
             const routerConfig = useRouterConfig();
             const combinedRoutes = [...routes, ...routerConfig.routes].map(r => {
                 return (

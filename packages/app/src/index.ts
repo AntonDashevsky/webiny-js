@@ -1,6 +1,5 @@
 export { AddQuerySelectionPlugin } from "./plugins/AddQuerySelectionPlugin.js";
 export { ApolloLinkPlugin } from "./plugins/ApolloLinkPlugin.js";
-export { RoutePlugin } from "./plugins/RoutePlugin.js";
 export {
     ApolloCacheObjectIdPlugin,
     type ApolloCacheObject

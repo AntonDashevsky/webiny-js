@@ -44,7 +44,6 @@ export const TenantsModule = () => {
 
                 <Route
                     name={"tenantManager.tenants"}
-                    exact
                     path={"/tenants"}
                     element={
                         <Layout title={"Tenant Manager - Tenants"}>

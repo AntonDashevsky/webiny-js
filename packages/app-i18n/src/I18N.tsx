@@ -38,7 +38,6 @@ const I18NExtension = () => {
                 <HasPermission name={"i18n.locale"}>
                     <Route
                         name={"i18n.locales"}
-                        exact
                         path={"/i18n/locales"}
                         element={
                             <Layout title={"I18N - Locales"}>

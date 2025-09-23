@@ -1,7 +1,10 @@
 import React, { type FunctionComponentElement, useEffect } from "react";
-import { plugins } from "@webiny/plugins";
-import { type RouteProps, useRouter, RouteContent, type RouteDefinition } from "@webiny/react-router";
-import type { RoutePlugin } from "~/types.js";
+import {
+    type RouteProps,
+    useRouter,
+    RouteContent,
+    type RouteDefinition
+} from "@webiny/react-router";
 
 type RouteDefinitions = RouteDefinition[];
 
@@ -22,12 +25,9 @@ interface RoutesProps {
 export const Routes = (props: RoutesProps) => {
     const { setRoutes } = useRouter();
 
+    // TODO: kroz useMemo?
     useEffect(() => {
-        const routes = [
-            ...props.routes,
-            // For backwards compatibility, we need to support the RoutePlugin routes as well.
-            ...plugins.byType<RoutePlugin>("route").map(({ route }) => route)
-        ].sort((a, b) => {
+        const routes = props.routes.sort((a, b) => {
             const pathA = a.props.path || "*";
             const pathB = b.props.path || "*";
 

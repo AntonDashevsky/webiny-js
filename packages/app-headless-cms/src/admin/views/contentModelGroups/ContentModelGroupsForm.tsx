@@ -20,7 +20,7 @@ import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { useMutation, useQuery } from "../../hooks/index.js";
 import * as GQL from "./graphql.js";
-import usePermission from "../../hooks/usePermission.js";
+import { usePermission } from "../../hooks/usePermission.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import type {
     CmsGroup,

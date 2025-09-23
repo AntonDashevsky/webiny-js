@@ -25,7 +25,7 @@ import * as GQL from "./graphql.js";
 import type { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql.js";
 import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { deserializeSorters } from "../utils.js";
-import usePermission from "../../hooks/usePermission.js";
+import { usePermission } from "../../hooks/usePermission.js";
 import type { CmsGroup } from "~/types.js";
 import { Button, Select, Tooltip } from "@webiny/admin-ui";
 

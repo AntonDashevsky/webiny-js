@@ -1,6 +1,4 @@
-import React from "react";
 import { useLocation, useParams, useSearchParams, useNavigate } from "react-router-dom";
-import { BrowserRouter as WebinyRouter, BrowserRouterProps } from "./BrowserRouter";
 
 /**
  * Webiny enhancements and backwards compatibility with react-router v5.
@@ -48,10 +46,6 @@ export type { RouteProps } from "./Route";
 export { Prompt } from "./Prompt";
 export type { PromptProps } from "./Prompt";
 
-export { Routes } from "./Routes";
-export { Routes as Switch } from "./Routes";
-export type { RoutesProps } from "./Routes";
-
 export { useHistory } from "./useHistory";
 export type { UseHistory } from "./useHistory";
 
@@ -84,9 +78,4 @@ export function useRouter(): UseRouter {
     };
 }
 
-/**
- * We have a custom version of the BrowserRouter, with the ability to provide our own instance of `History`.
- */
-export const BrowserRouter: React.FC<BrowserRouterProps> = WebinyRouter;
-export type { BrowserRouterProps };
 export { Router, RouteContent, type RouteDefinition } from "./Router/Router";

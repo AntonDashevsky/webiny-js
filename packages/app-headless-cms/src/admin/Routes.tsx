@@ -1,14 +1,12 @@
 import React, { lazy, Suspense } from "react";
 import Helmet from "react-helmet";
 import { SecureRoute } from "@webiny/app-security/components/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { Route } from "@webiny/react-router";
-import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
-import type { RoutePlugin } from "@webiny/app/types.js";
+import { OverlayLoader } from "@webiny/admin-ui";
+import { CompositionScope } from "@webiny/react-composition";
+import { AdminConfig, AdminLayout } from "@webiny/app-admin";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ContentEntriesContainer } from "~/admin/views/contentEntries/ContentEntriesContainer.js";
 import { ContentEntries } from "~/admin/views/contentEntries/ContentEntries.js";
-import { CompositionScope } from "@webiny/react-composition";
 
 const t = i18n.ns("app-headless-cms/admin/routes");
 
@@ -17,7 +15,7 @@ interface LoaderProps {
 }
 
 const Loader = ({ children, ...props }: LoaderProps) => (
-    <Suspense fallback={<CircularProgress />}>
+    <Suspense fallback={<OverlayLoader />}>
         {React.cloneElement(children as unknown as React.ReactElement, props)}
     </Suspense>
 );
@@ -26,33 +24,33 @@ const ContentModelEditor = lazy(
     () =>
         import(
             /* webpackChunkName: "ViewsContentModelsContentModelEditor" */
-            "../views/contentModels/ContentModelEditor.js"
+            "./views/contentModels/ContentModelEditor.js"
         )
 );
 const ContentModelsView = lazy(
     () =>
         import(
             /* webpackChunkName: "ViewsContentModelsContentModels" */
-            "../views/contentModels/ContentModels.js"
+            "./views/contentModels/ContentModels.js"
         )
 );
 const ContentModelGroupsView = lazy(
     () =>
         import(
             /* webpackChunkName: "ViewsContentModelsContentModelGroups" */
-            "../views/contentModelGroups/ContentModelGroups.js"
+            "./views/contentModelGroups/ContentModelGroups.js"
         )
 );
 
-const plugins: RoutePlugin[] = [
-    {
-        name: "route-cms-content-models-groups",
-        type: "route",
-        route: (
+const { Route } = AdminConfig;
+
+export const Routes = () => {
+    return (
+        <AdminConfig>
             <Route
-                exact
+                name={"cms.contentModelGroups"}
                 path={"/cms/content-model-groups"}
-                render={() => (
+                element={
                     <SecureRoute permission={"cms.contentModelGroup"}>
                         <AdminLayout>
                             <Helmet>
@@ -63,18 +61,12 @@ const plugins: RoutePlugin[] = [
                             </Loader>
                         </AdminLayout>
                     </SecureRoute>
-                )}
+                }
             />
-        )
-    },
-    {
-        name: "route-cms-content-models-manage",
-        type: "route",
-        route: (
             <Route
-                exact
+                name={"cms.contentEntries"}
                 path={"/cms/content-entries/:modelId"}
-                render={() => (
+                element={
                     <SecureRoute permission={"cms.contentModel"}>
                         <AdminLayout>
                             <Helmet>
@@ -87,18 +79,12 @@ const plugins: RoutePlugin[] = [
                             </ContentEntriesContainer>
                         </AdminLayout>
                     </SecureRoute>
-                )}
+                }
             />
-        )
-    },
-    {
-        name: "route-cms-content-models-editor",
-        type: "route",
-        route: (
             <Route
-                exact
+                name={"cms.contentModel"}
                 path={"/cms/content-models/:modelId"}
-                render={() => (
+                element={
                     <SecureRoute permission={"cms.contentModel"}>
                         <Helmet>
                             <title>{t`Edit Content Model`}</title>
@@ -109,18 +95,12 @@ const plugins: RoutePlugin[] = [
                             </Loader>
                         </CompositionScope>
                     </SecureRoute>
-                )}
+                }
             />
-        )
-    },
-    {
-        name: "route-cms-content-models",
-        type: "route",
-        route: (
             <Route
-                exact
+                name={"cms.contentModels"}
                 path="/cms/content-models"
-                render={() => (
+                element={
                     <SecureRoute permission={"cms.contentModel"}>
                         <AdminLayout>
                             <Helmet title={t`Content Models`} />
@@ -129,10 +109,8 @@ const plugins: RoutePlugin[] = [
                             </Loader>
                         </AdminLayout>
                     </SecureRoute>
-                )}
+                }
             />
-        )
-    }
-];
-
-export default plugins;
+        </AdminConfig>
+    );
+};

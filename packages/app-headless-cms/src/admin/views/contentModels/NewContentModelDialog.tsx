@@ -263,7 +263,6 @@ const NewContentModelDialog = ({ open, onClose }: NewContentModelDialogProps) =>
                                                         {...props}
                                                         rows={4}
                                                         maxLength={200}
-                                                        characterCount
                                                         label={t`Description`}
                                                         data-testid="cms.newcontentmodeldialog.description"
                                                     />

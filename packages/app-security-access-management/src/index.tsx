@@ -19,7 +19,6 @@ const AccessManagementExtension = () => {
             <HasPermission name={Permission.Groups}>
                 <Route
                     name={"security.groups"}
-                    exact
                     path={"/access-management/roles"}
                     element={
                         <Layout title={"Access Management - Roles"}>
@@ -32,7 +31,6 @@ const AccessManagementExtension = () => {
                 <HasPermission name={Permission.Teams}>
                     <Route
                         name={"security.teams"}
-                        exact
                         path={"/access-management/teams"}
                         element={
                             <Layout title={"Access Management - Teams"}>
@@ -45,7 +43,6 @@ const AccessManagementExtension = () => {
             <HasPermission name={Permission.ApiKeys}>
                 <Route
                     name={"security.apiKeys"}
-                    exact
                     path={"/access-management/api-keys"}
                     element={
                         <Layout title={"Access Management - API Keys"}>

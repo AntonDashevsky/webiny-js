@@ -32,7 +32,6 @@ export const AuditLogs = () => {
                     />
                     <Route
                         name={"auditLogs"}
-                        exact
                         path={"/audit-logs"}
                         element={
                             <Layout title={"Audit Logs - Logs"}>

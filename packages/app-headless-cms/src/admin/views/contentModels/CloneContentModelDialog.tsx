@@ -253,7 +253,6 @@ export const CloneContentModelDialog = ({
                                         <Input
                                             rows={4}
                                             maxLength={200}
-                                            characterCount
                                             label={t`Description`}
                                         />
                                     </Bind>
