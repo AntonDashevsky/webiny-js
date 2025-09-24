@@ -1,7 +1,7 @@
 import path from "path";
 
-export const createPathResolver = (cwd: string) => {
+export const createPathResolver = (...cwd: string[]) => {
     return (...pathParts: string[]) => {
-        return path.join(cwd, ...pathParts);
+        return path.join(path.join(...cwd), ...pathParts);
     };
 };
