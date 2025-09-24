@@ -255,7 +255,7 @@ const createPushWorkflow = (branchName: string) => {
                 matrix: {
                     os: ["ubuntu-latest"],
                     node: [NODE_VERSION],
-                    package: "${{ fromJson('" + JSON.stringify(testCommands) + "') }}"
+                    testCommand: "${{ fromJson('" + JSON.stringify(testCommands) + "') }}"
                 }
             },
             "runs-on": "${{ matrix.os }}",

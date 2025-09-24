@@ -174,7 +174,7 @@ jobs:
           - ubuntu-latest
         node:
           - 22
-        package: >-
+        testCommand: >-
           ${{
           fromJson('[{"id":"5a49ad33769abb7e8ed8d8fdb1e0442f","title":"admin-ui","cmd":"yarn
           test
@@ -293,7 +293,7 @@ jobs:
           - ubuntu-latest
         node:
           - 22
-        package: >-
+        testCommand: >-
           ${{
           fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
           test
@@ -371,7 +371,7 @@ jobs:
           - ubuntu-latest
         node:
           - 22
-        package: >-
+        testCommand: >-
           ${{
           fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
           test
@@ -459,7 +459,7 @@ jobs:
           - ubuntu-latest
         node:
           - 22
-        package: >-
+        testCommand: >-
           ${{
           fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
           test
