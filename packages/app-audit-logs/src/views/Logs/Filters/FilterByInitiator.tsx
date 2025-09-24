@@ -1,9 +1,7 @@
 import React, { useMemo } from "react";
 import { useQuery } from "@apollo/react-hooks";
-
 import { useBind } from "@webiny/form";
 import { Select } from "@webiny/ui/Select/index.js";
-
 import { LIST_USERS } from "~/graphql.js";
 import type { User } from "~/types.js";
 

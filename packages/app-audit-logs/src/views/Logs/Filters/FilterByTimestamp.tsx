@@ -1,9 +1,7 @@
 import React from "react";
 import { format } from "date-fns";
-
 import { Input } from "@webiny/ui/Input/index.js";
 import { useBind } from "@webiny/form";
-
 import { TimestampFiltersContainer } from "./styled.js";
 
 const formatDateTime = (date: string) => {

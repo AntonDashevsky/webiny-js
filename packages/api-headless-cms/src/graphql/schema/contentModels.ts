@@ -173,25 +173,31 @@ export const createModelsSchema = ({
                 settings: JSON
             }
 
-            input CmsContentModelSettingsStepNotificationInput {
+            input CmsContentModelSettingsWorkflowStepNotificationInput {
                 id: String!
             }
 
-            input CmsContentModelSettingsStepTeamInput {
+            input CmsContentModelSettingsWorkflowStepTeamInput {
                 id: String!
             }
 
-            input CmsContentModelSettingsStepInput {
+            input CmsContentModelSettingsWorkflowStepInput {
                 id: String!
                 title: String!
                 color: String!
                 description: String
-                teams: [CmsContentModelSettingsStepTeamInput!]!
-                notifications: [CmsContentModelSettingsStepNotificationInput!]
+                teams: [CmsContentModelSettingsWorkflowStepTeamInput!]!
+                notifications: [CmsContentModelSettingsWorkflowStepNotificationInput!]
             }
 
+            input CmsContentModelSettingsWorkflowInput {
+                id: String!
+                name: String!
+                steps: [CmsContentModelSettingsWorkflowStepInput!]!
+            }
+            
             input CmsContentModelSettingsInput {
-                steps: [CmsContentModelSettingsStepInput!]
+                workflows: [CmsContentModelSettingsWorkflowInput!]
             }
 
             input CmsContentModelCreateInput {
@@ -308,25 +314,31 @@ export const createModelsSchema = ({
                 settings: JSON
             }
 
-            type CmsContentModelSettingsStepNotification {
+            type CmsContentModelSettingsWorkflowStepNotification {
                 id: String!
             }
             
-            type CmsContentModelSettingsStepTeam {
+            type CmsContentModelSettingsWorkflowStepTeam {
                 id: String!
             }
 
-            type CmsContentModelSettingsStep {
+            type CmsContentModelSettingsWorkflowStep {
                 id: String!
                 title: String!
                 color: String!
                 description: String
-                teams: [CmsContentModelSettingsStepTeam!]!
-                notifications: [CmsContentModelSettingsStepNotification!]
+                teams: [CmsContentModelSettingsWorkflowStepTeam!]!
+                notifications: [CmsContentModelSettingsWorkflowStepNotification!]
             }
 
+            type CmsContentModelSettingsWorkflow {
+                id: String!
+                name: String!
+                steps: [CmsContentModelSettingsWorkflowStep!]!
+            }
+            
             type CmsContentModelSettings {
-                steps: [CmsContentModelSettingsStep!]
+                workflows: [CmsContentModelSettingsWorkflow!]
             }
 
             type CmsContentModel {
