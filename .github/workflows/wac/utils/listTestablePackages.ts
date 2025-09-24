@@ -28,7 +28,7 @@ class TestablePackage {
             const commands = [];
             for (let currentShard = 1; currentShard <= shardsCount; currentShard++) {
                 const cmd = `yarn test ${this.packageFolderPath} --shard=${currentShard}/${shardsCount}`;
-                const title = `${this.getName()} (shard ${currentShard}/${shardsCount})`;
+                const title = `${this.getName()} (${currentShard}/${shardsCount})`;
                 commands.push({ id: getMd5Hash(cmd), title, cmd });
             }
             return commands;
