@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import {
     CmsGroup,
     CmsModel,
-    type CmsModelCreateSettingsStepInput,
+    type CmsModelCreateSettingsWorkflowStepInput,
     CmsModelField,
     CmsModelFieldInput
 } from "~/types";
@@ -12,6 +12,7 @@ import models from "./mocks/contentModels";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
 import { assignModelEvents, pubSubTracker } from "./mocks/lifecycleHooks";
 import { useBugManageHandler } from "../testHelpers/useBugManageHandler";
+import type { NonEmptyArray } from "@webiny/api/types.js";
 
 const getTypeFields = (type: any) => {
     return type.fields.filter((f: any) => f.name !== "_empty").map((f: any) => f.name);
@@ -1484,7 +1485,7 @@ describe("content model test", () => {
             }
         };
 
-        const initialSteps: CmsModelCreateSettingsStepInput[] = [
+        const initialSteps: NonEmptyArray<CmsModelCreateSettingsWorkflowStepInput> = [
             {
                 id: "translation",
                 title: "Translation",
@@ -1535,7 +1536,13 @@ describe("content model test", () => {
                 fields: [field],
                 layout: [["testId"]],
                 settings: {
-                    steps: initialSteps
+                    workflows: [
+                        {
+                            id: "allSteps",
+                            name: "All Steps",
+                            steps: initialSteps
+                        }
+                    ]
                 }
             }
         });
@@ -1546,7 +1553,13 @@ describe("content model test", () => {
                     data: {
                         modelId: "testContentModel",
                         settings: {
-                            steps: initialSteps
+                            workflows: [
+                                {
+                                    id: "allSteps",
+                                    name: "All Steps",
+                                    steps: initialSteps
+                                }
+                            ]
                         }
                     },
                     error: null
@@ -1561,7 +1574,7 @@ describe("content model test", () => {
                 fields: model.fields,
                 layout: model.layout,
                 settings: {
-                    steps: []
+                    workflows: []
                 }
             }
         });
@@ -1571,16 +1584,17 @@ describe("content model test", () => {
                     data: {
                         modelId: "testContentModel",
                         settings: {
-                            steps: []
+                            workflows: []
                         }
                     },
                     error: null
                 }
             }
         });
-        expect(updateModelEmptyResponse.data.updateContentModel.data.settings.steps).toHaveLength(
-            0
-        );
+        expect(updateModelEmptyResponse.data.updateContentModel.error).toBeNull();
+        expect(
+            updateModelEmptyResponse.data.updateContentModel.data.settings.workflows[0]?.steps || []
+        ).toHaveLength(0);
         
         const [updateModelResponse] = await updateContentModelMutation({
             modelId: model.modelId,
@@ -1588,7 +1602,13 @@ describe("content model test", () => {
                 fields: model.fields,
                 layout: model.layout,
                 settings: {
-                    steps: [initialSteps[0]]
+                    workflows: [
+                        {
+                            id: "singleStepWorkflow",
+                            name: "Single Step Workflow",
+                            steps: [initialSteps[0]]
+                        }
+                    ]
                 }
             }
         });
@@ -1598,13 +1618,22 @@ describe("content model test", () => {
                     data: {
                         modelId: "testContentModel",
                         settings: {
-                            steps: [initialSteps[0]]
+                            workflows: [
+                                {
+                                    id: "singleStepWorkflow",
+                                    name: "Single Step Workflow",
+                                    steps: [initialSteps[0]]
+                                }
+                            ]
                         }
                     },
                     error: null
                 }
             }
         });
-        expect(updateModelResponse.data.updateContentModel.data.settings.steps).toHaveLength(1);
+        expect(updateModelResponse.data.updateContentModel.error).toBeNull();
+        expect(
+            updateModelResponse.data.updateContentModel.data.settings.workflows[0]?.steps || []
+        ).toHaveLength(1);
     });
 });

@@ -3,25 +3,31 @@ import type { CmsModelField, CmsModelFieldInput, LockedField } from "./modelFiel
 import type { CmsModelGroup } from "./modelGroup.js";
 import type { NonEmptyArray } from "@webiny/api/types.js";
 
-export interface CmsModelSettingsStepNotification {
+export interface CmsModelSettingsStepWorkflowNotification {
     id: string;
 }
 
-export interface CmsModelSettingsStepTeam {
+export interface CmsModelSettingsWorkflowStepTeam {
     id: string;
 }
 
-export interface CmsModelSettingsStep {
+export interface CmsModelSettingsWorkflowStep {
     id: string;
     title: string;
     color: string;
     description?: string;
-    teams: NonEmptyArray<CmsModelSettingsStepTeam>;
-    notifications?: CmsModelSettingsStepNotification[];
+    teams: NonEmptyArray<CmsModelSettingsWorkflowStepTeam>;
+    notifications?: CmsModelSettingsStepWorkflowNotification[];
+}
+
+export interface CmsModelSettingsWorkflow {
+    id: string;
+    name: string;
+    steps: NonEmptyArray<CmsModelSettingsWorkflowStep>;
 }
 
 export interface CmsModelSettings {
-    steps?: CmsModelSettingsStep[];
+    workflows?: CmsModelSettingsWorkflow[];
 }
 
 /**
@@ -159,25 +165,31 @@ export interface CmsModelAuthorization {
     [key: string]: any;
 }
 
-export interface CmsModelCreateSettingsStepTeamInput {
+export interface CmsModelCreateSettingsWorkflowStepTeamInput {
     id: string;
 }
 
-export interface CmsModelCreateSettingsStepNotificationInput {
+export interface CmsModelCreateSettingsStepWorkflowNotificationInput {
     id: string;
 }
 
-export interface CmsModelCreateSettingsStepInput {
+export interface CmsModelCreateSettingsWorkflowStepInput {
     id: string;
     title: string;
     color: string;
     description?: string;
-    teams: NonEmptyArray<CmsModelCreateSettingsStepTeamInput>;
-    notifications?: CmsModelCreateSettingsStepNotificationInput[];
+    teams: NonEmptyArray<CmsModelCreateSettingsWorkflowStepTeamInput>;
+    notifications?: CmsModelCreateSettingsStepWorkflowNotificationInput[];
+}
+
+export interface CmsModelCreateSettingsWorkflowInput {
+    id: string;
+    name: string;
+    steps: NonEmptyArray<CmsModelCreateSettingsWorkflowStepInput>;
 }
 
 export interface CmsModelCreateSettingsInput {
-    steps?: CmsModelCreateSettingsStepInput[];
+    workflows?: CmsModelCreateSettingsWorkflowInput[];
 }
 /**
  * A GraphQL `params.data` parameter received when creating content model.

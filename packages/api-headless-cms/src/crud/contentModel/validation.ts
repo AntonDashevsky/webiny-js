@@ -2,7 +2,7 @@ import zod from "zod";
 import upperFirst from "lodash/upperFirst.js";
 import camelCase from "lodash/camelCase.js";
 import type { NonEmptyArray } from "@webiny/api/types.js";
-import type { CmsModelSettingsStepTeam } from "~/types/index.js";
+import type { CmsModelSettingsWorkflowStep, CmsModelSettingsWorkflowStepTeam } from "~/types/index.js";
 
 const fieldSystemFields: string[] = [
     "id",
@@ -217,7 +217,7 @@ const modelIdTransformation = (value?: string) => {
     return camelCasedValue;
 };
 
-const modelSettingsStepValidation = zod.object({
+const modelSettingsWorkflowStepValidation = zod.object({
     id: zod.string(),
     title: zod.string(),
     color: zod.string(),
@@ -230,7 +230,7 @@ const modelSettingsStepValidation = zod.object({
         )
         .min(1, "You must select at least one team.")
         .transform(value => {
-            return value as NonEmptyArray<CmsModelSettingsStepTeam>;
+            return value as NonEmptyArray<CmsModelSettingsWorkflowStepTeam>;
         }),
     notifications: zod
         .array(
@@ -241,9 +241,36 @@ const modelSettingsStepValidation = zod.object({
         .optional()
 });
 
+const modelSettingsWorkflowValidation = zod.object({
+    id: zod.string(),
+    name: zod.string(),
+    steps: zod.array(modelSettingsWorkflowStepValidation).min(1, "You must add at least one step.").transform(value => {
+        return value as NonEmptyArray<CmsModelSettingsWorkflowStep>;
+    })
+});
+
 const modelSettingsValidation = zod
     .object({
-        steps: zod.array(modelSettingsStepValidation).optional()
+        workflows: zod
+            .array(modelSettingsWorkflowValidation)
+            .optional()
+            .superRefine((workflows, ctx) => {
+                if (!workflows?.length) {
+                    return;
+                }
+                const seen = new Set<string>();
+                for (let current = 0; current < workflows.length; current++) {
+                    const workflow = workflows[current];
+                    if (seen.has(workflow.id)) {
+                        ctx.addIssue({
+                            code: zod.ZodIssueCode.custom,
+                            message: `Duplicate workflow id "${workflow.id}"`,
+                            path: [current, "id"]
+                        });
+                    }
+                    seen.add(workflow.id);
+                }
+            })
     })
     .passthrough()
     .optional();

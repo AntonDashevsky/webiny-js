@@ -57,16 +57,20 @@ const DATA_FIELD = /* GraphQL*/ `
             type
         }
         settings {
-            steps {
+            workflows {
                 id
-                title
-                color
-                description
-                teams {
+                name
+                steps {
                     id
-                }
-                notifications {
-                    id
+                    title
+                    color
+                    description
+                    teams {
+                        id
+                    }
+                    notifications {
+                        id
+                    }
                 }
             }
         }
