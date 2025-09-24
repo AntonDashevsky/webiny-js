@@ -3,6 +3,7 @@ import { Link } from "@webiny/react-router";
 import { cva } from "~/utils.js";
 import type { SidebarMenuItemProps } from "./SidebarMenuRootItem.js";
 import { DivButton } from "./DivButton.js";
+import { DistributedOmit } from "type-fest";
 
 const variants = cva(
     [
@@ -31,7 +32,10 @@ const variants = cva(
     }
 );
 
-type SidebarMenuSubButtonProps = Omit<SidebarMenuItemProps, "className" | "children">;
+type SidebarMenuSubButtonProps = DistributedOmit<
+    SidebarMenuItemProps,
+    "className" | "children" | "route" | "params"
+>;
 
 const SidebarMenuSubButton = ({
     onClick,

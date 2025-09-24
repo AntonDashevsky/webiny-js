@@ -1,8 +1,9 @@
 import React from "react";
 import { cva, type VariantProps, makeDecoratable, cn } from "~/utils.js";
 import {
-    Link as WebinyReactRouterLink,
-    type LinkProps as WebinyReactRouterLinkProps
+    Link as ReactRouterLink,
+    type LinkProps as RouterLinkProps,
+    type RouteParamsDefinition
 } from "@webiny/react-router";
 
 const linkVariants = cva("wby-font-sans wby-rounded-xs", {
@@ -44,21 +45,28 @@ const linkVariants = cva("wby-font-sans wby-rounded-xs", {
     }
 });
 
-interface LinkProps extends WebinyReactRouterLinkProps, VariantProps<typeof linkVariants> {
-    disabled?: boolean;
-}
+export type LinkProps<TParams extends RouteParamsDefinition | undefined = undefined> =
+    RouterLinkProps<TParams> &
+        VariantProps<typeof linkVariants> & {
+            disabled?: boolean;
+        };
 
-const LinkBase = ({ size, variant, underline, className, children, ...rest }: LinkProps) => {
+function LinkBase<TParams extends RouteParamsDefinition | undefined = undefined>({
+    size,
+    variant,
+    underline,
+    className,
+    children,
+    ...rest
+}: LinkProps<TParams>) {
     return (
-        <WebinyReactRouterLink
+        <ReactRouterLink
             {...rest}
             className={cn(linkVariants({ size, variant, underline }), className)}
         >
             {children}
-        </WebinyReactRouterLink>
+        </ReactRouterLink>
     );
-};
+}
 
-const Link = makeDecoratable("link", LinkBase);
-
-export { Link, type LinkProps };
+export const Link = makeDecoratable("Link", LinkBase);

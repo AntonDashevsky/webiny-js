@@ -39,6 +39,8 @@ const SidebarMenuRootButton = ({
     action,
     text,
     to,
+    route,
+    params,
     ...linkProps
 }: SidebarMenuButtonBaseProps) => {
     const sharedProps = {

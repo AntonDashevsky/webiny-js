@@ -1,23 +1,46 @@
 import React from "react";
-import type { LinkProps as RouterLinkProps } from "react-router-dom";
-import { Link as RouterLink } from "react-router-dom";
 import { makeDecoratable } from "@webiny/react-composition";
+import type { Route, RouteParamsDefinition, RouteParamsInfer } from "~/Route.js";
+import { useRouter } from "~/useRouter.js";
 
-export type LinkProps = RouterLinkProps;
+type BaseAnchorAttributes = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">;
 
-export const Link = makeDecoratable("Link", ({ children, ...props }: LinkProps) => {
-    let { to } = props;
+// The props are generic over the Route's schema.
+export type LinkProps<TParams extends RouteParamsDefinition | undefined = undefined> =
+    | (BaseAnchorAttributes & {
+          to: string;
+          route?: never;
+          params?: never;
+      })
+    | (BaseAnchorAttributes & {
+          route: Route<TParams>;
+          params: TParams extends RouteParamsDefinition ? RouteParamsInfer<TParams> : undefined;
+          to?: never;
+      });
 
-    if (typeof to === "string" && to.startsWith(window.location.origin)) {
-        to = to.replace(window.location.origin, "");
+export const Link = makeDecoratable(
+    "Link",
+    <TParams extends RouteParamsDefinition | undefined = undefined>({
+        children,
+        to,
+        route,
+        params,
+        ...rest
+    }: LinkProps<TParams>) => {
+        const router = useRouter();
+        const href = to
+            ? to
+            : router.getLink(
+                  route!,
+                  params as TParams extends RouteParamsDefinition
+                      ? RouteParamsInfer<TParams>
+                      : undefined
+              );
+
+        return (
+            <a href={href} rel="noreferrer noopener" {...rest}>
+                {children}
+            </a>
+        );
     }
-
-    const isInternal = typeof to === "string" ? to.startsWith("/") : true;
-    const LinkComponent = isInternal ? RouterLink : "a";
-    const componentProps = {
-        ...props,
-        [isInternal ? "to" : "href"]: to
-    };
-
-    return <LinkComponent {...componentProps}>{children}</LinkComponent>;
-});
+);

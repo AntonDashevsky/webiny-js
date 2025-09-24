@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserHistory } from "history";
 import type { Meta, StoryObj } from "@storybook/react";
-import { BrowserRouter, Route, Routes, useLocation } from "@webiny/react-router";
+import { Router, Route, RouteContent, useRoute, useRouter, ReactRoute } from "@webiny/react-router";
 import { ReactComponent as AuditLogsIcon } from "@webiny/icons/assignment.svg";
 import { ReactComponent as FormBuilderIcon } from "@webiny/icons/check_box.svg";
 import { ReactComponent as CmsIcon } from "@webiny/icons/web.svg";
@@ -48,20 +48,20 @@ export default meta;
 
 type Story = StoryObj<typeof Sidebar>;
 
-export const MainMenu: Story = {
-    render: () => {
-        return (
-            <BrowserRouter>
-                <Routes>
-                    <Route path={"*"} element={<SidebarComponent />} />
-                </Routes>
-            </BrowserRouter>
-        );
+const storyRoute = new Route({
+    name: "all",
+    path: "/story",
+    params: z => {
+        return {
+            hash: z.string()
+        };
     }
-};
+});
 
 const SidebarComponent = () => {
-    const { hash } = useLocation();
+    const router = useRouter();
+    const route = useRoute(storyRoute);
+    const { hash } = route.params;
 
     return (
         <SidebarProvider>
@@ -109,8 +109,8 @@ const SidebarComponent = () => {
             >
                 <Sidebar.Link
                     text={"Audit Logs"}
-                    to={"#audit-logs"}
-                    active={hash === "#audit-logs"}
+                    to={router.getLink(storyRoute, { hash: "audit-logs" })}
+                    active={hash === "audit-logs"}
                     icon={<Sidebar.Item.Icon label="Audit Logs" element={<AuditLogsIcon />} />}
                 />
                 <Sidebar.Link
@@ -184,4 +184,21 @@ const SidebarComponent = () => {
             </Sidebar>
         </SidebarProvider>
     );
+};
+
+const routes: ReactRoute[] = [
+    {
+        route: storyRoute,
+        element: <SidebarComponent />
+    }
+];
+
+export const MainMenu: Story = {
+    render: () => {
+        return (
+            <Router getBaseUrl={() => ""} history={history} routes={routes}>
+                <RouteContent />
+            </Router>
+        );
+    }
 };

@@ -1,6 +1,6 @@
 import { describe, it, beforeEach, expect, vi } from "vitest";
 import { createMemoryHistory } from "history";
-import { HistoryRouterGateway } from "~/Router/HistoryRouterGateway";
+import { HistoryRouterGateway } from "~/HistoryRouterGateway";
 
 const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 
@@ -41,23 +41,20 @@ describe("Router Gateway", () => {
             name: "login",
             path: "/login",
             pathname: "/login",
-            params: {},
-            queryParams: {}
+            params: {}
         });
         expect(spyLogin).toHaveBeenNthCalledWith(2, {
             name: "login",
             path: "/login",
             pathname: "/login",
-            params: {},
-            queryParams: {}
+            params: {}
         });
         expect(spyHome).toHaveBeenCalledTimes(1);
         expect(spyHome).toHaveBeenLastCalledWith({
             name: "home",
             path: "/",
             pathname: "/",
-            params: {},
-            queryParams: {}
+            params: {}
         });
         expect(spyDynamic).toHaveBeenCalledTimes(2);
         expect(spyDynamic).toHaveBeenNthCalledWith(1, {
@@ -66,8 +63,7 @@ describe("Router Gateway", () => {
             pathname: "/dynamic-route/cars",
             params: {
                 name: "cars"
-            },
-            queryParams: {}
+            }
         });
         expect(spyDynamic).toHaveBeenNthCalledWith(2, {
             name: "test",
@@ -75,8 +71,7 @@ describe("Router Gateway", () => {
             pathname: "/dynamic-route/blogs",
             params: {
                 name: "blogs"
-            },
-            queryParams: {}
+            }
         });
     });
 

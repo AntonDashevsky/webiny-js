@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { RouterPresenterContext } from "~/Router/Router";
+import { RouterPresenterContext } from "~/Router";
 
 export function useRouter() {
     const routerPresenter = useContext(RouterPresenterContext);

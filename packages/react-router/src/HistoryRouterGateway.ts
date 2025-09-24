@@ -1,16 +1,16 @@
+import type { z } from "zod";
 import type { History } from "history";
 import UniversalRouter, {
     RouterContext,
     RouteParams as UniversalRouteParams
 } from "universal-router";
 import generateUrls from "universal-router/generateUrls";
-import {
+import type {
     MatchedRoute,
     IRouterGateway,
-    RouteParams,
     RouteDefinition,
     OnRouteExit
-} from "~/Router/abstractions/IRouterGateway";
+} from "~/abstractions/IRouterGateway.js";
 
 type RouteResolveResult = [MatchedRoute, RouteDefinition["onMatch"]];
 
@@ -60,15 +60,15 @@ export class HistoryRouterGateway implements IRouterGateway {
         this.guardRouteExit(cb);
     }
 
-    goToRoute(name: string, params: RouteParams): void {
+    goToRoute(name: string, params: z.ZodTypeAny): void {
         this.history.push(this.generateRouteUrl(name, params));
     }
 
-    generateRouteUrl(id: string, params?: RouteParams): string {
+    generateRouteUrl(id: string, params: any = {}): string {
         return this.urlGenerator(id, params);
     }
 
-    async registerRoutes(routes: RouteDefinition[]): Promise<void> {
+    registerRoutes(routes: RouteDefinition[]) {
         this.routes.length = 0;
 
         routes.forEach(route => {
@@ -80,8 +80,7 @@ export class HistoryRouterGateway implements IRouterGateway {
                         name: route.name,
                         path: route.path,
                         pathname: context.pathname,
-                        params,
-                        queryParams: context.queryParams
+                        params: { ...params, ...context.queryParams }
                     };
 
                     const onMatch = async (matchedRoute: MatchedRoute) => {

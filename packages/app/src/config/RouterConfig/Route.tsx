@@ -1,21 +1,23 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
 import { Property, useIdGenerator } from "@webiny/react-properties";
+import type { Route as BaseRoute } from "@webiny/react-router";
 
 export interface RouteProps {
-    name: string;
-    path: string;
+    route: BaseRoute;
     element: React.ReactElement;
     remove?: boolean;
     before?: string;
     after?: string;
 }
 
-export type RouteConfig = Pick<RouteProps, "name" | "path" | "element">;
+export type RouteConfig = Pick<RouteProps, "route" | "element">;
 
 export const Route = makeDecoratable(
     "Route",
-    ({ name, path, element, remove, before, after }: RouteProps) => {
+    ({ route, element, remove, before, after }: RouteProps) => {
+        const name = route.name;
+
         const getId = useIdGenerator("Route");
 
         const placeAfter = after !== undefined ? getId(after) : undefined;
@@ -30,8 +32,7 @@ export const Route = makeDecoratable(
                 before={placeBefore}
                 after={placeAfter}
             >
-                <Property id={getId(name, "name")} name={"name"} value={name} />
-                <Property id={getId(name, "path")} name={"path"} value={path} />
+                <Property id={getId(name, "route")} name={"route"} value={route} />
                 <Property id={getId(name, "element")} name={"element"} value={element} />
             </Property>
         );

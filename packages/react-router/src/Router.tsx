@@ -1,28 +1,22 @@
-import React, { useCallback, useContext, useEffect, useMemo, useRef } from "react";
-import type { History, Location } from "history";
+import React, { useContext, useEffect, useMemo, useRef } from "react";
+import type { History } from "history";
 import { toJS } from "mobx";
 import { observer } from "mobx-react-lite";
 import { HistoryRouterGateway } from "./HistoryRouterGateway";
 import { RouterRepository } from "./RouterRepository";
-import { IRouterPresenter, RouterPresenter } from "./RouterPresenter";
-import { MatchedRoute } from "./abstractions/IRouterGateway";
+import { Route } from "./Route";
+import { type IRouterPresenter, RouterPresenter } from "./RouterPresenter";
+import type { MatchedRoute } from "./abstractions/IRouterGateway";
 
-/**
- * @deprecated Use proper JSX.Element instead!
- */
-interface DeprecatedRenderFunction {
-    (params: { location: Location }): JSX.Element;
-}
-
-export interface RouteDefinition {
-    name: string;
-    path: string;
-    element: JSX.Element | DeprecatedRenderFunction;
-}
+export type ReactRoute = {
+    route: Route<any>;
+    element: JSX.Element;
+};
 
 interface RouterProps {
     getBaseUrl: () => string;
     history: History;
+    routes?: ReactRoute[];
     children: JSX.Element;
 }
 
@@ -33,8 +27,9 @@ interface MatchedRouteWithElement extends MatchedRoute {
 export interface RouterPresenterContext {
     route: MatchedRoute;
     goToRoute: IRouterPresenter["goToRoute"];
+    getLink: IRouterPresenter["getLink"];
     onRouteExit: IRouterPresenter["onRouteExit"];
-    setRoutes: (routes: RouteDefinition[]) => void;
+    setRoutes: (routes: ReactRoute[]) => void;
 }
 
 const RouteContext = React.createContext<MatchedRouteWithElement | undefined>(undefined);
@@ -42,7 +37,7 @@ export const RouterPresenterContext = React.createContext<RouterPresenterContext
     undefined
 );
 
-export const Router = observer(({ getBaseUrl, history, children }: RouterProps) => {
+export const Router = observer(({ getBaseUrl, history, children, routes }: RouterProps) => {
     const baseUrl = getBaseUrl();
 
     const presenter = useMemo(() => {
@@ -57,46 +52,26 @@ export const Router = observer(({ getBaseUrl, history, children }: RouterProps) 
         };
     }, []);
 
-    const getElementFromRoute = useCallback(
-        (route: RouteDefinition) => {
-            // For backwards compatibility.
-            if (typeof route.element === "function") {
-                console.warn(
-                    `Deprecated "element" property usage in route ${route.name} (${route.path}).`
-                );
-                return route.element({ location: history.location });
-            }
-            return route.element;
-        },
-        [history]
-    );
-
-    const routesRef = useRef<RouteDefinition[]>([]);
+    const routesRef = useRef<ReactRoute[]>(routes ?? []);
     const { currentRoute } = presenter.vm;
 
     const route = currentRoute
-        ? routesRef.current.find(route => route.name === currentRoute.name)
+        ? routesRef.current.find(route => route.route.name === currentRoute.name)
         : null;
 
     const routeContext: MatchedRouteWithElement | undefined = useMemo(() => {
-        return route && currentRoute
-            ? { ...currentRoute, element: getElementFromRoute(route) }
-            : undefined;
+        return route && currentRoute ? { ...currentRoute, element: route.element } : undefined;
     }, [route, currentRoute]);
 
     const presenterContext: RouterPresenterContext = {
         route: toJS(currentRoute)!,
         goToRoute: presenter.goToRoute,
+        getLink: presenter.getLink,
         onRouteExit: presenter.onRouteExit,
-        setRoutes: (routes: RouteDefinition[]) => {
+        setRoutes: (routes: ReactRoute[]) => {
             routesRef.current = routes;
 
-            presenter.bootstrap(
-                routes.map(route => ({
-                    name: route.name,
-                    path: route.path
-                }))
-            );
+            presenter.bootstrap(routes.map(route => route.route));
         }
     };
 

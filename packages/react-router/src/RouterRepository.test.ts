@@ -1,32 +1,45 @@
 import { describe, it, beforeEach, expect, vi } from "vitest";
 import { createMemoryHistory } from "history";
-import { HistoryRouterGateway } from "~/Router/HistoryRouterGateway";
-import { RouterRepository } from "~/Router/RouterRepository";
+import { HistoryRouterGateway } from "~/HistoryRouterGateway";
+import { RouterRepository } from "~/RouterRepository";
+import { Route } from "~/Route.js";
 
 const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 
-const allRoutes = [
-    { name: "home", path: "/" },
-    { name: "login", path: "/login" },
-    { name: "userById", path: "/users/:id" }
+const loginRouteDef = new Route({ name: "login", path: "/login" });
+
+const userRouteDef = new Route({
+    name: "userById",
+    path: "/users/:id",
+    params: zod => {
+        return {
+            id: zod.string()
+        };
+    }
+});
+
+const allRoutes: Route<any>[] = [
+    new Route({ name: "home", path: "/" }),
+    loginRouteDef,
+    userRouteDef
 ];
 
 const loginRoute = {
     name: "login",
     path: "/login",
     pathname: "/login",
-    params: {},
-    queryParams: {}
+    params: {}
 };
 
-const userRoute = {
-    name: "userById",
-    path: "/users/:id",
-    pathname: "/users/123",
-    params: {
-        id: "123"
-    },
-    queryParams: {}
+const userRoute = (id: string) => {
+    return {
+        name: "userById",
+        path: "/users/:id",
+        pathname: `/users/${id}`,
+        params: {
+            id
+        }
+    };
 };
 
 const createRepository = () => {
@@ -80,7 +93,7 @@ describe("Router Repository", () => {
         history.push("/users/123");
         await wait();
 
-        expect(repository.getCurrentRoute()).toEqual(userRoute);
+        expect(repository.getCurrentRoute()).toEqual(userRoute("123"));
     });
 
     it("route guard should be unset after route transition", async () => {
@@ -100,7 +113,7 @@ describe("Router Repository", () => {
         history.push("/users/123");
         await wait();
 
-        expect(repository.getCurrentRoute()).toEqual(userRoute);
+        expect(repository.getCurrentRoute()).toEqual(userRoute("123"));
         expect(guardSpy).toHaveBeenCalledTimes(1);
         vi.resetAllMocks();
 
@@ -110,5 +123,19 @@ describe("Router Repository", () => {
 
         expect(repository.getCurrentRoute()).toEqual(loginRoute);
         expect(guardSpy).toHaveBeenCalledTimes(0);
+    });
+
+    it("should go to the right route", async () => {
+        const { repository } = createRepository();
+        repository.goToRoute(userRouteDef, { id: "5" });
+        await wait();
+        expect(repository.getCurrentRoute()).toEqual(userRoute("5"));
+    });
+
+    it("should generate a valid route link", async () => {
+        const { repository } = createRepository();
+
+        expect(repository.getLink(loginRouteDef)).toEqual("/login");
+        expect(repository.getLink(userRouteDef, { id: "1" })).toEqual("/users/1");
     });
 });

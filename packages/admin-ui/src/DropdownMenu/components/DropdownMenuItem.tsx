@@ -6,7 +6,7 @@ import { DropdownMenuSubTrigger } from "./DropdownMenuSubTrigger.js";
 import { DropdownMenuPortal } from "./DropdownMenuPortal.js";
 import { DropdownMenuSubContent } from "./DropdownMenuSubContent.js";
 import { DropdownMenuItemIcon, type DropdownMenuItemIconProps } from "./DropdownMenuItemIcon.js";
-import type { LinkProps, To } from "@webiny/react-router";
+import type { LinkProps } from "@webiny/react-router";
 import { Link } from "@webiny/react-router";
 
 interface DropdownMenuItemBaseProps {
@@ -19,7 +19,7 @@ interface DropdownMenuItemBaseProps {
 
 type DropdownMenuItemButtonProps = (DropdownMenuItemBaseProps &
     React.HTMLAttributes<HTMLDivElement>) & { to?: never };
-type DropdownMenuItemLinkProps = (DropdownMenuItemBaseProps & LinkProps) & { to: To };
+type DropdownMenuItemLinkProps = DropdownMenuItemBaseProps & LinkProps;
 
 type DropdownMenuItemProps = DropdownMenuItemButtonProps | DropdownMenuItemLinkProps;
 

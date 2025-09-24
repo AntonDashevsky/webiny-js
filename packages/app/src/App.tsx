@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo, useState, useCallback, useRef } from "react";
 import { createBrowserHistory } from "history";
-import { BrowserRouter, RouteProps, Route, Router } from "@webiny/react-router";
+import { ReactRoute, Router } from "@webiny/react-router";
 import {
     CompositionProvider,
     GenericComponent,
@@ -41,7 +41,7 @@ export const useApp = () => {
 
 export interface AppProps {
     debounceRender?: number;
-    routes?: Array<RouteProps>;
+    routes?: Array<ReactRoute>;
     providers?: Array<Decorator<GenericComponent<ProviderProps>>>;
     decorators?: DecoratorsCollection;
     children?: React.ReactNode | React.ReactNode[];
@@ -99,13 +99,10 @@ export const AppBase = ({
 
     const AppRouter = useMemo(() => {
         return function AppRouter() {
-            // TODO: no need to mount `<Route>` components - I can just set routes programmatically!
             const routerConfig = useRouterConfig();
-            const combinedRoutes = [...routes, ...routerConfig.routes].map(r => {
-                return (
-                    <Route name={r.name ?? r.path} path={r.path} element={r.element} key={r.path} />
-                );
-            });
+            const routesFromConfig = routerConfig.routes;
+
+            const combinedRoutes = [...routes, ...routesFromConfig];
 
             return <SortRoutes key={routes.length} routes={combinedRoutes} />;
         };
@@ -125,18 +122,16 @@ export const AppBase = ({
         <AppContext.Provider value={appContext}>
             {children}
             <AppContainer>
-                <BrowserRouter history={history.current} getBasename={() => ""}>
-                    <Router history={history.current} getBaseUrl={() => ""}>
-                        <Providers>
-                            <PluginsProvider>{state.plugins}</PluginsProvider>
-                            <DebounceRender wait={debounceRender}>
-                                <RouterWithConfig>
-                                    <AppRouter />
-                                </RouterWithConfig>
-                            </DebounceRender>
-                        </Providers>
-                    </Router>
-                </BrowserRouter>
+                <Router history={history.current} getBaseUrl={() => ""}>
+                    <Providers>
+                        <PluginsProvider>{state.plugins}</PluginsProvider>
+                        <DebounceRender wait={debounceRender}>
+                            <RouterWithConfig>
+                                <AppRouter />
+                            </RouterWithConfig>
+                        </DebounceRender>
+                    </Providers>
+                </Router>
             </AppContainer>
         </AppContext.Provider>
     );
