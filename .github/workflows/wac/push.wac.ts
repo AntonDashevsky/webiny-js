@@ -227,7 +227,7 @@ const createPushWorkflow = (branchName: string) => {
         const env: Record<string, string> = { AWS_REGION };
 
         if (storageOps) {
-            env["WEBINY_STORAGE="] = storageOps;
+            env["WEBINY_STORAGE"] = storageOps;
             if (storageOps === "ddb-es,ddb") {
                 env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] =
                     "${{ secrets.AWS_ELASTIC_SEARCH_DOMAIN_NAME }}";
