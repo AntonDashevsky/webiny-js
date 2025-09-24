@@ -12,7 +12,7 @@ import { createIdentity } from "./identity";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
 import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 
 export interface UseHandlerParams {
     permissions?: SecurityPermission[];

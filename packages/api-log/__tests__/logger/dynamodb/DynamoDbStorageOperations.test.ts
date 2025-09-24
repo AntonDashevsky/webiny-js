@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { create } from "~/db";
 import { DynamoDbStorageOperations } from "~/logger/dynamodb/DynamoDbStorageOperations";
 import { DynamoDbLoggerKeys } from "~/logger";

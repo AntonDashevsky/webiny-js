@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { ServiceDiscovery } from "~/ServiceDiscovery";
 
 describe("Service Discovery", () => {

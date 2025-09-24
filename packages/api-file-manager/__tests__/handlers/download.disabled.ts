@@ -1,5 +1,5 @@
 // TODO: temporarily disabling this test. It requires a refactor to use the graphql lambda handler.
-// import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+// import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 // import { createHandler } from "@webiny/handler-aws";
 // import useGqlHandler from "~tests/utils/useGqlHandler";
 // import { fileAData } from "~tests/mocks/files";

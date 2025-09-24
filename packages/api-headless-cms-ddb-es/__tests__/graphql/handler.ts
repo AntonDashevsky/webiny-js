@@ -10,7 +10,7 @@ import { createSecurity } from "~tests/graphql/security";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import { createIndexConfigurationPlugin } from "~tests/graphql/createIndexConfigurationPlugin";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import { getElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/index.js";
 import { createTable } from "~/definitions/table";

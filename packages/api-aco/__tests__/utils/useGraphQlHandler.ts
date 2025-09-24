@@ -68,7 +68,7 @@ import createAdminUsersApp from "@webiny/api-admin-users";
 import { createWcpContext } from "@webiny/api-wcp";
 import { createTestWcpLicense } from "@webiny/wcp/testing/createTestWcpLicense";
 import type { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 
 export interface UseGQLHandlerParams {
     permissions?: SecurityPermission[];
@@ -127,9 +127,8 @@ export const useGraphQlHandler = (params: UseGQLHandlerParams = {}) => {
              * Mock physical file storage plugin.
              */
             new FilePhysicalStoragePlugin({
-                 
                 upload: async () => {},
-                 
+
                 delete: async () => {}
             }),
             createHeadlessCmsGraphQL(),

@@ -15,7 +15,7 @@ import type { ITaskEvent } from "@webiny/tasks/handler/types";
 import type { LambdaContext } from "@webiny/handler-aws/types";
 import type { Context } from "~/types";
 import { createElasticsearchBackgroundTasks } from "~/index";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import dbPlugins from "@webiny/handler-db";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import { createLogger } from "@webiny/api-log";

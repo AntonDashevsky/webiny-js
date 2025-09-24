@@ -2,7 +2,7 @@ import { ContextPlugin } from "@webiny/handler";
 import { createRawEventHandler, createRawHandler } from "@webiny/handler-aws";
 import dbPlugins from "@webiny/handler-db";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { createWcpContext } from "@webiny/api-wcp";
 import { Table } from "@webiny/db-dynamodb/toolbox";
 import type { SecurityContext, SecurityStorageOperations } from "~/types";

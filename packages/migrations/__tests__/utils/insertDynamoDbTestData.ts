@@ -1,6 +1,6 @@
 import chunk from "lodash/chunk";
 import type { Table } from "@webiny/db-dynamodb/toolbox";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { BatchWriteCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
 
 export const insertDynamoDbTestData = async (

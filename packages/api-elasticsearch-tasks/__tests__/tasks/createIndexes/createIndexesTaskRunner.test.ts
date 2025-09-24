@@ -4,7 +4,7 @@ import { createContextMock } from "~tests/mocks/context";
 import { createTaskManagerStoreMock } from "~tests/mocks/store";
 import { Response, TaskResponse } from "@webiny/tasks";
 import { createMockEvent } from "~tests/mocks/event";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { createIndexManagerMock } from "~tests/mocks/indexManager";
 import { CreateIndexesTaskRunner } from "~/tasks/createIndexes/CreateIndexesTaskRunner";
 import { createElasticsearchIndexTaskPlugin } from "~/tasks/createIndexes/CreateElasticsearchIndexTaskPlugin";

@@ -22,7 +22,7 @@ import { createTestWcpLicense } from "@webiny/wcp/testing/createTestWcpLicense";
 import { createWcpContext } from "@webiny/api-wcp";
 import type { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
 import { until } from "@webiny/project-utils/testing/helpers/until";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import {
     CREATE_CONTENT_MODEL,
     CREATE_CONTENT_MODEL_GROUP,

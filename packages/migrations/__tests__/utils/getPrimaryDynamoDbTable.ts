@@ -1,6 +1,6 @@
 import { Table } from "@webiny/db-dynamodb/toolbox";
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 
 export interface CreateTableParams {
     name?: string;

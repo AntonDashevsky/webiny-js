@@ -1,6 +1,6 @@
 import dbPlugins from "@webiny/handler-db";
 import { PluginsContainer } from "@webiny/plugins";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import type { CmsContext } from "~/types";
 import { Context } from "@webiny/api";

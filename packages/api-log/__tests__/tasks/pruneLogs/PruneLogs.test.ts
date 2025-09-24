@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { PruneLogs } from "~/tasks/pruneLogs/PruneLogs";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { DynamoDbLoggerKeys, DynamoDbStorageOperations } from "~/logger";
 import { Response, TaskResponse } from "@webiny/tasks";
 import type {

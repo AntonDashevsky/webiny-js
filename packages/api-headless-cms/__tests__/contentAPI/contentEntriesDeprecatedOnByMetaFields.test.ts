@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { SecurityIdentity } from "@webiny/api-security/types";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { PutCommand, QueryCommand, unmarshall } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { CmsGraphQLSchemaPlugin } from "@webiny/api-headless-cms/plugins";
 

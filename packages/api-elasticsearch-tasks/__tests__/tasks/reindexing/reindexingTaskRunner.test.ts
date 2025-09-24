@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { ReindexingTaskRunner } from "~/tasks/reindexing/ReindexingTaskRunner";
 import { Manager } from "~/tasks/Manager";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import {
     Response,
     ResponseAbortedResult,

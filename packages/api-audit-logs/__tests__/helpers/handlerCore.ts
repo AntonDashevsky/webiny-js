@@ -23,7 +23,7 @@ import type { AdminUsersStorageOperations } from "@webiny/api-admin-users/types"
 import createAdminUsersApp from "@webiny/api-admin-users";
 import { createMailerContext } from "@webiny/api-mailer";
 import { NullLicense } from "@webiny/wcp";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { createAcoAuditLogsContext } from "~/context/index.js";
 import { createWebsiteBuilder } from "@webiny/api-website-builder";
 

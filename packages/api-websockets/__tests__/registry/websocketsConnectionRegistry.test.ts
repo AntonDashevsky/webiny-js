@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { WebsocketsConnectionRegistry } from "~/registry/WebsocketsConnectionRegistry";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 
 describe("websockets connection registry", () => {
     it("should register new connections", async () => {

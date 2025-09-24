@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { Context } from "~/types";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 import { getTenant } from "~tests/mocks/getTenant";
 import { getLocale } from "~tests/mocks/getLocale";
 import { createLogger } from "~/index";

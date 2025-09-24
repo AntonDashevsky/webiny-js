@@ -10,7 +10,7 @@ import type { PermissionsArg } from "./context/helpers";
 import { createPermissions } from "./context/helpers";
 import dbPlugins from "@webiny/handler-db";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 
 export interface CreateHandlerParams {
     permissions?: PermissionsArg[];

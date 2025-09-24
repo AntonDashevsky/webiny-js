@@ -23,7 +23,7 @@ import createAdminUsersApp from "@webiny/api-admin-users";
 import { createTestWcpLicense } from "@webiny/wcp/testing/createTestWcpLicense";
 import { createWcpContext } from "@webiny/api-wcp";
 import type { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 
 export interface UseGQLHandlerParams {
     permissions?: SecurityPermission[];
