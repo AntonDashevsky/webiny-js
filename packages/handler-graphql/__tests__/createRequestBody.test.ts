@@ -1,4 +1,5 @@
 import { createRequestBody } from "~/createRequestBody.js";
+import { describe, it, expect } from "vitest";
 
 describe("createRequestBody", () => {
     it("should parse a valid GraphQL request body", () => {

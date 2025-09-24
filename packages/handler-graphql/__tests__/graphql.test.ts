@@ -27,7 +27,7 @@ describe("GraphQL Handler", () => {
         const [response] = await invoke({ body: { query: `{ books { name } }` } });
         expect(response.errors).toBeFalsy();
         expect(response.data.books.length).toBe(2);
-        expect(response.extensions.console.length).toBe(5);
+        expect(response.extensions.console.length).toBe(6);
     });
 
     test("should return logs for specific queries when executed in batch", async () => {
@@ -45,6 +45,7 @@ describe("GraphQL Handler", () => {
         expect(r1.extensions).toStrictEqual({
             console: [
                 { method: "group", args: ["books resolver"] },
+                { method: "log", args: ["books resolver"] },
                 { method: "log", args: ["getBooks"] },
                 {
                     method: "table",
