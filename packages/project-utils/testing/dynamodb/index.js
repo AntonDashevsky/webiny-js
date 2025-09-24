@@ -1,4 +1,4 @@
-import { getDocumentClient as getBaseDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
+import { getDocumentClient as getBaseDocumentClient } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { processing, getCommandName } from "./processing.js";
 export { createDynamoStreamEvent, createDynamoStreamRecord } from "./processing.js";
 

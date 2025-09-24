@@ -1,5 +1,5 @@
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import type { ScheduleContext } from "~/types.js";
 import { ContextPlugin } from "@webiny/api";
 

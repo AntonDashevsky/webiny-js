@@ -1,5 +1,5 @@
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import type { IDeployment } from "~/resolver/deployment/types.js";
 import { Deployment } from "~/resolver/deployment/Deployment.js";
 import { SemVer } from "semver";

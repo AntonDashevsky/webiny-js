@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { createEventHandler } from "~/index";
 import { PluginsContainer } from "@webiny/plugins";
-import { marshall as baseMarshall } from "@webiny/aws-sdk/client-dynamodb";
+import { marshall as baseMarshall } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { DynamoDBRecord } from "@webiny/handler-aws/types";
 
 interface Event {

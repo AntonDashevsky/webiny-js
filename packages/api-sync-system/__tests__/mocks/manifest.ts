@@ -1,4 +1,4 @@
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import type { IManifest, IManifestData } from "~/sync/types.js";
 
 export interface ICreateMockManifestParams {

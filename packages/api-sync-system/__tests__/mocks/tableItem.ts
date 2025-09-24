@@ -1,7 +1,7 @@
 import type { ITable } from "~/sync/types.js";
 import type { IStoreItem } from "~/resolver/app/storer/types.js";
-import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { faker } from "@faker-js/faker";
 
 export interface IStoreMockTableItem {

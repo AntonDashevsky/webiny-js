@@ -4,7 +4,7 @@ import { createElasticsearchClient } from "@webiny/project-utils/testing/elastic
 // @ts-expect-error
 import { createMockApiLog } from "@webiny/project-utils/testing/mockApiLog";
 import type { LambdaContext, Reply, Request } from "@webiny/handler-aws/types";
-import { marshall } from "@webiny/aws-sdk/client-dynamodb";
+import { marshall } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { createMockContext } from "~tests/mocks/context";
 
 describe("transfer data", () => {

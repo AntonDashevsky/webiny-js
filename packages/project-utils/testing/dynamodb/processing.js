@@ -1,10 +1,10 @@
-import { marshall } from "@webiny/aws-sdk/client-dynamodb";
+import { marshall } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import {
     PutCommand,
     UpdateCommand,
     DeleteCommand,
     BatchWriteCommand
-} from "@webiny/aws-sdk/client-dynamodb";
+} from "@webiny/aws-sdk/client-dynamodb/index.js";
 
 const streamTableName = process.env.DB_TABLE_ELASTICSEARCH;
 

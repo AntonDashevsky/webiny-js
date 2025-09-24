@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { PutCommand } from "@webiny/aws-sdk/client-dynamodb";
+import { PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { createMockContextHandler } from "./mockContextHandler";
 import { customPermissions } from "./mocks/customPermissions";
 

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
+import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { useHandler } from "~tests/useHandler";
 import { createTable } from "~/createTable";
 import { createDdbMigration } from "~tests/createDdbMigration";
