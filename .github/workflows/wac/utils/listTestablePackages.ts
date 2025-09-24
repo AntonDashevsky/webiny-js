@@ -40,10 +40,15 @@ class TestablePackage {
     }
 
     hasTests() {
-        return (
-            fs.existsSync(path.join(this.packageFolderPath, "vitest.config.ts")) ||
-            fs.existsSync(path.join(this.packageFolderPath, "vitest.setup.ts"))
-        );
+        const hasConfig =
+            fs.existsSync(path.join(this.packageFolderPath, "vitest.config.js")) ||
+            fs.existsSync(path.join(this.packageFolderPath, "vitest.config.ts"));
+
+        if (!hasConfig) {
+            return false;
+        }
+
+        return this.packageFolderContainsTestFile(this.packageFolderPath);
     }
 
     testingEnabled() {
@@ -80,6 +85,24 @@ class TestablePackage {
             }
         }
         return this.vitestCiConfig;
+    }
+
+    private packageFolderContainsTestFile(dir: string) {
+        const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+        for (const entry of entries) {
+            const fullPath = path.join(dir, entry.name);
+
+            if (entry.isDirectory()) {
+                if (this.packageFolderContainsTestFile(fullPath)) {
+                    return true;
+                }
+            } else if (entry.isFile() && entry.name.endsWith(".test.ts")) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 
