@@ -1,6 +1,6 @@
 import React from "react";
 import { Heading, Icon, Text } from "@webiny/admin-ui";
-import { Link } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/react-router";
 // Icons
 import { ReactComponent as YouTubeIcon } from "./assets/youtube.svg";
 import { ReactComponent as GithubIcon } from "./assets/github.svg";
@@ -20,7 +20,7 @@ const SocialLink = ({ link, label, icon }: SocialLinkProps) => {
                 "wby-w-[64px] wby-bg-neutral-base wby-rounded-md hover:wby-opacity-80 wby-transition-opacity"
             }
         >
-            <Link
+            <SimpleLink
                 to={link}
                 className={"!wby-no-underline"}
                 target={"_blank"}
@@ -38,7 +38,7 @@ const SocialLink = ({ link, label, icon }: SocialLinkProps) => {
                         {label}
                     </Text>
                 </div>
-            </Link>
+            </SimpleLink>
         </div>
     );
 };

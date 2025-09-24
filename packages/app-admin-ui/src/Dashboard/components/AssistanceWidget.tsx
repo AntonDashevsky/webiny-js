@@ -1,7 +1,7 @@
 import React from "react";
 import { Heading, Icon, Link as AdminLink, Text } from "@webiny/admin-ui";
 import { ReactComponent as HelpIcon } from "@webiny/icons/help_outline.svg";
-import { Link } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/react-router";
 
 export const AssistanceWidget = () => {
     return (
@@ -18,7 +18,7 @@ export const AssistanceWidget = () => {
             <div
                 className={"wby-bg-neutral-base wby-rounded-sm wby-px-md wby-py-sm-extra wby-mb-md"}
             >
-                <Link
+                <SimpleLink
                     to="https://www.webiny.com/docs"
                     target={"_blank"}
                     rel={"noopener noreferrer"}
@@ -30,7 +30,7 @@ export const AssistanceWidget = () => {
                     <Text size={"sm"} className={"!wby-text-neutral-strong"}>
                         {"Explore the Webiny documentation and check out code examples and guides."}
                     </Text>
-                </Link>
+                </SimpleLink>
             </div>
 
             <div className={"wby-bg-neutral-base wby-rounded-sm wby-px-md wby-py-sm-extra"}>

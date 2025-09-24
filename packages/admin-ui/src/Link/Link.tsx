@@ -1,10 +1,6 @@
 import React from "react";
 import { cva, type VariantProps, makeDecoratable, cn } from "~/utils.js";
-import {
-    Link as ReactRouterLink,
-    type LinkProps as RouterLinkProps,
-    type RouteParamsDefinition
-} from "@webiny/react-router";
+import { SimpleLink, type SimpleLinkProps } from "@webiny/react-router";
 
 const linkVariants = cva("wby-font-sans wby-rounded-xs", {
     variants: {
@@ -45,27 +41,16 @@ const linkVariants = cva("wby-font-sans wby-rounded-xs", {
     }
 });
 
-export type LinkProps<TParams extends RouteParamsDefinition | undefined = undefined> =
-    RouterLinkProps<TParams> &
-        VariantProps<typeof linkVariants> & {
-            disabled?: boolean;
-        };
+export type LinkProps = SimpleLinkProps &
+    VariantProps<typeof linkVariants> & {
+        disabled?: boolean;
+    };
 
-function LinkBase<TParams extends RouteParamsDefinition | undefined = undefined>({
-    size,
-    variant,
-    underline,
-    className,
-    children,
-    ...rest
-}: LinkProps<TParams>) {
+function LinkBase({ size, variant, underline, className, children, ...rest }: LinkProps) {
     return (
-        <ReactRouterLink
-            {...rest}
-            className={cn(linkVariants({ size, variant, underline }), className)}
-        >
+        <SimpleLink {...rest} className={cn(linkVariants({ size, variant, underline }), className)}>
             {children}
-        </ReactRouterLink>
+        </SimpleLink>
     );
 }
 

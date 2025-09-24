@@ -29,6 +29,7 @@ export class RouterPresenter implements IRouterPresenter {
         this.routerRepository = routerRepository;
 
         this.goToRoute = this.goToRoute.bind(this);
+        this.getLink = this.getLink.bind(this);
         makeAutoObservable(this);
     }
 
@@ -60,7 +61,7 @@ export class RouterPresenter implements IRouterPresenter {
         this.routerRepository.onRouteExit(cb);
     };
 
-    destroy() {
+    destroy = () => {
         this.routerRepository.destroy();
-    }
+    };
 }

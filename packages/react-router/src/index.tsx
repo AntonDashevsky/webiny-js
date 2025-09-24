@@ -1,5 +1,8 @@
-export { Link } from "./Link.js";
-export type { LinkProps } from "./Link.js";
+export { RouteLink } from "./RouteLink.js";
+export type { RouteLinkProps } from "./RouteLink.js";
+
+export { SimpleLink } from "./SimpleLink.js";
+export type { SimpleLinkProps } from "./SimpleLink.js";
 
 export { useRoute } from "./useRoute.js";
 export { useRouter } from "./useRouter.js";

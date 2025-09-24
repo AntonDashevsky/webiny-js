@@ -4,7 +4,7 @@ import { SidebarMenuItemIcon, type SidebarMenuItemIconProps } from "./SidebarMen
 import { SidebarMenuItemAction, type SidebarMenuItemActionProps } from "./SidebarMenuItemAction.js";
 import { SidebarMenuSubItem } from "./SidebarMenuSubItem.js";
 import { useSidebarMenu } from "./SidebarMenuProvider.js";
-import type { LinkProps } from "@webiny/react-router";
+import type { SimpleLinkProps } from "@webiny/react-router";
 import { SidebarMenuRootItem } from "~/Sidebar/components/items/SidebarMenuRootItem.js";
 
 export interface SidebarMenuItemBaseProps {
@@ -25,7 +25,7 @@ type SidebarMenuItemButtonProps = SidebarMenuItemBaseProps & {
     params?: never;
 };
 type SidebarMenuItemGroupProps = SidebarMenuItemButtonProps;
-type SidebarMenuItemLinkProps = SidebarMenuItemBaseProps & LinkProps;
+type SidebarMenuItemLinkProps = SidebarMenuItemBaseProps & SimpleLinkProps;
 
 type SidebarMenuItemProps = SidebarMenuItemButtonProps | SidebarMenuItemLinkProps;
 

@@ -1,9 +1,26 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react-webpack5";
-import { createBrowserHistory } from "history";
-import { Router, Route, RouteContent, type ReactRoute } from "@webiny/react-router";
-import { Link } from "./Link.js";
-import { Text } from "~/Text/index.js";
+import type { Meta, StoryObj } from "@storybook/react";
+import { BrowserRouter } from "react-router";
+import { Link } from "./Link";
+import { Text } from "~/Text";
+
+const meta: Meta<typeof Link> = {
+    title: "Components/Link",
+    component: Link,
+    decorators: [
+        (Story: React.ComponentType) => (
+            <BrowserRouter>
+                <Story />
+            </BrowserRouter>
+        )
+    ],
+    argTypes: {
+        size: { control: "select", options: ["sm", "md", "lg", "xl"] },
+        variant: { control: "select", options: ["primary", "secondary"] }
+    }
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Link>;
 
@@ -169,33 +186,3 @@ export const Documentation: Story = {
         }
     }
 };
-
-const history = createBrowserHistory();
-
-const storyRoute: ReactRoute = {
-    route: new Route({
-        name: "story",
-        path: "*"
-    }),
-    element: <></>
-};
-
-const meta: Meta<typeof Link> = {
-    title: "Components/Link",
-    component: Link,
-    decorators: [
-        (Story: React.ComponentType) => {
-            return (
-                <Router history={history} getBaseUrl={() => ""} routes={[storyRoute]}>
-                    <RouteContent />
-                </Router>
-            );
-        }
-    ],
-    argTypes: {
-        size: { control: "select", options: ["sm", "md", "lg", "xl"] },
-        variant: { control: "select", options: ["primary", "secondary"] }
-    }
-};
-
-export default meta;

@@ -1,16 +1,15 @@
+import findUp from "find-up";
+import path from "path";
 import twFontFamily from "tailwindcss/defaultTheme.js";
 import tailwindAnimate from "tailwindcss-animate";
-import { getProjectSdk } from "@webiny/project";
 
-console.log("RESOLVED PATH", import.meta.resolve("@webiny/project"));
+const projectConfig = findUp.sync("webiny.config.tsx");
+const projectRoot = path.dirname(projectConfig);
 
-const projectSdk = await getProjectSdk();
-const project = projectSdk.getProject();
-
-const webinyPackagesGlob = `${project.paths.rootFolder}/node_modules/@webiny/app*/**/*.{js,ts,tsx}`;
-const webinyAdminUiPackageGlob = `${project.paths.rootFolder}/node_modules/@webiny/admin-ui/**/*.{js,ts,tsx}`;
-const webinyUiPackageGlob = `${project.paths.rootFolder}/node_modules/@webiny/ui/**/*.{js,ts,tsx}`;
-const adminAppSourceGlob = `${project.paths.workspacesFolder}/apps/admin`;
+const webinyPackagesGlob = `${projectRoot}/node_modules/@webiny/app*/**/*.{js,ts,tsx}`;
+const webinyAdminUiPackageGlob = `${projectRoot}/node_modules/@webiny/admin-ui/**/*.{js,ts,tsx}`;
+const webinyUiPackageGlob = `${projectRoot}/node_modules/@webiny/ui/**/*.{js,ts,tsx}`;
+const adminAppSourceGlob = `${projectRoot}/.webiny/workspaces/apps/admin`;
 import theme from "./tailwind.config.theme.js";
 
 const {

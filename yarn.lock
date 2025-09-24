@@ -13811,6 +13811,8 @@ __metadata:
     react-color: "npm:^2.19.3"
     react-custom-scrollbars: "npm:^4.2.1"
     react-dnd: "npm:^16.0.1"
+    react-router: "npm:^7.9.1"
+    react-router-dom: "npm:^7.9.1"
     react-virtualized: "npm:^9.22.6"
     rimraf: "npm:^6.0.1"
     sass: "npm:1.93.0"
@@ -20155,6 +20157,13 @@ __metadata:
   version: 0.7.2
   resolution: "cookie@npm:0.7.2"
   checksum: 10/24b286c556420d4ba4e9bc09120c9d3db7d28ace2bd0f8ccee82422ce42322f73c8312441271e5eefafbead725980e5996cc02766dbb89a90ac7f5636ede608f
+  languageName: node
+  linkType: hard
+
+"cookie@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "cookie@npm:1.0.2"
+  checksum: 10/f5817cdc84d8977761b12549eba29435e675e65c7fef172bc31737788cd8adc83796bf8abe6d950554e7987325ad2d9ac2971c5bd8ff0c4f81c145f82e4ab1be
   languageName: node
   linkType: hard
 
@@ -32233,6 +32242,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-router-dom@npm:^7.9.1":
+  version: 7.9.1
+  resolution: "react-router-dom@npm:7.9.1"
+  dependencies:
+    react-router: "npm:7.9.1"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10/84525d182d913d74299213a60da8d2a49b233aa626dd9216f68e513a81cb33a19d1c50eaf09684b9283ae2d5d8cd0cdcc2ae6cd554ea5d8e4e016b442252ddc9
+  languageName: node
+  linkType: hard
+
+"react-router@npm:7.9.1, react-router@npm:^7.9.1":
+  version: 7.9.1
+  resolution: "react-router@npm:7.9.1"
+  dependencies:
+    cookie: "npm:^1.0.1"
+    set-cookie-parser: "npm:^2.6.0"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+  checksum: 10/f15aa70bfe95bf05f755283c2b67d3316cd037c99aebf5cc6b4fd49db99a5a4a36ba0664661a84bf7d60a7643dd0457f1835896891dbf7b8f16e670e79e80491
+  languageName: node
+  linkType: hard
+
 "react-side-effect@npm:^2.1.0":
   version: 2.1.2
   resolution: "react-side-effect@npm:2.1.2"
@@ -33644,7 +33681,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"set-cookie-parser@npm:^2.4.1":
+"set-cookie-parser@npm:^2.4.1, set-cookie-parser@npm:^2.6.0":
   version: 2.7.1
   resolution: "set-cookie-parser@npm:2.7.1"
   checksum: 10/c92b1130032693342bca13ea1b1bc93967ab37deec4387fcd8c2a843c0ef2fd9a9f3df25aea5bb3976cd05a91c2cf4632dd6164d6e1814208fb7d7e14edd42b4

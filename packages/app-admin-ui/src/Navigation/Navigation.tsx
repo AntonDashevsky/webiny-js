@@ -2,17 +2,17 @@ import React from "react";
 import { NavigationRenderer, useAdminConfig } from "@webiny/app-admin";
 import { Sidebar } from "@webiny/admin-ui";
 import { SidebarMenuItems } from "./SidebarMenuItems.js";
-import { Link } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/react-router";
 
 export const Navigation = NavigationRenderer.createDecorator(() => {
     return function Navigation() {
         const { menus, tenant } = useAdminConfig();
 
-        const title = <Link to={"/"}>{tenant.name}</Link>;
+        const title = <SimpleLink to={"/"}>{tenant.name}</SimpleLink>;
         const icon = (
-            <Link to={"/"}>
+            <SimpleLink to={"/"}>
                 <Sidebar.Icon element={tenant.logo} label={"Webiny"} />
-            </Link>
+            </SimpleLink>
         );
 
         return (

@@ -47,6 +47,9 @@ export const Router = observer(({ getBaseUrl, history, children, routes }: Route
     }, []);
 
     useEffect(() => {
+        if (routes) {
+            presenter.bootstrap(routes.map(route => route.route));
+        }
         return () => {
             presenter.destroy();
         };

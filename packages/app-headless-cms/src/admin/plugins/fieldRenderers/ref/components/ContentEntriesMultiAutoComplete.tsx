@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import debounce from "lodash/debounce.js";
 import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
-import { Link } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/react-router";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { useReferences } from "./useReferences.js";
 import { renderItem, renderListItemOptions } from "./renderItem.js";
@@ -36,9 +36,9 @@ const ContentEntriesMultiAutocomplete = ({ bind, field }: ContentEntriesMultiAut
         return (
             <React.Fragment key={id}>
                 {index > 0 && ", "}
-                <Link to={`/cms/content-entries/${modelId}?id=${encodeURIComponent(id)}`}>
+                <SimpleLink to={`/cms/content-entries/${modelId}?id=${encodeURIComponent(id)}`}>
                     {name}
-                </Link>
+                </SimpleLink>
             </React.Fragment>
         );
     };
