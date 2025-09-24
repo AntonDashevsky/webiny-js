@@ -434,6 +434,35 @@ const expectedSystemFields: Record<string, Field> = {
             path: "location.folderId"
         }
     },
+    state: {
+        createPath: expect.any(Function),
+        transform: expect.any(Function),
+        fieldId: "state",
+        id: "state",
+        label: "State",
+        parents: [],
+        storageId: "object@state",
+        system: true,
+        type: "object",
+        settings: {
+            fields: [
+                {
+                    id: "name",
+                    fieldId: "name",
+                    label: "Name",
+                    storageId: "text@name",
+                    type: "text"
+                },
+                {
+                    id: "comment",
+                    fieldId: "comment",
+                    label: "Comment",
+                    storageId: "text@comment",
+                    type: "long-text"
+                }
+            ]
+        }
+    },
     version: {
         id: "version",
         parents: [],
@@ -444,6 +473,38 @@ const expectedSystemFields: Record<string, Field> = {
         system: true,
         transform: expect.any(Function),
         label: "Version"
+    },
+    "state.comment": {
+        createPath: expect.any(Function),
+        fieldId: "comment",
+        id: "comment",
+        label: "Comment",
+        parents: [
+            {
+                fieldId: "state",
+                multipleValues: undefined
+            }
+        ],
+        storageId: "text@comment",
+        system: true,
+        transform: expect.any(Function),
+        type: "long-text"
+    },
+    "state.name": {
+        createPath: expect.any(Function),
+        fieldId: "name",
+        id: "name",
+        label: "Name",
+        parents: [
+            {
+                fieldId: "state",
+                multipleValues: undefined
+            }
+        ],
+        storageId: "text@name",
+        system: true,
+        transform: expect.any(Function),
+        type: "text"
     },
     status: {
         id: "status",
@@ -504,6 +565,18 @@ describe("create system and model fields", () => {
 
         const expected: ExpectedFields = {
             ...expectedSystemFields,
+            settings: {
+                createPath: expect.any(Function),
+                fieldId: "settings",
+                id: "settings",
+                label: "Settings",
+                multipleValues: false,
+                parents: [],
+                storageId: "searchableJson@settings",
+                system: false,
+                transform: expect.any(Function),
+                type: "searchable-json"
+            },
             title: {
                 id: "title",
                 parents: [],
