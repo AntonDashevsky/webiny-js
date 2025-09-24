@@ -2,6 +2,7 @@ import { createContextHandler } from "./contextHandler.js";
 import { GetSettings } from "~/features/getSettings/GetSettings.feature.js";
 import { SaveSettings } from "~/features/saveSettings/SaveSettings.feature.js";
 import type { Context } from "./types.js";
+import { describe, it, expect } from "vitest";
 
 describe("Settings", () => {
     const { handle } = createContextHandler();
