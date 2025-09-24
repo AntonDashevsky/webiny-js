@@ -8,42 +8,40 @@ const { green } = chalk;
 
 const NO_SUCH_ENTITY_IAM_ERROR = "NoSuchEntity";
 
-class CheckOsServiceRoleBeforeCoreDeploy implements CoreBeforeDeploy.Interface {
+class EnsureEsServiceRoleBeforeCoreDeploy implements CoreBeforeDeploy.Interface {
     constructor(private uiService: UiService.Interface) {}
 
     async execute() {
         const ui = this.uiService;
 
         const spinner = ora();
-        spinner.start(`Checking Amazon OpenSearch service role...`);
+        spinner.start(`Checking Amazon Elasticsearch service role...`);
         const iam = new IAM();
         try {
-            await iam.getRole({ RoleName: "AWSServiceRoleForAmazonOpenSearchService" });
+            await iam.getRole({ RoleName: "AWSServiceRoleForAmazonElasticsearchService" });
 
             spinner.stopAndPersist({
                 symbol: green("✔"),
-                text: `Found Amazon OpenSearch service role!`
+                text: `Found Amazon Elasticsearch service role!`
             });
-            ui.success(`Found Amazon OpenSearch service role!`);
+            ui.success(`Found Amazon Elasticsearch service role!`);
         } catch (err) {
             // We've seen cases where the `iam.getRole` call fails because of an issue
             // other than not being able to retrieve the service role. Let's print
             // additional info if that's the case. Will make debugging a bit easier.
             if (err.Error?.Code !== NO_SUCH_ENTITY_IAM_ERROR) {
                 spinner.fail(
-                    "Tried retrieving Amazon OpenSearch service role but failed with the following error: " +
+                    "Tried retrieving Amazon Elasticsearch service role but failed with the following error: " +
                         err.message
                 );
                 ui.debug(err);
                 process.exit(1);
             }
 
-            spinner.text = "Creating Amazon OpenSearch service role...";
+            spinner.text = "Creating Amazon Elasticsearch service role...";
 
             try {
-                await iam.createServiceLinkedRole({
-                    AWSServiceName: "opensearchservice.amazonaws.com"
-                });
+                await iam.createServiceLinkedRole({ AWSServiceName: "es.amazonaws.com" });
 
                 spinner.stop();
             } catch (err) {
@@ -57,6 +55,6 @@ class CheckOsServiceRoleBeforeCoreDeploy implements CoreBeforeDeploy.Interface {
 
 export default createImplementation({
     abstraction: CoreBeforeDeploy,
-    implementation: CheckOsServiceRoleBeforeCoreDeploy,
+    implementation: EnsureEsServiceRoleBeforeCoreDeploy,
     dependencies: [UiService]
 });
