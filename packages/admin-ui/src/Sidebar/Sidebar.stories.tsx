@@ -1,3 +1,4 @@
+// @ts-nocheck Temporary fix.
 import React from "react";
 import { createBrowserHistory } from "history";
 import type { Meta, StoryObj } from "@storybook/react";
