@@ -2,7 +2,7 @@ import { createWorkflow, NormalJob } from "github-actions-wac";
 import {
     AWS_REGION,
     BUILD_PACKAGES_RUNNER,
-    listPackagesWithVitestTests,
+    listTestablePackages,
     NODE_VERSION,
     runNodeScript
 } from "./utils/index.js";
@@ -243,17 +243,19 @@ const createPushWorkflow = (branchName: string) => {
             }
         }
 
-        const packages = listPackagesWithVitestTests(storageOps);
+        const testCommands = listTestablePackages(storageOps)
+            .map(p => p.getTestCommands())
+            .flat();
 
         return createJob({
             needs: ["constants", "build"],
-            name: "${{ matrix.package.name }}",
+            name: "${{ matrix.testCommand.title }}",
             strategy: {
                 "fail-fast": false,
                 matrix: {
                     os: ["ubuntu-latest"],
                     node: [NODE_VERSION],
-                    package: "${{ fromJson('" + JSON.stringify(packages) + "') }}"
+                    package: "${{ fromJson('" + JSON.stringify(testCommands) + "') }}"
                 }
             },
             "runs-on": "${{ matrix.os }}",
@@ -264,10 +266,9 @@ const createPushWorkflow = (branchName: string) => {
                 ...yarnCacheSteps,
                 ...runBuildCacheSteps,
                 ...installBuildSteps,
-                ...withCommonParams(
-                    [{ name: "Run tests", run: "yarn test packages/${{ matrix.package.name }}" }],
-                    { "working-directory": DIR_WEBINY_JS }
-                )
+                ...withCommonParams([{ name: "Run tests", run: "${{ matrix.testCommand.cmd }}" }], {
+                    "working-directory": DIR_WEBINY_JS
+                })
             ]
         });
     };
