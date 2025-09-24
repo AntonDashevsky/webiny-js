@@ -79,3 +79,4 @@ export function useRouter(): UseRouter {
 }
 
 export { Router, RouteContent, type RouteDefinition } from "./Router/Router";
+export { BrowserRouter } from "./BrowserRouter.js";

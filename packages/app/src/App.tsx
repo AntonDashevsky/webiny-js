@@ -125,7 +125,7 @@ export const AppBase = ({
         <AppContext.Provider value={appContext}>
             {children}
             <AppContainer>
-                <BrowserRouter>
+                <BrowserRouter history={history.current} getBasename={() => ""}>
                     <Router history={history.current} getBaseUrl={() => ""}>
                         <Providers>
                             <PluginsProvider>{state.plugins}</PluginsProvider>
