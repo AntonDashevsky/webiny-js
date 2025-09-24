@@ -1,6 +1,8 @@
-import twFontFamily from "tailwindcss/defaultTheme";
+import twFontFamily from "tailwindcss/defaultTheme.js";
 import tailwindAnimate from "tailwindcss-animate";
 import { getProjectSdk } from "@webiny/project";
+
+console.log("RESOLVED PATH", import.meta.resolve("@webiny/project"));
 
 const projectSdk = await getProjectSdk();
 const project = projectSdk.getProject();

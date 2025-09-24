@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Tag } from "./Tag.js";
 
 const meta: Meta<typeof Tag> = {

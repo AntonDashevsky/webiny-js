@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Toast } from "./Toast.js";
 import { useToast, type ShowToastParams } from "./useToast.js";
 import { Button } from "~/Button/index.js";

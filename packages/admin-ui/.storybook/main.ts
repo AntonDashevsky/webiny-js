@@ -16,30 +16,39 @@ const config: StorybookConfig = {
         "../src/**/*.mdx",
         "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
     ],
+
     staticDirs: ["../assets"],
+
     addons: [
         getAbsolutePath("@storybook/addon-a11y"),
-        {
-            name: "@storybook/addon-essentials",
-            options: {
-                controls: true,
-                code: true
-            }
-        }
+        getAbsolutePath("@storybook/addon-webpack5-compiler-babel"),
+        getAbsolutePath("@storybook/addon-docs")
     ],
+
     framework: {
         name: getAbsolutePath("@storybook/react-webpack5"),
         options: {}
     },
+
     core: {
         disableTelemetry: true,
         disableWhatsNewNotifications: true
     },
+
     webpackFinal: async config => {
+        const { default: tailwindConfig } = await import("../tailwind.config.js");
+
         config.resolve = config.resolve || {};
         config.resolve.alias = {
             ...config.resolve.alias,
             "~": path.resolve(__dirname, "../src")
+        };
+
+        // We use explicit `.js` imports, and webpack looks for that extension literally.
+        // We need to instruct it to try resolving other extensions.
+        config.resolve.extensionAlias = {
+            ".js": [".ts", ".tsx", ".js"],
+            ...config.resolve.extensionAlias
         };
 
         // Add custom style handling
@@ -57,11 +66,7 @@ const config: StorybookConfig = {
                     loader: "postcss-loader",
                     options: {
                         postcssOptions: {
-                            plugins: [
-                                tailwindcss({
-                                    config: path.join(__dirname, "../tailwind.config.js")
-                                })
-                            ]
+                            plugins: [tailwindcss(tailwindConfig)]
                         }
                     }
                 },
@@ -112,6 +117,10 @@ const config: StorybookConfig = {
         });
 
         return config;
+    },
+
+    features: {
+        controls: true
     }
 };
 

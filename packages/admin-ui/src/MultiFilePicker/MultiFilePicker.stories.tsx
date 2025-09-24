@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { type FileItemDto, MultiFilePicker } from "~/MultiFilePicker/index.js";
 import { Providers } from "~/Providers/index.js";
 

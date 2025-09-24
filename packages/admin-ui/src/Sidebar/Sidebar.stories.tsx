@@ -1,6 +1,6 @@
 import React from "react";
 import { createBrowserHistory } from "history";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Router, Route, RouteContent, useRoute, useRouter, ReactRoute } from "@webiny/react-router";
 import { ReactComponent as AuditLogsIcon } from "@webiny/icons/assignment.svg";
 import { ReactComponent as FormBuilderIcon } from "@webiny/icons/check_box.svg";

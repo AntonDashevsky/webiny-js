@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ReactComponent as MoreVertical } from "@webiny/icons/more_vert.svg";
 import { Card } from "./Card.js";
 import { Button, IconButton } from "~/Button/index.js";
