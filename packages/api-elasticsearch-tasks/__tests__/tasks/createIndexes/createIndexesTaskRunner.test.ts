@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, afterEach, describe, expect, it } from "vitest";
 import { Manager } from "~/tasks/Manager";
 import { createContextMock } from "~tests/mocks/context";
 import { createTaskManagerStoreMock } from "~tests/mocks/store";
