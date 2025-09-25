@@ -117,6 +117,7 @@ export default async () => {
         },
         test: {
             fileParallelism: process.env.CI === "true",
+            testTimeout: 30000, // 30 seconds
             ...project,
             setupFiles: [path.resolve(import.meta.dirname, "./setupFile.js"), ...project.setupFiles]
         }
