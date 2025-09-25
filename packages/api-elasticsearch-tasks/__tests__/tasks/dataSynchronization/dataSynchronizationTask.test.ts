@@ -1,11 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { createDataSynchronization, DATA_SYNCHRONIZATION_TASK } from "~/tasks";
 import { TaskDefinitionPlugin, TaskResponseStatus } from "@webiny/tasks";
 import { createRunner } from "@webiny/project-utils/testing/tasks";
 import { useHandler } from "~tests/helpers/useHandler";
 import type { IDataSynchronizationInput, IFactories } from "~/tasks/dataSynchronization/types";
 
-jest.mock("~/tasks/dataSynchronization/createFactories", () => {
+vi.mock("~/tasks/dataSynchronization/createFactories", () => {
     return {
         createFactories: (): IFactories => {
             return {
