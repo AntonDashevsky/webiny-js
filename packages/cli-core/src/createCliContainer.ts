@@ -45,7 +45,7 @@ import {
     LoadEnvVarsService,
     UiService
 } from "~/abstractions/index.js";
-import { GracefulError } from "~/utils/GracefulError.js";
+import { GracefulError } from "@webiny/project";
 import {
     commandsWithGracefulErrorHandling,
     deployCommandWithTelemetry

@@ -1,6 +1,6 @@
 import { createDecorator } from "@webiny/di-container";
 import { Command, ErrorHandler } from "~/abstractions/index.js";
-import { GracefulError } from "~/utils/GracefulError.js";
+import { GracefulError } from "@webiny/project";
 
 export class CommandsWithGracefulErrorHandling<TParams> implements Command.Interface<TParams> {
     constructor(

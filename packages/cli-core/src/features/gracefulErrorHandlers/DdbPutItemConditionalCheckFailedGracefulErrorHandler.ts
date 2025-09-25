@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { ErrorHandler } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
-import { GracefulError } from "~/utils/GracefulError.js";
+import { GracefulError } from "@webiny/project";
 
 const MATCH_STRING = "ConditionalCheckFailedException: The conditional request failed";
 const LEARN_MORE_URL = "https://webiny.link/deployment-ddb-conditional-check-failed";

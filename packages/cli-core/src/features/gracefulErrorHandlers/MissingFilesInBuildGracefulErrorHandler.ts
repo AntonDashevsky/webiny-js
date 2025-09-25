@@ -2,7 +2,7 @@ import { createImplementation } from "@webiny/di-container";
 import chalk from "chalk";
 import { ErrorHandler } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
-import { GracefulError } from "~/utils/GracefulError.js";
+import { GracefulError } from "@webiny/project";
 
 const MATCH_STRING = "failed to compute archive hash for";
 
