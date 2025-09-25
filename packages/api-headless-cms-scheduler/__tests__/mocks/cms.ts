@@ -1,3 +1,4 @@
+import { vi } from "vitest";
 import type { ScheduleExecutorCms } from "~/scheduler/ScheduleExecutor.js";
 import type { ScheduleFetcherCms } from "~/scheduler/ScheduleFetcher.js";
 
