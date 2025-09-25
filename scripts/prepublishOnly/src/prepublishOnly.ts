@@ -20,7 +20,7 @@ class FileLocker {
     async lockDependencies() {
         console.log(`Lock deps in ${blueBright(this.maskRoot(this.file))}`);
         const lockPackageJson = await loadJson<PackageJson>(this.file);
-        const deps = ["dependencies", "devDependencies"] as const;
+        const deps = ["dependencies", "devDependencies", "peerDependencies"] as const;
 
         for (const depKey of deps) {
             const dependencies = lockPackageJson[depKey];
