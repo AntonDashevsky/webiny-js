@@ -3,7 +3,7 @@
   "vitest": {
     "storageOps": ["ddb", "ddb-es,ddb", "ddb-os,ddb"],
     "sharding": {
-      "shardsCount": 3
+      "shardsCount": 6
     }
   }
 }
