@@ -287,17 +287,25 @@ jobs:
           ${{
           fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
           test
-          packages/api-aco"},{"id":"e64071ee36085e2f5d35c37f6d64fd76","title":"api-file-manager","cmd":"yarn
+          packages/api-aco"},{"id":"9266a03ffeb1a10f0ae8bc0f06767ec0","title":"api-audit-logs","cmd":"yarn
+          test
+          packages/api-audit-logs"},{"id":"e64071ee36085e2f5d35c37f6d64fd76","title":"api-file-manager","cmd":"yarn
           test
           packages/api-file-manager"},{"id":"1b0a810a4c0d6607a4565c44344fc12c","title":"api-file-manager-aco","cmd":"yarn
           test
-          packages/api-file-manager-aco"},{"id":"21af2b0228175c07ff0c1c8072999d71","title":"api-headless-cms
-          (1/3)","cmd":"yarn test packages/api-headless-cms
-          --shard=1/3"},{"id":"dc5ff1e2d36cda492f66b67038fcfc4d","title":"api-headless-cms
-          (2/3)","cmd":"yarn test packages/api-headless-cms
-          --shard=2/3"},{"id":"be50144aeeba52975f0e01dcb9b8d2dc","title":"api-headless-cms
-          (3/3)","cmd":"yarn test packages/api-headless-cms
-          --shard=3/3"},{"id":"50b1b1fc31837b01be1749acb298eddc","title":"api-headless-cms-aco","cmd":"yarn
+          packages/api-file-manager-aco"},{"id":"142235c097c9a8f41c6a64c0ddf04ce3","title":"api-headless-cms
+          (1/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=1/6"},{"id":"f4de974d00ad799f673cbc2d12ba2364","title":"api-headless-cms
+          (2/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=2/6"},{"id":"65967db8dc98556815c3e8ec90873406","title":"api-headless-cms
+          (3/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=3/6"},{"id":"c3a9b8be2a2bd1a37d3b57d542eba0f1","title":"api-headless-cms
+          (4/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=4/6"},{"id":"385e41cb7dc91b74f0d6afb4526cc774","title":"api-headless-cms
+          (5/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=5/6"},{"id":"9d53b85e059c5398cb1820c2df4bf66d","title":"api-headless-cms
+          (6/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=6/6"},{"id":"50b1b1fc31837b01be1749acb298eddc","title":"api-headless-cms-aco","cmd":"yarn
           test
           packages/api-headless-cms-aco"},{"id":"3f3d2ee1e176537baa8269f420c4f94b","title":"api-headless-cms-bulk-actions","cmd":"yarn
           test
@@ -365,7 +373,9 @@ jobs:
           ${{
           fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
           test
-          packages/api-aco"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
+          packages/api-aco"},{"id":"9266a03ffeb1a10f0ae8bc0f06767ec0","title":"api-audit-logs","cmd":"yarn
+          test
+          packages/api-audit-logs"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
           test
           packages/api-dynamodb-to-elasticsearch"},{"id":"5d3d08a906ca5afee502989a245c0289","title":"api-elasticsearch","cmd":"yarn
           test
@@ -375,13 +385,19 @@ jobs:
           test
           packages/api-file-manager"},{"id":"1b0a810a4c0d6607a4565c44344fc12c","title":"api-file-manager-aco","cmd":"yarn
           test
-          packages/api-file-manager-aco"},{"id":"21af2b0228175c07ff0c1c8072999d71","title":"api-headless-cms
-          (1/3)","cmd":"yarn test packages/api-headless-cms
-          --shard=1/3"},{"id":"dc5ff1e2d36cda492f66b67038fcfc4d","title":"api-headless-cms
-          (2/3)","cmd":"yarn test packages/api-headless-cms
-          --shard=2/3"},{"id":"be50144aeeba52975f0e01dcb9b8d2dc","title":"api-headless-cms
-          (3/3)","cmd":"yarn test packages/api-headless-cms
-          --shard=3/3"},{"id":"50b1b1fc31837b01be1749acb298eddc","title":"api-headless-cms-aco","cmd":"yarn
+          packages/api-file-manager-aco"},{"id":"142235c097c9a8f41c6a64c0ddf04ce3","title":"api-headless-cms
+          (1/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=1/6"},{"id":"f4de974d00ad799f673cbc2d12ba2364","title":"api-headless-cms
+          (2/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=2/6"},{"id":"65967db8dc98556815c3e8ec90873406","title":"api-headless-cms
+          (3/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=3/6"},{"id":"c3a9b8be2a2bd1a37d3b57d542eba0f1","title":"api-headless-cms
+          (4/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=4/6"},{"id":"385e41cb7dc91b74f0d6afb4526cc774","title":"api-headless-cms
+          (5/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=5/6"},{"id":"9d53b85e059c5398cb1820c2df4bf66d","title":"api-headless-cms
+          (6/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=6/6"},{"id":"50b1b1fc31837b01be1749acb298eddc","title":"api-headless-cms-aco","cmd":"yarn
           test
           packages/api-headless-cms-aco"},{"id":"3f3d2ee1e176537baa8269f420c4f94b","title":"api-headless-cms-bulk-actions","cmd":"yarn
           test
@@ -405,7 +421,7 @@ jobs:
       WEBINY_STORAGE: ddb-es,ddb
       AWS_ELASTIC_SEARCH_DOMAIN_NAME: ${{ secrets.AWS_ELASTIC_SEARCH_DOMAIN_NAME }}
       ELASTIC_SEARCH_ENDPOINT: ${{ secrets.ELASTIC_SEARCH_ENDPOINT }}
-      ELASTIC_SEARCH_INDEX_PREFIX: ${{ matrix.package.id }}
+      ELASTIC_SEARCH_INDEX_PREFIX: ${{ matrix.testCommand.id }}
     steps:
       - uses: actions/setup-node@v4
         with:
@@ -453,7 +469,9 @@ jobs:
           ${{
           fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
           test
-          packages/api-aco"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
+          packages/api-aco"},{"id":"9266a03ffeb1a10f0ae8bc0f06767ec0","title":"api-audit-logs","cmd":"yarn
+          test
+          packages/api-audit-logs"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
           test
           packages/api-dynamodb-to-elasticsearch"},{"id":"5d3d08a906ca5afee502989a245c0289","title":"api-elasticsearch","cmd":"yarn
           test
@@ -463,13 +481,19 @@ jobs:
           test
           packages/api-file-manager"},{"id":"1b0a810a4c0d6607a4565c44344fc12c","title":"api-file-manager-aco","cmd":"yarn
           test
-          packages/api-file-manager-aco"},{"id":"21af2b0228175c07ff0c1c8072999d71","title":"api-headless-cms
-          (1/3)","cmd":"yarn test packages/api-headless-cms
-          --shard=1/3"},{"id":"dc5ff1e2d36cda492f66b67038fcfc4d","title":"api-headless-cms
-          (2/3)","cmd":"yarn test packages/api-headless-cms
-          --shard=2/3"},{"id":"be50144aeeba52975f0e01dcb9b8d2dc","title":"api-headless-cms
-          (3/3)","cmd":"yarn test packages/api-headless-cms
-          --shard=3/3"},{"id":"50b1b1fc31837b01be1749acb298eddc","title":"api-headless-cms-aco","cmd":"yarn
+          packages/api-file-manager-aco"},{"id":"142235c097c9a8f41c6a64c0ddf04ce3","title":"api-headless-cms
+          (1/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=1/6"},{"id":"f4de974d00ad799f673cbc2d12ba2364","title":"api-headless-cms
+          (2/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=2/6"},{"id":"65967db8dc98556815c3e8ec90873406","title":"api-headless-cms
+          (3/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=3/6"},{"id":"c3a9b8be2a2bd1a37d3b57d542eba0f1","title":"api-headless-cms
+          (4/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=4/6"},{"id":"385e41cb7dc91b74f0d6afb4526cc774","title":"api-headless-cms
+          (5/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=5/6"},{"id":"9d53b85e059c5398cb1820c2df4bf66d","title":"api-headless-cms
+          (6/6)","cmd":"yarn test packages/api-headless-cms
+          --shard=6/6"},{"id":"50b1b1fc31837b01be1749acb298eddc","title":"api-headless-cms-aco","cmd":"yarn
           test
           packages/api-headless-cms-aco"},{"id":"3f3d2ee1e176537baa8269f420c4f94b","title":"api-headless-cms-bulk-actions","cmd":"yarn
           test
@@ -493,7 +517,7 @@ jobs:
       WEBINY_STORAGE: ddb-os,ddb
       AWS_ELASTIC_SEARCH_DOMAIN_NAME: ${{ secrets.AWS_OPEN_SEARCH_DOMAIN_NAME }}
       ELASTIC_SEARCH_ENDPOINT: ${{ secrets.OPEN_SEARCH_ENDPOINT }}
-      ELASTIC_SEARCH_INDEX_PREFIX: ${{ matrix.package.id }}
+      ELASTIC_SEARCH_INDEX_PREFIX: ${{ matrix.testCommand.id }}
     steps:
       - uses: actions/setup-node@v4
         with:
