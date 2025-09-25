@@ -62,9 +62,6 @@
     "url-loader": "^4.1.1",
     "utf-8-validate": "^6.0.5"
   },
-  "peerDependencies": {
-    "@webiny/project": "0.0.0"
-  },
   "license": "MIT",
   "adio": {
     "ignore": {
