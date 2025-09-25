@@ -41,7 +41,7 @@ class TestablePackage {
 
     hasTests() {
         const hasConfig =
-            fs.existsSync(path.join(this.packageFolderPath, "vitest.config.js")) ||
+            fs.existsSync(path.join(this.packageFolderPath, "vitest.config.ts")) ||
             fs.existsSync(path.join(this.packageFolderPath, "vitest.setup.ts"));
 
         if (!hasConfig) {
