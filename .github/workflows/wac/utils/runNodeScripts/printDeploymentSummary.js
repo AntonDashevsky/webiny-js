@@ -5,7 +5,7 @@ const args = process.argv.slice(2); // Removes the first two elements
 const [cwd] = args;
 
 const adminStackOutput = await getStackOutput({
-    folder: "apps/admin",
+    folder: "admin",
     env: "dev",
     cwd
 });

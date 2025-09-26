@@ -274,13 +274,13 @@ jobs:
             !new-webiny-project/.yarn/cache/**/*
       - name: Deploy Core
         working-directory: new-webiny-project
-        run: yarn webiny deploy apps/core --env dev
+        run: yarn webiny deploy core --env dev
       - name: Deploy API
         working-directory: new-webiny-project
-        run: yarn webiny deploy apps/api --env dev
+        run: yarn webiny deploy api --env dev
       - name: Deploy Admin Area
         working-directory: new-webiny-project
-        run: yarn webiny deploy apps/admin --env dev
+        run: yarn webiny deploy admin --env dev
       - name: Deployment Summary
         run: >-
           node
@@ -506,13 +506,13 @@ jobs:
             !new-webiny-project/.yarn/cache/**/*
       - name: Deploy Core
         working-directory: new-webiny-project
-        run: yarn webiny deploy apps/core --env dev
+        run: yarn webiny deploy core --env dev
       - name: Deploy API
         working-directory: new-webiny-project
-        run: yarn webiny deploy apps/api --env dev
+        run: yarn webiny deploy api --env dev
       - name: Deploy Admin Area
         working-directory: new-webiny-project
-        run: yarn webiny deploy apps/admin --env dev
+        run: yarn webiny deploy admin --env dev
       - name: Deployment Summary
         run: >-
           node
@@ -743,13 +743,13 @@ jobs:
             !new-webiny-project/.yarn/cache/**/*
       - name: Deploy Core
         working-directory: new-webiny-project
-        run: yarn webiny deploy apps/core --env dev
+        run: yarn webiny deploy core --env dev
       - name: Deploy API
         working-directory: new-webiny-project
-        run: yarn webiny deploy apps/api --env dev
+        run: yarn webiny deploy api --env dev
       - name: Deploy Admin Area
         working-directory: new-webiny-project
-        run: yarn webiny deploy apps/admin --env dev
+        run: yarn webiny deploy admin --env dev
       - name: Deployment Summary
         run: >-
           node
