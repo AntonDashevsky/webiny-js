@@ -11,7 +11,6 @@ export const updatePackageJson = (cliArgs: CliParams) => {
     const packageJsonPath = path.join(projectRootPath, "package.json");
     const packageJson = loadJsonFile.sync<any>(packageJsonPath);
 
-    packageJson.keywords = ["aws+dynamodb"];
     packageJson.dependencies = {
         ...packageJson.dependencies,
         "@webiny/project-aws": "latest",
