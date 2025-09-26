@@ -285,7 +285,9 @@ jobs:
           ${{
           fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
           test
-          packages/api-aco"},{"id":"e64071ee36085e2f5d35c37f6d64fd76","title":"api-file-manager","cmd":"yarn
+          packages/api-aco"},{"id":"9266a03ffeb1a10f0ae8bc0f06767ec0","title":"api-audit-logs","cmd":"yarn
+          test
+          packages/api-audit-logs"},{"id":"e64071ee36085e2f5d35c37f6d64fd76","title":"api-file-manager","cmd":"yarn
           test
           packages/api-file-manager"},{"id":"1b0a810a4c0d6607a4565c44344fc12c","title":"api-file-manager-aco","cmd":"yarn
           test
@@ -369,7 +371,9 @@ jobs:
           ${{
           fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
           test
-          packages/api-aco"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
+          packages/api-aco"},{"id":"9266a03ffeb1a10f0ae8bc0f06767ec0","title":"api-audit-logs","cmd":"yarn
+          test
+          packages/api-audit-logs"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
           test
           packages/api-dynamodb-to-elasticsearch"},{"id":"5d3d08a906ca5afee502989a245c0289","title":"api-elasticsearch","cmd":"yarn
           test
@@ -463,7 +467,9 @@ jobs:
           ${{
           fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
           test
-          packages/api-aco"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
+          packages/api-aco"},{"id":"9266a03ffeb1a10f0ae8bc0f06767ec0","title":"api-audit-logs","cmd":"yarn
+          test
+          packages/api-audit-logs"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
           test
           packages/api-dynamodb-to-elasticsearch"},{"id":"5d3d08a906ca5afee502989a245c0289","title":"api-elasticsearch","cmd":"yarn
           test
