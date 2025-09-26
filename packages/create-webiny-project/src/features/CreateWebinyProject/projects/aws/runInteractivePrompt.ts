@@ -31,8 +31,8 @@ export const runInteractivePrompt = async () => {
         {
             type: "list",
             name: "storageOps",
-            default: "ddb-os,ddb",
-            message: `Please choose the database setup you wish to use with your project (cannot be changed later):`,
+            default: "ddb",
+            message: `Please choose the database setup you wish to use with your project:`,
             choices: Object.values(STORAGE_OPTIONS)
         }
     ]);
