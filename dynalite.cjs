@@ -81,6 +81,47 @@ const createDynaliteTables = (options = {}) => {
           amount: 5
         }),
         data: options.data || []
+      },
+      {
+        TableName: process.env.DB_TABLE_AUDIT_LOGS,
+        KeySchema: [
+          { AttributeName: "PK", KeyType: "HASH" },
+          { AttributeName: "SK", KeyType: "RANGE" }
+        ],
+        AttributeDefinitions: [
+          { AttributeName: "PK", AttributeType: "S" },
+          { AttributeName: "SK", AttributeType: "S" },
+          { AttributeName: `GSI1_PK`, AttributeType: "S" },
+          { AttributeName: `GSI1_SK`, AttributeType: "N" },
+          { AttributeName: `GSI2_PK`, AttributeType: "S" },
+          { AttributeName: `GSI2_SK`, AttributeType: "N" },
+          { AttributeName: `GSI3_PK`, AttributeType: "S" },
+          { AttributeName: `GSI3_SK`, AttributeType: "N" },
+          { AttributeName: `GSI4_PK`, AttributeType: "S" },
+          { AttributeName: `GSI4_SK`, AttributeType: "N" },
+          { AttributeName: `GSI5_PK`, AttributeType: "S" },
+          { AttributeName: `GSI5_SK`, AttributeType: "N" },
+          { AttributeName: `GSI6_PK`, AttributeType: "S" },
+          { AttributeName: `GSI6_SK`, AttributeType: "N" },
+          { AttributeName: `GSI7_PK`, AttributeType: "S" },
+          { AttributeName: `GSI7_SK`, AttributeType: "N" },
+          { AttributeName: `GSI8_PK`, AttributeType: "S" },
+          { AttributeName: `GSI8_SK`, AttributeType: "N" },
+          { AttributeName: `GSI9_PK`, AttributeType: "S" },
+          { AttributeName: `GSI9_SK`, AttributeType: "N" },
+          { AttributeName: `GSI10_PK`, AttributeType: "S" },
+          { AttributeName: `GSI10_SK`, AttributeType: "N" }
+        ],
+        ProvisionedThroughput: { ReadCapacityUnits: 1, WriteCapacityUnits: 1 },
+        GlobalSecondaryIndexes: createGlobalSecondaryIndexes({
+          amount: 10,
+          projectionType: "KEYS_ONLY"
+        }),
+        data: options.data || [],
+        ttl: {
+          attributeName: "expiresAt",
+          enabled: true
+        }
       }
     ],
     basePort: 8000
