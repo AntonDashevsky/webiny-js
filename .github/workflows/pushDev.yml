@@ -210,7 +210,9 @@ jobs:
           test
           packages/app-file-manager"},{"id":"03ff437db579a4da42db0917f3b457fc","title":"app-headless-cms","cmd":"yarn
           test
-          packages/app-headless-cms"},{"id":"78ba8421591c41fd878fcc6651a55198","title":"app-website-builder","cmd":"yarn
+          packages/app-headless-cms"},{"id":"7d5680643cbe08f2e6c7f72d37b9bb83","title":"app-trash-bin","cmd":"yarn
+          test
+          packages/app-trash-bin"},{"id":"78ba8421591c41fd878fcc6651a55198","title":"app-website-builder","cmd":"yarn
           test
           packages/app-website-builder"},{"id":"8ef5850d60021a89ddd58f25526f7eb5","title":"data-migration","cmd":"yarn
           test
