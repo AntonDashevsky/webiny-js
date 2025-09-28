@@ -1,23 +1,29 @@
 import React from "react";
+import { createPathResolver } from "~/utils/createPathResolver.js";
 import {
     AdminBeforeBuild,
     AdminBeforeWatch,
     ApiAfterBuild,
+    ApiBeforeDeploy,
+    ApiBeforeWatch,
     BeforeBuild,
     BeforeWatch
 } from "~/extensions/index.js";
-import { createPathResolver } from "~/utils/createPathResolver.js";
 
-const p = createPathResolver(import.meta.dirname);
+const p = createPathResolver(import.meta.dirname, "Project");
 
 export const Project = () => {
     return (
         <>
-            <AdminBeforeBuild src={p("Project/SetAdminAppEnvVarsBeforeBuild.js")} />
-            <AdminBeforeWatch src={p("Project/SetAdminAppEnvVarsBeforeWatch.js")} />
-            <ApiAfterBuild src={p("Project/WcpInjectTelemetryClientAfterBuild.js")} />
-            <BeforeBuild src={p("Project/WcpSetEnvVarsBeforeBuild.js")} />
-            <BeforeWatch src={p("Project/WcpSetEnvVarsBeforeWatch.js")} />
+            <AdminBeforeBuild src={p("SetAdminAppEnvVarsBeforeBuild.js")} />
+            <AdminBeforeWatch src={p("SetAdminAppEnvVarsBeforeWatch.js")} />
+            <ApiAfterBuild src={p("WcpInjectTelemetryClientAfterBuild.js")} />
+            <ApiBeforeDeploy src={p("EnsureCoreDeployedBeforeApiDeploy.js")} />
+            <ApiBeforeWatch src={p("EnsureApiDeployedBeforeWatch.js")} />
+            <AdminBeforeBuild src={p("EnsureApiDeployedBeforeAdminBuild.js")} />
+            <AdminBeforeWatch src={p("EnsureApiDeployedBeforeAdminWatch.js")} />
+            <BeforeBuild src={p("WcpSetEnvVarsBeforeBuild.js")} />
+            <BeforeWatch src={p("WcpSetEnvVarsBeforeWatch.js")} />
         </>
     );
 };
