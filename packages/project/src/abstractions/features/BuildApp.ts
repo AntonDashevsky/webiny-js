@@ -2,7 +2,9 @@ import { Abstraction } from "@webiny/di-container";
 import { type IBaseAppParams } from "~/abstractions/types.js";
 import { type IPackagesBuilder } from "~/abstractions/models/index.js";
 
-export type IBuildAppParams = IBaseAppParams;
+export interface IBuildAppParams extends IBaseAppParams {
+    deploymentChecks?: boolean;
+}
 
 export type IBuildResult = IPackagesBuilder;
 
