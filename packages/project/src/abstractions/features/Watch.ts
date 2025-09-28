@@ -14,6 +14,7 @@ export interface IWatchWithAppParams extends IWatchNoAppParams {
     variant?: string;
     region?: string;
     allowProduction?: boolean;
+    deploymentChecks?: boolean;
 
     // Local AWS Lambda development (https://webiny.link/local-aws-lambda-development)
     inspect?: boolean;
@@ -36,6 +37,8 @@ export const Watch = new Abstraction<IWatch>("Watch");
 export namespace Watch {
     export type Interface = IWatch;
 
+    export type WatchNoAppParams = IWatchNoAppParams;
+    export type WatchWithAppParams = IWatchWithAppParams;
     export type Params = IWatchParams;
     export type Result = IWatchResult;
 }
