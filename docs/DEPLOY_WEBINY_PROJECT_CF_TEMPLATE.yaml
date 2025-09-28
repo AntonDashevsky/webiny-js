@@ -171,6 +171,7 @@ Resources:
                   - dynamodb:ListTagsOfResource
                   - dynamodb:TagResource
                   - dynamodb:UntagResource
+                  - dynamodb:UpdateTimeToLive
                   - dynamodb:PutItem
                   - dynamodb:GetItem
                   - dynamodb:DeleteItem
