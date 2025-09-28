@@ -7,6 +7,9 @@ import { createPrefixer } from "./createPrefixer.js";
 
 export type IWatchCommandParams = IBaseAppParams;
 
+const BASE_OPTIONS_GROUP = "Base Options:";
+const LOCAL_AWS_LAMBDA_DEVELOPMENT_GROUP = "Local AWS Lambda Development Options:";
+
 export class WatchCommand implements Command.Interface<IWatchCommandParams> {
     constructor(
         private getProjectSdkService: GetProjectSdkService.Interface,
@@ -39,7 +42,8 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                 {
                     name: "env",
                     description: "Environment name (dev, prod, etc.)",
-                    type: "string"
+                    type: "string",
+                    group: BASE_OPTIONS_GROUP
                 },
                 {
                     name: "variant",
@@ -51,7 +55,8 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                             throw isValid.error;
                         }
                         return true;
-                    }
+                    },
+                    group: BASE_OPTIONS_GROUP
                 },
                 {
                     name: "region",
@@ -63,41 +68,46 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                             throw isValid.error;
                         }
                         return true;
-                    }
+                    },
+                    group: BASE_OPTIONS_GROUP
                 },
                 {
                     name: "package",
                     alias: "p",
                     description: `One or more packages that will be watched for code changes`,
-                    type: "string"
+                    type: "string",
+                    group: BASE_OPTIONS_GROUP
                 },
                 {
                     name: "function",
                     alias: "f",
                     description:
-                        "One or more functions that will invoked locally (used with local AWS Lambda development)",
-                    type: "string"
-                },
-                {
-                    name: "inspect",
-                    alias: "i",
-                    description:
-                        "[EXPERIMENTAL] Enable Node debugger (used with local AWS Lambda development)",
-                    type: "string"
+                        "Specify one or more AWS Lambda functions to watch (comma-separated)",
+                    type: "string",
+                    group: LOCAL_AWS_LAMBDA_DEVELOPMENT_GROUP
                 },
                 {
                     name: "increase-timeout",
                     default: 120,
                     description:
-                        "Increase AWS Lambda function timeout (passed as number of seconds, used with local AWS Lambda development)",
-                    type: "number"
+                        "Increase AWS Lambda function timeout (passed as number of seconds)",
+                    type: "number",
+                    group: LOCAL_AWS_LAMBDA_DEVELOPMENT_GROUP
                 },
                 {
                     name: "increase-handshake-timeout",
                     default: 5,
                     description:
-                        "Increase timeout for the initial handshake between a single AWS Lambda invocation and local code execution (passed as number of seconds, used with local AWS Lambda development)",
-                    type: "number"
+                        "Increase timeout for the initial handshake between a single AWS Lambda invocation and local code execution (passed as number of seconds)",
+                    type: "number",
+                    group: LOCAL_AWS_LAMBDA_DEVELOPMENT_GROUP
+                },
+                {
+                    name: "inspect",
+                    alias: "i",
+                    description: "[EXPERIMENTAL] Enable Node debugger",
+                    type: "string",
+                    group: LOCAL_AWS_LAMBDA_DEVELOPMENT_GROUP
                 },
                 {
                     name: "allow-production",
@@ -105,6 +115,12 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                     description:
                         "Enables running the watch command against environments marked as production environments (not recommended).",
                     type: "number"
+                },
+                {
+                    name: "deployment-checks",
+                    default: true,
+                    description: `Enable or disable deployment checks. For example, if you are trying to watch the API app, but the 'api' app is not deployed yet, you will get a warning and the process will stop.`,
+                    type: "boolean"
                 }
             ],
             handler: async (params: IWatchCommandParams) => {
