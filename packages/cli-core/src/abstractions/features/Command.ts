@@ -13,6 +13,7 @@ export interface ICommandOptionDefinition<TCommandParams> {
     name: string;
     description: string;
     type: "boolean" | "number" | "string";
+    group?: string;
     required?: boolean;
     alias?: string;
     default?: any;
