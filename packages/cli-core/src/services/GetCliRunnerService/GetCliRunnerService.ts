@@ -161,6 +161,10 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
                             demandOption: required
                         });
 
+                        if (option.group) {
+                            yargsOption.group(option.name, option.group);
+                        }
+
                         if (validation) {
                             yargsOption.check(validation);
                         }
