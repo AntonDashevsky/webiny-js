@@ -3,7 +3,7 @@ import { createJob } from "./jobs/index.js";
 import {
     NODE_VERSION,
     BUILD_PACKAGES_RUNNER,
-    listTestablePackages,
+    listVitestPackages,
     AWS_REGION,
     runNodeScript,
     addToOutputs
@@ -47,7 +47,7 @@ const createJestTestsJobs = (storageOps?: StorageOps) => {
         }
     }
 
-    const packagesWithJestTests = listTestablePackages(storageOps);
+    const packagesWithJestTests = listVitestPackages(storageOps);
 
     const constantsJob: NormalJob = createJob({
         needs: ["constants", "build"],
