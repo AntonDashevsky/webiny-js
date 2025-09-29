@@ -53,7 +53,7 @@ export class DefaultUiService implements UiService.Interface {
     }
 
     debug(text: string, ...args: any[]) {
-        this.typedColorizedText("error", text, ...args);
+        this.typedColorizedText("debug", text, ...args);
     }
 
     private typedColorizedText(type: keyof typeof LOG_COLORS, text: string, ...args: any[]) {
