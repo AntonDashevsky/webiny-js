@@ -13,7 +13,7 @@ import {
     NODE_OPTIONS,
     NODE_VERSION
 } from "./utils/index.js";
-import { createJob, createValidateWorkflowsJob } from "./jobs/index.js";
+import { createJob } from "./jobs/index.js";
 
 // Will print "next" or "dev". Important for caching (via actions/cache).
 const DIR_WEBINY_JS = "${{ needs.baseBranch.outputs.base-branch }}";
