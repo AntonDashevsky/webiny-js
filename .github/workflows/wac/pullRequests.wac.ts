@@ -125,7 +125,6 @@ export const pullRequests = createWorkflow({
         "cancel-in-progress": true
     },
     jobs: {
-        // validateWorkflows: createValidateWorkflowsJob(),
         validateCommits: createJob({
             name: "Validate commit messages",
             if: "github.base_ref != 'dev'",

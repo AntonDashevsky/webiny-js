@@ -15,7 +15,7 @@ import {
     AWS_REGION,
     runNodeScript
 } from "./utils/index.js";
-import { createJob, createValidateWorkflowsJob } from "./jobs/index.js";
+import { createJob } from "./jobs/index.js";
 
 // Will print "next" or "dev". Important for caching (via actions/cache).
 const DIR_WEBINY_JS = "${{ needs.baseBranch.outputs.base-branch }}";
@@ -260,7 +260,6 @@ export const pullRequestsCommandCypress = createWorkflow({
                 }
             ]
         }),
-        validateWorkflows: createValidateWorkflowsJob({ needs: "checkComment" }),
         baseBranch: createJob({
             needs: "checkComment",
             name: "Get base branch",
