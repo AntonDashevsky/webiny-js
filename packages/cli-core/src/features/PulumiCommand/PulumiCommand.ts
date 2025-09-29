@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
-import { HandledError } from "~/utils/HandledError.js";
+import { ManuallyReportedError } from "~/utils/ManuallyReportedError.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
 
 export interface IPulumiCommandParams extends IBaseAppParams {
@@ -83,7 +83,7 @@ export class PulumiCommand implements Command.Interface<IPulumiCommandParams> {
                     pulumiProcess.stdout?.pipe(this.stdioService.getStdout());
                     pulumiProcess.stderr?.pipe(this.stdioService.getStderr());
                 } catch (error) {
-                    throw HandledError.from(error);
+                    throw ManuallyReportedError.from(error);
                 }
             }
         };
