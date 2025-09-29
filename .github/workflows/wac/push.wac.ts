@@ -19,6 +19,10 @@ import {
 import { AbstractStorageOps } from "./storageOps/AbstractStorageOps.js";
 import { DdbStorageOps, DdbEsStorageOps, DdbOsStorageOps } from "./storageOps/index.js";
 
+const ddbStorageOps = new DdbStorageOps();
+const ddbEsStorageOps = new DdbEsStorageOps();
+const ddbOsStorageOps = new DdbOsStorageOps();
+
 const createPushWorkflow = (branchName: string) => {
     const ucFirstBranchName = branchName.charAt(0).toUpperCase() + branchName.slice(1);
 
@@ -272,10 +276,6 @@ const createPushWorkflow = (branchName: string) => {
             ]
         });
     };
-
-    const ddbStorageOps = new DdbStorageOps();
-    const ddbEsStorageOps = new DdbEsStorageOps();
-    const ddbOsStorageOps = new DdbOsStorageOps();
 
     const workflow = createWorkflow({
         name: `${ucFirstBranchName} Branch - Push`,
