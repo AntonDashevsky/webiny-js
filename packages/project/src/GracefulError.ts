@@ -2,17 +2,9 @@ import chalk from "chalk";
 import util from "util";
 
 export class GracefulError extends Error {
-    static from(cause: Error, ...message: string[]): GracefulError;
-    static from(...message: string[]): GracefulError;
-
-    static from(causeOrMessage: Error | string, ...message: string[]): GracefulError {
-        if (causeOrMessage instanceof Error) {
-            const formattedMessage = this.formatMessage(...message);
-            return new GracefulError(formattedMessage, { cause: causeOrMessage });
-        }
-
-        const formattedMessage = this.formatMessage(...[causeOrMessage, ...message]);
-        return new GracefulError(formattedMessage);
+    static from(cause: Error, ...message: string[]): GracefulError {
+        const formattedMessage = this.formatMessage(...message);
+        return new GracefulError(formattedMessage, { cause });
     }
 
     private static formatMessage(...message: string[]): string {
