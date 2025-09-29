@@ -16,7 +16,5 @@ export interface IAppModel {
         localPulumiStateFilesFolder: IPathModel;
     };
 
-    getConfig(): Promise<Record<string, any>>;
-
-    getPlugins(): Promise<Record<string, any>>;
+    getDisplayName(): string;
 }
