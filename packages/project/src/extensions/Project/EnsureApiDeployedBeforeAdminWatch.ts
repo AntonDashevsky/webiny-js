@@ -27,17 +27,17 @@ class EnsureApiDeployedBeforeAdminWatch implements AdminBeforeWatch.Interface {
         const apiAppName = "API";
         const adminAppName = "Admin";
         const cmd = `yarn webiny deploy api --env ${params.env}`;
-        ui.error(`Cannot watch the %s app before deploying %s.`, adminAppName, apiAppName);
+        ui.error(`Cannot watch %s before deploying %s.`, adminAppName, apiAppName);
 
         const message = [
-            `Before watching ${adminAppName} app, please`,
-            `deploy ${apiAppName} first by running: ${cmd}.`,
+            `Before watching %s, please`,
+            `build %s first by running: %s.`,
             `If you think this is a mistake, you can also try skipping`,
-            `the deployment checks by appending the ${NO_DEPLOYMENT_CHECKS_FLAG_NAME} flag.`,
+            `deployment checks by appending the %s flag.`,
             `Learn more: https://webiny.link/deployment-checks`
-        ];
+        ].join(" ");
 
-        throw new GracefulError(message.join(" "));
+        throw GracefulError.from(message, "Admin", "API", cmd, NO_DEPLOYMENT_CHECKS_FLAG_NAME);
     }
 }
 

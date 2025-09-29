@@ -25,17 +25,17 @@ class EnsureApiDeployedBeforeAdminBuild implements AdminBeforeBuild.Interface {
         const ui = this.uiService;
 
         const cmd = `yarn webiny deploy api --env ${params.env}`;
-        ui.error(`Cannot build the %s app before deploying %s.`, "Admin", "API");
+        ui.error(`Cannot build %s before deploying %s.`, "Admin", "API");
 
         const message = [
-            `Before building the Admin app, please`,
-            `build API first by running: ${cmd}.`,
+            `Before building %s, please`,
+            `build %s first by running: %s.`,
             `If you think this is a mistake, you can also try skipping`,
-            `API deployment check by appending the ${NO_DEPLOYMENT_CHECKS_FLAG_NAME} flag.`,
+            `deployment checks by appending the %s flag.`,
             `Learn more: https://webiny.link/deployment-checks`
-        ];
+        ].join(" ");
 
-        throw new GracefulError(message.join(" "));
+        throw GracefulError.from(message, "Admin", "API", cmd, NO_DEPLOYMENT_CHECKS_FLAG_NAME);
     }
 }
 

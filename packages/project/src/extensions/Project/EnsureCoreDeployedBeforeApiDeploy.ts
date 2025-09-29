@@ -25,17 +25,14 @@ class EnsureCoreDeployedBeforeApiDeploy implements ApiBeforeDeploy.Interface {
 
         const ui = this.uiService;
 
-        const coreAppName = "Core";
-        const apiAppName = "API";
-        const cmd = `yarn webiny deploy core --env ${env}${variantCmd}`;
-        ui.error(`Cannot deploy the %s app before deploying %s.`, apiAppName, coreAppName);
+        ui.error(`Cannot deploy %s before deploying %s.`, "API", "Core");
 
-        throw new GracefulError(
-            [
-                `Before deploying ${apiAppName} project application, please`,
-                `deploy ${coreAppName} first by running: ${cmd}.`
-            ].join(" ")
+        const message = [`Before deploying %s, please`, `deploy %s first by running: %s.`].join(
+            " "
         );
+
+        const cmd = `yarn webiny deploy core --env ${env}${variantCmd}`;
+        throw GracefulError.from(message, "API", "Core", cmd);
     }
 }
 

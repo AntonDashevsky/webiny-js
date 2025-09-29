@@ -25,17 +25,17 @@ class EnsureApiDeployedBeforeWatch implements ApiBeforeWatch.Interface {
         const ui = this.uiService;
 
         const cmd = `yarn webiny deploy api --env ${params.env}`;
-        ui.error(`Cannot watch the %s app before deploying it.`, "API");
+        ui.error(`Cannot watch %s before deploying it.`, "API");
 
         const message = [
-            `Before watching the API app, please`,
-            `deploy it first by running: ${cmd}.`,
+            `Before watching %s, please`,
+            `deploy it first by running: %s.`,
             `If you think this is a mistake, you can also try skipping`,
-            `the deployment checks by appending the ${NO_DEPLOYMENT_CHECKS_FLAG_NAME} flag.`,
+            `deployment checks by appending the %s flag.`,
             `Learn more: https://webiny.link/deployment-checks`
-        ];
+        ].join(" ");
 
-        throw new GracefulError(message.join(" "));
+        throw GracefulError.from(message, "API", cmd, NO_DEPLOYMENT_CHECKS_FLAG_NAME);
     }
 }
 
