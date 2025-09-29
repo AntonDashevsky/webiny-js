@@ -122,7 +122,31 @@ jobs:
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
-  vitestTestsNoStorage:
+  vitest-constants:
+    needs:
+      - build
+    name: Vitest (No storage) - Constants
+    outputs:
+      vitest-test-commands: ${{ steps.list-vitest-test-commands.outputs.vitest-test-commands }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          path: ${{ needs.baseBranch.outputs.base-branch }}
+      - id: list-vitest-test-commands
+        name: List Vitest Test Commands
+        working-directory: ${{ needs.baseBranch.outputs.base-branch }}
+        run: >-
+          echo "vitest-test-commands=$(node
+          .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
+          '{"storageOps":null}')" >> $GITHUB_OUTPUT
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  vitest-run:
     needs:
       - constants
       - build
@@ -164,7 +188,31 @@ jobs:
       - name: Run tests
         run: yarn test ${{ matrix.testCommand.cmd }}
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
-  vitestTestsDdb:
+  vitest-ddb-constants:
+    needs:
+      - build
+    name: Vitest (DDB) - Constants
+    outputs:
+      vitest-test-commands: ${{ steps.list-vitest-test-commands.outputs.vitest-test-commands }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          path: ${{ needs.baseBranch.outputs.base-branch }}
+      - id: list-vitest-test-commands
+        name: List Vitest Test Commands
+        working-directory: ${{ needs.baseBranch.outputs.base-branch }}
+        run: >-
+          echo "vitest-test-commands=$(node
+          .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
+          '{"storageOps":"ddb"}')" >> $GITHUB_OUTPUT
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  vitest-ddb-run:
     needs:
       - constants
       - build
@@ -206,7 +254,31 @@ jobs:
       - name: Run tests
         run: yarn test ${{ matrix.testCommand.cmd }}
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
-  vitestTestsDdbEs:
+  vitest-ddbEs-constants:
+    needs:
+      - build
+    name: Vitest (DDB+ES) - Constants
+    outputs:
+      vitest-test-commands: ${{ steps.list-vitest-test-commands.outputs.vitest-test-commands }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          path: ${{ needs.baseBranch.outputs.base-branch }}
+      - id: list-vitest-test-commands
+        name: List Vitest Test Commands
+        working-directory: ${{ needs.baseBranch.outputs.base-branch }}
+        run: >-
+          echo "vitest-test-commands=$(node
+          .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
+          '{"storageOps":"ddbEs"}')" >> $GITHUB_OUTPUT
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  vitest-ddbEs-run:
     needs:
       - constants
       - build
@@ -258,7 +330,31 @@ jobs:
         working-directory: ${{ needs.baseBranch.outputs.base-branch }}
     permissions:
       id-token: write
-  vitestTestsDdbOs:
+  vitest-ddbOs-constants:
+    needs:
+      - build
+    name: Vitest (DDB+OS) - Constants
+    outputs:
+      vitest-test-commands: ${{ steps.list-vitest-test-commands.outputs.vitest-test-commands }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          path: ${{ needs.baseBranch.outputs.base-branch }}
+      - id: list-vitest-test-commands
+        name: List Vitest Test Commands
+        working-directory: ${{ needs.baseBranch.outputs.base-branch }}
+        run: >-
+          echo "vitest-test-commands=$(node
+          .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
+          '{"storageOps":"ddbOs"}')" >> $GITHUB_OUTPUT
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  vitest-ddbOs-run:
     needs:
       - constants
       - build

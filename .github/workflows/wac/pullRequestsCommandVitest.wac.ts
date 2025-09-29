@@ -6,7 +6,13 @@ import {
     createYarnCacheSteps,
     withCommonParams
 } from "./steps/index.js";
-import { AWS_REGION, BUILD_PACKAGES_RUNNER, NODE_OPTIONS, NODE_VERSION } from "./utils/index.js";
+import {
+    AWS_REGION,
+    BUILD_PACKAGES_RUNNER,
+    NODE_OPTIONS,
+    NODE_VERSION,
+    runNodeScript
+} from "./utils/index.js";
 import { createJob } from "./jobs/index.js";
 import {
     DdbStorageOps,
@@ -38,6 +44,11 @@ const createCheckoutPrSteps = () =>
     ] as NonNullable<NormalJob["steps"]>;
 
 const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
+    const jobNames = {
+        constants: ["vitest", storageOps?.shortId, "constants"].filter(Boolean).join("-"),
+        tests: ["vitest", storageOps?.shortId, "run"].filter(Boolean).join("-")
+    };
+
     const env: Record<string, string> = { AWS_REGION };
 
     if (storageOps) {
@@ -56,31 +67,55 @@ const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
 
     const testCommands = [] as any[];
 
-    return createJob({
-        needs: ["constants", "build"],
-        name: "${{ matrix.testCommand.title }}",
-        strategy: {
-            "fail-fast": false,
-            matrix: {
-                os: ["ubuntu-latest"],
-                node: [NODE_VERSION],
-                testCommand: "${{ fromJson('" + JSON.stringify(testCommands) + "') }}"
-            }
-        },
-        "runs-on": "${{ matrix.os }}",
-        env,
-        awsAuth: storageOps && (storageOps.id === "ddb-es,ddb" || storageOps.id === "ddb-os,ddb"),
-        checkout: { path: DIR_WEBINY_JS },
-        steps: [
-            ...yarnCacheSteps,
-            ...runBuildCacheSteps,
-            ...installBuildSteps,
-            ...withCommonParams(
-                [{ name: "Run tests", run: "yarn test ${{ matrix.testCommand.cmd }}" }],
-                { "working-directory": DIR_WEBINY_JS }
-            )
-        ]
-    });
+    return {
+        [jobNames.constants]: createJob({
+            needs: ["build"],
+            name: `Vitest (${storageOps ? storageOps.displayName : "No storage"}) - Constants`,
+            checkout: { path: DIR_WEBINY_JS },
+            outputs: {
+                "vitest-test-commands":
+                    "${{ steps.list-vitest-test-commands.outputs.vitest-test-commands }}"
+            },
+            steps: [
+                {
+                    id: "list-vitest-test-commands",
+                    name: "List Vitest Test Commands",
+                    "working-directory": DIR_WEBINY_JS,
+                    run: runNodeScript(
+                        "listVitestTestCommands",
+                        JSON.stringify({ storageOps: storageOps?.shortId || null }),
+                        { outputAs: "vitest-test-commands" }
+                    )
+                }
+            ]
+        }),
+        [jobNames.tests]: createJob({
+            needs: ["constants", "build"],
+            name: "${{ matrix.testCommand.title }}",
+            strategy: {
+                "fail-fast": false,
+                matrix: {
+                    os: ["ubuntu-latest"],
+                    node: [NODE_VERSION],
+                    testCommand: "${{ fromJson('" + JSON.stringify(testCommands) + "') }}"
+                }
+            },
+            "runs-on": "${{ matrix.os }}",
+            env,
+            awsAuth:
+                storageOps && (storageOps.id === "ddb-es,ddb" || storageOps.id === "ddb-os,ddb"),
+            checkout: { path: DIR_WEBINY_JS },
+            steps: [
+                ...yarnCacheSteps,
+                ...runBuildCacheSteps,
+                ...installBuildSteps,
+                ...withCommonParams(
+                    [{ name: "Run tests", run: "yarn test ${{ matrix.testCommand.cmd }}" }],
+                    { "working-directory": DIR_WEBINY_JS }
+                )
+            ]
+        })
+    };
 };
 
 export const pullRequestsCommandVitest = createWorkflow({
@@ -168,9 +203,9 @@ export const pullRequestsCommandVitest = createWorkflow({
                 ...runBuildCacheSteps
             ]
         }),
-        vitestTestsNoStorage: createVitestTestsJobs(),
-        vitestTestsDdb: createVitestTestsJobs(ddbStorageOps),
-        vitestTestsDdbEs: createVitestTestsJobs(ddbEsStorageOps),
-        vitestTestsDdbOs: createVitestTestsJobs(ddbOsStorageOps)
+        ...createVitestTestsJobs(),
+        ...createVitestTestsJobs(ddbStorageOps),
+        ...createVitestTestsJobs(ddbEsStorageOps),
+        ...createVitestTestsJobs(ddbOsStorageOps)
     }
 });

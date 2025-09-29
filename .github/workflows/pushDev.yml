@@ -188,6 +188,7 @@ jobs:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
   vitest-run:
     needs:
+      - constants
       - vitest-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
@@ -253,6 +254,7 @@ jobs:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
   vitest-ddb-run:
     needs:
+      - constants
       - vitest-ddb-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
@@ -321,6 +323,7 @@ jobs:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
   vitest-ddbEs-run:
     needs:
+      - constants
       - vitest-ddbEs-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
@@ -399,6 +402,7 @@ jobs:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
   vitest-ddbOs-run:
     needs:
+      - constants
       - vitest-ddbOs-constants
     name: ${{ matrix.testCommand.title }}
     strategy:

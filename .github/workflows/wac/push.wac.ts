@@ -223,7 +223,7 @@ const createPushWorkflow = (branchName: string) => {
     const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
         const jobNames = {
             constants: ["vitest", storageOps?.shortId, "constants"].filter(Boolean).join("-"),
-            vitestTests: ["vitest", storageOps?.shortId, "run"].filter(Boolean).join("-")
+            tests: ["vitest", storageOps?.shortId, "run"].filter(Boolean).join("-")
         };
 
         const env: Record<string, string> = { AWS_REGION };
@@ -267,8 +267,8 @@ const createPushWorkflow = (branchName: string) => {
                     }
                 ]
             }),
-            [jobNames.vitestTests]: createJob({
-                needs: [jobNames.constants],
+            [jobNames.tests]: createJob({
+                needs: ["constants", jobNames.constants],
                 name: "${{ matrix.testCommand.title }}",
                 strategy: {
                     "fail-fast": false,
