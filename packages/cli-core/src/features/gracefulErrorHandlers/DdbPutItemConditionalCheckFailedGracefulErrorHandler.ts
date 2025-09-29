@@ -18,16 +18,15 @@ export class DdbPutItemConditionalCheckFailedGracefulErrorHandler
             return;
         }
 
-        throw new GracefulError(
-            [
-                `Looks like the deployment failed because Pulumi tried to insert a`,
-                `record into a DynamoDB table, but the record already exists. The`,
-                `easiest way to resolve this is to delete the record from the`,
-                `table and try again.`,
-                `Learn more: ${LEARN_MORE_URL}`
-            ].join(" "),
-            { cause: error }
-        );
+        const message = [
+            `Looks like the deployment failed because Pulumi tried to insert a`,
+            `record into a DynamoDB table, but the record already exists. The`,
+            `easiest way to resolve this is to delete the record from the`,
+            `table and try again.`,
+            `Learn more: ${LEARN_MORE_URL}`
+        ].join(" ");
+
+        throw GracefulError.from(error, message);
     }
 }
 
