@@ -255,7 +255,7 @@ const createPushWorkflow = (branchName: string) => {
                         name: "List Vitest Test Commands",
                         run: runNodeScript(
                             "listVitestTestCommands",
-                            JSON.stringify({ storageOps }),
+                            JSON.stringify({ storageOps: storageOps?.shortId || null }),
                             { outputAs: "vitest-test-commands" }
                         )
                     }
