@@ -1,22 +1,20 @@
 import React from "react";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
-import type { TeamsDataListProps } from "./TeamsDataList.js";
 import { TeamsDataList } from "./TeamsDataList.js";
-import type { TeamsFormProps } from "./TeamsForm.js";
 import { TeamsForm } from "./TeamsForm.js";
+import { useRoute } from "@webiny/react-router";
+import { Routes } from "~/routes.js";
 
-export interface TeamsProps {
-    listProps?: TeamsDataListProps;
-    formProps?: TeamsFormProps;
-}
-export const Teams = ({ formProps = {}, listProps = {} }: TeamsProps) => {
+export const Teams = () => {
+    const route = useRoute(Routes.Roles.List);
+
     return (
         <SplitView>
             <LeftPanel>
-                <TeamsDataList {...listProps} />
+                <TeamsDataList activeId={route.params.id} />
             </LeftPanel>
             <RightPanel>
-                <TeamsForm {...formProps} />
+                <TeamsForm newEntry={route.params.new === true} id={route.params.id} />
             </RightPanel>
         </SplitView>
     );

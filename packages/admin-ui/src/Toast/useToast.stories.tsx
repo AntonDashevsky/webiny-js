@@ -179,11 +179,11 @@ export const Documentation: Story = {
         },
         actions: {
             description: "Please refer to the 'With Actions' example below for details.",
-            control: "none"
+            
         },
         icon: {
             description: "Please refer to the 'With Custom Icon' example below for details.",
-            control: "none"
+            
         },
         duration: {
             description:
@@ -192,7 +192,7 @@ export const Documentation: Story = {
         },
         dismissible: {
             description: "Please refer to the 'Not Dismissible' example below for details.",
-            control: "none"
+            
         },
         position: {
             description: "Please refer to the 'With Custom Position' example below for details.",

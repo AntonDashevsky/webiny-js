@@ -5,15 +5,13 @@ import { validation } from "@webiny/validation";
 import { useDialogs } from "@webiny/app-admin";
 import { useCreatePage } from "~/features/pages/index.js";
 import type { CreatePageParams } from "~/features/pages/createPage/ICreatePageUseCase.js";
-import { useGetEditPageUrl } from "~/modules/pages/PagesList/hooks/useGetEditPageUrl.js";
-import { useRouter } from "@webiny/react-router";
+import { useEditPageUrl } from "~/modules/pages/PagesList/hooks/useEditPageUrl.js";
 import { useGetPageType, usePageTypes } from "~/features/index.js";
 
 export const useCreatePageDialog = (folderId: string) => {
     const dialog = useDialogs();
     const { createPage } = useCreatePage();
-    const { getEditPageUrl } = useGetEditPageUrl();
-    const { history } = useRouter();
+    const { goToPageEditor } = useEditPageUrl();
     const { getPageType } = useGetPageType();
 
     const showCreatePageDialog = () => {
@@ -55,7 +53,7 @@ export const useCreatePageDialog = (folderId: string) => {
                 };
 
                 const result = await createPage(input);
-                history.push(getEditPageUrl(result.id));
+                goToPageEditor(result.id);
             }
         });
     };

@@ -436,7 +436,7 @@ export const Documentation: Story = {
         },
         children: {
             description: "The content of the list. Please refer to the example code for details.",
-            control: "none"
+            
         }
     },
     parameters: {

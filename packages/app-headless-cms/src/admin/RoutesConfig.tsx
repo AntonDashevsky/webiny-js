@@ -7,6 +7,7 @@ import { AdminConfig, AdminLayout } from "@webiny/app-admin";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ContentEntriesContainer } from "~/admin/views/contentEntries/ContentEntriesContainer.js";
 import { ContentEntries } from "~/admin/views/contentEntries/ContentEntries.js";
+import { Routes } from "~/routes";
 
 const t = i18n.ns("app-headless-cms/admin/routes");
 
@@ -44,12 +45,11 @@ const ContentModelGroupsView = lazy(
 
 const { Route } = AdminConfig;
 
-export const Routes = () => {
+export const RoutesConfig = () => {
     return (
         <AdminConfig>
             <Route
-                name={"cms.contentModelGroups"}
-                path={"/cms/content-model-groups"}
+                route={Routes.ContentModelGroups.List}
                 element={
                     <SecureRoute permission={"cms.contentModelGroup"}>
                         <AdminLayout>
@@ -64,8 +64,7 @@ export const Routes = () => {
                 }
             />
             <Route
-                name={"cms.contentEntries"}
-                path={"/cms/content-entries/:modelId"}
+                route={Routes.ContentEntries.List}
                 element={
                     <SecureRoute permission={"cms.contentModel"}>
                         <AdminLayout>
@@ -82,8 +81,7 @@ export const Routes = () => {
                 }
             />
             <Route
-                name={"cms.contentModel"}
-                path={"/cms/content-models/:modelId"}
+                route={Routes.ContentModels.Editor}
                 element={
                     <SecureRoute permission={"cms.contentModel"}>
                         <Helmet>
@@ -98,8 +96,7 @@ export const Routes = () => {
                 }
             />
             <Route
-                name={"cms.contentModels"}
-                path="/cms/content-models"
+                route={Routes.ContentModels.List}
                 element={
                     <SecureRoute permission={"cms.contentModel"}>
                         <AdminLayout>

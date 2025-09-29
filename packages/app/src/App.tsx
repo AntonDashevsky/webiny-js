@@ -120,19 +120,21 @@ export const AppBase = ({
 
     return (
         <AppContext.Provider value={appContext}>
-            {children}
-            <AppContainer>
-                <Router history={history.current} getBaseUrl={() => ""}>
-                    <Providers>
-                        <PluginsProvider>{state.plugins}</PluginsProvider>
-                        <DebounceRender wait={debounceRender}>
-                            <RouterWithConfig>
-                                <AppRouter />
-                            </RouterWithConfig>
-                        </DebounceRender>
-                    </Providers>
-                </Router>
-            </AppContainer>
+            <Router history={history.current} getBaseUrl={() => ""}>
+                <>
+                    {children}
+                    <AppContainer>
+                        <Providers>
+                            {/*<PluginsProvider>{state.plugins}</PluginsProvider>*/}
+                            <DebounceRender wait={debounceRender}>
+                                <RouterWithConfig>
+                                    <AppRouter />
+                                </RouterWithConfig>
+                            </DebounceRender>
+                        </Providers>
+                    </AppContainer>
+                </>
+            </Router>
         </AppContext.Provider>
     );
 };

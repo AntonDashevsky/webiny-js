@@ -44,6 +44,7 @@ export {
 export { LexicalEditor } from "./components/LexicalEditor/LexicalEditor.js";
 export { Wcp } from "./components/Wcp.js";
 export * from "./components/IconPicker/index.js";
+export * from "./components/NavigationPrompt.js";
 
 export { FileManager, FileManagerRenderer } from "./base/ui/FileManager.js";
 export type {

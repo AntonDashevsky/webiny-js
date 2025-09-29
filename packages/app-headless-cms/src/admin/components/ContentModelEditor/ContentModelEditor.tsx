@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Prompt } from "@webiny/react-router";
+import { NavigationPrompt } from "@webiny/app-admin/components/NavigationPrompt.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
 import { Heading, OverlayLoader, Separator, Tabs, Text, TimeAgo } from "@webiny/admin-ui";
@@ -53,7 +53,7 @@ export const ContentModelEditor = makeDecoratable("ContentModelEditor", () => {
 
     return (
         <div className={"content-model-editor wby-flex-1"}>
-            <Prompt when={!isPristine} message={prompt} />
+            <NavigationPrompt when={!isPristine} message={prompt} />
             <Header />
             <div className={"wby-w-full wby-overflow-y-auto wby-h-main-content"}>
                 <SplitView>

@@ -1,11 +1,12 @@
 import { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import isEmpty from "lodash/isEmpty.js";
-import { useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { CREATE_USER, LIST_USERS, READ_USER, UPDATE_USER } from "~/ui/views/Users/graphql.js";
 import { useWcp } from "@webiny/app-admin";
 import omit from "lodash/omit.js";
+import { Routes } from "~/routes.js";
 
 export type UseUserForm = ReturnType<typeof useUserForm>;
 
@@ -18,15 +19,15 @@ interface SubmitUserCallable {
 }
 
 export function useUserForm() {
-    const { location, history } = useRouter();
+    const { goToRoute } = useRouter();
+    const route = useRoute(Routes.Users.List);
     const { showSnackbar } = useSnackbar();
 
     const wcp = useWcp();
     const teams = wcp.canUseTeams();
 
-    const query = new URLSearchParams(location.search);
-    const id = query.get("id");
-    const newUser = !id;
+    const id = route.params.id;
+    const newUser = route.params.new === true;
 
     const { data, loading: userLoading } = useQuery(READ_USER({ teams }), {
         variables: { id },
@@ -38,7 +39,7 @@ export function useUserForm() {
 
             const { error } = data.adminUsers.user;
             if (error) {
-                history.push("/admin-users");
+                goToRoute(Routes.Users.List);
                 showSnackbar(error.message);
             }
         }
@@ -69,7 +70,9 @@ export function useUserForm() {
                 return showSnackbar(error.message);
             }
 
-            newUser && history.push(`/admin-users?id=${user.id}`);
+            if (newUser) {
+                goToRoute(Routes.Users.List, { id: user.id });
+            }
             showSnackbar("User saved successfully.");
         },
         [id]
@@ -92,10 +95,10 @@ export function useUserForm() {
         fullName: `${user.firstName || ""} ${user.lastName || ""}`.trim(),
         showEmptyView,
         createUser() {
-            history.push("/admin-users?new=true");
+            goToRoute(Routes.Users.List, { new: true });
         },
         cancelEditing() {
-            history.push("/admin-users");
+            goToRoute(Routes.Users.List);
         }
     };
 }

@@ -16,7 +16,6 @@ import {
     ListItemTextPrimary
 } from "@webiny/ui/List/index.js";
 import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { useRouter } from "@webiny/react-router";
 import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery, useMutation } from "@apollo/react-hooks";
@@ -24,6 +23,8 @@ import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDi
 import * as GQL from "./graphql.js";
 import { deserializeSorters } from "../utils.js";
 import type { ApiKey } from "~/types.js";
+import { useRouter } from "@webiny/react-router";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-security/admin/groups/data-list");
 
@@ -46,13 +47,13 @@ const SORTERS = [
     }
 ];
 export interface ApiKeysDataListProps {
-    // TODO @ts-refactor delete and go up the tree and sort it out
-    [key: string]: any;
+    activeId: string | undefined;
 }
-export const ApiKeysDataList = () => {
+
+export const ApiKeysDataList = ({ activeId }: ApiKeysDataListProps) => {
+    const { goToRoute } = useRouter();
     const [filter, setFilter] = useState("");
     const [sort, setSort] = useState<string>(SORTERS[0].sorter);
-    const { history, location } = useRouter();
     const { showSnackbar } = useSnackbar();
     const { showConfirmation } = useConfirmationDialog({
         dataTestId: "default-data-list.delete-dialog"
@@ -88,7 +89,6 @@ export const ApiKeysDataList = () => {
     });
 
     const data = listLoading && !listResponse ? [] : listResponse?.security.apiKeys.data || [];
-    const id = new URLSearchParams(location.search).get("id");
 
     const deleteItem = useCallback(
         (item: ApiKey) => {
@@ -104,12 +104,12 @@ export const ApiKeysDataList = () => {
 
                 showSnackbar(t`Api key "{id}" deleted.`({ id: item.id }));
 
-                if (id === item.id) {
-                    history.push(`/access-management/api-keys`);
+                if (activeId === item.id) {
+                    goToRoute(Routes.ApiKeys.List);
                 }
             });
         },
-        [id]
+        [activeId]
     );
 
     const groupsDataListModalOverlay = useMemo(
@@ -148,7 +148,9 @@ export const ApiKeysDataList = () => {
                     size={"sm"}
                     className={"wby-ml-xs"}
                     data-testid="new-record-button"
-                    onClick={() => history.push("/access-management/api-keys?new=true")}
+                    onClick={() => {
+                        goToRoute(Routes.ApiKeys.List, { new: true });
+                    }}
                 />
             }
             data={list}
@@ -168,11 +170,11 @@ export const ApiKeysDataList = () => {
             {({ data }: { data: ApiKey[] }) => (
                 <ScrollList data-testid="default-data-list">
                     {data.map(item => (
-                        <ListItem key={item.id} selected={item.id === id}>
+                        <ListItem key={item.id} selected={item.id === activeId}>
                             <ListItemText
-                                onClick={() =>
-                                    history.push(`/access-management/api-keys?id=${item.id}`)
-                                }
+                                onClick={() => {
+                                    goToRoute(Routes.ApiKeys.List, { id: item.id });
+                                }}
                             >
                                 <ListItemTextPrimary>{item.name}</ListItemTextPrimary>
                                 <ListItemTextSecondary>{item.description}</ListItemTextSecondary>

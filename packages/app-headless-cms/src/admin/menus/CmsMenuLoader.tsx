@@ -1,8 +1,10 @@
 import React from "react";
+import { AdminConfig } from "@webiny/app-admin";
+import { useRouter } from "@webiny/react-router";
 import { ReactComponent as HeadlessCmsIcon } from "~/admin/icons/devices_other-black-24px.svg";
 import { usePermission } from "~/admin/hooks/usePermission.js";
 import { ContentGroupsMenuItems } from "./ContentGroupsMenuItems.js";
-import { AdminConfig } from "@webiny/app-admin";
+import { Routes } from "~/routes.js";
 
 const { Menu } = AdminConfig;
 
@@ -11,6 +13,8 @@ interface ChildMenuProps {
 }
 
 const CmsContentModelsMenu = ({ canAccess }: ChildMenuProps) => {
+    const router = useRouter();
+
     if (!canAccess) {
         return null;
     }
@@ -19,12 +23,14 @@ const CmsContentModelsMenu = ({ canAccess }: ChildMenuProps) => {
         <Menu
             name={"headlessCMS.contentModels.models"}
             parent={"headlessCMS"}
-            element={<Menu.Link text={"Models"} to={"/cms/content-models"} />}
+            element={<Menu.Link text={"Models"} to={router.getLink(Routes.ContentModels.List)} />}
         />
     );
 };
 
 const CmsContentGroupsMenu = ({ canAccess }: ChildMenuProps) => {
+    const router = useRouter();
+
     if (!canAccess) {
         return null;
     }
@@ -32,7 +38,9 @@ const CmsContentGroupsMenu = ({ canAccess }: ChildMenuProps) => {
         <Menu
             name={"headlessCMS.contentModels.groups"}
             parent={"headlessCMS"}
-            element={<Menu.Link text={"Groups"} to={"/cms/content-model-groups"} />}
+            element={
+                <Menu.Link text={"Groups"} to={router.getLink(Routes.ContentModelGroups.List)} />
+            }
         />
     );
 };

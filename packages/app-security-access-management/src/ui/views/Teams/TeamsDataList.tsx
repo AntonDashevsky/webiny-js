@@ -25,6 +25,7 @@ import { LIST_TEAMS, DELETE_TEAM } from "./graphql.js";
 import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { deserializeSorters } from "../utils.js";
 import type { Team } from "~/types.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-security/admin/teams/data-list");
 
@@ -48,14 +49,13 @@ const SORTERS = [
 ];
 
 export interface TeamsDataListProps {
-    // TODO @ts-refactor delete and go up the tree and sort it out
-    [key: string]: any;
+    activeId: string | undefined;
 }
 
-export const TeamsDataList = () => {
+export const TeamsDataList = ({ activeId }: TeamsDataListProps) => {
     const [filter, setFilter] = useState("");
     const [sort, setSort] = useState(SORTERS[0].sorter);
-    const { history, location } = useRouter();
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
     const { showConfirmation } = useConfirmationDialog({
         dataTestId: "default-data-list.delete-dialog"
@@ -68,7 +68,6 @@ export const TeamsDataList = () => {
     });
 
     const data = listLoading && !listResponse ? [] : listResponse?.security.teams.data || [];
-    const id = new URLSearchParams(location.search).get("id");
 
     const filterTeam = useCallback(
         ({ name, slug, description }: Team) => {
@@ -106,12 +105,12 @@ export const TeamsDataList = () => {
 
                 showSnackbar(t`Team "{slug}" deleted.`({ slug: item.slug }));
 
-                if (id === item.id) {
-                    history.push(`/access-management/teams`);
+                if (activeId === item.id) {
+                    goToRoute(Routes.Teams.List);
                 }
             });
         },
-        [id]
+        [activeId]
     );
 
     const teamsDataListModalOverlay = useMemo(
@@ -150,7 +149,9 @@ export const TeamsDataList = () => {
                     size={"sm"}
                     className={"wby-ml-xs"}
                     data-testid="new-record-button"
-                    onClick={() => history.push("/access-management/teams?new=true")}
+                    onClick={() => {
+                        goToRoute(Routes.Teams.List, { new: true });
+                    }}
                 />
             }
             data={teamList}
@@ -170,11 +171,11 @@ export const TeamsDataList = () => {
             {({ data }: { data: Team[] }) => (
                 <ScrollList data-testid="default-data-list">
                     {data.map(item => (
-                        <ListItem key={item.id} selected={item.id === id}>
+                        <ListItem key={item.id} selected={item.id === activeId}>
                             <ListItemText
-                                onClick={() =>
-                                    history.push(`/access-management/teams?id=${item.id}`)
-                                }
+                                onClick={() => {
+                                    goToRoute(Routes.Teams.List, { id: item.id });
+                                }}
                             >
                                 <ListItemTextPrimary>{item.name}</ListItemTextPrimary>
                                 <ListItemTextSecondary>{item.description}</ListItemTextSecondary>

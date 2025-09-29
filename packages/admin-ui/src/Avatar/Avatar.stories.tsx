@@ -111,13 +111,11 @@ export const Documentation: Story = {
         },
         image: {
             description:
-                "The image element to display. Please refer to the example code for details on usage.",
-            control: "none"
+                "The image element to display. Please refer to the example code for details on usage."
         },
         fallback: {
             description:
-                "The fallback element to display when the image fails to load. Please refer to the example code for details on usage.",
-            control: "none"
+                "The fallback element to display when the image fails to load. Please refer to the example code for details on usage."
         },
         className: {
             description:

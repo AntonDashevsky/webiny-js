@@ -380,11 +380,11 @@ export const Documentation: Story = {
         trigger: {
             description:
                 "The trigger element that opens the menu. Please refer to the example code for details.",
-            control: "none"
+            
         },
         children: {
             description: "The content of the menu. Please refer to the example code for details.",
-            control: "none"
+            
         }
     }
 };

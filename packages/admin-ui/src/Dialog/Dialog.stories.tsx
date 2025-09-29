@@ -356,17 +356,17 @@ export const Documentation: Story = {
         info: {
             description:
                 "Additional info displayed below the description, please refer to the example below for details.",
-            control: "none"
+            
         },
         children: {
             description:
                 "Content of the dialog, please refer to the 'With Dropdown Menu' and ''With Tabs' example below for details.",
-            control: "none"
+            
         },
         actions: {
             description:
                 "Actions displayed in the footer, please refer to the code example for details.",
-            control: "none"
+            
         }
     }
 };

@@ -319,19 +319,19 @@ export const Documentation: Story = {
         validation: {
             description:
                 "Object containing validation state and message. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         onSelectItem: {
             description: "Function called when a file is selected",
-            control: "none"
+            
         },
         onEditItem: {
             description: "Function called when a file is edited",
-            control: "none"
+            
         },
         onRemoveItem: {
             description: "Function called when a file is removed",
-            control: "none"
+            
         }
     }
 };

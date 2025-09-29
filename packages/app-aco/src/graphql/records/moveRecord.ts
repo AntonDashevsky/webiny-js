@@ -1,11 +1,11 @@
 import gql from "graphql-tag";
-import type { AcoAppMode, AcoModel } from "~/types.js";
+import type { AcoModel } from "~/types.js";
 import { ERROR_FIELD } from "./common.js";
 
-export const createMoveRecord = (model: AcoModel, mode: AcoAppMode) => {
+export const createMoveRecord = (model: AcoModel) => {
     const { singularApiName } = model;
-    if (mode === "cms") {
-        return gql`
+
+    return gql`
             mutation Move${singularApiName}($id: ID!, $folderId: ID!) {
                 content: move${singularApiName}(revision: $id, folderId: $folderId) {
                     data
@@ -13,15 +13,4 @@ export const createMoveRecord = (model: AcoModel, mode: AcoAppMode) => {
                 }
             }
         `;
-    }
-    return gql`
-        mutation Move${singularApiName}($id: ID!, $folderId: ID!) {
-            search {
-                content: move${singularApiName}(id: $id, folderId: $folderId) {
-                    data
-                    ${ERROR_FIELD}
-                }
-            }
-        }
-    `;
 };

@@ -108,12 +108,12 @@ export const Documentation: Story = {
         trigger: {
             description:
                 "The element that triggers the popover when clicked. Please refer to the example code for details.",
-            control: "none"
+            
         },
         content: {
             description:
                 "The content to display inside the popover. Please refer to the example code for details.",
-            control: "none"
+            
         },
         side: {
             description: "The side of the trigger where the popover appears.",

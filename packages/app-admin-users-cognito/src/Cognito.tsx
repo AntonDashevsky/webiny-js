@@ -14,11 +14,13 @@ import cognito from "./plugins/cognito.js";
 import type { CognitoProps } from "./CognitoLogin.js";
 import { CognitoLogin } from "./CognitoLogin.js";
 import { AdminConfig } from "@webiny/app-admin";
+import { Routes } from "~/routes.js";
+import { useRouter } from "@webiny/react-router";
 
 const { Route, Menu } = AdminConfig;
-const ACCOUNT_ROUTE = "/account";
 
 const CognitoIdP = (props: CognitoProps) => {
+    const router = useRouter();
     plugins.register([installation, permissionRenderer, cognito()]);
 
     return (
@@ -30,8 +32,7 @@ const CognitoIdP = (props: CognitoProps) => {
             <AdminConfig>
                 <HasPermission name={Permission.Users}>
                     <Route
-                        name={"cognito.users"}
-                        path={"/admin-users"}
+                        route={Routes.Users.List}
                         element={
                             <Layout title={"Admin Users"}>
                                 <UsersView />
@@ -40,8 +41,7 @@ const CognitoIdP = (props: CognitoProps) => {
                     />
 
                     <Route
-                        name={"cognito.account"}
-                        path={ACCOUNT_ROUTE}
+                        route={Routes.Users.Account}
                         element={
                             <Layout title={"User Account"}>
                                 <Account />
@@ -57,14 +57,19 @@ const CognitoIdP = (props: CognitoProps) => {
                     <Menu
                         name={"cognito.settings.adminUsers"}
                         parent={"settings"}
-                        element={<Menu.Link text={"Users"} to={"/admin-users"} />}
+                        element={
+                            <Menu.Link text={"Users"} to={router.getLink(Routes.Users.Account)} />
+                        }
                     />
                 </HasPermission>
 
-                <Menu.User name={"userInfo"} element={<UserInfo accountRoute={ACCOUNT_ROUTE} />} />
+                <Menu.User
+                    name={"userInfo"}
+                    element={<UserInfo accountRoute={router.getLink(Routes.Users.Account)} />}
+                />
                 <Menu.User
                     name={"accountSettings"}
-                    element={<AccountDetails accountRoute={ACCOUNT_ROUTE} />}
+                    element={<AccountDetails accountRoute={router.getLink(Routes.Users.Account)} />}
                 />
                 <Menu.User name={"signOut"} element={<SignOut />} />
             </AdminConfig>

@@ -10,7 +10,7 @@ import { ContentEntriesModule } from "~/admin/views/contentEntries/ContentEntrie
 import allPlugins from "~/allPlugins.js";
 import { LexicalEditorCmsPlugin } from "~/admin/components/LexicalCmsEditor/LexicalEditorCmsPlugin.js";
 import { SingletonContentEntryModule } from "~/admin/views/contentEntries/SingletonContentEntryModule.js";
-import { Routes } from "./admin/Routes";
+import { RoutesConfig } from "./admin/RoutesConfig.js";
 
 interface HeadlessCMSProvider {
     children: React.ReactNode;
@@ -65,7 +65,7 @@ const HeadlessCMSExtension = ({ createApolloClient }: HeadlessCMSProps) => {
 
     return (
         <Fragment>
-            <Routes/>
+            <RoutesConfig/>
             <ContentEntriesModule />
             <SingletonContentEntryModule />
             <Provider hoc={createHeadlessCMSProvider(createApolloClient)} />

@@ -156,7 +156,7 @@ export const Documentation: Story = {
         icon: {
             description:
                 "The SVG icon component to be rendered. Please refer to the example code for details.",
-            control: "none"
+            
         },
         label: {
             description: "Accessible label for the icon (for screen readers)",

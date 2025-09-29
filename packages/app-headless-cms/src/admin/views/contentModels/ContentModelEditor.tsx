@@ -2,18 +2,17 @@ import React from "react";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import { ContentModelEditor } from "~/admin/components/ContentModelEditor/ContentModelEditor.js";
-import { useRouter } from "@webiny/react-router";
+import { useRoute } from "@webiny/react-router";
 import { useCms } from "~/admin/hooks/index.js";
 import { ContentModelEditorProvider } from "~/admin/components/ContentModelEditor/index.js";
+import { Routes } from "~/routes.js";
 
 const ContentModelEditorView = () => {
-    const { params } = useRouter();
+    const route = useRoute(Routes.ContentModels.Editor);
     const { apolloClient } = useCms();
 
-    const modelId = params?.modelId as string | undefined;
-    if (!apolloClient || !modelId) {
-        return null;
-    }
+    const modelId = route.params.modelId;
+
     return (
         <ContentModelEditorProvider key={modelId} apolloClient={apolloClient} modelId={modelId}>
             <DndProvider backend={HTML5Backend}>

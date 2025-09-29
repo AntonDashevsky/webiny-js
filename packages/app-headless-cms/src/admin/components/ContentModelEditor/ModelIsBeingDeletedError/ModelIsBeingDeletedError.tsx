@@ -6,6 +6,7 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import authErrorImg from "./SecureRouteError.svg";
 import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 import { useRouter } from "@webiny/react-router";
+import { Routes } from "~/routes.js";
 
 const ContentWrapper = styled("div")({
     display: "block",
@@ -49,10 +50,10 @@ export interface IModelIsBeingDeletedProps {
 }
 
 export const ModelIsBeingDeletedError = (props: IModelIsBeingDeletedProps) => {
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
 
     const goBack = (): void => {
-        history.push(`/cms/content-models`);
+        goToRoute(Routes.ContentModels.List);
     };
 
     return (

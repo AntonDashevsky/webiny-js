@@ -155,7 +155,7 @@ export const Documentation: Story = {
         },
         onChange: {
             description: "Callback function triggered when checkbox state changes",
-            control: "none"
+            
         }
     }
 };

@@ -8,6 +8,8 @@ import { usePermission } from "~/admin/hooks/usePermission.js";
 import type { CmsGroup, CmsModel } from "~/types.js";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { AdminConfig } from "@webiny/app-admin";
+import { useRouter } from "@webiny/react-router";
+import { Routes } from "~/routes.js";
 
 const { Menu } = AdminConfig;
 
@@ -58,6 +60,7 @@ const Icon = ({ group }: IconProps) => {
 };
 
 export const ContentGroupsMenuItems = () => {
+    const router = useRouter();
     const response = useQuery<ListMenuCmsGroupsQueryResponse>(LIST_MENU_CONTENT_GROUPS_MODELS);
     const groups: CmsGroup[] = get(response, "data.listContentModelGroups.data") || [];
 
@@ -107,7 +110,9 @@ export const ContentGroupsMenuItems = () => {
                                             element={
                                                 <Menu.Link
                                                     text={contentModel.name}
-                                                    to={`/cms/content-entries/${contentModel.modelId}`}
+                                                    to={router.getLink(Routes.ContentEntries.List, {
+                                                        modelId: contentModel.modelId
+                                                    })}
                                                 />
                                             }
                                         />

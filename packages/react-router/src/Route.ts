@@ -2,9 +2,8 @@ import { z } from "zod";
 
 export type RouteParamsDefinition = Record<string, z.ZodTypeAny>;
 
-export type RouteParamsInfer<TParams extends RouteParamsDefinition> = z.infer<
-    z.ZodObject<TParams>
-> & { [k: string]: any };
+export type RouteParamsInfer<T extends RouteParamsDefinition | undefined> =
+    T extends RouteParamsDefinition ? z.infer<z.ZodObject<T> & { [k: string]: any }> : never;
 
 export interface RouteParams<TParams extends RouteParamsDefinition | undefined> {
     name: string;

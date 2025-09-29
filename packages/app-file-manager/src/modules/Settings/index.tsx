@@ -1,23 +1,25 @@
 import React from "react";
+import { AdminConfig } from "@webiny/app-admin";
+import { useRouter } from "@webiny/react-router";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
 import { Layout } from "@webiny/app-admin";
 import installation from "./plugins/installation.js";
 import permissionRenderer from "./plugins/permissionRenderer/index.js";
 import { FileManagerSettings } from "./views/FileManagerSettings.js";
-import { AdminConfig } from "@webiny/app-admin";
+import { Routes } from "~/routes.js";
 
 const { Menu, Route } = AdminConfig;
 
 export const SettingsModule = () => {
+    const { getLink } = useRouter();
     plugins.register(installation, permissionRenderer);
 
     return (
         <AdminConfig>
             <HasPermission name={"fm.settings"}>
                 <Route
-                    name={"settings.fm.general"}
-                    path={"/settings/file-manager/general"}
+                    route={Routes.Settings}
                     element={
                         <Layout title={"File Manager - General Settings"}>
                             <FileManagerSettings />
@@ -32,7 +34,7 @@ export const SettingsModule = () => {
                 <Menu
                     parent={"settings"}
                     name={"settings.fm.general"}
-                    element={<Menu.Link text={"General"} to={"/settings/file-manager/general"} />}
+                    element={<Menu.Link text={"General"} to={getLink(Routes.Settings)} />}
                 />
             </HasPermission>
         </AdminConfig>

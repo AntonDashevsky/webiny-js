@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { createDecorator } from "@webiny/react-composition";
 import type { FileManagerFileItem, FileManagerOnChange } from "@webiny/app-admin";
 import { DialogsProvider, FileManagerRenderer as BaseFileManagerRenderer } from "@webiny/app-admin";
 import type { FileItem } from "@webiny/app-admin/types.js";
+import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
+import { AcoWithConfig, NavigateFolderProvider } from "@webiny/app-aco";
+import { CompositionScope } from "@webiny/react-composition";
 import FileManagerView from "./FileManagerView.js";
 import type { FileManagerViewProviderProps } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 import { FileManagerViewProvider } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
-import { FM_ACO_APP } from "~/constants.js";
+import { FM_ACO_APP, ROOT_FOLDER, LOCAL_STORAGE_LATEST_VISITED_FOLDER } from "~/constants.js";
 import { FileManagerViewWithConfig } from "./FileManagerViewConfig.js";
-import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
-import { NavigateFolderProvider } from "./NavigateFolderProvider.js";
-import { AcoWithConfig } from "@webiny/app-aco";
-import { CompositionScope } from "@webiny/react-composition";
 
 /**
  * Convert a FileItem object to a FileManagerFileItem, which is then passed to `onChange` callback.
@@ -48,6 +47,10 @@ interface FileManagerProviderProps
     accept?: string[];
 }
 
+const createStorageKey = () => {
+    return LOCAL_STORAGE_LATEST_VISITED_FOLDER;
+};
+
 export function FileManagerProvider({
     children,
     images,
@@ -56,10 +59,20 @@ export function FileManagerProvider({
 }: FileManagerProviderProps) {
     const mimeTypes = images ? accept || imagesAccept : accept || [];
 
+    const [folderId, setFolderId] = useState<string | undefined>(undefined);
+
+    const navigateToFolder = useCallback((folderId: string) => {
+        setFolderId(folderId === ROOT_FOLDER ? undefined : folderId);
+    }, []);
+
     return (
         <CompositionScope name={"fm"}>
             <FoldersProvider type={FM_ACO_APP}>
-                <NavigateFolderProvider>
+                <NavigateFolderProvider
+                    folderId={folderId}
+                    navigateToFolder={navigateToFolder}
+                    createStorageKey={createStorageKey}
+                >
                     <AcoWithConfig>
                         <FileManagerViewProvider {...props} accept={mimeTypes}>
                             <DialogsProvider>

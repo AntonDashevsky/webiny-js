@@ -88,12 +88,12 @@ export const Documentation: Story = {
         },
         onChange: {
             description: "Function called when the textarea value changes",
-            control: "none"
+            
         },
         validate: {
             description:
                 "Custom validation function, please refer to **With Validate Function** section below.",
-            control: "none"
+            
         }
     }
 };

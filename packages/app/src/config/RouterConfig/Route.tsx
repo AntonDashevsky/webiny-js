@@ -4,7 +4,7 @@ import { Property, useIdGenerator } from "@webiny/react-properties";
 import type { Route as BaseRoute } from "@webiny/react-router";
 
 export interface RouteProps {
-    route: BaseRoute;
+    route: BaseRoute<any>;
     element: React.ReactElement;
     remove?: boolean;
     before?: string;

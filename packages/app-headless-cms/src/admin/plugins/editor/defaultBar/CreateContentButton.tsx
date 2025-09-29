@@ -10,11 +10,12 @@ import type {
 import { GET_CONTENT_MODEL } from "~/admin/graphql/contentModels.js";
 import { useModelEditor } from "~/admin/hooks/index.js";
 import { IconButton, Tooltip } from "@webiny/admin-ui";
+import { Routes } from "~/routes.js";
 
 const t = i18n.namespace("app-headless-cms/admin/editor/top-bar/save-button");
 
 const CreateContentButton = () => {
-    const router = useRouter();
+    const { goToRoute } = useRouter();
     const { data, apolloClient } = useModelEditor();
 
     const getQuery = apolloClient.readQuery<GetCmsModelQueryResponse, GetCmsModelQueryVariables>({
@@ -36,7 +37,7 @@ const CreateContentButton = () => {
             trigger={
                 <IconButton
                     icon={<ListViewIcon />}
-                    onClick={() => router.history.push(`/cms/content-entries/${data.modelId}`)}
+                    onClick={() => goToRoute(Routes.ContentEntries.List, { modelId: data.modelId })}
                     disabled={disableViewContent}
                     variant={"ghost"}
                 />

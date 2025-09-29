@@ -30,19 +30,18 @@ import {
     Textarea,
     Tooltip
 } from "@webiny/admin-ui";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-security/admin/roles/form");
 
 export interface GroupsFormProps {
-    // TODO @ts-refactor delete and go up the tree and sort it out
-    [key: string]: any;
+    newEntry: boolean;
+    id: string | undefined;
 }
 
-export const GroupsForm = () => {
-    const { location, history } = useRouter();
+export const GroupsForm = ({ id, newEntry }: GroupsFormProps) => {
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
-    const newGroup = new URLSearchParams(location.search).get("new") === "true";
-    const id = new URLSearchParams(location.search).get("id");
 
     const getQuery = useQuery(READ_GROUP, {
         variables: { id },
@@ -54,7 +53,7 @@ export const GroupsForm = () => {
 
             const { error } = data.security.group;
             if (error) {
-                history.push("/access-management/roles");
+                goToRoute(Routes.Roles.List);
                 showSnackbar(error.message);
             }
         }
@@ -116,7 +115,9 @@ export const GroupsForm = () => {
                 return showSnackbar(error.message);
             }
 
-            !isUpdate && history.push(`/access-management/roles?id=${group.id}`);
+            if (!isUpdate) {
+                goToRoute(Routes.Roles.List, { id: group.id });
+            }
             showSnackbar(t`Role saved successfully!`);
         },
         [id]
@@ -128,7 +129,7 @@ export const GroupsForm = () => {
     const pluginGroup = data.plugin;
     const canModifyGroup = !systemGroup && !pluginGroup;
 
-    const showEmptyView = !newGroup && !loading && isEmpty(data);
+    const showEmptyView = !newEntry && !loading && isEmpty(data);
     // Render "No content" selected view.
     if (showEmptyView) {
         return (
@@ -140,7 +141,9 @@ export const GroupsForm = () => {
                         icon={<AddIcon />}
                         text={t`New Role`}
                         data-testid="new-record-button"
-                        onClick={() => history.push("/access-management/roles?new=true")}
+                        onClick={() => {
+                            goToRoute(Routes.Roles.List, { new: true });
+                        }}
                     />
                 }
             />
@@ -199,7 +202,7 @@ export const GroupsForm = () => {
                                         >
                                             <Input
                                                 size={"lg"}
-                                                disabled={!canModifyGroup || !newGroup}
+                                                disabled={!canModifyGroup || !newEntry}
                                                 label={t`Slug`}
                                                 data-testid="admin.am.group.new.slug"
                                             />
@@ -262,7 +265,9 @@ export const GroupsForm = () => {
                                     <Button
                                         variant={"secondary"}
                                         text={t`Cancel`}
-                                        onClick={() => history.push("/access-management/roles")}
+                                        onClick={() => {
+                                            goToRoute(Routes.Roles.List);
+                                        }}
                                         data-testid="pb.category.new.form.button.cancel"
                                     />
                                     <Button

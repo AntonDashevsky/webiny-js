@@ -166,11 +166,11 @@ export const Documentation: Story = {
         validation: {
             description:
                 "Object containing validation state and message. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         onChange: {
             description: "Function called when the switch state changes",
-            control: "none"
+            
         }
     }
 };

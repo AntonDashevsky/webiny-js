@@ -14,13 +14,13 @@ import {
     SimpleFormContent
 } from "@webiny/app-admin/components/SimpleForm/index.js";
 import { IconPicker } from "~/admin/components/IconPicker.js";
-import { useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { useMutation, useQuery } from "../../hooks/index.js";
 import * as GQL from "./graphql.js";
-import { usePermission } from "../../hooks/usePermission.js";
+import { usePermission } from "~/admin/hooks/index.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import type {
     CmsGroup,
@@ -33,6 +33,7 @@ import type {
     UpdateCmsGroupMutationVariables
 } from "./graphql.js";
 import { Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/form");
 
@@ -40,12 +41,13 @@ interface ContentModelGroupsFormProps {
     canCreate: boolean;
 }
 const ContentModelGroupsForm = ({ canCreate }: ContentModelGroupsFormProps) => {
-    const { location, history } = useRouter();
+    const { goToRoute } = useRouter();
+    const route = useRoute(Routes.ContentModelGroups.List);
     const { showSnackbar } = useSnackbar();
     const { canEdit } = usePermission();
 
-    const newEntry = new URLSearchParams(location.search).get("new") === "true";
-    const id = new URLSearchParams(location.search).get("id");
+    const newEntry = route.params.new === true;
+    const id = route.params.id;
 
     const getQuery = useQuery<GetCmsGroupQueryResponse, GetCmsGroupQueryVariables>(
         GQL.GET_CONTENT_MODEL_GROUP,
@@ -61,7 +63,7 @@ const ContentModelGroupsForm = ({ canCreate }: ContentModelGroupsFormProps) => {
 
                 const { error } = data.contentModelGroup;
                 if (error) {
-                    history.push("/cms/content-model-group");
+                    goToRoute(Routes.ContentModelGroups.List);
                     showSnackbar(error.message);
                 }
             }
@@ -151,7 +153,7 @@ const ContentModelGroupsForm = ({ canCreate }: ContentModelGroupsFormProps) => {
              * Redirect to a new group
              */
             if (!group.id) {
-                history.push(`/cms/content-model-groups?id=${data.id}`);
+                goToRoute(Routes.ContentModelGroups.List, { id: data.id });
             }
             showSnackbar(t`Content model group saved successfully!`);
         },
@@ -177,7 +179,9 @@ const ContentModelGroupsForm = ({ canCreate }: ContentModelGroupsFormProps) => {
                             text={t`New Group`}
                             icon={<AddIcon />}
                             data-testid="new-record-button"
-                            onClick={() => history.push("/cms/content-model-groups?new=true")}
+                            onClick={() => {
+                                goToRoute(Routes.ContentModelGroups.List, { new: true });
+                            }}
                         />
                     ) : (
                         <></>
@@ -232,7 +236,9 @@ const ContentModelGroupsForm = ({ canCreate }: ContentModelGroupsFormProps) => {
                         <Button
                             variant={"secondary"}
                             text={t`Cancel`}
-                            onClick={() => history.push("/cms/content-model-groups")}
+                            onClick={() => {
+                                goToRoute(Routes.ContentModelGroups.List);
+                            }}
                         />
 
                         {canEdit(data, "cms.contentModelGroup") && (

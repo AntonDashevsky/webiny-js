@@ -68,28 +68,11 @@ export class HistoryRouterGateway implements IRouterGateway {
         return this.urlGenerator(id, params);
     }
 
-    registerRoutes(routes: RouteDefinition[]) {
+    setRoutes(routes: RouteDefinition[]) {
         this.routes.length = 0;
 
         routes.forEach(route => {
-            this.routes.push({
-                ...route,
-                path: route.path === "*" ? "(.*)" : route.path,
-                action: (context, params) => {
-                    const matchedRoute = {
-                        name: route.name,
-                        path: route.path,
-                        pathname: context.pathname,
-                        params: { ...params, ...context.queryParams }
-                    };
-
-                    const onMatch = async (matchedRoute: MatchedRoute) => {
-                        route.onMatch(matchedRoute);
-                    };
-
-                    return [matchedRoute, onMatch];
-                }
-            });
+            this.routes.push(this.routeWithAction(route));
         });
 
         this.sortRoutes(this.routes);
@@ -101,9 +84,35 @@ export class HistoryRouterGateway implements IRouterGateway {
         this.resolvePathname(currentPathname, queryParams);
     }
 
+    addRoute(route: RouteDefinition): void {
+        this.routes.push(this.routeWithAction(route));
+        this.sortRoutes(this.routes);
+    }
+
     destroy(): void {
         this.stopListening();
         this.unblock && this.unblock();
+    }
+
+    private routeWithAction(route: RouteDefinition): RouteDefinitionWithAction {
+        return {
+            ...route,
+            path: route.path === "*" ? "(.*)" : route.path,
+            action: (context, params) => {
+                const matchedRoute = {
+                    name: route.name,
+                    path: route.path,
+                    pathname: context.pathname,
+                    params: { ...params, ...context.queryParams }
+                };
+
+                const onMatch = async (matchedRoute: MatchedRoute) => {
+                    route.onMatch(matchedRoute);
+                };
+
+                return [matchedRoute, onMatch];
+            }
+        };
     }
 
     private async resolvePathname(pathname: string, queryParams?: Record<string, unknown>) {

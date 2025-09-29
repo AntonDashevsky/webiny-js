@@ -42,14 +42,14 @@ const userRoute = (id: string) => {
     };
 };
 
-const createRepository = () => {
+const createRepository = (routes = allRoutes) => {
     const history = createMemoryHistory();
     history.replace("/__unknown__");
 
     const gateway = new HistoryRouterGateway(history, "");
     const repository = new RouterRepository(gateway);
 
-    repository.registerRoutes(allRoutes);
+    repository.registerRoutes(routes);
 
     return { repository, history };
 };
@@ -64,7 +64,7 @@ describe("Router Repository", () => {
         history.push("/login");
         await wait();
 
-        expect(repository.getCurrentRoute()).toEqual(loginRoute);
+        expect(repository.getMatchedRoute()).toEqual(loginRoute);
     });
 
     it("route guard should allow or prevent route transition", async () => {
@@ -82,7 +82,7 @@ describe("Router Repository", () => {
         history.push("/users/123");
         await wait();
 
-        expect(repository.getCurrentRoute()).toEqual(loginRoute);
+        expect(repository.getMatchedRoute()).toEqual(loginRoute);
 
         // This guard should allow the transition.
         repository.onRouteExit(guard => {
@@ -93,7 +93,7 @@ describe("Router Repository", () => {
         history.push("/users/123");
         await wait();
 
-        expect(repository.getCurrentRoute()).toEqual(userRoute("123"));
+        expect(repository.getMatchedRoute()).toEqual(userRoute("123"));
     });
 
     it("route guard should be unset after route transition", async () => {
@@ -113,7 +113,7 @@ describe("Router Repository", () => {
         history.push("/users/123");
         await wait();
 
-        expect(repository.getCurrentRoute()).toEqual(userRoute("123"));
+        expect(repository.getMatchedRoute()).toEqual(userRoute("123"));
         expect(guardSpy).toHaveBeenCalledTimes(1);
         vi.resetAllMocks();
 
@@ -121,7 +121,7 @@ describe("Router Repository", () => {
         history.push("/login");
         await wait();
 
-        expect(repository.getCurrentRoute()).toEqual(loginRoute);
+        expect(repository.getMatchedRoute()).toEqual(loginRoute);
         expect(guardSpy).toHaveBeenCalledTimes(0);
     });
 
@@ -129,11 +129,18 @@ describe("Router Repository", () => {
         const { repository } = createRepository();
         repository.goToRoute(userRouteDef, { id: "5" });
         await wait();
-        expect(repository.getCurrentRoute()).toEqual(userRoute("5"));
+        expect(repository.getMatchedRoute()).toEqual(userRoute("5"));
     });
 
     it("should generate a valid route link", async () => {
         const { repository } = createRepository();
+
+        expect(repository.getLink(loginRouteDef)).toEqual("/login");
+        expect(repository.getLink(userRouteDef, { id: "1" })).toEqual("/users/1");
+    });
+
+    it("should generate a valid route link when no routes are registered", async () => {
+        const { repository } = createRepository([]);
 
         expect(repository.getLink(loginRouteDef)).toEqual("/login");
         expect(repository.getLink(userRouteDef, { id: "1" })).toEqual("/users/1");

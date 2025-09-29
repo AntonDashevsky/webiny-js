@@ -25,6 +25,7 @@ import { Dialog } from "~/admin/components/Dialog.js";
 import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator.js";
 import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator.js";
 import { IconPicker } from "~/admin/components/IconPicker.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-headless-cms/admin/views/content-models/clone-content-model-dialog");
 
@@ -54,7 +55,7 @@ export const CloneContentModelDialog = ({
 }: CloneContentModelDialogProps) => {
     const [loading, setLoading] = useState<boolean>(false);
     const { showSnackbar } = useSnackbar();
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
     const { getLocales, getCurrentLocale, setCurrentLocale } = useI18N();
     const client = useApolloClient();
 
@@ -93,8 +94,8 @@ export const CloneContentModelDialog = ({
             addModelToListCache(cache, model);
             addModelToGroupCache(cache, model);
 
-            history.push("/cms/content-models/");
             closeModal();
+            goToRoute(Routes.ContentModels.List);
         }
     });
 
@@ -250,11 +251,7 @@ export const CloneContentModelDialog = ({
                                 </Cell>
                                 <Cell span={12}>
                                     <Bind name="description">
-                                        <Input
-                                            rows={4}
-                                            maxLength={200}
-                                            label={t`Description`}
-                                        />
+                                        <Input rows={4} maxLength={200} label={t`Description`} />
                                     </Bind>
                                 </Cell>
                             </Grid>

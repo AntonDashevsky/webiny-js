@@ -4,7 +4,9 @@ import type { MatchedRoute, OnRouteExit } from "~/abstractions/IRouterGateway.js
 export interface IRouterRepository {
     onRouteExit(cb: OnRouteExit): void;
 
-    getCurrentRoute(): MatchedRoute | undefined;
+    getMatchedRoute(): MatchedRoute | undefined;
+
+    getCurrentRoute(): Route<any> | undefined;
 
     goToRoute<TParams extends RouteParamsDefinition | undefined>(
         route: Route<TParams>,

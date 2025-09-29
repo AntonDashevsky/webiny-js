@@ -200,7 +200,7 @@ export const Documentation: Story = {
         },
         onValueChange: {
             description: "Function called when the selected value changes",
-            control: "none"
+            
         }
     }
 };

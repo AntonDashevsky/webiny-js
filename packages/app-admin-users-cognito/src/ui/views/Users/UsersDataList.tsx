@@ -26,6 +26,7 @@ import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { DELETE_USER, LIST_USERS } from "./graphql.js";
 import { deserializeSorters } from "../utils.js";
 import type { UserItem } from "~/UserItem.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-identity/admin/users/data-list");
 
@@ -56,7 +57,7 @@ const UsersDataList = () => {
     const [filter, setFilter] = useState("");
     const [sort, setSort] = useState<string>(SORTERS[0].sorter);
     const { identity } = useSecurity();
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
     const { showConfirmation } = useConfirmationDialog({
         dataTestId: "default-data-list.delete-dialog"
@@ -110,7 +111,7 @@ const UsersDataList = () => {
                 showSnackbar(t`User "{email}" deleted.`({ email: item.email }));
 
                 if (id === item.id) {
-                    history.push(`/admin-users`);
+                    goToRoute(Routes.Users.List);
                 }
             });
         },
@@ -150,7 +151,9 @@ const UsersDataList = () => {
                     size={"sm"}
                     className={"wby-ml-xs"}
                     data-testid="new-record-button"
-                    onClick={() => history.push("/admin-users?new=true")}
+                    onClick={() => {
+                        goToRoute(Routes.Users.List, { new: true });
+                    }}
                 />
             }
             data={userList}
@@ -191,7 +194,9 @@ const UsersDataList = () => {
                                 />
                             </ListItemGraphic>
                             <ListItemText
-                                onClick={() => history.push(`/admin-users?id=${item.id}`)}
+                                onClick={() => {
+                                    goToRoute(Routes.Users.List, { id: item.id });
+                                }}
                             >
                                 <ListItemTextPrimary>
                                     {item.firstName} {item.lastName}

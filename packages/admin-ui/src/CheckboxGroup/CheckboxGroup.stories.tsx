@@ -226,7 +226,7 @@ export const Documentation: Story = {
         },
         onChange: {
             description: "Callback function triggered when selection changes",
-            control: "none"
+            
         }
     }
 };

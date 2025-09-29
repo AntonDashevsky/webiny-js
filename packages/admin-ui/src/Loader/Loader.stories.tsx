@@ -58,7 +58,7 @@ export const Documentation: Story = {
         className: {
             description:
                 "Additional CSS class names. You can pass multiple class names, separated by commas or spaces.",
-            control: "none"
+            
         }
     }
 };

@@ -6,6 +6,8 @@ import TenantForm from "./TenantForm.js";
 import { IsRootTenant } from "~/components/IsRootTenant.js";
 import { ReactComponent as TenantManagerIcon } from "@webiny/icons/domain.svg";
 import { AdminConfig } from "@webiny/app-admin";
+import { Routes } from "~/routes.js";
+import { useRouter } from "@webiny/react-router";
 
 const { Menu, Route } = AdminConfig;
 
@@ -23,6 +25,8 @@ export const TenantsView = () => {
 };
 
 export const TenantsModule = () => {
+    const router = useRouter();
+
     return (
         <AdminConfig>
             <IsRootTenant>
@@ -37,14 +41,13 @@ export const TenantsModule = () => {
                                 />
                             }
                             text={"Tenant Manager"}
-                            to={"/tenants"}
+                            to={router.getLink(Routes.Tenants.List)}
                         />
                     }
                 />
 
                 <Route
-                    name={"tenantManager.tenants"}
-                    path={"/tenants"}
+                    route={Routes.Tenants.List}
                     element={
                         <Layout title={"Tenant Manager - Tenants"}>
                             <TenantsView />

@@ -111,15 +111,15 @@ export const Documentation: Story = {
     argTypes: {
         start: {
             description: "Content displayed at the start of the header bar",
-            control: "none"
+            
         },
         middle: {
             description: "Content displayed in the middle of the header bar",
-            control: "none"
+            
         },
         end: {
             description: "Content displayed at the end of the header bar",
-            control: "none"
+            
         }
     }
 };

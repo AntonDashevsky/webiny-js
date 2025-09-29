@@ -19,7 +19,7 @@ describe("Router Gateway", () => {
         history.replace("/__unknown__");
 
         const gateway = new HistoryRouterGateway(history, "");
-        gateway.registerRoutes([
+        gateway.setRoutes([
             { name: "home", path: "/", onMatch: spyHome },
             { name: "login", path: "/login", onMatch: spyLogin },
             { name: "test", path: "/dynamic-route/:name", onMatch: spyDynamic }
@@ -34,6 +34,8 @@ describe("Router Gateway", () => {
         history.push("/login");
         await wait();
         history.push("/dynamic-route/blogs");
+        await wait();
+        history.push("/dynamic-route/blogs?search=123");
         await wait();
 
         expect(spyLogin).toHaveBeenCalledTimes(2);
@@ -56,7 +58,7 @@ describe("Router Gateway", () => {
             pathname: "/",
             params: {}
         });
-        expect(spyDynamic).toHaveBeenCalledTimes(2);
+        expect(spyDynamic).toHaveBeenCalledTimes(3);
         expect(spyDynamic).toHaveBeenNthCalledWith(1, {
             name: "test",
             path: "/dynamic-route/:name",
@@ -73,6 +75,15 @@ describe("Router Gateway", () => {
                 name: "blogs"
             }
         });
+        expect(spyDynamic).toHaveBeenNthCalledWith(3, {
+            name: "test",
+            path: "/dynamic-route/:name",
+            pathname: "/dynamic-route/blogs",
+            params: {
+                name: "blogs",
+                search: "123"
+            }
+        });
     });
 
     it("should generate route URLs", async () => {
@@ -82,7 +93,7 @@ describe("Router Gateway", () => {
 
         const history = createMemoryHistory();
         const gateway = new HistoryRouterGateway(history, "");
-        gateway.registerRoutes([
+        gateway.setRoutes([
             { name: "root", path: "/", onMatch: spyHome },
             { name: "login", path: "/login", onMatch: spyLogin },
             { name: "dynamic", path: "/dynamic-route/:name", onMatch: spyDynamic }

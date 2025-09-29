@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import debounce from "lodash/debounce.js";
 import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
-import { SimpleLink } from "@webiny/react-router";
+import { RouteLink } from "@webiny/react-router";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { useReferences } from "./useReferences.js";
 import { renderItem, renderListItemOptions } from "./renderItem.js";
@@ -12,6 +12,7 @@ import type { BindComponentRenderProp } from "@webiny/form";
 import type { OptionItem } from "./types.js";
 import { useModels } from "~/admin/hooks/index.js";
 import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");
 
@@ -36,9 +37,9 @@ const ContentEntriesMultiAutocomplete = ({ bind, field }: ContentEntriesMultiAut
         return (
             <React.Fragment key={id}>
                 {index > 0 && ", "}
-                <SimpleLink to={`/cms/content-entries/${modelId}?id=${encodeURIComponent(id)}`}>
+                <RouteLink route={Routes.ContentEntries.List} params={{ id, modelId }}>
                     {name}
-                </SimpleLink>
+                </RouteLink>
             </React.Fragment>
         );
     };

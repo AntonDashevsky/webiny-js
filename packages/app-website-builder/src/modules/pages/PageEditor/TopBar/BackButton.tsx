@@ -1,25 +1,22 @@
 import React, { useCallback } from "react";
 import { IconButton } from "@webiny/admin-ui";
-import { useLocation, useNavigate, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/react-router";
 import { ReactComponent as BackIcon } from "@webiny/icons/arrow_back.svg";
 import { useDocumentEditor } from "~/DocumentEditor/index.js";
+import { Routes } from "~/routes.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export function BackButton() {
-    const { key } = useLocation();
-    const navigate = useNavigate();
-    const { search } = useRouter();
+    const { goToRoute } = useRouter();
+    const route = useRoute(Routes.Pages.Editor);
     const editor = useDocumentEditor();
 
     const onClick = useCallback(() => {
         const document = editor.getDocumentState().read();
-        const folderId = search[0].get("folderId") ?? document.properties.folderId ?? "root";
+        const folderId = route.params.folderId ?? document.properties.folderId ?? ROOT_FOLDER;
 
-        navigate(`/website-builder/pages?folderId=${encodeURIComponent(folderId)}`);
-    }, [key, navigate]);
+        goToRoute(Routes.Pages.List, { folderId });
+    }, [route]);
 
-    return (
-        <>
-            <IconButton variant={"ghost"} size={"md"} onClick={onClick} icon={<BackIcon />} />
-        </>
-    );
+    return <IconButton variant={"ghost"} size={"md"} onClick={onClick} icon={<BackIcon />} />;
 }

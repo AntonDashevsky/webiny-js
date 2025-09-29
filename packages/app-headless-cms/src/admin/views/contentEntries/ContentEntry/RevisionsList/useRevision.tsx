@@ -1,10 +1,11 @@
 import React from "react";
-import { useRouter } from "@webiny/react-router";
+import { useToast } from "@webiny/admin-ui";
+import { useRoute, useRouter } from "@webiny/react-router";
 import { useHandlers } from "@webiny/app/hooks/useHandlers.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import type { CmsContentEntry } from "~/types.js";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
 import type { PublishEntryRevisionResponse } from "~/admin/contexts/Cms/index.js";
+import { Routes } from "~/routes.js";
 
 export interface CreateRevisionHandler {
     (id?: string): Promise<void>;
@@ -42,8 +43,9 @@ export interface UseRevisionProps {
 
 export const useRevision = ({ revision }: UseRevisionProps) => {
     const contentEntry = useContentEntry();
-    const { history } = useRouter();
-    const { showSnackbar, showErrorSnackbar } = useSnackbar();
+    const { goToRoute } = useRouter();
+    const route = useRoute(Routes.ContentEntries.List);
+    const { showSuccessToast, showWarningToast } = useToast();
     const { contentModel } = contentEntry;
     const { modelId } = contentModel;
 
@@ -59,22 +61,22 @@ export const useRevision = ({ revision }: UseRevisionProps) => {
                         });
 
                         if (error) {
-                            showSnackbar(error.message);
+                            showWarningToast(error.message);
                             return;
                         }
 
-                        history.push(
-                            `/cms/content-entries/${modelId}?id=${encodeURIComponent(entry.id)}`
-                        );
+                        goToRoute(Routes.ContentEntries.List, {
+                            ...route.params,
+                            id: entry.id
+                        });
                     },
                 editRevision:
                     (): EditRevisionHandler =>
                     (id): void => {
-                        history.push(
-                            `/cms/content-entries/${modelId}/?id=${encodeURIComponent(
-                                id || revision.id
-                            )}`
-                        );
+                        goToRoute(Routes.ContentEntries.List, {
+                            ...route.params,
+                            id: id || revision.id
+                        });
                     },
                 deleteRevision:
                     ({ entry, contentEntryHook }): DeleteRevisionHandler =>
@@ -91,13 +93,10 @@ export const useRevision = ({ revision }: UseRevisionProps) => {
 
                         const { newLatestRevision } = response;
 
-                        let redirectTarget = `/cms/content-entries/${modelId}`;
-                        if (newLatestRevision) {
-                            // Redirect to the first revision in the list of all entry revisions.
-                            redirectTarget += `?id=${encodeURIComponent(newLatestRevision.id)}`;
-                        }
-
-                        history.push(redirectTarget);
+                        goToRoute(Routes.ContentEntries.List, {
+                            modelId,
+                            id: newLatestRevision?.id
+                        });
                     },
                 publishRevision:
                     ({ entry, contentEntryHook }): PublishRevisionHandler =>
@@ -107,16 +106,22 @@ export const useRevision = ({ revision }: UseRevisionProps) => {
                         });
 
                         if (response.error) {
-                            showErrorSnackbar(response.error.message);
+                            showWarningToast({
+                                title: "Failed to publish",
+                                description: response.error.message
+                            });
                             return response;
                         }
 
-                        showSnackbar(
-                            <span>
-                                Successfully published revision{" "}
-                                <strong>#{response.entry.meta.version}</strong>!
-                            </span>
-                        );
+                        showSuccessToast({
+                            title: "Revision published!",
+                            description: (
+                                <span>
+                                    Successfully published revision{" "}
+                                    <strong>#{response.entry.meta.version}</strong>!
+                                </span>
+                            )
+                        });
 
                         return response;
                     },
@@ -128,16 +133,22 @@ export const useRevision = ({ revision }: UseRevisionProps) => {
                         });
 
                         if (error) {
-                            showSnackbar(error.message);
+                            showWarningToast({
+                                title: "Failed to unpublish",
+                                description: error.message
+                            });
                             return;
                         }
 
-                        showSnackbar(
-                            <span>
-                                Successfully unpublished revision{" "}
-                                <strong>#{revision.meta.version}</strong>!
-                            </span>
-                        );
+                        showSuccessToast({
+                            title: "Revision unpublished",
+                            description: (
+                                <span>
+                                    Successfully unpublished revision{" "}
+                                    <strong>#{revision.meta.version}</strong>!
+                                </span>
+                            )
+                        });
                     }
             }
         );

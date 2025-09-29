@@ -21,19 +21,18 @@ import { GroupsMultiAutocomplete } from "~/components/GroupsMultiAutocomplete/in
 import type { Team } from "~/types.js";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { Alert, Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-security/admin/teams/form");
 
 export interface TeamsFormProps {
-    // TODO @ts-refactor delete and go up the tree and sort it out
-    [key: string]: any;
+    newEntry: boolean;
+    id: string | undefined;
 }
 
-export const TeamsForm = () => {
-    const { location, history } = useRouter();
+export const TeamsForm = ({ newEntry, id }: TeamsFormProps) => {
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
-    const newTeam = new URLSearchParams(location.search).get("new") === "true";
-    const id = new URLSearchParams(location.search).get("id");
 
     const getQuery = useQuery(READ_TEAM, {
         variables: { id },
@@ -45,7 +44,7 @@ export const TeamsForm = () => {
 
             const { error } = data.security.team;
             if (error) {
-                history.push("/access-management/teams");
+                goToRoute(Routes.Teams.List);
                 showSnackbar(error.message);
             }
         }
@@ -90,7 +89,9 @@ export const TeamsForm = () => {
                 return showSnackbar(error.message);
             }
 
-            !isUpdate && history.push(`/access-management/teams?id=${team.id}`);
+            if (!isUpdate) {
+                goToRoute(Routes.Teams.List, { id: team.id });
+            }
             showSnackbar(t`Team saved successfully!`);
         },
         [id]
@@ -102,7 +103,7 @@ export const TeamsForm = () => {
     const pluginTeam = data.plugin;
     const canModifyTeam = !systemTeam && !pluginTeam;
 
-    const showEmptyView = !newTeam && !loading && isEmpty(data);
+    const showEmptyView = !newEntry && !loading && isEmpty(data);
     // Render "No content" selected view.
     if (showEmptyView) {
         return (
@@ -114,7 +115,9 @@ export const TeamsForm = () => {
                         text={t`New Team`}
                         icon={<AddIcon />}
                         data-testid="new-record-button"
-                        onClick={() => history.push("/access-management/teams?new=true")}
+                        onClick={() => {
+                            goToRoute(Routes.Teams.List, { new: true });
+                        }}
                     />
                 }
             />
@@ -168,7 +171,7 @@ export const TeamsForm = () => {
                                     >
                                         <Input
                                             size={"lg"}
-                                            disabled={!canModifyTeam || !newTeam}
+                                            disabled={!canModifyTeam || !newEntry}
                                             label={t`Slug`}
                                             data-testid="admin.am.team.new.slug"
                                         />
@@ -203,7 +206,9 @@ export const TeamsForm = () => {
                             <Button
                                 variant={"secondary"}
                                 text={t`Cancel`}
-                                onClick={() => history.push("/access-management/teams")}
+                                onClick={() => {
+                                    goToRoute(Routes.Teams.List);
+                                }}
                             />
                             {canModifyTeam && (
                                 <Button

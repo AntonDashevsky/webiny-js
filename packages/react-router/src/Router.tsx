@@ -27,6 +27,7 @@ interface MatchedRouteWithElement extends MatchedRoute {
 export interface RouterPresenterContext {
     route: MatchedRoute;
     goToRoute: IRouterPresenter["goToRoute"];
+    setRouteParams: IRouterPresenter["setRouteParams"];
     getLink: IRouterPresenter["getLink"];
     onRouteExit: IRouterPresenter["onRouteExit"];
     setRoutes: (routes: ReactRoute[]) => void;
@@ -66,17 +67,21 @@ export const Router = observer(({ getBaseUrl, history, children, routes }: Route
         return route && currentRoute ? { ...currentRoute, element: route.element } : undefined;
     }, [route, currentRoute]);
 
-    const presenterContext: RouterPresenterContext = {
-        route: toJS(currentRoute)!,
-        goToRoute: presenter.goToRoute,
-        getLink: presenter.getLink,
-        onRouteExit: presenter.onRouteExit,
-        setRoutes: (routes: ReactRoute[]) => {
-            routesRef.current = routes;
+    const presenterContext: RouterPresenterContext = useMemo(
+        () => ({
+            route: toJS(currentRoute)!,
+            goToRoute: presenter.goToRoute,
+            setRouteParams: presenter.setRouteParams,
+            getLink: presenter.getLink,
+            onRouteExit: presenter.onRouteExit,
+            setRoutes: (routes: ReactRoute[]) => {
+                routesRef.current = routes;
 
-            presenter.bootstrap(routes.map(route => route.route));
-        }
-    };
+                presenter.bootstrap(routes.map(route => route.route));
+            }
+        }),
+        [currentRoute]
+    );
 
     return (
         <RouterPresenterContext.Provider value={presenterContext}>

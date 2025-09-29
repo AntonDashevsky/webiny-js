@@ -30,11 +30,6 @@ export const Documentation: Story = {
                 type: "select",
                 options: ["start", "end", "both"]
             }
-        },
-        getValueLabel: {
-            description:
-                "Function to format the value label. Receives the current value and returns a string.",
-            control: { type: "function" }
         }
     }
 };

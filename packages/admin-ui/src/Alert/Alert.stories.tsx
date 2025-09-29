@@ -201,11 +201,11 @@ export const Documentation: Story = {
         },
         onClose: {
             description: "Please refer to the 'With Close Button' example below for details.",
-            control: "none"
+            
         },
         actions: {
             description: "Please refer to the 'With Action' example below for details.",
-            control: "none"
+            
         }
     }
 };

@@ -1,12 +1,15 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import pick from "lodash/pick.js";
-import { Prompt } from "@webiny/react-router";
+import { NavigationPrompt } from "@webiny/app-admin/components/NavigationPrompt.js";
 import { Form } from "@webiny/form";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
 import type { FormAPI, FormOnSubmit, FormValidation, FormInvalidFields } from "@webiny/form";
 import type { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 import { CompositionScope, useSnackbar } from "@webiny/app-admin";
-import type { CreateEntryResponse, UpdateEntryRevisionResponse } from "~/admin/contexts/Cms/index.js";
+import type {
+    CreateEntryResponse,
+    UpdateEntryRevisionResponse
+} from "~/admin/contexts/Cms/index.js";
 
 const promptMessage =
     "There are some unsaved changes! Are you sure you want to navigate away and discard all changes?";
@@ -31,9 +34,10 @@ export interface SetSaveEntry {
 }
 
 export interface PersistEntry {
-    (entry: Partial<CmsContentEntry>, options?: SaveEntryOptions): Promise<
-        CreateEntryResponse | UpdateEntryRevisionResponse
-    >;
+    (
+        entry: Partial<CmsContentEntry>,
+        options?: SaveEntryOptions
+    ): Promise<CreateEntryResponse | UpdateEntryRevisionResponse>;
 }
 
 interface ContentEntryFormProviderProps {
@@ -160,7 +164,10 @@ export const ContentEntryFormProvider = ({
                     <ContentEntryFormContext.Provider value={context}>
                         {confirmNavigationIfDirty ? (
                             <CompositionScope name={"cms.contentEntryForm"}>
-                                <Prompt when={!formProps.form.isPristine} message={promptMessage} />
+                                <NavigationPrompt
+                                    when={!formProps.form.isPristine}
+                                    message={promptMessage}
+                                />
                             </CompositionScope>
                         ) : null}
                         {children}

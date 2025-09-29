@@ -13,14 +13,17 @@ import type {
 } from "~/admin/graphql/contentModels.js";
 import { GET_CONTENT_MODEL } from "~/admin/graphql/contentModels.js";
 import { useCms } from "~/admin/hooks/index.js";
-import { NavigateFolderProvider as AbstractNavigateFolderProvider } from "@webiny/app-aco/contexts/navigateFolder.js";
-import { SearchRecordsProvider } from "@webiny/app-aco/contexts/records.js";
+import {
+    NavigateFolderProvider as AbstractNavigateFolderProvider,
+    SearchRecordsProvider
+} from "@webiny/app-aco";
 import { FolderTree, useNavigateFolder } from "@webiny/app-aco";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
 import { usePersistEntry } from "~/admin/hooks/usePersistEntry.js";
 import type { AcoAppProviderContext } from "@webiny/app-aco/contexts/app.js";
 import { AcoAppContext, createAppFromModel } from "@webiny/app-aco/contexts/app.js";
 import { Drawer, OverlayLoader } from "@webiny/admin-ui";
+import { ROOT_FOLDER } from "~/admin/constants.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");
 
@@ -126,12 +129,10 @@ export const NewReferencedEntryDialog = ({
             model,
             id: `cms:${model.modelId}`
         }),
-        mode: "cms",
         client: apolloClient,
         model,
         folderIdPath: "wbyAco_location.folderId",
-        folderIdInPath: "wbyAco_location.folderId_in",
-        loading: false
+        folderIdInPath: "wbyAco_location.folderId_in"
     };
 
     return (
@@ -167,11 +168,7 @@ const NavigateFolderProvider = ({
     const [folderId, setFolderId] = useState<string | undefined>(undefined);
 
     const navigateToFolder = useCallback((folderId: string) => {
-        setFolderId(folderId);
-    }, []);
-
-    const navigateToListHome = useCallback(() => {
-        setFolderId(undefined);
+        setFolderId(folderId === ROOT_FOLDER ? undefined : folderId);
     }, []);
 
     return (
@@ -179,8 +176,6 @@ const NavigateFolderProvider = ({
             folderId={folderId}
             createStorageKey={() => `cms:${modelId}:create`}
             navigateToFolder={navigateToFolder}
-            navigateToLatestFolder={navigateToFolder}
-            navigateToListHome={navigateToListHome}
         >
             {children}
         </AbstractNavigateFolderProvider>
@@ -204,7 +199,7 @@ const ContentEntryProviderWithCurrentFolderId = ({
     return (
         <ContentEntryProvider
             isNewEntry={() => true}
-            getContentId={() => null}
+            getContentId={() => undefined}
             currentFolderId={currentFolderId}
         >
             <Drawer

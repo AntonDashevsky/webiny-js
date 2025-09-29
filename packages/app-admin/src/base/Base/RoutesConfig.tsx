@@ -1,15 +1,15 @@
 import React from "react";
 import { Dashboard, Layout, NotFound } from "~/index.js";
 import { AdminConfig } from "~/config/AdminConfig.js";
+import { Routes } from "~/routes.js";
 
 const { Route } = AdminConfig;
 
-export const Routes = React.memo(() => {
+export const RoutesConfig = React.memo(() => {
     return (
         <AdminConfig>
             <Route
-                name={"home"}
-                path={"/"}
+                route={Routes.Dashboard}
                 element={
                     <Layout title={"Welcome!"}>
                         <Dashboard />
@@ -18,8 +18,7 @@ export const Routes = React.memo(() => {
             />
 
             <Route
-                name={"default"}
-                path={"*"}
+                route={Routes.CatchAll}
                 element={
                     <Layout title={"Not Accessible"}>
                         <NotFound />
@@ -30,4 +29,4 @@ export const Routes = React.memo(() => {
     );
 });
 
-Routes.displayName = "Routes";
+RoutesConfig.displayName = "Routes";

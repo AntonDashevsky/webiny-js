@@ -1,9 +1,11 @@
 import React, { lazy, Suspense } from "react";
+import Helmet from "react-helmet";
 import { AdminConfig, Plugins, Layout } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
-import Helmet from "react-helmet";
+import { OverlayLoader } from "@webiny/admin-ui";
+import { useRouter } from "@webiny/react-router";
 import { usePermission } from "~/hooks/usePermission.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Routes } from "~/routes.js";
 
 const { Menu, Route } = AdminConfig;
 
@@ -20,10 +22,11 @@ interface LoaderProps {
 }
 
 const Loader = ({ children, ...props }: LoaderProps) => (
-    <Suspense fallback={<CircularProgress />}>{React.cloneElement(children, props)}</Suspense>
+    <Suspense fallback={<OverlayLoader />}>{React.cloneElement(children, props)}</Suspense>
 );
 
 const MailerSettings = () => {
+    const router = useRouter();
     const { canChangeSettings } = usePermission();
 
     const changeSettings = canChangeSettings();
@@ -36,8 +39,7 @@ const MailerSettings = () => {
         <AdminConfig>
             <HasPermission name={"mailer.settings"}>
                 <Route
-                    name={"mailer.settings"}
-                    path={"/mailer/settings"}
+                    route={Routes.Settings}
                     element={
                         <Layout>
                             <Helmet title={"Mailer - Settings"} />
@@ -55,7 +57,7 @@ const MailerSettings = () => {
                 <Menu
                     name={"mailer.settings.general"}
                     parent={"settings"}
-                    element={<Menu.Link text={"Settings"} to={"/mailer/settings"} />}
+                    element={<Menu.Link text={"Settings"} to={router.getLink(Routes.Settings)} />}
                 />
             </HasPermission>
         </AdminConfig>

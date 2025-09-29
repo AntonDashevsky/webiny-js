@@ -1,25 +1,27 @@
 import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
-import { Layout, Wcp } from "@webiny/app-admin";
+import { AdminConfig, Layout, Wcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
+import { useRouter } from "@webiny/react-router";
 import { Permission } from "~/plugins/constants.js";
 import { Groups } from "~/ui/views/Groups/index.js";
 import { Teams } from "~/ui/views/Teams/index.js";
 import { ApiKeys } from "~/ui/views/ApiKeys/index.js";
 import accessManagementPlugins from "./plugins/index.js";
-import { AdminConfig } from "@webiny/app-admin";
+import { Routes } from "~/routes.js";
 
 const { Menu, Route } = AdminConfig;
 
 const AccessManagementExtension = () => {
+    const router = useRouter();
+
     plugins.register(accessManagementPlugins());
 
     return (
         <AdminConfig>
             <HasPermission name={Permission.Groups}>
                 <Route
-                    name={"security.groups"}
-                    path={"/access-management/roles"}
+                    route={Routes.Roles.List}
                     element={
                         <Layout title={"Access Management - Roles"}>
                             <Groups />
@@ -30,8 +32,7 @@ const AccessManagementExtension = () => {
             <Wcp.CanUseTeams>
                 <HasPermission name={Permission.Teams}>
                     <Route
-                        name={"security.teams"}
-                        path={"/access-management/teams"}
+                        route={Routes.Teams.List}
                         element={
                             <Layout title={"Access Management - Teams"}>
                                 <Teams />
@@ -42,8 +43,7 @@ const AccessManagementExtension = () => {
             </Wcp.CanUseTeams>
             <HasPermission name={Permission.ApiKeys}>
                 <Route
-                    name={"security.apiKeys"}
-                    path={"/access-management/api-keys"}
+                    route={Routes.ApiKeys.List}
                     element={
                         <Layout title={"Access Management - API Keys"}>
                             <ApiKeys />
@@ -63,7 +63,7 @@ const AccessManagementExtension = () => {
                 <Menu
                     name={"security.roles"}
                     parent={"settings"}
-                    element={<Menu.Link text={"Roles"} to={"/access-management/roles"} />}
+                    element={<Menu.Link text={"Roles"} to={router.getLink(Routes.Roles.List)} />}
                 />
             </HasPermission>
             <Wcp.CanUseTeams>
@@ -71,7 +71,9 @@ const AccessManagementExtension = () => {
                     <Menu
                         name={"security.teams"}
                         parent={"settings"}
-                        element={<Menu.Link text={"Teams"} to={"/access-management/teams"} />}
+                        element={
+                            <Menu.Link text={"Teams"} to={router.getLink(Routes.Teams.List)} />
+                        }
                     />
                 </HasPermission>
             </Wcp.CanUseTeams>
@@ -80,7 +82,9 @@ const AccessManagementExtension = () => {
                 <Menu
                     name={"security.apiKeys"}
                     parent={"settings"}
-                    element={<Menu.Link text={"API Keys"} to={"/access-management/api-keys"} />}
+                    element={
+                        <Menu.Link text={"API Keys"} to={router.getLink(Routes.ApiKeys.List)} />
+                    }
                 />
             </HasPermission>
         </AdminConfig>

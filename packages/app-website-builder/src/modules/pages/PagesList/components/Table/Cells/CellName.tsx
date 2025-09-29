@@ -2,7 +2,7 @@ import React from "react";
 import { Icon, Link, Text } from "@webiny/admin-ui";
 import { ReactComponent as File } from "@webiny/icons/description.svg";
 import { PageListConfig } from "~/modules/pages/configs/index.js";
-import { useGetEditPageUrl } from "~/modules/pages/PagesList/hooks/useGetEditPageUrl.js";
+import { useEditPageUrl } from "~/modules/pages/PagesList/hooks/useEditPageUrl.js";
 import { FolderCellName } from "~/modules/shared/FolderCellName.js";
 import type { PageDto } from "~/domain/Page/index.js";
 
@@ -37,7 +37,7 @@ interface EntryCellNameProps {
 }
 
 export const PageCellName = ({ page }: EntryCellNameProps) => {
-    const { getEditPageUrl } = useGetEditPageUrl();
+    const { getEditPageUrl } = useEditPageUrl();
 
     return (
         <Link

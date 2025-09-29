@@ -7,8 +7,9 @@ import { ReactComponent as Published } from "@webiny/icons/remove_red_eye.svg";
 import { useGetPageRevisions } from "~/features/pages/index.js";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
 import type { PageRevision } from "~/domain/PageRevision/index.js";
-import { WB_PAGE_EDITOR_ROUTE } from "~/constants.js";
 import type { EditorPage } from "@webiny/website-builder-sdk";
+import { useRouter } from "@webiny/react-router/useRouter";
+import { Routes } from "~/routes.js";
 
 const { Item } = DropdownMenu;
 
@@ -19,6 +20,7 @@ const statusIcon: Record<string, JSX.Element> = {
 };
 
 export const RevisionsMenu = () => {
+    const { getLink } = useRouter();
     const [revisions, setRevisions] = useState<PageRevision[]>([]);
     const { loading, getPageRevisions } = useGetPageRevisions();
     const id = useSelectFromDocument(document => document.id);
@@ -41,7 +43,7 @@ export const RevisionsMenu = () => {
 
     const goToRevision = useCallback((id: string) => {
         // TODO: make this work without a full app reload
-        window.location.pathname = `${WB_PAGE_EDITOR_ROUTE}/${encodeURIComponent(id)}`;
+        window.location.pathname = getLink(Routes.Pages.Editor, { id });
     }, []);
 
     return (

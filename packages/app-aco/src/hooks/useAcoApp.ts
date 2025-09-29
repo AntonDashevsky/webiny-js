@@ -14,9 +14,6 @@ export const useAcoApp = (): AcoAppProviderContext => {
         folderIdPath: context.folderIdPath,
         folderIdInPath: context.folderIdInPath,
         model: context.model,
-        client: context.client,
-        mode: context.mode,
-        loading: context.loading,
-        error: context.error
+        client: context.client
     };
 };

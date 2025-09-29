@@ -166,11 +166,11 @@ export const Documentation: Story = {
         },
         onChange: {
             description: "Function called when the content changes",
-            control: "none"
+            
         },
         onReady: {
             description: "Function called when the editor is ready",
-            control: "none"
+            
         }
     }
 };

@@ -4,16 +4,19 @@ import { HasPermission } from "@webiny/app-security";
 import { ReactComponent as PagesIcon } from "@webiny/icons/table_chart.svg";
 import { PageEditor } from "~/modules/pages/PageEditor.js";
 import { PageList } from "~/modules/pages/PageList.js";
-import { WB_PAGE_EDITOR_ROUTE, WB_PAGES_LIST_ROUTE, WB_REDIRECT_LIST_ROUTE } from "~/constants.js";
 import { useSettingsDialog } from "~/modules/settings/useSettingsDialog.js";
 import { useIntegrationsDialog } from "./modules/integrations/useIntegrationsDialog.js";
 import { PagesListConfig } from "~/modules/pages/PagesListConfig.js";
 import { RedirectsList } from "~/modules/redirects/RedirectsList.js";
 import { RedirectsListConfig } from "~/modules/redirects/RedirectsListConfig.js";
+import { Routes } from "~/routes.js";
+import { useRouter } from "@webiny/react-router";
 
 const { Menu, Route } = AdminConfig;
 
 export const Extension = () => {
+    const router = useRouter();
+
     return (
         <>
             <AdminConfig>
@@ -43,28 +46,27 @@ export const Extension = () => {
                 </HasPermission>
 
                 <HasPermission name={"wb.page"}>
-                    <Route name="wb.pages.list" path={WB_PAGES_LIST_ROUTE} element={<PageList />} />
-                    <Route
-                        name="wb.pages.editor"
-                        path={`${WB_PAGE_EDITOR_ROUTE}/:id`}
-                        element={<PageEditor />}
-                    />
+                    <Route route={Routes.Pages.List} element={<PageList />} />
+                    <Route route={Routes.Pages.Editor} element={<PageEditor />} />
                     <Menu
                         name="wb.pages"
                         parent={"wb"}
-                        element={<Menu.Link text={"Pages"} to={WB_PAGES_LIST_ROUTE} />}
+                        element={
+                            <Menu.Link text={"Pages"} to={router.getLink(Routes.Pages.List)} />
+                        }
                     />
                 </HasPermission>
                 <HasPermission name={"wb.redirect"}>
-                    <Route
-                        name="wb.redirect.list"
-                        path={WB_REDIRECT_LIST_ROUTE}
-                        element={<RedirectsList />}
-                    />
+                    <Route route={Routes.Redirects.List} element={<RedirectsList />} />
                     <Menu
                         name="wb.redirects"
                         parent={"wb"}
-                        element={<Menu.Link text={"Redirects"} to={WB_REDIRECT_LIST_ROUTE} />}
+                        element={
+                            <Menu.Link
+                                text={"Redirects"}
+                                to={router.getLink(Routes.Redirects.List)}
+                            />
+                        }
                     />
                 </HasPermission>
                 <HasPermission name={"wb.settings"}>
