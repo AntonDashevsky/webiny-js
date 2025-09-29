@@ -1,17 +1,17 @@
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
-import { AbstractStorageOps } from "../storageOps/AbstractStorageOps.js";
 
-const getMd5Hash = (text: string) => {
+const getMd5Hash = text => {
     // Just convert the command to kebab-case.
     return crypto.createHash("md5").update(text).digest("hex");
 };
 
-class TestablePackage {
-    private vitestCiConfig: Record<string, any> | null | undefined;
-
-    constructor(private packageFolderPath: string) {}
+export class TestablePackage {
+    constructor(packageFolderPath) {
+        this.packageFolderPath = packageFolderPath;
+        this.vitestCiConfig = undefined;
+    }
 
     getId() {
         return getMd5Hash(this.packageFolderPath);
@@ -61,14 +61,14 @@ class TestablePackage {
         return !vitestCiConfig || !vitestCiConfig.storageOps;
     }
 
-    testedWithStorageOps(storageOps: AbstractStorageOps) {
+    testedWithStorageOps(storageOps) {
         const vitestCiConfig = this.getVitestCiConfig();
         if (!vitestCiConfig) {
             return false;
         }
 
         const { storageOps: configStorageOps } = vitestCiConfig;
-        return Array.isArray(configStorageOps) && configStorageOps.includes(storageOps.id);
+        return Array.isArray(configStorageOps) && configStorageOps.includes(storageOps);
     }
 
     getVitestCiConfig() {
@@ -87,7 +87,7 @@ class TestablePackage {
         return this.vitestCiConfig;
     }
 
-    private packageFolderContainsTestFile(dir: string) {
+    packageFolderContainsTestFile(dir) {
         const entries = fs.readdirSync(dir, { withFileTypes: true });
 
         for (const entry of entries) {
@@ -105,21 +105,3 @@ class TestablePackage {
         return false;
     }
 }
-
-export const listVitestPackages = (storageOps?: AbstractStorageOps) => {
-    return fs
-        .readdirSync("packages")
-        .filter(name => !name.startsWith("."))
-        .map(name => {
-            const packageFolderPath = path.join("packages", name);
-            return new TestablePackage(packageFolderPath);
-        })
-        .filter(pkg => pkg.testingEnabled() && pkg.hasTests())
-        .filter(pkg => {
-            if (storageOps) {
-                return pkg.testedWithStorageOps(storageOps);
-            }
-
-            return pkg.testedWithoutStorageOps();
-        });
-};

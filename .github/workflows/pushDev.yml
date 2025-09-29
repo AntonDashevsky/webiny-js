@@ -162,10 +162,29 @@ jobs:
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
-  jestTestsNoStorage:
+  vitest-constants:
     needs:
-      - constants
       - build
+    name: Vitest (No storage) - Constants
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          path: dev
+      - name: List Vitest Test Commands
+        run: >-
+          echo "vitest-test-commands=$(node
+          .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
+          '{}')" >> $GITHUB_OUTPUT
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  vitest-run:
+    needs:
+      - vitest-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
       fail-fast: false
@@ -174,74 +193,7 @@ jobs:
           - ubuntu-latest
         node:
           - 22
-        testCommand: >-
-          ${{
-          fromJson('[{"id":"5a49ad33769abb7e8ed8d8fdb1e0442f","title":"admin-ui","cmd":"yarn
-          test
-          packages/admin-ui"},{"id":"70838ec09f0bc08964d713d5f57e6711","title":"api","cmd":"yarn
-          test
-          packages/api"},{"id":"323234929751e8853bd679ed987f9274","title":"api-admin-settings","cmd":"yarn
-          test
-          packages/api-admin-settings"},{"id":"12618e430bd6b7f19a371e79399d1e6c","title":"api-authentication","cmd":"yarn
-          test
-          packages/api-authentication"},{"id":"45eca9c04705504e945f99caf35f8284","title":"api-authentication-cognito","cmd":"yarn
-          test
-          packages/api-authentication-cognito"},{"id":"9172e311c8c3a957e69d4812d3dd15d0","title":"api-file-manager-s3","cmd":"yarn
-          test
-          packages/api-file-manager-s3"},{"id":"2d5b7da31e06da1bc5a7e70f0970af71","title":"api-headless-cms-ddb","cmd":"yarn
-          test
-          packages/api-headless-cms-ddb"},{"id":"79d4d193e401dff5b9dc1928f51dc010","title":"api-headless-cms-scheduler","cmd":"yarn
-          test
-          packages/api-headless-cms-scheduler"},{"id":"1403037b58c0f72f4a1c5af05c7541a9","title":"api-headless-cms-tasks","cmd":"yarn
-          test
-          packages/api-headless-cms-tasks"},{"id":"2cbb24466b42e03913e154e67128af7c","title":"api-record-locking","cmd":"yarn
-          test
-          packages/api-record-locking"},{"id":"2b8bada12f58223a068edd519b11b5a6","title":"api-sync-system","cmd":"yarn
-          test
-          packages/api-sync-system"},{"id":"7512b6f797f096b3c1c51ff093d5d9a9","title":"api-wcp","cmd":"yarn
-          test
-          packages/api-wcp"},{"id":"b269bd5d1a3db7a776e0ba62ca1aeb88","title":"api-websockets","cmd":"yarn
-          test
-          packages/api-websockets"},{"id":"694c3f0540446608b07500b887a0b90b","title":"app-aco","cmd":"yarn
-          test
-          packages/app-aco"},{"id":"e1bad90787b11992018fbd35b1c35450","title":"app-admin","cmd":"yarn
-          test
-          packages/app-admin"},{"id":"dc8255d1e6ddf2d11f9218e9164b94ce","title":"app-file-manager","cmd":"yarn
-          test
-          packages/app-file-manager"},{"id":"03ff437db579a4da42db0917f3b457fc","title":"app-headless-cms","cmd":"yarn
-          test
-          packages/app-headless-cms"},{"id":"7d5680643cbe08f2e6c7f72d37b9bb83","title":"app-trash-bin","cmd":"yarn
-          test
-          packages/app-trash-bin"},{"id":"78ba8421591c41fd878fcc6651a55198","title":"app-website-builder","cmd":"yarn
-          test
-          packages/app-website-builder"},{"id":"8ef5850d60021a89ddd58f25526f7eb5","title":"data-migration","cmd":"yarn
-          test
-          packages/data-migration"},{"id":"9c5fd765043c6d796d35aa12754bbf9e","title":"db-dynamodb","cmd":"yarn
-          test
-          packages/db-dynamodb"},{"id":"c686f63f7ea3856c0c525307006c67e9","title":"di-container","cmd":"yarn
-          test
-          packages/di-container"},{"id":"f2fe28a49f512ae0c138ad209969a69a","title":"form","cmd":"yarn
-          test
-          packages/form"},{"id":"0d47c6bca62d7e016512962e058d675d","title":"handler","cmd":"yarn
-          test
-          packages/handler"},{"id":"b454f145cb279d0546e63a42645198c5","title":"handler-aws","cmd":"yarn
-          test
-          packages/handler-aws"},{"id":"b5d892e106199184e06ec5fec2ee1fdd","title":"handler-graphql","cmd":"yarn
-          test
-          packages/handler-graphql"},{"id":"b20ec74f96babab533aef19b96f38fba","title":"ioc","cmd":"yarn
-          test
-          packages/ioc"},{"id":"d75a3aff0ef93a9530d52e6f1345aeb4","title":"lexical-converter","cmd":"yarn
-          test
-          packages/lexical-converter"},{"id":"dc7145aac2d5dff3029b73f66e497f3d","title":"plugins","cmd":"yarn
-          test
-          packages/plugins"},{"id":"dcc4154bd87b028e7007233a138bf593","title":"pubsub","cmd":"yarn
-          test
-          packages/pubsub"},{"id":"5abbe361e9e0d19eef0f497db7abbd81","title":"react-router","cmd":"yarn
-          test
-          packages/react-router"},{"id":"3eb168c4c795032e284054cfc9df1b05","title":"utils","cmd":"yarn
-          test
-          packages/utils"},{"id":"b03d908a0cdc635dfeedec76391bd828","title":"website-builder-sdk","cmd":"yarn
-          test packages/website-builder-sdk"}]') }}
+        testCommand: ${{ fromJSON("needs.vitest-constants.outputs.vitest-test-commands") }}
     runs-on: ${{ matrix.os }}
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
@@ -271,10 +223,30 @@ jobs:
       - name: Run tests
         run: ${{ matrix.testCommand.cmd }}
         working-directory: dev
-  jestTestsDdb:
+  vitest-ddb-constants:
     needs:
-      - constants
       - build
+    name: Vitest (DDB) - Constants
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          path: dev
+      - name: List Vitest Test Commands
+        run: >-
+          echo "vitest-test-commands=$(node
+          .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
+          '{"storageOps":{"id":"ddb","shortId":"ddb","displayName":"DDB"}}')" >>
+          $GITHUB_OUTPUT
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  vitest-ddb-run:
+    needs:
+      - vitest-ddb-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
       fail-fast: false
@@ -285,48 +257,7 @@ jobs:
           - 22
         testCommand: >-
           ${{
-          fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
-          test
-          packages/api-aco"},{"id":"9266a03ffeb1a10f0ae8bc0f06767ec0","title":"api-audit-logs","cmd":"yarn
-          test
-          packages/api-audit-logs"},{"id":"e64071ee36085e2f5d35c37f6d64fd76","title":"api-file-manager","cmd":"yarn
-          test
-          packages/api-file-manager"},{"id":"1b0a810a4c0d6607a4565c44344fc12c","title":"api-file-manager-aco","cmd":"yarn
-          test
-          packages/api-file-manager-aco"},{"id":"142235c097c9a8f41c6a64c0ddf04ce3","title":"api-headless-cms
-          (1/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=1/6"},{"id":"f4de974d00ad799f673cbc2d12ba2364","title":"api-headless-cms
-          (2/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=2/6"},{"id":"65967db8dc98556815c3e8ec90873406","title":"api-headless-cms
-          (3/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=3/6"},{"id":"c3a9b8be2a2bd1a37d3b57d542eba0f1","title":"api-headless-cms
-          (4/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=4/6"},{"id":"385e41cb7dc91b74f0d6afb4526cc774","title":"api-headless-cms
-          (5/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=5/6"},{"id":"9d53b85e059c5398cb1820c2df4bf66d","title":"api-headless-cms
-          (6/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=6/6"},{"id":"50b1b1fc31837b01be1749acb298eddc","title":"api-headless-cms-aco","cmd":"yarn
-          test
-          packages/api-headless-cms-aco"},{"id":"3f3d2ee1e176537baa8269f420c4f94b","title":"api-headless-cms-bulk-actions","cmd":"yarn
-          test
-          packages/api-headless-cms-bulk-actions"},{"id":"53a49c987dc77f4bb102d3564023edd2","title":"api-headless-cms-import-export","cmd":"yarn
-          test
-          packages/api-headless-cms-import-export"},{"id":"47b5a892544fdac975e56173ae103827","title":"api-i18n","cmd":"yarn
-          test
-          packages/api-i18n"},{"id":"954d9d6d8a2063fe6ab5c369187eb145","title":"api-log","cmd":"yarn
-          test
-          packages/api-log"},{"id":"6651e2679b456b93e4bbb926be21eace","title":"api-mailer","cmd":"yarn
-          test
-          packages/api-mailer"},{"id":"4ae574783a363549aea11632799fbe2f","title":"api-security","cmd":"yarn
-          test
-          packages/api-security"},{"id":"ffce1ed9abbf3b6d8d487c30f0fe454e","title":"api-security-cognito","cmd":"yarn
-          test
-          packages/api-security-cognito"},{"id":"baf042dac110d7a4fe62500a020bd289","title":"api-tenancy","cmd":"yarn
-          test
-          packages/api-tenancy"},{"id":"f58adae2f6ee9b0d67ef8b92fd1e37a0","title":"api-tenant-manager","cmd":"yarn
-          test
-          packages/api-tenant-manager"},{"id":"94bb282c6f3c5861b194d85ea0db9bb6","title":"tasks","cmd":"yarn
-          test packages/tasks"}]') }}
+          fromJSON("needs.vitest-ddb-constants.outputs.vitest-test-commands") }}
     runs-on: ${{ matrix.os }}
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
@@ -357,10 +288,30 @@ jobs:
       - name: Run tests
         run: ${{ matrix.testCommand.cmd }}
         working-directory: dev
-  jestTestsDdbEs:
+  vitest-ddbEs-constants:
     needs:
-      - constants
       - build
+    name: Vitest (DDB+ES) - Constants
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          path: dev
+      - name: List Vitest Test Commands
+        run: >-
+          echo "vitest-test-commands=$(node
+          .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
+          '{"storageOps":{"id":"ddb-es,ddb","shortId":"ddbEs","displayName":"DDB+ES"}}')"
+          >> $GITHUB_OUTPUT
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  vitest-ddbEs-run:
+    needs:
+      - vitest-ddbEs-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
       fail-fast: false
@@ -371,48 +322,8 @@ jobs:
           - 22
         testCommand: >-
           ${{
-          fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
-          test
-          packages/api-aco"},{"id":"9266a03ffeb1a10f0ae8bc0f06767ec0","title":"api-audit-logs","cmd":"yarn
-          test
-          packages/api-audit-logs"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
-          test
-          packages/api-dynamodb-to-elasticsearch"},{"id":"5d3d08a906ca5afee502989a245c0289","title":"api-elasticsearch","cmd":"yarn
-          test
-          packages/api-elasticsearch"},{"id":"d25c2107fd559ba49e5f688c181c4ae1","title":"api-elasticsearch-tasks","cmd":"yarn
-          test
-          packages/api-elasticsearch-tasks"},{"id":"e64071ee36085e2f5d35c37f6d64fd76","title":"api-file-manager","cmd":"yarn
-          test
-          packages/api-file-manager"},{"id":"1b0a810a4c0d6607a4565c44344fc12c","title":"api-file-manager-aco","cmd":"yarn
-          test
-          packages/api-file-manager-aco"},{"id":"142235c097c9a8f41c6a64c0ddf04ce3","title":"api-headless-cms
-          (1/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=1/6"},{"id":"f4de974d00ad799f673cbc2d12ba2364","title":"api-headless-cms
-          (2/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=2/6"},{"id":"65967db8dc98556815c3e8ec90873406","title":"api-headless-cms
-          (3/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=3/6"},{"id":"c3a9b8be2a2bd1a37d3b57d542eba0f1","title":"api-headless-cms
-          (4/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=4/6"},{"id":"385e41cb7dc91b74f0d6afb4526cc774","title":"api-headless-cms
-          (5/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=5/6"},{"id":"9d53b85e059c5398cb1820c2df4bf66d","title":"api-headless-cms
-          (6/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=6/6"},{"id":"50b1b1fc31837b01be1749acb298eddc","title":"api-headless-cms-aco","cmd":"yarn
-          test
-          packages/api-headless-cms-aco"},{"id":"3f3d2ee1e176537baa8269f420c4f94b","title":"api-headless-cms-bulk-actions","cmd":"yarn
-          test
-          packages/api-headless-cms-bulk-actions"},{"id":"2b4aad88245172cf860b06a2a48a3db3","title":"api-headless-cms-ddb-es","cmd":"yarn
-          test
-          packages/api-headless-cms-ddb-es"},{"id":"554866642a88e27a9de065ef23bbe2fd","title":"api-headless-cms-es-tasks","cmd":"yarn
-          test
-          packages/api-headless-cms-es-tasks"},{"id":"53a49c987dc77f4bb102d3564023edd2","title":"api-headless-cms-import-export","cmd":"yarn
-          test
-          packages/api-headless-cms-import-export"},{"id":"6651e2679b456b93e4bbb926be21eace","title":"api-mailer","cmd":"yarn
-          test
-          packages/api-mailer"},{"id":"bbfd78d70e579b5f8dd4de01ef0566ce","title":"migrations","cmd":"yarn
-          test
-          packages/migrations"},{"id":"94bb282c6f3c5861b194d85ea0db9bb6","title":"tasks","cmd":"yarn
-          test packages/tasks"}]') }}
+          fromJSON("needs.vitest-ddbEs-constants.outputs.vitest-test-commands")
+          }}
     runs-on: ${{ matrix.os }}
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
@@ -453,10 +364,30 @@ jobs:
         working-directory: dev
     permissions:
       id-token: write
-  jestTestsDdbOs:
+  vitest-ddbOs-constants:
     needs:
-      - constants
       - build
+    name: Vitest (DDB+OS) - Constants
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          path: dev
+      - name: List Vitest Test Commands
+        run: >-
+          echo "vitest-test-commands=$(node
+          .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
+          '{"storageOps":{"id":"ddb-os,ddb","shortId":"ddbOs","displayName":"DDB+OS"}}')"
+          >> $GITHUB_OUTPUT
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  vitest-ddbOs-run:
+    needs:
+      - vitest-ddbOs-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
       fail-fast: false
@@ -467,48 +398,8 @@ jobs:
           - 22
         testCommand: >-
           ${{
-          fromJson('[{"id":"2731e7bbbc775b8a63ceb5730c213bb5","title":"api-aco","cmd":"yarn
-          test
-          packages/api-aco"},{"id":"9266a03ffeb1a10f0ae8bc0f06767ec0","title":"api-audit-logs","cmd":"yarn
-          test
-          packages/api-audit-logs"},{"id":"5faab2a8955f3b5d8c755b2f56e8916a","title":"api-dynamodb-to-elasticsearch","cmd":"yarn
-          test
-          packages/api-dynamodb-to-elasticsearch"},{"id":"5d3d08a906ca5afee502989a245c0289","title":"api-elasticsearch","cmd":"yarn
-          test
-          packages/api-elasticsearch"},{"id":"d25c2107fd559ba49e5f688c181c4ae1","title":"api-elasticsearch-tasks","cmd":"yarn
-          test
-          packages/api-elasticsearch-tasks"},{"id":"e64071ee36085e2f5d35c37f6d64fd76","title":"api-file-manager","cmd":"yarn
-          test
-          packages/api-file-manager"},{"id":"1b0a810a4c0d6607a4565c44344fc12c","title":"api-file-manager-aco","cmd":"yarn
-          test
-          packages/api-file-manager-aco"},{"id":"142235c097c9a8f41c6a64c0ddf04ce3","title":"api-headless-cms
-          (1/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=1/6"},{"id":"f4de974d00ad799f673cbc2d12ba2364","title":"api-headless-cms
-          (2/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=2/6"},{"id":"65967db8dc98556815c3e8ec90873406","title":"api-headless-cms
-          (3/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=3/6"},{"id":"c3a9b8be2a2bd1a37d3b57d542eba0f1","title":"api-headless-cms
-          (4/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=4/6"},{"id":"385e41cb7dc91b74f0d6afb4526cc774","title":"api-headless-cms
-          (5/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=5/6"},{"id":"9d53b85e059c5398cb1820c2df4bf66d","title":"api-headless-cms
-          (6/6)","cmd":"yarn test packages/api-headless-cms
-          --shard=6/6"},{"id":"50b1b1fc31837b01be1749acb298eddc","title":"api-headless-cms-aco","cmd":"yarn
-          test
-          packages/api-headless-cms-aco"},{"id":"3f3d2ee1e176537baa8269f420c4f94b","title":"api-headless-cms-bulk-actions","cmd":"yarn
-          test
-          packages/api-headless-cms-bulk-actions"},{"id":"2b4aad88245172cf860b06a2a48a3db3","title":"api-headless-cms-ddb-es","cmd":"yarn
-          test
-          packages/api-headless-cms-ddb-es"},{"id":"554866642a88e27a9de065ef23bbe2fd","title":"api-headless-cms-es-tasks","cmd":"yarn
-          test
-          packages/api-headless-cms-es-tasks"},{"id":"53a49c987dc77f4bb102d3564023edd2","title":"api-headless-cms-import-export","cmd":"yarn
-          test
-          packages/api-headless-cms-import-export"},{"id":"6651e2679b456b93e4bbb926be21eace","title":"api-mailer","cmd":"yarn
-          test
-          packages/api-mailer"},{"id":"bbfd78d70e579b5f8dd4de01ef0566ce","title":"migrations","cmd":"yarn
-          test
-          packages/migrations"},{"id":"94bb282c6f3c5861b194d85ea0db9bb6","title":"tasks","cmd":"yarn
-          test packages/tasks"}]') }}
+          fromJSON("needs.vitest-ddbOs-constants.outputs.vitest-test-commands")
+          }}
     runs-on: ${{ matrix.os }}
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'

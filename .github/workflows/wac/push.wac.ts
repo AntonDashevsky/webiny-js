@@ -1,11 +1,5 @@
 import { createWorkflow, NormalJob } from "github-actions-wac";
-import {
-    AWS_REGION,
-    BUILD_PACKAGES_RUNNER,
-    listVitestPackages,
-    NODE_VERSION,
-    runNodeScript
-} from "./utils/index.js";
+import { AWS_REGION, BUILD_PACKAGES_RUNNER, NODE_VERSION, runNodeScript } from "./utils/index.js";
 import { createJob } from "./jobs/index.js";
 import {
     createDeployWebinySteps,
@@ -226,7 +220,12 @@ const createPushWorkflow = (branchName: string) => {
         };
     };
 
-    const createVitestTestsJob = (storageOps?: AbstractStorageOps) => {
+    const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
+        const jobNames = {
+            constants: ["vitest", storageOps?.shortId, "constants"].filter(Boolean).join("-"),
+            vitestTests: ["vitest", storageOps?.shortId, "run"].filter(Boolean).join("-")
+        };
+
         const env: Record<string, string> = { AWS_REGION };
 
         if (storageOps) {
@@ -246,35 +245,52 @@ const createPushWorkflow = (branchName: string) => {
             }
         }
 
-        const testCommands = listVitestPackages(storageOps)
-            .map(p => p.getTestCommands())
-            .flat();
-
-        return createJob({
-            needs: ["constants", "build"],
-            name: "${{ matrix.testCommand.title }}",
-            strategy: {
-                "fail-fast": false,
-                matrix: {
-                    os: ["ubuntu-latest"],
-                    node: [NODE_VERSION],
-                    testCommand: "${{ fromJson('" + JSON.stringify(testCommands) + "') }}"
-                }
-            },
-            "runs-on": "${{ matrix.os }}",
-            env,
-            awsAuth:
-                storageOps && (storageOps.id === "ddb-es,ddb" || storageOps.id === "ddb-os,ddb"),
-            checkout: { path: DIR_WEBINY_JS },
-            steps: [
-                ...yarnCacheSteps,
-                ...runBuildCacheSteps,
-                ...installBuildSteps,
-                ...withCommonParams([{ name: "Run tests", run: "${{ matrix.testCommand.cmd }}" }], {
-                    "working-directory": DIR_WEBINY_JS
-                })
-            ]
-        });
+        return {
+            [jobNames.constants]: createJob({
+                needs: ["build"],
+                name: `Vitest (${storageOps ? storageOps.displayName : "No storage"}) - Constants`,
+                checkout: { path: DIR_WEBINY_JS },
+                steps: [
+                    {
+                        name: "List Vitest Test Commands",
+                        run: runNodeScript(
+                            "listVitestTestCommands",
+                            JSON.stringify({ storageOps }),
+                            { outputAs: "vitest-test-commands" }
+                        )
+                    }
+                ]
+            }),
+            [jobNames.vitestTests]: createJob({
+                needs: [jobNames.constants],
+                name: "${{ matrix.testCommand.title }}",
+                strategy: {
+                    "fail-fast": false,
+                    matrix: {
+                        os: ["ubuntu-latest"],
+                        node: [NODE_VERSION],
+                        testCommand: `$\{{ fromJSON("needs.${jobNames.constants}.outputs.vitest-test-commands") }}`
+                    }
+                },
+                "runs-on": "${{ matrix.os }}",
+                env,
+                awsAuth:
+                    storageOps &&
+                    (storageOps.id === "ddb-es,ddb" || storageOps.id === "ddb-os,ddb"),
+                checkout: { path: DIR_WEBINY_JS },
+                steps: [
+                    ...yarnCacheSteps,
+                    ...runBuildCacheSteps,
+                    ...installBuildSteps,
+                    ...withCommonParams(
+                        [{ name: "Run tests", run: "${{ matrix.testCommand.cmd }}" }],
+                        {
+                            "working-directory": DIR_WEBINY_JS
+                        }
+                    )
+                ]
+            })
+        };
     };
 
     const workflow = createWorkflow({
@@ -374,10 +390,10 @@ const createPushWorkflow = (branchName: string) => {
                     )
                 ]
             }),
-            jestTestsNoStorage: createVitestTestsJob(),
-            jestTestsDdb: createVitestTestsJob(ddbStorageOps),
-            jestTestsDdbEs: createVitestTestsJob(ddbEsStorageOps),
-            jestTestsDdbOs: createVitestTestsJob(ddbOsStorageOps),
+            ...createVitestTestsJobs(),
+            ...createVitestTestsJobs(ddbStorageOps),
+            ...createVitestTestsJobs(ddbEsStorageOps),
+            ...createVitestTestsJobs(ddbOsStorageOps),
             ...createCypressJobs(ddbStorageOps),
             ...createCypressJobs(ddbEsStorageOps),
             ...createCypressJobs(ddbOsStorageOps)

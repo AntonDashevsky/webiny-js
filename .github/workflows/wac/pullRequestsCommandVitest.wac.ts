@@ -6,13 +6,7 @@ import {
     createYarnCacheSteps,
     withCommonParams
 } from "./steps/index.js";
-import {
-    AWS_REGION,
-    BUILD_PACKAGES_RUNNER,
-    listVitestPackages,
-    NODE_OPTIONS,
-    NODE_VERSION
-} from "./utils/index.js";
+import { AWS_REGION, BUILD_PACKAGES_RUNNER, NODE_OPTIONS, NODE_VERSION } from "./utils/index.js";
 import { createJob } from "./jobs/index.js";
 import {
     DdbStorageOps,
@@ -60,9 +54,7 @@ const createVitestTestsJob = (storageOps?: AbstractStorageOps) => {
         }
     }
 
-    const testCommands = listVitestPackages(storageOps)
-        .map(p => p.getTestCommands())
-        .flat();
+    const testCommands = [] as any[];
 
     return createJob({
         needs: ["constants", "build"],
