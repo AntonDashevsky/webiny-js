@@ -1,12 +1,9 @@
 import { createImplementation } from "@webiny/di-container";
-import { ApiBeforeDeploy, GetAppStackOutput, UiService } from "~/abstractions/index.js";
+import { ApiBeforeDeploy, GetAppStackOutput } from "~/abstractions/index.js";
 import { GracefulError } from "@webiny/project";
 
 class EnsureCoreDeployedBeforeApiDeploy implements ApiBeforeDeploy.Interface {
-    constructor(
-        private uiService: UiService.Interface,
-        private getAppStackOutput: GetAppStackOutput.Interface
-    ) {}
+    constructor(private getAppStackOutput: GetAppStackOutput.Interface) {}
 
     async execute(params: ApiBeforeDeploy.Params) {
         const output = await this.getAppStackOutput.execute({ ...params, app: "core" });
@@ -23,21 +20,19 @@ class EnsureCoreDeployedBeforeApiDeploy implements ApiBeforeDeploy.Interface {
             variantCmd = ` --variant ${variant}`;
         }
 
-        const ui = this.uiService;
-
-        ui.error(`Cannot deploy %s before deploying %s.`, "API", "Core");
+        const error = new Error(`Cannot deploy API before deploying Core.`);
 
         const message = [`Before deploying %s, please`, `deploy %s first by running: %s.`].join(
             " "
         );
 
         const cmd = `yarn webiny deploy core --env ${env}${variantCmd}`;
-        throw GracefulError.from(message, "API", "Core", cmd);
+        throw GracefulError.from(error, message, "API", "Core", cmd);
     }
 }
 
 export default createImplementation({
     abstraction: ApiBeforeDeploy,
     implementation: EnsureCoreDeployedBeforeApiDeploy,
-    dependencies: [UiService, GetAppStackOutput]
+    dependencies: [GetAppStackOutput]
 });
