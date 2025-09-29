@@ -14,6 +14,16 @@ import {
     NODE_VERSION
 } from "./utils/index.js";
 import { createJob } from "./jobs/index.js";
+import {
+    DdbStorageOps,
+    DdbEsStorageOps,
+    DdbOsStorageOps,
+    type AbstractStorageOps
+} from "./storageOps/index.js";
+
+const ddbStorageOps = new DdbStorageOps();
+const ddbEsStorageOps = new DdbEsStorageOps();
+const ddbOsStorageOps = new DdbOsStorageOps();
 
 // Will print "next" or "dev". Important for caching (via actions/cache).
 const DIR_WEBINY_JS = "${{ needs.baseBranch.outputs.base-branch }}";
@@ -33,46 +43,48 @@ const createCheckoutPrSteps = () =>
         }
     ] as NonNullable<NormalJob["steps"]>;
 
-const createJestTestsJob = (storage: string | null) => {
+const createJestTestsJob = (storageOps?: AbstractStorageOps) => {
     const env: Record<string, string> = { AWS_REGION };
 
-    if (storage) {
-        if (storage === "ddb-es") {
+    if (storageOps) {
+        if (storageOps.id === "ddb-es,ddb") {
             env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] = "${{ secrets.AWS_ELASTIC_SEARCH_DOMAIN_NAME }}";
             env["ELASTIC_SEARCH_ENDPOINT"] = "${{ secrets.ELASTIC_SEARCH_ENDPOINT }}";
-            env["ELASTIC_SEARCH_INDEX_PREFIX"] = "${{ matrix.package.id }}";
-        } else if (storage === "ddb-os") {
+            env["ELASTIC_SEARCH_INDEX_PREFIX"] = "${{ matrix.testCommand.id }}";
+        } else if (storageOps.id === "ddb-os,ddb") {
             // We still use the same environment variables as for "ddb-es" setup, it's
             // just that the values are read from different secrets.
             env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] = "${{ secrets.AWS_OPEN_SEARCH_DOMAIN_NAME }}";
             env["ELASTIC_SEARCH_ENDPOINT"] = "${{ secrets.OPEN_SEARCH_ENDPOINT }}";
-            env["ELASTIC_SEARCH_INDEX_PREFIX"] = "${{ matrix.package.id }}";
+            env["ELASTIC_SEARCH_INDEX_PREFIX"] = "${{ matrix.testCommand.id }}";
         }
     }
 
-    const packages = listVitestPackages({ storageOps: storage });
+    const testCommands = listVitestPackages(storageOps)
+        .map(p => p.getTestCommands())
+        .flat();
 
     return createJob({
         needs: ["constants", "build"],
-        name: "${{ matrix.package.cmd }}",
+        name: "${{ matrix.testCommand.title }}",
         strategy: {
             "fail-fast": false,
             matrix: {
                 os: ["ubuntu-latest"],
                 node: [NODE_VERSION],
-                package: "${{ fromJson('" + JSON.stringify(packages) + "') }}"
+                testCommand: "${{ fromJson('" + JSON.stringify(testCommands) + "') }}"
             }
         },
         "runs-on": "${{ matrix.os }}",
         env,
-        awsAuth: storage === "ddb-es" || storage === "ddb-os",
+        awsAuth: storageOps && (storageOps.id === "ddb-es,ddb" || storageOps.id === "ddb-os,ddb"),
         checkout: { path: DIR_WEBINY_JS },
         steps: [
             ...yarnCacheSteps,
             ...runBuildCacheSteps,
             ...installBuildSteps,
             ...withCommonParams(
-                [{ name: "Run tests", run: "yarn test ${{ matrix.package.cmd }}" }],
+                [{ name: "Run tests", run: "yarn test ${{ matrix.testCommand.cmd }}" }],
                 { "working-directory": DIR_WEBINY_JS }
             )
         ]
@@ -164,9 +176,9 @@ export const pullRequestsCommandJest = createWorkflow({
                 ...runBuildCacheSteps
             ]
         }),
-        jestTestsNoStorage: createJestTestsJob(null),
-        jestTestsDdb: createJestTestsJob("ddb"),
-        jestTestsDdbEs: createJestTestsJob("ddb-es"),
-        jestTestsDdbOs: createJestTestsJob("ddb-os")
+        jestTestsNoStorage: createJestTestsJob(),
+        jestTestsDdb: createJestTestsJob(ddbStorageOps),
+        jestTestsDdbEs: createJestTestsJob(ddbEsStorageOps),
+        jestTestsDdbOs: createJestTestsJob(ddbOsStorageOps)
     }
 });
