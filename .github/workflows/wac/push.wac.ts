@@ -226,7 +226,7 @@ const createPushWorkflow = (branchName: string) => {
         };
     };
 
-    const createJestTestsJob = (storageOps?: AbstractStorageOps) => {
+    const createVitestTestsJob = (storageOps?: AbstractStorageOps) => {
         const env: Record<string, string> = { AWS_REGION };
 
         if (storageOps) {
@@ -374,10 +374,10 @@ const createPushWorkflow = (branchName: string) => {
                     )
                 ]
             }),
-            jestTestsNoStorage: createJestTestsJob(),
-            jestTestsDdb: createJestTestsJob(ddbStorageOps),
-            jestTestsDdbEs: createJestTestsJob(ddbEsStorageOps),
-            jestTestsDdbOs: createJestTestsJob(ddbOsStorageOps),
+            jestTestsNoStorage: createVitestTestsJob(),
+            jestTestsDdb: createVitestTestsJob(ddbStorageOps),
+            jestTestsDdbEs: createVitestTestsJob(ddbEsStorageOps),
+            jestTestsDdbOs: createVitestTestsJob(ddbOsStorageOps),
             ...createCypressJobs(ddbStorageOps),
             ...createCypressJobs(ddbEsStorageOps),
             ...createCypressJobs(ddbOsStorageOps)
