@@ -1,6 +1,10 @@
 import { createWorkflow } from "github-actions-wac";
-import { createJob, createValidateWorkflowsJob } from "./jobs/index.js";
-import { createRunBuildCacheSteps, createYarnCacheSteps, createInstallBuildSteps } from "./steps/index.js";
+import { createJob } from "./jobs/index.js";
+import {
+    createRunBuildCacheSteps,
+    createYarnCacheSteps,
+    createInstallBuildSteps
+} from "./steps/index.js";
 import { BUILD_PACKAGES_RUNNER } from "./utils/index.js";
 
 const installBuildSteps = createInstallBuildSteps({ workingDirectory: "" });
@@ -19,7 +23,6 @@ export const pushStable = createWorkflow({
         }
     },
     jobs: {
-        validateWorkflows: createValidateWorkflowsJob(),
         constants: createJob({
             name: "Create constants",
             outputs: { "run-cache-key": "${{ steps.run-cache-key.outputs.run-cache-key }}" },
