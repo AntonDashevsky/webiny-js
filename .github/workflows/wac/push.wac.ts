@@ -269,7 +269,7 @@ const createPushWorkflow = (branchName: string) => {
                     matrix: {
                         os: ["ubuntu-latest"],
                         node: [NODE_VERSION],
-                        testCommand: `$\{{ fromJSON("needs.${jobNames.constants}.outputs.vitest-test-commands") }}`
+                        testCommand: `$\{{ fromJSON(needs.${jobNames.constants}.outputs.vitest-test-commands" }}`
                     }
                 },
                 "runs-on": "${{ matrix.os }}",
