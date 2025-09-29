@@ -17,7 +17,7 @@ import {
     withCommonParams
 } from "./steps/index.js";
 import { AbstractStorageOps } from "./storageOps/AbstractStorageOps.js";
-import { DdbStorageOps } from "./storageOps/DdbStorageOps.js";
+import { DdbStorageOps, DdbEsStorageOps, DdbOsStorageOps } from "./storageOps/index.js";
 
 const createPushWorkflow = (branchName: string) => {
     const ucFirstBranchName = branchName.charAt(0).toUpperCase() + branchName.slice(1);
@@ -38,7 +38,7 @@ const createPushWorkflow = (branchName: string) => {
         };
 
         const constantsJob: NormalJob = createJob({
-            name: `Constants - ${storageOps.shortId}`,
+            name: `Constants - ${storageOps.displayName}`,
             needs: ["build"],
             outputs: {
                 "cypress-folders": "${{ steps.list-cypress-folders.outputs.cypress-folders }}",
@@ -80,7 +80,7 @@ const createPushWorkflow = (branchName: string) => {
 
         const projectSetupJob: NormalJob = createJob({
             needs: ["constants", "build", jobNames.constants],
-            name: `E2E (${storageOps.shortId}) - Project setup`,
+            name: `E2E (${storageOps.displayName}) - Project setup`,
             outputs: {
                 "cypress-config": "${{ steps.save-cypress-config.outputs.cypress-config }}"
             },
@@ -128,7 +128,7 @@ const createPushWorkflow = (branchName: string) => {
                 },
                 {
                     name: "Create a new Webiny project",
-                    run: `npx create-webiny-project@local-npm ${DIR_TEST_PROJECT} --tag local-npm --no-interactive --assign-to-yarnrc '{"npmRegistryServer":"http://localhost:4873","unsafeHttpWhitelist":["localhost"]}' --template-options '{"region":"${AWS_REGION}","storageOperations":"${storageOps}"}'
+                    run: `npx create-webiny-project@local-npm ${DIR_TEST_PROJECT} --tag local-npm --no-interactive --assign-to-yarnrc '{"npmRegistryServer":"http://localhost:4873","unsafeHttpWhitelist":["localhost"]}' --template-options '{"region":"${AWS_REGION}","storageOperations":"${storageOps.shortId}"}'
 `
                 },
                 {
@@ -181,7 +181,7 @@ const createPushWorkflow = (branchName: string) => {
         });
 
         const cypressTestsJob = createJob({
-            name: `$\{{ matrix.cypress-folder }} (${storageOps}, $\{{ matrix.os }}, Node v$\{{ matrix.node }})`,
+            name: `$\{{ matrix.cypress-folder }} (${storageOps.shortId}, $\{{ matrix.os }}, Node v$\{{ matrix.node }})`,
             needs: ["constants", jobNames.constants, jobNames.projectSetup],
             strategy: {
                 "fail-fast": false,
@@ -274,8 +274,8 @@ const createPushWorkflow = (branchName: string) => {
     };
 
     const ddbStorageOps = new DdbStorageOps();
-    const ddbEsStorageOps = new DdbStorageOps();
-    const ddbOsStorageOps = new DdbStorageOps();
+    const ddbEsStorageOps = new DdbEsStorageOps();
+    const ddbOsStorageOps = new DdbOsStorageOps();
 
     const workflow = createWorkflow({
         name: `${ucFirstBranchName} Branch - Push`,
