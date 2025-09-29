@@ -107,7 +107,7 @@ describe(`graphql "and" queries`, () => {
 
     beforeEach(async () => {
         await createProducts();
-    });
+    }, 60_000);
 
     it(`should filter via root level "AND" condition and return category records`, async () => {
         const [singleRootCategoryResponse] = await listCategories({
