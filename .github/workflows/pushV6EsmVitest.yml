@@ -439,7 +439,7 @@ jobs:
     permissions:
       id-token: write
   e2eTests-ddb-constants:
-    name: Constants - DDB
+    name: E2E (DDB) - Constants
     needs:
       - build
     outputs:
@@ -646,7 +646,7 @@ jobs:
         working-directory: feat/v6-esm-vitest
     runs-on: ubuntu-latest
   e2eTests-ddbEs-constants:
-    name: Constants - DDB+ES
+    name: E2E (DDB+ES) - Constants
     needs:
       - build
     outputs:
@@ -861,7 +861,7 @@ jobs:
         working-directory: feat/v6-esm-vitest
     runs-on: ubuntu-latest
   e2eTests-ddbOs-constants:
-    name: Constants - DDB+OS
+    name: E2E (DDB+OS) - Constants
     needs:
       - build
     outputs:

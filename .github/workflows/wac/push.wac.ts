@@ -36,7 +36,7 @@ const createPushWorkflow = (branchName: string) => {
         };
 
         const constantsJob: NormalJob = createJob({
-            name: `Constants - ${storageOps.displayName}`,
+            name: `E2E (${storageOps.displayName}) - Constants`,
             needs: ["build"],
             outputs: {
                 "cypress-folders": "${{ steps.list-cypress-folders.outputs.cypress-folders }}",
