@@ -149,7 +149,7 @@ jobs:
   vitest-run:
     needs:
       - constants
-      - build
+      - vitest-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
       fail-fast: false
@@ -215,7 +215,7 @@ jobs:
   vitest-ddb-run:
     needs:
       - constants
-      - build
+      - vitest-ddb-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
       fail-fast: false
@@ -281,7 +281,7 @@ jobs:
   vitest-ddbEs-run:
     needs:
       - constants
-      - build
+      - vitest-ddbEs-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
       fail-fast: false
@@ -357,7 +357,7 @@ jobs:
   vitest-ddbOs-run:
     needs:
       - constants
-      - build
+      - vitest-ddbOs-constants
     name: ${{ matrix.testCommand.title }}
     strategy:
       fail-fast: false

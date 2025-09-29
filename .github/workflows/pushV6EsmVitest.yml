@@ -316,7 +316,7 @@ jobs:
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
-          '{"storageOps":"ddbEs"}')" >> $GITHUB_OUTPUT
+          '{"storageOps":"ddb-es,ddb"}')" >> $GITHUB_OUTPUT
     runs-on: ubuntu-latest
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
@@ -395,7 +395,7 @@ jobs:
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
-          '{"storageOps":"ddbOs"}')" >> $GITHUB_OUTPUT
+          '{"storageOps":"ddb-os,ddb"}')" >> $GITHUB_OUTPUT
     runs-on: ubuntu-latest
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'

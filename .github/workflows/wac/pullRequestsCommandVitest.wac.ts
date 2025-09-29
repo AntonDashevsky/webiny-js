@@ -90,7 +90,7 @@ const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
             ]
         }),
         [jobNames.tests]: createJob({
-            needs: ["constants", "build"],
+            needs: ["constants", jobNames.constants],
             name: "${{ matrix.testCommand.title }}",
             strategy: {
                 "fail-fast": false,

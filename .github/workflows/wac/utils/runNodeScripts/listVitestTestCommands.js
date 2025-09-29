@@ -28,5 +28,7 @@ const [paramsString] = args;
 
 const { storageOps } = JSON.parse(paramsString);
 
-const testCommands = listVitestPackages(storageOps).map(pkg => pkg.getTestCommands().flat());
+const testCommands = listVitestPackages(storageOps)
+    .map(pkg => pkg.getTestCommands())
+    .flat();
 console.log(JSON.stringify(testCommands));
