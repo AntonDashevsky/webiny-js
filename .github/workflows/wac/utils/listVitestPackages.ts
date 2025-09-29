@@ -106,7 +106,7 @@ class TestablePackage {
     }
 }
 
-export const listTestablePackages = (storageOps?: StorageOps) => {
+export const listVitestPackages = (storageOps?: StorageOps) => {
     return fs
         .readdirSync("packages")
         .filter(name => !name.startsWith("."))
