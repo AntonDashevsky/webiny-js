@@ -10,7 +10,7 @@ import yargs from "yargs/yargs";
 import chalk from "chalk";
 import { Argv } from "yargs";
 import { GracefulError } from "@webiny/project";
-import { HandledError } from "~/utils/HandledError.js";
+import { ManuallyReportedError } from "~/utils/ManuallyReportedError.js";
 
 const { blue, bgYellow, bold } = chalk;
 
@@ -81,31 +81,26 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
                 }
 
                 const logger = projectSdk.getLogger();
-                logger.error({ err: error, invalidParamsMessage }, "CLI command execution failed.");
+                logger.error({ err: error }, "CLI command execution failed.");
 
-                let isHandledError = error && error instanceof HandledError;
-                if (!isHandledError) {
-                    if (error.cause) {
-                        isHandledError = error.cause instanceof HandledError;
-                    }
-                }
+                const realError = (error.cause as Error) || error;
 
-                if (!isHandledError) {
-                    let realError = error;
-                    if (error.cause) {
-                        realError = error.cause as Error;
-                    }
-
+                if (realError instanceof ManuallyReportedError) {
+                    // Do nothing as the error reporting has already been
+                    // handled within the invoked CLI command.
+                } else {
                     ui.error(realError.message);
-
-                    // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
-                    const debugEnabled = process.argv.includes("--debug");
-                    if (debugEnabled) {
-                        realError.stack && ui.debug(realError.stack);
-                    }
                 }
 
-                if (error && error instanceof GracefulError) {
+                // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
+                const debugEnabled = process.argv.includes("--debug");
+                if (debugEnabled) {
+                    ui.newLine();
+                    ui.debug("Stack trace:");
+                    ui.text(realError.stack || "");
+                }
+
+                if (error instanceof GracefulError) {
                     ui.newLine();
                     ui.text(bgYellow(bold("💡 How can I resolve this?")));
                     ui.text(error.message);
