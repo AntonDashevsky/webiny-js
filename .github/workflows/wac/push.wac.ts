@@ -253,6 +253,7 @@ const createPushWorkflow = (branchName: string) => {
                 steps: [
                     {
                         name: "List Vitest Test Commands",
+                        "working-directory": DIR_WEBINY_JS,
                         run: runNodeScript(
                             "listVitestTestCommands",
                             JSON.stringify({ storageOps: storageOps?.shortId || null }),

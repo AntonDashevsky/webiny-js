@@ -174,6 +174,7 @@ jobs:
         with:
           path: feat/v6-esm-vitest
       - name: List Vitest Test Commands
+        working-directory: feat/v6-esm-vitest
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
@@ -235,6 +236,7 @@ jobs:
         with:
           path: feat/v6-esm-vitest
       - name: List Vitest Test Commands
+        working-directory: feat/v6-esm-vitest
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
@@ -299,6 +301,7 @@ jobs:
         with:
           path: feat/v6-esm-vitest
       - name: List Vitest Test Commands
+        working-directory: feat/v6-esm-vitest
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
@@ -373,6 +376,7 @@ jobs:
         with:
           path: feat/v6-esm-vitest
       - name: List Vitest Test Commands
+        working-directory: feat/v6-esm-vitest
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
