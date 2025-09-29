@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
-import { StorageOps } from "../types.ts";
+import { AbstractStorageOps } from "../storageOps/AbstractStorageOps.js";
 
 const getMd5Hash = (text: string) => {
     // Just convert the command to kebab-case.
@@ -61,14 +61,14 @@ class TestablePackage {
         return !vitestCiConfig || !vitestCiConfig.storageOps;
     }
 
-    testedWithStorageOps(storageOps: StorageOps) {
+    testedWithStorageOps(storageOps: AbstractStorageOps) {
         const vitestCiConfig = this.getVitestCiConfig();
         if (!vitestCiConfig) {
             return false;
         }
 
         const { storageOps: configStorageOps } = vitestCiConfig;
-        return Array.isArray(configStorageOps) && configStorageOps.includes(storageOps);
+        return Array.isArray(configStorageOps) && configStorageOps.includes(storageOps.id);
     }
 
     getVitestCiConfig() {
@@ -106,7 +106,7 @@ class TestablePackage {
     }
 }
 
-export const listVitestPackages = (storageOps?: StorageOps) => {
+export const listVitestPackages = (storageOps?: AbstractStorageOps) => {
     return fs
         .readdirSync("packages")
         .filter(name => !name.startsWith("."))
