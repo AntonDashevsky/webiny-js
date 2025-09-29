@@ -1,8 +1,7 @@
 import { AbstractStorageOps } from "./AbstractStorageOps.js";
-import { StorageOpsId } from "./types.js";
 
 export class DdbStorageOps extends AbstractStorageOps {
-    id = "ddb" as StorageOpsId;
+    id = "ddb" as const;
     shortId = "ddb";
     displayName = "DynamoDB-only";
 }
