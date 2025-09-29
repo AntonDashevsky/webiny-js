@@ -9,7 +9,7 @@ import {
 import {
     AWS_REGION,
     BUILD_PACKAGES_RUNNER,
-    listTestablePackages,
+    listVitestPackages,
     NODE_OPTIONS,
     NODE_VERSION
 } from "./utils/index.js";
@@ -50,7 +50,7 @@ const createJestTestsJob = (storage: string | null) => {
         }
     }
 
-    const packages = listTestablePackages({ storageOps: storage });
+    const packages = listVitestPackages({ storageOps: storage });
 
     return createJob({
         needs: ["constants", "build"],
@@ -115,7 +115,6 @@ export const pullRequestsCommandJest = createWorkflow({
                 }
             ]
         }),
-        validateWorkflows: createValidateWorkflowsJob({ needs: "checkComment" }),
         baseBranch: createJob({
             needs: "checkComment",
             name: "Get base branch",
