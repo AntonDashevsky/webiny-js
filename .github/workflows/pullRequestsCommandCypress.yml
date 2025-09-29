@@ -37,22 +37,6 @@ jobs:
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
-  validateWorkflows:
-    name: Validate workflows
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: yarn --immutable
-      - name: Validate
-        run: npx github-actions-wac validate
-    needs: checkComment
-    runs-on: ubuntu-latest
-    env:
-      NODE_OPTIONS: '--max_old_space_size=4096'
-      YARN_ENABLE_IMMUTABLE_INSTALLS: false
   baseBranch:
     needs: checkComment
     name: Get base branch
