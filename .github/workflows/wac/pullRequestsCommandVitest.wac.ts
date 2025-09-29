@@ -37,7 +37,7 @@ const createCheckoutPrSteps = () =>
         }
     ] as NonNullable<NormalJob["steps"]>;
 
-const createVitestTestsJob = (storageOps?: AbstractStorageOps) => {
+const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
     const env: Record<string, string> = { AWS_REGION };
 
     if (storageOps) {
@@ -168,9 +168,9 @@ export const pullRequestsCommandVitest = createWorkflow({
                 ...runBuildCacheSteps
             ]
         }),
-        vitestTestsNoStorage: createVitestTestsJob(),
-        vitestTestsDdb: createVitestTestsJob(ddbStorageOps),
-        vitestTestsDdbEs: createVitestTestsJob(ddbEsStorageOps),
-        vitestTestsDdbOs: createVitestTestsJob(ddbOsStorageOps)
+        vitestTestsNoStorage: createVitestTestsJobs(),
+        vitestTestsDdb: createVitestTestsJobs(ddbStorageOps),
+        vitestTestsDdbEs: createVitestTestsJobs(ddbEsStorageOps),
+        vitestTestsDdbOs: createVitestTestsJobs(ddbOsStorageOps)
     }
 });

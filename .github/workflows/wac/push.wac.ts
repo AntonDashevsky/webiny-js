@@ -252,7 +252,7 @@ const createPushWorkflow = (branchName: string) => {
                 checkout: { path: DIR_WEBINY_JS },
                 outputs: {
                     "vitest-test-commands":
-                        "${{ steps.list-vitest-test-commands.outputs.list-vitest-test-commands }}"
+                        "${{ steps.list-vitest-test-commands.outputs.vitest-test-commands }}"
                 },
                 steps: [
                     {
