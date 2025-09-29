@@ -43,7 +43,7 @@ const createCheckoutPrSteps = () =>
         }
     ] as NonNullable<NormalJob["steps"]>;
 
-const createJestTestsJob = (storageOps?: AbstractStorageOps) => {
+const createVitestTestsJob = (storageOps?: AbstractStorageOps) => {
     const env: Record<string, string> = { AWS_REGION };
 
     if (storageOps) {
@@ -91,8 +91,8 @@ const createJestTestsJob = (storageOps?: AbstractStorageOps) => {
     });
 };
 
-export const pullRequestsCommandJest = createWorkflow({
-    name: "Pull Requests Command - Jest",
+export const pullRequestsCommandVitest = createWorkflow({
+    name: "Pull Requests Command - Vitest",
     on: "issue_comment",
     env: {
         NODE_OPTIONS,
@@ -100,7 +100,7 @@ export const pullRequestsCommandJest = createWorkflow({
     },
     jobs: {
         checkComment: createJob({
-            name: `Check comment for /jest`,
+            name: `Check comment for /vitest`,
             if: "${{ github.event.issue.pull_request }}",
             checkout: false,
             steps: [
@@ -110,7 +110,7 @@ export const pullRequestsCommandJest = createWorkflow({
                     uses: "xt0rted/slash-command-action@v2",
                     with: {
                         "repo-token": "${{ secrets.GITHUB_TOKEN }}",
-                        command: "jest",
+                        command: "vitest",
                         reaction: "true",
                         "reaction-type": "eyes",
                         "allow-edits": "false",
@@ -122,7 +122,7 @@ export const pullRequestsCommandJest = createWorkflow({
                     uses: "peter-evans/create-or-update-comment@v2",
                     with: {
                         "issue-number": "${{ github.event.issue.number }}",
-                        body: "Jest tests have been initiated (for more information, click [here](https://github.com/webiny/webiny-js/actions/runs/${{ github.run_id }})). :sparkles:"
+                        body: "Vitest tests have been initiated (for more information, click [here](https://github.com/webiny/webiny-js/actions/runs/${{ github.run_id }})). :sparkles:"
                     }
                 }
             ]
@@ -176,9 +176,9 @@ export const pullRequestsCommandJest = createWorkflow({
                 ...runBuildCacheSteps
             ]
         }),
-        jestTestsNoStorage: createJestTestsJob(),
-        jestTestsDdb: createJestTestsJob(ddbStorageOps),
-        jestTestsDdbEs: createJestTestsJob(ddbEsStorageOps),
-        jestTestsDdbOs: createJestTestsJob(ddbOsStorageOps)
+        vitestTestsNoStorage: createVitestTestsJob(),
+        vitestTestsDdb: createVitestTestsJob(ddbStorageOps),
+        vitestTestsDdbEs: createVitestTestsJob(ddbEsStorageOps),
+        vitestTestsDdbOs: createVitestTestsJob(ddbOsStorageOps)
     }
 });
