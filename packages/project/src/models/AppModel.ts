@@ -2,6 +2,14 @@ import { type IAppModel, type IAppModelDto } from "~/abstractions/models/index.j
 import { type GetApp } from "~/abstractions/index.js";
 import { PathModel } from "./PathModel.js";
 
+const DISPLAY_NAME_MAP: Record<GetApp.AppName, string> = {
+    core: "Core",
+    api: "API",
+    admin: "Admin",
+    blueGreen: "Blue-Green",
+    sync: "Sync"
+};
+
 export class AppModel implements IAppModel {
     public readonly name: GetApp.AppName;
     public readonly paths: IAppModel["paths"];
@@ -14,14 +22,8 @@ export class AppModel implements IAppModel {
         };
     }
 
-    public async getConfig(): Promise<Record<string, any>> {
-        // Implementation for getting the app configuration.
-        return {};
-    }
-
-    public async getPlugins(): Promise<Record<string, any>> {
-        // Implementation for getting the app plugins.
-        return {};
+    getDisplayName(): string {
+        return DISPLAY_NAME_MAP[this.name];
     }
 
     static fromDto(dto: IAppModelDto): IAppModel {
