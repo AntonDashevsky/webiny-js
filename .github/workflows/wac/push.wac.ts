@@ -250,8 +250,13 @@ const createPushWorkflow = (branchName: string) => {
                 needs: ["build"],
                 name: `Vitest (${storageOps ? storageOps.displayName : "No storage"}) - Constants`,
                 checkout: { path: DIR_WEBINY_JS },
+                outputs: {
+                    "vitest-test-commands":
+                        "${{ steps.list-vitest-test-commands.outputs.list-vitest-test-commands }}"
+                },
                 steps: [
                     {
+                        id: "list-vitest-test-commands",
                         name: "List Vitest Test Commands",
                         "working-directory": DIR_WEBINY_JS,
                         run: runNodeScript(
