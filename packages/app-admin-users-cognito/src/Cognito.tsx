@@ -11,7 +11,6 @@ import { UserInfo } from "./plugins/userMenu/UserInfo.js";
 import { SignOut } from "./plugins/userMenu/SignOut.js";
 import installation from "./plugins/installation.js";
 import permissionRenderer from "./plugins/permissionRenderer/index.js";
-import cognito from "./plugins/cognito.js";
 import type { CognitoProps } from "./CognitoLogin.js";
 import { CognitoLogin } from "./CognitoLogin.js";
 import { Routes } from "~/routes.js";
@@ -21,7 +20,7 @@ const { Route, Menu } = AdminConfig;
 const CognitoIdP = (props: CognitoProps) => {
     const { getLink } = useRouter();
 
-    plugins.register([installation, permissionRenderer, cognito()]);
+    plugins.register([installation, permissionRenderer]);
 
     return (
         <Fragment>

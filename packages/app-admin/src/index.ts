@@ -20,34 +20,13 @@ export { Admin } from "./base/Admin.js";
 export * from "./config/AdminConfig.js";
 
 export type { AdminProps } from "./base/Admin.js";
-export { useViewComposition } from "./base/providers/ViewCompositionProvider.js";
-export type {
-    ViewCompositionContext,
-    ViewElement
-} from "./base/providers/ViewCompositionProvider.js";
 
 // Plugins
 export * from "./base/plugins/AddGraphQLQuerySelection.js";
 export * from "./plugins/PermissionRendererPlugin.js";
 
 // Components
-export { AppInstaller } from "./components/AppInstaller/index.js";
-export * from "./components/AdminLayout.js";
-export * from "./components/Buttons/index.js";
-export { DialogsProvider } from "./components/Dialogs/DialogsContext.js";
-export * from "./components/OptionsMenu/index.js";
-export * from "./components/Filters/index.js";
-export * from "./components/BulkActions/index.js";
-export * from "./components/ResizablePanels/index.js";
-export { OverlayLayout, type OverlayLayoutProps } from "./components/OverlayLayout/index.js";
-export {
-    default as SingleImageUpload,
-    type SingleImageUploadProps
-} from "./components/SingleImageUpload.js";
-export { LexicalEditor } from "./components/LexicalEditor/LexicalEditor.js";
-export { Wcp } from "./components/Wcp.js";
-export * from "./components/IconPicker/index.js";
-export * from "./components/NavigationPrompt.js";
+export * from "./components/index.js";
 
 export { FileManager, FileManagerRenderer } from "./base/ui/FileManager.js";
 export type {

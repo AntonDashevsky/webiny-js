@@ -15,9 +15,9 @@ import {
     SimpleFormContent,
     SimpleFormFooter,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
-import { View } from "@webiny/app/components/View.js";
+} from "@webiny/app-admin";
 import type { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
+import { usePasswordValidator } from "~/usePasswordValidator.js";
 
 const removeGridPadding = css`
     > .mdc-layout-grid {
@@ -65,6 +65,8 @@ const Install = ({ onInstalled }: InstallProps) => {
     const client = useApolloClient();
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
+
+    const passwordValidator = usePasswordValidator();
 
     const onSubmit = useCallback<InstallCallable>(async ({ subscribed, ...form }) => {
         setLoading(true);
@@ -149,7 +151,14 @@ const Install = ({ onInstalled }: InstallProps) => {
                                     <Input label={`Email`} />
                                 </Bind>
                             </Cell>
-                            <View name={"adminUsers.installation.fields"} props={{ Bind, data }} />
+                            <Cell span={12}>
+                                <Bind
+                                    name="password"
+                                    validators={[passwordValidator, validation.create("required")]}
+                                >
+                                    <Input autoComplete="off" type="password" label={"Password"} />
+                                </Bind>
+                            </Cell>
                         </Grid>
 
                         <Grid style={{ paddingTop: "0px" }}>

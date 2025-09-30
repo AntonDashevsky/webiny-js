@@ -1,6 +1,6 @@
 import React from "react";
 import { cva, type VariantProps, makeDecoratable, cn } from "~/utils.js";
-import { SimpleLink, type SimpleLinkProps } from "@webiny/app-admin";
+import { SimpleLink, type SimpleLinkProps } from "@webiny/app";
 
 const linkVariants = cva("wby-font-sans wby-rounded-xs", {
     variants: {

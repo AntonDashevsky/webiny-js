@@ -15,7 +15,7 @@ import { Permissions } from "@webiny/app-admin/components/Permissions/index.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { CREATE_GROUP, LIST_GROUPS, READ_GROUP, UPDATE_GROUP } from "./graphql.js";
 import isEmpty from "lodash/isEmpty.js";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { EmptyView } from "@webiny/app-admin";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as CopyIcon } from "@webiny/icons/content_copy.svg";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";

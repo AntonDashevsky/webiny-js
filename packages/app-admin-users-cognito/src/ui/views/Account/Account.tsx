@@ -18,12 +18,12 @@ import {
     SimpleFormHeader,
     SimpleFormFooter,
     SimpleFormContent
-} from "@webiny/app-admin/components/SimpleForm/index.js";
+} from "@webiny/app-admin";
 import { useSecurity } from "@webiny/app-security";
-import { View } from "@webiny/app/components/View.js";
 import { CenteredView, useSnackbar } from "@webiny/app-admin";
 import type { SecurityIdentity } from "@webiny/app-security/types.js";
 import { Alert } from "@webiny/ui/Alert/index.js";
+import { usePasswordValidator } from "~/usePasswordValidator.js";
 
 const t = i18n.ns("app-security-admin-users/account-form");
 
@@ -39,6 +39,7 @@ const UserAccountForm = () => {
     const [loading, setLoading] = useState(false);
     const { showSnackbar } = useSnackbar();
     const { setIdentity } = useSecurity();
+    const passwordValidator = usePasswordValidator();
 
     const currentUser = useQuery(GET_CURRENT_USER);
     const [updateUser] = useMutation(UPDATE_CURRENT_USER);
@@ -155,10 +156,20 @@ const UserAccountForm = () => {
                                         />
                                     </Bind>
                                 </Cell>
-                                <View
-                                    name={"adminUsers.account.form.fields"}
-                                    props={{ Bind, data }}
-                                />
+                                <Cell span={12}>
+                                    <Bind name="password" validators={passwordValidator}>
+                                        <Input
+                                            autoComplete="off"
+                                            disabled={data.external}
+                                            description={
+                                                data.id && "Type a new password to reset it."
+                                            }
+                                            type="password"
+                                            label={"Password"}
+                                            data-testid="account.password"
+                                        />
+                                    </Bind>
+                                </Cell>
                             </Grid>
                         </SimpleFormContent>
                         <SimpleFormFooter data-testid={"form-footer"}>

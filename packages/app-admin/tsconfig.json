@@ -14,9 +14,7 @@
     { "path": "../react-composition" },
     { "path": "../react-properties" },
     { "path": "../ui" },
-    { "path": "../ui-composer" },
-    { "path": "../utils" },
-    { "path": "../validation" }
+    { "path": "../utils" }
   ],
   "compilerOptions": {
     "rootDirs": ["./src", "./__tests__"],
@@ -49,12 +47,8 @@
       "@webiny/react-properties": ["../react-properties/src"],
       "@webiny/ui/*": ["../ui/src/*"],
       "@webiny/ui": ["../ui/src"],
-      "@webiny/ui-composer/*": ["../ui-composer/src/*"],
-      "@webiny/ui-composer": ["../ui-composer/src"],
       "@webiny/utils/*": ["../utils/src/*"],
-      "@webiny/utils": ["../utils/src"],
-      "@webiny/validation/*": ["../validation/src/*"],
-      "@webiny/validation": ["../validation/src"]
+      "@webiny/utils": ["../utils/src"]
     },
     "baseUrl": "."
   }

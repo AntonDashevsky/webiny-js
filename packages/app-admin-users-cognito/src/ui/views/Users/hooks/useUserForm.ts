@@ -12,6 +12,14 @@ export type UseUserForm = ReturnType<typeof useUserForm>;
 
 interface SubmitUserCallableParams {
     id?: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password?: string;
+    avatar: {
+        src?: string;
+    };
+    external?: boolean;
 }
 
 interface SubmitUserCallable {

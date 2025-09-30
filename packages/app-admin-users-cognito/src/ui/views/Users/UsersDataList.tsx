@@ -60,7 +60,9 @@ const UsersDataList = () => {
     const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
     const { showConfirmation } = useConfirmationDialog({
-        dataTestId: "default-data-list.delete-dialog"
+        dataTestId: "default-data-list.delete-dialog",
+        title: "Delete user",
+        message: "Are you sure you want to delete this user? This action cannot be undone.",
     });
 
     const filterUsers = useCallback<FilterUsersCallable>(
@@ -169,6 +171,9 @@ const UsersDataList = () => {
             modalOverlayAction={
                 <DataListModalOverlayAction data-testid={"default-data-list.filter"} />
             }
+            showOptions={{
+                refresh: false
+            }}
         >
             {({ data }: { data: UserItem[] }) => (
                 <ScrollList data-testid="default-data-list">

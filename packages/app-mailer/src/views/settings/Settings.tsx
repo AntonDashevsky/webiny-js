@@ -7,7 +7,7 @@ import {
     SimpleFormContent,
     SimpleFormFooter,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
+} from "@webiny/app-admin";
 import { validation } from "@webiny/validation";
 import type {
     SaveSettingsMutationResponse,

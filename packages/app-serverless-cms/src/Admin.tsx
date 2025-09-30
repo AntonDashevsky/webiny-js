@@ -14,7 +14,6 @@ import { imagePlugin } from "@webiny/app/plugins/index.js";
 import fileStorageS3Plugin from "@webiny/app-file-manager-s3";
 import { createApolloClient as defaultApolloClientFactory } from "./apolloClientFactory.js";
 import apolloLinks from "./apolloLinks.js";
-import { createViewCompositionProvider } from "@webiny/app-admin/base/providers/ViewCompositionProvider.js";
 import { TenantManager } from "@webiny/app-tenant-manager";
 import { AuditLogs } from "@webiny/app-audit-logs";
 import { LexicalEditorActions } from "@webiny/lexical-editor-actions";
@@ -33,7 +32,6 @@ export interface AdminProps extends Omit<BaseAdminProps, "createApolloClient"> {
 
 const App = (props: AdminProps) => {
     const createApolloClient = props.createApolloClient || defaultApolloClientFactory;
-    const ViewCompositionProvider = createViewCompositionProvider();
 
     plugins.register(imagePlugin(), fileStorageS3Plugin(), apolloLinks);
 
@@ -47,7 +45,6 @@ const App = (props: AdminProps) => {
             <FileManager />
             <GraphQLPlayground createApolloClient={createApolloClient} />
             <I18N />
-            <Provider hoc={ViewCompositionProvider} />
             <Websockets />
             <RecordLocking />
             <LexicalEditorActions />

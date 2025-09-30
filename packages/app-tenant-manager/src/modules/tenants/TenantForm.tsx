@@ -11,7 +11,7 @@ import {
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm/index.js";
 import { validation } from "@webiny/validation";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { EmptyView } from "@webiny/app-admin";
 import { useTenantForm } from "./hooks/useTenantForm.js";
 import { TenantFormFields } from "~/components/TenantFormFields.js";
 import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload.js";

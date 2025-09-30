@@ -15,7 +15,7 @@ import {
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { CREATE_TEAM, LIST_TEAMS, READ_TEAM, UPDATE_TEAM } from "./graphql.js";
 import isEmpty from "lodash/isEmpty.js";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { EmptyView } from "@webiny/app-admin";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { GroupsMultiAutocomplete } from "~/components/GroupsMultiAutocomplete/index.js";
 import type { Team } from "~/types.js";

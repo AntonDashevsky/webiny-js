@@ -8,7 +8,8 @@ export interface EmptyViewProps {
     title: string;
     action?: ReactElement | null;
 }
-const EmptyView = ({ icon = <FileIcon />, title, action }: EmptyViewProps) => {
+
+export const EmptyView = ({ icon = <FileIcon />, title, action }: EmptyViewProps) => {
     return (
         <div className="wby-w-full wby-h-full wby-flex wby-flex-col wby-items-center wby-justify-center wby-gap-md">
             <div className="wby-flex wby-justify-center">
@@ -31,5 +32,3 @@ const EmptyView = ({ icon = <FileIcon />, title, action }: EmptyViewProps) => {
         </div>
     );
 };
-
-export default EmptyView;

@@ -1,6 +1,6 @@
 import React from "react";
 import { cn, cva } from "~/utils.js";
-import { SimpleLink } from "@webiny/app-admin";
+import { SimpleLink } from "@webiny/app";
 import type { SidebarMenuItemProps } from "./SidebarMenuRootItem.js";
 import { DivButton } from "./DivButton.js";
 
