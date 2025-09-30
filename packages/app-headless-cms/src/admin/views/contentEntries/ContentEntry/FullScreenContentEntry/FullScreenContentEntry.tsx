@@ -34,11 +34,11 @@ const FullScreenContentEntryDecorator = ContentEntry.createDecorator(Original =>
                             />
                         }
                     />
-                    {loading && <OverlayLoader className={"wby-z-10"} />}
+                    {loading && <OverlayLoader text={"Loading entry..."} className={"wby-z-10"} />}
                     <FSE.Content>
                         <FSE.ContentFormWrapper>
                             <FSE.ContentFormInner width={width}>
-                                <Original />
+                                {loading ? null : <Original />}
                             </FSE.ContentFormInner>
                         </FSE.ContentFormWrapper>
                     </FSE.Content>

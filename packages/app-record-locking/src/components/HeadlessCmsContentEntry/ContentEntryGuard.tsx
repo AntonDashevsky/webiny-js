@@ -34,7 +34,7 @@ export const ContentEntryGuard = (props: IContentEntryGuardProps) => {
     if (locked === undefined) {
         return (
             <div className={"wby-h-screen wby-w-screen wby-fixed wby-top-0 wby-left-0 wby-z-20"}>
-                <OverlayLoader />
+                <OverlayLoader text={"Checking record status..."} />
             </div>
         );
     } else if (locked) {

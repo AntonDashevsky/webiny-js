@@ -58,7 +58,10 @@ export const Table = () => {
 
     const navigateToFolder = useCallback(
         (folderId: string) => {
-            goToRoute(Routes.ContentEntries.List, { modelId: model.modelId, folderId });
+            goToRoute(Routes.ContentEntries.List, {
+                modelId: model.modelId,
+                folderId
+            });
         },
         [model.modelId]
     );

@@ -53,11 +53,13 @@ export const NavigateFolderProvider = ({
     }, []);
 
     /**
-     * Navigate to the latest folder, considering the latest visited folder.
+     * Navigate to the latest visited folder.
      */
     const navigateToLatestFolder = useCallback(() => {
         const storageFolderId = getFolderFromStorage();
-        props.navigateToFolder(currentFolderId || storageFolderId || ROOT_FOLDER);
+        if (!currentFolderId) {
+            props.navigateToFolder(storageFolderId || ROOT_FOLDER);
+        }
     }, [currentFolderId]);
 
     const navigateToFolder = useCallback(
