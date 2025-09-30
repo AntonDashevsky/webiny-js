@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Tag } from "./Tag.js";
 
 const meta: Meta<typeof Tag> = {
@@ -291,17 +291,17 @@ export const Documentation: Story = {
         onDismiss: {
             description:
                 "Callback function when the tag is dismissed. Please refer to the 'Dismissible Tag' example code for details.",
-            control: "none"
+            
         },
         dismissIconElement: {
             description:
                 "Custom dismiss icon element. Please refer to the 'Custom Dismiss Icon' example code for details.",
-            control: "none"
+            
         },
         dismissIconLabel: {
             description:
                 "Custom dismiss icon label. Please refer to the 'Custom Dismiss Icon' example code for details.",
-            control: "none"
+            
         }
     }
 };

@@ -6,7 +6,7 @@ import type {
     CmsModelFieldRendererProps
 } from "@webiny/app-headless-cms/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { FileManager } from "@webiny/app-admin/components/index.js";
+import { FileManager } from "@webiny/app-admin";
 import { getSupportedExtensionsLabelHint } from "./utils.js";
 import { EditFileUsingUrl } from "~/components/EditFileUsingUrl/index.js";
 import type { FileItem } from "@webiny/app-admin/types.js";

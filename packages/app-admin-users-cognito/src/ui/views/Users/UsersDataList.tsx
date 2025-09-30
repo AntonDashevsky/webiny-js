@@ -19,13 +19,14 @@ import {
     ListItemTextPrimary
 } from "@webiny/ui/List/index.js";
 import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app-admin";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { SearchUI } from "@webiny/app-admin";
 import { DELETE_USER, LIST_USERS } from "./graphql.js";
 import { deserializeSorters } from "../utils.js";
 import type { UserItem } from "~/UserItem.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-identity/admin/users/data-list");
 
@@ -56,10 +57,12 @@ const UsersDataList = () => {
     const [filter, setFilter] = useState("");
     const [sort, setSort] = useState<string>(SORTERS[0].sorter);
     const { identity } = useSecurity();
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
     const { showConfirmation } = useConfirmationDialog({
-        dataTestId: "default-data-list.delete-dialog"
+        dataTestId: "default-data-list.delete-dialog",
+        title: "Delete user",
+        message: "Are you sure you want to delete this user? This action cannot be undone.",
     });
 
     const filterUsers = useCallback<FilterUsersCallable>(
@@ -110,7 +113,7 @@ const UsersDataList = () => {
                 showSnackbar(t`User "{email}" deleted.`({ email: item.email }));
 
                 if (id === item.id) {
-                    history.push(`/admin-users`);
+                    goToRoute(Routes.Users.List);
                 }
             });
         },
@@ -150,7 +153,9 @@ const UsersDataList = () => {
                     size={"sm"}
                     className={"wby-ml-xs"}
                     data-testid="new-record-button"
-                    onClick={() => history.push("/admin-users?new=true")}
+                    onClick={() => {
+                        goToRoute(Routes.Users.List, { new: true });
+                    }}
                 />
             }
             data={userList}
@@ -166,6 +171,9 @@ const UsersDataList = () => {
             modalOverlayAction={
                 <DataListModalOverlayAction data-testid={"default-data-list.filter"} />
             }
+            showOptions={{
+                refresh: false
+            }}
         >
             {({ data }: { data: UserItem[] }) => (
                 <ScrollList data-testid="default-data-list">
@@ -191,7 +199,9 @@ const UsersDataList = () => {
                                 />
                             </ListItemGraphic>
                             <ListItemText
-                                onClick={() => history.push(`/admin-users?id=${item.id}`)}
+                                onClick={() => {
+                                    goToRoute(Routes.Users.List, { id: item.id });
+                                }}
                             >
                                 <ListItemTextPrimary>
                                     {item.firstName} {item.lastName}

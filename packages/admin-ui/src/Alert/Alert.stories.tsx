@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Alert } from "./Alert.js";
 import React from "react";
 
@@ -201,11 +201,11 @@ export const Documentation: Story = {
         },
         onClose: {
             description: "Please refer to the 'With Close Button' example below for details.",
-            control: "none"
+            
         },
         actions: {
             description: "Please refer to the 'With Action' example below for details.",
-            control: "none"
+            
         }
     }
 };

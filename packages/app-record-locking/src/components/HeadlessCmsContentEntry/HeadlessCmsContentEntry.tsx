@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { CompositionScope, createGenericContext } from "@webiny/app-admin";
+import { CompositionScope, createGenericContext, NavigationPrompt } from "@webiny/app-admin";
 import { ContentEntryEditorConfig, ContentEntryListConfig } from "@webiny/app-headless-cms";
-import { Prompt } from "@webiny/react-router";
 import { ContentEntryGuard } from "./ContentEntryGuard.js";
 import { ContentEntryLocker } from "./ContentEntryLocker.js";
 
@@ -9,7 +8,7 @@ const { ContentEntry, SingletonContentEntry } = ContentEntryEditorConfig;
 
 const DisablePrompt = createGenericContext<{ disablePrompt: boolean }>("DisablePrompt");
 
-const PromptDecorator = Prompt.createDecorator(Original => {
+const PromptDecorator = NavigationPrompt.createDecorator(Original => {
     return function Prompt(props) {
         const { disablePrompt } = DisablePrompt.useHook();
         const when = disablePrompt === true ? false : props.when;

@@ -4,18 +4,20 @@ import isEmpty from "lodash/isEmpty.js";
 import omit from "lodash/omit.js";
 import get from "lodash/get.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { CREATE_TENANT, GET_TENANT, UPDATE_TENANT, LIST_TENANTS } from "~/graphql/index.js";
 import type { TenantItem } from "~/types.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-tenant-manager/tenants/form");
 
 export const useTenantForm = () => {
-    const { location, history } = useRouter();
+    const { goToRoute } = useRouter();
+    const { route } = useRoute(Routes.Tenants.List);
     const { showSnackbar } = useSnackbar();
-    const id = new URLSearchParams(location.search).get("id");
-    const newTenant = new URLSearchParams(location.search).get("new");
+    const id = route.params.id;
+    const newTenant = route.params.new === true;
 
     const getQuery = useQuery(GET_TENANT, {
         variables: { id },
@@ -23,7 +25,7 @@ export const useTenantForm = () => {
         onCompleted: data => {
             const error = get(data, "tenancy.getTenant.error");
             if (error) {
-                history.push("/tenants");
+                goToRoute(Routes.Tenants.List);
                 showSnackbar(error.message);
             }
         }
@@ -52,7 +54,9 @@ export const useTenantForm = () => {
                 return showSnackbar(error.message);
             }
 
-            !id && history.push(`/tenants?id=${tenant.id}`);
+            if (!id) {
+                goToRoute(Routes.Tenants.List, { id: tenant.id });
+            }
             showSnackbar(t`Tenant was saved successfully.`);
         },
         [id]
@@ -61,8 +65,14 @@ export const useTenantForm = () => {
     const tenant = get(getQuery, "data.tenancy.getTenant.data");
 
     const showEmptyView = !id && !loading && isEmpty(tenant) && !newTenant;
-    const createTenant = useCallback(() => history.push("/tenants?new=true"), []);
-    const cancelEditing = useCallback(() => history.push("/tenants"), []);
+
+    const createTenant = useCallback(() => {
+        goToRoute(Routes.Tenants.List, { new: true });
+    }, []);
+
+    const cancelEditing = useCallback(() => {
+        goToRoute(Routes.Tenants.List);
+    }, []);
 
     return {
         loading,

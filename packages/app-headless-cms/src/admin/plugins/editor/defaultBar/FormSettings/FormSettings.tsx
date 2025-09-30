@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { plugins } from "@webiny/plugins";
-import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout/index.js";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
+import { LeftPanel, RightPanel, SplitView, OverlayLayout } from "@webiny/app-admin";
 import { Form } from "@webiny/form";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import * as SF from "@webiny/app-admin/components/SimpleForm/index.js";
+import {
+    useSnackbar,
+    SimpleForm,
+    SimpleFormHeader,
+    SimpleFormContent,
+    SimpleFormFooter
+} from "@webiny/app-admin";
 import type { CmsEditorFormSettingsPlugin } from "~/types.js";
 import { useModelEditor } from "~/admin/hooks/index.js";
 import { Button, Heading, Icon, List } from "@webiny/admin-ui";
@@ -60,8 +64,8 @@ const FormSettings = ({ onExited }: FormSettingsProps) => {
                         }}
                     >
                         {({ Bind, submit, form, data: formData }) => (
-                            <SF.SimpleForm size={"lg"}>
-                                <SF.SimpleFormHeader title={activePlugin.title}>
+                            <SimpleForm size={"lg"}>
+                                <SimpleFormHeader title={activePlugin.title}>
                                     <div className={"wby-flex wby-justify-end wby-items-center"}>
                                         {typeof activePlugin.renderHeaderActions === "function" &&
                                             activePlugin.renderHeaderActions({
@@ -70,8 +74,8 @@ const FormSettings = ({ onExited }: FormSettingsProps) => {
                                                 formData
                                             })}
                                     </div>
-                                </SF.SimpleFormHeader>
-                                <SF.SimpleFormContent>
+                                </SimpleFormHeader>
+                                <SimpleFormContent>
                                     {activePlugin
                                         ? activePlugin.render({
                                               Bind: Bind,
@@ -79,16 +83,16 @@ const FormSettings = ({ onExited }: FormSettingsProps) => {
                                               formData
                                           })
                                         : null}
-                                </SF.SimpleFormContent>
-                                <SF.SimpleFormFooter>
+                                </SimpleFormContent>
+                                <SimpleFormFooter>
                                     <Button
                                         text={t`Save`}
                                         onClick={ev => {
                                             submit(ev);
                                         }}
                                     />
-                                </SF.SimpleFormFooter>
-                            </SF.SimpleForm>
+                                </SimpleFormFooter>
+                            </SimpleForm>
                         )}
                     </Form>
                 </RightPanel>

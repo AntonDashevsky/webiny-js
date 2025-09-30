@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 
 import { Heading } from "./Heading.js";
 
@@ -101,7 +101,7 @@ export const Documentation: Story = {
         className: {
             description:
                 "Additional CSS classes to apply to the heading. You can pass multiple classes, separated by commas or spaces.",
-            control: "none"
+            
         }
     }
 };

@@ -14,17 +14,15 @@ import {
     ListItemTextPrimary
 } from "@webiny/ui/List/index.js";
 import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useRouter, SearchUI, useSnackbar, useConfirmationDialog } from "@webiny/app-admin";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import type { ListGroupsResponse } from "./graphql.js";
 import { LIST_GROUPS, DELETE_GROUP } from "./graphql.js";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { deserializeSorters } from "../utils.js";
 import type { Group } from "~/types.js";
 import { Button, Grid, Select, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-security/admin/roles/data-list");
 
@@ -48,14 +46,13 @@ const SORTERS = [
 ];
 
 export interface GroupsDataListProps {
-    // TODO @ts-refactor delete and go up the tree and sort it out
-    [key: string]: any;
+    activeId: string | undefined;
 }
 
-export const GroupsDataList = () => {
+export const GroupsDataList = ({ activeId }: GroupsDataListProps) => {
     const [filter, setFilter] = useState("");
     const [sort, setSort] = useState(SORTERS[0].sorter);
-    const { history, location } = useRouter();
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
     const { showConfirmation } = useConfirmationDialog({
         dataTestId: "default-data-list.delete-dialog"
@@ -68,7 +65,6 @@ export const GroupsDataList = () => {
     });
 
     const data = listLoading && !listResponse ? [] : listResponse?.security.groups.data || [];
-    const id = new URLSearchParams(location.search).get("id");
 
     const filterGroup = useCallback(
         ({ name, slug, description }: Group) => {
@@ -106,12 +102,12 @@ export const GroupsDataList = () => {
 
                 showSnackbar(t`Role "{slug}" deleted.`({ slug: item.slug }));
 
-                if (id === item.id) {
-                    history.push(`/access-management/roles`);
+                if (activeId === item.id) {
+                    goToRoute(Routes.Roles.List);
                 }
             });
         },
-        [id]
+        [activeId]
     );
 
     const groupsDataListModalOverlay = useMemo(
@@ -148,7 +144,9 @@ export const GroupsDataList = () => {
                     size={"sm"}
                     className={"wby-ml-xs"}
                     data-testid="new-record-button"
-                    onClick={() => history.push("/access-management/roles?new=true")}
+                    onClick={() => {
+                        goToRoute(Routes.Roles.List, { new: true });
+                    }}
                 />
             }
             data={groupList}
@@ -168,11 +166,11 @@ export const GroupsDataList = () => {
             {({ data }: { data: Group[] }) => (
                 <ScrollList data-testid="default-data-list">
                     {data.map(item => (
-                        <ListItem key={item.id} selected={item.id === id}>
+                        <ListItem key={item.id} selected={item.id === activeId}>
                             <ListItemText
-                                onClick={() =>
-                                    history.push(`/access-management/roles?id=${item.id}`)
-                                }
+                                onClick={() => {
+                                    goToRoute(Routes.Roles.List, { id: item.id });
+                                }}
                             >
                                 <ListItemTextPrimary>{item.name}</ListItemTextPrimary>
                                 <ListItemTextSecondary>{item.description}</ListItemTextSecondary>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Switch } from "~/Switch/index.js";
 import { Tooltip } from "~/Tooltip/index.js";
 
@@ -166,11 +166,11 @@ export const Documentation: Story = {
         validation: {
             description:
                 "Object containing validation state and message. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         onChange: {
             description: "Function called when the switch state changes",
-            control: "none"
+            
         }
     }
 };

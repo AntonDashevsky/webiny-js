@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ReactComponent as StormIcon } from "@webiny/icons/storm.svg";
 import { Avatar } from "./Avatar.js";
 
@@ -111,13 +111,11 @@ export const Documentation: Story = {
         },
         image: {
             description:
-                "The image element to display. Please refer to the example code for details on usage.",
-            control: "none"
+                "The image element to display. Please refer to the example code for details on usage."
         },
         fallback: {
             description:
-                "The fallback element to display when the image fails to load. Please refer to the example code for details on usage.",
-            control: "none"
+                "The fallback element to display when the image fails to load. Please refer to the example code for details on usage."
         },
         className: {
             description:

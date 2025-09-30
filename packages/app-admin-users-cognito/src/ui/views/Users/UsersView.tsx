@@ -1,10 +1,9 @@
 import React from "react";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
-import { UsersFormView } from "~/ui/views/Users/UsersFormView.js";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin";
 import UsersDataList from "~/ui/views/Users/UsersDataList.js";
-import { UIViewComponent } from "@webiny/app-admin/ui/UIView.js";
 import { useWcp } from "@webiny/app-admin";
 import { IfNotExternalUser } from "./components/IfNotExternalUser.js";
+import { UserForm } from "./UsersForm.js";
 
 export const UsersView = () => {
     const wcp = useWcp();
@@ -18,7 +17,7 @@ export const UsersView = () => {
             </LeftPanel>
             <RightPanel>
                 <IfNotExternalUser>
-                    <UIViewComponent view={new UsersFormView({ teams })} />
+                    <UserForm teams={teams} />
                 </IfNotExternalUser>
             </RightPanel>
         </SplitView>

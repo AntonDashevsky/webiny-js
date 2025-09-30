@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { IconButton } from "./IconButton.js";
 
@@ -33,7 +33,7 @@ const meta: Meta<typeof IconButton> = {
         },
         icon: {
             description: "Please refer to the example above for usage information.",
-            control: "none"
+            
         },
         onClick: { action: "onClick" }
     }

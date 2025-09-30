@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { OverlayLoader } from "./OverlayLoader.js";
 
 const meta: Meta<typeof OverlayLoader> = {
@@ -68,7 +68,7 @@ export const Documentation: Story = {
         className: {
             description:
                 "Additional CSS class names. You can pass multiple class names, separated by commas or spaces.",
-            control: "none"
+            
         }
     }
 };

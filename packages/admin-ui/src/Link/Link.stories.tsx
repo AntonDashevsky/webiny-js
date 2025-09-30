@@ -1,24 +1,19 @@
 // @ts-nocheck Temporary fix.
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { createBrowserHistory } from "history";
-import { BrowserRouter } from "@webiny/react-router";
-import { Link } from "./Link.js";
-import { Text } from "~/Text/index.js";
-
-const history = createBrowserHistory();
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
+import { BrowserRouter } from "react-router";
+import { Link } from "./Link";
+import { Text } from "~/Text";
 
 const meta: Meta<typeof Link> = {
     title: "Components/Link",
     component: Link,
     decorators: [
-        (Story: React.ComponentType) => {
-            return (
-                <BrowserRouter>
-                    <Story />
-                </BrowserRouter>
-            );
-        }
+        (Story: React.ComponentType) => (
+            <BrowserRouter>
+                <Story />
+            </BrowserRouter>
+        )
     ],
     argTypes: {
         size: { control: "select", options: ["sm", "md", "lg", "xl"] },

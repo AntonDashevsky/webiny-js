@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ReactComponent as KeyboardArrowRightIcon } from "@webiny/icons/keyboard_arrow_down.svg";
 import { HeaderBar } from "./HeaderBar.js";
 import React from "react";
@@ -111,15 +111,15 @@ export const Documentation: Story = {
     argTypes: {
         start: {
             description: "Content displayed at the start of the header bar",
-            control: "none"
+            
         },
         middle: {
             description: "Content displayed in the middle of the header bar",
-            control: "none"
+            
         },
         end: {
             description: "Content displayed at the end of the header bar",
-            control: "none"
+            
         }
     }
 };

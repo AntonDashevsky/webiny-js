@@ -1,18 +1,18 @@
 import React, { useCallback, useEffect, useState } from "react";
 import debounce from "lodash/debounce.js";
-import { useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { makeDecoratable } from "@webiny/react-composition";
+import { createSort, useAcoList, useNavigateFolder } from "@webiny/app-aco";
+import type { ListMeta } from "@webiny/app-aco";
+import type { FolderItem } from "@webiny/app-aco/types.js";
 import { useContentEntries } from "./useContentEntries.js";
 import type { CmsContentEntry, TableItem } from "~/types.js";
 import type { OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
-import { createSort, useAcoList, useNavigateFolder } from "@webiny/app-aco";
-import { CMS_ENTRY_LIST_LINK, ROOT_FOLDER } from "~/admin/constants.js";
-import type { ListMeta } from "@webiny/app-aco";
-import type { FolderItem } from "@webiny/app-aco/types.js";
+import { ROOT_FOLDER } from "~/admin/constants.js";
+import { Routes } from "~/routes.js";
 
 interface UpdateSearchCallableParams {
     search: string;
-    query: URLSearchParams;
 }
 interface UpdateSearchCallable {
     (params: UpdateSearchCallableParams): void;
@@ -59,7 +59,8 @@ interface ContentEntriesListProviderProps {
 }
 
 export const ContentEntriesListProvider = ({ children }: ContentEntriesListProviderProps) => {
-    const { history } = useRouter();
+    const { goToRoute, getLink } = useRouter();
+    const { route } = useRoute(Routes.ContentEntries.List);
     const { contentModel } = useContentEntries();
     const { currentFolderId } = useNavigateFolder();
 
@@ -89,43 +90,32 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
 
     const [sorting, setSorting] = useState<Sorting>([]);
     const [search, setSearch] = useState<string>("");
-    const query = new URLSearchParams(location.search);
-    const searchQuery = query.get("search") || "";
-    const baseUrl = `${CMS_ENTRY_LIST_LINK}/${contentModel.modelId}`;
+
+    const searchQuery = route.params.search ?? "";
 
     // Search-related logics: update `searchQuery` state and querystring
     const updateSearch = useCallback(
-        debounce<UpdateSearchCallable>(({ search, query }) => {
-            const searchQuery = query.get("search");
-
-            if (typeof searchQuery !== "string" && !search) {
+        debounce<UpdateSearchCallable>(({ search }) => {
+            if (!search) {
                 return;
             }
 
             setSearchQuery(search);
 
             if (searchQuery !== search) {
-                if (!search) {
-                    // In case of empty `search` - remove it from `querystring`
-                    query.delete("search");
-                } else {
-                    // Otherwise, add it to `querystring`
-                    query.set("search", search);
-                }
-                history.push(`${baseUrl}?${query.toString()}`);
+                goToRoute(Routes.ContentEntries.List, { ...route.params, search });
             }
         }, 500),
-        [baseUrl]
+        [searchQuery, route]
     );
 
-    // Set "search" from search "query" on page load.
     useEffect(() => {
-        setSearch(searchQuery);
-    }, [searchQuery]);
+        setSearch(route.params.search ?? "");
+    }, [route]);
 
     // When "search" changes, trigger search-related logics
     useEffect(() => {
-        updateSearch({ search, query });
+        updateSearch({ search });
     }, [search]);
 
     const onSelectRow: ContentEntriesListProviderContext["onSelectRow"] = rows => {
@@ -138,15 +128,13 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
 
     const getEntryEditUrl = useCallback(
         (entry: CmsContentEntry): string => {
-            const folderPath = currentFolderId
-                ? `&folderId=${encodeURIComponent(currentFolderId)}`
-                : "";
-
-            const idPath = encodeURIComponent(entry.id);
-
-            return `${baseUrl}?id=${idPath}${folderPath}`;
+            return getLink(Routes.ContentEntries.List, {
+                ...route.params,
+                folderId: currentFolderId,
+                id: entry.id
+            });
         },
-        [baseUrl, currentFolderId]
+        [currentFolderId]
     );
 
     useEffect(() => {
@@ -162,11 +150,11 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
 
     const navigateTo = useCallback(
         (input?: string) => {
-            const folderId = encodeURIComponent(input || currentFolderId || ROOT_FOLDER);
+            const folderId = input || currentFolderId || ROOT_FOLDER;
 
-            history.push(`${baseUrl}?folderId=${folderId}`);
+            goToRoute(Routes.ContentEntries.List, { ...route.params, folderId });
         },
-        [currentFolderId, baseUrl]
+        [currentFolderId, route]
     );
 
     const context: ContentEntriesListProviderContext = {

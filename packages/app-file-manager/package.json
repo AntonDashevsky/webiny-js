@@ -47,7 +47,7 @@
     "lodash": "^4.17.21",
     "mime": "^3.0.0",
     "minimatch": "^5.1.6",
-    "mobx": "^6.13.7",
+    "mobx": "^6.15.0",
     "mobx-react-lite": "^3.4.3",
     "prop-types": "^15.8.1",
     "react": "18.2.0",

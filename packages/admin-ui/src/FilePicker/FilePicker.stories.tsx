@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { type FileItemDto, FilePicker } from "~/FilePicker/index.js";
 import { Providers } from "~/Providers/index.js";
 
@@ -319,19 +319,19 @@ export const Documentation: Story = {
         validation: {
             description:
                 "Object containing validation state and message. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         onSelectItem: {
             description: "Function called when a file is selected",
-            control: "none"
+            
         },
         onEditItem: {
             description: "Function called when a file is edited",
-            control: "none"
+            
         },
         onRemoveItem: {
             description: "Function called when a file is removed",
-            control: "none"
+            
         }
     }
 };

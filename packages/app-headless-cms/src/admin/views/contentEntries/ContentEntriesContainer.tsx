@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import get from "lodash/get.js";
-import { useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import type {
@@ -12,6 +12,7 @@ import { useQuery } from "../../hooks/index.js";
 import type { CmsModel } from "~/types.js";
 import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
 import { LoadingContentModel } from "~/admin/components/ContentEntries/LoadingContentModel/index.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-entries");
 
@@ -20,10 +21,10 @@ interface ContentEntriesContainerProps {
 }
 
 export const ContentEntriesContainer = ({ children }: ContentEntriesContainerProps) => {
-    const { params } = useRouter();
-    const modelId = params?.modelId;
+    const { goToRoute } = useRouter();
+    const { route } = useRoute(Routes.ContentEntries.List);
+    const { modelId } = route.params;
     const [contentModel, setContentModel] = useState<CmsModel | null>(null);
-    const { history } = useRouter();
     const { showSnackbar } = useSnackbar();
 
     const { loading, error } = useQuery<GetCmsModelQueryResponse, GetCmsModelQueryVariables>(
@@ -39,7 +40,7 @@ export const ContentEntriesContainer = ({ children }: ContentEntriesContainerPro
                     return setContentModel(contentModel);
                 }
 
-                history.push("/cms/content-models");
+                goToRoute(Routes.ContentModels.List);
                 showSnackbar(
                     t`Could not load model "{modelId}". Redirecting...`({
                         modelId

@@ -6,8 +6,7 @@ import { DropdownMenuSubTrigger } from "./DropdownMenuSubTrigger.js";
 import { DropdownMenuPortal } from "./DropdownMenuPortal.js";
 import { DropdownMenuSubContent } from "./DropdownMenuSubContent.js";
 import { DropdownMenuItemIcon, type DropdownMenuItemIconProps } from "./DropdownMenuItemIcon.js";
-import type { LinkProps, To } from "@webiny/react-router";
-import { Link } from "@webiny/react-router";
+import { SimpleLink, type SimpleLinkProps } from "@webiny/app";
 
 interface DropdownMenuItemBaseProps {
     icon?: React.ReactNode;
@@ -19,7 +18,7 @@ interface DropdownMenuItemBaseProps {
 
 type DropdownMenuItemButtonProps = (DropdownMenuItemBaseProps &
     React.HTMLAttributes<HTMLDivElement>) & { to?: never };
-type DropdownMenuItemLinkProps = (DropdownMenuItemBaseProps & LinkProps) & { to: To };
+type DropdownMenuItemLinkProps = DropdownMenuItemBaseProps & SimpleLinkProps;
 
 type DropdownMenuItemProps = DropdownMenuItemButtonProps | DropdownMenuItemLinkProps;
 
@@ -71,10 +70,10 @@ const DropdownMenuItemBase = React.forwardRef<
     };
 
     const content = linkProps.to ? (
-        <Link {...sharedProps} {...linkProps}>
+        <SimpleLink {...sharedProps} {...linkProps}>
             {icon}
             <span>{text}</span>
-        </Link>
+        </SimpleLink>
     ) : (
         <div {...sharedProps} onClick={onClick}>
             {icon}

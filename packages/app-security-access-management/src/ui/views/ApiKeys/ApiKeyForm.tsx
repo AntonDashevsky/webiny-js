@@ -1,25 +1,25 @@
 import React, { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import get from "lodash/get.js";
-import { useRouter } from "@webiny/react-router";
+import isEmpty from "lodash/isEmpty.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { Permissions } from "@webiny/app-admin/components/Permissions/index.js";
-import { validation } from "@webiny/validation";
 import {
+    useRouter,
+    useSnackbar,
+    Permissions,
+    EmptyView,
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { pickDataForAPI } from "./utils.js";
-import * as GQL from "./graphql.js";
-import isEmpty from "lodash/isEmpty.js";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+} from "@webiny/app-admin";
+import { validation } from "@webiny/validation";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as CopyIcon } from "@webiny/icons/content_copy.svg";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
+import { pickDataForAPI } from "./utils.js";
+import * as GQL from "./graphql.js";
 import type { ApiKey } from "~/types.js";
 import {
     Alert,
@@ -33,19 +33,18 @@ import {
     Textarea,
     Tooltip
 } from "@webiny/admin-ui";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-security-admin-users/admin/api-keys/form");
 
-export interface ApiKeyFormProps {
-    // TODO @ts-refactor delete and go up the tree and sort it out
-    [key: string]: any;
+interface ApiKeyFormProps {
+    newEntry: boolean;
+    id: string | undefined;
 }
 
-export const ApiKeyForm = () => {
-    const { location, history } = useRouter();
+export const ApiKeyForm = ({ id, newEntry }: ApiKeyFormProps) => {
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
-    const newEntry = new URLSearchParams(location.search).get("new") === "true";
-    const id = new URLSearchParams(location.search).get("id");
 
     const getQuery = useQuery(GQL.READ_API_KEY, {
         variables: { id },
@@ -57,7 +56,7 @@ export const ApiKeyForm = () => {
 
             const { error } = data.security.apiKey;
             if (error) {
-                history.push("/access-management/api-keys");
+                goToRoute(Routes.ApiKeys.List);
                 showSnackbar(error.message);
             }
         }
@@ -97,7 +96,9 @@ export const ApiKeyForm = () => {
 
             const { id } = response.data.security.apiKey.data;
 
-            !isUpdate && history.push(`/access-management/api-keys?id=${id}`);
+            if (!isUpdate) {
+                goToRoute(Routes.ApiKeys.List, { id });
+            }
             showSnackbar(t`API key saved successfully.`);
         },
         [id]
@@ -117,7 +118,9 @@ export const ApiKeyForm = () => {
                         icon={<AddIcon />}
                         text={t`New API Key`}
                         data-testid="new-record-button"
-                        onClick={() => history.push("/access-management/api-keys?new=true")}
+                        onClick={() => {
+                            goToRoute(Routes.ApiKeys.List, { new: true });
+                        }}
                     />
                 }
             />
@@ -216,7 +219,9 @@ export const ApiKeyForm = () => {
                             <Button
                                 variant={"secondary"}
                                 text={t`Cancel`}
-                                onClick={() => history.push("/access-management/api-keys")}
+                                onClick={() => {
+                                    goToRoute(Routes.ApiKeys.List);
+                                }}
                                 data-testid="sam.key.new.form.button.cancel"
                             />
                             <Button

@@ -2,9 +2,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Alert, Button, Text } from "@webiny/admin-ui";
 import type { IRecordLockingError, IRecordLockingIdentity } from "~/types.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import { useRecordLocking, usePermission } from "~/hooks/index.js";
-import { useRouter } from "@webiny/react-router";
 import { useContentEntriesList } from "@webiny/app-headless-cms";
+import { useRecordLocking, usePermission } from "~/hooks/index.js";
 
 export interface ILockedRecordForceUnlockProps {
     id: string;
@@ -41,8 +40,6 @@ export const LockedRecordForceUnlock = (props: ILockedRecordForceUnlockProps) =>
     });
     const { showSnackbar } = useSnackbar();
 
-    const { history } = useRouter();
-
     const [error, setError] = useState<IRecordLockingError>();
 
     useEffect(() => {
@@ -65,7 +62,7 @@ export const LockedRecordForceUnlock = (props: ILockedRecordForceUnlockProps) =>
             }
             setError(result.error);
         });
-    }, [props.id, history, navigateTo]);
+    }, [props.id, navigateTo]);
 
     const { canForceUnlock } = usePermission();
     if (!canForceUnlock) {

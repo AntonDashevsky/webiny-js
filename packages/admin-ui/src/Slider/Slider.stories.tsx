@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Slider } from "./Slider.js";
 
 const meta: Meta<typeof Slider> = {
@@ -248,7 +248,7 @@ export const Documentation: Story = {
         },
         transformValue: {
             description: "Function to transform the numeric value to display text",
-            control: "none"
+            
         },
         labelPosition: {
             description: "Position of the label relative to the slider",
@@ -258,15 +258,15 @@ export const Documentation: Story = {
         validation: {
             description:
                 "Object containing validation state and message. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         onValueChange: {
             description: "Function called when the slider value changes",
-            control: "none"
+            
         },
         onValueCommit: {
             description: "Function called when the slider value is committed (on release)",
-            control: "none"
+            
         }
     }
 };

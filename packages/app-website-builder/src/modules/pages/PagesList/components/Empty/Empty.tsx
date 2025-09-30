@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { EmptyView } from "@webiny/app-admin";
 import { Button, Tooltip } from "@webiny/admin-ui";
 
 interface EmptyProps {

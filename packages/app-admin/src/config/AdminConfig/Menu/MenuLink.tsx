@@ -1,12 +1,19 @@
 import React from "react";
 import { makeDecoratable } from "~/index.js";
 import { Sidebar } from "@webiny/admin-ui";
-import { useLocation } from "@webiny/react-router";
 import { type SidebarMenuItemLinkProps } from "@webiny/admin-ui/Sidebar/components/items/SidebarMenuLink.js";
+import { useRoute } from "@webiny/app-admin";
 
 const MenuLinkBase = (props: SidebarMenuItemLinkProps) => {
-    const location = useLocation();
-    return <Sidebar.Link {...props} active={location.pathname === props.to} />;
+    const { route } = useRoute();
+
+    if (!route) {
+        return null;
+    }
+
+    const active = route.pathname === props.to.split("?")[0];
+
+    return <Sidebar.Link {...props} active={active} />;
 };
 
 const DecoratableMenuLink = makeDecoratable("MenuLink", MenuLinkBase);

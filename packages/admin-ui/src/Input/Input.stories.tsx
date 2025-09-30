@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Input } from "~/Input/index.js";
 
 const meta: Meta<typeof Input> = {
@@ -248,11 +248,11 @@ export const Documentation: Story = {
         },
         startIcon: {
             description: "Icon displayed at the start of the input",
-            control: "none"
+            
         },
         endIcon: {
             description: "Icon displayed at the end of the input",
-            control: "none"
+            
         },
         minLength: {
             description: "Minimum number of characters required",
@@ -267,23 +267,23 @@ export const Documentation: Story = {
         validation: {
             description:
                 "Validation state and error message. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         validate: {
             description: "Custom validation function",
-            control: "none"
+            
         },
         onChange: {
             description: "Callback function when input value changes",
-            control: "none"
+            
         },
         onBlur: {
             description: "Callback function when input loses focus",
-            control: "none"
+            
         },
         onEnter: {
             description: "Callback function when Enter key is pressed",
-            control: "none"
+            
         }
     } // Removed forwardEventOnChange and inputRef
 };

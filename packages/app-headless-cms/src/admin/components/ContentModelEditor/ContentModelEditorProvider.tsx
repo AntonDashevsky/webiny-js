@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useReducer } from "react";
 import get from "lodash/get.js";
 import pick from "lodash/pick.js";
 import type { ApolloClient } from "apollo-client";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app-admin";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import type {
     GetCmsModelQueryResponse,
@@ -16,6 +16,7 @@ import type { CmsModel, CmsModelField } from "~/types.js";
 import type { FetchResult } from "apollo-link";
 import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
 import { createHashing } from "@webiny/app/utils/index.js";
+import { Routes } from "~/routes.js";
 
 export interface ContentModelEditorProviderContext {
     apolloClient: ApolloClient<any>;
@@ -119,7 +120,7 @@ export const ContentModelEditorProvider = ({
 }: ContentModelEditorProviderProps) => {
     const [state, dispatch] = useReducer(contentModelEditorReducer, createDefaultState(modelId));
 
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
 
     const setPristine = (flag: boolean): void => {
@@ -225,7 +226,7 @@ export const ContentModelEditorProvider = ({
             return;
         }
         getContentModel(modelId).catch(() => {
-            history.push(`/cms/content-models`);
+            goToRoute(Routes.ContentModels.List);
             showSnackbar(`Could not load content model with given ID.`);
         });
     }, [modelId]);

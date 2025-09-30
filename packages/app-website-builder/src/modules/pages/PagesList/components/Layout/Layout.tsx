@@ -1,5 +1,5 @@
 import React from "react";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin";
 import { useLayoutId } from "./useLayoutId.js";
 import { WB_PAGE_APP } from "~/constants.js";
 

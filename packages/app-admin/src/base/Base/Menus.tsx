@@ -8,7 +8,6 @@ import { ReactComponent as DashboardIcon } from "@webiny/icons/space_dashboard.s
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { ReactComponent as FileManagerIcon } from "@webiny/icons/folder_open.svg";
 import { ReactComponent as InfoIcon } from "@webiny/icons/info.svg";
-import { ReactComponent as ApiPlaygroundIcon } from "@webiny/icons/swap_horiz.svg";
 import { ReactComponent as SlackIcon } from "@webiny/icons/numbers.svg";
 import { ReactComponent as DocsIcon } from "@webiny/icons/summarize.svg";
 import { ReactComponent as GithubIcon } from "@webiny/icons/route.svg";
@@ -60,22 +59,6 @@ export const Menus = React.memo(() => {
                     <Menu.Item
                         text={"Settings"}
                         icon={<Menu.Link.Icon label="Settings" element={<SettingsIcon />} />}
-                    />
-                }
-            />
-
-            <Menu.Support
-                name={"api-playground"}
-                element={
-                    <Menu.Support.Link
-                        text={"API Playground"}
-                        icon={
-                            <Menu.Support.Link.Icon
-                                label="API Playground"
-                                element={<ApiPlaygroundIcon />}
-                            />
-                        }
-                        to={"/api-playground"}
                     />
                 }
             />

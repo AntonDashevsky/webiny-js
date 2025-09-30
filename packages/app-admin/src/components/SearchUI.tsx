@@ -11,7 +11,7 @@ export interface SearchProps {
     dataTestId?: string;
 }
 
-const Search = ({
+export const SearchUI = ({
     value,
     onChange,
     onEnter,
@@ -33,5 +33,3 @@ const Search = ({
         />
     );
 };
-
-export default Search;

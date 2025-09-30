@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Drawer } from "./Drawer.js";
 import { Button } from "~/Button/index.js";
 import { DropdownMenu } from "~/DropdownMenu/index.js";
@@ -352,22 +352,22 @@ export const Documentation: Story = {
         width: {
             description:
                 'Width defines the horizontal size of the Drawer and accepts any valid CSS width value. You can pass a number (interpreted as pixels) or a string like "80%", "50vw", "auto", etc., following React.CSSProperties["width"] types.',
-            control: "none"
+            
         },
         info: {
             description:
                 "Additional info displayed below the description, please refer to the example below for details.",
-            control: "none"
+            
         },
         children: {
             description:
                 "Content of the Drawer, please refer to the 'With Dropdown Menu' and ''With Tabs' example below for details.",
-            control: "none"
+            
         },
         actions: {
             description:
                 "Actions displayed in the footer, please refer to the code example for details.",
-            control: "none"
+            
         }
     }
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { RichTextEditor } from "./RichTextEditor.js";
 import { type RichTextEditorValue } from "./RichTextEditorPrimitive.js";
 
@@ -166,11 +166,11 @@ export const Documentation: Story = {
         },
         onChange: {
             description: "Function called when the content changes",
-            control: "none"
+            
         },
         onReady: {
             description: "Function called when the editor is ready",
-            control: "none"
+            
         }
     }
 };

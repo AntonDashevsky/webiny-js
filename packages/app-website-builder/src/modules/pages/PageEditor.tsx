@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { DocumentEditor } from "~/DocumentEditor/DocumentEditor.js";
 import { useCreatePageRevisionFrom, useGetPage } from "~/features/pages/index.js";
 import { OverlayLoader } from "@webiny/admin-ui";
@@ -7,9 +7,10 @@ import { useGetWebsiteBuilderSettings } from "~/features/index.js";
 import { DefaultPageEditorConfig } from "./PageEditor/DefaultPageEditorConfig.js";
 import { DefaultEditorConfig } from "~/BaseEditor/index.js";
 import { EDITOR_NAME } from "~/modules/pages/constants.js";
-import { WB_PAGE_EDITOR_ROUTE, WbPageStatus } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import type { EditorPage } from "@webiny/website-builder-sdk";
 import type { Page } from "~/domain/Page/index.js";
+import { Routes } from "~/routes.js";
 
 const getPageDataFromPage = (page: Page): EditorPage => {
     return {
@@ -30,7 +31,9 @@ export const PageEditor = () => {
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState<EditorPage | null>(null);
 
-    const { history, params } = useRouter();
+    const { goToRoute } = useRouter();
+    const { route } = useRoute(Routes.Pages.Editor);
+
     const { getPage } = useGetPage();
     const { createPageRevisionFrom } = useCreatePageRevisionFrom();
 
@@ -38,7 +41,7 @@ export const PageEditor = () => {
         setLoading(true);
         Promise.all([
             getSettings(),
-            getPage({ id: params.id }).then(page => {
+            getPage({ id: route.params.id }).then(page => {
                 if (page.status === WbPageStatus.Draft) {
                     setPage(getPageDataFromPage(page));
 
@@ -46,17 +49,16 @@ export const PageEditor = () => {
                 }
 
                 return createPageRevisionFrom({ id: page.id }).then(page => {
-                    const encodedPageId = encodeURIComponent(page.id);
-                    const encodedFolderId = encodeURIComponent(page.location.folderId);
-                    history.push(
-                        `${WB_PAGE_EDITOR_ROUTE}/${encodedPageId}?folderId=${encodedFolderId}`
-                    );
+                    goToRoute(Routes.Pages.Editor, {
+                        id: page.id,
+                        folderId: page.location.folderId
+                    });
                 });
             })
         ]).then(() => {
             setLoading(false);
         });
-    }, [params.id]);
+    }, [route.params.id]);
 
     if (loading || !page) {
         return <OverlayLoader text={"Loading page..."} />;

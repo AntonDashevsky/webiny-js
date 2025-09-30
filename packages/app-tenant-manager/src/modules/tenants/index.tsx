@@ -1,11 +1,17 @@
 import React from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
-import { Layout } from "@webiny/app-admin";
+import {
+    AdminConfig,
+    AdminLayout,
+    SplitView,
+    LeftPanel,
+    RightPanel,
+    useRouter
+} from "@webiny/app-admin";
+import { ReactComponent as TenantManagerIcon } from "@webiny/icons/domain.svg";
 import TenantDataList from "./TenantDataList.js";
 import TenantForm from "./TenantForm.js";
 import { IsRootTenant } from "~/components/IsRootTenant.js";
-import { ReactComponent as TenantManagerIcon } from "@webiny/icons/domain.svg";
-import { AdminConfig } from "@webiny/app-admin";
+import { Routes } from "~/routes.js";
 
 const { Menu, Route } = AdminConfig;
 
@@ -23,6 +29,8 @@ export const TenantsView = () => {
 };
 
 export const TenantsModule = () => {
+    const router = useRouter();
+
     return (
         <AdminConfig>
             <IsRootTenant>
@@ -37,18 +45,17 @@ export const TenantsModule = () => {
                                 />
                             }
                             text={"Tenant Manager"}
-                            to={"/tenants"}
+                            to={router.getLink(Routes.Tenants.List)}
                         />
                     }
                 />
 
                 <Route
-                    name={"tenantManager.tenants"}
-                    path={"/tenants"}
+                    route={Routes.Tenants.List}
                     element={
-                        <Layout title={"Tenant Manager - Tenants"}>
+                        <AdminLayout title={"Tenant Manager - Tenants"}>
                             <TenantsView />
-                        </Layout>
+                        </AdminLayout>
                     }
                 />
             </IsRootTenant>

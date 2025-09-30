@@ -1,25 +1,31 @@
 import React from "react";
-import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
-import { ReactComponent as ViewIcon } from "@webiny/icons/open_in_new.svg";
 import { IconButton, Link, Tooltip } from "@webiny/admin-ui";
-
-const createEntryUrl = (entry: CmsReferenceContentEntry) => {
-    const folderId = entry.wbyAco_location?.folderId || "";
-    return `/cms/content-entries/${entry.model.modelId}?id=${
-        entry.id
-    }&folderId=${encodeURIComponent(folderId)}`;
-};
+import { ReactComponent as ViewIcon } from "@webiny/icons/open_in_new.svg";
+import { useRouter } from "@webiny/app-admin";
+import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { Routes } from "~/routes.js";
 
 interface ViewProps {
     entry: CmsReferenceContentEntry;
 }
+
 export const View = ({ entry }: ViewProps) => {
+    const { getLink } = useRouter();
+
+    const folderId = entry.wbyAco_location?.folderId || "";
+
+    const link = getLink(Routes.ContentEntries.List, {
+        id: entry.id,
+        modelId: entry.model.modelId,
+        folderId
+    });
+
     return (
         <Tooltip
             content={"View"}
             side={"top"}
             trigger={
-                <Link to={createEntryUrl(entry)} target="_blank" rel="noopener noreferrer">
+                <Link to={link} target="_blank">
                     <IconButton variant={"ghost"} size={"sm"} iconSize={"lg"} icon={<ViewIcon />} />
                 </Link>
             }

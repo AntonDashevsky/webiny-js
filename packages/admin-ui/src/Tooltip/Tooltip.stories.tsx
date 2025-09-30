@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Tooltip } from "~/Tooltip/index.js";
 import { Button } from "~/Button/index.js";
 import { Text } from "~/Text/index.js";
@@ -114,12 +114,12 @@ export const Documentation: Story = {
         trigger: {
             description:
                 "The element that triggers the tooltip when hovered. Please refer to the example code for details.",
-            control: "none"
+            
         },
         content: {
             description:
                 "The content to display inside the tooltip. Please refer to the example code for details.",
-            control: "none"
+            
         },
         side: {
             description: "The side of the trigger where the tooltip appears.",

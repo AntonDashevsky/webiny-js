@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Accordion, type AccordionItemProps as BaseAccordionItemProps } from "./Accordion.js";
 
 import { ReactComponent as WarningIcon } from "@webiny/icons/insert_chart.svg";
@@ -401,8 +401,7 @@ export const Documentation: Story = {
         },
         children: {
             description:
-                "The content of the accordion. Please refer to the example code for details.",
-            control: "none"
+                "The content of the accordion. Please refer to the example code for details."
         }
     }
 };

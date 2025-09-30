@@ -2,13 +2,11 @@
   "extends": "../../tsconfig.json",
   "include": ["src", "__tests__"],
   "references": [
-    { "path": "../admin-ui" },
     { "path": "../app" },
     { "path": "../app-admin" },
     { "path": "../app-security" },
     { "path": "../form" },
     { "path": "../plugins" },
-    { "path": "../react-router" },
     { "path": "../ui" },
     { "path": "../validation" }
   ],
@@ -19,8 +17,6 @@
     "paths": {
       "~/*": ["./src/*"],
       "~tests/*": ["./__tests__/*"],
-      "@webiny/admin-ui/*": ["../admin-ui/src/*"],
-      "@webiny/admin-ui": ["../admin-ui/src"],
       "@webiny/app/*": ["../app/src/*"],
       "@webiny/app": ["../app/src"],
       "@webiny/app-admin/*": ["../app-admin/src/*"],
@@ -31,8 +27,6 @@
       "@webiny/form": ["../form/src"],
       "@webiny/plugins/*": ["../plugins/src/*"],
       "@webiny/plugins": ["../plugins/src"],
-      "@webiny/react-router/*": ["../react-router/src/*"],
-      "@webiny/react-router": ["../react-router/src"],
       "@webiny/ui/*": ["../ui/src/*"],
       "@webiny/ui": ["../ui/src"],
       "@webiny/validation/*": ["../validation/src/*"],

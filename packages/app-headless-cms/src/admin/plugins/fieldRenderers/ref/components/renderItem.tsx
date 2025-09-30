@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { createEntryUrl } from "./createEntryUrl.js";
-import { Link } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/app-admin";
 import type { OptionItem } from "./types.js";
 import { EntryStatus } from "./EntryStatus.js";
 import { IconButton } from "@webiny/ui/Button/index.js";
@@ -25,7 +25,7 @@ export interface RenderItemProps {
 export const renderItem = (props: RenderItemProps) => {
     return (
         <Typography use={"body2"}>
-            <Link to={createEntryUrl(props)}>{props.name}</Link>
+            <SimpleLink to={createEntryUrl(props)}>{props.name}</SimpleLink>
             <br />
             <ModelId>Model: {props.modelName}</ModelId>
         </Typography>

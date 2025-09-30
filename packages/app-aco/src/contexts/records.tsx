@@ -4,17 +4,8 @@ import sortBy from "lodash/sortBy.js";
 import unionBy from "lodash/unionBy.js";
 import lodashMerge from "lodash/merge.js";
 import { apolloFetchingHandler, loadingHandler } from "~/handlers.js";
-import {
-    createCreateRecord,
-    createDeleteRecord,
-    createGetRecord,
-    createListRecords,
-    createListTags,
-    createMoveRecord,
-    createUpdateRecord
-} from "~/graphql/records.gql.js";
+import { createGetRecord, createListRecords, createMoveRecord } from "~/graphql/records.gql.js";
 import type {
-    AcoAppMode,
     CreateSearchRecordResponse,
     CreateSearchRecordVariables,
     DeletableSearchRecordItem,
@@ -97,11 +88,8 @@ const mergeAndSortTags = (oldTagItems: TagItem[], newTags: string[]): TagItem[] 
     return sortBy(mergedTagItems, ["tag"]);
 };
 
-const getResponseData = (response: any, mode: AcoAppMode): any => {
-    if (mode === "cms") {
-        return response?.content || {};
-    }
-    return response.search?.content || {};
+const getResponseData = (response: any): any => {
+    return response?.content || {};
 };
 
 const defaultMeta: ListMeta = {
@@ -111,7 +99,7 @@ const defaultMeta: ListMeta = {
 };
 
 export const SearchRecordsProvider = ({ children }: Props) => {
-    const { app, client, mode } = useAcoApp();
+    const { app, client } = useAcoApp();
     const { model } = app;
 
     /**
@@ -136,15 +124,15 @@ export const SearchRecordsProvider = ({ children }: Props) => {
         LIST_TAGS
     } = useMemo(() => {
         return {
-            LIST_RECORDS: createListRecords(model, mode, fieldIds),
-            UPDATE_RECORD: createUpdateRecord(model, mode),
-            MOVE_RECORD: createMoveRecord(model, mode),
-            GET_RECORD: createGetRecord(model, mode),
-            LIST_TAGS: createListTags(model, mode),
-            DELETE_RECORD: createDeleteRecord(model, mode),
-            CREATE_RECORD: createCreateRecord(model, mode)
+            LIST_RECORDS: createListRecords(model, fieldIds),
+            UPDATE_RECORD: null,
+            MOVE_RECORD: createMoveRecord(model),
+            GET_RECORD: createGetRecord(model),
+            LIST_TAGS: null,
+            DELETE_RECORD: null,
+            CREATE_RECORD: null
         };
-    }, [app.id, model.modelId, fieldIds]);
+    }, [app.model.modelId, fieldIds]);
 
     const context = useMemo<SearchRecordsContext>(() => {
         return {
@@ -230,7 +218,7 @@ export const SearchRecordsProvider = ({ children }: Props) => {
                     throw new Error("Could not fetch records - no response.");
                 }
 
-                const { data, meta: responseMeta, error } = getResponseData(response, mode);
+                const { data, meta: responseMeta, error } = getResponseData(response);
 
                 if (!data || !responseMeta) {
                     throw new Error(error?.message || "Could not fetch records.");
@@ -277,7 +265,7 @@ export const SearchRecordsProvider = ({ children }: Props) => {
                     throw new Error(`Could not fetch record "${recordId}" - no response.`);
                 }
 
-                const { data, error } = getResponseData(response, mode);
+                const { data, error } = getResponseData(response);
 
                 if (error && error.code !== "NOT_FOUND") {
                     throw new Error("Network error while syncing record");
@@ -341,7 +329,7 @@ export const SearchRecordsProvider = ({ children }: Props) => {
                     throw new Error("Network error while creating search record.");
                 }
 
-                const { data, error } = getResponseData(response, mode);
+                const { data, error } = getResponseData(response);
 
                 if (!data) {
                     throw new Error(error?.message || "Could not create record");
@@ -389,7 +377,7 @@ export const SearchRecordsProvider = ({ children }: Props) => {
                     throw new Error("Network error while updating record");
                 }
 
-                const { data: result, error } = getResponseData(response, mode);
+                const { data: result, error } = getResponseData(response);
 
                 if (!result) {
                     throw new Error(error?.message || "Could not update record");
@@ -438,7 +426,7 @@ export const SearchRecordsProvider = ({ children }: Props) => {
                     throw new Error("Network error while moving record.");
                 }
 
-                const { data, error } = getResponseData(response, mode);
+                const { data, error } = getResponseData(response);
 
                 if (!data) {
                     throw new Error(error?.message || "Could not move record.");
@@ -470,7 +458,7 @@ export const SearchRecordsProvider = ({ children }: Props) => {
                     throw new Error("Network error while deleting record.");
                 }
 
-                const { data, error } = getResponseData(response, mode);
+                const { data, error } = getResponseData(response);
 
                 if (!data) {
                     throw new Error(error?.message || "Could not delete record");
@@ -507,7 +495,7 @@ export const SearchRecordsProvider = ({ children }: Props) => {
                     throw new Error("Network error while fetching tags.");
                 }
 
-                const { data, error } = getResponseData(response, mode);
+                const { data, error } = getResponseData(response);
 
                 if (!data) {
                     throw new Error(error?.message || "Could not fetch tags");

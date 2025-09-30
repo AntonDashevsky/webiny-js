@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import noop from "lodash/noop.js";
 import type { ExitHandler } from "react-transition-group/Transition";
-import { OverlayView } from "~/ui/views/OverlayView.js";
 import type { overlayHeaderVariants } from "./components/index.js";
 import { OverlayBackdrop, OverlayContent, OverlayHeader, OverlayRoot } from "./components/index.js";
 import { Portal, type VariantProps } from "@webiny/admin-ui";
@@ -28,19 +27,13 @@ export const OverlayLayout: React.FC<OverlayLayoutProps> = ({
 
     const hideOverlay = useCallback(() => {
         setVisible(false);
-        if (OverlayView.openedViews === 0) {
-            noScrollBodyClassNames.forEach(className => document.body.classList.remove(className));
-        }
     }, []);
 
     useEffect(() => {
         noScrollBodyClassNames.forEach(className => document.body.classList.add(className));
+
         return () => {
-            if (OverlayView.openedViews === 0) {
-                noScrollBodyClassNames.forEach(className =>
-                    document.body.classList.remove(className)
-                );
-            }
+            noScrollBodyClassNames.forEach(className => document.body.classList.remove(className));
         };
     }, []);
 

@@ -8,14 +8,14 @@ import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
-    SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
+    SimpleFormHeader,
+    EmptyView,
+    SingleImageUpload
+} from "@webiny/app-admin";
 import { validation } from "@webiny/validation";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 import { useTenantForm } from "./hooks/useTenantForm.js";
 import { TenantFormFields } from "~/components/TenantFormFields.js";
-import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload.js";
-import { Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-i18n/admin/locales/form");
 

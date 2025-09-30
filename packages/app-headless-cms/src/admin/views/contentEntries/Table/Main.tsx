@@ -7,12 +7,16 @@ import { Filters } from "~/admin/components/ContentEntries/Filters/index.js";
 import { Header } from "~/admin/components/ContentEntries/Header/index.js";
 import { LoadMoreButton } from "~/admin/components/ContentEntries/LoadMoreButton/index.js";
 import { Table } from "~/admin/components/ContentEntries/Table/index.js";
-import { useContentEntriesList, useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
+import {
+    useContentEntriesList,
+    useContentEntry
+} from "~/admin/views/contentEntries/hooks/index.js";
 import { ContentEntry } from "~/admin/views/contentEntries/ContentEntry.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app-admin";
 import { ROOT_FOLDER } from "~/admin/constants.js";
 import { BulkActions } from "~/admin/components/ContentEntries/BulkActions/index.js";
 import { BottomInfoBar } from "~/admin/components/ContentEntries/BottomInfoBar/index.js";
+import { Routes } from "~/routes.js";
 
 interface MainProps {
     folderId?: string;
@@ -24,7 +28,7 @@ export const Main = ({ folderId: initialFolderId }: MainProps) => {
     const list = useContentEntriesList();
     const { showDialog: showCreateFolderDialog } = useCreateDialog();
 
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
 
     // We check permissions on two layers - security and folder level permissions.
     const { canCreate, contentModel } = useContentEntry();
@@ -48,9 +52,12 @@ export const Main = ({ folderId: initialFolderId }: MainProps) => {
     );
 
     const createEntry = useCallback(() => {
-        const folder = folderId ? `&folderId=${encodeURIComponent(folderId)}` : "";
-        history.push(`/cms/content-entries/${contentModel.modelId}?new=true${folder}`);
-    }, [canCreate, contentModel, folderId]);
+        goToRoute(Routes.ContentEntries.List, {
+            modelId: contentModel.modelId,
+            new: true,
+            folderId
+        });
+    }, [contentModel, folderId]);
 
     const { innerHeight: windowHeight } = window;
     const [tableHeight, setTableHeight] = useState(0);

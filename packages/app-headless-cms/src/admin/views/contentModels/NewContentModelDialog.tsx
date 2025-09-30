@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app-admin";
 import { Form } from "@webiny/form";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
@@ -27,6 +27,7 @@ import { createNameValidator } from "~/admin/views/contentModels/helpers/nameVal
 import { Checkbox } from "@webiny/ui/Checkbox/index.js";
 import { IconPicker } from "~/admin/components/IconPicker.js";
 import { Switch } from "@webiny/ui/Switch/index.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-headless-cms/admin/views/content-models/new-content-model-dialog");
 
@@ -48,7 +49,7 @@ interface CmsModelData {
 const NewContentModelDialog = ({ open, onClose }: NewContentModelDialogProps) => {
     const [loading, setLoading] = React.useState(false);
     const { showSnackbar } = useSnackbar();
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
     const client = useApolloClient();
 
     const [createContentModel] = useMutation<
@@ -71,7 +72,7 @@ const NewContentModelDialog = ({ open, onClose }: NewContentModelDialogProps) =>
                 return;
             }
 
-            history.push("/cms/content-models/" + model.modelId);
+            goToRoute(Routes.ContentModels.Editor, { modelId: model.modelId });
         },
         update(cache, { data }) {
             if (!data) {

@@ -3,7 +3,7 @@ import debounce from "lodash/debounce.js";
 import { NewEntryButton } from "./NewEntryButton.js";
 import { AutoComplete } from "@webiny/ui/AutoComplete/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { Link } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/app-admin";
 import { useNewRefEntry } from "../hooks/useNewRefEntry.js";
 import { useReference } from "./useReference.js";
 import { renderItem } from "./renderItem.js";
@@ -44,11 +44,13 @@ const ContentEntriesAutocomplete = ({ bind, field }: ContentEntriesAutocompleteP
     let entryInfo: string | null = null;
     if (value && !value.published) {
         const link = createEntryUrl(value);
-        entryInfo = unpublishedLabel({ publishItLink: <Link to={link}>{t`publish it`}</Link> });
+        entryInfo = unpublishedLabel({
+            publishItLink: <SimpleLink to={link}>{t`publish it`}</SimpleLink>
+        });
     } else if (value) {
         const link = createEntryUrl(value);
         entryInfo = publishedLabel({
-            here: <Link to={link}>{t`here`}</Link>
+            here: <SimpleLink to={link}>{t`here`}</SimpleLink>
         });
     }
     const { renderNewEntryModal, refModelId, helpText } = useNewRefEntry({ field });

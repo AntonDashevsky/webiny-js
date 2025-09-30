@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ReactComponent as XIcon } from "@webiny/icons/close.svg";
 import { Icon } from "./Icon.js";
 
@@ -156,7 +156,7 @@ export const Documentation: Story = {
         icon: {
             description:
                 "The SVG icon component to be rendered. Please refer to the example code for details.",
-            control: "none"
+            
         },
         label: {
             description: "Accessible label for the icon (for screen readers)",

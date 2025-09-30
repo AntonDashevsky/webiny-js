@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { DropdownMenu } from "./DropdownMenu.js";
 import { Button } from "~/Button/index.js";
 import { ReactComponent as Cloud } from "@webiny/icons/cloud.svg";
@@ -380,11 +380,11 @@ export const Documentation: Story = {
         trigger: {
             description:
                 "The trigger element that opens the menu. Please refer to the example code for details.",
-            control: "none"
+            
         },
         children: {
             description: "The content of the menu. Please refer to the example code for details.",
-            control: "none"
+            
         }
     }
 };

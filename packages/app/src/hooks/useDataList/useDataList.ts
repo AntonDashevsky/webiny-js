@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { useRouter } from "@webiny/react-router";
 import get from "lodash/get.js";
 import isEqual from "lodash/isEqual.js";
 import { prepareLoadListParams } from "./utils/index.js";
@@ -10,7 +9,6 @@ import type { DocumentNode } from "graphql";
 import type { ApolloClient } from "apollo-client";
 
 export interface UseDataListParams {
-    useRouter?: boolean;
     variables?: ((params: UseDataListParams) => any) | object;
     client?: ApolloClient<any>;
     query: DocumentNode;
@@ -46,18 +44,6 @@ export interface DataListProps {
 const useDataList = (params: UseDataListParams) => {
     const [multiSelectedItems, multiSelect] = useState<string[]>([]);
 
-    let history = null;
-    /**
-     * TODO: figure out the location type.
-     */
-    let location: any = null;
-    const routerHook = useRouter();
-
-    if (params.useRouter !== false) {
-        history = routerHook.history;
-        location = routerHook.location;
-    }
-
     const getQueryOptions = useCallback(() => {
         let variables = params.variables;
         if (typeof variables === "function") {
@@ -68,7 +54,7 @@ const useDataList = (params: UseDataListParams) => {
             client: params.client,
             variables: {
                 ...variables,
-                ...prepareLoadListParams(location)
+                ...prepareLoadListParams()
             }
         };
     }, []);
@@ -93,11 +79,6 @@ const useDataList = (params: UseDataListParams) => {
                 queryData.refetch(dataListProps.__loadParams);
                 return;
             }
-
-            // if (history) {
-            //     redirectToRouteWithQueryParams(params, { history, location });
-            //     return;
-            // }
 
             queryData.refetch(params);
         },
@@ -184,10 +165,6 @@ const useDataList = (params: UseDataListParams) => {
         select(item) {
             const query = new URLSearchParams(location.search);
             query.set("id", item.id);
-            if (!history) {
-                return;
-            }
-            history.push({ search: query.toString() });
         },
         isMultiSelected(item) {
             if (!Array.isArray(multiSelectedItems)) {

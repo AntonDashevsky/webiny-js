@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { type FileItemDto, MultiFilePicker } from "~/MultiFilePicker/index.js";
 import { Providers } from "~/Providers/index.js";
 
@@ -375,31 +375,31 @@ export const Documentation: Story = {
         validation: {
             description:
                 "Validation state and message. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         onSelectItem: {
             description:
                 "Callback when user selects files - Please refer to the example code for details on usage.",
             action: "onSelectItem",
-            control: "none"
+            
         },
         onReplaceItem: {
             description:
                 "Callback when user replaces a file - Please refer to the example code for details on usage.",
             action: "onReplaceItem",
-            control: "none"
+            
         },
         onEditItem: {
             description:
                 "Callback when user edits a file - Please refer to the example code for details on usage.",
             action: "onEditItem",
-            control: "none"
+            
         },
         onRemoveItem: {
             description:
                 "Callback when user removes a file - Please refer to the example code for details on usage.",
             action: "onRemoveItem",
-            control: "none"
+            
         }
     }
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Popover } from "./Popover.js";
 
 const meta: Meta<typeof Popover> = {
@@ -108,12 +108,12 @@ export const Documentation: Story = {
         trigger: {
             description:
                 "The element that triggers the popover when clicked. Please refer to the example code for details.",
-            control: "none"
+            
         },
         content: {
             description:
                 "The content to display inside the popover. Please refer to the example code for details.",
-            control: "none"
+            
         },
         side: {
             description: "The side of the trigger where the popover appears.",

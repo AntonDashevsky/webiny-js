@@ -1,10 +1,10 @@
 import React, { useState, useCallback, useEffect } from "react";
 import * as UID from "@webiny/ui/Dialog/index.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app-admin";
 import { Form } from "@webiny/form";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useToast } from "@webiny/admin-ui";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { validation } from "@webiny/validation";
 import { useApolloClient, useMutation, useQueryLocale } from "../../hooks/index.js";
@@ -25,6 +25,7 @@ import { Dialog } from "~/admin/components/Dialog.js";
 import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator.js";
 import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator.js";
 import { IconPicker } from "~/admin/components/IconPicker.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-headless-cms/admin/views/content-models/clone-content-model-dialog");
 
@@ -53,8 +54,8 @@ export const CloneContentModelDialog = ({
     closeModal
 }: CloneContentModelDialogProps) => {
     const [loading, setLoading] = useState<boolean>(false);
-    const { showSnackbar } = useSnackbar();
-    const { history } = useRouter();
+    const { showSuccessToast, showWarningToast } = useToast();
+    const { goToRoute } = useRouter();
     const { getLocales, getCurrentLocale, setCurrentLocale } = useI18N();
     const client = useApolloClient();
 
@@ -69,18 +70,21 @@ export const CloneContentModelDialog = ({
     >(CREATE_CONTENT_MODEL_FROM, {
         onError(error) {
             setLoading(false);
-            showSnackbar(error.message);
+            showWarningToast({ title: "Failed to create model", description: error.message });
         },
         update(cache, response) {
             if (!response.data) {
-                showSnackbar(`Missing data on Create Content Model From Mutation Response.`);
+                showWarningToast({
+                    title: "Failed to create model",
+                    description: `Missing data on Create Content Model From Mutation Response.`
+                });
                 return;
             }
             const { data: model, error } = response.data.createContentModelFrom;
 
             if (error) {
                 setLoading(false);
-                showSnackbar(error.message);
+                showWarningToast({ title: "Failed to create model", description: error.message });
                 return;
             }
 
@@ -93,8 +97,8 @@ export const CloneContentModelDialog = ({
             addModelToListCache(cache, model);
             addModelToGroupCache(cache, model);
 
-            history.push("/cms/content-models/");
             closeModal();
+            goToRoute(Routes.ContentModels.List);
         }
     });
 
@@ -250,11 +254,7 @@ export const CloneContentModelDialog = ({
                                 </Cell>
                                 <Cell span={12}>
                                     <Bind name="description">
-                                        <Input
-                                            rows={4}
-                                            maxLength={200}
-                                            label={t`Description`}
-                                        />
+                                        <Input rows={4} maxLength={200} label={t`Description`} />
                                     </Bind>
                                 </Cell>
                             </Grid>

@@ -5,7 +5,7 @@ import { useCmsData } from "./useCmsData.js";
 import type { BindComponent } from "@webiny/form/types.js";
 import type { CmsSecurityPermission } from "~/types.js";
 import { Grid, Select } from "@webiny/admin-ui";
-import { PermissionsGroup } from "@webiny/app-admin/components/Permissions/index.js";
+import { PermissionsGroup } from "@webiny/app-admin";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 

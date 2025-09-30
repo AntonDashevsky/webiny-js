@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import get from "lodash/get.js";
 import { i18n } from "@webiny/app/i18n/index.js";
+// TODO: this RTE is actually an editorjs which we're removing. Revisit this and clean this up!
 import { createPropsFromConfig, RichTextEditor } from "@webiny/app-admin/components/RichTextEditor/index.js";
 import { plugins } from "@webiny/plugins";
 import { useForm } from "@webiny/form";

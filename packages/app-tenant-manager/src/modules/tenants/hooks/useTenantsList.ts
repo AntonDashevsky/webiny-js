@@ -1,13 +1,14 @@
 import { useCallback, useState } from "react";
 import orderBy from "lodash/orderBy.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app-admin";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import { DELETE_TENANT, LIST_TENANTS } from "~/graphql/index.js";
 import { useCurrentTenantId } from "./useCurrentTenantId.js";
 import type { TenantItem } from "~/types.js";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-tenant-manager/tenants/data-list");
 
@@ -58,7 +59,7 @@ export const useTenantsList: UseTenantsListHook = (config: Config) => {
     const defaultSorter = config.sorters.length ? config.sorters[0].sorter : null;
     const [filter, setFilter] = useState<string>("");
     const [sort, setSort] = useState<string | null>(defaultSorter);
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
     const listQuery = useQuery(LIST_TENANTS);
     const currentTenantId = useCurrentTenantId();
@@ -105,7 +106,7 @@ export const useTenantsList: UseTenantsListHook = (config: Config) => {
                 showSnackbar(t`Tenant "{name}" deleted.`({ name: item.name }));
 
                 if (currentTenantId === item.id) {
-                    history.push(`/tenants`);
+                    goToRoute(Routes.Tenants.List);
                 }
             });
         },
@@ -116,10 +117,13 @@ export const useTenantsList: UseTenantsListHook = (config: Config) => {
     const filteredData = filter === "" ? data : data.filter(filterTenants);
     const tenants = sortTenantList(filteredData);
 
-    const createTenant = useCallback(() => history.push("/tenants?new=true"), []);
+    const createTenant = useCallback(() => {
+        console.log("goToRoute", Routes.Tenants.List);
+        goToRoute(Routes.Tenants.List, { new: true });
+    }, []);
 
     const editTenant = useCallback((id: string) => {
-        history.push(`/tenants?id=${id}`);
+        goToRoute(Routes.Tenants.List, { id });
     }, []);
 
     return {

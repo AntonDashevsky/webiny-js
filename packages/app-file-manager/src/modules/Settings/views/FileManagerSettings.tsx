@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button, Grid, Input, OverlayLoader } from "@webiny/admin-ui";
 import { Form } from "@webiny/form";
 import { Mutation, Query } from "@apollo/react-components";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useSnackbar } from "@webiny/app-admin";
 import type { GetSettingsResponse } from "../graphql.js";
 import graphql from "../graphql.js";
 import get from "lodash/get.js";
@@ -12,9 +12,9 @@ import {
     SimpleForm,
     SimpleFormContent,
     SimpleFormFooter,
-    SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
-import { CenteredView } from "@webiny/app-admin";
+    SimpleFormHeader,
+    CenteredView
+} from "@webiny/app-admin";
 import type { QueryGetSettingsResult, Settings } from "~/types.js";
 import type { MutationFunction, MutationResult } from "@apollo/react-common";
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { IconPicker } from "~/IconPicker/index.js";
@@ -230,16 +230,16 @@ export const Documentation: Story = {
         },
         value: {
             description: "The selected icon value (in format 'prefix/name')",
-            control: "none"
+            
         },
         validation: {
             description:
                 "Object containing validation state and message. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         onChange: {
             description: "Function called when an icon is selected",
-            control: "none"
+            
         }
     }
 };

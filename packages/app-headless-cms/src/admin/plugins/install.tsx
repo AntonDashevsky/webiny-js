@@ -4,7 +4,7 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Alert } from "@webiny/ui/Alert/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { SimpleForm, SimpleFormContent } from "@webiny/app-admin/components/SimpleForm/index.js";
+import { SimpleForm, SimpleFormContent } from "@webiny/app-admin";
 import styled from "@emotion/styled";
 import type { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
 import type { CmsErrorResponse } from "~/types.js";

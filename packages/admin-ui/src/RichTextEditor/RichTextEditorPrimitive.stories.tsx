@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { RichTextEditorPrimitive } from "./RichTextEditorPrimitive.js";
 
 const meta: Meta<typeof RichTextEditorPrimitive> = {

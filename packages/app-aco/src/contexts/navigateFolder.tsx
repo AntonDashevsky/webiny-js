@@ -18,9 +18,7 @@ export const NavigateFolderContext = React.createContext<NavigateFolderContext |
 export interface NavigateFolderProviderProps {
     folderId: string | undefined;
     children: React.ReactNode;
-    navigateToListHome: () => void;
     navigateToFolder: (folderId: string) => void;
-    navigateToLatestFolder: (folderId: string) => void;
     createStorageKey: () => string;
 }
 
@@ -42,11 +40,6 @@ export const NavigateFolderProvider = ({
         [createStorageKey]
     );
 
-    /**
-     * Helper function to get the current folderId to local storage.
-     * NOTE: with 5.37.0 we moved from "ROOT" to "root" as home folderId,
-     * we need to return the lowercase value.
-     */
     const getFolderFromStorage = useCallback((): string | undefined => {
         const folderId = store.get(createStorageKey()) as string | undefined;
         return folderId?.toLowerCase();
@@ -64,7 +57,7 @@ export const NavigateFolderProvider = ({
      */
     const navigateToLatestFolder = useCallback(() => {
         const storageFolderId = getFolderFromStorage();
-        props.navigateToLatestFolder(currentFolderId || storageFolderId || ROOT_FOLDER);
+        props.navigateToFolder(currentFolderId || storageFolderId || ROOT_FOLDER);
     }, [currentFolderId]);
 
     const navigateToFolder = useCallback(
@@ -77,7 +70,7 @@ export const NavigateFolderProvider = ({
 
     const navigateToListHome = () => {
         store.remove(createStorageKey());
-        props.navigateToListHome();
+        props.navigateToFolder(ROOT_FOLDER);
     };
 
     const context: NavigateFolderContext = {

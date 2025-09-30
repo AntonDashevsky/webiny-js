@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { EmptyView } from "@webiny/app-admin";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { useModel } from "~/admin/components/ModelProvider/index.js";
 

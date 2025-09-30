@@ -2,22 +2,16 @@
  * @pavel Please review types for security permissions
  * TODO @ts-refactor
  */
-import React, { Fragment, useCallback, useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import ContentModelGroupPermission from "./components/ContentModelGroupPermission.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import {
-    CannotUseAaclAlert,
-    PermissionInfo,
-    gridWithPaddingClass
-} from "@webiny/app-admin/components/Permissions/index.js";
+import { CannotUseAaclAlert, PermissionInfo, gridWithPaddingClass, SimpleLink, AaclPermission } from "@webiny/app-admin";
 import { Form } from "@webiny/form";
 import { ContentModelPermission } from "./components/ContentModelPermission.js";
 import { ContentEntryPermission } from "./components/ContentEntryPermission.js";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
-import { Link } from "@webiny/react-router";
 import type { CmsSecurityPermission } from "~/types.js";
 import { useSecurity } from "@webiny/app-security";
-import type { AaclPermission } from "@webiny/app-admin";
 import { CheckboxGroup, Grid, Select } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
@@ -148,12 +142,15 @@ export const CMSPermissions = ({ value, onChange }: CMSPermissionsProps) => {
                     if (props) {
                         ["models", "groups"].forEach(entity => {
                             if (accessScope === entity && props[entity]) {
-                                permission[entity] = locales.reduce((acc, locale) => {
-                                    if (props[entity][locale]) {
-                                        acc[locale] = props[entity][locale];
-                                    }
-                                    return acc;
-                                }, {} as Record<string, string>);
+                                permission[entity] = locales.reduce(
+                                    (acc, locale) => {
+                                        if (props[entity][locale]) {
+                                            acc[locale] = props[entity][locale];
+                                        }
+                                        return acc;
+                                    },
+                                    {} as Record<string, string>
+                                );
                             }
                         });
                     }
@@ -310,12 +307,12 @@ export const CMSPermissions = ({ value, onChange }: CMSPermissionsProps) => {
                                                     description={t`Each type has a separate URL and a specific purpose.
                                                  Check out the {link} key topic to learn more.`({
                                                         link: (
-                                                            <Link
+                                                            <SimpleLink
                                                                 to={GRAPHQL_API_TYPES_LINK}
                                                                 target={"_blank"}
                                                             >
                                                                 Headless CMS GraphQL API
-                                                            </Link>
+                                                            </SimpleLink>
                                                         )
                                                     })}
                                                     items={API_ENDPOINTS.map(({ id, name }) => ({

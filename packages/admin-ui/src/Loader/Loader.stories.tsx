@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Loader } from "./Loader.js";
 
 const meta: Meta<typeof Loader> = {
@@ -58,7 +58,7 @@ export const Documentation: Story = {
         className: {
             description:
                 "Additional CSS class names. You can pass multiple class names, separated by commas or spaces.",
-            control: "none"
+            
         }
     }
 };

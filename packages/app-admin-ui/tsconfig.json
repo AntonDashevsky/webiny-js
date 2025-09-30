@@ -7,8 +7,7 @@
     { "path": "../app-admin" },
     { "path": "../app-plugin-admin-welcome-screen" },
     { "path": "../app-security" },
-    { "path": "../plugins" },
-    { "path": "../react-router" }
+    { "path": "../plugins" }
   ],
   "compilerOptions": {
     "rootDirs": ["./src", "./__tests__"],
@@ -28,9 +27,7 @@
       "@webiny/app-security/*": ["../app-security/src/*"],
       "@webiny/app-security": ["../app-security/src"],
       "@webiny/plugins/*": ["../plugins/src/*"],
-      "@webiny/plugins": ["../plugins/src"],
-      "@webiny/react-router/*": ["../react-router/src/*"],
-      "@webiny/react-router": ["../react-router/src"]
+      "@webiny/plugins": ["../plugins/src"]
     },
     "baseUrl": "."
   }

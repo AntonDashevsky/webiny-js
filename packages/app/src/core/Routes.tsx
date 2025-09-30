@@ -1,56 +1,39 @@
-import React, { type FunctionComponentElement, useEffect } from "react";
-import {
-    type RouteProps,
-    useRouter,
-    RouteContent,
-    type RouteDefinition
-} from "@webiny/react-router";
-
-type RouteDefinitions = RouteDefinition[];
-
-const normalizeRoutes = (routes: FunctionComponentElement<RouteProps>[]): RouteDefinitions => {
-    return routes.filter(Boolean).map(route => {
-        return {
-            name: route.props.name ?? route.props.path,
-            path: route.props.path,
-            element: route.props.element || route.props.children || route.props.render
-        };
-    }) as RouteDefinitions;
-};
+import React, { useEffect } from "react";
+import { useRouter } from "~/router.js";
+import type { ReactRoute } from "~/presentation/router/index.js";
+import { RouteContent } from "~/presentation/router/components/RouteContent.js";
 
 interface RoutesProps {
-    routes: JSX.Element[];
+    routes: ReactRoute[];
 }
 
 export const Routes = (props: RoutesProps) => {
     const { setRoutes } = useRouter();
 
-    // TODO: kroz useMemo?
-    useEffect(() => {
-        const routes = props.routes.sort((a, b) => {
-            const pathA = a.props.path || "*";
-            const pathB = b.props.path || "*";
+    const routes = props.routes.sort((a, b) => {
+        const pathA: string = a.route.path || "*";
+        const pathB: string = b.route.path || "*";
 
-            // This will sort paths at the very bottom of the list
-            if (pathA === "/" && pathB === "*") {
-                return -1;
-            }
+        // This will sort paths at the very bottom of the list
+        if (pathA === "/" && pathB === "*") {
+            return -1;
+        }
 
-            // This will push * and / to the bottom of the list
-            if (pathA === "*" || pathA === "/") {
-                return 1;
-            }
+        // This will push * and / to the bottom of the list
+        if (pathA === "*" || pathA === "/") {
+            return 1;
+        }
 
-            // This will push * and / to the bottom of the list
-            if (["*", "/"].includes(pathB)) {
-                return -1;
-            }
+        // This will push * and / to the bottom of the list
+        if (["*", "/"].includes(pathB)) {
+            return -1;
+        }
 
-            return 0;
-        });
+        return 0;
+    });
 
-        setRoutes(normalizeRoutes(routes));
-    }, [props.routes.length]);
+    console.log("Call to setRoutes");
+    setRoutes(routes);
 
     return <RouteContent />;
 };

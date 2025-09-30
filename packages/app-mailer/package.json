@@ -15,7 +15,6 @@
     "@webiny/app-admin": "0.0.0",
     "@webiny/app-security": "0.0.0",
     "@webiny/form": "0.0.0",
-    "@webiny/ui": "0.0.0",
     "@webiny/validation": "0.0.0",
     "apollo-cache": "^1.3.5",
     "apollo-client": "^2.6.10",

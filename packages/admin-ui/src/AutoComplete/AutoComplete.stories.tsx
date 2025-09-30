@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { AutoComplete } from "./AutoComplete.js";
 
 const meta: Meta<typeof AutoComplete> = {
@@ -200,7 +200,7 @@ export const Documentation: Story = {
         },
         onValueChange: {
             description: "Function called when the selected value changes",
-            control: "none"
+            
         }
     }
 };

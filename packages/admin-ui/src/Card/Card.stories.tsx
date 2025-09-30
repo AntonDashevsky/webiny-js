@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ReactComponent as MoreVertical } from "@webiny/icons/more_vert.svg";
 import { Card } from "./Card.js";
 import { Button, IconButton } from "~/Button/index.js";
@@ -152,17 +152,17 @@ export const Documentation: Story = {
         children: {
             description:
                 "The main content of the card. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         actions: {
             description:
                 "Buttons or other interactive elements displayed at the bottom of the card. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         options: {
             description:
                 "Additional options or actions displayed in the top-right corner. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         padding: {
             description: "Controls the amount of padding inside the card",

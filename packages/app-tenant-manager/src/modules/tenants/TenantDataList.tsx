@@ -15,7 +15,7 @@ import {
     ListItemTextPrimary,
     LoginIcon
 } from "@webiny/ui/List/index.js";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { SearchUI } from "@webiny/app-admin";
 import { useTenantsList } from "./hooks/useTenantsList.js";
 import { useTenancy } from "@webiny/app-tenancy";
 import type { TenantItem } from "~/types.js";

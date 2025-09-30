@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import { useApolloClient } from "@apollo/react-hooks";
 import { Alert } from "@webiny/ui/Alert/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { SimpleForm, SimpleFormContent } from "@webiny/app-admin/components/SimpleForm/index.js";
+import { SimpleForm, SimpleFormContent } from "@webiny/app-admin";
 import styled from "@emotion/styled";
 import type { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
 

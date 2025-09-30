@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { StaticToolbar } from "@webiny/lexical-editor";
 import type { RichTextEditorProps } from "@webiny/lexical-editor/types.js";
-import { LexicalEditor } from "@webiny/app-admin/components/LexicalEditor/index.js";
+import { LexicalEditor } from "@webiny/app-admin";
 
 const placeholderStyles: React.CSSProperties = { position: "absolute", top: 40, left: 25 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { MultiAutoComplete } from "./MultiAutoComplete.js";
 
 const meta: Meta<typeof MultiAutoComplete> = {
@@ -189,17 +189,17 @@ export const Documentation: Story = {
         },
         onValuesChange: {
             description: "Callback fired when selected values change",
-            control: "none"
+            
         },
         validation: {
             description:
                 "Object containing validation state and message. Please refer to the example code for details on usage.",
-            control: "none"
+            
         },
         onOpenChange: {
             description:
                 "Callback triggered when the dropdown opens or closes, allowing you to respond to changes in its open state.",
-            control: "none"
+            
         }
     }
 };

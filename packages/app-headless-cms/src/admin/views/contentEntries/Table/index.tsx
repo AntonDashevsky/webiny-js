@@ -1,14 +1,15 @@
 import React, { useCallback } from "react";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
-import { Sidebar } from "./Sidebar.js";
-import { Main } from "./Main.js";
-import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
+import { LeftPanel, RightPanel, SplitView, useRoute, useRouter } from "@webiny/app-admin";
 import { AcoProvider, useNavigateFolder } from "@webiny/app-aco";
 import { useI18N } from "@webiny/app-i18n";
 import { useTenancy } from "@webiny/app-tenancy";
+import { Sidebar } from "./Sidebar.js";
+import { Main } from "./Main.js";
+import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
 import { useApolloClient, useModel } from "~/admin/hooks/index.js";
 import { ContentEntriesListProvider } from "~/admin/views/contentEntries/hooks/index.js";
-import { CMS_ENTRY_LIST_LINK, LOCAL_STORAGE_LATEST_VISITED_FOLDER } from "~/admin/constants.js";
+import { LOCAL_STORAGE_LATEST_VISITED_FOLDER } from "~/admin/constants.js";
+import { Routes } from "~/routes.js";
 
 /**
  * Generates a `layoutId` to be used with the `<SplitView />` component.
@@ -52,10 +53,16 @@ const View = () => {
 export const Table = () => {
     const { model } = useModel();
     const client = useApolloClient();
+    const { goToRoute } = useRouter();
+    const { route } = useRoute(Routes.ContentEntries.List);
 
-    const createNavigateFolderListLink = useCallback(() => {
-        return `${CMS_ENTRY_LIST_LINK}/${model.modelId}`;
-    }, [model.modelId]);
+    const navigateToFolder = useCallback(
+        (folderId: string) => {
+            goToRoute(Routes.ContentEntries.List, { modelId: model.modelId, folderId });
+        },
+        [model.modelId]
+    );
+
     const createNavigateFolderStorageKey = useCallback(() => {
         return `${LOCAL_STORAGE_LATEST_VISITED_FOLDER}_${model.modelId}`;
     }, [model.modelId]);
@@ -63,10 +70,11 @@ export const Table = () => {
     return (
         <AcoProvider
             id={`cms:${model.modelId}`}
+            folderId={route.params.folderId}
             folderIdPath={"wbyAco_location.folderId"}
             client={client}
             model={model}
-            createNavigateFolderListLink={createNavigateFolderListLink}
+            navigateToFolder={navigateToFolder}
             createNavigateFolderStorageKey={createNavigateFolderStorageKey}
         >
             <ContentEntriesListProvider>

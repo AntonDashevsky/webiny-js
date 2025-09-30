@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import { IconButton } from "@webiny/admin-ui";
+import { Typography } from "./Typography.js";
 import { i18n } from "../../i18n/index.js";
 import { OverlayWrapper } from "./StyledComponents.js";
 import { ReactComponent as CloseIcon } from "./assets/close_24px.svg";
@@ -33,7 +33,7 @@ const ErrorOverlay = (props: ErrorOverlayProps) => {
                     </div>
                     {closeable !== false && (
                         <div className="header__action">
-                            <IconButton icon={<CloseIcon />} onClick={() => setOpen(false)} />
+                            <IconButton icon={<CloseIcon />} onClick={() => setOpen(false)} variant={"ghost"}/>
                         </div>
                     )}
                 </div>

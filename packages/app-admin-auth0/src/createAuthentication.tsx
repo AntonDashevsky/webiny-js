@@ -16,8 +16,6 @@ import { ApolloLinkPlugin } from "@webiny/app/plugins/ApolloLinkPlugin.js";
 import { useSecurity } from "@webiny/app-serverless-cms";
 import { useTenancy, withTenant } from "@webiny/app-tenancy";
 import type { SecurityPermission } from "@webiny/app-security/types.js";
-import type { UseHistory } from "@webiny/react-router";
-import { useRouter } from "@webiny/react-router";
 import type { GetIdentityDataCallable } from "./createGetIdentityData/index.js";
 import { createGetIdentityData, LOGIN_MT, LOGIN_ST } from "./createGetIdentityData/index.js";
 import { LoginContent, LoginLayout } from "~/components/index.js";
@@ -27,7 +25,6 @@ export type Auth0Options = Auth0ProviderOptions;
 export type OnLogout = (logout: (options?: LogoutOptions) => Promise<void>) => void;
 
 interface OnRedirectParams {
-    history: UseHistory;
     appState?: AppState;
     user?: User;
 }
@@ -69,9 +66,9 @@ const validatePermissions = (permissions: SecurityPermission[]) => {
 
 const defaultLogout: OnLogout = logout => logout();
 
-const defaultRedirect: OnRedirect = ({ appState, history }) => {
+const defaultRedirect: OnRedirect = ({ appState }) => {
     if (appState?.returnTo) {
-        history.push(appState.returnTo);
+        window.history.pushState(undefined, "", appState.returnTo);
     }
 };
 
@@ -258,14 +255,12 @@ export const createAuthentication = ({
     const LoginWidget = withGetIdentityData(withTenant(Authentication));
 
     return function Authentication({ children }: PropsWithChildren) {
-        const { history } = useRouter();
-
         return (
             <Auth0Provider
                 useRefreshTokens={true}
                 cacheLocation="memory"
                 onRedirectCallback={(appState, user) => {
-                    onRedirect({ appState, user, history });
+                    onRedirect({ appState, user });
                 }}
                 {...auth0}
                 authorizationParams={{

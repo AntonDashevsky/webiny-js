@@ -1,6 +1,6 @@
 import React from "react";
 import { cn, cva } from "~/utils.js";
-import { Link } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/app";
 import type { SidebarMenuItemProps } from "./SidebarMenuRootItem.js";
 import { DivButton } from "./DivButton.js";
 
@@ -53,11 +53,11 @@ const SidebarMenuRootButton = ({
     ) : null;
 
     const content = to ? (
-        <Link {...sharedProps} to={to} {...linkProps}>
+        <SimpleLink {...sharedProps} to={to} {...linkProps}>
             {icon}
             {text}
             {chevron}
-        </Link>
+        </SimpleLink>
     ) : (
         <DivButton
             {...sharedProps}

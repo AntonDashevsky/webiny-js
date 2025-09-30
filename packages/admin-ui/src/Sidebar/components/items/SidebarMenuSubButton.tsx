@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/app";
 import { cva } from "~/utils.js";
 import type { SidebarMenuItemProps } from "./SidebarMenuRootItem.js";
 import { DivButton } from "./DivButton.js";
+import { DistributedOmit } from "type-fest";
 
 const variants = cva(
     [
@@ -31,7 +32,7 @@ const variants = cva(
     }
 );
 
-type SidebarMenuSubButtonProps = Omit<SidebarMenuItemProps, "className" | "children">;
+type SidebarMenuSubButtonProps = DistributedOmit<SidebarMenuItemProps, "className" | "children">;
 
 const SidebarMenuSubButton = ({
     onClick,
@@ -52,10 +53,10 @@ const SidebarMenuSubButton = ({
     };
 
     const content = to ? (
-        <Link {...sharedProps} to={to} {...linkProps}>
+        <SimpleLink {...sharedProps} to={to} {...linkProps}>
             {icon}
             {text}
-        </Link>
+        </SimpleLink>
     ) : (
         <DivButton
             {...sharedProps}

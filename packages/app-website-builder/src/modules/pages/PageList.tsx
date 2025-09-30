@@ -1,21 +1,42 @@
 import React from "react";
-import { CompositionScope, DialogsProvider } from "@webiny/app-admin";
-import { AcoWithConfig } from "@webiny/app-aco";
-import { PagesList } from "./PagesList/PagesList.js";
-import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
+import {
+    useRoute,
+    useRouter,
+    AdminLayout,
+    CompositionScope,
+    DialogsProvider
+} from "@webiny/app-admin";
+import { AcoWithConfig, NavigateFolderProvider } from "@webiny/app-aco";
 import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
+import { PagesList } from "./PagesList/PagesList.js";
 import { WB_PAGE_APP } from "~/constants.js";
-import { NavigateFolderProvider } from "~/modules/pages/PagesList/NavigateFolderProvider.js";
 import { PageListWithConfig } from "./configs/index.js";
+import { WB_PAGE_LATEST_VISITED_FOLDER } from "~/constants.js";
+import { Routes } from "~/routes.js";
+
+const createStorageKey = () => {
+    return WB_PAGE_LATEST_VISITED_FOLDER;
+};
 
 export const PageList = () => {
+    const router = useRouter();
+    const { route } = useRoute(Routes.Pages.List);
+
+    const navigateToFolder = (folderId: string) => {
+        router.goToRoute(Routes.Pages.List, { folderId });
+    };
+
     return (
         <CompositionScope name={"wbPage"}>
             <AdminLayout title={"Pages - Website Builder"}>
                 <PageListWithConfig>
                     <AcoWithConfig>
                         <FoldersProvider type={WB_PAGE_APP}>
-                            <NavigateFolderProvider>
+                            <NavigateFolderProvider
+                                folderId={route.params.folderId}
+                                createStorageKey={createStorageKey}
+                                navigateToFolder={navigateToFolder}
+                            >
                                 <DialogsProvider>
                                     <PagesList />
                                 </DialogsProvider>

@@ -24,7 +24,7 @@ export const PluginsProvider = memo(PluginsProviderComponent);
 interface PluginsComponentsProps {
     children: React.ReactNode;
 }
-export const Plugins = ({ children }: PluginsComponentsProps) => {
+export const Plugins = React.memo(({ children }: PluginsComponentsProps) => {
     const { addPlugin } = useApp();
     const hasParentPlugin = useContext(PluginsContext);
 
@@ -37,4 +37,4 @@ export const Plugins = ({ children }: PluginsComponentsProps) => {
     }, []);
 
     return hasParentPlugin ? <Fragment>{children}</Fragment> : null;
-};
+});

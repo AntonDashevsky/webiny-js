@@ -3,7 +3,7 @@ import type {
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
 } from "@webiny/app-headless-cms/types.js";
-import { FileManager } from "@webiny/app-admin/components/index.js";
+import { FileManager } from "@webiny/app-admin";
 import { EditFileUsingUrl } from "~/components/EditFileUsingUrl/index.js";
 import { FilePicker } from "@webiny/admin-ui";
 import { getSupportedExtensionsLabelHint } from "~/modules/HeadlessCms/fileRenderer/utils.js";

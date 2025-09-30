@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { useRouter } from "@webiny/react-router";
-import { useIsMounted, useSnackbar } from "@webiny/app-admin";
+import { useIsMounted, useSnackbar, useRoute, useRouter } from "@webiny/app-admin";
 import { useCms, useQuery } from "~/admin/hooks/index.js";
 import type { ContentEntriesContext } from "~/admin/views/contentEntries/ContentEntriesContext.js";
 import { useContentEntries } from "~/admin/views/contentEntries/hooks/useContentEntries.js";
@@ -17,6 +16,7 @@ import type * as Cms from "~/admin/contexts/Cms/index.js";
 import { useMockRecords } from "./useMockRecords.js";
 import { ROOT_FOLDER } from "~/admin/constants.js";
 import type { OperationError } from "~/admin/contexts/Cms/index.js";
+import { Routes } from "~/routes.js";
 
 interface UpdateListCacheOptions {
     options?: {
@@ -86,20 +86,19 @@ export interface ContentEntryContextProviderProps extends Partial<UseContentEntr
 }
 
 interface UseContentEntryProviderProps {
-    getContentId: () => string | null;
+    getContentId: () => string | undefined;
     isNewEntry: () => boolean;
 }
 
 export const useContentEntryProviderProps = (): UseContentEntryProviderProps => {
-    const { location } = useRouter();
-    const query = new URLSearchParams(location.search);
+    const { route } = useRoute(Routes.ContentEntries.List);
 
-    const isNewEntry = (): boolean => {
-        return query.get("new") === "true";
+    const isNewEntry = () => {
+        return route.params.new ?? false;
     };
 
-    const getContentId = (): string | null => {
-        return query.get("id") || null;
+    const getContentId = () => {
+        return route.params.id;
     };
 
     return {
@@ -120,7 +119,7 @@ export const ContentEntryProvider = ({
     const [entry, setEntry] = useState<CmsContentEntry>();
     const [revisions, setRevisions] = useState<CmsContentEntryRevision[]>([]);
     const { contentModel: model, canCreate } = useContentEntries();
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
     const cms = useCms();
     const { addRecordToCache, updateRecordInCache, removeRecordFromCache } = readonly
@@ -203,7 +202,7 @@ export const ContentEntryProvider = ({
                 setEntry(data);
                 return;
             }
-            history.push(`/cms/content-entries/${model.modelId}`);
+            goToRoute(Routes.ContentEntries.List, { modelId: model.modelId });
             showSnackbar(error.message);
         }
     });

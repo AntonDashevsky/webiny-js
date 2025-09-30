@@ -17,17 +17,15 @@ import {
     ListItemTextPrimary,
     ListItemTextSecondary
 } from "@webiny/ui/List/index.js";
-import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useSnackbar, useRouter, useConfirmationDialog, SearchUI } from "@webiny/app-admin";
+import { Button, Select, Tooltip } from "@webiny/admin-ui";
 import { useApolloClient, useQuery } from "../../hooks/index.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import * as GQL from "./graphql.js";
 import type { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql.js";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { deserializeSorters } from "../utils.js";
-import { usePermission } from "../../hooks/usePermission.js";
+import { usePermission } from "~/admin/hooks/index.js";
 import type { CmsGroup } from "~/types.js";
-import { Button, Select, Tooltip } from "@webiny/admin-ui";
+import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/data-list");
 
@@ -60,7 +58,7 @@ interface ContentModelGroupsDataListProps {
 const ContentModelGroupsDataList = ({ canCreate }: ContentModelGroupsDataListProps) => {
     const [filter, setFilter] = useState<string>("");
     const [sort, setSort] = useState<string>(SORTERS[0].sorters);
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
     const { showSnackbar } = useSnackbar();
     const client = useApolloClient();
     const listQuery = useQuery(GQL.LIST_CONTENT_MODEL_GROUPS);
@@ -137,7 +135,7 @@ const ContentModelGroupsDataList = ({ canCreate }: ContentModelGroupsDataListPro
                 showSnackbar(t`Content model group "{name}" deleted.`({ name: group.name }));
 
                 if (groupId === group.id) {
-                    history.push(`/cms/content-model-groups`);
+                    goToRoute(Routes.ContentModelGroups.List);
                 }
             });
         },
@@ -178,7 +176,9 @@ const ContentModelGroupsDataList = ({ canCreate }: ContentModelGroupsDataListPro
                 canCreate ? (
                     <Button
                         data-testid="new-group-button"
-                        onClick={() => history.push("/cms/content-model-groups?new=true")}
+                        onClick={() => {
+                            goToRoute(Routes.ContentModelGroups.List, { new: true });
+                        }}
                         text={t`New`}
                         icon={<AddIcon />}
                         size={"sm"}
@@ -204,9 +204,9 @@ const ContentModelGroupsDataList = ({ canCreate }: ContentModelGroupsDataListPro
                     {data.map(item => (
                         <ListItem key={item.id} selected={item.id === groupId}>
                             <ListItemText
-                                onClick={() =>
-                                    history.push(`/cms/content-model-groups?id=${item.id}`)
-                                }
+                                onClick={() => {
+                                    goToRoute(Routes.ContentModelGroups.List, { id: item.id });
+                                }}
                             >
                                 <ListItemTextPrimary>{item.name}</ListItemTextPrimary>
                                 <ListItemTextSecondary>

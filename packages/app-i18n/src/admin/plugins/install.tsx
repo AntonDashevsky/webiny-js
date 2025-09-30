@@ -13,7 +13,7 @@ import {
     SimpleFormHeader,
     SimpleFormFooter,
     SimpleFormContent
-} from "@webiny/app-admin/components/SimpleForm/index.js";
+} from "@webiny/app-admin";
 import LocaleCodesAutoComplete from "../components/LocaleCodesAutoComplete.js";
 import type { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
 

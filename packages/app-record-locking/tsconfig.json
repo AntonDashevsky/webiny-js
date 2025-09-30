@@ -13,7 +13,6 @@
     { "path": "../error" },
     { "path": "../form" },
     { "path": "../plugins" },
-    { "path": "../react-router" },
     { "path": "../utils" }
   ],
   "compilerOptions": {
@@ -45,8 +44,6 @@
       "@webiny/form": ["../form/src"],
       "@webiny/plugins/*": ["../plugins/src/*"],
       "@webiny/plugins": ["../plugins/src"],
-      "@webiny/react-router/*": ["../react-router/src/*"],
-      "@webiny/react-router": ["../react-router/src"],
       "@webiny/utils/*": ["../utils/src/*"],
       "@webiny/utils": ["../utils/src"]
     },

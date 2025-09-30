@@ -7,7 +7,7 @@ import { ReactComponent as TrashIcon } from "@webiny/icons/delete.svg";
 import { ReactComponent as UserIcon } from "@webiny/icons/person.svg";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { ReactComponent as HelpIcon } from "@webiny/icons/help.svg";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { List, type ListItemProps as BaseListItemProps } from "./List.js";
 import { Avatar } from "~/Avatar/index.js";
 
@@ -436,7 +436,7 @@ export const Documentation: Story = {
         },
         children: {
             description: "The content of the list. Please refer to the example code for details.",
-            control: "none"
+            
         }
     },
     parameters: {

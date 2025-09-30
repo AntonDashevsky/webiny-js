@@ -1,11 +1,12 @@
 import React from "react";
 import get from "lodash/get.js";
-import { useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { Button, DropdownMenu, Text } from "@webiny/admin-ui";
 import { ReactComponent as DownButton } from "@webiny/icons/keyboard_arrow_down.svg";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
 import { statuses as statusLabels } from "~/admin/constants.js";
 import type { CmsContentEntryRevision } from "~/types.js";
+import { Routes } from "~/routes.js";
 
 interface CmsEntryRevision extends Pick<CmsContentEntryRevision, "id"> {
     meta: Pick<CmsContentEntryRevision["meta"], "version" | "status">;
@@ -22,9 +23,10 @@ const defaultRevisions: CmsEntryRevision[] = [
 ];
 
 export const RevisionSelector = () => {
+    const { goToRoute } = useRouter();
+    const { route } = useRoute(Routes.ContentEntries.List);
+
     const { entry, revisions, loading } = useContentEntry();
-    const { location, history } = useRouter();
-    const query = new URLSearchParams(location.search);
 
     const currentRevision = {
         version: get(entry, "meta.version", 1) as number,
@@ -53,8 +55,10 @@ export const RevisionSelector = () => {
                 <DropdownMenu.Item
                     key={revision.id}
                     onClick={() => {
-                        query.set("id", encodeURIComponent(revision.id));
-                        history.push({ search: query.toString() });
+                        goToRoute(Routes.ContentEntries.List, {
+                            ...route.params,
+                            id: revision.id
+                        });
                     }}
                     text={
                         <>

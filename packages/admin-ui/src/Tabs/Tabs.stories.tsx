@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { ReactComponent as PersonIcon } from "@webiny/icons/person.svg";
 import { ReactComponent as LockIcon } from "@webiny/icons/lock.svg";
 import { Tabs } from "./Tabs.js";
@@ -300,11 +300,11 @@ export const Documentation: Story = {
         value: {
             description:
                 "The controlled value of the active tab, please refer to the example code for details.",
-            control: "none"
+            
         },
         tabs: {
             description: "The tabs to render, please refer to the example code for details.",
-            control: "none"
+            
         }
     }
 };

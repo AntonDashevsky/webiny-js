@@ -3,7 +3,7 @@
  */
 import React, { useCallback, useMemo, useState } from "react";
 import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter, SearchUI } from "@webiny/app-admin";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as DownloadFileIcon } from "@webiny/icons/file_download.svg";
 import { ReactComponent as UploadFileIcon } from "@webiny/icons/file_upload.svg";
@@ -16,7 +16,6 @@ import { ReactComponent as CloneIcon } from "@webiny/icons/flip_to_front.svg";
 import { useModels } from "../../hooks/index.js";
 import * as UIL from "@webiny/ui/List/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { deserializeSorters } from "../utils.js";
 import orderBy from "lodash/orderBy.js";
 import type { CmsEditorContentModel, CmsModel } from "~/types.js";
@@ -28,6 +27,7 @@ import { ModelIsBeingDeleted } from "./fullDelete/ModelIsBeingDeleted.js";
 import { FullyDeleteModelDialog } from "~/admin/views/contentModels/fullDelete/FullyDeleteModelDialog.js";
 import { Button, DropdownMenu, Icon, IconButton, Select, Tooltip } from "@webiny/admin-ui";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/app-headless-cms-common";
+import { Routes } from "~/routes.js";
 
 const t = i18n.namespace("FormsApp.ContentModelsDataList");
 
@@ -92,7 +92,7 @@ const ContentModelsDataList = ({
 }: ContentModelsDataListProps) => {
     const [filter, setFilter] = useState<string>("");
     const [sort, setSort] = useState<string>(SORTERS[0].sorters);
-    const { history } = useRouter();
+    const { goToRoute } = useRouter();
     const { models, loading, refresh } = useModels();
     const { canDelete, canEdit } = usePermission();
 
@@ -117,11 +117,13 @@ const ContentModelsDataList = ({
     );
 
     const editRecord = (contentModel: CmsModel): void => {
-        history.push("/cms/content-models/" + contentModel.modelId);
+        goToRoute(Routes.ContentModels.Editor, { modelId: contentModel.modelId });
     };
 
     const viewContentEntries = useCallback((contentModel: Pick<CmsModel, "modelId">) => {
-        return () => history.push("/cms/content-entries/" + contentModel.modelId);
+        return () => {
+            goToRoute(Routes.ContentEntries.List, { modelId: contentModel.modelId });
+        };
     }, []);
 
     const contentModelsDataListModalOverlay = useMemo(

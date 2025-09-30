@@ -6,12 +6,12 @@ import {
     CannotUseAaclAlert,
     PermissionInfo,
     gridWithPaddingClass,
-    PermissionsGroup
-} from "@webiny/app-admin/components/Permissions/index.js";
+    PermissionsGroup,
+    type AaclPermission
+} from "@webiny/app-admin";
 import { Form } from "@webiny/form";
 import type { SecurityPermission } from "@webiny/app-security/types.js";
 import { useSecurity } from "@webiny/app-security";
-import type { AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-security-admin-users/plugins/permissionRenderer");
 

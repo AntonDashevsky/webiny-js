@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const useAutocomplete = (props: Props): UseAutocompleteHook => {
-    const dataList = useDataList({ useRouter: false, ...props });
+    const dataList = useDataList(props);
 
     return {
         options: dataList.data || [],
