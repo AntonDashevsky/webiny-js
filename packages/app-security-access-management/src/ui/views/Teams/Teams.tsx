@@ -2,7 +2,7 @@ import React from "react";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
 import { TeamsDataList } from "./TeamsDataList.js";
 import { TeamsForm } from "./TeamsForm.js";
-import { useRoute } from "@webiny/app/router.js";
+import { useRoute } from "@webiny/app-admin";
 import { Routes } from "~/routes.js";
 
 export const Teams = () => {

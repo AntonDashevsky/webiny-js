@@ -1,7 +1,7 @@
 import React from "react";
 import { Heading, Icon, Link as AdminLink, Text } from "@webiny/admin-ui";
 import { ReactComponent as HelpIcon } from "@webiny/icons/help_outline.svg";
-import { SimpleLink } from "@webiny/app/router.js";
+import { SimpleLink } from "@webiny/app-admin";
 
 export const AssistanceWidget = () => {
     return (

@@ -23,7 +23,7 @@ import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDi
 import * as GQL from "./graphql.js";
 import { deserializeSorters } from "../utils.js";
 import type { ApiKey } from "~/types.js";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import { Routes } from "~/routes.js";
 
 const t = i18n.ns("app-security/admin/groups/data-list");

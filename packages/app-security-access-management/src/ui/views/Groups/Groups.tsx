@@ -2,7 +2,7 @@ import React from "react";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
 import { GroupsDataList } from "./GroupsDataList.js";
 import { GroupsForm } from "./GroupsForm.js";
-import { useRoute } from "@webiny/app/router.js";
+import { useRoute } from "@webiny/app-admin";
 import { Routes } from "~/routes.js";
 
 export const Groups = () => {

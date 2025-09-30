@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigateFolder } from "@webiny/app-aco";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import { Routes } from "~/routes.js";
 
 export const useEditPageUrl = () => {

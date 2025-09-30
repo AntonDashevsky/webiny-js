@@ -23,7 +23,7 @@ First, make sure you mount the `SecurityProvider` React provider component in yo
 ```tsx
 import React from "react";
 import { Routes } from "@webiny/app/components/Routes";
-import { BrowserRouter } from "@webiny/app/router.js";
+import { BrowserRouter } from "@webiny/app-admin";
 import { SecurityProvider } from "@webiny/app-security";
 import Authenticator from "./components/Authenticator";
 

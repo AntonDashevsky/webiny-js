@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useRoute, useRouter } from "@webiny/app/router.js";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { DocumentEditor } from "~/DocumentEditor/DocumentEditor.js";
 import { useCreatePageRevisionFrom, useGetPage } from "~/features/pages/index.js";
 import { OverlayLoader } from "@webiny/admin-ui";

@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
 import { AdminConfig, Layout, Wcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import { Permission } from "~/plugins/constants.js";
 import { Groups } from "~/ui/views/Groups/index.js";
 import { Teams } from "~/ui/views/Teams/index.js";

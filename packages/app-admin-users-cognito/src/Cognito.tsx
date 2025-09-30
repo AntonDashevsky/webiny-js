@@ -2,7 +2,7 @@ import React, { Fragment, memo } from "react";
 import { AdminConfig, Layout } from "@webiny/app-admin";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import { Permission } from "~/plugins/constants.js";
 import { UsersView } from "~/ui/views/Users/UsersView.js";
 import { Account } from "~/ui/views/Account/index.js";

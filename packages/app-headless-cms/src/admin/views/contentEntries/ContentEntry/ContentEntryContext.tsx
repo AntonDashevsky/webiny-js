@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { useRoute, useRouter } from "@webiny/app/router.js";
-import { useIsMounted, useSnackbar } from "@webiny/app-admin";
+import { useIsMounted, useSnackbar, useRoute, useRouter } from "@webiny/app-admin";
 import { useCms, useQuery } from "~/admin/hooks/index.js";
 import type { ContentEntriesContext } from "~/admin/views/contentEntries/ContentEntriesContext.js";
 import { useContentEntries } from "~/admin/views/contentEntries/hooks/useContentEntries.js";

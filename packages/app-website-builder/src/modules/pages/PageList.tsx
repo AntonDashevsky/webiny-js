@@ -1,7 +1,7 @@
 import React from "react";
 import { CompositionScope, DialogsProvider } from "@webiny/app-admin";
 import { AcoWithConfig, NavigateFolderProvider } from "@webiny/app-aco";
-import { useRoute, useRouter } from "@webiny/app/router.js";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
 import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
 import { PagesList } from "./PagesList/PagesList.js";

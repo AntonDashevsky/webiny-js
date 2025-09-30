@@ -3,7 +3,7 @@ import type { ApolloClient } from "apollo-client";
 import { plugins } from "@webiny/plugins";
 import { AdminConfig, Layout } from "@webiny/app-admin";
 import { ReactComponent as ApiPlaygroundIcon } from "@webiny/icons/swap_horiz.svg";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import Playground from "./plugins/Playground.js";
 import playgroundPlugins from "./plugins/index.js";
 import { Routes } from "~/routes.js";

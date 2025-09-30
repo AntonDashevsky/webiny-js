@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import debounce from "lodash/debounce.js";
-import { useRoute, useRouter } from "@webiny/app/router.js";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { makeDecoratable } from "@webiny/react-composition";
+import { createSort, useAcoList, useNavigateFolder } from "@webiny/app-aco";
+import type { ListMeta } from "@webiny/app-aco";
+import type { FolderItem } from "@webiny/app-aco/types.js";
 import { useContentEntries } from "./useContentEntries.js";
 import type { CmsContentEntry, TableItem } from "~/types.js";
 import type { OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
-import { createSort, useAcoList, useNavigateFolder } from "@webiny/app-aco";
 import { ROOT_FOLDER } from "~/admin/constants.js";
-import type { ListMeta } from "@webiny/app-aco";
-import type { FolderItem } from "@webiny/app-aco/types.js";
 import { Routes } from "~/routes.js";
 
 interface UpdateSearchCallableParams {

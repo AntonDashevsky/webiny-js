@@ -2,7 +2,7 @@ import React from "react";
 import { NavigationRenderer, useAdminConfig } from "@webiny/app-admin";
 import { Sidebar } from "@webiny/admin-ui";
 import { SidebarMenuItems } from "./SidebarMenuItems.js";
-import { SimpleLink } from "@webiny/app/router.js";
+import { SimpleLink } from "@webiny/app-admin";
 
 export const Navigation = NavigationRenderer.createDecorator(() => {
     return function Navigation() {

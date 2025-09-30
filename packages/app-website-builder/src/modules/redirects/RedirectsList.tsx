@@ -6,7 +6,7 @@ import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
 import { DocumentList } from "./RedirectsList/DocumentList.js";
 import { WB_REDIRECT_LATEST_VISITED_FOLDER, WB_REDIRECTS_APP } from "~/constants.js";
 import { RedirectListWithConfig } from "~/modules/redirects/configs/index.js";
-import { useRoute, useRouter } from "@webiny/app/router.js";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { Routes } from "~/routes.js";
 
 const createStorageKey = () => {

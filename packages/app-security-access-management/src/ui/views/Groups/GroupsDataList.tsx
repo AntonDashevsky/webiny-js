@@ -14,7 +14,7 @@ import {
     ListItemTextPrimary
 } from "@webiny/ui/List/index.js";
 import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";

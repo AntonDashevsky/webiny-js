@@ -1,4 +1,4 @@
-import { Route } from "@webiny/app/router.js";
+import { Route } from "@webiny/app-admin";
 
 export const Routes = {
     Pages: {

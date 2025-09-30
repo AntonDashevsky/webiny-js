@@ -3,7 +3,7 @@ import debounce from "lodash/debounce.js";
 import { NewEntryButton } from "./NewEntryButton.js";
 import { AutoComplete } from "@webiny/ui/AutoComplete/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { SimpleLink } from "@webiny/app/router.js";
+import { SimpleLink } from "@webiny/app-admin";
 import { useNewRefEntry } from "../hooks/useNewRefEntry.js";
 import { useReference } from "./useReference.js";
 import { renderItem } from "./renderItem.js";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useToast } from "@webiny/admin-ui";
-import { useRoute, useRouter } from "@webiny/app/router.js";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { useHandlers } from "@webiny/app/hooks/useHandlers.js";
 import type { CmsContentEntry } from "~/types.js";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";

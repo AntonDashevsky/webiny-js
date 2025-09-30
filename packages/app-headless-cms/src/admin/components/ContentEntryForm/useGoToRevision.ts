@@ -1,4 +1,4 @@
-import { useRoute, useRouter } from "@webiny/app/router.js";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { useCallback } from "react";
 import { Routes } from "~/routes.js";
 

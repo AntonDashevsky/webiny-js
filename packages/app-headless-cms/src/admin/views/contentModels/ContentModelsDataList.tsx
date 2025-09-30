@@ -3,7 +3,7 @@
  */
 import React, { useCallback, useMemo, useState } from "react";
 import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as DownloadFileIcon } from "@webiny/icons/file_download.svg";
 import { ReactComponent as UploadFileIcon } from "@webiny/icons/file_upload.svg";

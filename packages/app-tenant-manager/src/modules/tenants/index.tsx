@@ -7,7 +7,7 @@ import { IsRootTenant } from "~/components/IsRootTenant.js";
 import { ReactComponent as TenantManagerIcon } from "@webiny/icons/domain.svg";
 import { AdminConfig } from "@webiny/app-admin";
 import { Routes } from "~/routes.js";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 
 const { Menu, Route } = AdminConfig;
 

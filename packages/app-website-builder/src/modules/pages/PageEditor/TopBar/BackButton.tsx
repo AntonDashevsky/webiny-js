@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { IconButton } from "@webiny/admin-ui";
-import { useRoute, useRouter } from "@webiny/app/router.js";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { ReactComponent as BackIcon } from "@webiny/icons/arrow_back.svg";
 import { useDocumentEditor } from "~/DocumentEditor/index.js";
 import { Routes } from "~/routes.js";

@@ -1,9 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import Helmet from "react-helmet";
-import { AdminConfig, Plugins, Layout } from "@webiny/app-admin";
+import { AdminConfig, Plugins, Layout, useRouter } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import { OverlayLoader } from "@webiny/admin-ui";
-import { useRouter } from "@webiny/app/router.js";
 import { usePermission } from "~/hooks/usePermission.js";
 import { Routes } from "~/routes.js";
 

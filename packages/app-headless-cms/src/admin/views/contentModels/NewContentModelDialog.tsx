@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import { Form } from "@webiny/form";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Select } from "@webiny/ui/Select/index.js";

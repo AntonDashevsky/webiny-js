@@ -14,7 +14,7 @@ import {
     SimpleFormContent
 } from "@webiny/app-admin/components/SimpleForm/index.js";
 import { IconPicker } from "~/admin/components/IconPicker.js";
-import { useRoute, useRouter } from "@webiny/app/router.js";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";

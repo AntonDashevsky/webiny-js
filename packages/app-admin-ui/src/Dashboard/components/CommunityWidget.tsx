@@ -1,6 +1,6 @@
 import React from "react";
 import { Heading, Icon, Text } from "@webiny/admin-ui";
-import { SimpleLink } from "@webiny/app/router.js";
+import { SimpleLink } from "@webiny/app-admin";
 // Icons
 import { ReactComponent as YouTubeIcon } from "./assets/youtube.svg";
 import { ReactComponent as GithubIcon } from "./assets/github.svg";

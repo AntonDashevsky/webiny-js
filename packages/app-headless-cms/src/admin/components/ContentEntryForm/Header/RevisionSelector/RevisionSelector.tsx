@@ -1,6 +1,6 @@
 import React from "react";
 import get from "lodash/get.js";
-import { useRoute, useRouter } from "@webiny/app/router.js";
+import { useRoute, useRouter } from "@webiny/app-admin";
 import { Button, DropdownMenu, Text } from "@webiny/admin-ui";
 import { ReactComponent as DownButton } from "@webiny/icons/keyboard_arrow_down.svg";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";

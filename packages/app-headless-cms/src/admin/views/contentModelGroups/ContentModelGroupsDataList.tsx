@@ -17,7 +17,7 @@ import {
     ListItemTextPrimary,
     ListItemTextSecondary
 } from "@webiny/ui/List/index.js";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import SearchUI from "@webiny/app-admin/components/SearchUI.js";

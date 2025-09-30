@@ -21,3 +21,8 @@ export * from "./core/createProvider.js";
 export * from "./core/createProviderPlugin.js";
 export * from "./renderApp.js";
 export * from "./utils/createGenericContext.js";
+
+export { Route } from "./features/router/Route.js";
+export { useRouter, useRoute } from "./presentation/router/index.js";
+export { RouteLink, type RouteLinkProps } from "./presentation/router/components/RouteLink.js";
+export { SimpleLink, type SimpleLinkProps } from "./presentation/router/components/SimpleLink.js";

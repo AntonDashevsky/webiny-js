@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { createEntryUrl } from "./createEntryUrl.js";
-import { SimpleLink } from "@webiny/app/router.js";
+import { SimpleLink } from "@webiny/app-admin";
 import type { OptionItem } from "./types.js";
 import { EntryStatus } from "./EntryStatus.js";
 import { IconButton } from "@webiny/ui/Button/index.js";

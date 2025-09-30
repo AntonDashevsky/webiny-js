@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
-import { useRoute } from "@webiny/app/router.js";
+import { useRoute } from "@webiny/app-admin";
 import { ApiKeysDataList } from "./ApiKeysDataList.js";
 import { ApiKeyForm } from "./ApiKeyForm.js";
 import { Routes } from "~/routes.js";

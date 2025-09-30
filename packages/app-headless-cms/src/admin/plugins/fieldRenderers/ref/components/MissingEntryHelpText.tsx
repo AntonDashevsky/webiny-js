@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography/index.js";
-import { SimpleLink } from "@webiny/app/router.js";
+import { SimpleLink } from "@webiny/app-admin";
 import { createNewEntryUrl } from "./createEntryUrl.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 

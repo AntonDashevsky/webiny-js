@@ -1,10 +1,10 @@
 import React, { useState, useCallback, useEffect } from "react";
 import * as UID from "@webiny/ui/Dialog/index.js";
-import { useRouter } from "@webiny/app/router.js";
+import { useRouter } from "@webiny/app-admin";
 import { Form } from "@webiny/form";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useToast } from "@webiny/admin-ui";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { validation } from "@webiny/validation";
 import { useApolloClient, useMutation, useQueryLocale } from "../../hooks/index.js";
@@ -54,7 +54,7 @@ export const CloneContentModelDialog = ({
     closeModal
 }: CloneContentModelDialogProps) => {
     const [loading, setLoading] = useState<boolean>(false);
-    const { showSnackbar } = useSnackbar();
+    const { showSuccessToast, showWarningToast } = useToast();
     const { goToRoute } = useRouter();
     const { getLocales, getCurrentLocale, setCurrentLocale } = useI18N();
     const client = useApolloClient();
@@ -70,18 +70,21 @@ export const CloneContentModelDialog = ({
     >(CREATE_CONTENT_MODEL_FROM, {
         onError(error) {
             setLoading(false);
-            showSnackbar(error.message);
+            showWarningToast({ title: "Failed to create model", description: error.message });
         },
         update(cache, response) {
             if (!response.data) {
-                showSnackbar(`Missing data on Create Content Model From Mutation Response.`);
+                showWarningToast({
+                    title: "Failed to create model",
+                    description: `Missing data on Create Content Model From Mutation Response.`
+                });
                 return;
             }
             const { data: model, error } = response.data.createContentModelFrom;
 
             if (error) {
                 setLoading(false);
-                showSnackbar(error.message);
+                showWarningToast({ title: "Failed to create model", description: error.message });
                 return;
             }
 
