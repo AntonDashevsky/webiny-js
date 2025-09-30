@@ -4,7 +4,6 @@ import { plugins } from "@webiny/plugins";
 import { AdminConfig, Provider } from "@webiny/app-admin";
 import { ApolloCacheObjectIdPlugin } from "@webiny/app";
 import { CmsProvider } from "~/admin/contexts/Cms/index.js";
-import { CmsMenuLoader } from "~/admin/menus/CmsMenuLoader.js";
 import apiInformation from "~/admin/plugins/apiInformation/index.js";
 import { ContentEntriesModule } from "~/admin/views/contentEntries/ContentEntriesModule.js";
 import allPlugins from "~/allPlugins.js";
@@ -69,9 +68,6 @@ const HeadlessCMSExtension = ({ createApolloClient }: HeadlessCMSProps) => {
             <ContentEntriesModule />
             <SingletonContentEntryModule />
             <Provider hoc={createHeadlessCMSProvider(createApolloClient)} />
-            <AdminConfig>
-                <CmsMenuLoader />
-            </AdminConfig>
             <LexicalEditorCmsPlugin />
         </Fragment>
     );

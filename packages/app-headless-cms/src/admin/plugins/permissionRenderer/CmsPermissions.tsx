@@ -14,7 +14,7 @@ import { Form } from "@webiny/form";
 import { ContentModelPermission } from "./components/ContentModelPermission.js";
 import { ContentEntryPermission } from "./components/ContentEntryPermission.js";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
-import { SimpleLink } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/app/router.js";
 import type { CmsSecurityPermission } from "~/types.js";
 import { useSecurity } from "@webiny/app-security";
 import type { AaclPermission } from "@webiny/app-admin";

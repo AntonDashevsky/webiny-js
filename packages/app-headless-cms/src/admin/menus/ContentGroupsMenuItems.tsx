@@ -8,7 +8,7 @@ import { usePermission } from "~/admin/hooks/usePermission.js";
 import type { CmsGroup, CmsModel } from "~/types.js";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { AdminConfig } from "@webiny/app-admin";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 import { Routes } from "~/routes.js";
 
 const { Menu } = AdminConfig;

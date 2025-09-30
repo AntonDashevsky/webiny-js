@@ -1,21 +1,17 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import type {
-    MatchedRoute,
-    RouteDefinition as GatewayRouteDefinition,
-    IRouterGateway,
-    OnRouteExit
-} from "~/abstractions/IRouterGateway.js";
-import type { IRouterRepository } from "~/abstractions/IRouterRepository.js";
-import { Route, RouteParamsDefinition, RouteParamsInfer } from "~/Route.js";
+import type { MatchedRoute, RouteDefinition, OnRouteExit } from "./abstractions.js";
+import * as Abstractions from "./abstractions.js";
+import { Route, RouteParamsDefinition, RouteParamsInfer } from "./Route.js";
+import { createImplementation } from "@webiny/di-container";
 
 const INIT_ROUTE = { name: "__init__", path: "", pathname: "", params: {} };
 
-export class RouterRepository implements IRouterRepository {
-    private gateway: IRouterGateway;
+class RouterRepositoryImpl implements Abstractions.RouterRepository.Interface {
+    private gateway: Abstractions.RouterGateway.Interface;
     private currentRoute: MatchedRoute = INIT_ROUTE;
     private routes: Route<any>[] = [];
 
-    constructor(gateway: IRouterGateway) {
+    constructor(gateway: Abstractions.RouterGateway.Interface) {
         this.gateway = gateway;
 
         makeAutoObservable(this);
@@ -31,7 +27,7 @@ export class RouterRepository implements IRouterRepository {
 
     registerRoutes = (routes: Route[]) => {
         this.routes = routes;
-        const routesWithAction = routes.map<GatewayRouteDefinition>(this.routeWithAction);
+        const routesWithAction = routes.map<RouteDefinition>(this.routeWithAction);
 
         this.gateway.setRoutes(routesWithAction);
     };
@@ -71,9 +67,29 @@ export class RouterRepository implements IRouterRepository {
         };
     };
 
-    private async transitionToRoute(route: MatchedRoute) {
+    private async transitionToRoute(matchedRoute: MatchedRoute) {
+        const route = this.getRouteByName(matchedRoute.name);
+        if (!route) {
+            return;
+        }
+
+        const params = route.params ? route.params.parse(matchedRoute.params) : matchedRoute.params;
+
         runInAction(() => {
-            Object.assign(this.currentRoute, route);
+            Object.assign(this.currentRoute, {
+                ...matchedRoute,
+                params
+            });
         });
     }
+
+    private getRouteByName(name: string) {
+        return this.routes.find(existingRoute => existingRoute.name === name);
+    }
 }
+
+export const RouterRepository = createImplementation({
+    implementation: RouterRepositoryImpl,
+    abstraction: Abstractions.RouterRepository,
+    dependencies: [Abstractions.RouterGateway]
+});

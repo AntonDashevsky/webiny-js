@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { DocumentEditor } from "~/DocumentEditor/DocumentEditor.js";
 import { useCreatePageRevisionFrom, useGetPage } from "~/features/pages/index.js";
 import { OverlayLoader } from "@webiny/admin-ui";
@@ -32,7 +32,7 @@ export const PageEditor = () => {
     const [page, setPage] = useState<EditorPage | null>(null);
 
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.Pages.Editor);
+    const { route } = useRoute(Routes.Pages.Editor);
 
     const { getPage } = useGetPage();
     const { createPageRevisionFrom } = useCreatePageRevisionFrom();

@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { IconButton } from "@webiny/admin-ui";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { ReactComponent as BackIcon } from "@webiny/icons/arrow_back.svg";
 import { useDocumentEditor } from "~/DocumentEditor/index.js";
 import { Routes } from "~/routes.js";
@@ -8,7 +8,7 @@ import { ROOT_FOLDER } from "~/constants.js";
 
 export function BackButton() {
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.Pages.Editor);
+    const { route } = useRoute(Routes.Pages.Editor);
     const editor = useDocumentEditor();
 
     const onClick = useCallback(() => {

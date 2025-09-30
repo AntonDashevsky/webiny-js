@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import get from "lodash/get.js";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import type {
@@ -22,7 +22,7 @@ interface ContentEntriesContainerProps {
 
 export const ContentEntriesContainer = ({ children }: ContentEntriesContainerProps) => {
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.ContentEntries.List);
+    const { route } = useRoute(Routes.ContentEntries.List);
     const { modelId } = route.params;
     const [contentModel, setContentModel] = useState<CmsModel | null>(null);
     const { showSnackbar } = useSnackbar();

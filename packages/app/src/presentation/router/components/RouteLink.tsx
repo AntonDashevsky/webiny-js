@@ -1,8 +1,8 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
-import type { Route, RouteParamsDefinition, RouteParamsInfer } from "./Route.js";
-import { useRouter } from "./useRouter.js";
+import type { Route, RouteParamsDefinition, RouteParamsInfer } from "~/features/router/Route.js";
 import { SimpleLink } from "./SimpleLink.js";
+import { useRouter } from "~/router.js";
 
 type BaseAnchorAttributes = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">;
 

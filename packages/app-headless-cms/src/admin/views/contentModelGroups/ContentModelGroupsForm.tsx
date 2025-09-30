@@ -14,7 +14,7 @@ import {
     SimpleFormContent
 } from "@webiny/app-admin/components/SimpleForm/index.js";
 import { IconPicker } from "~/admin/components/IconPicker.js";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
@@ -42,7 +42,7 @@ interface ContentModelGroupsFormProps {
 }
 const ContentModelGroupsForm = ({ canCreate }: ContentModelGroupsFormProps) => {
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.ContentModelGroups.List);
+    const { route } = useRoute(Routes.ContentModelGroups.List);
     const { showSnackbar } = useSnackbar();
     const { canEdit } = usePermission();
 

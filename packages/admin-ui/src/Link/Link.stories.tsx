@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
 import { BrowserRouter } from "react-router";
 import { Link } from "./Link";
 import { Text } from "~/Text";

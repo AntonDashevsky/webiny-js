@@ -4,7 +4,7 @@ import isEmpty from "lodash/isEmpty.js";
 import omit from "lodash/omit.js";
 import get from "lodash/get.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { CREATE_TENANT, GET_TENANT, UPDATE_TENANT, LIST_TENANTS } from "~/graphql/index.js";
 import type { TenantItem } from "~/types.js";
@@ -14,7 +14,7 @@ const t = i18n.ns("app-tenant-manager/tenants/form");
 
 export const useTenantForm = () => {
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.Tenants.List);
+    const { route } = useRoute(Routes.Tenants.List);
     const { showSnackbar } = useSnackbar();
     const id = route.params.id;
     const newTenant = route.params.new === true;

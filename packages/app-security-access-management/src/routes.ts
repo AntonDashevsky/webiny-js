@@ -1,4 +1,4 @@
-import { Route } from "@webiny/react-router";
+import { Route } from "@webiny/app/router.js";
 
 export const Routes = {
     Roles: {
@@ -15,7 +15,7 @@ export const Routes = {
     },
     Teams: {
         List: new Route({
-            name: "Security/Roles/List",
+            name: "Security/Teams/List",
             path: "/access-management/teams",
             params: z => {
                 return {
@@ -27,7 +27,7 @@ export const Routes = {
     },
     ApiKeys: {
         List: new Route({
-            name: "Security/Roles/List",
+            name: "Security/ApiKeys/List",
             path: "/access-management/api-keys",
             params: z => {
                 return {

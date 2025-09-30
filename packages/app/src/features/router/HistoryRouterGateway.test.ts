@@ -1,6 +1,6 @@
 import { describe, it, beforeEach, expect, vi } from "vitest";
 import { createMemoryHistory } from "history";
-import { HistoryRouterGateway } from "~/HistoryRouterGateway";
+import { HistoryRouterGateway } from "./HistoryRouterGateway";
 
 const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { useIsMounted, useSnackbar } from "@webiny/app-admin";
 import { useCms, useQuery } from "~/admin/hooks/index.js";
 import type { ContentEntriesContext } from "~/admin/views/contentEntries/ContentEntriesContext.js";
@@ -92,7 +92,7 @@ interface UseContentEntryProviderProps {
 }
 
 export const useContentEntryProviderProps = (): UseContentEntryProviderProps => {
-    const route = useRoute(Routes.ContentEntries.List);
+    const { route } = useRoute(Routes.ContentEntries.List);
 
     const isNewEntry = () => {
         return route.params.new ?? false;

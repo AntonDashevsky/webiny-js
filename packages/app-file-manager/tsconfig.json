@@ -17,7 +17,6 @@
     { "path": "../plugins" },
     { "path": "../react-composition" },
     { "path": "../react-properties" },
-    { "path": "../react-router" },
     { "path": "../utils" },
     { "path": "../validation" }
   ],
@@ -58,8 +57,6 @@
       "@webiny/react-composition": ["../react-composition/src"],
       "@webiny/react-properties/*": ["../react-properties/src/*"],
       "@webiny/react-properties": ["../react-properties/src"],
-      "@webiny/react-router/*": ["../react-router/src/*"],
-      "@webiny/react-router": ["../react-router/src"],
       "@webiny/utils/*": ["../utils/src/*"],
       "@webiny/utils": ["../utils/src"],
       "@webiny/validation/*": ["../validation/src/*"],

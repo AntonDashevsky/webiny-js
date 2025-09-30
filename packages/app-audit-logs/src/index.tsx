@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 import { ReactComponent as Icon } from "@webiny/icons/manage_search.svg";
 import { AdminConfig, Layout, useWcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";

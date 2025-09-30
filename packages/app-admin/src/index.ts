@@ -21,7 +21,10 @@ export * from "./config/AdminConfig.js";
 
 export type { AdminProps } from "./base/Admin.js";
 export { useViewComposition } from "./base/providers/ViewCompositionProvider.js";
-export type { ViewCompositionContext, ViewElement } from "./base/providers/ViewCompositionProvider.js";
+export type {
+    ViewCompositionContext,
+    ViewElement
+} from "./base/providers/ViewCompositionProvider.js";
 
 // Plugins
 export * from "./base/plugins/AddGraphQLQuerySelection.js";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { OverlayLoader } from "@webiny/admin-ui";
 import type { CmsModel } from "@webiny/app-headless-cms/types.js";
 import { useQuery } from "@apollo/react-hooks";

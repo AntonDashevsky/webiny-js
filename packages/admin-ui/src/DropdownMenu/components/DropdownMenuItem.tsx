@@ -6,8 +6,8 @@ import { DropdownMenuSubTrigger } from "./DropdownMenuSubTrigger.js";
 import { DropdownMenuPortal } from "./DropdownMenuPortal.js";
 import { DropdownMenuSubContent } from "./DropdownMenuSubContent.js";
 import { DropdownMenuItemIcon, type DropdownMenuItemIconProps } from "./DropdownMenuItemIcon.js";
-import type { SimpleLinkProps } from "@webiny/react-router";
-import { SimpleLink } from "@webiny/react-router";
+import type { SimpleLinkProps } from "@webiny/app/router.js";
+import { SimpleLink } from "@webiny/app/router.js";
 
 interface DropdownMenuItemBaseProps {
     icon?: React.ReactNode;

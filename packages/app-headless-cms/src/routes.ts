@@ -1,4 +1,4 @@
-import { Route } from "@webiny/react-router";
+import { Route } from "@webiny/app/router.js";
 
 export const Routes = {
     ContentModelGroups: {

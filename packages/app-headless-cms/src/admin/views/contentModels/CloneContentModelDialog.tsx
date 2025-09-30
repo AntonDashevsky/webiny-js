@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import * as UID from "@webiny/ui/Dialog/index.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 import { Form } from "@webiny/form";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Select } from "@webiny/ui/Select/index.js";

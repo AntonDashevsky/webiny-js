@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import isEmpty from "lodash/isEmpty.js";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { CREATE_USER, LIST_USERS, READ_USER, UPDATE_USER } from "~/ui/views/Users/graphql.js";
 import { useWcp } from "@webiny/app-admin";
@@ -20,7 +20,7 @@ interface SubmitUserCallable {
 
 export function useUserForm() {
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.Users.List);
+    const { route } = useRoute(Routes.Users.List);
     const { showSnackbar } = useSnackbar();
 
     const wcp = useWcp();

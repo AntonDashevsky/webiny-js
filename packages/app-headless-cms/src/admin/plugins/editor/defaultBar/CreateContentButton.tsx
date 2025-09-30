@@ -1,6 +1,6 @@
 import React from "react";
 import get from "lodash/get.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as ListViewIcon } from "@webiny/icons/list.svg";
 import type {

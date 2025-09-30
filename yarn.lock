@@ -13739,7 +13739,7 @@ __metadata:
     "@types/cli-progress": "npm:^3.11.6"
     cli-progress: "npm:^3.12.0"
     fast-glob: "npm:^3.3.3"
-    find-up: "npm:5.0.0"
+    find-up: "npm:^5.0.0"
     p-limit: "npm:^7.1.1"
     read-json-sync: "npm:2.0.1"
     ts-morph: "npm:^24.0.0"
@@ -13754,7 +13754,7 @@ __metadata:
   resolution: "@webiny-scripts/prepublish-only@workspace:scripts/prepublishOnly"
   dependencies:
     chalk: "npm:^4.1.2"
-    find-up: "npm:5.0.0"
+    find-up: "npm:^5.0.0"
     fs-extra: "npm:^11.3.2"
     get-yarn-workspaces: "npm:1.0.2"
     load-json-file: "npm:^6.2.0"
@@ -13790,7 +13790,6 @@ __metadata:
     "@webiny/icons": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"
     "@webiny/react-composition": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     bytes: "npm:^3.1.2"
     chalk: "npm:^4.1.2"
@@ -13800,9 +13799,10 @@ __metadata:
     css-loader: "npm:^6.11.0"
     eslint-plugin-storybook: "npm:9.1.8"
     file-loader: "npm:6.2.0"
+    find-up: "npm:^5.0.0"
     lodash: "npm:^4.17.21"
     minimatch: "npm:^5.1.6"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     monaco-editor: "npm:^0.53.0"
     postcss-loader: "npm:^8.2.0"
     prettier: "npm:^3.6.2"
@@ -13825,6 +13825,8 @@ __metadata:
     type-fest: "npm:^5.0.1"
     typescript: "npm:5.9.2"
     vitest: "npm:^3.2.4"
+  peerDependencies:
+    "@webiny/app": 0.0.0
   languageName: unknown
   linkType: soft
 
@@ -14992,7 +14994,6 @@ __metadata:
     "@webiny/icons": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
     "@webiny/react-properties": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/shared-aco": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
@@ -15002,7 +15003,7 @@ __metadata:
     graphql: "npm:^16.11.0"
     graphql-tag: "npm:^2.12.6"
     lodash: "npm:^4.17.21"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     mobx-react-lite: "npm:^3.4.3"
     pako: "npm:^2.1.0"
     react: "npm:18.2.0"
@@ -15035,7 +15036,6 @@ __metadata:
     "@webiny/form": "npm:0.0.0"
     "@webiny/icons": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
     apollo-client: "npm:^2.6.10"
@@ -15128,7 +15128,6 @@ __metadata:
     "@webiny/build-tools": "npm:0.0.0"
     "@webiny/icons": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     babel-plugin-named-asset-import: "npm:^1.0.0-next.fb6e6f70"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -15155,7 +15154,6 @@ __metadata:
     "@webiny/form": "npm:0.0.0"
     "@webiny/icons": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
     apollo-client: "npm:^2.6.10"
@@ -15193,11 +15191,11 @@ __metadata:
     "@types/react-transition-group": "npm:^4.4.12"
     "@types/store": "npm:^2.0.5"
     "@types/tinycolor2": "npm:^1.4.6"
-    "@webiny/admin-ui": "npm:0.0.0"
     "@webiny/app": "npm:0.0.0"
     "@webiny/app-security": "npm:0.0.0"
     "@webiny/app-wcp": "npm:0.0.0"
     "@webiny/build-tools": "npm:0.0.0"
+    "@webiny/di-container": "npm:0.0.0"
     "@webiny/form": "npm:0.0.0"
     "@webiny/icons": "npm:0.0.0"
     "@webiny/lexical-editor": "npm:0.0.0"
@@ -15206,7 +15204,6 @@ __metadata:
     "@webiny/project": "npm:0.0.0"
     "@webiny/react-composition": "npm:0.0.0"
     "@webiny/react-properties": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/telemetry": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     "@webiny/ui-composer": "npm:0.0.0"
@@ -15223,9 +15220,10 @@ __metadata:
     graphlib: "npm:^2.1.8"
     graphql: "npm:^16.11.0"
     graphql-tag: "npm:^2.12.6"
+    history: "npm:^5.3.0"
     is-hotkey: "npm:^0.2.0"
     lodash: "npm:^4.17.21"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     mobx-react-lite: "npm:^3.4.3"
     monaco-editor: "npm:^0.53.0"
     prop-types: "npm:^15.8.1"
@@ -15245,6 +15243,8 @@ __metadata:
     unicode-emoji-json: "npm:^0.8.0"
     vitest: "npm:^3.2.4"
     zod: "npm:^3.25.76"
+  peerDependencies:
+    "@webiny/admin-ui": 0.0.0
   languageName: unknown
   linkType: soft
 
@@ -15266,7 +15266,6 @@ __metadata:
     "@webiny/icons": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
     "@webiny/react-properties": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     date-fns: "npm:^2.30.0"
     emotion: "npm:10.0.27"
@@ -15335,7 +15334,6 @@ __metadata:
     "@webiny/plugins": "npm:0.0.0"
     "@webiny/react-composition": "npm:0.0.0"
     "@webiny/react-properties": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
     apollo-cache: "npm:^1.3.5"
@@ -15353,7 +15351,7 @@ __metadata:
     lodash: "npm:^4.17.21"
     mime: "npm:^3.0.0"
     minimatch: "npm:^5.1.6"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     mobx-react-lite: "npm:^3.4.3"
     prop-types: "npm:^15.8.1"
     react: "npm:18.2.0"
@@ -15381,8 +15379,8 @@ __metadata:
     "@webiny/app-i18n": "npm:0.0.0"
     "@webiny/app-security": "npm:0.0.0"
     "@webiny/build-tools": "npm:0.0.0"
+    "@webiny/icons": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     apollo-cache: "npm:^1.3.5"
     apollo-client: "npm:^2.6.10"
@@ -15453,7 +15451,7 @@ __metadata:
     "@webiny/validation": "npm:0.0.0"
     apollo-client: "npm:^2.6.10"
     lodash: "npm:^4.17.21"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     mobx-react-lite: "npm:^3.4.3"
     prop-types: "npm:^15.8.1"
     react: "npm:18.2.0"
@@ -15505,7 +15503,6 @@ __metadata:
     "@webiny/plugins": "npm:0.0.0"
     "@webiny/react-composition": "npm:0.0.0"
     "@webiny/react-properties": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/theme": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
@@ -15521,7 +15518,7 @@ __metadata:
     graphql: "npm:^16.11.0"
     graphql-tag: "npm:^2.12.6"
     lodash: "npm:^4.17.21"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     mobx-react-lite: "npm:^3.4.3"
     prop-types: "npm:^15.8.1"
     raw.macro: "npm:^0.4.2"
@@ -15547,15 +15544,12 @@ __metadata:
   dependencies:
     "@apollo/react-hooks": "npm:^3.1.5"
     "@types/react": "npm:18.2.79"
-    "@webiny/admin-ui": "npm:0.0.0"
     "@webiny/app": "npm:0.0.0"
     "@webiny/app-admin": "npm:0.0.0"
     "@webiny/app-security": "npm:0.0.0"
     "@webiny/build-tools": "npm:0.0.0"
     "@webiny/form": "npm:0.0.0"
-    "@webiny/icons": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
     apollo-cache: "npm:^1.3.5"
@@ -15565,7 +15559,6 @@ __metadata:
     apollo-utilities: "npm:^1.3.4"
     graphql: "npm:^16.11.0"
     graphql-tag: "npm:^2.12.6"
-    lodash: "npm:^4.17.21"
     prop-types: "npm:^15.8.1"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -15581,12 +15574,11 @@ __metadata:
     "@apollo/react-components": "npm:^3.1.5"
     "@types/react": "npm:18.2.79"
     "@webiny/admin-ui": "npm:0.0.0"
+    "@webiny/app": "npm:0.0.0"
     "@webiny/app-admin": "npm:0.0.0"
     "@webiny/app-security": "npm:0.0.0"
     "@webiny/build-tools": "npm:0.0.0"
     "@webiny/form": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
-    "@webiny/ui": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
     apollo-cache: "npm:^1.3.5"
     apollo-client: "npm:^2.6.10"
@@ -15635,7 +15627,6 @@ __metadata:
     "@webiny/form": "npm:0.0.0"
     "@webiny/icons": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     apollo-client: "npm:^2.6.10"
     apollo-link: "npm:^1.2.14"
@@ -15664,7 +15655,6 @@ __metadata:
     "@webiny/form": "npm:0.0.0"
     "@webiny/icons": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
     graphql-tag: "npm:^2.12.6"
@@ -15773,7 +15763,6 @@ __metadata:
     "@webiny/build-tools": "npm:0.0.0"
     "@webiny/form": "npm:0.0.0"
     "@webiny/icons": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
     apollo-cache: "npm:^1.3.5"
@@ -15809,7 +15798,7 @@ __metadata:
     apollo-link: "npm:^1.2.14"
     graphql: "npm:^16.11.0"
     lodash: "npm:4.17.21"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     mobx-react-lite: "npm:^3.4.3"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -15825,7 +15814,7 @@ __metadata:
   dependencies:
     "@webiny/build-tools": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     typescript: "npm:5.9.2"
   languageName: unknown
   linkType: soft
@@ -15891,7 +15880,6 @@ __metadata:
     "@webiny/lexical-theme": "npm:0.0.0"
     "@webiny/react-composition": "npm:0.0.0"
     "@webiny/react-properties": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
     "@webiny/ui": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
@@ -15909,7 +15897,7 @@ __metadata:
     is-hotkey: "npm:^0.2.0"
     lodash: "npm:^4.17.21"
     matcher: "npm:^5.0.0"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     mobx-react-lite: "npm:^3.4.3"
     pluralize: "npm:^8.0.0"
     prop-types: "npm:^15.8.1"
@@ -15949,15 +15937,15 @@ __metadata:
     "@emotion/styled": "npm:11.10.6"
     "@types/lodash": "npm:4.17.20"
     "@types/react": "npm:18.2.79"
+    "@types/universal-router": "npm:^8.0.0"
     "@types/warning": "npm:^3.0.3"
     "@webiny/build-tools": "npm:0.0.0"
+    "@webiny/di-container": "npm:0.0.0"
     "@webiny/i18n": "npm:0.0.0"
     "@webiny/i18n-react": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
     "@webiny/react-composition": "npm:0.0.0"
     "@webiny/react-properties": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
-    "@webiny/ui": "npm:0.0.0"
     apollo-cache: "npm:^1.3.5"
     apollo-cache-inmemory: "npm:^1.6.6"
     apollo-client: "npm:^2.6.10"
@@ -15973,13 +15961,19 @@ __metadata:
     invariant: "npm:^2.2.4"
     lodash: "npm:^4.17.21"
     minimatch: "npm:^5.1.6"
+    mobx: "npm:^6.15.0"
     nanoid: "npm:^3.3.11"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:^6.0.1"
     ts-invariant: "npm:^0.10.3"
     typescript: "npm:5.9.2"
+    universal-router: "npm:^9.2.1"
+    vitest: "npm:^3.2.4"
     warning: "npm:^4.0.3"
+    zod: "npm:^3.25.76"
+  peerDependencies:
+    "@webiny/admin-ui": 0.0.0
   languageName: unknown
   linkType: soft
 
@@ -16059,7 +16053,7 @@ __metadata:
     eslint: "npm:^9.36.0"
     eslint-webpack-plugin: "npm:^5.0.2"
     fast-glob: "npm:^3.3.3"
-    find-up: "npm:5.0.0"
+    find-up: "npm:^5.0.0"
     fs-extra: "npm:^11.3.2"
     get-yarn-workspaces: "npm:1.0.2"
     import-meta-resolve: "npm:^4.2.0"
@@ -16282,7 +16276,7 @@ __metadata:
     "@webiny/react-composition": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
     lodash: "npm:^4.17.21"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     mobx-react-lite: "npm:^3.4.3"
     rimraf: "npm:^6.0.1"
     typescript: "npm:5.9.2"
@@ -16720,7 +16714,7 @@ __metadata:
     execa: "npm:^5.1.1"
     exit-hook: "npm:^4.0.0"
     fast-glob: "npm:^3.3.3"
-    find-up: "npm:5.0.0"
+    find-up: "npm:^5.0.0"
     graphql-request: "npm:^7.2.0"
     humanize-duration: "npm:3.33.1"
     jsdom: "npm:^25.0.1"
@@ -16763,7 +16757,7 @@ __metadata:
     "@webiny/build-tools": "npm:0.0.0"
     decompress: "npm:^4.2.1"
     execa: "npm:^5.1.1"
-    find-up: "npm:5.0.0"
+    find-up: "npm:^5.0.0"
     fs-extra: "npm:^11.3.2"
     lodash: "npm:^4.17.21"
     read-json-sync: "npm:2.0.1"
@@ -16849,22 +16843,6 @@ __metadata:
     rimraf: "npm:^6.0.1"
     sanitize-html: "npm:2.17.0"
     typescript: "npm:5.9.2"
-  languageName: unknown
-  linkType: soft
-
-"@webiny/react-router@npm:0.0.0, @webiny/react-router@workspace:packages/react-router":
-  version: 0.0.0-use.local
-  resolution: "@webiny/react-router@workspace:packages/react-router"
-  dependencies:
-    "@types/universal-router": "npm:^8.0.0"
-    "@webiny/build-tools": "npm:0.0.0"
-    "@webiny/react-composition": "npm:0.0.0"
-    history: "npm:^5.3.0"
-    rimraf: "npm:^6.0.1"
-    typescript: "npm:5.9.2"
-    universal-router: "npm:^9.2.1"
-  peerDependencies:
-    react: 18.2.0
   languageName: unknown
   linkType: soft
 
@@ -17058,7 +17036,7 @@ __metadata:
     "@webiny/lexical-editor": "npm:0.0.0"
     "@webiny/website-builder-sdk": "npm:0.0.0"
     deep-equal: "npm:^2.2.3"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     mobx-react-lite: "npm:^3.4.3"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -17082,7 +17060,7 @@ __metadata:
     lexical: "npm:^0.35.0"
     lodash: "npm:^4.17.21"
     matcher: "npm:^5.0.0"
-    mobx: "npm:^6.13.7"
+    mobx: "npm:^6.15.0"
     nanoid: "npm:^3.3.11"
     nanoid-dictionary: "npm:^4.3.0"
     pino: "npm:^8.21.0"
@@ -20305,7 +20283,7 @@ __metadata:
     "@webiny/telemetry": "npm:0.0.0"
     chalk: "npm:^4.1.2"
     execa: "npm:^5.1.1"
-    find-up: "npm:5.0.0"
+    find-up: "npm:^5.0.0"
     fs-extra: "npm:^11.3.2"
     inquirer: "npm:^12.9.6"
     js-yaml: "npm:^4.1.0"
@@ -23494,16 +23472,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-up@npm:5.0.0, find-up@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "find-up@npm:5.0.0"
-  dependencies:
-    locate-path: "npm:^6.0.0"
-    path-exists: "npm:^4.0.0"
-  checksum: 10/07955e357348f34660bde7920783204ff5a26ac2cafcaa28bace494027158a97b9f56faaf2d89a6106211a8174db650dd9f503f9c0d526b1202d5554a00b9095
-  languageName: node
-  linkType: hard
-
 "find-up@npm:^2.0.0":
   version: 2.1.0
   resolution: "find-up@npm:2.1.0"
@@ -23529,6 +23497,16 @@ __metadata:
     locate-path: "npm:^5.0.0"
     path-exists: "npm:^4.0.0"
   checksum: 10/4c172680e8f8c1f78839486e14a43ef82e9decd0e74145f40707cc42e7420506d5ec92d9a11c22bd2c48fb0c384ea05dd30e10dd152fefeec6f2f75282a8b844
+  languageName: node
+  linkType: hard
+
+"find-up@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "find-up@npm:5.0.0"
+  dependencies:
+    locate-path: "npm:^6.0.0"
+    path-exists: "npm:^4.0.0"
+  checksum: 10/07955e357348f34660bde7920783204ff5a26ac2cafcaa28bace494027158a97b9f56faaf2d89a6106211a8174db650dd9f503f9c0d526b1202d5554a00b9095
   languageName: node
   linkType: hard
 
@@ -28416,10 +28394,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:^6.13.7":
-  version: 6.13.7
-  resolution: "mobx@npm:6.13.7"
-  checksum: 10/5e27d8934e7ce820f436cf189a11ce94dc8c76a7b33b68ce476f46b88258be2c3f37830b13f2817a0f273666aea0fd7d530ff1676467862516ba22343040a192
+"mobx@npm:^6.15.0":
+  version: 6.15.0
+  resolution: "mobx@npm:6.15.0"
+  checksum: 10/cf7fd4f96d521962c87883a7d41d745ba35af6130265f619e22c2d1ddff875e7f766726984f53bf5d5e215074146e6b190bc0e8668eb675cca9cb5d5204987fa
   languageName: node
   linkType: hard
 

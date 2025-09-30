@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import debounce from "lodash/debounce.js";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { makeDecoratable } from "@webiny/react-composition";
 import { useContentEntries } from "./useContentEntries.js";
 import type { CmsContentEntry, TableItem } from "~/types.js";
@@ -60,7 +60,7 @@ interface ContentEntriesListProviderProps {
 
 export const ContentEntriesListProvider = ({ children }: ContentEntriesListProviderProps) => {
     const { goToRoute, getLink } = useRouter();
-    const route = useRoute(Routes.ContentEntries.List);
+    const { route } = useRoute(Routes.ContentEntries.List);
     const { contentModel } = useContentEntries();
     const { currentFolderId } = useNavigateFolder();
 

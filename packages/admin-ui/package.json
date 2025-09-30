@@ -18,15 +18,15 @@
     "@tanstack/react-table": "^8.21.3",
     "@webiny/icons": "0.0.0",
     "@webiny/react-composition": "0.0.0",
-    "@webiny/react-router": "0.0.0",
     "@webiny/utils": "0.0.0",
     "bytes": "^3.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "find-up": "^5.0.0",
     "lodash": "^4.17.21",
     "minimatch": "^5.1.6",
-    "mobx": "^6.13.7",
+    "mobx": "^6.15.0",
     "monaco-editor": "^0.53.0",
     "radix-ui": "^1.4.3",
     "react": "18.2.0",
@@ -68,6 +68,9 @@
     "tailwindcss": "^3.4.17",
     "typescript": "5.9.2",
     "vitest": "^3.2.4"
+  },
+  "peerDependencies": {
+    "@webiny/app": "0.0.0"
   },
   "publishConfig": {
     "access": "public",

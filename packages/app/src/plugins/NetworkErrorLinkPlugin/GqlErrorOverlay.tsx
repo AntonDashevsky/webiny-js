@@ -1,6 +1,6 @@
 import React from "react";
 import get from "lodash/get.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import { Typography } from "./Typography.js";
 import { i18n } from "../../i18n/index.js";
 import { Pre } from "./StyledComponents.js";
 import ErrorOverlay from "./ErrorOverlay.js";

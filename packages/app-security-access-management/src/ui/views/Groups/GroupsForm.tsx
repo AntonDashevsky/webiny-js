@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import get from "lodash/get.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
@@ -160,17 +160,6 @@ export const GroupsForm = ({ id, newEntry }: GroupsFormProps) => {
                         <SimpleFormContent>
                             <Grid>
                                 <>
-                                    {systemGroup && (
-                                        <Grid.Column span={12}>
-                                            <Alert
-                                                type={"warning"}
-                                                title={"Permissions are locked"}
-                                            >
-                                                This is a protected system role and you can&apos;t
-                                                modify its permissions.
-                                            </Alert>
-                                        </Grid.Column>
-                                    )}
                                     {pluginGroup && (
                                         <Grid.Column span={12}>
                                             <Alert
@@ -245,6 +234,17 @@ export const GroupsForm = ({ id, newEntry }: GroupsFormProps) => {
                             </div>
                         </SimpleFormHeader>
                         <SimpleFormContent>
+                            {systemGroup && (
+                                <Grid.Column span={12}>
+                                    <Alert
+                                        type={"warning"}
+                                        title={"Permissions are locked"}
+                                    >
+                                        This is a protected system role and you can&apos;t
+                                        modify its permissions.
+                                    </Alert>
+                                </Grid.Column>
+                            )}
                             <Grid>
                                 <>
                                     {canModifyGroup && (

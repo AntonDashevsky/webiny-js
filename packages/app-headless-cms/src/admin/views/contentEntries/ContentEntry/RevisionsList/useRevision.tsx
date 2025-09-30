@@ -1,6 +1,6 @@
 import React from "react";
 import { useToast } from "@webiny/admin-ui";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { useHandlers } from "@webiny/app/hooks/useHandlers.js";
 import type { CmsContentEntry } from "~/types.js";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
@@ -44,7 +44,7 @@ export interface UseRevisionProps {
 export const useRevision = ({ revision }: UseRevisionProps) => {
     const contentEntry = useContentEntry();
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.ContentEntries.List);
+    const { route } = useRoute(Routes.ContentEntries.List);
     const { showSuccessToast, showWarningToast } = useToast();
     const { contentModel } = contentEntry;
     const { modelId } = contentModel;

@@ -5,12 +5,8 @@ import UniversalRouter, {
     RouteParams as UniversalRouteParams
 } from "universal-router";
 import generateUrls from "universal-router/generateUrls";
-import type {
-    MatchedRoute,
-    IRouterGateway,
-    RouteDefinition,
-    OnRouteExit
-} from "~/abstractions/IRouterGateway.js";
+import type { MatchedRoute, RouteDefinition, OnRouteExit } from "./abstractions.js";
+import { RouterGateway } from "./abstractions.js";
 
 type RouteResolveResult = [MatchedRoute, RouteDefinition["onMatch"]];
 
@@ -18,13 +14,14 @@ interface RouteDefinitionWithAction extends RouteDefinition {
     action(context: RouterContext, params: UniversalRouteParams): RouteResolveResult;
 }
 
-export class HistoryRouterGateway implements IRouterGateway {
+export class HistoryRouterGateway implements RouterGateway.Interface {
     private readonly history: History;
     private readonly routes: RouteDefinitionWithAction[] = [];
     private readonly router: UniversalRouter<RouteResolveResult>;
     private readonly urlGenerator: ReturnType<typeof generateUrls>;
     private stopListening: () => void;
     private unblock: (() => void) | undefined;
+    private currentRoute: MatchedRoute | undefined;
 
     constructor(history: History, baseUrl: string) {
         this.history = history;
@@ -69,10 +66,14 @@ export class HistoryRouterGateway implements IRouterGateway {
     }
 
     setRoutes(routes: RouteDefinition[]) {
-        this.routes.length = 0;
-
         routes.forEach(route => {
-            this.routes.push(this.routeWithAction(route));
+            const index = this.routes.findIndex(r => r.name === route.name);
+
+            if (index > -1) {
+                this.routes[index] = this.routeWithAction(route);
+            } else {
+                this.routes.push(this.routeWithAction(route));
+            }
         });
 
         this.sortRoutes(this.routes);
@@ -92,6 +93,10 @@ export class HistoryRouterGateway implements IRouterGateway {
     destroy(): void {
         this.stopListening();
         this.unblock && this.unblock();
+    }
+
+    pushState(url: string): void {
+        this.history.push(url);
     }
 
     private routeWithAction(route: RouteDefinition): RouteDefinitionWithAction {
@@ -122,6 +127,8 @@ export class HistoryRouterGateway implements IRouterGateway {
         }
 
         const [matchedRoute, onMatch] = result;
+
+        this.currentRoute = matchedRoute;
 
         onMatch(matchedRoute);
     }

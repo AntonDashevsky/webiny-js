@@ -1,6 +1,6 @@
 import React from "react";
 import { AdminConfig } from "@webiny/app-admin";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
 import { Layout } from "@webiny/app-admin";

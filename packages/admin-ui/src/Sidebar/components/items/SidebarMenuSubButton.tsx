@@ -1,5 +1,5 @@
 import React from "react";
-import { SimpleLink } from "@webiny/react-router";
+import { SimpleLink } from "@webiny/app/router.js";
 import { cva } from "~/utils.js";
 import type { SidebarMenuItemProps } from "./SidebarMenuRootItem.js";
 import { DivButton } from "./DivButton.js";

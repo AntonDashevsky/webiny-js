@@ -2,11 +2,11 @@ import React from "react";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
 import { GroupsDataList } from "./GroupsDataList.js";
 import { GroupsForm } from "./GroupsForm.js";
-import { useRoute } from "@webiny/react-router";
+import { useRoute } from "@webiny/app/router.js";
 import { Routes } from "~/routes.js";
 
 export const Groups = () => {
-    const route = useRoute(Routes.Roles.List);
+    const { route } = useRoute(Routes.Roles.List);
 
     return (
         <SplitView>

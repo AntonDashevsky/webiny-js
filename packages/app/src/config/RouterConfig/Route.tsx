@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import type { Route as BaseRoute } from "@webiny/react-router";
+import type { Route as BaseRoute } from "~/router.js";
 
 export interface RouteProps {
     route: BaseRoute<any>;

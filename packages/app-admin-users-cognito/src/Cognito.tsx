@@ -1,7 +1,8 @@
 import React, { Fragment, memo } from "react";
-import { Layout } from "@webiny/app-admin";
+import { AdminConfig, Layout } from "@webiny/app-admin";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
+import { useRouter } from "@webiny/app/router.js";
 import { Permission } from "~/plugins/constants.js";
 import { UsersView } from "~/ui/views/Users/UsersView.js";
 import { Account } from "~/ui/views/Account/index.js";
@@ -13,14 +14,13 @@ import permissionRenderer from "./plugins/permissionRenderer/index.js";
 import cognito from "./plugins/cognito.js";
 import type { CognitoProps } from "./CognitoLogin.js";
 import { CognitoLogin } from "./CognitoLogin.js";
-import { AdminConfig } from "@webiny/app-admin";
 import { Routes } from "~/routes.js";
-import { useRouter } from "@webiny/react-router";
 
 const { Route, Menu } = AdminConfig;
 
 const CognitoIdP = (props: CognitoProps) => {
-    const router = useRouter();
+    const { getLink } = useRouter();
+
     plugins.register([installation, permissionRenderer, cognito()]);
 
     return (
@@ -57,19 +57,17 @@ const CognitoIdP = (props: CognitoProps) => {
                     <Menu
                         name={"cognito.settings.adminUsers"}
                         parent={"settings"}
-                        element={
-                            <Menu.Link text={"Users"} to={router.getLink(Routes.Users.Account)} />
-                        }
+                        element={<Menu.Link text={"Users"} to={getLink(Routes.Users.List)} />}
                     />
                 </HasPermission>
 
                 <Menu.User
                     name={"userInfo"}
-                    element={<UserInfo accountRoute={router.getLink(Routes.Users.Account)} />}
+                    element={<UserInfo accountRoute={getLink(Routes.Users.Account)} />}
                 />
                 <Menu.User
                     name={"accountSettings"}
-                    element={<AccountDetails accountRoute={router.getLink(Routes.Users.Account)} />}
+                    element={<AccountDetails accountRoute={getLink(Routes.Users.Account)} />}
                 />
                 <Menu.User name={"signOut"} element={<SignOut />} />
             </AdminConfig>

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import debounce from "lodash/debounce.js";
 import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
-import { RouteLink } from "@webiny/react-router";
+import { RouteLink } from "@webiny/app/router.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { useReferences } from "./useReferences.js";
 import { renderItem, renderListItemOptions } from "./renderItem.js";

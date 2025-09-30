@@ -1,7 +1,6 @@
-import { Route } from "@webiny/react-router";
+import { Route } from "@webiny/app/router.js";
 
 export const Routes = {
-    Domains: {},
     Tenants: {
         List: new Route({
             name: "TenantManager/Tenants/List",

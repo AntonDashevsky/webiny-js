@@ -12,7 +12,7 @@ import {
     useContentEntry
 } from "~/admin/views/contentEntries/hooks/index.js";
 import { ContentEntry } from "~/admin/views/contentEntries/ContentEntry.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 import { ROOT_FOLDER } from "~/admin/constants.js";
 import { BulkActions } from "~/admin/components/ContentEntries/BulkActions/index.js";
 import { BottomInfoBar } from "~/admin/components/ContentEntries/BottomInfoBar/index.js";

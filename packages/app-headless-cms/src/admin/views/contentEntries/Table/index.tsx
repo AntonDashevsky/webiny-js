@@ -9,7 +9,7 @@ import { useTenancy } from "@webiny/app-tenancy";
 import { useApolloClient, useModel } from "~/admin/hooks/index.js";
 import { ContentEntriesListProvider } from "~/admin/views/contentEntries/hooks/index.js";
 import { LOCAL_STORAGE_LATEST_VISITED_FOLDER } from "~/admin/constants.js";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { Routes } from "~/routes.js";
 
 /**
@@ -55,7 +55,7 @@ export const Table = () => {
     const { model } = useModel();
     const client = useApolloClient();
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.ContentEntries.List);
+    const { route } = useRoute(Routes.ContentEntries.List);
 
     const navigateToFolder = useCallback(
         (folderId: string) => {

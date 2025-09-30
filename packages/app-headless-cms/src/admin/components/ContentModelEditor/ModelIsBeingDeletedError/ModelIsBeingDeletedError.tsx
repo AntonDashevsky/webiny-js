@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import authErrorImg from "./SecureRouteError.svg";
 import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 import { Routes } from "~/routes.js";
 
 const ContentWrapper = styled("div")({

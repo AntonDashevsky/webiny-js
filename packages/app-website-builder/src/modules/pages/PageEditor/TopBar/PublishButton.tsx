@@ -4,7 +4,7 @@ import { useDialogs } from "@webiny/app-admin";
 import { ReactComponent as PublishIcon } from "@webiny/icons/publish.svg";
 import { usePublishPage } from "~/features/pages/index.js";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 import type { EditorPage } from "@webiny/website-builder-sdk";
 import { Routes } from "~/routes.js";
 

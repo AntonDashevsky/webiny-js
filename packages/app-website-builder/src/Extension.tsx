@@ -10,7 +10,7 @@ import { PagesListConfig } from "~/modules/pages/PagesListConfig.js";
 import { RedirectsList } from "~/modules/redirects/RedirectsList.js";
 import { RedirectsListConfig } from "~/modules/redirects/RedirectsListConfig.js";
 import { Routes } from "~/routes.js";
-import { useRouter } from "@webiny/react-router";
+import { useRouter } from "@webiny/app/router.js";
 
 const { Menu, Route } = AdminConfig;
 

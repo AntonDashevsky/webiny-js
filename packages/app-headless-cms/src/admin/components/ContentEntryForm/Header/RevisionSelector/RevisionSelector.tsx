@@ -1,6 +1,6 @@
 import React from "react";
 import get from "lodash/get.js";
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { Button, DropdownMenu, Text } from "@webiny/admin-ui";
 import { ReactComponent as DownButton } from "@webiny/icons/keyboard_arrow_down.svg";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
@@ -24,7 +24,7 @@ const defaultRevisions: CmsEntryRevision[] = [
 
 export const RevisionSelector = () => {
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.ContentEntries.List);
+    const { route } = useRoute(Routes.ContentEntries.List);
 
     const { entry, revisions, loading } = useContentEntry();
 

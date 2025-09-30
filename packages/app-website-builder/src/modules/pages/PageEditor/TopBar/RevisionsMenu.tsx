@@ -8,7 +8,7 @@ import { useGetPageRevisions } from "~/features/pages/index.js";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument.js";
 import type { PageRevision } from "~/domain/PageRevision/index.js";
 import type { EditorPage } from "@webiny/website-builder-sdk";
-import { useRouter } from "@webiny/react-router/useRouter";
+import { useRouter } from "@webiny/app/router.js";
 import { Routes } from "~/routes.js";
 
 const { Item } = DropdownMenu;

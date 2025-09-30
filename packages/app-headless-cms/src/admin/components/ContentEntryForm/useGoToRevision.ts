@@ -1,10 +1,10 @@
-import { useRoute, useRouter } from "@webiny/react-router";
+import { useRoute, useRouter } from "@webiny/app/router.js";
 import { useCallback } from "react";
 import { Routes } from "~/routes.js";
 
 export const useGoToRevision = () => {
     const { goToRoute } = useRouter();
-    const route = useRoute(Routes.ContentEntries.List);
+    const { route } = useRoute(Routes.ContentEntries.List);
 
     const goToRevision = useCallback(
         (id: string) => {
