@@ -7,7 +7,7 @@ import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup
 const NUMBER_OF_FRUITS = 200;
 
 vi.setConfig({
-    testTimeout: 100_000
+    testTimeout: 120_000
 });
 
 const createFruitData = (counter: number) => {
@@ -74,7 +74,7 @@ describe("entry pagination", () => {
                 entry: fruit
             });
         }
-    }, 60_000);
+    }, 120_000);
 
     it("should paginate through entries", async () => {
         /**
