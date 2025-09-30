@@ -16903,7 +16903,7 @@ __metadata:
     jsesc: "npm:^3.1.0"
     load-json-file: "npm:6.2.0"
     strip-ansi: "npm:^6.0.1"
-    wts-client: "npm:^1.0.1"
+    wts-client: "npm:^2.0.0"
   languageName: unknown
   linkType: soft
 
@@ -37395,14 +37395,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wts-client@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "wts-client@npm:1.0.1"
+"wts-client@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "wts-client@npm:2.0.0"
   dependencies:
     btoa: "npm:^1.2.1"
     js-cookie: "npm:^2.2.1"
-    node-fetch: "npm:^2.6.1"
-  checksum: 10/f2df14e3326be4b0a9b0b57c4d18d46e74d93f356c368eadd30c170c43cb572830848d71b4a87f9d980620530cacdffa4e1d9d8308d1900842d755aacb93abd1
+  checksum: 10/f6be5fa9df130469eddac303eb33af0e7271bb54af7944a538eafafc363cc77ccadd094c52e952926021a705e07f5b3ba9af51c15d19c30173bf4bff60cce728
   languageName: node
   linkType: hard
 
