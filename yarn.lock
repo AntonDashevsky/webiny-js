@@ -13797,7 +13797,7 @@ __metadata:
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
     cmdk: "npm:^1.1.1"
-    css-loader: "npm:^6.11.0"
+    css-loader: "npm:^7.1.2"
     eslint-plugin-storybook: "npm:9.1.8"
     file-loader: "npm:6.2.0"
     find-up: "npm:^5.0.0"
@@ -20397,7 +20397,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-loader@npm:^6.11.0, css-loader@npm:^6.7.1":
+"css-loader@npm:^6.7.1":
   version: 6.11.0
   resolution: "css-loader@npm:6.11.0"
   dependencies:
