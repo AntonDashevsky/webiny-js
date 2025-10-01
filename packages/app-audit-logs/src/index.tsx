@@ -7,7 +7,7 @@ import { LogsModule } from "~/views/Logs/LogsModule.js";
 import { AuditLogsPermissions } from "~/plugins/permissionRenderer/index.js";
 import { LogsView } from "~/views/Logs/LogsView.js";
 import { AuditLogsListWithConfig } from "~/config/list/index.js";
-import { Routes } from "~/routes";
+import { Routes } from "~/routes.js";
 
 const { Menu, Route } = AdminConfig;
 

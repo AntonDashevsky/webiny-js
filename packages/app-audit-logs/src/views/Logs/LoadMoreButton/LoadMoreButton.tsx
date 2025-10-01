@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { Container } from "./styled.js";
 

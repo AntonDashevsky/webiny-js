@@ -4,7 +4,7 @@ import UniversalRouter, {
     RouterContext,
     RouteParams as UniversalRouteParams
 } from "universal-router";
-import generateUrls from "universal-router/generateUrls";
+import generateUrls from "universal-router/generateUrls/index.js";
 import type { MatchedRoute, RouteDefinition, OnRouteExit } from "./abstractions.js";
 import { RouterGateway } from "./abstractions.js";
 
