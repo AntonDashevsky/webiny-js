@@ -10,3 +10,9 @@ export type ComponentProps<TInputs = unknown> = {
 export type ComponentPropsWithChildren<TInputs = unknown> = ComponentProps<
     TInputs & { children: React.ReactNode }
 >;
+
+export type ExtractInputs<T> = T extends { inputs: infer I } ? I : never;
+
+export type ExtractInputNames<T extends (props: any) => any> = keyof ExtractInputs<
+    Parameters<T>[0]
+>;

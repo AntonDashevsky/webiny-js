@@ -1,6 +1,8 @@
 import fs from "fs-extra";
 import path from "path";
 
+export const testPattern = `/**/*.{test,test-d}.[jt]s?(x)`
+
 const getPackageMetaFromPackageJson = (pkgJson: any) => {
     return {
         packageName: pkgJson.getJson().name,
@@ -17,7 +19,7 @@ const getPackageMetaFromPath = async (value: string) => {
         const pkgJson = await PackageJson.findClosest(request);
         const stat = fs.lstatSync(request);
 
-        const testMatch = stat.isFile() ? [request] : [`${request}/**/*.test.[jt]s?(x)`];
+        const testMatch = stat.isFile() ? [request] : [`${request}${testPattern}`];
 
         return { ...getPackageMetaFromPackageJson(pkgJson), testMatch };
     }
@@ -30,7 +32,7 @@ const getPackageMetaFromPath = async (value: string) => {
 
         return {
             ...getPackageMetaFromPackageJson(pkgJson),
-            testMatch: [`${request}/**/*.test.[jt]s?(x)`]
+            testMatch: [`${request}${testPattern}`]
         };
     }
 
@@ -39,7 +41,7 @@ const getPackageMetaFromPath = async (value: string) => {
     const pkgJson = await PackageJson.findClosest(request);
     return {
         ...getPackageMetaFromPackageJson(pkgJson),
-        testMatch: [`${request}/**/*.test.[jt]s?(x)`]
+        testMatch: [`${request}${testPattern}`]
     };
 };
 

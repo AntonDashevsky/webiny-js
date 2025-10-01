@@ -1,6 +1,7 @@
 import { basename, join } from "path";
 import fs from "fs";
 import type { ViteUserConfig } from "vitest/config";
+import { testPattern } from "./vitest.project.js";
 
 type Alias = Extract<NonNullable<ViteUserConfig["test"]>["alias"], { find: any }>;
 
@@ -43,7 +44,7 @@ export const createTestConfig = async ({
 
     const project: ViteUserConfig["test"] = {
         name: name,
-        include: [`${path}/**/*${type}.test.[jt]s?(x)`],
+        include: [`${path}${testPattern}`],
         dir: path,
         fileParallelism: false,
         ...vitestConfig,
