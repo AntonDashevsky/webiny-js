@@ -13786,6 +13786,7 @@ __metadata:
     "@types/react-color": "npm:^2.17.12"
     "@types/react-custom-scrollbars": "npm:^4.0.13"
     "@types/react-virtualized": "npm:^9.22.3"
+    "@webiny/app": "npm:0.0.0"
     "@webiny/build-tools": "npm:0.0.0"
     "@webiny/icons": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"
@@ -13825,8 +13826,6 @@ __metadata:
     type-fest: "npm:^5.0.1"
     typescript: "npm:5.9.2"
     vitest: "npm:^3.2.4"
-  peerDependencies:
-    "@webiny/app": 0.0.0
   languageName: unknown
   linkType: soft
 
@@ -15970,8 +15969,6 @@ __metadata:
     vitest: "npm:^3.2.4"
     warning: "npm:^4.0.3"
     zod: "npm:^3.25.76"
-  peerDependencies:
-    "@webiny/admin-ui": 0.0.0
   languageName: unknown
   linkType: soft
 

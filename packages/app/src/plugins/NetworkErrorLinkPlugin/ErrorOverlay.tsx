@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { IconButton } from "@webiny/admin-ui";
 import { Typography } from "./Typography.js";
 import { i18n } from "../../i18n/index.js";
 import { OverlayWrapper } from "./StyledComponents.js";
@@ -17,7 +16,7 @@ type ErrorOverlayProps = Partial<{
     closeable?: boolean;
 }>;
 
-const ErrorOverlay = (props: ErrorOverlayProps) => {
+export const ErrorOverlay = (props: ErrorOverlayProps) => {
     const { title = "An error occurred", message, description, closeable } = props;
     const [open, setOpen] = useState(true);
     if (!open) {
@@ -29,11 +28,13 @@ const ErrorOverlay = (props: ErrorOverlayProps) => {
             <div className="inner">
                 <div className="header">
                     <div className="header__title">
-                        <Typography use={"headline4"}>{title}</Typography>
+                        <Typography use={"headline"}>{title}</Typography>
                     </div>
                     {closeable !== false && (
                         <div className="header__action">
-                            <IconButton icon={<CloseIcon />} onClick={() => setOpen(false)} variant={"ghost"}/>
+                            <span onClick={() => setOpen(false)}>
+                                <CloseIcon />
+                            </span>
                         </div>
                     )}
                 </div>
@@ -42,7 +43,7 @@ const ErrorOverlay = (props: ErrorOverlayProps) => {
                     {description && <div className="body__description">{description}</div>}
                 </div>
                 <div className="footer">
-                    <Typography use={"body2"}>
+                    <Typography use={"body"}>
                         {t`
                         This screen is only visible if {message} environment variable is set.
                         Read more about it in the {link}. `({
@@ -65,5 +66,3 @@ const ErrorOverlay = (props: ErrorOverlayProps) => {
         </OverlayWrapper>
     );
 };
-
-export default ErrorOverlay;

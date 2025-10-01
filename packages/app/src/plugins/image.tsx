@@ -1,5 +1,5 @@
 import React from "react";
-import { Image } from "@webiny/admin-ui";
+import { Image } from "./components/Image.js";
 import type { ImageComponentPlugin } from "~/types.js";
 
 const SUPPORTED_IMAGE_RESIZE_WIDTHS = [100, 300, 500, 750, 1000, 1500, 2500];

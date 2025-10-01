@@ -7,8 +7,8 @@ import createErrorOverlay from "./NetworkErrorLinkPlugin/createErrorOverlay.js";
 import { LocalAwsLambdaTimeoutMessage } from "./NetworkErrorLinkPlugin/LocalAwsLambdaTimeoutMessage.js";
 import { boolean } from "boolean";
 import { config as appConfig } from "~/config.js";
-import ErrorOverlay from "~/plugins/NetworkErrorLinkPlugin/ErrorOverlay.js";
-import GqlErrorOverlay from "./NetworkErrorLinkPlugin/GqlErrorOverlay.js";
+import { ErrorOverlay } from "~/plugins/NetworkErrorLinkPlugin/ErrorOverlay.js";
+import { GqlErrorOverlay } from "./NetworkErrorLinkPlugin/GqlErrorOverlay.js";
 
 const isLocalAwsLambdaFnInvocationTimeoutError = (error: any): error is ServerError => {
     return error.result && error.result.code === "LOCAL_AWS_LAMBDA_TIMEOUT";

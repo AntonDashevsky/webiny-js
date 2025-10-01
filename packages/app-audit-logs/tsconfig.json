@@ -9,6 +9,7 @@
     { "path": "../common-audit-logs" },
     { "path": "../form" },
     { "path": "../plugins" },
+    { "path": "../react-composition" },
     { "path": "../react-properties" },
     { "path": "../ui" }
   ],
@@ -33,6 +34,8 @@
       "@webiny/form": ["../form/src"],
       "@webiny/plugins/*": ["../plugins/src/*"],
       "@webiny/plugins": ["../plugins/src"],
+      "@webiny/react-composition/*": ["../react-composition/src/*"],
+      "@webiny/react-composition": ["../react-composition/src"],
       "@webiny/react-properties/*": ["../react-properties/src/*"],
       "@webiny/react-properties": ["../react-properties/src"],
       "@webiny/ui/*": ["../ui/src/*"],

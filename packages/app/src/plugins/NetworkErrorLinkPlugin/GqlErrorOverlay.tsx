@@ -3,7 +3,7 @@ import get from "lodash/get.js";
 import { Typography } from "./Typography.js";
 import { i18n } from "../../i18n/index.js";
 import { Pre } from "./StyledComponents.js";
-import ErrorOverlay from "./ErrorOverlay.js";
+import { ErrorOverlay } from "./ErrorOverlay.js";
 
 const t = i18n.ns("app/graphql/error-overlay");
 
@@ -19,7 +19,7 @@ interface ErrorOverlayProps {
     };
 }
 
-const GqlErrorOverlay = (props: ErrorOverlayProps) => {
+export const GqlErrorOverlay = (props: ErrorOverlayProps) => {
     const { query, networkError } = props;
     const stackTrace = get(networkError, "result.error.stack");
 
@@ -27,9 +27,7 @@ const GqlErrorOverlay = (props: ErrorOverlayProps) => {
 
     const message = (
         <>
-            <Typography
-                use={"subtitle1"}
-            >{t`Error occurred while executing operation:`}</Typography>
+            <Typography use={"subtitle"}>{t`Error occurred while executing operation:`}</Typography>
             <Pre>
                 <code>{query}</code>
             </Pre>
@@ -40,7 +38,7 @@ const GqlErrorOverlay = (props: ErrorOverlayProps) => {
     if (stackTrace) {
         description = (
             <>
-                <Typography use={"subtitle1"}>{t`Complete stack trace:`}</Typography>
+                <Typography use={"subtitle"}>{t`Complete stack trace:`}</Typography>
                 <Pre>
                     <code>{stackTrace}</code>
                 </Pre>
@@ -50,5 +48,3 @@ const GqlErrorOverlay = (props: ErrorOverlayProps) => {
 
     return <ErrorOverlay title={title} message={message} description={description} />;
 };
-
-export default GqlErrorOverlay;
