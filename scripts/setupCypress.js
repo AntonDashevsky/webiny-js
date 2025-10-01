@@ -1,9 +1,12 @@
-const path = require("path");
-const fs = require("fs");
-const { green, red } = require("chalk");
-const { argv } = require("yargs");
-const { getStackOutput } = require("@webiny/project");
+import path from "path";
+import fs from "fs";
+import chalk from "chalk";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
+import { getStackOutput } from "@webiny/project";
 
+const { green, red } = chalk;
+const argv = yargs(hideBin(process.argv)).argv;
 const args = {
     env: argv.env || "dev",
     force: argv.force || false,
@@ -41,8 +44,8 @@ const args = {
 
     let cypressConfig = fs.readFileSync(cypressConfigPath, "utf8");
 
-    const apiOutput = getStackOutput({
-        folder: "apps/api",
+    const apiOutput = await getStackOutput({
+        app: "api",
         env: args.env,
         cwd: args.projectFolder
     });
@@ -61,26 +64,15 @@ const args = {
     // If testing with "local" stack, use "localhost" for the app URLs, otherwise fetch from state files.
     if (args.localhost) {
         const adminUrl = "http://localhost:3001";
-        const websiteUrl = "http://localhost:3000";
-
         cypressConfig = cypressConfig.replaceAll("{ADMIN_URL}", adminUrl);
-        cypressConfig = cypressConfig.replaceAll("{WEBSITE_URL}", websiteUrl);
-        cypressConfig = cypressConfig.replaceAll("{WEBSITE_PREVIEW_URL}", websiteUrl);
     } else {
-        const adminOutput = getStackOutput({
-            folder: "apps/admin",
-            env: args.env,
-            cwd: args.projectFolder
-        });
-        const websiteOutput = getStackOutput({
-            folder: "apps/website",
+        const adminOutput = await getStackOutput({
+            app: "admin",
             env: args.env,
             cwd: args.projectFolder
         });
 
         cypressConfig = cypressConfig.replaceAll("{ADMIN_URL}", adminOutput.appUrl);
-        cypressConfig = cypressConfig.replaceAll("{WEBSITE_URL}", websiteOutput.deliveryUrl);
-        cypressConfig = cypressConfig.replaceAll("{WEBSITE_PREVIEW_URL}", websiteOutput.appUrl);
     }
 
     fs.writeFileSync(cypressConfigPath, cypressConfig, "utf8");

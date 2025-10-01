@@ -1,5 +1,5 @@
 import React from "react";
-import { IWorkflowStep } from "~/types";
+import { IWorkflowStep } from "~/types.js";
 import { Accordion } from "@webiny/admin-ui";
 import { Color } from "~/admin/plugins/editor/publishingWorkflows/components/Step/Color.js";
 import { LockedIndicator } from "~/admin/plugins/editor/publishingWorkflows/components/Step/LockedIndicator.js";

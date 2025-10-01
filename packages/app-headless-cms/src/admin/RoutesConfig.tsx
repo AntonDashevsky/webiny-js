@@ -7,7 +7,7 @@ import { AdminConfig, AdminLayout } from "@webiny/app-admin";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ContentEntriesContainer } from "~/admin/views/contentEntries/ContentEntriesContainer.js";
 import { ContentEntries } from "~/admin/views/contentEntries/ContentEntries.js";
-import { Routes } from "~/routes";
+import { Routes } from "~/routes.js";
 import { CmsMenuLoader } from "~/admin/menus/CmsMenuLoader.js";
 
 const t = i18n.ns("app-headless-cms/admin/routes");

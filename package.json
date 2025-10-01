@@ -173,7 +173,7 @@
     "release": "tsx ./scripts/release/src/index.ts",
     "setup-project": "node scripts/setupProject",
     "setup-env-files": "node scripts/setupEnvFiles",
-    "setup-cypress": "node scripts/setupCypress",
+    "setup-cypress": "tsx scripts/setupCypress",
     "test": "vitest --config testing/vitest.config.ts --run",
     "test:ddb": "WEBINY_STORAGE=ddb vitest --config testing/vitest.config.ts --run",
     "test:es": "WEBINY_STORAGE=ddb-es,ddb vitest --config testing/vitest.config.ts --run",

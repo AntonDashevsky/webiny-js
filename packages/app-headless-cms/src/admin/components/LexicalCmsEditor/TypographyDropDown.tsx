@@ -15,7 +15,7 @@ import {
     $isListNode,
     ListNode
 } from "@webiny/lexical-nodes";
-import type { TypographyStyle } from "@webiny/theme/types";
+import type { TypographyStyle } from "@webiny/theme/types.js";
 import type { TypographyValue } from "@webiny/lexical-theme";
 // import { useTheme } from "@webiny/app-admin";
 
