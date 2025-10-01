@@ -150,7 +150,7 @@
     "clear-dist": "rm -rf packages/*/dist",
     "clear-webiny-build-cache": "rm -rf .webiny/cached-packages",
     "clear-node-modules": "rm -rf node_modules",
-    "clear-all": "yarn clear-dist && yarn clear-webiny-build-cache && yarn clear-node-modules && yarn clear-empty-package-folders",
+    "clear-all": "yarn clear-dist && yarn clear-webiny-build-cache && yarn clear-node-modules && yarn clear-empty-package-folders --no-preview",
     "clear-empty-package-folders": "node scripts/deleteEmptyPackageFolders.js",
     "cypress:open": "cd cypress-tests && yarn cypress open",
     "cy:open": "yarn cypress:open",
