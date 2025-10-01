@@ -5,7 +5,7 @@ import type { CSSObject } from "@emotion/react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
+import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary.js";
 import { allNodes } from "@webiny/lexical-nodes";
 import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
 import { createTheme, toTypographyEmotionMap } from "@webiny/lexical-theme";
