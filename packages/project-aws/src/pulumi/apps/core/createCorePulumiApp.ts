@@ -24,6 +24,7 @@ import { applyAwsResourceTags, getAwsRegion } from "~/pulumi/apps/awsUtils.js";
 import { License } from "@webiny/wcp";
 import { configureS3BucketMalwareProtection } from "./configureS3BucketMalwareProtection.js";
 import * as pulumi from "@pulumi/pulumi";
+import { CoreAuditLogsDynamo } from "~/pulumi/index.js";
 
 export type CorePulumiApp = ReturnType<typeof createCorePulumiApp>;
 
@@ -241,6 +242,7 @@ export function createCorePulumiApp() {
             // Setup DynamoDB table
             const dynamoDbTable = app.addModule(CoreDynamo, { protect });
             const logDynamoDbTable = app.addModule(LogDynamo, { protect });
+            const auditLogsDynamoDbTable = app.addModule(CoreAuditLogsDynamo, { protect });
 
             // Setup VPC
             const vpcEnabled =
@@ -283,6 +285,10 @@ export function createCorePulumiApp() {
                 logDynamodbTableName: logDynamoDbTable.output.name,
                 logDynamodbTableHashKey: logDynamoDbTable.output.hashKey,
                 logDynamodbTableRangeKey: logDynamoDbTable.output.rangeKey,
+                auditLogsDynamodbTableArn: auditLogsDynamoDbTable.output.arn,
+                auditLogsDynamodbTableName: auditLogsDynamoDbTable.output.name,
+                auditLogsDynamodbTableHashKey: auditLogsDynamoDbTable.output.hashKey,
+                auditLogsDynamodbTableRangeKey: auditLogsDynamoDbTable.output.rangeKey,
                 cognitoUserPoolId: cognito.userPool.output.id,
                 cognitoUserPoolArn: cognito.userPool.output.arn,
                 cognitoUserPoolPasswordPolicy: cognito.userPool.output.passwordPolicy,

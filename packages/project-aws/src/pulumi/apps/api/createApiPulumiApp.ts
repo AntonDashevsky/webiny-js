@@ -21,7 +21,6 @@ import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion.js";
 import { applyAwsResourceTags, getAwsAccountId } from "~/pulumi/apps/awsUtils.js";
 import type { WithServiceManifest } from "~/pulumi/utils/withServiceManifest.js";
 import { ApiScheduler } from "~/pulumi/apps/api/ApiScheduler.js";
-import { AuditLogsDynamo } from "~/pulumi/apps/api/AuditLogsDynamo.js";
 import { getProjectSdk } from "@webiny/project";
 import { getVpcConfigFromExtension } from "~/pulumi/apps/extensions/getVpcConfigFromExtension.js";
 import { getEsConfigFromExtension } from "../extensions/getEsConfigFromExtension.js";
@@ -147,11 +146,6 @@ export const createApiPulumiApp = () => {
             // Register core output as a module available to all the other modules
             const core = app.addModule(CoreOutput);
 
-            const protect = isProduction;
-            const auditLogsDynamoDb = app.addModule(AuditLogsDynamo, {
-                protect
-            });
-
             // Register VPC config module to be available to other modules.
             const vpcEnabled =
                 vpcExtensionsConfig === true ||
@@ -166,7 +160,7 @@ export const createApiPulumiApp = () => {
                     COGNITO_USER_POOL_ID: core.cognitoUserPoolId,
                     DB_TABLE: core.primaryDynamodbTableName,
                     DB_TABLE_LOG: core.logDynamodbTableName,
-                    DB_TABLE_AUDIT_LOGS: auditLogsDynamoDb.output.name,
+                    DB_TABLE_AUDIT_LOGS: core.auditLogsDynamodbTableName,
                     DB_TABLE_ELASTICSEARCH: core.elasticsearchDynamodbTableName,
                     ELASTIC_SEARCH_ENDPOINT: core.elasticsearchDomainEndpoint,
 
@@ -188,7 +182,7 @@ export const createApiPulumiApp = () => {
                 env: {
                     DB_TABLE: core.primaryDynamodbTableName,
                     DB_TABLE_LOG: core.logDynamodbTableName,
-                    DB_TABLE_AUDIT_LOGS: auditLogsDynamoDb.output.name
+                    DB_TABLE_AUDIT_LOGS: core.auditLogsDynamodbTableName
                 }
             });
 
@@ -257,7 +251,7 @@ export const createApiPulumiApp = () => {
                 cognitoAppClientId: core.cognitoAppClientId,
                 cognitoUserPoolPasswordPolicy: core.cognitoUserPoolPasswordPolicy,
                 dynamoDbTable: core.primaryDynamodbTableName,
-                auditLogsDynamoDbTable: auditLogsDynamoDb.output.name,
+                auditLogsDynamoDbTable: core.auditLogsDynamodbTableName,
                 migrationLambdaArn: migration.function.output.arn,
                 graphqlLambdaName: graphql.functions.graphql.output.name,
                 graphqlLambdaRole: graphql.role.output.arn,
