@@ -152,13 +152,13 @@ const createPushWorkflow = (branchName: string) => {
                 ...createDeployWebinySteps({ workingDirectory: DIR_TEST_PROJECT }),
                 ...withCommonParams(
                     [
-                        {
-                            name: "Deployment Summary",
-                            run: `${runNodeScript(
-                                "printDeploymentSummary",
-                                `../${DIR_TEST_PROJECT}`
-                            )} >> $GITHUB_STEP_SUMMARY`
-                        },
+                        // {
+                        //     name: "Deployment Summary",
+                        //     run: `${runNodeScript(
+                        //         "printDeploymentSummary",
+                        //         `../${DIR_TEST_PROJECT}`
+                        //     )} >> $GITHUB_STEP_SUMMARY`
+                        // },
                         {
                             name: "Create Cypress config",
                             run: `yarn setup-cypress --projectFolder ../${DIR_TEST_PROJECT}`
