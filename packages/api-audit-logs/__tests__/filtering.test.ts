@@ -231,7 +231,7 @@ describe("audit logs filtering", () => {
         expect(resultFrom2To3.items).toMatchObject([createdAuditLogs[2], createdAuditLogs[3]]);
     });
 
-    it("should filter audit logs by app and action", async () => {
+    it("should filter audit logs by app, entity and action", async () => {
         const context = await handler();
         await createMockAuditLogs({
             context
@@ -239,13 +239,15 @@ describe("audit logs filtering", () => {
 
         const fileManagerUpdateResult = await context.auditLogs.listAuditLogs({
             app: "FILE_MANAGER",
+            entity: "FILE",
             action: "UPDATE"
         });
-        expect(fileManagerUpdateResult.items).toHaveLength(1);
         expect(fileManagerUpdateResult.items).toMatchObject([createdAuditLogs[4]]);
+        expect(fileManagerUpdateResult.items).toHaveLength(1);
 
         const cmsCreateResult = await context.auditLogs.listAuditLogs({
             app: "HEADLESS_CMS",
+            "entity": "ENTRY",
             action: "CREATE"
         });
         expect(cmsCreateResult.items).toHaveLength(1);

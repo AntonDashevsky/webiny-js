@@ -63,7 +63,7 @@ class AuditLogsContextValueImpl implements AuditLogsContextValue {
         await this.checkPermissions(auditLog);
 
         await this.onBeforeCreate.publish({
-            auditLog: Object.freeze(auditLog),
+            auditLog: auditLog,
             context,
             setAuditLog(input) {
                 Object.assign(auditLog, input);
@@ -75,7 +75,7 @@ class AuditLogsContextValueImpl implements AuditLogsContextValue {
         });
         if (result.success) {
             await this.onAfterCreate.publish({
-                auditLog: Object.freeze(auditLog),
+                auditLog: auditLog,
                 context
             });
             return result.data;
@@ -109,8 +109,8 @@ class AuditLogsContextValueImpl implements AuditLogsContextValue {
         });
         if (result.success) {
             await this.onAfterUpdate.publish({
-                original: Object.freeze(original),
-                auditLog: Object.freeze(auditLog),
+                original: original,
+                auditLog: auditLog,
                 context
             });
             return result.data;
