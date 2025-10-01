@@ -29,8 +29,7 @@ export interface IDeleteUser {
 }
 
 export interface ICreateCognitoIdentityProviderClientCb {
-    (config: Partial<CognitoIdentityProviderClientConfig>): Pick<
-        CognitoIdentityProviderClient,
-        "send"
-    >;
+    (
+        config: Partial<CognitoIdentityProviderClientConfig>
+    ): Pick<CognitoIdentityProviderClient, "send">;
 }

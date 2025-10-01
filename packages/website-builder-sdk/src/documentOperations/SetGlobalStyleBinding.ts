@@ -15,7 +15,7 @@ export class SetGlobalStyleBinding implements IDocumentOperation {
     apply(document: Document) {
         const bindings = document.bindings[this.elementId] ?? { styles: {} };
         // @ts-expect-error String doesn't play well with CSSProperties.
-        const binding = bindings.styles ? bindings.styles[this.bindingPath] ?? {} : {};
+        const binding = bindings.styles ? (bindings.styles[this.bindingPath] ?? {}) : {};
         document.bindings[this.elementId] = {
             ...bindings,
             styles: {

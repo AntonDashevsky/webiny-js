@@ -48,11 +48,14 @@ describe("getI18NInformation Test", () => {
             }
         });
 
-        [response] = await getI18NInformation({}, {
-            headers: {
-                "accept-language": "en-GB,en;q=0.9,hr-HR;q=0.8,hr;q=0.7,en-US;q=0.6"
+        [response] = await getI18NInformation(
+            {},
+            {
+                headers: {
+                    "accept-language": "en-GB,en;q=0.9,hr-HR;q=0.8,hr;q=0.7,en-US;q=0.6"
+                }
             }
-        });
+        );
 
         expect(response).toMatchObject({
             data: {
@@ -74,12 +77,15 @@ describe("getI18NInformation Test", () => {
         });
 
         // We are also testing "not-all-lower-case" scenario.
-        [response] = await getI18NInformation({}, {
-            headers: {
-                "Accept-Language": "en-GB,en;q=0.9,hr-HR;q=0.8,hr;q=0.7,en-US;q=0.6",
-                "X-I18N-LOCALE": "default:en-US;content:en-GB"
+        [response] = await getI18NInformation(
+            {},
+            {
+                headers: {
+                    "Accept-Language": "en-GB,en;q=0.9,hr-HR;q=0.8,hr;q=0.7,en-US;q=0.6",
+                    "X-I18N-LOCALE": "default:en-US;content:en-GB"
+                }
             }
-        });
+        );
 
         expect(response).toMatchObject({
             data: {
@@ -100,12 +106,15 @@ describe("getI18NInformation Test", () => {
             }
         });
 
-        [response] = await getI18NInformation({}, {
-            headers: {
-                "accept-language": "en-GB,en;q=0.9,hr-HR;q=0.8,hr;q=0.7,en-US;q=0.6",
-                "x-i18n-locale": "default:it-IT;content:ru"
+        [response] = await getI18NInformation(
+            {},
+            {
+                headers: {
+                    "accept-language": "en-GB,en;q=0.9,hr-HR;q=0.8,hr;q=0.7,en-US;q=0.6",
+                    "x-i18n-locale": "default:it-IT;content:ru"
+                }
             }
-        });
+        );
 
         expect(response).toMatchObject({
             data: {

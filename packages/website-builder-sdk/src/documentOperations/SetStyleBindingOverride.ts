@@ -22,7 +22,7 @@ export class SetStyleBindingOverride implements IDocumentOperation {
     apply(document: Document) {
         const bindings = document.bindings[this.elementId] ?? {};
         const breakpointOverrides = bindings.overrides
-            ? bindings.overrides[this.breakpoint] ?? {}
+            ? (bindings.overrides[this.breakpoint] ?? {})
             : { styles: {} };
 
         const binding = breakpointOverrides.styles

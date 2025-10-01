@@ -18,7 +18,6 @@ interface State {
     loading: boolean;
 }
 
-
 interface SetPasswordParams {
     code: string;
     password: string;

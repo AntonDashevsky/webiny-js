@@ -46,7 +46,7 @@ export const ContentEntry = makeDecoratable("ContentEntry", () => {
                                     {invalidFields ? (
                                         <ValidationIndicators invalidFields={invalidFields} />
                                     ) : null}
-                                    {loading && <OverlayLoader text={"Loading entry..."}/>}
+                                    {loading && <OverlayLoader text={"Loading entry..."} />}
                                     <ContentEntryForm
                                         entry={entry}
                                         persistEntry={persistEntry}

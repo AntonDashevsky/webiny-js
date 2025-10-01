@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { autorun } from "mobx";
 import { createGenericContext } from "@webiny/app-admin";
-import type { ITrashBinControllers, ITrashBinPresenter } from "~/Presentation/abstractions/index.js";
+import type {
+    ITrashBinControllers,
+    ITrashBinPresenter
+} from "~/Presentation/abstractions/index.js";
 import type { TrashBinItemDTO, TrashBinTableRow } from "~/Domain/index.js";
 import type { TrashBinBulkActionsParams } from "~/types.js";
 

@@ -1,5 +1,8 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
-import type { CmsDeleteEntryOptions, CmsEntryResolverFactory as ResolverFactory } from "~/types/index.js";
+import type {
+    CmsDeleteEntryOptions,
+    CmsEntryResolverFactory as ResolverFactory
+} from "~/types/index.js";
 import { parseIdentifier } from "@webiny/utils";
 
 interface ResolveDeleteArgs {

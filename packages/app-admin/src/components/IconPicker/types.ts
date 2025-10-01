@@ -2,7 +2,6 @@
  * We want to have an abstract type, which does not define specifics of each possible icon (like color or skin tone).
  */
 export type Icon = {
-     
     type: "icon" | "emoji" | "custom" | (string & {});
     name: string;
     value?: string;

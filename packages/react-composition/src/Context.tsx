@@ -47,10 +47,10 @@ type ComponentScopes = Map<string, ComposedComponents>;
 export type DecoratableTypes = DecoratableComponent | DecoratableHook;
 
 interface CompositionContextGetComponentCallable {
-    (component: ComponentType<unknown>, scope: string[]):
-        | ComposedFunction
-        | GenericComponent
-        | undefined;
+    (
+        component: ComponentType<unknown>,
+        scope: string[]
+    ): ComposedFunction | GenericComponent | undefined;
 }
 
 interface CompositionContext {

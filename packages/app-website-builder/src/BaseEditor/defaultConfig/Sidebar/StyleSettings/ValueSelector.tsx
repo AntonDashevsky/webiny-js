@@ -112,7 +112,7 @@ export const ValueSelector = (props: ValueSelectorProps) => {
                         inputRef={inputRef}
                         disabled={props.isKeyword}
                         size={"md"}
-                        value={props.isKeyword ? "-" : props.value ?? defaultValue}
+                        value={props.isKeyword ? "-" : (props.value ?? defaultValue)}
                         onEnter={onEnter}
                         autoSelect={true}
                         onChange={value => setPreviewValue(value)}

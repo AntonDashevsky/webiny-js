@@ -2,7 +2,12 @@ import * as React from "react";
 import { toast as sonnerToast, type ToasterProps as SonnerToasterProps } from "sonner";
 import { ReactComponent as Check } from "@webiny/icons/check.svg";
 import { ReactComponent as Warning } from "@webiny/icons/warning.svg";
-import { ToastActions, ToastDescription, ToastTitle, type ToastRootProps } from "./components/index.js";
+import {
+    ToastActions,
+    ToastDescription,
+    ToastTitle,
+    type ToastRootProps
+} from "./components/index.js";
 import { Toast } from "./Toast.js";
 import { Icon } from "~/Icon/index.js";
 import { generateId } from "~/utils.js";

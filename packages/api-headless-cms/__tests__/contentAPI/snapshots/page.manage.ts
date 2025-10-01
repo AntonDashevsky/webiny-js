@@ -76,7 +76,7 @@ export default /* GraphQL */ `
     }
 
     union PageModelApiName_Content =
-          PageModelApiName_Content_Hero
+        | PageModelApiName_Content_Hero
         | PageModelApiName_Content_SimpleText
         | PageModelApiName_Content_Objecting
         | PageModelApiName_Content_Author
@@ -167,7 +167,7 @@ export default /* GraphQL */ `
     }
 
     union PageModelApiName_Content_Objecting_DynamicZone =
-          PageModelApiName_Content_Objecting_DynamicZone_SuperNestedObject
+        | PageModelApiName_Content_Objecting_DynamicZone_SuperNestedObject
 
     type PageModelApiName_Content_Objecting_DynamicZone_SuperNestedObject {
         authors: [RefField!]
@@ -204,7 +204,7 @@ export default /* GraphQL */ `
     }
 
     union PageModelApiName_Header =
-          PageModelApiName_Header_TextHeader
+        | PageModelApiName_Header_TextHeader
         | PageModelApiName_Header_ImageHeader
 
     type PageModelApiName_Header_TextHeader {

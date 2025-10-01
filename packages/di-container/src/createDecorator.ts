@@ -6,10 +6,8 @@ type DropLast<T> = T extends [...infer P, any] ? [...P] : never;
 
 type GetLast<T> = T extends [...any, infer Last] ? Last : never;
 
-type Implementation<
-    A extends Abstraction<any>,
-    I extends Constructor
-> = GetInterface<A> extends GetLast<ConstructorParameters<I>> ? I : "Wrong decoratee type!";
+type Implementation<A extends Abstraction<any>, I extends Constructor> =
+    GetInterface<A> extends GetLast<ConstructorParameters<I>> ? I : "Wrong decoratee type!";
 
 export function createDecorator<A extends Abstraction<any>, I extends Constructor>(params: {
     abstraction: A;

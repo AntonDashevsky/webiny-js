@@ -68,10 +68,9 @@ export const buildPackages = async () => {
         }
     }
 
-
     if (allPackages.length === 1) {
         const [pkg] = allPackages;
-        await buildPackage(pkg, options.buildOverrides, 'inherit');
+        await buildPackage(pkg, options.buildOverrides, "inherit");
     } else {
         const start = Date.now();
 

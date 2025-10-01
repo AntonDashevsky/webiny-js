@@ -290,18 +290,15 @@ export const Documentation: Story = {
         },
         onDismiss: {
             description:
-                "Callback function when the tag is dismissed. Please refer to the 'Dismissible Tag' example code for details.",
-            
+                "Callback function when the tag is dismissed. Please refer to the 'Dismissible Tag' example code for details."
         },
         dismissIconElement: {
             description:
-                "Custom dismiss icon element. Please refer to the 'Custom Dismiss Icon' example code for details.",
-            
+                "Custom dismiss icon element. Please refer to the 'Custom Dismiss Icon' example code for details."
         },
         dismissIconLabel: {
             description:
-                "Custom dismiss icon label. Please refer to the 'Custom Dismiss Icon' example code for details.",
-            
+                "Custom dismiss icon label. Please refer to the 'Custom Dismiss Icon' example code for details."
         }
     }
 };

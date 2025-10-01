@@ -62,7 +62,7 @@ export const UnitValuePicker = (props: UnitValueProps) => {
                 <Input
                     disabled={isAuto}
                     size={"md"}
-                    value={isAuto ? "-" : props.value ?? defaultValue}
+                    value={isAuto ? "-" : (props.value ?? defaultValue)}
                     onEnter={onEnter}
                     autoSelect={true}
                     onChange={value => setPreviewValue(value)}

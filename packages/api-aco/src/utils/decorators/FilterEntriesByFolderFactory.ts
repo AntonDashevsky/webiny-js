@@ -17,9 +17,8 @@ export class FilterEntriesByFolderFactory {
                     return entry;
                 }
 
-                const permissions = await this.folderLevelPermissions.getFolderLevelPermissions(
-                    folderId
-                );
+                const permissions =
+                    await this.folderLevelPermissions.getFolderLevelPermissions(folderId);
                 const canAccessFolderContent =
                     await this.folderLevelPermissions.canAccessFolderContent({
                         permissions,

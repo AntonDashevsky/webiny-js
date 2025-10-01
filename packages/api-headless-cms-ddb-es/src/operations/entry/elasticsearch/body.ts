@@ -12,7 +12,11 @@ import { createQueryModifierPluginList } from "./plugins/queryModifier.js";
 import { createSortModifierPluginList } from "./plugins/sortModifier.js";
 import { createBodyModifierPluginList } from "./plugins/bodyModifier.js";
 import { createElasticsearchSort } from "./sort.js";
-import type { PrimitiveValue, SearchBody, BoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import type {
+    PrimitiveValue,
+    SearchBody,
+    BoolQueryConfig
+} from "@webiny/api-elasticsearch/types.js";
 import { createExecFiltering } from "./filtering/index.js";
 import { assignMinimumShouldMatchToQuery } from "./assignMinimumShouldMatchToQuery.js";
 

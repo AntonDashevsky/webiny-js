@@ -3,7 +3,12 @@ import type ApolloClient from "apollo-client";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { config as appConfig } from "@webiny/app/config.js";
-import type { CmsContentEntry, CmsContentEntryRevision, CmsErrorResponse, CmsModel } from "~/types.js";
+import type {
+    CmsContentEntry,
+    CmsContentEntryRevision,
+    CmsErrorResponse,
+    CmsModel
+} from "~/types.js";
 import type {
     CmsEntriesListRevisionsQueryResponse,
     CmsEntriesListRevisionsQueryVariables,

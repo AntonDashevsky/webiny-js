@@ -62,7 +62,10 @@ test("should generate a complex nested dependency graph with multiple levels and
     rootContainer.register(databaseImpl);
 
     class ServiceManager {
-        constructor(public loggerManager: LoggerManager, public database: Database) {}
+        constructor(
+            public loggerManager: LoggerManager,
+            public database: Database
+        ) {}
     }
     const serviceManagerAbstraction = new Abstraction<ServiceManager>("ServiceManager");
     const serviceManagerImpl = createImplementation({

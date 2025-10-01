@@ -351,23 +351,19 @@ export const Documentation: Story = {
         },
         width: {
             description:
-                'Width defines the horizontal size of the Drawer and accepts any valid CSS width value. You can pass a number (interpreted as pixels) or a string like "80%", "50vw", "auto", etc., following React.CSSProperties["width"] types.',
-            
+                'Width defines the horizontal size of the Drawer and accepts any valid CSS width value. You can pass a number (interpreted as pixels) or a string like "80%", "50vw", "auto", etc., following React.CSSProperties["width"] types.'
         },
         info: {
             description:
-                "Additional info displayed below the description, please refer to the example below for details.",
-            
+                "Additional info displayed below the description, please refer to the example below for details."
         },
         children: {
             description:
-                "Content of the Drawer, please refer to the 'With Dropdown Menu' and ''With Tabs' example below for details.",
-            
+                "Content of the Drawer, please refer to the 'With Dropdown Menu' and ''With Tabs' example below for details."
         },
         actions: {
             description:
-                "Actions displayed in the footer, please refer to the code example for details.",
-            
+                "Actions displayed in the footer, please refer to the code example for details."
         }
     }
 };

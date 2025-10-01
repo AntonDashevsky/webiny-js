@@ -8,7 +8,11 @@ import { ReactComponent as ArrowUpIcon } from "@webiny/icons/expand_less.svg";
 import { ReactComponent as ArrowDownIcon } from "@webiny/icons/expand_more.svg";
 import { AccordionItem } from "@webiny/ui/Accordion/index.js";
 import { useConfirmationDialog } from "@webiny/app-admin";
-import { pullValueAtIndex, pushValueAtIndex, removeValueAtIndex } from "~/admin/plugins/arrayUtils.js";
+import {
+    pullValueAtIndex,
+    pushValueAtIndex,
+    removeValueAtIndex
+} from "~/admin/plugins/arrayUtils.js";
 import type { CmsDynamicZoneTemplate, CmsEditorFieldsLayout, CmsModelField } from "~/types.js";
 import { TemplateDialog } from "./TemplateDialog.js";
 import { FieldEditor } from "~/admin/components/FieldEditor/index.js";

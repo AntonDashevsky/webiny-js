@@ -1,5 +1,11 @@
-import type { IWebsocketsConnectionRegistry, IWebsocketsConnectionRegistryData } from "~/registry/index.js";
-import type { IWebsocketsTransportSendConnection, IWebsocketsTransportSendData } from "~/transport/index.js";
+import type {
+    IWebsocketsConnectionRegistry,
+    IWebsocketsConnectionRegistryData
+} from "~/registry/index.js";
+import type {
+    IWebsocketsTransportSendConnection,
+    IWebsocketsTransportSendData
+} from "~/transport/index.js";
 import type { SecurityIdentity } from "@webiny/api-security/types.js";
 import type { GenericRecord } from "@webiny/api/types.js";
 

@@ -1,4 +1,8 @@
-import type { CmsEntry, CmsEntryListParams, CmsEntryMeta } from "@webiny/api-headless-cms/types/index.js";
+import type {
+    CmsEntry,
+    CmsEntryListParams,
+    CmsEntryMeta
+} from "@webiny/api-headless-cms/types/index.js";
 
 export interface IListEntries {
     execute: (

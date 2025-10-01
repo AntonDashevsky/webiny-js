@@ -181,21 +181,17 @@ export const Documentation: Story = {
         },
         transformValue: {
             description:
-                "Function to transform the numeric values to display text. Please refer to the example code for details on usage.",
-            
+                "Function to transform the numeric values to display text. Please refer to the example code for details on usage."
         },
         validation: {
             description:
-                "Object containing validation state and message. Please refer to the example code for details on usage.",
-            
+                "Object containing validation state and message. Please refer to the example code for details on usage."
         },
         onValuesChange: {
-            description: "Function called when the range slider values change",
-            
+            description: "Function called when the range slider values change"
         },
         onValuesCommit: {
-            description: "Function called when the range slider values are committed (on release)",
-            
+            description: "Function called when the range slider values are committed (on release)"
         }
     }
 };

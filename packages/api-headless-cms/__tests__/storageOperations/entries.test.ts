@@ -3,7 +3,6 @@ import { createPersonEntries, createPersonModel, deletePersonModel } from "./hel
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { createStorageOperationsContext } from "~tests/storageOperations/context";
 
-
 vi.setConfig({
     testTimeout: 100_000
 });

@@ -1,4 +1,10 @@
-import type { CmsEntry, CmsEntryListParams, CmsEntryMeta, CmsEntryValues, CmsModel } from "~/types/index.js";
+import type {
+    CmsEntry,
+    CmsEntryListParams,
+    CmsEntryMeta,
+    CmsEntryValues,
+    CmsModel
+} from "~/types/index.js";
 
 export interface IListEntries {
     execute: <T extends CmsEntryValues>(

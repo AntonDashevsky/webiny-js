@@ -178,12 +178,10 @@ export const Documentation: Story = {
             description: "Variant of the toast."
         },
         actions: {
-            description: "Please refer to the 'With Actions' example below for details.",
-            
+            description: "Please refer to the 'With Actions' example below for details."
         },
         icon: {
-            description: "Please refer to the 'With Custom Icon' example below for details.",
-            
+            description: "Please refer to the 'With Custom Icon' example below for details."
         },
         duration: {
             description:
@@ -191,8 +189,7 @@ export const Documentation: Story = {
             control: "number"
         },
         dismissible: {
-            description: "Please refer to the 'Not Dismissible' example below for details.",
-            
+            description: "Please refer to the 'Not Dismissible' example below for details."
         },
         position: {
             description: "Please refer to the 'With Custom Position' example below for details.",

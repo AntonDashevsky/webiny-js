@@ -11,7 +11,10 @@ export class HoverManager {
     private running = false;
     private margin = 0;
 
-    constructor(private mouse: { x: number; y: number }, private getAllBoxes: () => Boxes) {}
+    constructor(
+        private mouse: { x: number; y: number },
+        private getAllBoxes: () => Boxes
+    ) {}
 
     onHoverChange(cb: HoverCallback): () => void {
         this.callbacks.add(cb);

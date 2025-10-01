@@ -1,6 +1,12 @@
 import WebinyError from "@webiny/error";
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
-import type { CmsContext, CmsEntry, CmsEntryListWhere, CmsIdentity, CmsModel } from "~/types/index.js";
+import type {
+    CmsContext,
+    CmsEntry,
+    CmsEntryListWhere,
+    CmsIdentity,
+    CmsModel
+} from "~/types/index.js";
 import { NotAuthorizedResponse } from "@webiny/api-security";
 import { getEntryTitle } from "~/utils/getEntryTitle.js";
 import type { ICmsGraphQLSchemaPlugin } from "~/plugins/index.js";
@@ -181,10 +187,13 @@ const getContentEntries = async (
 
     const models = await context.cms.listModels();
 
-    const modelsMap = models.reduce((collection, model) => {
-        collection[model.modelId] = model;
-        return collection;
-    }, {} as Record<string, CmsModel>);
+    const modelsMap = models.reduce(
+        (collection, model) => {
+            collection[model.modelId] = model;
+            return collection;
+        },
+        {} as Record<string, CmsModel>
+    );
 
     const argsEntries = args.entries as Pick<CmsEntry, "id" | "modelId">[];
 

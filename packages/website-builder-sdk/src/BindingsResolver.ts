@@ -133,7 +133,7 @@ export class BindingsResolver {
 
         // Resolve styles
         const styles: DocumentElementStyleBindings = elementBindings.styles
-            ? elementBindings.styles ?? {}
+            ? (elementBindings.styles ?? {})
             : {};
 
         const resolvedStyles: SerializableCSSStyleDeclaration = {};

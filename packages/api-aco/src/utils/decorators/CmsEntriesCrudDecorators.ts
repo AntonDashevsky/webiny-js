@@ -145,9 +145,8 @@ export class CmsEntriesCrudDecorators {
                     return decoratee(model, id, input, options);
                 }
 
-                const permissions = await folderLevelPermissions.getFolderLevelPermissions(
-                    folderId
-                );
+                const permissions =
+                    await folderLevelPermissions.getFolderLevelPermissions(folderId);
                 await folderLevelPermissions.ensureCanAccessFolderContent({
                     permissions,
                     rwd: "w"
@@ -216,9 +215,8 @@ export class CmsEntriesCrudDecorators {
                     return decoratee(model, id);
                 }
 
-                const permissions = await folderLevelPermissions.getFolderLevelPermissions(
-                    folderId
-                );
+                const permissions =
+                    await folderLevelPermissions.getFolderLevelPermissions(folderId);
                 await folderLevelPermissions.ensureCanAccessFolderContent({
                     permissions,
                     rwd: "d"
@@ -248,9 +246,8 @@ export class CmsEntriesCrudDecorators {
                 /**
                  * If entry current folder is not a root, check for access
                  */
-                const permissions = await folderLevelPermissions.getFolderLevelPermissions(
-                    folderId
-                );
+                const permissions =
+                    await folderLevelPermissions.getFolderLevelPermissions(folderId);
                 await folderLevelPermissions.ensureCanAccessFolderContent({
                     permissions,
                     rwd: "w"
@@ -260,9 +257,8 @@ export class CmsEntriesCrudDecorators {
              * If target folder is not a ROOT_FOLDER, check for access.
              */
             if (targetFolderId !== ROOT_FOLDER) {
-                const permissions = await folderLevelPermissions.getFolderLevelPermissions(
-                    folderId
-                );
+                const permissions =
+                    await folderLevelPermissions.getFolderLevelPermissions(folderId);
                 await folderLevelPermissions.ensureCanAccessFolderContent({
                     permissions,
                     rwd: "w"

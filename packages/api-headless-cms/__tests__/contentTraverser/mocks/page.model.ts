@@ -1535,14 +1535,12 @@ export const pageModel = createPrivateModel({
                                                                                     label: "Layout",
                                                                                     predefinedValues:
                                                                                         {
-                                                                                            enabled:
-                                                                                                true,
+                                                                                            enabled: true,
                                                                                             values: [
                                                                                                 {
                                                                                                     label: "Media position left",
                                                                                                     value: "imageLeft",
-                                                                                                    selected:
-                                                                                                        true
+                                                                                                    selected: true
                                                                                                 },
                                                                                                 {
                                                                                                     label: "Media position right",
@@ -1573,8 +1571,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "object"
                                                                                     },
@@ -1588,8 +1585,7 @@ export const pageModel = createPrivateModel({
                                                                                         fields: [
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "enhanced-text-input"
@@ -1610,20 +1606,17 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 validation:
                                                                                                     [],
                                                                                                 predefinedValues:
                                                                                                     {
-                                                                                                        enabled:
-                                                                                                            true,
+                                                                                                        enabled: true,
                                                                                                         values: [
                                                                                                             {
                                                                                                                 label: "Auto generated",
                                                                                                                 value: "auto",
-                                                                                                                selected:
-                                                                                                                    true
+                                                                                                                selected: true
                                                                                                             },
                                                                                                             {
                                                                                                                 label: "H2",
@@ -1700,8 +1693,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        true,
+                                                                                    multipleValues: true,
                                                                                     renderer: {
                                                                                         name: "asset-input"
                                                                                     },
@@ -1733,8 +1725,7 @@ export const pageModel = createPrivateModel({
                                                                                         fields: [
                                                                                             {
                                                                                                 type: "file",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 label: "File",
                                                                                                 helpText:
                                                                                                     "How to change the start image of a video please see http://acme.com/dam FAQ",
@@ -1746,8 +1737,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "text-input"
@@ -1763,8 +1753,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "slug-field-input"
@@ -1780,8 +1769,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "text-input"
@@ -1809,8 +1797,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "text-input"
@@ -1842,8 +1829,7 @@ export const pageModel = createPrivateModel({
                                                                                                     "text@mrtMediaCrop",
                                                                                                 settings:
                                                                                                     {
-                                                                                                        disabled:
-                                                                                                            true
+                                                                                                        disabled: true
                                                                                                     }
                                                                                             }
                                                                                         ],
@@ -1872,8 +1858,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "object"
                                                                                     },
@@ -1891,8 +1876,7 @@ export const pageModel = createPrivateModel({
                                                                                                 type: "text",
                                                                                                 validation:
                                                                                                     [],
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "text-input"
@@ -1933,8 +1917,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        true,
+                                                                                    multipleValues: true,
                                                                                     renderer: {
                                                                                         name: "objects"
                                                                                     },
@@ -1948,8 +1931,7 @@ export const pageModel = createPrivateModel({
                                                                                         fields: [
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 validation:
                                                                                                     [
                                                                                                         {
@@ -2029,8 +2011,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "object"
                                                                                     },
@@ -2044,8 +2025,7 @@ export const pageModel = createPrivateModel({
                                                                                         fields: [
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "enhanced-text-input"
@@ -2066,20 +2046,17 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 validation:
                                                                                                     [],
                                                                                                 predefinedValues:
                                                                                                     {
-                                                                                                        enabled:
-                                                                                                            true,
+                                                                                                        enabled: true,
                                                                                                         values: [
                                                                                                             {
                                                                                                                 label: "Auto generated",
                                                                                                                 value: "auto",
-                                                                                                                selected:
-                                                                                                                    true
+                                                                                                                selected: true
                                                                                                             },
                                                                                                             {
                                                                                                                 label: "H2",
@@ -2183,8 +2160,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        true,
+                                                                                    multipleValues: true,
                                                                                     renderer: {
                                                                                         name: "asset-input"
                                                                                     },
@@ -2221,8 +2197,7 @@ export const pageModel = createPrivateModel({
                                                                                         fields: [
                                                                                             {
                                                                                                 type: "file",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 label: "File",
                                                                                                 helpText:
                                                                                                     "How to change the start image of a video please see http://acme.com/dam FAQ",
@@ -2234,8 +2209,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "text-input"
@@ -2251,8 +2225,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "slug-field-input"
@@ -2268,8 +2241,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "text-input"
@@ -2297,8 +2269,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "text-input"
@@ -2330,8 +2301,7 @@ export const pageModel = createPrivateModel({
                                                                                                     "text@galleryMediaCrop",
                                                                                                 settings:
                                                                                                     {
-                                                                                                        disabled:
-                                                                                                            true
+                                                                                                        disabled: true
                                                                                                     }
                                                                                             }
                                                                                         ],
@@ -2394,8 +2364,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "asset-input"
                                                                                     },
@@ -2418,8 +2387,7 @@ export const pageModel = createPrivateModel({
                                                                                         fields: [
                                                                                             {
                                                                                                 type: "file",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 label: "File",
                                                                                                 helpText:
                                                                                                     "How to change the start image of a video please see http://acme.com/dam FAQ",
@@ -2431,8 +2399,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "text-input"
@@ -2448,8 +2415,7 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "slug-field-input"
@@ -2481,8 +2447,7 @@ export const pageModel = createPrivateModel({
                                                                                                     "text@contentTeaserRowMediaCrop",
                                                                                                 settings:
                                                                                                     {
-                                                                                                        disabled:
-                                                                                                            true
+                                                                                                        disabled: true
                                                                                                     }
                                                                                             }
                                                                                         ],
@@ -2505,8 +2470,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "object"
                                                                                     },
@@ -2520,8 +2484,7 @@ export const pageModel = createPrivateModel({
                                                                                         fields: [
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "enhanced-text-input"
@@ -2542,20 +2505,17 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 validation:
                                                                                                     [],
                                                                                                 predefinedValues:
                                                                                                     {
-                                                                                                        enabled:
-                                                                                                            true,
+                                                                                                        enabled: true,
                                                                                                         values: [
                                                                                                             {
                                                                                                                 label: "Auto generated",
                                                                                                                 value: "auto",
-                                                                                                                selected:
-                                                                                                                    true
+                                                                                                                selected: true
                                                                                                             },
                                                                                                             {
                                                                                                                 label: "H2",
@@ -2618,8 +2578,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "object"
                                                                                     },
@@ -2637,8 +2596,7 @@ export const pageModel = createPrivateModel({
                                                                                                 type: "text",
                                                                                                 validation:
                                                                                                     [],
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "text-input"
@@ -2679,8 +2637,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        true,
+                                                                                    multipleValues: true,
                                                                                     renderer: {
                                                                                         name: "objects"
                                                                                     },
@@ -2694,8 +2651,7 @@ export const pageModel = createPrivateModel({
                                                                                         fields: [
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 validation:
                                                                                                     [
                                                                                                         {
@@ -2800,8 +2756,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "object",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "object"
                                                                                     },
@@ -2815,8 +2770,7 @@ export const pageModel = createPrivateModel({
                                                                                         fields: [
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 renderer:
                                                                                                     {
                                                                                                         name: "enhanced-text-input"
@@ -2837,20 +2791,17 @@ export const pageModel = createPrivateModel({
                                                                                             },
                                                                                             {
                                                                                                 type: "text",
-                                                                                                multipleValues:
-                                                                                                    false,
+                                                                                                multipleValues: false,
                                                                                                 validation:
                                                                                                     [],
                                                                                                 predefinedValues:
                                                                                                     {
-                                                                                                        enabled:
-                                                                                                            true,
+                                                                                                        enabled: true,
                                                                                                         values: [
                                                                                                             {
                                                                                                                 label: "Auto generated",
                                                                                                                 value: "auto",
-                                                                                                                selected:
-                                                                                                                    true
+                                                                                                                selected: true
                                                                                                             },
                                                                                                             {
                                                                                                                 label: "H2",
@@ -2921,14 +2872,12 @@ export const pageModel = createPrivateModel({
                                                                                         "When “with flyout” is selected, a flyout will only appear if in the flyout is in minimum one teaser: if there’s only the flyout title and/or text, it’s not shown due to UX reasons. In this case please use Accordion/Tab element.",
                                                                                     predefinedValues:
                                                                                         {
-                                                                                            enabled:
-                                                                                                true,
+                                                                                            enabled: true,
                                                                                             values: [
                                                                                                 {
                                                                                                     label: "3 teaser per row",
                                                                                                     value: "3-col",
-                                                                                                    selected:
-                                                                                                        true
+                                                                                                    selected: true
                                                                                                 },
                                                                                                 {
                                                                                                     label: "3 teaser per row with flyout",
@@ -2955,14 +2904,12 @@ export const pageModel = createPrivateModel({
                                                                                     label: "Variation",
                                                                                     predefinedValues:
                                                                                         {
-                                                                                            enabled:
-                                                                                                true,
+                                                                                            enabled: true,
                                                                                             values: [
                                                                                                 {
                                                                                                     label: "All elements",
                                                                                                     value: "teaser_card",
-                                                                                                    selected:
-                                                                                                        true
+                                                                                                    selected: true
                                                                                                 },
                                                                                                 {
                                                                                                     label: "Teaser title and image",
@@ -2989,8 +2936,7 @@ export const pageModel = createPrivateModel({
                                                                                     renderer: {
                                                                                         name: "dynamicZone"
                                                                                     },
-                                                                                    multipleValues:
-                                                                                        true,
+                                                                                    multipleValues: true,
                                                                                     settings: {
                                                                                         templates: [
                                                                                             {
@@ -3008,8 +2954,7 @@ export const pageModel = createPrivateModel({
                                                                                                         type: "object",
                                                                                                         validation:
                                                                                                             [],
-                                                                                                        multipleValues:
-                                                                                                            false,
+                                                                                                        multipleValues: false,
                                                                                                         renderer:
                                                                                                             {
                                                                                                                 name: "asset-input"
@@ -3034,8 +2979,7 @@ export const pageModel = createPrivateModel({
                                                                                                                 fields: [
                                                                                                                     {
                                                                                                                         type: "file",
-                                                                                                                        multipleValues:
-                                                                                                                            false,
+                                                                                                                        multipleValues: false,
                                                                                                                         label: "File",
                                                                                                                         helpText:
                                                                                                                             "How to change the start image of a video please see http://acme.com/dam FAQ",
@@ -3047,8 +2991,7 @@ export const pageModel = createPrivateModel({
                                                                                                                     },
                                                                                                                     {
                                                                                                                         type: "text",
-                                                                                                                        multipleValues:
-                                                                                                                            false,
+                                                                                                                        multipleValues: false,
                                                                                                                         renderer:
                                                                                                                             {
                                                                                                                                 name: "text-input"
@@ -3064,8 +3007,7 @@ export const pageModel = createPrivateModel({
                                                                                                                     },
                                                                                                                     {
                                                                                                                         type: "text",
-                                                                                                                        multipleValues:
-                                                                                                                            false,
+                                                                                                                        multipleValues: false,
                                                                                                                         renderer:
                                                                                                                             {
                                                                                                                                 name: "slug-field-input"
@@ -3097,8 +3039,7 @@ export const pageModel = createPrivateModel({
                                                                                                                             "text@teaserRoutingCardMediaCrop",
                                                                                                                         settings:
                                                                                                                             {
-                                                                                                                                disabled:
-                                                                                                                                    true
+                                                                                                                                disabled: true
                                                                                                                             }
                                                                                                                     }
                                                                                                                 ],
@@ -3129,14 +3070,12 @@ export const pageModel = createPrivateModel({
                                                                                                         label: "Background option",
                                                                                                         predefinedValues:
                                                                                                             {
-                                                                                                                enabled:
-                                                                                                                    true,
+                                                                                                                enabled: true,
                                                                                                                 values: [
                                                                                                                     {
                                                                                                                         label: "Fixed Width",
                                                                                                                         value: "fixed",
-                                                                                                                        selected:
-                                                                                                                            true
+                                                                                                                        selected: true
                                                                                                                     },
                                                                                                                     {
                                                                                                                         label: "Transparent Background",
@@ -3164,8 +3103,7 @@ export const pageModel = createPrivateModel({
                                                                                                                         "Value is required."
                                                                                                                 }
                                                                                                             ],
-                                                                                                        multipleValues:
-                                                                                                            false,
+                                                                                                        multipleValues: false,
                                                                                                         renderer:
                                                                                                             {
                                                                                                                 name: "enhanced-text-input"
@@ -3188,8 +3126,7 @@ export const pageModel = createPrivateModel({
                                                                                                     },
                                                                                                     {
                                                                                                         type: "text",
-                                                                                                        multipleValues:
-                                                                                                            false,
+                                                                                                        multipleValues: false,
                                                                                                         renderer:
                                                                                                             {
                                                                                                                 name: "enhanced-text-input"
@@ -3557,8 +3494,7 @@ export const pageModel = createPrivateModel({
                                                                             fields: [
                                                                                 {
                                                                                     type: "file",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     label: "File",
                                                                                     helpText:
                                                                                         "How to change the start image of a video please see http://acme.com/dam FAQ",
@@ -3569,8 +3505,7 @@ export const pageModel = createPrivateModel({
                                                                                 },
                                                                                 {
                                                                                     type: "text",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "text-input"
                                                                                     },
@@ -3585,8 +3520,7 @@ export const pageModel = createPrivateModel({
                                                                                 },
                                                                                 {
                                                                                     type: "text",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "slug-field-input"
                                                                                     },
@@ -3613,8 +3547,7 @@ export const pageModel = createPrivateModel({
                                                                                     storageId:
                                                                                         "text@contentTeaserRowMediaCrop",
                                                                                     settings: {
-                                                                                        disabled:
-                                                                                            true
+                                                                                        disabled: true
                                                                                     }
                                                                                 }
                                                                             ],
@@ -3650,8 +3583,7 @@ export const pageModel = createPrivateModel({
                                                                             fields: [
                                                                                 {
                                                                                     type: "text",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "enhanced-text-input"
                                                                                     },
@@ -3670,19 +3602,16 @@ export const pageModel = createPrivateModel({
                                                                                 },
                                                                                 {
                                                                                     type: "text",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     validation: [],
                                                                                     predefinedValues:
                                                                                         {
-                                                                                            enabled:
-                                                                                                true,
+                                                                                            enabled: true,
                                                                                             values: [
                                                                                                 {
                                                                                                     label: "Auto generated",
                                                                                                     value: "auto",
-                                                                                                    selected:
-                                                                                                        true
+                                                                                                    selected: true
                                                                                                 },
                                                                                                 {
                                                                                                     label: "H2",
@@ -3760,8 +3689,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "text",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "text-input"
                                                                                     },
@@ -3813,8 +3741,7 @@ export const pageModel = createPrivateModel({
                                                                             fields: [
                                                                                 {
                                                                                     type: "text",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     validation: [
                                                                                         {
                                                                                             name: "required",
@@ -5020,8 +4947,7 @@ export const pageModel = createPrivateModel({
                                                                             fields: [
                                                                                 {
                                                                                     type: "file",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     label: "File",
                                                                                     helpText:
                                                                                         "How to change the start image of a video please see http://acme.com/dam FAQ",
@@ -5032,8 +4958,7 @@ export const pageModel = createPrivateModel({
                                                                                 },
                                                                                 {
                                                                                     type: "text",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "text-input"
                                                                                     },
@@ -5048,8 +4973,7 @@ export const pageModel = createPrivateModel({
                                                                                 },
                                                                                 {
                                                                                     type: "text",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "slug-field-input"
                                                                                     },
@@ -5076,8 +5000,7 @@ export const pageModel = createPrivateModel({
                                                                                     storageId:
                                                                                         "text@referenceSliderCardMediaCrop",
                                                                                     settings: {
-                                                                                        disabled:
-                                                                                            true
+                                                                                        disabled: true
                                                                                     }
                                                                                 }
                                                                             ],
@@ -5239,8 +5162,7 @@ export const pageModel = createPrivateModel({
                                                                                 {
                                                                                     type: "text",
                                                                                     validation: [],
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "text-input"
                                                                                     },
@@ -5857,8 +5779,7 @@ export const pageModel = createPrivateModel({
                                                                             fields: [
                                                                                 {
                                                                                     type: "file",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     label: "File",
                                                                                     helpText:
                                                                                         "How to change the start image of a video please see http://acme.com/dam FAQ",
@@ -5869,8 +5790,7 @@ export const pageModel = createPrivateModel({
                                                                                 },
                                                                                 {
                                                                                     type: "text",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "text-input"
                                                                                     },
@@ -5885,8 +5805,7 @@ export const pageModel = createPrivateModel({
                                                                                 },
                                                                                 {
                                                                                     type: "text",
-                                                                                    multipleValues:
-                                                                                        false,
+                                                                                    multipleValues: false,
                                                                                     renderer: {
                                                                                         name: "slug-field-input"
                                                                                     },
@@ -5913,8 +5832,7 @@ export const pageModel = createPrivateModel({
                                                                                     storageId:
                                                                                         "text@teaserRoutingCardMediaCrop",
                                                                                     settings: {
-                                                                                        disabled:
-                                                                                            true
+                                                                                        disabled: true
                                                                                     }
                                                                                 }
                                                                             ],

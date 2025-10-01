@@ -155,8 +155,7 @@ export const Documentation: Story = {
     argTypes: {
         icon: {
             description:
-                "The SVG icon component to be rendered. Please refer to the example code for details.",
-            
+                "The SVG icon component to be rendered. Please refer to the example code for details."
         },
         label: {
             description: "Accessible label for the icon (for screen readers)",

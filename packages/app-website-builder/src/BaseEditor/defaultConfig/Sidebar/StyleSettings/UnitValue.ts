@@ -26,7 +26,7 @@ export class UnitValue {
     }
 
     getValue(defaultValue?: string) {
-        return this.value ? this.value.toString() : defaultValue ?? "";
+        return this.value ? this.value.toString() : (defaultValue ?? "");
     }
 
     setUnit(unit: string) {

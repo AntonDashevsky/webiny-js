@@ -1,6 +1,9 @@
 import React from "react";
 import { cn, Text, TimeAgo } from "@webiny/admin-ui";
-import type { CmsContentEntryStatusType, CmsIdentity } from "@webiny/app-headless-cms-common/types/index.js";
+import type {
+    CmsContentEntryStatusType,
+    CmsIdentity
+} from "@webiny/app-headless-cms-common/types/index.js";
 
 interface ExcerptProps {
     modelName: string;

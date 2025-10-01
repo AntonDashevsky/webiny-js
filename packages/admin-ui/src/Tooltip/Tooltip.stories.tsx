@@ -113,13 +113,11 @@ export const Documentation: Story = {
     argTypes: {
         trigger: {
             description:
-                "The element that triggers the tooltip when hovered. Please refer to the example code for details.",
-            
+                "The element that triggers the tooltip when hovered. Please refer to the example code for details."
         },
         content: {
             description:
-                "The content to display inside the tooltip. Please refer to the example code for details.",
-            
+                "The content to display inside the tooltip. Please refer to the example code for details."
         },
         side: {
             description: "The side of the trigger where the tooltip appears.",

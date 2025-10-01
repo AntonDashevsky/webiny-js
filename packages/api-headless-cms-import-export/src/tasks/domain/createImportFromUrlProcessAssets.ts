@@ -7,7 +7,10 @@ import type {
     IImportFromUrlProcessAssetsOutput
 } from "./importFromUrlProcessAssets/abstractions/ImportFromUrlProcessAssets.js";
 import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
-import { createCompressedFileReader, createDecompressor } from "~/tasks/utils/decompressor/index.js";
+import {
+    createCompressedFileReader,
+    createDecompressor
+} from "~/tasks/utils/decompressor/index.js";
 import { createMultipartUpload, createMultipartUploadFactory } from "~/tasks/utils/upload/index.js";
 import { FileFetcher } from "~/tasks/utils/fileFetcher/index.js";
 

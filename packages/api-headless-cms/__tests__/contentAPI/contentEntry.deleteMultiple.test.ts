@@ -7,7 +7,7 @@ import { useCategoryReadHandler } from "~tests/testHelpers/useCategoryReadHandle
 import { parseIdentifier } from "@webiny/utils";
 
 vi.setConfig({
-    testTimeout: 100_000,
+    testTimeout: 100_000
 });
 
 interface CreateCategoryParams {

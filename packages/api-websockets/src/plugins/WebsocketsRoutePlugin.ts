@@ -1,5 +1,9 @@
 import { Plugin } from "@webiny/plugins";
-import type { IWebsocketsEvent, IWebsocketsEventData, WebsocketsEventRoute } from "~/handler/types.js";
+import type {
+    IWebsocketsEvent,
+    IWebsocketsEventData,
+    WebsocketsEventRoute
+} from "~/handler/types.js";
 import type { Context } from "~/types.js";
 import type { IWebsocketsRunnerResponse } from "~/runner/index.js";
 import type { IWebsocketsConnectionRegistry } from "~/registry/index.js";

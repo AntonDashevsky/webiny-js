@@ -32,8 +32,7 @@ const meta: Meta<typeof IconButton> = {
             defaultValue: false
         },
         icon: {
-            description: "Please refer to the example above for usage information.",
-            
+            description: "Please refer to the example above for usage information."
         },
         onClick: { action: "onClick" }
     }

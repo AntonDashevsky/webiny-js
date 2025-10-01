@@ -1,4 +1,3 @@
- 
 // Page from template
 const pageFromTemplate = {
     // Field type: "searchable-json"

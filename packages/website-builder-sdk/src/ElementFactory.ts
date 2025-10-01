@@ -232,7 +232,9 @@ export class ElementFactory {
                 ops.push(
                     operations.setInputBinding(elementId, path, {
                         id: generateElementId(),
-                        static: ignoreDefaultValues ? undefined : value ?? node.input.defaultValue,
+                        static: ignoreDefaultValues
+                            ? undefined
+                            : (value ?? node.input.defaultValue),
                         type: node.type,
                         list: node.list,
                         translatable: node.input.translatable

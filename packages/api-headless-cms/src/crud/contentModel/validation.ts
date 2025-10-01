@@ -2,7 +2,10 @@ import zod from "zod";
 import upperFirst from "lodash/upperFirst.js";
 import camelCase from "lodash/camelCase.js";
 import type { NonEmptyArray } from "@webiny/api/types.js";
-import type { CmsModelSettingsWorkflowStep, CmsModelSettingsWorkflowStepTeam } from "~/types/index.js";
+import type {
+    CmsModelSettingsWorkflowStep,
+    CmsModelSettingsWorkflowStepTeam
+} from "~/types/index.js";
 
 const fieldSystemFields: string[] = [
     "id",
@@ -244,9 +247,12 @@ const modelSettingsWorkflowStepValidation = zod.object({
 const modelSettingsWorkflowValidation = zod.object({
     id: zod.string(),
     name: zod.string(),
-    steps: zod.array(modelSettingsWorkflowStepValidation).min(1, "You must add at least one step.").transform(value => {
-        return value as NonEmptyArray<CmsModelSettingsWorkflowStep>;
-    })
+    steps: zod
+        .array(modelSettingsWorkflowStepValidation)
+        .min(1, "You must add at least one step.")
+        .transform(value => {
+            return value as NonEmptyArray<CmsModelSettingsWorkflowStep>;
+        })
 });
 
 const modelSettingsValidation = zod

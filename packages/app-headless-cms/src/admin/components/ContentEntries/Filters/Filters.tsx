@@ -6,7 +6,10 @@ import { useContentEntriesList } from "~/admin/views/contentEntries/hooks/index.
 import { AdvancedSearch, GraphQLInputMapper, useFilterRepository } from "@webiny/app-aco";
 import { useModel } from "~/admin/hooks/index.js";
 import { FieldsMapper } from "./FieldsMapper.js";
-import type { FieldRaw, FilterDTO } from "@webiny/app-aco/components/AdvancedSearch/domain/index.js";
+import type {
+    FieldRaw,
+    FilterDTO
+} from "@webiny/app-aco/components/AdvancedSearch/domain/index.js";
 
 export const Filters = () => {
     const { browser } = useContentEntryListConfig();

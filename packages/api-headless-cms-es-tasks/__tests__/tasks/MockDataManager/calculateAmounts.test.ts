@@ -11,8 +11,6 @@ describe("calculateAmounts", () => {
         });
     });
 
-    
-
     it("should properly calculate the amount of tasks and records - 9999", async () => {
         const values = calculateAmounts(9999);
 
@@ -39,10 +37,10 @@ describe("calculateAmounts", () => {
             amountOfRecords: 5000
         });
     });
-    
+
     it("should properly calculate the amount of tasks and records - 99999", async () => {
         const values = calculateAmounts(99999);
-        
+
         expect(values).toEqual({
             amountOfTasks: 5,
             amountOfRecords: 20000

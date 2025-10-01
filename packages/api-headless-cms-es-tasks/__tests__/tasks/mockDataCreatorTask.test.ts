@@ -14,8 +14,8 @@ import { CARS_MODEL_ID } from "~/tasks/MockDataManager/constants";
 import { disableIndexing, enableIndexing } from "~/utils";
 
 vi.setConfig({
-    testTimeout: 120_000,
-})
+    testTimeout: 120_000
+});
 
 describe("mock data creator task", () => {
     it("should create a mock data creator task", async () => {

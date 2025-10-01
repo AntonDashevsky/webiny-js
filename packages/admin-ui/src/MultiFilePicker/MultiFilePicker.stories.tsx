@@ -374,32 +374,27 @@ export const Documentation: Story = {
         },
         validation: {
             description:
-                "Validation state and message. Please refer to the example code for details on usage.",
-            
+                "Validation state and message. Please refer to the example code for details on usage."
         },
         onSelectItem: {
             description:
                 "Callback when user selects files - Please refer to the example code for details on usage.",
-            action: "onSelectItem",
-            
+            action: "onSelectItem"
         },
         onReplaceItem: {
             description:
                 "Callback when user replaces a file - Please refer to the example code for details on usage.",
-            action: "onReplaceItem",
-            
+            action: "onReplaceItem"
         },
         onEditItem: {
             description:
                 "Callback when user edits a file - Please refer to the example code for details on usage.",
-            action: "onEditItem",
-            
+            action: "onEditItem"
         },
         onRemoveItem: {
             description:
                 "Callback when user removes a file - Please refer to the example code for details on usage.",
-            action: "onRemoveItem",
-            
+            action: "onRemoveItem"
         }
     }
 };

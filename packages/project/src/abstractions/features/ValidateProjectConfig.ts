@@ -5,7 +5,9 @@ interface IValidateProjectConfig {
     execute(params: IProjectConfigModel): Promise<void>;
 }
 
-export const ValidateProjectConfig = new Abstraction<IValidateProjectConfig>("ValidateProjectConfig");
+export const ValidateProjectConfig = new Abstraction<IValidateProjectConfig>(
+    "ValidateProjectConfig"
+);
 
 export namespace ValidateProjectConfig {
     export type Interface = IValidateProjectConfig;

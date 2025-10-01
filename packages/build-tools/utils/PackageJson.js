@@ -2,8 +2,8 @@ import readJson from "read-json-sync";
 import findUp from "find-up";
 
 export class PackageJson {
-     filePath;
-     json;
+    filePath;
+    json;
 
     static fromFile(filePath) {
         return new PackageJson(filePath, readJson(filePath));
@@ -29,7 +29,7 @@ export class PackageJson {
         return PackageJson.fromFile(jsonPath);
     }
 
-     constructor(filePath, json) {
+    constructor(filePath, json) {
         this.filePath = filePath;
         this.json = json;
     }

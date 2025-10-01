@@ -1,10 +1,7 @@
 import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
 import { EventBridgeClient } from "@aws-sdk/client-eventbridge";
 
-export {
-    EventBridgeClient,
-    PutEventsCommand
-} from "@aws-sdk/client-eventbridge";
+export { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge";
 
 export type {
     EventBridgeClientConfig,

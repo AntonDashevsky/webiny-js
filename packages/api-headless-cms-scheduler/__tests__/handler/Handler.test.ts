@@ -37,9 +37,8 @@ describe("Handler", () => {
     const createScheduleEntry = async (
         values: Omit<IScheduleEntryValues, "targetModelId">
     ): Promise<CmsEntry<IScheduleEntryValues>> => {
-        const scheduleEntryManager = await context.cms.getEntryManager<IScheduleEntryValues>(
-            SCHEDULE_MODEL_ID
-        );
+        const scheduleEntryManager =
+            await context.cms.getEntryManager<IScheduleEntryValues>(SCHEDULE_MODEL_ID);
         return await scheduleEntryManager.create({
             id: createScheduleRecordId(values.targetId),
             ...values,

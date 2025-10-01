@@ -1,7 +1,11 @@
 import * as React from "react";
 import { makeDecoratable } from "~/utils.js";
 import type { RangeSliderPrimitiveProps } from "./primitives/index.js";
-import { RangeSliderPrimitiveRenderer, RangeSliderValue, useRangeSlider } from "./primitives/index.js";
+import {
+    RangeSliderPrimitiveRenderer,
+    RangeSliderValue,
+    useRangeSlider
+} from "./primitives/index.js";
 import type { FormComponentProps } from "~/FormComponent/index.js";
 import {
     FormComponentDescription,

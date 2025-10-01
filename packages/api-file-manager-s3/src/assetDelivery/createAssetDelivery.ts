@@ -9,9 +9,9 @@ export const createAssetDelivery = (params: AssetDeliveryParams): PluginFactory[
          * We only want to load this plugin in the context of the Asset Delivery Lambda function.
          */
         createAssetDeliveryPluginLoader(() => {
-            return import(/* webpackChunkName: "s3AssetDelivery" */ "./assetDeliveryConfig.js").then(
-                ({ assetDeliveryConfig }) => assetDeliveryConfig(params)
-            );
+            return import(
+                /* webpackChunkName: "s3AssetDelivery" */ "./assetDeliveryConfig.js"
+            ).then(({ assetDeliveryConfig }) => assetDeliveryConfig(params));
         }),
         /**
          * We only want to load this plugin in the context of the Threat Detection Lambda function.

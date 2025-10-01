@@ -1,6 +1,12 @@
 import WebinyError from "@webiny/error";
 import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin.js";
-import type { CmsContext, CmsEntry, CmsEntryValues, CmsModel, CmsModelField } from "~/types/index.js";
+import type {
+    CmsContext,
+    CmsEntry,
+    CmsEntryValues,
+    CmsModel,
+    CmsModelField
+} from "~/types/index.js";
 import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 
 export interface GetStoragePluginFactory {
@@ -14,23 +20,26 @@ export const getStoragePluginFactory: GetStoragePluginFactory = context => {
         .byType<StorageTransformPlugin>(StorageTransformPlugin.type)
         // we reverse plugins because we want to get latest added only
         .reverse()
-        .reduce((collection, plugin) => {
-            /**
-             * Check if it's a default plugin and set it - always override the previous one.
-             */
-            if (plugin.fieldType === "*") {
-                defaultStoragePlugin = plugin;
+        .reduce(
+            (collection, plugin) => {
+                /**
+                 * Check if it's a default plugin and set it - always override the previous one.
+                 */
+                if (plugin.fieldType === "*") {
+                    defaultStoragePlugin = plugin;
+                    return collection;
+                }
+
+                /**
+                 * We will just set the plugin for given type.
+                 * The last one will override existing one - so users can override our default ones.
+                 */
+                collection[plugin.fieldType] = plugin;
+
                 return collection;
-            }
-
-            /**
-             * We will just set the plugin for given type.
-             * The last one will override existing one - so users can override our default ones.
-             */
-            collection[plugin.fieldType] = plugin;
-
-            return collection;
-        }, {} as Record<string, StorageTransformPlugin>);
+            },
+            {} as Record<string, StorageTransformPlugin>
+        );
 
     return (fieldType: string) => {
         return plugins[fieldType] || defaultStoragePlugin;

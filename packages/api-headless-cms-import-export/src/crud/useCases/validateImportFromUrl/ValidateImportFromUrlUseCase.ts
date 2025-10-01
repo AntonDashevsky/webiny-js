@@ -72,24 +72,27 @@ export class ValidateImportFromUrlUseCase implements IValidateImportFromUrlUseCa
 
         return {
             model,
-            files: files.reduce((collection, file) => {
-                const result = getImportExportFileType(file.head);
-                if (result.error) {
-                    file.error = {
-                        message: "File type not supported.",
-                        code: "FILE_TYPE_NOT_SUPPORTED",
-                        data: {
-                            type: result.type,
-                            pathname: result.pathname
-                        }
-                    };
+            files: files.reduce(
+                (collection, file) => {
+                    const result = getImportExportFileType(file.head);
+                    if (result.error) {
+                        file.error = {
+                            message: "File type not supported.",
+                            code: "FILE_TYPE_NOT_SUPPORTED",
+                            data: {
+                                type: result.type,
+                                pathname: result.pathname
+                            }
+                        };
+                        collection.push(file);
+                        return collection;
+                    }
+
                     collection.push(file);
                     return collection;
-                }
-
-                collection.push(file);
-                return collection;
-            }, [] as unknown as NonEmptyArray<ICmsImportExportFile>)
+                },
+                [] as unknown as NonEmptyArray<ICmsImportExportFile>
+            )
         };
     }
 }

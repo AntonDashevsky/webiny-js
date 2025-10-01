@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 import type { InvokeCommandInput } from "@webiny/aws-sdk/client-lambda/index.js";
-import { createLambdaClient, InvokeCommand, LambdaClient } from "@webiny/aws-sdk/client-lambda/index.js";
+import {
+    createLambdaClient,
+    InvokeCommand,
+    LambdaClient
+} from "@webiny/aws-sdk/client-lambda/index.js";
 import { mockClient } from "aws-sdk-client-mock";
 import { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
 

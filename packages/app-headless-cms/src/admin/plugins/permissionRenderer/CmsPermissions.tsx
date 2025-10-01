@@ -5,7 +5,13 @@
 import React, { useCallback, useMemo } from "react";
 import ContentModelGroupPermission from "./components/ContentModelGroupPermission.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { CannotUseAaclAlert, PermissionInfo, gridWithPaddingClass, SimpleLink, AaclPermission } from "@webiny/app-admin";
+import {
+    CannotUseAaclAlert,
+    PermissionInfo,
+    gridWithPaddingClass,
+    SimpleLink,
+    AaclPermission
+} from "@webiny/app-admin";
 import { Form } from "@webiny/form";
 import { ContentModelPermission } from "./components/ContentModelPermission.js";
 import { ContentEntryPermission } from "./components/ContentEntryPermission.js";

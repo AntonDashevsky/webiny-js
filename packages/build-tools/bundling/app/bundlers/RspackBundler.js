@@ -53,7 +53,6 @@ export class RspackBundler extends BaseAppBundler {
                             errors: true
                         })
                     );
-
                 }
 
                 if (Array.isArray(messages.errors) && messages.errors.length) {
@@ -83,7 +82,7 @@ export class RspackBundler extends BaseAppBundler {
 
         const rspackConfig = await this.getRspackConfig("development");
         const compiler = rspack(rspackConfig);
-        
+
         //eslint-disable-next-line import/dynamic-import-chunkname
         const { RspackDevServer } = await import("./rspack/RspackDevServer.js");
         const devServer = new RspackDevServer(compiler, { paths: this.paths });

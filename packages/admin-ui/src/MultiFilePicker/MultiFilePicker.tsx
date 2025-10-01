@@ -1,6 +1,9 @@
 import React, { useCallback, useMemo } from "react";
 import { makeDecoratable, withStaticProps } from "~/utils.js";
-import { MultiFilePickerPrimitive, type MultiFilePickerPrimitiveProps } from "./primitives/index.js";
+import {
+    MultiFilePickerPrimitive,
+    type MultiFilePickerPrimitiveProps
+} from "./primitives/index.js";
 import {
     FormComponentErrorMessage,
     FormComponentNote,

@@ -56,13 +56,13 @@ export type MapDependencies<T extends [...any]> = {
                   : MultipleTrue & Partial<OptionalFalse>
           ]
         : // Requires a single implementation.
-        T[K] extends IsOptionalValue<T[K]>
-        ? // Support shorthand and long form.
-          [Abstraction<T[K]>, OptionalTrue & Partial<MultipleFalse>]
-        : // Support shorthand and long form.
-          | [Abstraction<T[K]>, MultipleFalse & Partial<OptionalFalse>]
-              | [Abstraction<T[K]>]
-              | Abstraction<T[K]>;
+          T[K] extends IsOptionalValue<T[K]>
+          ? // Support shorthand and long form.
+            [Abstraction<T[K]>, OptionalTrue & Partial<MultipleFalse>]
+          : // Support shorthand and long form.
+            | [Abstraction<T[K]>, MultipleFalse & Partial<OptionalFalse>]
+                | [Abstraction<T[K]>]
+                | Abstraction<T[K]>;
 };
 
 export type Dependencies<T> = T extends Constructor

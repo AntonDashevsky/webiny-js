@@ -247,7 +247,7 @@ describe("audit logs filtering", () => {
 
         const cmsCreateResult = await context.auditLogs.listAuditLogs({
             app: "HEADLESS_CMS",
-            "entity": "ENTRY",
+            entity: "ENTRY",
             action: "CREATE"
         });
         expect(cmsCreateResult.items).toHaveLength(1);

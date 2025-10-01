@@ -31,36 +31,43 @@ export const createSort = (params: CreateSortParams): SortType => {
     /**
      * Cast as string because nothing else should be allowed yet.
      */
-    const result = sort.reduce((acc, value) => {
-        if (typeof value !== "string") {
-            throw new WebinyError(`Sort as object is not supported..`);
-        }
-        const match = value.match(sortRegExp);
+    const result = sort.reduce(
+        (acc, value) => {
+            if (typeof value !== "string") {
+                throw new WebinyError(`Sort as object is not supported..`);
+            }
+            const match = value.match(sortRegExp);
 
-        if (!match) {
-            throw new WebinyError(`Cannot sort by "${value}".`);
-        }
+            if (!match) {
+                throw new WebinyError(`Cannot sort by "${value}".`);
+            }
 
-        const [, field, initialOrder] = match;
-        const order: SortOrder = initialOrder.toLowerCase() === "asc" ? "asc" : "desc";
+            const [, field, initialOrder] = match;
+            const order: SortOrder = initialOrder.toLowerCase() === "asc" ? "asc" : "desc";
 
-        const plugin: ElasticsearchFieldPlugin =
-            fieldPlugins[field] || fieldPlugins[ElasticsearchFieldPlugin.ALL];
-        if (!plugin) {
-            throw new WebinyError(`Missing plugin for the field "${field}"`, "PLUGIN_SORT_ERROR", {
-                field
-            });
-        }
-        /**
-         * In case field plugin is the global one, change the * with actual field name.
-         * Custom path methods will return their own values anyway so replacing * will not matter.
-         */
-        const path = plugin.getPath(field);
+            const plugin: ElasticsearchFieldPlugin =
+                fieldPlugins[field] || fieldPlugins[ElasticsearchFieldPlugin.ALL];
+            if (!plugin) {
+                throw new WebinyError(
+                    `Missing plugin for the field "${field}"`,
+                    "PLUGIN_SORT_ERROR",
+                    {
+                        field
+                    }
+                );
+            }
+            /**
+             * In case field plugin is the global one, change the * with actual field name.
+             * Custom path methods will return their own values anyway so replacing * will not matter.
+             */
+            const path = plugin.getPath(field);
 
-        acc[path] = plugin.getSortOptions(order);
+            acc[path] = plugin.getSortOptions(order);
 
-        return acc;
-    }, {} as Record<string, FieldSortOptions>);
+            return acc;
+        },
+        {} as Record<string, FieldSortOptions>
+    );
     /**
      * If we do not have id in the sort, we add it as we need a tie_breaker for the Elasticsearch to be able to sort consistently.
      */

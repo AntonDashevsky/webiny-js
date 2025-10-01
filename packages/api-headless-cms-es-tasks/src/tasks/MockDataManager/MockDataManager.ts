@@ -1,6 +1,9 @@
 import type { ITask, ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
 import { TaskDataStatus } from "@webiny/tasks";
-import type { IMockDataManagerInput, IMockDataManagerOutput } from "~/tasks/MockDataManager/types.js";
+import type {
+    IMockDataManagerInput,
+    IMockDataManagerOutput
+} from "~/tasks/MockDataManager/types.js";
 import { calculateAmounts } from "./calculateAmounts.js";
 import type { IMockDataCreatorInput } from "~/tasks/MockDataCreator/types.js";
 import { calculateSeconds, WAIT_MAX_SECONDS } from "./calculateSeconds.js";

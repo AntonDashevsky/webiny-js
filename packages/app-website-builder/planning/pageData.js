@@ -1,4 +1,3 @@
- 
 export const staticPage = {
     properties: {
         title: "Untitled",

@@ -188,18 +188,15 @@ export const Documentation: Story = {
             control: "object"
         },
         onValuesChange: {
-            description: "Callback fired when selected values change",
-            
+            description: "Callback fired when selected values change"
         },
         validation: {
             description:
-                "Object containing validation state and message. Please refer to the example code for details on usage.",
-            
+                "Object containing validation state and message. Please refer to the example code for details on usage."
         },
         onOpenChange: {
             description:
-                "Callback triggered when the dropdown opens or closes, allowing you to respond to changes in its open state.",
-            
+                "Callback triggered when the dropdown opens or closes, allowing you to respond to changes in its open state."
         }
     }
 };

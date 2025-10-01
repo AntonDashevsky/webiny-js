@@ -8,7 +8,7 @@ export interface IWithProjectNameParams {
 export const withProjectName = ({ project }: IWithProjectNameParams) => {
     return createConfiguration(() => {
         return {
-            WEBINY_PROJECT_NAME: project.name,
+            WEBINY_PROJECT_NAME: project.name
         };
     });
 };

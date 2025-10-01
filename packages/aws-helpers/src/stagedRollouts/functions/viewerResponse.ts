@@ -1,4 +1,7 @@
-import { defineCloudfrontFunctionResponseHandler, setResponseCookie } from "~/cloudfrontFunctions/index.js";
+import {
+    defineCloudfrontFunctionResponseHandler,
+    setResponseCookie
+} from "~/cloudfrontFunctions/index.js";
 
 import { variantRandomKey } from "../utils/common.js";
 

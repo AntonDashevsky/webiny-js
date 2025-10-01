@@ -9,7 +9,7 @@ import { observer } from "mobx-react-lite";
 import { Heading, type DataTableSorting, Scrollbar } from "@webiny/admin-ui";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { LeftPanel, RightPanel, SplitView, OverlayLayout, useSnackbar } from "@webiny/app-admin";
-import {  } from "@webiny/app-admin";
+import {} from "@webiny/app-admin";
 import { useI18N } from "@webiny/app-i18n";
 import { useTenancy } from "@webiny/app-tenancy";
 import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";

@@ -21,4 +21,3 @@ export type {
     GetConnectionRequest,
     GetConnectionResponse
 } from "@aws-sdk/client-apigatewaymanagementapi";
-

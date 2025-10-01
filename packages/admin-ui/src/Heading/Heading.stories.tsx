@@ -100,8 +100,7 @@ export const Documentation: Story = {
         },
         className: {
             description:
-                "Additional CSS classes to apply to the heading. You can pass multiple classes, separated by commas or spaces.",
-            
+                "Additional CSS classes to apply to the heading. You can pass multiple classes, separated by commas or spaces."
         }
     }
 };

@@ -79,9 +79,8 @@ export const createRecordLockingCrud = async (params: Params): Promise<IRecordLo
         if (hasFulLAccess) {
             return true;
         }
-        const permission = await context.security.getPermission<RecordLockingSecurityPermission>(
-            "recordLocking"
-        );
+        const permission =
+            await context.security.getPermission<RecordLockingSecurityPermission>("recordLocking");
         return permission?.canForceUnlock === "yes";
     };
 

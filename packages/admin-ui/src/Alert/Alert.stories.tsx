@@ -200,12 +200,10 @@ export const Documentation: Story = {
             defaultValue: false
         },
         onClose: {
-            description: "Please refer to the 'With Close Button' example below for details.",
-            
+            description: "Please refer to the 'With Close Button' example below for details."
         },
         actions: {
-            description: "Please refer to the 'With Action' example below for details.",
-            
+            description: "Please refer to the 'With Action' example below for details."
         }
     }
 };

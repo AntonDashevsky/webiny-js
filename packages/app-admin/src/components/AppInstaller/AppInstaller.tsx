@@ -16,7 +16,13 @@ declare global {
     }
 }
 
-import { Wrapper, InnerContent, InstallContent, installerSplitView, SuccessDialog } from "./styled.js";
+import {
+    Wrapper,
+    InnerContent,
+    InstallContent,
+    installerSplitView,
+    SuccessDialog
+} from "./styled.js";
 
 interface AppInstallerProps {
     children: React.ReactNode;

@@ -379,12 +379,10 @@ export const Documentation: Story = {
     argTypes: {
         trigger: {
             description:
-                "The trigger element that opens the menu. Please refer to the example code for details.",
-            
+                "The trigger element that opens the menu. Please refer to the example code for details."
         },
         children: {
-            description: "The content of the menu. Please refer to the example code for details.",
-            
+            description: "The content of the menu. Please refer to the example code for details."
         }
     }
 };

@@ -3,7 +3,11 @@ import type {
     IUnlockEntryRequestUseCase,
     IUnlockEntryRequestUseCaseExecuteParams
 } from "~/abstractions/IUnlockEntryRequestUseCase.js";
-import type { IGetIdentity, IRecordLockingLockRecord, IRecordLockingModelManager } from "~/types.js";
+import type {
+    IGetIdentity,
+    IRecordLockingLockRecord,
+    IRecordLockingModelManager
+} from "~/types.js";
 import { RecordLockingLockRecordActionType } from "~/types.js";
 import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
 import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";

@@ -87,13 +87,11 @@ export const Documentation: Story = {
             control: "text"
         },
         onChange: {
-            description: "Function called when the textarea value changes",
-            
+            description: "Function called when the textarea value changes"
         },
         validate: {
             description:
-                "Custom validation function, please refer to **With Validate Function** section below.",
-            
+                "Custom validation function, please refer to **With Validate Function** section below."
         }
     }
 };

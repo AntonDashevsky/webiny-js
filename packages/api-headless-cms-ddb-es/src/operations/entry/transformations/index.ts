@@ -10,7 +10,10 @@ import { transformEntryToIndex } from "~/operations/entry/transformations/transf
 import { CmsEntryElasticsearchValuesModifier } from "~/plugins/index.js";
 import { modifyEntryValues as modifyEntryValuesCallable } from "~/operations/entry/transformations/modifyEntryValues.js";
 import { compress } from "@webiny/api-elasticsearch";
-import { createLatestRecordType, createPublishedRecordType } from "~/operations/entry/recordType.js";
+import {
+    createLatestRecordType,
+    createPublishedRecordType
+} from "~/operations/entry/recordType.js";
 import WebinyError from "@webiny/error";
 
 interface BaseTransformerParams {

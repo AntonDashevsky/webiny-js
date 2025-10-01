@@ -380,7 +380,10 @@ describe("DIContainer", () => {
 
         // Create a decorator that uses both a formatter and the decoratee
         class FormattingLoggerDecorator implements ILogger {
-            constructor(private formatter: IFormatter, private decoratee: ILogger) {}
+            constructor(
+                private formatter: IFormatter,
+                private decoratee: ILogger
+            ) {}
 
             log(...args: unknown[]): void {
                 const formattedArgs = args.map(arg =>

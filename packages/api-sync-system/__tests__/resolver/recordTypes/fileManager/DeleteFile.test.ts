@@ -6,7 +6,11 @@ import {
     createMockSourceDeployment,
     createMockTargetDeployment
 } from "~tests/mocks/deployments.js";
-import { createLambdaClient, InvokeCommand, LambdaClient } from "@webiny/aws-sdk/client-lambda/index.js";
+import {
+    createLambdaClient,
+    InvokeCommand,
+    LambdaClient
+} from "@webiny/aws-sdk/client-lambda/index.js";
 import { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
 
 describe("DeleteFile", () => {

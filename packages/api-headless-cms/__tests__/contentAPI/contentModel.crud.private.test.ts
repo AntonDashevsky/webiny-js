@@ -27,7 +27,7 @@ const privateAuthorsModel = createPrivateModelPlugin({
             label: "Title"
         }
     ],
-    titleFieldId: "title",
+    titleFieldId: "title"
     // group: {
     //     id: privateGroup.contentModelGroup.id,
     //     name: privateGroup.contentModelGroup.name

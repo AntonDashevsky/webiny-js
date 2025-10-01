@@ -4,7 +4,7 @@ import execa from "execa";
 
 export class DefaultGetPulumiVersion implements GetPulumiVersionService.Interface {
     execute() {
-        const result : GetPulumiVersionService.Result = ["", ""];
+        const result: GetPulumiVersionService.Result = ["", ""];
 
         try {
             {

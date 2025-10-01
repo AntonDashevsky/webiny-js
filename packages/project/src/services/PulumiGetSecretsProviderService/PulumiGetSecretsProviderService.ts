@@ -1,9 +1,11 @@
 import { createImplementation } from "@webiny/di-container";
 import { PulumiGetSecretsProviderService } from "~/abstractions/index.js";
 
-export class DefaultPulumiGetSecretsProviderService implements PulumiGetSecretsProviderService.Interface {
+export class DefaultPulumiGetSecretsProviderService
+    implements PulumiGetSecretsProviderService.Interface
+{
     execute() {
-        return process.env.PULUMI_SECRETS_PROVIDER || 'passphrase'
+        return process.env.PULUMI_SECRETS_PROVIDER || "passphrase";
     }
 }
 

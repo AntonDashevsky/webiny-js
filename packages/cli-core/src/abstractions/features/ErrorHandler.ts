@@ -10,7 +10,7 @@ export interface IErrorHandlerParams<TParams> {
 }
 
 export interface IErrorHandler<TParams> {
-    execute(params: IErrorHandlerParams<TParams>): void
+    execute(params: IErrorHandlerParams<TParams>): void;
 }
 
 export const ErrorHandler = new Abstraction<IErrorHandler<any>>("ErrorHandler");

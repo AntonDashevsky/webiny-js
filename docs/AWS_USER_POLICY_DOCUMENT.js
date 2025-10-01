@@ -1,5 +1,3 @@
- 
-
 /**
  * This list contains all the action permission need for a "create-webiny-project".
  * It is NOT a strict implementation of the least privilege security principle i.e.

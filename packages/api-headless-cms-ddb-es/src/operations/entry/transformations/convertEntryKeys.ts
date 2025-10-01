@@ -1,4 +1,7 @@
-import type { CmsStorageEntry, StorageOperationsCmsModel } from "@webiny/api-headless-cms/types/index.js";
+import type {
+    CmsStorageEntry,
+    StorageOperationsCmsModel
+} from "@webiny/api-headless-cms/types/index.js";
 
 interface ConvertStorageEntryParams {
     entry: CmsStorageEntry;

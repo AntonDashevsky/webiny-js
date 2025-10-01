@@ -1,5 +1,8 @@
 import type { IUnpublishPage } from "./IUnpublishPage.js";
-import type { UnpublishWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types.js";
+import type {
+    UnpublishWbPageParams,
+    WbPagesStorageOperations
+} from "~/context/pages/pages.types.js";
 
 export class UnpublishPage implements IUnpublishPage {
     private readonly unpublishOperation: WbPagesStorageOperations["unpublish"];

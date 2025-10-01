@@ -166,7 +166,7 @@ describe("content model test", () => {
                             slug: contentModelGroup.slug
                         },
                         icon: "fa/fas",
-                        settings: null,
+                        settings: null
                     },
                     error: null
                 }
@@ -1471,7 +1471,7 @@ describe("content model test", () => {
             }
         });
     });
-    
+
     it("should create and update a model with steps in settings", async () => {
         const { createContentModelMutation, getContentModelQuery, updateContentModelMutation } =
             useGraphQLHandler(manageHandlerOpts);
@@ -1595,7 +1595,7 @@ describe("content model test", () => {
         expect(
             updateModelEmptyResponse.data.updateContentModel.data.settings.workflows[0]?.steps || []
         ).toHaveLength(0);
-        
+
         const [updateModelResponse] = await updateContentModelMutation({
             modelId: model.modelId,
             data: {

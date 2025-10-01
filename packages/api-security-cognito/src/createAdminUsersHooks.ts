@@ -1,6 +1,9 @@
 import { ContextPlugin } from "@webiny/api";
 import type { AdminUsersContext } from "@webiny/api-admin-users/types.js";
-import type { PermissionsTenantLink, PermissionsTenantLinkTeam } from "@webiny/api-security/types.js";
+import type {
+    PermissionsTenantLink,
+    PermissionsTenantLinkTeam
+} from "@webiny/api-security/types.js";
 
 /**
  * Package deep-equal does not have types.

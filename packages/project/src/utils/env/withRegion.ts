@@ -20,4 +20,3 @@ export const withRegion = (params: IWithRegionParams) => {
         };
     });
 };
-

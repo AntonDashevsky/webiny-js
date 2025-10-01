@@ -57,9 +57,8 @@ export const handlerPlugins = (params: HandlerParams) => {
          * Mock physical file storage plugin.
          */
         new FilePhysicalStoragePlugin({
-             
             upload: async () => {},
-             
+
             delete: async () => {}
         }),
         /**

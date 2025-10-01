@@ -318,20 +318,16 @@ export const Documentation: Story = {
         },
         validation: {
             description:
-                "Object containing validation state and message. Please refer to the example code for details on usage.",
-            
+                "Object containing validation state and message. Please refer to the example code for details on usage."
         },
         onSelectItem: {
-            description: "Function called when a file is selected",
-            
+            description: "Function called when a file is selected"
         },
         onEditItem: {
-            description: "Function called when a file is edited",
-            
+            description: "Function called when a file is edited"
         },
         onRemoveItem: {
-            description: "Function called when a file is removed",
-            
+            description: "Function called when a file is removed"
         }
     }
 };

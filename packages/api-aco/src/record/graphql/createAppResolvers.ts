@@ -1,4 +1,8 @@
-import type { CmsEntry, CmsFieldTypePlugins, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import type {
+    CmsEntry,
+    CmsFieldTypePlugins,
+    CmsModel
+} from "@webiny/api-headless-cms/types/index.js";
 import { createFieldResolversFactory } from "@webiny/api-headless-cms/graphql/schema/createFieldResolvers.js";
 import type { AcoContext, IAcoApp } from "~/types.js";
 import { resolve, resolveList } from "~/utils/resolve.js";

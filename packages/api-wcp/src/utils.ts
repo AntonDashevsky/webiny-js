@@ -1,4 +1,3 @@
-
 import type { WcpFetchParams } from "~/createWcp.js";
 
 export const getWcpProjectLicenseCacheKey = () => {

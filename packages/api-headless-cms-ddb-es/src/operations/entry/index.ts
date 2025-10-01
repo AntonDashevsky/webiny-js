@@ -43,7 +43,11 @@ import type { CmsEntryStorageOperations, CmsIndexEntry } from "~/types.js";
 import { createElasticsearchBody } from "./elasticsearch/body.js";
 import { logIgnoredEsResponseError } from "./elasticsearch/logIgnoredEsResponseError.js";
 import { shouldIgnoreEsResponseError } from "./elasticsearch/shouldIgnoreEsResponseError.js";
-import { createLatestRecordType, createPublishedRecordType, createRecordType } from "./recordType.js";
+import {
+    createLatestRecordType,
+    createPublishedRecordType,
+    createRecordType
+} from "./recordType.js";
 import { StorageOperationsCmsModelPlugin } from "@webiny/api-headless-cms";
 import { createTransformer } from "./transformations/index.js";
 import { convertEntryKeysFromStorage } from "./transformations/convertEntryKeys.js";

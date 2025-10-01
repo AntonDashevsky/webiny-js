@@ -9,7 +9,10 @@ import {
 } from "@webiny/admin-ui";
 import type { ColumnsPresenter } from "./Columns/index.js";
 import { ColumnMapper } from "./Columns/index.js";
-import type { ColumnsVisibilityPresenter, ColumnsVisibilityUpdater } from "./ColumnVisibility/index.js";
+import type {
+    ColumnsVisibilityPresenter,
+    ColumnsVisibilityUpdater
+} from "./ColumnVisibility/index.js";
 import type { TablePresenter } from "./TablePresenter.js";
 import { TableRowProvider } from "~/components/index.js";
 import type { TableRow } from "~/types.js";

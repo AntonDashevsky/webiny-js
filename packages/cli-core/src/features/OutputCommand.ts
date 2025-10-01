@@ -36,7 +36,7 @@ export class OutputCommand implements Command.Interface<IOutputCommandParams> {
                     name: "variant",
                     description: "Variant of the app to watch",
                     type: "string",
-                    validation: (params) => {
+                    validation: params => {
                         const isValid = projectSdk.isValidVariantName(params.variant);
                         if (isValid.isErr()) {
                             throw isValid.error;
@@ -48,8 +48,8 @@ export class OutputCommand implements Command.Interface<IOutputCommandParams> {
                     name: "region",
                     description: "Region to target",
                     type: "string",
-                    validation: (params) => {
-                        const isValid = projectSdk.isValidRegionName(params.region)
+                    validation: params => {
+                        const isValid = projectSdk.isValidRegionName(params.region);
                         if (isValid.isErr()) {
                             throw isValid.error;
                         }

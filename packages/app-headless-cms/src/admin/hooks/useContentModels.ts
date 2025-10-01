@@ -1,5 +1,8 @@
 import * as GQL from "~/admin/viewsGraphql.js";
-import type { ListCmsModelsQueryResponse, ListCmsModelsQueryVariables } from "~/admin/viewsGraphql.js";
+import type {
+    ListCmsModelsQueryResponse,
+    ListCmsModelsQueryVariables
+} from "~/admin/viewsGraphql.js";
 import { useQuery } from "~/admin/hooks/index.js";
 import { useMemo } from "react";
 import type { CmsModel } from "~/types.js";

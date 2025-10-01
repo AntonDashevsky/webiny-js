@@ -43,8 +43,8 @@ const createPermissions = ({ groups, models }: { groups?: string[]; models?: str
 ];
 
 vi.setConfig({
-    testTimeout: 100_000,
-})
+    testTimeout: 100_000
+});
 
 describe("MANAGE - Resolvers", () => {
     let contentModelGroup: CmsGroup;

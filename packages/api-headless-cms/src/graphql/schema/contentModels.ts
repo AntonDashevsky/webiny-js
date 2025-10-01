@@ -195,7 +195,7 @@ export const createModelsSchema = ({
                 name: String!
                 steps: [CmsContentModelSettingsWorkflowStepInput!]!
             }
-            
+
             input CmsContentModelSettingsInput {
                 workflows: [CmsContentModelSettingsWorkflowInput!]
             }
@@ -317,7 +317,7 @@ export const createModelsSchema = ({
             type CmsContentModelSettingsWorkflowStepNotification {
                 id: String!
             }
-            
+
             type CmsContentModelSettingsWorkflowStepTeam {
                 id: String!
             }
@@ -336,7 +336,7 @@ export const createModelsSchema = ({
                 name: String!
                 steps: [CmsContentModelSettingsWorkflowStep!]!
             }
-            
+
             type CmsContentModelSettings {
                 workflows: [CmsContentModelSettingsWorkflow!]
             }

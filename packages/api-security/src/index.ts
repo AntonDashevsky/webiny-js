@@ -11,7 +11,10 @@ import graphqlPlugins from "./graphql/index.js";
 import gqlInterfaces from "./graphql/interfaces.gql.js";
 import { createSecurity } from "~/createSecurity.js";
 import { attachGroupInstaller } from "~/installation/groups.js";
-import type { MultiTenancyAppConfig, MultiTenancyGraphQLConfig } from "~/enterprise/multiTenancy/index.js";
+import type {
+    MultiTenancyAppConfig,
+    MultiTenancyGraphQLConfig
+} from "~/enterprise/multiTenancy/index.js";
 import { applyMultiTenancyGraphQLPlugins } from "~/enterprise/multiTenancy/index.js";
 import { SecurityRolePlugin } from "~/plugins/SecurityRolePlugin.js";
 import { SecurityTeamPlugin } from "~/plugins/SecurityTeamPlugin.js";

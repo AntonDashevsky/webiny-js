@@ -41,9 +41,8 @@ for (let i = 0; i < dependencyPackages.length; i++) {
         join(depPackage.packageFolder)
     ).replace(/\\/g, "/");
 
-    targetPackage.packageJson.dependencies[
-        depPackage.packageJson.name
-    ] = `${depPackage.packageJson.version}`;
+    targetPackage.packageJson.dependencies[depPackage.packageJson.name] =
+        `${depPackage.packageJson.version}`;
 
     if (targetPackage.tsConfigJson) {
         {

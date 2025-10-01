@@ -151,18 +151,15 @@ export const Documentation: Story = {
         },
         children: {
             description:
-                "The main content of the card. Please refer to the example code for details on usage.",
-            
+                "The main content of the card. Please refer to the example code for details on usage."
         },
         actions: {
             description:
-                "Buttons or other interactive elements displayed at the bottom of the card. Please refer to the example code for details on usage.",
-            
+                "Buttons or other interactive elements displayed at the bottom of the card. Please refer to the example code for details on usage."
         },
         options: {
             description:
-                "Additional options or actions displayed in the top-right corner. Please refer to the example code for details on usage.",
-            
+                "Additional options or actions displayed in the top-right corner. Please refer to the example code for details on usage."
         },
         padding: {
             description: "Controls the amount of padding inside the card",

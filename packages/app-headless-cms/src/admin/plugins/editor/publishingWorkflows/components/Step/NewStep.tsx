@@ -10,8 +10,6 @@ export interface IAddNewStepProps {
     onAdd: (step: IWorkflowStep) => void;
 }
 
-
-
 const createWorkflowStep = (): IWorkflowStepInput => {
     return {
         id: generateAlphaNumericId(),
@@ -30,7 +28,7 @@ export const NewStep = (props: IAddNewStepProps) => {
     const onClick = useCallback(() => {
         setStep(createWorkflowStep());
     }, [setStep]);
-    
+
     const onSave = useCallback(
         (step: IWorkflowStepInput) => {
             onAdd(step);
@@ -38,10 +36,10 @@ export const NewStep = (props: IAddNewStepProps) => {
         },
         [onAdd, setStep]
     );
-    
+
     const onCancel = useCallback(() => {
         setStep(null);
-    }, [setStep])
+    }, [setStep]);
 
     if (step) {
         return <StepForm onCancel={onCancel} onSave={onSave} step={step} />;

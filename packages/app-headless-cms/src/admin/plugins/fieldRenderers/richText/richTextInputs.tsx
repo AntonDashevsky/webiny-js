@@ -4,7 +4,10 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import type { CmsModelField, CmsModelFieldRendererPlugin } from "~/types.js";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete_outline.svg";
 import DynamicSection from "../DynamicSection.js";
-import { createPropsFromConfig, RichTextEditor } from "@webiny/app-admin/components/RichTextEditor/index.js";
+import {
+    createPropsFromConfig,
+    RichTextEditor
+} from "@webiny/app-admin/components/RichTextEditor/index.js";
 import { IconButton } from "@webiny/ui/Button/index.js";
 import { plugins } from "@webiny/plugins";
 import styled from "@emotion/styled";

@@ -1,5 +1,8 @@
 import WebinyError from "@webiny/error";
-import type { IWebsocketsConnectionRegistry, IWebsocketsConnectionRegistryData } from "~/registry/index.js";
+import type {
+    IWebsocketsConnectionRegistry,
+    IWebsocketsConnectionRegistryData
+} from "~/registry/index.js";
 import type {
     IWebsocketsContextObject,
     IWebsocketsContextDisconnectConnectionsParams,

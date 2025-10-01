@@ -1,4 +1,3 @@
- 
 // Page with a data source
 const pageWithDataSource = {
     dataSources: [

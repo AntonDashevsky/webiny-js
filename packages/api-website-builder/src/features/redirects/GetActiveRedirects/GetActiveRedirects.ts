@@ -1,5 +1,8 @@
 import type { IGetActiveRedirects } from "./IGetActiveRedirects.js";
-import type { WbRedirect, WbRedirectsStorageOperations } from "~/context/redirects/redirects.types.js";
+import type {
+    WbRedirect,
+    WbRedirectsStorageOperations
+} from "~/context/redirects/redirects.types.js";
 
 export class GetActiveRedirects implements IGetActiveRedirects {
     private readonly listOperation: WbRedirectsStorageOperations["list"];

@@ -1,7 +1,10 @@
 import type { HandlerFactoryParams } from "@webiny/handler-aws/types.js";
 import type { IWebsocketsEventValidator } from "~/validator/index.js";
 import type { IWebsocketsResponse } from "~/response/index.js";
-import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types/index.js";
+import type {
+    APIGatewayProxyResult,
+    Context as LambdaContext
+} from "@webiny/aws-sdk/types/index.js";
 import type { GenericRecord } from "@webiny/api/types.js";
 import type { PartialDeep } from "type-fest";
 

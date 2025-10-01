@@ -5,7 +5,10 @@ import { Accordion } from "@webiny/admin-ui";
 import type { FormAPI, FormOnSubmit } from "@webiny/form";
 import { Form } from "@webiny/form";
 
-import type { QueryBuilderFormData, QueryBuilderViewModel } from "../QueryBuilderDrawerPresenter.js";
+import type {
+    QueryBuilderFormData,
+    QueryBuilderViewModel
+} from "../QueryBuilderDrawerPresenter.js";
 
 import {
     AddFilter,

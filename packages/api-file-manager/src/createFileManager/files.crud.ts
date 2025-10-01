@@ -154,13 +154,13 @@ export const createFilesCrud = (
                 tags: Array.isArray(input.tags)
                     ? input.tags
                     : Array.isArray(original.tags)
-                    ? original.tags
-                    : [],
+                      ? original.tags
+                      : [],
                 aliases: Array.isArray(input.aliases)
                     ? input.aliases
                     : Array.isArray(original.aliases)
-                    ? original.aliases
-                    : [],
+                      ? original.aliases
+                      : [],
                 id: original.id,
                 webinyVersion: WEBINY_VERSION
             };

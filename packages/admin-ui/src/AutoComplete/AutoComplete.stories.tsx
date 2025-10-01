@@ -199,8 +199,7 @@ export const Documentation: Story = {
             description: "Object containing validation state and message"
         },
         onValueChange: {
-            description: "Function called when the selected value changes",
-            
+            description: "Function called when the selected value changes"
         }
     }
 };

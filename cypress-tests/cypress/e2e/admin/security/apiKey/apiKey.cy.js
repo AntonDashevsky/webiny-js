@@ -104,12 +104,11 @@ context("Security -> API Key", () => {
         // Verify success message
         cy.findByText("API key saved successfully.").should("exist");
 
-        
         cy.location("search").then(search => {
             const searchParams = new URLSearchParams(search);
             const id = searchParams.get("id");
             // Verify API key permissions
-            
+
             cy.securityReadApiKey({ id }).then(({ permissions }) => {
                 expect(permissions).to.deep.eq([
                     {

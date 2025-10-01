@@ -65,8 +65,6 @@ interface State {
     checkingUser: boolean;
 }
 
-
-
 interface QueryData {
     state?: AuthState;
     [key: string]: string | undefined;

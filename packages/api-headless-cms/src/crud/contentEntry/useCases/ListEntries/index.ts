@@ -1,4 +1,8 @@
-import type { CmsContext, CmsEntryStorageOperations, EntryBeforeListTopicParams } from "~/types/index.js";
+import type {
+    CmsContext,
+    CmsEntryStorageOperations,
+    EntryBeforeListTopicParams
+} from "~/types/index.js";
 import type { AccessControl } from "~/crud/AccessControl/AccessControl.js";
 
 import type { Topic } from "@webiny/pubsub/types.js";

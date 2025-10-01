@@ -22,7 +22,7 @@ export class SetInputBindingOverride implements IDocumentOperation {
     apply(document: Document) {
         const bindings = document.bindings[this.elementId] ?? {};
         const breakpointOverrides = bindings.overrides
-            ? bindings.overrides[this.breakpoint] ?? {}
+            ? (bindings.overrides[this.breakpoint] ?? {})
             : { inputs: {} };
 
         const binding = breakpointOverrides.inputs

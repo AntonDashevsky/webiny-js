@@ -1,5 +1,9 @@
 import type { IZipper, IZipperDoneResult } from "~/tasks/utils/zipper/index.js";
-import type { IEntryAssets, IEntryAssetsResolver, IResolvedAsset } from "~/tasks/utils/entryAssets/index.js";
+import type {
+    IEntryAssets,
+    IEntryAssetsResolver,
+    IResolvedAsset
+} from "~/tasks/utils/entryAssets/index.js";
 import type { ICmsEntryFetcher } from "../cmsEntryFetcher/index.js";
 import type {
     ICmsAssetsZipper,

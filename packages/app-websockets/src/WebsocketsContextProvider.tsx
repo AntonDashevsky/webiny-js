@@ -136,7 +136,7 @@ export const WebsocketsContextProvider = (props: IWebsocketsContextProviderProps
                 });
                 return;
             }
-            
+
             socketsRef.current = createWebsocketsManager(
                 createWebsocketsConnection({
                     subscriptionManager,

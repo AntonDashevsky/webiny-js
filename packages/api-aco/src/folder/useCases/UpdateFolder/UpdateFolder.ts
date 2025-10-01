@@ -1,5 +1,9 @@
 import type { IUpdateFolder } from "./IUpdateFolder.js";
-import type { AcoFolderStorageOperations, Folder, UpdateFolderParams } from "~/folder/folder.types.js";
+import type {
+    AcoFolderStorageOperations,
+    Folder,
+    UpdateFolderParams
+} from "~/folder/folder.types.js";
 
 export class UpdateFolder implements IUpdateFolder {
     private readonly updateOperation: AcoFolderStorageOperations["updateFolder"];

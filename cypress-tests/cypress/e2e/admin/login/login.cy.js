@@ -36,7 +36,6 @@ context("Login Page", () => {
         const newUserAccountEmail = uniqid("cypress_", "@z1fihlo8.mailosaur.net");
         const password = "12345678";
 
-        
         cy.securityReadRole({ slug: "full-access" }).then(group => {
             return cy
                 .securityCreateUser({
@@ -73,7 +72,6 @@ context("Login Page", () => {
         const newUserAccountEmail = uniqid("cypress_", "@z1fihlo8.mailosaur.net");
         const password = "12345678";
 
-        
         cy.securityReadRole({ slug: "full-access" }).then(group => {
             return cy
                 .securityCreateUser({
@@ -118,7 +116,6 @@ context("Login Page", () => {
         const password = "12345678";
         const newPassword = "12345678910";
 
-        
         cy.securityReadRole({ slug: "full-access" }).then(group => {
             return cy
                 .securityCreateUser({

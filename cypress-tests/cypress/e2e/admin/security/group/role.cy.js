@@ -123,7 +123,7 @@ context("Security -> Role", () => {
         cy.findByText("Role saved successfully!").should("exist");
 
         // Verify role permissions
-        
+
         cy.securityReadRole({ slug }).then(group => {
             expect(group.permissions).to.deep.eq([
                 {

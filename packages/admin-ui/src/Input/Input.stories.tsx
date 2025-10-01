@@ -247,12 +247,10 @@ export const Documentation: Story = {
             defaultValue: false
         },
         startIcon: {
-            description: "Icon displayed at the start of the input",
-            
+            description: "Icon displayed at the start of the input"
         },
         endIcon: {
-            description: "Icon displayed at the end of the input",
-            
+            description: "Icon displayed at the end of the input"
         },
         minLength: {
             description: "Minimum number of characters required",
@@ -266,24 +264,19 @@ export const Documentation: Story = {
         },
         validation: {
             description:
-                "Validation state and error message. Please refer to the example code for details on usage.",
-            
+                "Validation state and error message. Please refer to the example code for details on usage."
         },
         validate: {
-            description: "Custom validation function",
-            
+            description: "Custom validation function"
         },
         onChange: {
-            description: "Callback function when input value changes",
-            
+            description: "Callback function when input value changes"
         },
         onBlur: {
-            description: "Callback function when input loses focus",
-            
+            description: "Callback function when input loses focus"
         },
         onEnter: {
-            description: "Callback function when Enter key is pressed",
-            
+            description: "Callback function when Enter key is pressed"
         }
     } // Removed forwardEventOnChange and inputRef
 };

@@ -25,7 +25,7 @@ class MyOktaIdentityProvider implements Okta.Backend.Interface {
             logoutParams: {
                 returnTo: window.location.origin + "?action=logout"
             },
-            getIdentity: () => {  }
+            getIdentity: () => {}
         };
     }
 }

@@ -435,8 +435,7 @@ export const Documentation: Story = {
             description: "The background color of the list"
         },
         children: {
-            description: "The content of the list. Please refer to the example code for details.",
-            
+            description: "The content of the list. Please refer to the example code for details."
         }
     },
     parameters: {

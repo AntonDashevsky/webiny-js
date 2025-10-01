@@ -60,7 +60,8 @@ const FormField = ({
     const { id } = parent;
 
     const getId = useCallback(
-        (suffix: string | undefined = undefined) => [id, "field", props.name, suffix].filter(Boolean).join(":"),
+        (suffix: string | undefined = undefined) =>
+            [id, "field", props.name, suffix].filter(Boolean).join(":"),
         []
     );
 

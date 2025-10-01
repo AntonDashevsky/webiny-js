@@ -1,6 +1,9 @@
 import { createTaskDefinition } from "@webiny/tasks";
 import type { Context } from "~/types.js";
-import type { IMockDataManagerInput, IMockDataManagerOutput } from "~/tasks/MockDataManager/types.js";
+import type {
+    IMockDataManagerInput,
+    IMockDataManagerOutput
+} from "~/tasks/MockDataManager/types.js";
 import { CARS_MODEL_ID } from "~/tasks/MockDataManager/constants.js";
 import { enableIndexing } from "~/utils/index.js";
 

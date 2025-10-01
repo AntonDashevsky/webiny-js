@@ -14,4 +14,3 @@
 //         type LibraryManagedAttributes<C, P> = React.JSX.LibraryManagedAttributes<C, P>;
 //     }
 // }
-

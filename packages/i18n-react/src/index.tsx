@@ -17,7 +17,6 @@ declare module "react" {
     }
 }
 
-
 const processTextPart = (
     part: string,
     values: I18NDataValues,

@@ -6,4 +6,3 @@ export default [
         setupFilesAfterEnv: [resolve(import.meta.dirname, "setupAfterEnv.js")]
     }
 ];
-

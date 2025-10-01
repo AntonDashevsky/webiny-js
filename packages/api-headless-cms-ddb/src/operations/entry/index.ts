@@ -120,10 +120,13 @@ export const createEntriesStorageOperations = (
         // Cache StorageTransformPlugin to optimize execution.
         const storageTransformPlugins = plugins
             .byType<StorageTransformPlugin>(StorageTransformPlugin.type)
-            .reduce((collection, plugin) => {
-                collection[plugin.fieldType] = plugin;
-                return collection;
-            }, {} as Record<string, StorageTransformPlugin>);
+            .reduce(
+                (collection, plugin) => {
+                    collection[plugin.fieldType] = plugin;
+                    return collection;
+                },
+                {} as Record<string, StorageTransformPlugin>
+            );
 
         return (field, value) => {
             const plugin: StorageTransformPlugin = storageTransformPlugins[field.type];

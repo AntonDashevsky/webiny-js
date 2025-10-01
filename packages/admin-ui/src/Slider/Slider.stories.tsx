@@ -247,8 +247,7 @@ export const Documentation: Story = {
             defaultValue: true
         },
         transformValue: {
-            description: "Function to transform the numeric value to display text",
-            
+            description: "Function to transform the numeric value to display text"
         },
         labelPosition: {
             description: "Position of the label relative to the slider",
@@ -257,16 +256,13 @@ export const Documentation: Story = {
         },
         validation: {
             description:
-                "Object containing validation state and message. Please refer to the example code for details on usage.",
-            
+                "Object containing validation state and message. Please refer to the example code for details on usage."
         },
         onValueChange: {
-            description: "Function called when the slider value changes",
-            
+            description: "Function called when the slider value changes"
         },
         onValueCommit: {
-            description: "Function called when the slider value is committed (on release)",
-            
+            description: "Function called when the slider value is committed (on release)"
         }
     }
 };

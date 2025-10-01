@@ -1,5 +1,9 @@
 import type { S3Client } from "@webiny/aws-sdk/client-s3/index.js";
-import { GetObjectCommand, getSignedUrl, HeadObjectCommand } from "@webiny/aws-sdk/client-s3/index.js";
+import {
+    GetObjectCommand,
+    getSignedUrl,
+    HeadObjectCommand
+} from "@webiny/aws-sdk/client-s3/index.js";
 import type {
     IUrlSigner,
     IUrlSignerSignParams,

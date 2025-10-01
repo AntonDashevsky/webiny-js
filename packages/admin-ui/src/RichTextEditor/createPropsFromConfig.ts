@@ -32,11 +32,14 @@ export const createPropsFromConfig = (
                 }
             });
         },
-        tools: configs.reduce((tools, config) => {
-            return {
-                ...tools,
-                ...config.tools
-            };
-        }, {} as Record<string, ToolSettings>)
+        tools: configs.reduce(
+            (tools, config) => {
+                return {
+                    ...tools,
+                    ...config.tools
+                };
+            },
+            {} as Record<string, ToolSettings>
+        )
     };
 };

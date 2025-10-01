@@ -724,8 +724,7 @@ describe("convert where to elasticsearch query", () => {
                                                             must: [
                                                                 {
                                                                     query_string: {
-                                                                        allow_leading_wildcard:
-                                                                            true,
+                                                                        allow_leading_wildcard: true,
                                                                         fields: ["values.title"],
                                                                         query: "*st*",
                                                                         default_operator: "and"

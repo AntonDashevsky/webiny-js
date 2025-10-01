@@ -1,7 +1,13 @@
 import React from "react";
 import { addMinutes, format } from "date-fns";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Dialog, DialogActions, DialogCancel, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
+import {
+    Dialog,
+    DialogActions,
+    DialogCancel,
+    DialogContent,
+    DialogTitle
+} from "@webiny/ui/Dialog/index.js";
 import { CodeEditor } from "@webiny/ui/CodeEditor/index.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { Action } from "~/views/Logs/Table/index.js";

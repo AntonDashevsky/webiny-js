@@ -64,7 +64,7 @@ const HeadlessCMSExtension = ({ createApolloClient }: HeadlessCMSProps) => {
 
     return (
         <Fragment>
-            <RoutesConfig/>
+            <RoutesConfig />
             <ContentEntriesModule />
             <SingletonContentEntryModule />
             <Provider hoc={createHeadlessCMSProvider(createApolloClient)} />

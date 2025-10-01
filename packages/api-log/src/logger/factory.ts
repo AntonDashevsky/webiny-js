@@ -1,4 +1,8 @@
-import { createDynamoDbLogger, createStorageOperations, DynamoDbLoggerKeys } from "./dynamodb/index.js";
+import {
+    createDynamoDbLogger,
+    createStorageOperations,
+    DynamoDbLoggerKeys
+} from "./dynamodb/index.js";
 import { create } from "~/db/index.js";
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 

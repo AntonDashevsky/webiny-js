@@ -1,5 +1,8 @@
 import React from "react";
-import { ContentEntryEditorConfig, ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import {
+    ContentEntryEditorConfig,
+    ContentEntryListConfig
+} from "~/admin/config/contentEntries/index.js";
 
 import {
     ActionDelete,

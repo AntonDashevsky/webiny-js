@@ -2,7 +2,11 @@ import type {
     IUpdateEntryLockUseCase,
     IUpdateEntryLockUseCaseExecuteParams
 } from "~/abstractions/IUpdateEntryLockUseCase.js";
-import type { IGetIdentity, IRecordLockingLockRecord, IRecordLockingModelManager } from "~/types.js";
+import type {
+    IGetIdentity,
+    IRecordLockingLockRecord,
+    IRecordLockingModelManager
+} from "~/types.js";
 import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
 import { WebinyError } from "@webiny/error";
 import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";

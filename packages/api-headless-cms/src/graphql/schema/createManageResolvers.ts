@@ -1,4 +1,10 @@
-import type { CmsContext, CmsEntry, CmsFieldTypePlugins, CmsModel, ICmsEntryState } from "~/types/index.js";
+import type {
+    CmsContext,
+    CmsEntry,
+    CmsFieldTypePlugins,
+    CmsModel,
+    ICmsEntryState
+} from "~/types/index.js";
 import { resolveGet } from "./resolvers/manage/resolveGet.js";
 import { resolveList } from "./resolvers/manage/resolveList.js";
 import { resolveListDeleted } from "./resolvers/manage/resolveListDeleted.js";

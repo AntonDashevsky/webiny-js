@@ -1,6 +1,9 @@
 import lodashCamelCase from "lodash/camelCase.js";
 import { createCmsModel, createPrivateModel } from "@webiny/api-headless-cms";
-import type { CmsModelField, CmsModelFieldValidation } from "@webiny/api-headless-cms/types/index.js";
+import type {
+    CmsModelField,
+    CmsModelFieldValidation
+} from "@webiny/api-headless-cms/types/index.js";
 
 export const SETTINGS_MODEL_ID = "mailerSettings";
 

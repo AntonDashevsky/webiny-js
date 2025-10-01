@@ -229,17 +229,14 @@ export const Documentation: Story = {
             control: "object"
         },
         value: {
-            description: "The selected icon value (in format 'prefix/name')",
-            
+            description: "The selected icon value (in format 'prefix/name')"
         },
         validation: {
             description:
-                "Object containing validation state and message. Please refer to the example code for details on usage.",
-            
+                "Object containing validation state and message. Please refer to the example code for details on usage."
         },
         onChange: {
-            description: "Function called when an icon is selected",
-            
+            description: "Function called when an icon is selected"
         }
     }
 };

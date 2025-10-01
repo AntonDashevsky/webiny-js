@@ -299,12 +299,10 @@ export const Documentation: Story = {
         },
         value: {
             description:
-                "The controlled value of the active tab, please refer to the example code for details.",
-            
+                "The controlled value of the active tab, please refer to the example code for details."
         },
         tabs: {
-            description: "The tabs to render, please refer to the example code for details.",
-            
+            description: "The tabs to render, please refer to the example code for details."
         }
     }
 };

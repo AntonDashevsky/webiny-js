@@ -1,7 +1,10 @@
 import React from "react";
 
 import { TrashBinListConfig } from "~/Presentation/configs/index.js";
-import { BulkActionsDeleteItems, BulkActionsRestoreItems } from "../components/BulkActions/index.js";
+import {
+    BulkActionsDeleteItems,
+    BulkActionsRestoreItems
+} from "../components/BulkActions/index.js";
 import {
     CellActions,
     CellCreatedBy,

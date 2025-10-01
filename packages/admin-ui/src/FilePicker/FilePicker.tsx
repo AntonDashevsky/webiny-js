@@ -11,7 +11,11 @@ import {
     FormComponentNote,
     type FormComponentProps
 } from "~/FormComponent/index.js";
-import { ImagePreview, RichItemPreview, TextOnlyPreview } from "~/FilePicker/primitives/components/index.js";
+import {
+    ImagePreview,
+    RichItemPreview,
+    TextOnlyPreview
+} from "~/FilePicker/primitives/components/index.js";
 
 type FilePickerProps = FilePickerPrimitiveProps & FormComponentProps;
 

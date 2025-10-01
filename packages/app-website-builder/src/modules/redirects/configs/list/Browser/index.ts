@@ -1,4 +1,7 @@
-import { RedirectAction, type RecordActionConfig as RedirectActionConfig } from "./RedirectAction.js";
+import {
+    RedirectAction,
+    type RecordActionConfig as RedirectActionConfig
+} from "./RedirectAction.js";
 import { Table, type TableConfig } from "./Table/index.js";
 import { FiltersToWhere, type FiltersToWhereConverter } from "./FiltersToWhere.js";
 import { Filter, type FilterConfig } from "./Filter.js";

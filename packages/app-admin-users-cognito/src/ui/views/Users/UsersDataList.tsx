@@ -62,7 +62,7 @@ const UsersDataList = () => {
     const { showConfirmation } = useConfirmationDialog({
         dataTestId: "default-data-list.delete-dialog",
         title: "Delete user",
-        message: "Are you sure you want to delete this user? This action cannot be undone.",
+        message: "Are you sure you want to delete this user? This action cannot be undone."
     });
 
     const filterUsers = useCallback<FilterUsersCallable>(

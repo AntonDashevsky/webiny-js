@@ -4,7 +4,10 @@ import type {
     IElasticsearchIndexingTaskValuesKeys,
     IManager
 } from "~/types.js";
-import type { ITaskResponse, ITaskResponseResult } from "@webiny/tasks/response/abstractions/index.js";
+import type {
+    ITaskResponse,
+    ITaskResponseResult
+} from "@webiny/tasks/response/abstractions/index.js";
 import { scan } from "~/helpers/scan.js";
 import type { ScanResponse } from "@webiny/db-dynamodb";
 import { createTableWriteBatch } from "@webiny/db-dynamodb";

@@ -6,7 +6,11 @@ import type { ActiveTypography } from "~/context/TypographyActionContext.js";
 import { TypographyActionContext } from "~/context/TypographyActionContext.js";
 import { $isHeadingNode, $isListNode, $isParagraphNode, $isQuoteNode } from "@webiny/lexical-nodes";
 import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";
-import type { ListCommandPayload, QuoteCommandPayload, TypographyPayload } from "~/commands/index.js";
+import type {
+    ListCommandPayload,
+    QuoteCommandPayload,
+    TypographyPayload
+} from "~/commands/index.js";
 import {
     INSERT_ORDERED_LIST_COMMAND,
     INSERT_UNORDERED_LIST_COMMAND,

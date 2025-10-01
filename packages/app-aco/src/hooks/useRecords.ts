@@ -3,7 +3,11 @@ import { useContext, useEffect, useMemo } from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import type { ListRecordsParams } from "~/contexts/records.js";
 import { SearchRecordsContext } from "~/contexts/records.js";
-import type { DeletableSearchRecordItem, MovableSearchRecordItem, SearchRecordItem } from "~/types.js";
+import type {
+    DeletableSearchRecordItem,
+    MovableSearchRecordItem,
+    SearchRecordItem
+} from "~/types.js";
 import { useAcoApp } from "~/hooks/useAcoApp.js";
 import { useNavigateFolder } from "~/hooks/useNavigateFolder.js";
 

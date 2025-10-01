@@ -1,4 +1,3 @@
- 
 const document = {
     id: "id#revision",
     status: "",

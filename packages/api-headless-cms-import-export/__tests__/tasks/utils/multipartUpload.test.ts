@@ -1,5 +1,9 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { createMultipartUpload, IMultipartUploadHandler, MultipartUploadHandler } from "~/tasks/utils/upload";
+import {
+    createMultipartUpload,
+    IMultipartUploadHandler,
+    MultipartUploadHandler
+} from "~/tasks/utils/upload";
 import { createS3Client } from "~/tasks/utils/helpers/s3Client";
 import { getBucket } from "~/tasks/utils/helpers/getBucket";
 import {

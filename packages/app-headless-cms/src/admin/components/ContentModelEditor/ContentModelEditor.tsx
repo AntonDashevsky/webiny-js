@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { makeDecoratable, NavigationPrompt, LeftPanel, RightPanel, SplitView } from "@webiny/app-admin";
+import {
+    makeDecoratable,
+    NavigationPrompt,
+    LeftPanel,
+    RightPanel,
+    SplitView
+} from "@webiny/app-admin";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Heading, OverlayLoader, Separator, Tabs, Text, TimeAgo } from "@webiny/admin-ui";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";

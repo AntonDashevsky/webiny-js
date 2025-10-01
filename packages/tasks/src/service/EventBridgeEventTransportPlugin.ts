@@ -1,4 +1,8 @@
-import type { ITaskService, ITaskServiceCreatePluginParams, ITaskServiceTask } from "~/plugins/index.js";
+import type {
+    ITaskService,
+    ITaskServiceCreatePluginParams,
+    ITaskServiceTask
+} from "~/plugins/index.js";
 import { TaskServicePlugin } from "~/plugins/index.js";
 import type { ITaskEventInput } from "~/types.js";
 import type { PutEventsCommandOutput } from "@webiny/aws-sdk/client-eventbridge/index.js";

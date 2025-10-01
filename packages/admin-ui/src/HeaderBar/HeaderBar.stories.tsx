@@ -110,16 +110,13 @@ export const Documentation: Story = {
     },
     argTypes: {
         start: {
-            description: "Content displayed at the start of the header bar",
-            
+            description: "Content displayed at the start of the header bar"
         },
         middle: {
-            description: "Content displayed in the middle of the header bar",
-            
+            description: "Content displayed in the middle of the header bar"
         },
         end: {
-            description: "Content displayed at the end of the header bar",
-            
+            description: "Content displayed at the end of the header bar"
         }
     }
 };

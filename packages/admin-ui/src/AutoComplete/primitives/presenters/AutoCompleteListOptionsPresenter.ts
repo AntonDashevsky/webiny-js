@@ -42,7 +42,7 @@ export class AutoCompleteListOptionsPresenter implements IAutoCompleteListOption
     init(params: IAutoCompleteListOptionsPresenterParams) {
         this.options.clear();
         if (params.options) {
-            this.options.addItems(params.options)
+            this.options.addItems(params.options);
         }
         this.emptyMessage = params.emptyMessage || this.emptyMessage;
         this.loadingMessage = params.loadingMessage || this.loadingMessage;
