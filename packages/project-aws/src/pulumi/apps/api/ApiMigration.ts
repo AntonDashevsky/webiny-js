@@ -3,13 +3,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
-
 import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
 import { CoreOutput, VpcConfig } from "../common/index.js";
 import { ApiBackgroundTask, ApiGraphql } from "~/pulumi/apps/index.js";
 import { LAMBDA_RUNTIME } from "~/pulumi/constants.js";
 import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion.js";
-import { AuditLogsDynamo } from "~/pulumi/apps/api/AuditLogsDynamo.js";
 
 export type ApiMigration = PulumiAppModule<typeof ApiMigration>;
 
@@ -19,7 +17,6 @@ export const ApiMigration = createAppModule({
         const core = app.getModule(CoreOutput);
         const graphql = app.getModule(ApiGraphql);
         const backgroundTask = app.getModule(ApiBackgroundTask);
-        const auditLogsDynamoDb = app.getModule(AuditLogsDynamo);
 
         const role = createLambdaRole(app, {
             name: "migration-lambda-role",
@@ -47,7 +44,7 @@ export const ApiMigration = createAppModule({
                         COGNITO_USER_POOL_ID: core.cognitoUserPoolId,
                         DB_TABLE: core.primaryDynamodbTableName,
                         DB_TABLE_LOG: core.logDynamodbTableName,
-                        DB_TABLE_AUDIT_LOGS: auditLogsDynamoDb.output.name,
+                        DB_TABLE_AUDIT_LOGS: core.auditLogsDynamodbTableName,
                         DB_TABLE_ELASTICSEARCH: core.elasticsearchDynamodbTableName,
                         ELASTIC_SEARCH_ENDPOINT: core.elasticsearchDomainEndpoint,
                         ELASTIC_SEARCH_INDEX_PREFIX: process.env.ELASTIC_SEARCH_INDEX_PREFIX,

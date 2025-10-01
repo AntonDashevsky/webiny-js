@@ -22,6 +22,10 @@ export interface ICoreOutput {
     logDynamodbTableName: string;
     logDynamodbTableHashKey: string;
     logDynamodbTableRangeKey: string;
+    auditLogsDynamodbTableArn: string;
+    auditLogsDynamodbTableName: string;
+    auditLogsDynamodbTableHashKey: string;
+    auditLogsDynamodbTableRangeKey: string;
     eventBusName: string;
     eventBusArn: string;
     vpcPublicSubnetIds: string[] | undefined;
@@ -59,6 +63,10 @@ export const CoreOutput = createAppModule({
                 logDynamodbTableName: output["logDynamodbTableName"],
                 logDynamodbTableHashKey: output["logDynamodbTableHashKey"],
                 logDynamodbTableRangeKey: output["logDynamodbTableRangeKey"],
+                auditLogsDynamodbTableArn: output["auditLogsDynamodbTableArn"],
+                auditLogsDynamodbTableName: output["auditLogsDynamodbTableName"],
+                auditLogsDynamodbTableHashKey: output["auditLogsDynamodbTableHashKey"],
+                auditLogsDynamodbTableRangeKey: output["auditLogsDynamodbTableRangeKey"],
                 cognitoUserPoolId: output["cognitoUserPoolId"],
                 cognitoUserPoolArn: output["cognitoUserPoolArn"],
                 cognitoUserPoolPasswordPolicy: output["cognitoUserPoolPasswordPolicy"],
