@@ -56,9 +56,7 @@ export function createTextInput<TName extends string>(
 export function createTextInput<TName extends string>(
     input: Omit<TextInput, "type" | "name">
 ): TextInput & { name: TName };
-export function createTextInput<TName extends string>(
-    input: any
-): TextInput & { name: TName } {
+export function createTextInput<TName extends string>(input: any): TextInput & { name: TName } {
     return createInput({
         type: "text",
         renderer: "Webiny/Input",
@@ -90,9 +88,7 @@ export function createNumberInput<TName extends string>(
 export function createNumberInput<TName extends string>(
     input: Omit<NumberInput, "type" | "name">
 ): NumberInput & { name: TName };
-export function createNumberInput<TName extends string>(
-    input: any
-): NumberInput & { name: TName } {
+export function createNumberInput<TName extends string>(input: any): NumberInput & { name: TName } {
     return createInput({
         type: "number",
         renderer: "Webiny/Number",
@@ -124,9 +120,7 @@ export function createColorInput<TName extends string>(
 export function createColorInput<TName extends string>(
     input: Omit<ColorInput, "type" | "name">
 ): ColorInput & { name: TName };
-export function createColorInput<TName extends string>(
-    input: any
-): ColorInput & { name: TName } {
+export function createColorInput<TName extends string>(input: any): ColorInput & { name: TName } {
     return createInput({
         type: "color",
         renderer: "Webiny/ColorPicker",
@@ -141,9 +135,7 @@ export function createFileInput<TName extends string>(
 export function createFileInput<TName extends string>(
     input: Omit<FileInput, "type" | "name">
 ): FileInput & { name: TName };
-export function createFileInput<TName extends string>(
-    input: any
-): FileInput & { name: TName } {
+export function createFileInput<TName extends string>(input: any): FileInput & { name: TName } {
     return createInput({
         type: "file",
         renderer: "Webiny/FileManager",
@@ -158,9 +150,7 @@ export function createDateInput<TName extends string>(
 export function createDateInput<TName extends string>(
     input: Omit<DateTimeInput, "type" | "name">
 ): DateTimeInput & { name: TName };
-export function createDateInput<TName extends string>(
-    input: any
-): DateTimeInput & { name: TName } {
+export function createDateInput<TName extends string>(input: any): DateTimeInput & { name: TName } {
     return createInput({
         type: "datetime",
         renderer: "Webiny/DateTime",
@@ -192,9 +182,7 @@ export function createSelectInput<TName extends string>(
 export function createSelectInput<TName extends string>(
     input: Omit<SelectInput, "type" | "name">
 ): SelectInput & { name: TName };
-export function createSelectInput<TName extends string>(
-    input: any
-): SelectInput & { name: TName } {
+export function createSelectInput<TName extends string>(input: any): SelectInput & { name: TName } {
     return createInput({
         type: "select",
         renderer: "Webiny/Select",
@@ -209,9 +197,7 @@ export function createRadioInput<TName extends string>(
 export function createRadioInput<TName extends string>(
     input: Omit<RadioInput, "type" | "name">
 ): RadioInput & { name: TName };
-export function createRadioInput<TName extends string>(
-    input: any
-): RadioInput & { name: TName } {
+export function createRadioInput<TName extends string>(input: any): RadioInput & { name: TName } {
     return createInput({
         type: "radio",
         renderer: "Webiny/RadioGroup",
@@ -226,9 +212,7 @@ export function createObjectInput<TName extends string>(
 export function createObjectInput<TName extends string>(
     input: Omit<ObjectInput, "type" | "name">
 ): ObjectInput & { name: TName };
-export function createObjectInput<TName extends string>(
-    input: any
-): ObjectInput & { name: TName } {
+export function createObjectInput<TName extends string>(input: any): ObjectInput & { name: TName } {
     return createInput({
         type: "object",
         renderer: "Webiny/Object",
@@ -243,9 +227,7 @@ export function createTagsInput<TName extends string>(
 export function createTagsInput<TName extends string>(
     input: Omit<TagsInput, "type" | "name">
 ): TagsInput & { name: TName };
-export function createTagsInput<TName extends string>(
-    input: any
-): TagsInput & { name: TName } {
+export function createTagsInput<TName extends string>(input: any): TagsInput & { name: TName } {
     return createInput({
         type: "text",
         list: true,
@@ -260,13 +242,12 @@ export function createSlotInput<TName extends string>(
 export function createSlotInput<TName extends string>(
     input: Omit<SlotInput, "type" | "name">
 ): SlotInput & { name: TName };
-export function createSlotInput<TName extends string>(
-    input: any
-): SlotInput & { name: TName } {
+export function createSlotInput<TName extends string>(input: any): SlotInput & { name: TName } {
     return createInput({
         type: "slot",
         list: true,
         renderer: "Webiny/Slot",
+        defaultValue: [],
         ...input
     }) as SlotInput & { name: TName };
 }

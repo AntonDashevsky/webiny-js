@@ -16,6 +16,7 @@ export interface Column {
 type GridProps = ComponentProps<{
     gridLayout: string;
     rowCount: number;
+    rowGap: number;
     columnGap: number;
     columns: Column[];
     stackAtBreakpoint?: string;

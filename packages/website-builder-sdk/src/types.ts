@@ -1,6 +1,7 @@
 import type * as CSS from "csstype";
 import type { BindingsApi } from "~/BindingsApi.js";
 import type { ShorthandCssProperties } from "./types/ShorthandCssProperties.js";
+import type { InputFactory } from "~/createInput.js";
 export type { WebsiteBuilderTheme, Breakpoint } from "./types/WebsiteBuilderTheme.js";
 
 type CSSProperties = CSS.Properties<string | number>;
@@ -72,6 +73,11 @@ export type Component = {
     manifest: ComponentManifest;
 };
 
+export type ComponentBlueprint<TComponent = any, TManifest = any> = {
+    component: TComponent;
+    manifest: TManifest;
+};
+
 export type ComponentGroupItem = {
     // Name of the component.
     name: string;
@@ -103,7 +109,7 @@ export type ComponentManifest = {
     group?: string;
     label?: string;
     image?: string;
-    inputs?: ComponentInput[];
+    inputs: ComponentInput[];
     canDrag?: boolean;
     canDelete?: boolean;
     acceptsChildren?: boolean;
@@ -380,3 +386,31 @@ export type ComponentInput =
     | ObjectInput
     | SlotInput
     | CustomInput;
+
+export type ManifestInputsArray<
+    TInputs,
+    TAllowChildren extends boolean
+> = TAllowChildren extends true
+    ? {
+          [K in Exclude<keyof TInputs, "children">]: InputFactory<K & string>;
+      }[Exclude<keyof TInputs, "children">][]
+    : {
+          [K in keyof TInputs]: InputFactory<K & string>;
+      }[keyof TInputs][];
+
+export type ManifestInputsObject<
+    TInputs,
+    TAllowChildren extends boolean
+> = TAllowChildren extends true
+    ? { [K in Exclude<keyof TInputs, "children">]: InputFactory<K & string> }
+    : { [K in keyof TInputs]: InputFactory<K & string> };
+
+export type ComponentManifestInput<TInputs> =
+    | (Omit<ComponentManifest, "inputs" | "acceptsChildren"> & {
+          acceptsChildren: true;
+          inputs?: ManifestInputsArray<TInputs, true> | ManifestInputsObject<TInputs, true>;
+      })
+    | (Omit<ComponentManifest, "inputs" | "acceptsChildren"> & {
+          acceptsChildren?: false;
+          inputs: ManifestInputsArray<TInputs, false> | ManifestInputsObject<TInputs, false>;
+      });
