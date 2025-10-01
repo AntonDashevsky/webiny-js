@@ -584,12 +584,6 @@ jobs:
       - name: Deploy Admin Area
         working-directory: new-webiny-project
         run: yarn webiny deploy admin --env dev
-      - name: Deployment Summary
-        run: >-
-          node
-          .github/workflows/wac/utils/runNodeScripts/printDeploymentSummary.js
-          '../new-webiny-project' >> $GITHUB_STEP_SUMMARY
-        working-directory: next
       - name: Create Cypress config
         run: yarn setup-cypress --projectFolder ../new-webiny-project
         working-directory: next
@@ -794,12 +788,6 @@ jobs:
       - name: Deploy Admin Area
         working-directory: new-webiny-project
         run: yarn webiny deploy admin --env dev
-      - name: Deployment Summary
-        run: >-
-          node
-          .github/workflows/wac/utils/runNodeScripts/printDeploymentSummary.js
-          '../new-webiny-project' >> $GITHUB_STEP_SUMMARY
-        working-directory: next
       - name: Create Cypress config
         run: yarn setup-cypress --projectFolder ../new-webiny-project
         working-directory: next
@@ -1009,12 +997,6 @@ jobs:
       - name: Deploy Admin Area
         working-directory: new-webiny-project
         run: yarn webiny deploy admin --env dev
-      - name: Deployment Summary
-        run: >-
-          node
-          .github/workflows/wac/utils/runNodeScripts/printDeploymentSummary.js
-          '../new-webiny-project' >> $GITHUB_STEP_SUMMARY
-        working-directory: next
       - name: Create Cypress config
         run: yarn setup-cypress --projectFolder ../new-webiny-project
         working-directory: next
