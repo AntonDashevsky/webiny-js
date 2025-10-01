@@ -249,7 +249,6 @@ describe("TrashBin", () => {
             items: [
                 {
                     id: "item-1",
-                    $selectable: true,
                     title: "Item 1",
                     createdBy: identity1,
                     deletedBy: identity2,
@@ -257,7 +256,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-2",
-                    $selectable: true,
                     title: "Item 2",
                     createdBy: identity1,
                     deletedBy: identity1,
@@ -265,7 +263,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-3",
-                    $selectable: true,
                     title: "Item 3",
                     createdBy: identity2,
                     deletedBy: identity2,
@@ -326,7 +323,6 @@ describe("TrashBin", () => {
             items: [
                 {
                     id: "item-1",
-                    $selectable: true,
                     title: "Item 1",
                     createdBy: identity1,
                     deletedBy: identity2,
@@ -334,7 +330,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-2",
-                    $selectable: true,
                     title: "Item 2",
                     createdBy: identity1,
                     deletedBy: identity1,
@@ -342,7 +337,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-3",
-                    $selectable: true,
                     title: "Item 3",
                     createdBy: identity2,
                     deletedBy: identity2,
@@ -350,7 +344,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-4",
-                    $selectable: true,
                     title: "Item 4",
                     createdBy: identity1,
                     deletedBy: identity1,
@@ -407,7 +400,6 @@ describe("TrashBin", () => {
             items: [
                 {
                     id: "item-3",
-                    $selectable: true,
                     title: "Item 3",
                     createdBy: identity2,
                     deletedBy: identity2,
@@ -415,7 +407,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-2",
-                    $selectable: true,
                     title: "Item 2",
                     createdBy: identity1,
                     deletedBy: identity1,
@@ -423,7 +414,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-1",
-                    $selectable: true,
                     title: "Item 1",
                     createdBy: identity1,
                     deletedBy: identity2,
@@ -488,7 +478,6 @@ describe("TrashBin", () => {
             items: [
                 {
                     id: "item-1",
-                    $selectable: true,
                     title: "Item 1",
                     createdBy: identity1,
                     deletedBy: identity2,
@@ -534,7 +523,6 @@ describe("TrashBin", () => {
         await controllers.selectItems.execute([
             {
                 id: "item-1",
-                $selectable: true,
                 title: "Item 1",
                 location: {
                     folderId: "folder-a"
@@ -549,7 +537,6 @@ describe("TrashBin", () => {
             selectedItems: [
                 {
                     id: "item-1",
-                    $selectable: true,
                     title: "Item 1",
                     location: {
                         folderId: "folder-a"
@@ -565,7 +552,6 @@ describe("TrashBin", () => {
         await controllers.selectItems.execute([
             {
                 id: "item-1",
-                $selectable: true,
                 title: "Item 1",
                 location: {
                     folderId: "folder-a"
@@ -576,7 +562,6 @@ describe("TrashBin", () => {
             },
             {
                 id: "item-2",
-                $selectable: true,
                 title: "Item 2",
                 location: {
                     folderId: "folder-a"
@@ -591,7 +576,6 @@ describe("TrashBin", () => {
             selectedItems: [
                 {
                     id: "item-1",
-                    $selectable: true,
                     title: "Item 1",
                     location: {
                         folderId: "folder-a"
@@ -602,7 +586,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-2",
-                    $selectable: true,
                     title: "Item 2",
                     location: {
                         folderId: "folder-a"
@@ -627,7 +610,6 @@ describe("TrashBin", () => {
             items: [
                 {
                     id: "item-1",
-                    $selectable: true,
                     title: "Item 1",
                     location: {
                         folderId: "folder-a"
@@ -638,7 +620,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-2",
-                    $selectable: true,
                     title: "Item 2",
                     location: {
                         folderId: "folder-a"
@@ -649,7 +630,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-3",
-                    $selectable: true,
                     title: "Item 3",
                     location: {
                         folderId: "folder-b"
@@ -679,7 +659,6 @@ describe("TrashBin", () => {
             items: [
                 {
                     id: "item-2",
-                    $selectable: true,
                     title: "Item 2",
                     location: {
                         folderId: "folder-a"
@@ -690,7 +669,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-3",
-                    $selectable: true,
                     title: "Item 3",
                     location: {
                         folderId: "folder-b"
@@ -715,7 +693,6 @@ describe("TrashBin", () => {
             items: [
                 {
                     id: "item-1",
-                    $selectable: true,
                     title: "Item 1",
                     location: {
                         folderId: "folder-a"
@@ -726,7 +703,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-2",
-                    $selectable: true,
                     title: "Item 2",
                     location: {
                         folderId: "folder-a"
@@ -737,7 +713,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-3",
-                    $selectable: true,
                     title: "Item 3",
                     location: {
                         folderId: "folder-b"
@@ -767,7 +742,6 @@ describe("TrashBin", () => {
             items: [
                 {
                     id: "item-2",
-                    $selectable: true,
                     title: "Item 2",
                     location: {
                         folderId: "folder-a"
@@ -778,7 +752,6 @@ describe("TrashBin", () => {
                 },
                 {
                     id: "item-3",
-                    $selectable: true,
                     title: "Item 3",
                     location: {
                         folderId: "folder-b"
@@ -791,7 +764,6 @@ describe("TrashBin", () => {
             restoredItems: [
                 {
                     id: "item-1",
-                    $selectable: true,
                     title: "Item 1",
                     location: {
                         folderId: "folder-a"
@@ -807,7 +779,6 @@ describe("TrashBin", () => {
         const restoredItem = await controllers.getRestoredItemById.execute("item-1");
         expect(restoredItem).toMatchObject({
             id: "item-1",
-            $selectable: true,
             title: "Item 1",
             location: {
                 folderId: "folder-a"
