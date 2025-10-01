@@ -1,4 +1,4 @@
-import React, { Fragment, Children, createContext, useContext, useEffect, memo } from "react";
+import React, { Children, createContext, Fragment, memo, useContext, useEffect } from "react";
 import { useApp } from "~/App.js";
 
 export const PluginsContext = createContext<boolean>(false);
@@ -38,3 +38,5 @@ export const Plugins = React.memo(({ children }: PluginsComponentsProps) => {
 
     return hasParentPlugin ? <Fragment>{children}</Fragment> : null;
 });
+
+Plugins.displayName = "Plugins";

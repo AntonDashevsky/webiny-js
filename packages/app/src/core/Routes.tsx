@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useRouter } from "~/router.js";
 import type { ReactRoute } from "~/presentation/router/index.js";
 import { RouteContent } from "~/presentation/router/components/RouteContent.js";

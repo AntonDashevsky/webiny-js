@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useMemo, useState, useCallback, useEffect } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import {
-    CompositionProvider,
-    GenericComponent,
     compose,
+    CompositionProvider,
     Decorator,
-    DecoratorsCollection
+    DecoratorsCollection,
+    GenericComponent
 } from "@webiny/react-composition";
 import { DebounceRender } from "./core/DebounceRender.js";
 import { PluginsProvider } from "./core/Plugins.js";
@@ -133,6 +133,8 @@ export const AppBase = React.memo(
         );
     }
 );
+
+AppBase.displayName = "AppBase";
 
 export const App = ({ decorators, ...props }: AppProps) => {
     return (

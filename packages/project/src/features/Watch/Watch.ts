@@ -234,7 +234,6 @@ export class DefaultWatch implements Watch.Interface {
 
         let inspector: typeof inspectorType | undefined = undefined;
         if (params.inspect) {
-            //eslint-disable-next-line import/dynamic-import-chunkname
             inspector = await import("inspector");
             inspector!.open(9229, "127.0.0.1");
             ui.newLine();

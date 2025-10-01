@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { NewStep } from "./Step/NewStep.js";
 import { Accordion } from "@webiny/admin-ui";
 import type { IInactiveStep } from "./Step/InactiveStep.js";
@@ -8,7 +8,6 @@ import { observer } from "mobx-react-lite";
 import type { IWorkflowsPresenter } from "~/admin/plugins/editor/publishingWorkflows/presenters/index.js";
 
 export interface IPublishingWorkflowProps {
-    // workflow: IWorkflowModel;
     presenter: IWorkflowsPresenter;
 }
 

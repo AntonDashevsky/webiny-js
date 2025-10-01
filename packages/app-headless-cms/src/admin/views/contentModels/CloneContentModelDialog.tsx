@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import * as UID from "@webiny/ui/Dialog/index.js";
 import { useRouter } from "@webiny/app-admin";
 import { Form } from "@webiny/form";
@@ -10,7 +10,7 @@ import { validation } from "@webiny/validation";
 import { useApolloClient, useMutation, useQueryLocale } from "../../hooks/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ButtonDefault } from "@webiny/ui/Button/index.js";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { addModelToGroupCache, addModelToListCache } from "./cache.js";
 import type { CmsModel } from "~/types.js";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
@@ -54,7 +54,7 @@ export const CloneContentModelDialog = ({
     closeModal
 }: CloneContentModelDialogProps) => {
     const [loading, setLoading] = useState<boolean>(false);
-    const { showSuccessToast, showWarningToast } = useToast();
+    const { showWarningToast } = useToast();
     const { goToRoute } = useRouter();
     const { getLocales, getCurrentLocale, setCurrentLocale } = useI18N();
     const client = useApolloClient();

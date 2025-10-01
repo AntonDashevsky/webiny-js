@@ -1473,7 +1473,7 @@ describe("content model test", () => {
     });
 
     it("should create and update a model with steps in settings", async () => {
-        const { createContentModelMutation, getContentModelQuery, updateContentModelMutation } =
+        const { createContentModelMutation, updateContentModelMutation } =
             useGraphQLHandler(manageHandlerOpts);
         const field = {
             id: "testId",

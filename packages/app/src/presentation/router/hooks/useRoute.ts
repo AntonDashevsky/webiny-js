@@ -5,6 +5,7 @@ import { MatchedRoute, RouterPresenter } from "~/features/router/abstractions.js
 import { useContainer } from "~/di/DiContainerProvider.js";
 
 export function useRoute<TParams extends RouteParamsDefinition | undefined = undefined>(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     route?: Route<TParams>
 ) {
     const container = useContainer();

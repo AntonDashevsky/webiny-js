@@ -44,7 +44,6 @@ process.on("unhandledRejection", reason => {
 const { project: projectModelDto } = JSON.parse(process.argv[2]) as RenderConfigParamsDto;
 const project = ProjectModel.fromDto(projectModelDto);
 
-//eslint-disable-next-line import/dynamic-import-chunkname
 const { default: WebinyConfig } = await import(project.paths.webinyConfigFile.toString());
 
 const onChange = debounce((value: any) => {

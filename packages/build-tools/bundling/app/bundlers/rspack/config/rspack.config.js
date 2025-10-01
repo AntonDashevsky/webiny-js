@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
 import {
-    HotModuleReplacementPlugin,
-    ProgressPlugin,
+    CssExtractRspackPlugin,
     DefinePlugin,
+    HotModuleReplacementPlugin,
     HtmlRspackPlugin,
-    CssExtractRspackPlugin
+    ProgressPlugin
 } from "@rspack/core";
 import ReactRefreshPlugin from "@rspack/plugin-react-refresh";
 import tailwindcss from "tailwindcss";
@@ -34,7 +34,10 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
     const isEnvProduction = webpackEnv === "production";
     const isEnvProductionProfile = isEnvProduction && process.argv.includes("--profile");
 
-    const { default: tailwindConfig } = await import("@webiny/admin-ui/tailwind.config.js");
+    const { default: tailwindConfig } = await import(
+        /* webpackChunkName: "rspack.config.tailwind" */
+        "@webiny/admin-ui/tailwind.config.js"
+    );
 
     const modules = modulesFactory({ paths });
     const swcConfig = createSwcConfig(options.cwd);

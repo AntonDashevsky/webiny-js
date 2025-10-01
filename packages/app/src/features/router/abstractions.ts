@@ -1,16 +1,12 @@
 import { Abstraction } from "@webiny/di-container";
 import type { Route, RouteParamsDefinition, RouteParamsInfer } from "./Route.js";
+import type { RequiredKeysOf } from "type-fest";
 
 /***** Presenter *****/
 
-// Pulls out keys that are required
-type RequiredKeys<T> = {
-    [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
-}[keyof T];
-
 export type RouteParamsArgs<TParams extends RouteParamsDefinition | undefined> =
     TParams extends RouteParamsDefinition
-        ? RequiredKeys<RouteParamsInfer<TParams>> extends never
+        ? RequiredKeysOf<RouteParamsInfer<TParams>> extends never
             ? [params?: RouteParamsInfer<TParams>] // all optional → param optional
             : [params: RouteParamsInfer<TParams>] // some required → param required
         : [];

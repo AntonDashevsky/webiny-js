@@ -1,7 +1,7 @@
 import { getAuditConfig } from "~/utils/getAuditConfig.js";
 import { AUDIT } from "~/config.js";
 import type { AuditLogsContext } from "~/types.js";
-import { WebinyError } from "@webiny/error/index.js";
+import { WebinyError } from "@webiny/error";
 
 export const createWebsiteBuilderHooks = (context: AuditLogsContext) => {
     context.websiteBuilder.pages.onPageAfterCreate.subscribe(async ({ page }) => {

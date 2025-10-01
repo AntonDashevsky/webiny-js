@@ -218,7 +218,6 @@ export const createProjectSdkContainer = async (
             importPath = project.paths.rootFolder.join(filePath).toString();
         }
 
-        //eslint-disable-next-line import/dynamic-import-chunkname
         return import(importPath);
     };
 

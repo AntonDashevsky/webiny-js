@@ -112,7 +112,7 @@ const Install = ({ onInstalled }: InstallProps) => {
 
     return (
         <Form onSubmit={onSubmit} submitOnEnter>
-            {({ data, Bind, submit }) => (
+            {({ Bind, submit }) => (
                 <SimpleForm>
                     {loading && <CircularProgress />}
                     <SimpleFormHeader title={"Create an Admin User"} />

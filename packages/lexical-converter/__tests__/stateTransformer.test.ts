@@ -1,15 +1,6 @@
-import { describe, it, test, expect } from "vitest";
+import { describe, expect, it, test } from "vitest";
 import { LexicalNode } from "lexical";
-import {
-    $isHeadingNode,
-    $isListNode,
-    $isParagraphNode,
-    $isQuoteNode,
-    HeadingNode,
-    ListNode,
-    ParagraphNode,
-    QuoteNode
-} from "@webiny/lexical-nodes";
+import { $isHeadingNode, $isListNode, $isParagraphNode, $isQuoteNode } from "@webiny/lexical-nodes";
 import { stateMock } from "./mocks/stateMocks";
 import { createLexicalStateTransformer } from "~/createLexicalStateTransformer";
 
