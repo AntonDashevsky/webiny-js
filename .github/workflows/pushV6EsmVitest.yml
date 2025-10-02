@@ -482,6 +482,8 @@ jobs:
       NODE_OPTIONS: '--max_old_space_size=4096'
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
   e2eTests-ddb-setup:
+    container:
+      image: cypress/browsers:node-22.9.0-chrome-120
     needs:
       - constants
       - build
@@ -628,6 +630,8 @@ jobs:
       NODE_OPTIONS: '--max_old_space_size=4096'
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
   e2eTests-ddbEs-setup:
+    container:
+      image: cypress/browsers:node-22.9.0-chrome-120
     needs:
       - constants
       - build
@@ -777,6 +781,8 @@ jobs:
       NODE_OPTIONS: '--max_old_space_size=4096'
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
   e2eTests-ddbOs-setup:
+    container:
+      image: cypress/browsers:node-22.9.0-chrome-120
     needs:
       - constants
       - build

@@ -77,6 +77,7 @@ const createPushWorkflow = (branchName: string) => {
         }
 
         const projectSetupJob: NormalJob = createJob({
+            container: { image: "cypress/browsers:node-22.9.0-chrome-120" },
             needs: ["constants", "build", jobNames.constants],
             name: `E2E (${storageOps.displayName}) - Project setup`,
             outputs: {
