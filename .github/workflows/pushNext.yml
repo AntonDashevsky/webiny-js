@@ -605,7 +605,7 @@ jobs:
       - name: Cypress - run installation wizard test
         run: >-
           yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
-          --browser chrome -- --disable-gpu --no-sandbox
+          --browser electron --headless
         working-directory: next
     runs-on: ubuntu-latest
     permissions:
@@ -759,7 +759,7 @@ jobs:
       - name: Cypress - run installation wizard test
         run: >-
           yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
-          --browser chrome -- --disable-gpu --no-sandbox
+          --browser electron --headless
         working-directory: next
     runs-on: ubuntu-latest
     permissions:
@@ -913,7 +913,7 @@ jobs:
       - name: Cypress - run installation wizard test
         run: >-
           yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
-          --browser chrome -- --disable-gpu --no-sandbox
+          --browser electron --headless
         working-directory: next
     runs-on: ubuntu-latest
     permissions:
