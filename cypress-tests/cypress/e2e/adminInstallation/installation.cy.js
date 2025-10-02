@@ -42,8 +42,8 @@ context("Admin Installation", () => {
             cy.findByTestId("install-security-button").click();
 
             // 1.1. Log in with the newly created user.
-            cy.findByLabelText("Your e-mail").type(Cypress.env("DEFAULT_ADMIN_USER_USERNAME"));
-            cy.findByLabelText("Your password").type(Cypress.env("DEFAULT_ADMIN_USER_PASSWORD"));
+            cy.findByLabelText("Email").type(Cypress.env("DEFAULT_ADMIN_USER_USERNAME"));
+            cy.findByLabelText("Password").type(Cypress.env("DEFAULT_ADMIN_USER_PASSWORD"));
             cy.findByTestId("submit-sign-in-form-button").click();
 
             // 2. I18N installation.
@@ -59,7 +59,7 @@ context("Admin Installation", () => {
 
             // 5. Installation complete, click the button and check if the dashboard is loaded.
             cy.findByTestId("open-webiny-cms-admin-button").click();
-            // cy.findByText(/Get to know Webiny team members/i).should("exist");
+            cy.findByText(/what are we doing today?/i).should("exist");
         }
     );
 });
