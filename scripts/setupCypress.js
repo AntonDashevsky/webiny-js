@@ -3,7 +3,7 @@ import fs from "fs";
 import chalk from "chalk";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { getStackOutput } from "@webiny/project";
+import { ProjectSdk } from "@webiny/project";
 
 const { green, red } = chalk;
 const argv = yargs(hideBin(process.argv)).argv;
@@ -30,6 +30,10 @@ const args = {
         }
     }
 
+    const projectSdk = await ProjectSdk.init({
+        cwd: args.projectFolder || process.cwd()
+    });
+
     const cypressExampleConfigPath = path.resolve("example.cypress.config.ts");
     const cypressConfigPath = path.resolve("cypress-tests/cypress.config.ts");
     if (fs.existsSync(cypressConfigPath)) {
@@ -46,7 +50,7 @@ const args = {
 
     let cypressConfig = fs.readFileSync(cypressConfigPath, "utf8");
 
-    const apiOutput = await getStackOutput({
+    const apiOutput = await projectSdk.getAppStackOutput({
         app: "api",
         env: args.env,
         cwd: args.projectFolder
@@ -68,7 +72,7 @@ const args = {
         const adminUrl = "http://localhost:3001";
         cypressConfig = cypressConfig.replaceAll("{ADMIN_URL}", adminUrl);
     } else {
-        const adminOutput = await getStackOutput({
+        const adminOutput = await projectSdk.getAppStackOutput({
             app: "admin",
             env: args.env,
             cwd: args.projectFolder
