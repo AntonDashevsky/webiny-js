@@ -172,7 +172,7 @@ const createPushWorkflow = (branchName: string) => {
                         },
                         {
                             name: "Cypress - run installation wizard test",
-                            run: 'yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"'
+                            run: 'yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js" --browser chrome -- --disable-gpu --no-sandbox'
                         }
                     ],
                     { "working-directory": DIR_WEBINY_JS }

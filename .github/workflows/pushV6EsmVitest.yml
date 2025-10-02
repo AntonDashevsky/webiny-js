@@ -594,7 +594,9 @@ jobs:
           '\t\n\r')" >> $GITHUB_OUTPUT
         working-directory: feat_v6-esm-vitest
       - name: Cypress - run installation wizard test
-        run: yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
+        run: >-
+          yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
+          --browser chrome -- --disable-gpu --no-sandbox
         working-directory: feat_v6-esm-vitest
     runs-on: ubuntu-latest
     permissions:
@@ -741,7 +743,9 @@ jobs:
           '\t\n\r')" >> $GITHUB_OUTPUT
         working-directory: feat_v6-esm-vitest
       - name: Cypress - run installation wizard test
-        run: yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
+        run: >-
+          yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
+          --browser chrome -- --disable-gpu --no-sandbox
         working-directory: feat_v6-esm-vitest
     runs-on: ubuntu-latest
     permissions:
@@ -888,7 +892,9 @@ jobs:
           '\t\n\r')" >> $GITHUB_OUTPUT
         working-directory: feat_v6-esm-vitest
       - name: Cypress - run installation wizard test
-        run: yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
+        run: >-
+          yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
+          --browser chrome -- --disable-gpu --no-sandbox
         working-directory: feat_v6-esm-vitest
     runs-on: ubuntu-latest
     permissions:
