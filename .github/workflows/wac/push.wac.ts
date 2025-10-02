@@ -162,10 +162,6 @@ const createPushWorkflow = (branchName: string) => {
                         //     )} >> $GITHUB_STEP_SUMMARY`
                         // },
                         {
-                            name: "Install system deps for Chrome",
-                            run: "sudo apt-get update && sudo apt-get install -y libnss3 libatk-bridge2.0-0 libgtk-3-0 libdrm2 libgbm1"
-                        },
-                        {
                             name: "Create Cypress config",
                             run: `yarn setup-cypress --projectFolder ../${DIR_TEST_PROJECT}`
                         },
@@ -318,10 +314,6 @@ const createPushWorkflow = (branchName: string) => {
                     "run-cache-key": "${{ steps.run-cache-key.outputs.run-cache-key }}"
                 },
                 steps: [
-                    {
-                        name: "Install system deps for Chrome",
-                        run: "sudo apt-get update && sudo apt-get install -y libnss3 libatk-bridge2.0-0 libgtk-3-0 libdrm2 libgbm1"
-                    },
                     {
                         name: "Create global cache key",
                         id: "global-cache-key",

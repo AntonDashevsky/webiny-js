@@ -18,10 +18,6 @@ jobs:
         with:
           node-version: 22
       - uses: actions/checkout@v4
-      - name: Install system deps for Chrome
-        run: >-
-          sudo apt-get update && sudo apt-get install -y libnss3
-          libatk-bridge2.0-0 libgtk-3-0 libdrm2 libgbm1
       - name: Create global cache key
         id: global-cache-key
         run: >-
@@ -588,11 +584,6 @@ jobs:
       - name: Deploy Admin Area
         working-directory: new-webiny-project
         run: yarn webiny deploy admin --env dev
-      - name: Install system deps for Chrome
-        run: >-
-          sudo apt-get update && sudo apt-get install -y libnss3
-          libatk-bridge2.0-0 libgtk-3-0 libdrm2 libgbm1
-        working-directory: dev
       - name: Create Cypress config
         run: yarn setup-cypress --projectFolder ../new-webiny-project
         working-directory: dev
@@ -742,11 +733,6 @@ jobs:
       - name: Deploy Admin Area
         working-directory: new-webiny-project
         run: yarn webiny deploy admin --env dev
-      - name: Install system deps for Chrome
-        run: >-
-          sudo apt-get update && sudo apt-get install -y libnss3
-          libatk-bridge2.0-0 libgtk-3-0 libdrm2 libgbm1
-        working-directory: dev
       - name: Create Cypress config
         run: yarn setup-cypress --projectFolder ../new-webiny-project
         working-directory: dev
@@ -896,11 +882,6 @@ jobs:
       - name: Deploy Admin Area
         working-directory: new-webiny-project
         run: yarn webiny deploy admin --env dev
-      - name: Install system deps for Chrome
-        run: >-
-          sudo apt-get update && sudo apt-get install -y libnss3
-          libatk-bridge2.0-0 libgtk-3-0 libdrm2 libgbm1
-        working-directory: dev
       - name: Create Cypress config
         run: yarn setup-cypress --projectFolder ../new-webiny-project
         working-directory: dev
