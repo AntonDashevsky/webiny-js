@@ -10,9 +10,6 @@ export default defineConfig({
         openMode: 0
     },
     env: {
-        WEBSITE_NAME: "Cypress Test Website",
-        WEBSITE_URL: "{WEBSITE_URL}",
-        WEBSITE_PREVIEW_URL: "{WEBSITE_PREVIEW_URL}",
         ADMIN_URL: "{ADMIN_URL}",
         API_URL: "{API_URL}",
         GRAPHQL_API_URL: "{API_URL}/graphql",
