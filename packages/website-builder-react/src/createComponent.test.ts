@@ -67,7 +67,7 @@ describe("Component Manifest", () => {
     });
 
     it("acceptsChildren should satisfy the `children` input requirement", () => {
-        // eslint-disable-next-linE
+        // eslint-disable-next-line
         const Button = (_: ComponentProps<{ children: React.ReactNode }>) => {
             return null;
         };
