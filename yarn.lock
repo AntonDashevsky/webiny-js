@@ -15488,6 +15488,7 @@ __metadata:
     "@webiny/app-i18n": "npm:0.0.0"
     "@webiny/app-plugin-admin-welcome-screen": "npm:0.0.0"
     "@webiny/app-security": "npm:0.0.0"
+    "@webiny/app-security-access-management": "npm:0.0.0"
     "@webiny/app-tenancy": "npm:0.0.0"
     "@webiny/app-trash-bin": "npm:0.0.0"
     "@webiny/build-tools": "npm:0.0.0"
