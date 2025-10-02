@@ -26,6 +26,8 @@ export default defineConfig({
         failOnSnapshotDiff: false
     },
     e2e: {
-        baseUrl: "{ADMIN_URL}"
+        baseUrl: "{ADMIN_URL}",
+        experimentalMemoryManagement: true,
+        numTestsKeptInMemory: 0
     }
 });
