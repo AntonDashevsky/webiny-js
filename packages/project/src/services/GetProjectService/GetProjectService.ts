@@ -1,7 +1,11 @@
 import { createImplementation } from "@webiny/di-container";
 import findUp from "find-up";
 import { dirname } from "path";
-import { GetProjectService, GetProjectVersionService } from "~/abstractions/index.js";
+import {
+    GetCwdService,
+    GetProjectService,
+    GetProjectVersionService
+} from "~/abstractions/index.js";
 import { ProjectModel } from "~/models/ProjectModel.js";
 import { PathModel } from "~/models/PathModel.js";
 import path from "path";
@@ -9,13 +13,17 @@ import path from "path";
 export class DefaultGetProjectService implements GetProjectService.Interface {
     cachedProject: ProjectModel | null = null;
 
-    constructor(private getProjectVersionService: GetProjectVersionService.Interface) {}
+    constructor(
+        private getProjectVersionService: GetProjectVersionService.Interface,
+        private getCwdService: GetCwdService.Interface
+    ) {}
 
-    execute(cwd = process.cwd()) {
+    execute() {
         if (this.cachedProject) {
             return this.cachedProject;
         }
 
+        const cwd = this.getCwdService.execute();
         const webinyConfigFilePathString = findUp.sync("webiny.config.tsx", { cwd });
         if (!webinyConfigFilePathString) {
             throw new Error(`Could not detect project in given directory (${cwd}).`);
@@ -52,5 +60,5 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
 export const getProjectService = createImplementation({
     abstraction: GetProjectService,
     implementation: DefaultGetProjectService,
-    dependencies: [GetProjectVersionService]
+    dependencies: [GetProjectVersionService, GetCwdService]
 });

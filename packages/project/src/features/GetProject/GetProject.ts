@@ -4,8 +4,8 @@ import { GetProject, GetProjectService } from "~/abstractions/index.js";
 export class DefaultGetProject implements GetProject.Interface {
     constructor(private getProjectService: GetProjectService.Interface) {}
 
-    execute(cwd?: string) {
-        return this.getProjectService.execute(cwd);
+    execute() {
+        return this.getProjectService.execute();
     }
 }
 
