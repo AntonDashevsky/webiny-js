@@ -9,7 +9,9 @@ export default () => {
         <>
             {/*Webiny AWS built-in extensions. Always here, must not be removed.*/}
             <Webiny />
-            <Project.Id id={"webiny-test-project-without-fm-td"} />
+
+            {/* No need for this this as we're setting WCP things via .env file. */}
+            {/*<Project.Id id={"webiny-test-project-without-fm-td"} />*/}
 
             {/*Project-lvl settings. All within the `Project.` namespace. */}
             <Project.Telemetry enabled={false} />
