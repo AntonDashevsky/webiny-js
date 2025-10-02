@@ -42,24 +42,24 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.global-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Build packages
         run: yarn build
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
@@ -75,30 +75,30 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Check code formatting
         run: yarn prettier:check
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Check dependencies
         run: yarn adio
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Check TS configs
         run: yarn check-ts-configs
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: ESLint
         run: yarn eslint
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
     runs-on: ubuntu-latest
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
@@ -114,27 +114,27 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Build packages
         run: yarn build
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Sync Dependencies Verification
         run: yarn verify-dependencies
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Check Package Node Modules
         run: yarn check-package-dependencies
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
     runs-on: ubuntu-latest
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
@@ -148,17 +148,17 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Check types for Cypress tests
         run: yarn cy:ts
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
@@ -174,10 +174,10 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - id: list-vitest-test-commands
         name: List Vitest Test Commands
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
@@ -210,24 +210,24 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Build packages
         run: yarn build
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Run tests
         run: ${{ matrix.testCommand.cmd }}
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
   vitest-ddb-constants:
     needs:
       - build
@@ -240,10 +240,10 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - id: list-vitest-test-commands
         name: List Vitest Test Commands
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
@@ -279,24 +279,24 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Build packages
         run: yarn build
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Run tests
         run: ${{ matrix.testCommand.cmd }}
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
   vitest-ddbEs-constants:
     needs:
       - build
@@ -309,10 +309,10 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - id: list-vitest-test-commands
         name: List Vitest Test Commands
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
@@ -356,24 +356,24 @@ jobs:
           aws-region: eu-central-1
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Build packages
         run: yarn build
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Run tests
         run: ${{ matrix.testCommand.cmd }}
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
     permissions:
       id-token: write
   vitest-ddbOs-constants:
@@ -388,10 +388,10 @@ jobs:
           node-version: 22
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - id: list-vitest-test-commands
         name: List Vitest Test Commands
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
         run: >-
           echo "vitest-test-commands=$(node
           .github/workflows/wac/utils/runNodeScripts/listVitestTestCommands.js
@@ -435,24 +435,24 @@ jobs:
           aws-region: eu-central-1
       - uses: actions/checkout@v4
         with:
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Build packages
         run: yarn build
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Run tests
         run: ${{ matrix.testCommand.cmd }}
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
     permissions:
       id-token: write
   e2eTests-ddb-constants:
@@ -509,23 +509,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Build packages
         run: yarn build
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Start Verdaccio local server
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
         run: >-
           yarn add pm2 verdaccio && npx pm2 start verdaccio -- -c
           .verdaccio.yaml
@@ -537,10 +537,10 @@ jobs:
         run: git config --global user.name "webiny-bot"
       - name: Create ".npmrc" file in the project root, with a dummy auth token
         run: echo '//localhost:4873/:_authToken="dummy-auth-token"' > .npmrc
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Version and publish to Verdaccio
         run: yarn release --type=verdaccio
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Create verdaccio-files artifact
         uses: actions/upload-artifact@v4
         with:
@@ -548,8 +548,8 @@ jobs:
           retention-days: 1
           include-hidden-files: true
           path: |-
-            feat/v6-esm-vitest/.verdaccio/
-            feat/v6-esm-vitest/.verdaccio.yaml
+            feat_v6-esm-vitest/.verdaccio/
+            feat_v6-esm-vitest/.verdaccio.yaml
       - name: Disable Webiny telemetry
         run: >
           mkdir ~/.webiny && echo '{ "id": "ci", "telemetry": false }' >
@@ -586,18 +586,18 @@ jobs:
         run: yarn webiny deploy admin --env dev
       - name: Create Cypress config
         run: yarn setup-cypress --projectFolder ../new-webiny-project
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Save Cypress config
         id: save-cypress-config
         run: >-
           echo "cypress-config=$(cat cypress-tests/cypress.config.ts | tr -d
           '\t\n\r')" >> $GITHUB_OUTPUT
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Cypress - run installation wizard test
         run: >-
           yarn cy:run --browser chrome --spec
           "cypress/e2e/adminInstallation/**/*.cy.js"
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -658,23 +658,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Build packages
         run: yarn build
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Start Verdaccio local server
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
         run: >-
           yarn add pm2 verdaccio && npx pm2 start verdaccio -- -c
           .verdaccio.yaml
@@ -686,10 +686,10 @@ jobs:
         run: git config --global user.name "webiny-bot"
       - name: Create ".npmrc" file in the project root, with a dummy auth token
         run: echo '//localhost:4873/:_authToken="dummy-auth-token"' > .npmrc
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Version and publish to Verdaccio
         run: yarn release --type=verdaccio
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Create verdaccio-files artifact
         uses: actions/upload-artifact@v4
         with:
@@ -697,8 +697,8 @@ jobs:
           retention-days: 1
           include-hidden-files: true
           path: |-
-            feat/v6-esm-vitest/.verdaccio/
-            feat/v6-esm-vitest/.verdaccio.yaml
+            feat_v6-esm-vitest/.verdaccio/
+            feat_v6-esm-vitest/.verdaccio.yaml
       - name: Disable Webiny telemetry
         run: >
           mkdir ~/.webiny && echo '{ "id": "ci", "telemetry": false }' >
@@ -735,18 +735,18 @@ jobs:
         run: yarn webiny deploy admin --env dev
       - name: Create Cypress config
         run: yarn setup-cypress --projectFolder ../new-webiny-project
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Save Cypress config
         id: save-cypress-config
         run: >-
           echo "cypress-config=$(cat cypress-tests/cypress.config.ts | tr -d
           '\t\n\r')" >> $GITHUB_OUTPUT
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Cypress - run installation wizard test
         run: >-
           yarn cy:run --browser chrome --spec
           "cypress/e2e/adminInstallation/**/*.cy.js"
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -807,23 +807,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          path: feat/v6-esm-vitest
+          path: feat_v6-esm-vitest
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.yarn/cache
+          path: feat_v6-esm-vitest/.yarn/cache
           key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: actions/cache@v4
         with:
-          path: feat/v6-esm-vitest/.webiny/cached-packages
+          path: feat_v6-esm-vitest/.webiny/cached-packages
           key: ${{ needs.constants.outputs.run-cache-key }}
       - name: Install dependencies
         run: yarn --immutable
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Build packages
         run: yarn build
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Start Verdaccio local server
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
         run: >-
           yarn add pm2 verdaccio && npx pm2 start verdaccio -- -c
           .verdaccio.yaml
@@ -835,10 +835,10 @@ jobs:
         run: git config --global user.name "webiny-bot"
       - name: Create ".npmrc" file in the project root, with a dummy auth token
         run: echo '//localhost:4873/:_authToken="dummy-auth-token"' > .npmrc
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Version and publish to Verdaccio
         run: yarn release --type=verdaccio
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Create verdaccio-files artifact
         uses: actions/upload-artifact@v4
         with:
@@ -846,8 +846,8 @@ jobs:
           retention-days: 1
           include-hidden-files: true
           path: |-
-            feat/v6-esm-vitest/.verdaccio/
-            feat/v6-esm-vitest/.verdaccio.yaml
+            feat_v6-esm-vitest/.verdaccio/
+            feat_v6-esm-vitest/.verdaccio.yaml
       - name: Disable Webiny telemetry
         run: >
           mkdir ~/.webiny && echo '{ "id": "ci", "telemetry": false }' >
@@ -884,18 +884,18 @@ jobs:
         run: yarn webiny deploy admin --env dev
       - name: Create Cypress config
         run: yarn setup-cypress --projectFolder ../new-webiny-project
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Save Cypress config
         id: save-cypress-config
         run: >-
           echo "cypress-config=$(cat cypress-tests/cypress.config.ts | tr -d
           '\t\n\r')" >> $GITHUB_OUTPUT
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
       - name: Cypress - run installation wizard test
         run: >-
           yarn cy:run --browser chrome --spec
           "cypress/e2e/adminInstallation/**/*.cy.js"
-        working-directory: feat/v6-esm-vitest
+        working-directory: feat_v6-esm-vitest
     runs-on: ubuntu-latest
     permissions:
       id-token: write

@@ -20,7 +20,7 @@ const ddbOsStorageOps = new DdbOsStorageOps();
 const createPushWorkflow = (branchName: string) => {
     const ucFirstBranchName = branchName.charAt(0).toUpperCase() + branchName.slice(1);
 
-    const DIR_WEBINY_JS = branchName;
+    const DIR_WEBINY_JS = branchName.replace("/", "_");
     const DIR_TEST_PROJECT = "new-webiny-project";
 
     const installBuildSteps = createInstallBuildSteps({ workingDirectory: DIR_WEBINY_JS });
