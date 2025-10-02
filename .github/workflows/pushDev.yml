@@ -594,9 +594,7 @@ jobs:
           '\t\n\r')" >> $GITHUB_OUTPUT
         working-directory: dev
       - name: Cypress - run installation wizard test
-        run: >-
-          yarn cy:run --browser chrome --spec
-          "cypress/e2e/adminInstallation/**/*.cy.js"
+        run: yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
         working-directory: dev
     runs-on: ubuntu-latest
     permissions:
@@ -743,9 +741,7 @@ jobs:
           '\t\n\r')" >> $GITHUB_OUTPUT
         working-directory: dev
       - name: Cypress - run installation wizard test
-        run: >-
-          yarn cy:run --browser chrome --spec
-          "cypress/e2e/adminInstallation/**/*.cy.js"
+        run: yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
         working-directory: dev
     runs-on: ubuntu-latest
     permissions:
@@ -892,9 +888,7 @@ jobs:
           '\t\n\r')" >> $GITHUB_OUTPUT
         working-directory: dev
       - name: Cypress - run installation wizard test
-        run: >-
-          yarn cy:run --browser chrome --spec
-          "cypress/e2e/adminInstallation/**/*.cy.js"
+        run: yarn cy:run --spec "cypress/e2e/adminInstallation/**/*.cy.js"
         working-directory: dev
     runs-on: ubuntu-latest
     permissions:
