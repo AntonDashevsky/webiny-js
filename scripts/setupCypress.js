@@ -23,8 +23,10 @@ const args = {
 (async () => {
     if (args.projectFolder) {
         if (!fs.existsSync(args.projectFolder)) {
-            console.log(`Could not find specified project (received ${red(args.projectFolder)}).`);
-            process.exit(0);
+            console.log(
+                `Could not find specified project (received ${red(args.projectFolder)}, full path ${red(path.resolve(args.projectFolder))}).`
+            );
+            process.exit(1);
         }
     }
 
