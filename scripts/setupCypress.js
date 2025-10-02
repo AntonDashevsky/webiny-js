@@ -30,9 +30,8 @@ const args = {
         }
     }
 
-    const projectSdk = await ProjectSdk.init({
-        cwd: args.projectFolder || process.cwd()
-    });
+    const cwd = args.projectFolder ? path.resolve(args.projectFolder) : process.cwd();
+    const projectSdk = await ProjectSdk.init({ cwd: path.resolve(cwd) });
 
     const cypressExampleConfigPath = path.resolve("example.cypress.config.ts");
     const cypressConfigPath = path.resolve("cypress-tests/cypress.config.ts");
