@@ -1490,7 +1490,7 @@ describe("content model test", () => {
                 id: "translation",
                 title: "Translation",
                 color: "#00FF00",
-                description: "",
+                description: null,
                 teams: [
                     {
                         id: "team-1"
@@ -1509,7 +1509,7 @@ describe("content model test", () => {
                 id: "seo",
                 title: "SEO",
                 color: "#0000FF",
-                description: "",
+                description: null,
                 teams: [
                     {
                         id: "team-2"
