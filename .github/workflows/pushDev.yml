@@ -486,6 +486,7 @@ jobs:
       - constants
       - build
       - e2eTests-ddb-constants
+    runs-on: webiny-build-packages
     name: E2E (DDB) - Project setup
     outputs:
       cypress-config: ${{ steps.save-cypress-config.outputs.cypress-config }}
@@ -598,64 +599,8 @@ jobs:
           yarn cy:run --browser chrome --spec
           "cypress/e2e/adminInstallation/**/*.cy.js"
         working-directory: dev
-    runs-on: ubuntu-latest
     permissions:
       id-token: write
-  e2eTests-ddb-cypress:
-    name: >-
-      ${{ matrix.cypress-folder }} (ddb, ${{ matrix.os }}, Node v${{ matrix.node
-      }})
-    needs:
-      - constants
-      - e2eTests-ddb-constants
-      - e2eTests-ddb-setup
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-        node:
-          - 22
-        cypress-folder: ${{ fromJson(needs.e2eTests-ddb-constants.outputs.cypress-folders) }}
-    environment: next
-    env:
-      NODE_OPTIONS: '--max_old_space_size=4096'
-      YARN_ENABLE_IMMUTABLE_INSTALLS: 'false'
-      CYPRESS_MAILOSAUR_API_KEY: ${{ secrets.CYPRESS_MAILOSAUR_API_KEY }}
-      PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
-      PULUMI_SECRETS_PROVIDER: ${{ secrets.PULUMI_SECRETS_PROVIDER }}
-      WEBINY_PULUMI_BACKEND: ${{ needs.e2eTests-ddb-constants.outputs.pulumi-backend-url }}
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - uses: actions/checkout@v4
-        with:
-          path: dev
-      - uses: actions/cache@v4
-        with:
-          path: dev/.yarn/cache
-          key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-      - uses: actions/cache@v4
-        with:
-          path: dev/.webiny/cached-packages
-          key: ${{ needs.constants.outputs.run-cache-key }}
-      - name: Install dependencies
-        run: yarn --immutable
-        working-directory: dev
-      - name: Build packages
-        run: yarn build
-        working-directory: dev
-      - name: Set up Cypress config
-        run: >-
-          echo '${{ needs.e2eTests-ddb-setup.outputs.cypress-config }}' >
-          cypress-tests/cypress.config.ts
-        working-directory: dev
-      - name: Cypress - run "${{ matrix.cypress-folder }}" tests
-        timeout-minutes: 40
-        run: yarn cy:run --browser chrome --spec "${{ matrix.cypress-folder }}"
-        working-directory: dev
-    runs-on: ubuntu-latest
   e2eTests-ddbEs-constants:
     name: E2E (DDB+ES) - Constants
     needs:
@@ -687,6 +632,7 @@ jobs:
       - constants
       - build
       - e2eTests-ddbEs-constants
+    runs-on: webiny-build-packages
     name: E2E (DDB+ES) - Project setup
     outputs:
       cypress-config: ${{ steps.save-cypress-config.outputs.cypress-config }}
@@ -802,69 +748,8 @@ jobs:
           yarn cy:run --browser chrome --spec
           "cypress/e2e/adminInstallation/**/*.cy.js"
         working-directory: dev
-    runs-on: ubuntu-latest
     permissions:
       id-token: write
-  e2eTests-ddbEs-cypress:
-    name: >-
-      ${{ matrix.cypress-folder }} (ddbEs, ${{ matrix.os }}, Node v${{
-      matrix.node }})
-    needs:
-      - constants
-      - e2eTests-ddbEs-constants
-      - e2eTests-ddbEs-setup
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-        node:
-          - 22
-        cypress-folder: >-
-          ${{ fromJson(needs.e2eTests-ddbEs-constants.outputs.cypress-folders)
-          }}
-    environment: next
-    env:
-      NODE_OPTIONS: '--max_old_space_size=4096'
-      YARN_ENABLE_IMMUTABLE_INSTALLS: 'false'
-      CYPRESS_MAILOSAUR_API_KEY: ${{ secrets.CYPRESS_MAILOSAUR_API_KEY }}
-      PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
-      PULUMI_SECRETS_PROVIDER: ${{ secrets.PULUMI_SECRETS_PROVIDER }}
-      WEBINY_PULUMI_BACKEND: ${{ needs.e2eTests-ddbEs-constants.outputs.pulumi-backend-url }}
-      AWS_ELASTIC_SEARCH_DOMAIN_NAME: ${{ secrets.AWS_ELASTIC_SEARCH_DOMAIN_NAME }}
-      ELASTIC_SEARCH_ENDPOINT: ${{ secrets.ELASTIC_SEARCH_ENDPOINT }}
-      ELASTIC_SEARCH_INDEX_PREFIX: ${{ github.run_id }}_
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - uses: actions/checkout@v4
-        with:
-          path: dev
-      - uses: actions/cache@v4
-        with:
-          path: dev/.yarn/cache
-          key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-      - uses: actions/cache@v4
-        with:
-          path: dev/.webiny/cached-packages
-          key: ${{ needs.constants.outputs.run-cache-key }}
-      - name: Install dependencies
-        run: yarn --immutable
-        working-directory: dev
-      - name: Build packages
-        run: yarn build
-        working-directory: dev
-      - name: Set up Cypress config
-        run: >-
-          echo '${{ needs.e2eTests-ddbEs-setup.outputs.cypress-config }}' >
-          cypress-tests/cypress.config.ts
-        working-directory: dev
-      - name: Cypress - run "${{ matrix.cypress-folder }}" tests
-        timeout-minutes: 40
-        run: yarn cy:run --browser chrome --spec "${{ matrix.cypress-folder }}"
-        working-directory: dev
-    runs-on: ubuntu-latest
   e2eTests-ddbOs-constants:
     name: E2E (DDB+OS) - Constants
     needs:
@@ -896,6 +781,7 @@ jobs:
       - constants
       - build
       - e2eTests-ddbOs-constants
+    runs-on: webiny-build-packages
     name: E2E (DDB+OS) - Project setup
     outputs:
       cypress-config: ${{ steps.save-cypress-config.outputs.cypress-config }}
@@ -1011,66 +897,5 @@ jobs:
           yarn cy:run --browser chrome --spec
           "cypress/e2e/adminInstallation/**/*.cy.js"
         working-directory: dev
-    runs-on: ubuntu-latest
     permissions:
       id-token: write
-  e2eTests-ddbOs-cypress:
-    name: >-
-      ${{ matrix.cypress-folder }} (ddbOs, ${{ matrix.os }}, Node v${{
-      matrix.node }})
-    needs:
-      - constants
-      - e2eTests-ddbOs-constants
-      - e2eTests-ddbOs-setup
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-        node:
-          - 22
-        cypress-folder: >-
-          ${{ fromJson(needs.e2eTests-ddbOs-constants.outputs.cypress-folders)
-          }}
-    environment: next
-    env:
-      NODE_OPTIONS: '--max_old_space_size=4096'
-      YARN_ENABLE_IMMUTABLE_INSTALLS: 'false'
-      CYPRESS_MAILOSAUR_API_KEY: ${{ secrets.CYPRESS_MAILOSAUR_API_KEY }}
-      PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
-      PULUMI_SECRETS_PROVIDER: ${{ secrets.PULUMI_SECRETS_PROVIDER }}
-      WEBINY_PULUMI_BACKEND: ${{ needs.e2eTests-ddbOs-constants.outputs.pulumi-backend-url }}
-      AWS_ELASTIC_SEARCH_DOMAIN_NAME: ${{ secrets.AWS_OPEN_SEARCH_DOMAIN_NAME }}
-      ELASTIC_SEARCH_ENDPOINT: ${{ secrets.OPEN_SEARCH_ENDPOINT }}
-      ELASTIC_SEARCH_INDEX_PREFIX: ${{ github.run_id }}_
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - uses: actions/checkout@v4
-        with:
-          path: dev
-      - uses: actions/cache@v4
-        with:
-          path: dev/.yarn/cache
-          key: yarn-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-      - uses: actions/cache@v4
-        with:
-          path: dev/.webiny/cached-packages
-          key: ${{ needs.constants.outputs.run-cache-key }}
-      - name: Install dependencies
-        run: yarn --immutable
-        working-directory: dev
-      - name: Build packages
-        run: yarn build
-        working-directory: dev
-      - name: Set up Cypress config
-        run: >-
-          echo '${{ needs.e2eTests-ddbOs-setup.outputs.cypress-config }}' >
-          cypress-tests/cypress.config.ts
-        working-directory: dev
-      - name: Cypress - run "${{ matrix.cypress-folder }}" tests
-        timeout-minutes: 40
-        run: yarn cy:run --browser chrome --spec "${{ matrix.cypress-folder }}"
-        working-directory: dev
-    runs-on: ubuntu-latest

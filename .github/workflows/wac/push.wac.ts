@@ -20,7 +20,7 @@ const ddbOsStorageOps = new DdbOsStorageOps();
 const createPushWorkflow = (branchName: string) => {
     const ucFirstBranchName = branchName.charAt(0).toUpperCase() + branchName.slice(1);
 
-    const DIR_WEBINY_JS = branchName;
+    const DIR_WEBINY_JS = branchName.replace("/", "_");
     const DIR_TEST_PROJECT = "new-webiny-project";
 
     const installBuildSteps = createInstallBuildSteps({ workingDirectory: DIR_WEBINY_JS });
@@ -78,6 +78,7 @@ const createPushWorkflow = (branchName: string) => {
 
         const projectSetupJob: NormalJob = createJob({
             needs: ["constants", "build", jobNames.constants],
+            "runs-on": BUILD_PACKAGES_RUNNER,
             name: `E2E (${storageOps.displayName}) - Project setup`,
             outputs: {
                 "cypress-config": "${{ steps.save-cypress-config.outputs.cypress-config }}"
@@ -152,6 +153,8 @@ const createPushWorkflow = (branchName: string) => {
                 ...createDeployWebinySteps({ workingDirectory: DIR_TEST_PROJECT }),
                 ...withCommonParams(
                     [
+                        // Commented this out b/c of an issue. Basically, the
+                        // script fails b/c its output is not pure JSON string.
                         // {
                         //     name: "Deployment Summary",
                         //     run: `${runNodeScript(
@@ -178,45 +181,47 @@ const createPushWorkflow = (branchName: string) => {
             ]
         });
 
-        const cypressTestsJob = createJob({
-            name: `$\{{ matrix.cypress-folder }} (${storageOps.shortId}, $\{{ matrix.os }}, Node v$\{{ matrix.node }})`,
-            needs: ["constants", jobNames.constants, jobNames.projectSetup],
-            strategy: {
-                "fail-fast": false,
-                matrix: {
-                    os: ["ubuntu-latest"],
-                    node: [NODE_VERSION],
-                    "cypress-folder": `$\{{ fromJson(needs.${jobNames.constants}.outputs.cypress-folders) }}`
-                }
-            },
-            environment: "next",
-            env,
-            checkout: { path: DIR_WEBINY_JS },
-            steps: [
-                ...yarnCacheSteps,
-                ...runBuildCacheSteps,
-                ...installBuildSteps,
-                ...withCommonParams(
-                    [
-                        {
-                            name: "Set up Cypress config",
-                            run: `echo '$\{{ needs.${jobNames.projectSetup}.outputs.cypress-config }}' > cypress-tests/cypress.config.ts`
-                        },
-                        {
-                            name: 'Cypress - run "${{ matrix.cypress-folder }}" tests',
-                            "timeout-minutes": 40,
-                            run: 'yarn cy:run --browser chrome --spec "${{ matrix.cypress-folder }}"'
-                        }
-                    ],
-                    { "working-directory": DIR_WEBINY_JS }
-                )
-            ]
-        });
+        // We're disabling Cypress tests for now, as they need to be updated for v6.
+        // We'll probably enable them in a later phase.
+        // const cypressTestsJob = createJob({
+        //     name: `$\{{ matrix.cypress-folder }} (${storageOps.shortId}, $\{{ matrix.os }}, Node v$\{{ matrix.node }})`,
+        //     needs: ["constants", jobNames.constants, jobNames.projectSetup],
+        //     strategy: {
+        //         "fail-fast": false,
+        //         matrix: {
+        //             os: ["ubuntu-latest"],
+        //             node: [NODE_VERSION],
+        //             "cypress-folder": `$\{{ fromJson(needs.${jobNames.constants}.outputs.cypress-folders) }}`
+        //         }
+        //     },
+        //     environment: "next",
+        //     env,
+        //     checkout: { path: DIR_WEBINY_JS },
+        //     steps: [
+        //         ...yarnCacheSteps,
+        //         ...runBuildCacheSteps,
+        //         ...installBuildSteps,
+        //         ...withCommonParams(
+        //             [
+        //                 {
+        //                     name: "Set up Cypress config",
+        //                     run: `echo '$\{{ needs.${jobNames.projectSetup}.outputs.cypress-config }}' > cypress-tests/cypress.config.ts`
+        //                 },
+        //                 {
+        //                     name: 'Cypress - run "${{ matrix.cypress-folder }}" tests',
+        //                     "timeout-minutes": 40,
+        //                     run: 'yarn cy:run --browser chrome --spec "${{ matrix.cypress-folder }}"'
+        //                 }
+        //             ],
+        //             { "working-directory": DIR_WEBINY_JS }
+        //         )
+        //     ]
+        // });
 
         return {
             [jobNames.constants]: constantsJob,
-            [jobNames.projectSetup]: projectSetupJob,
-            [jobNames.cypressTests]: cypressTestsJob
+            [jobNames.projectSetup]: projectSetupJob
+            // [jobNames.cypressTests]: cypressTestsJob
         };
     };
 

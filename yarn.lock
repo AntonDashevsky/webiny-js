@@ -15488,6 +15488,7 @@ __metadata:
     "@webiny/app-i18n": "npm:0.0.0"
     "@webiny/app-plugin-admin-welcome-screen": "npm:0.0.0"
     "@webiny/app-security": "npm:0.0.0"
+    "@webiny/app-security-access-management": "npm:0.0.0"
     "@webiny/app-tenancy": "npm:0.0.0"
     "@webiny/app-trash-bin": "npm:0.0.0"
     "@webiny/build-tools": "npm:0.0.0"
@@ -16283,6 +16284,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/global-config@workspace:packages/global-config"
   dependencies:
+    ci-info: "npm:^4.3.0"
     load-json-file: "npm:6.2.0"
     uuid: "npm:^13.0.0"
     write-json-file: "npm:^4.3.0"
@@ -17021,6 +17023,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     typescript: "npm:5.9.2"
+    vitest: "npm:^3.2.4"
   languageName: unknown
   linkType: soft
 

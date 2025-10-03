@@ -29,9 +29,7 @@ export function createComponent<
     if (acceptsChildren) {
         const hasChildren = inputs.some(input => input.name === "children");
         if (!hasChildren) {
-            inputs.push(
-                createSlotInput({ name: "children" })
-            );
+            inputs.push(createSlotInput({ name: "children" }));
         }
     }
 
