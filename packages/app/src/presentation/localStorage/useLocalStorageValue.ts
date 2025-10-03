@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { autorun } from "mobx";
-import { LocalStorageFeature } from "~/features/localStorage";
-import { useContainer } from "~/di/DiContainerProvider";
+import { LocalStorageFeature } from "~/features/localStorage/index.js";
+import { useContainer } from "~/di/DiContainerProvider.js";
 
 export function useLocalStorageValue<T = string>(key: string): T | undefined {
     const container = useContainer();

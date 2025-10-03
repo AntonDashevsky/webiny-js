@@ -1,4 +1,4 @@
-import { LocalStorageFeature, LocalStorageService } from "~/features/localStorage";
+import { LocalStorageFeature, LocalStorageService } from "~/features/localStorage/index.js";
 import { useContainer } from "~/index.js";
 
 /**

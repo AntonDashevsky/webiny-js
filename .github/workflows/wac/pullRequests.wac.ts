@@ -3,7 +3,6 @@ import { createJob } from "./jobs/index.js";
 import {
     NODE_VERSION,
     BUILD_PACKAGES_RUNNER,
-    listVitestPackages,
     AWS_REGION,
     runNodeScript,
     addToOutputs
@@ -15,7 +14,12 @@ import {
     createYarnCacheSteps,
     withCommonParams
 } from "./steps/index.js";
-import { StorageOps } from "./types.ts";
+import {
+    AbstractStorageOps,
+    DdbEsStorageOps,
+    DdbOsStorageOps,
+    DdbStorageOps
+} from "./storageOps/index.js";
 
 // Will print "next" or "dev". Important for caching (via actions/cache).
 const DIR_WEBINY_JS = "${{ github.base_ref }}";
@@ -25,20 +29,24 @@ const yarnCacheSteps = createYarnCacheSteps({ workingDirectory: DIR_WEBINY_JS })
 const globalBuildCacheSteps = createGlobalBuildCacheSteps({ workingDirectory: DIR_WEBINY_JS });
 const runBuildCacheSteps = createRunBuildCacheSteps({ workingDirectory: DIR_WEBINY_JS });
 
-const createJestTestsJobs = (storageOps?: StorageOps) => {
-    const escapedStorageOps = storageOps ? storageOps.replace(",", "_") : "NoStorage";
+const ddbStorageOps = new DdbStorageOps();
+const ddbEsStorageOps = new DdbEsStorageOps();
+const ddbOsStorageOps = new DdbOsStorageOps();
 
-    const constantsJobName = `jestTests${escapedStorageOps}Constants`;
-    const runJobName = `jestTests${storageOps}Run`;
+const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
+    const jobNames = {
+        constants: ["vitest", storageOps?.shortId, "constants"].filter(Boolean).join("-"),
+        tests: ["vitest", storageOps?.shortId, "run"].filter(Boolean).join("-")
+    };
 
     const env: Record<string, string> = { AWS_REGION };
 
     if (storageOps) {
-        if (storageOps === "ddb-es,ddb") {
+        if (storageOps.id === "ddb-es,ddb") {
             env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] = "${{ secrets.AWS_ELASTIC_SEARCH_DOMAIN_NAME }}";
             env["ELASTIC_SEARCH_ENDPOINT"] = "${{ secrets.ELASTIC_SEARCH_ENDPOINT }}";
             env["ELASTIC_SEARCH_INDEX_PREFIX"] = "${{ matrix.package.id }}";
-        } else if (storageOps === "ddb-os,ddb") {
+        } else if (storageOps.id === "ddb-os,ddb") {
             // We still use the same environment variables as for "ddb-es" setup, it's
             // just that the values are read from different secrets.
             env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] = "${{ secrets.AWS_OPEN_SEARCH_DOMAIN_NAME }}";
@@ -47,51 +55,48 @@ const createJestTestsJobs = (storageOps?: StorageOps) => {
         }
     }
 
-    const packagesWithJestTests = listVitestPackages(storageOps);
-
     const constantsJob: NormalJob = createJob({
         needs: ["constants", "build"],
-        name: "Create Jest tests constants",
-        "runs-on": "ubuntu-latest",
+        checkout: { path: DIR_WEBINY_JS },
+        name: `Vitest (${storageOps ? storageOps.displayName : "No storage"}) - Constants`,
         outputs: {
-            "packages-to-jest-test":
-                "${{ steps.list-packages-to-jest-test.outputs.packages-to-jest-test }}"
+            "packages-to-vitest-test":
+                "${{ steps.list-packages-to-vitest-test.outputs.packages-to-vitest-test }}"
         },
         steps: [
             {
-                name: "List packages to test with Jest",
-                id: "list-packages-to-jest-test",
+                id: "list-vitest-test-commands",
+                name: "List Vitest Test Commands",
+                "working-directory": DIR_WEBINY_JS,
                 run: runNodeScript(
-                    "listPackagesToJestTest",
-                    `[${JSON.stringify(
-                        packagesWithJestTests
-                    )}, \${{ needs.constants.outputs.changed-packages }}]`,
-                    { outputAs: "packages-to-jest-test" }
+                    "listVitestTestCommands",
+                    `[${storageOps?.id || ""}, \${{ needs.constants.outputs.changed-packages }}]`,
+                    { outputAs: "vitest-test-commands" }
                 )
             },
             {
-                name: "Packages to test with Jest",
+                name: "Packages to test with Vitest",
                 id: "list-packages",
-                run: "echo '${{ steps.list-packages-to-jest-test.outputs.packages-to-jest-test }}'"
+                run: "echo '${{ steps.list-packages-to-vitest-test.outputs.packages-to-vitest-test }}'"
             }
         ]
     });
 
     const runJob: NormalJob = createJob({
-        needs: ["constants", "build", constantsJobName],
+        needs: ["constants", "build", jobNames.constants],
         name: "${{ matrix.package.cmd }}",
         strategy: {
             "fail-fast": false,
             matrix: {
                 os: ["ubuntu-latest"],
                 node: [NODE_VERSION],
-                package: `$\{{ fromJson(needs.${constantsJobName}.outputs.packages-to-jest-test) }}`
+                package: `$\{{ fromJson(needs.${jobNames.constants}.outputs.packages-to-vitest-test) }}`
             }
         },
         "runs-on": "${{ matrix.os }}",
         env,
-        if: `needs.${constantsJobName}.outputs.packages-to-jest-test != '[]'`,
-        awsAuth: storageOps === "ddb-es,ddb" || storageOps === "ddb-os,ddb",
+        if: `needs.${jobNames.constants}.outputs.packages-to-vitest-test != '[]'`,
+        awsAuth: !!storageOps,
         checkout: { path: DIR_WEBINY_JS },
         steps: [
             ...yarnCacheSteps,
@@ -105,15 +110,15 @@ const createJestTestsJobs = (storageOps?: StorageOps) => {
         ]
     });
 
-    // We prevent running of Jest tests if a PR was created from a fork.
+    // We prevent running of Vitest tests if a PR was created from a fork.
     // This is because we don't want to expose our AWS credentials to forks.
-    if (storageOps === "ddb-es,ddb" || storageOps === "ddb-os,ddb") {
+    if (storageOps && (storageOps.id === "ddb-es,ddb" || storageOps.id === "ddb-os,ddb")) {
         runJob.if += " && needs.constants.outputs.is-fork-pr != 'true'";
     }
 
     return {
-        [constantsJobName]: constantsJob,
-        [runJobName]: runJob
+        [jobNames.constants]: constantsJob,
+        [jobNames.tests]: runJob
     };
 };
 
@@ -326,9 +331,9 @@ export const pullRequests = createWorkflow({
                 )
             ]
         }),
-        ...createJestTestsJobs(),
-        ...createJestTestsJobs("ddb"),
-        ...createJestTestsJobs("ddb-es,ddb"),
-        ...createJestTestsJobs("ddb-os,ddb")
+        ...createVitestTestsJobs(),
+        ...createVitestTestsJobs(ddbStorageOps),
+        ...createVitestTestsJobs(ddbEsStorageOps),
+        ...createVitestTestsJobs(ddbOsStorageOps)
     }
 });

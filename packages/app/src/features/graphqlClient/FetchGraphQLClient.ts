@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
 import { GraphQLClient } from "./abstractions.js";
-import { EnvConfig } from "~/features/envConfig";
+import { EnvConfig } from "~/features/envConfig/index.js";
 
 class GraphQLClientImpl implements GraphQLClient.Interface {
     private envConfig: EnvConfig.Interface;

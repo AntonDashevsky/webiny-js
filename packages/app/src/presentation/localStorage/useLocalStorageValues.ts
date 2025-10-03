@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { autorun } from "mobx";
 import isEqual from "lodash/isEqual.js";
-import { LocalStorageFeature } from "~/features/localStorage";
+import { LocalStorageFeature } from "~/features/localStorage/index.js";
 import { useContainer } from "~/index.js";
 
 /**
