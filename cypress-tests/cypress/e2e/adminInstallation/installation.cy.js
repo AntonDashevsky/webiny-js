@@ -45,9 +45,13 @@ context("Admin Installation", () => {
             cy.findByTestId("submit-sign-in-form-button").click();
 
             // // 2. I18N installation.
-            // cy.findByLabelText("Select default locale").clear().type("en-u");
-            // cy.findByText("en-US").click();
-            // cy.findByTestId("install-i18n-button").click();
+            cy.findByLabelText("Select default locale");
+            cy.wait(1000);
+            cy.findByLabelText("Select default locale").clear().type("en-u", { delay: 100 });
+            cy.wait(1000);
+            cy.findByText("en-US").click();
+            cy.findByTestId("install-i18n-button").click();
+
             //
             // // 3. Headless CMS installation (happens automatically, nothing to type / select here).
             //
