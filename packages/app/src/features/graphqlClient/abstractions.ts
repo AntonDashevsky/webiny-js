@@ -1,6 +1,7 @@
 import { Abstraction } from "@webiny/di-container";
 import { DocumentNode } from "graphql";
 
+// eslint-disable-next-line
 type GraphQLRequest<TVariables = any, TResult = any> =
     | {
           query: DocumentNode | string;

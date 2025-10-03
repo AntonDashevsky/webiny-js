@@ -38,7 +38,7 @@ class GraphQLClientImpl implements GraphQLClient.Interface {
         let json: any;
         try {
             json = await response.json();
-        } catch (err) {
+        } catch {
             throw new Error("Failed to parse GraphQL response as JSON.");
         }
         if (json.errors && json.errors.length > 0) {
