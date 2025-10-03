@@ -15739,7 +15739,6 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:^6.0.1"
-    store: "npm:^2.0.12"
     typescript: "npm:5.9.2"
     vitest: "npm:^3.2.4"
   languageName: unknown

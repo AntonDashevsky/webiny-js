@@ -27,7 +27,7 @@ export const LocalStorageFeature = createFeature({
         container.register(LocalStorageRepository).inSingletonScope();
         container.register(LocalStorageService).inSingletonScope();
     },
-    init(container) {
+    resolve(container) {
         return {
             localStorageService: container.resolve(Abstraction),
             localStorageConfig: container.resolve(LocalStorageConfig)

@@ -3,7 +3,7 @@ import { Container } from "@webiny/di-container";
 export interface FeatureDefinition<TExports = any, TParams extends any[] = []> {
     name: string;
     register: (container: Container, ...args: TParams) => void;
-    init: (container: Container) => TExports;
+    resolve: (container: Container) => TExports;
 }
 
 export function createFeature<
@@ -12,13 +12,13 @@ export function createFeature<
 >(def: {
     name: string;
     register: (container: Container, ...args: TParams) => void;
-    init: (container: Container) => TExports;
+    resolve: (container: Container) => TExports;
 }): FeatureDefinition<TExports, TParams> {
     return {
         name: def.name,
         register: def.register,
-        init: (container: Container): TExports => {
-            return def.init(container);
+        resolve: (container: Container): TExports => {
+            return def.resolve(container);
         }
     };
 }

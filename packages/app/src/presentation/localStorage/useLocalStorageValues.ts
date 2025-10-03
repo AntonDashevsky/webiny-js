@@ -12,7 +12,7 @@ export function useLocalStorageValues<T extends Record<string, any>>(
     keys: (keyof T & string)[]
 ): Partial<T> {
     const container = useContainer();
-    const { localStorageService } = LocalStorageFeature.init(container);
+    const { localStorageService } = LocalStorageFeature.resolve(container);
 
     const [values, setValues] = useState<Partial<T>>(() => {
         const initial: Partial<T> = {};

@@ -7,7 +7,7 @@ import { useContainer } from "~/index.js";
  */
 export function useLocalStorage(): LocalStorageService.Interface {
     const container = useContainer();
-    const { localStorageService } = LocalStorageFeature.init(container);
+    const { localStorageService } = LocalStorageFeature.resolve(container);
 
     return {
         get: localStorageService.get.bind(localStorageService),

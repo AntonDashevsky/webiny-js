@@ -5,7 +5,7 @@ import { useContainer } from "~/di/DiContainerProvider";
 
 export function useLocalStorageValue<T = string>(key: string): T | undefined {
     const container = useContainer();
-    const { localStorageService } = LocalStorageFeature.init(container);
+    const { localStorageService } = LocalStorageFeature.resolve(container);
 
     const [value, setValue] = useState<T | undefined>(() => localStorageService.get<T>(key));
 

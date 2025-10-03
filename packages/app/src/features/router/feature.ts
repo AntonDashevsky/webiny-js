@@ -9,7 +9,7 @@ export const RouterFeature = createFeature({
         container.register(RouterRepository).inSingletonScope();
         container.register(RouterPresenter).inSingletonScope();
     },
-    init(container) {
+    resolve(container) {
         return {
             presenter: container.resolve(Abstractions.RouterPresenter)
         };

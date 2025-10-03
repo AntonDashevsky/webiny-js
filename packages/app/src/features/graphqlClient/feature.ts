@@ -7,7 +7,7 @@ export const GraphQLClientFeature = createFeature({
     register(container) {
         container.register(FetchGraphQLClient).inSingletonScope();
     },
-    init(container) {
+    resolve(container) {
         return container.resolve(GraphQLClient);
     }
 });

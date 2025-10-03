@@ -63,7 +63,7 @@ export const TenancyProvider = (props: TenancyProviderProps) => {
 
     const tenantContainer = useMemo(() => {
         // Get current service config
-        const { localStorageConfig } = LocalStorageFeature.init(container);
+        const { localStorageConfig } = LocalStorageFeature.resolve(container);
 
         // Create tenant-specific container, and register LocalStorage service with a new prefix.
         const tenantContainer = container.createChildContainer();

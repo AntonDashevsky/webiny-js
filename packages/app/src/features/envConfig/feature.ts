@@ -7,7 +7,7 @@ export const EnvConfigFeature = createFeature({
     register(container, params: EnvConfig.Config) {
         container.registerInstance(EnvConfig, new DefaultEnvConfig(params));
     },
-    init(container) {
+    resolve(container) {
         return container.resolve(EnvConfig);
     }
 });
