@@ -1490,6 +1490,7 @@ describe("content model test", () => {
                 id: "translation",
                 title: "Translation",
                 color: "#00FF00",
+                // @ts-expect-error TODO: @bruno mentioned this test will go away, so not fixing it now.
                 description: null,
                 teams: [
                     {
