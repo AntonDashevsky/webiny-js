@@ -4,8 +4,7 @@ import { RouterPresenter } from "~/features/router/RouterPresenter.js";
 import * as Abstractions from "~/features/router/abstractions.js";
 
 export const RouterFeature = createFeature({
-    name: "RouterFeature",
-    tokens: {},
+    name: "Router",
     register(container) {
         container.register(RouterRepository).inSingletonScope();
         container.register(RouterPresenter).inSingletonScope();

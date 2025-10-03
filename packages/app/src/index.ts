@@ -21,6 +21,7 @@ export * from "./core/createProvider.js";
 export * from "./core/createProviderPlugin.js";
 export * from "./renderApp.js";
 export * from "./utils/createGenericContext.js";
+export { useContainer } from "./di/DiContainerProvider.js";
 
 export { Route } from "./features/router/Route.js";
 export { useRouter, useRoute } from "./presentation/router/index.js";

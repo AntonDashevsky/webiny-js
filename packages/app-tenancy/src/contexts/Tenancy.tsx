@@ -1,8 +1,13 @@
-import React, { useMemo, useCallback, Fragment, useState } from "react";
-import { default as localStorage } from "store";
+import React, { useMemo, useCallback, useState } from "react";
 import { plugins } from "@webiny/plugins";
 import { TenantHeaderLinkPlugin } from "@webiny/app/plugins/TenantHeaderLinkPlugin.js";
-import { useWcp } from "@webiny/app-admin";
+import { useContainer, useWcp } from "@webiny/app-admin";
+import { useLocalStorage } from "@webiny/app/presentation/localStorage/useLocalStorage.js";
+import {
+    LocalStorageFeature,
+    LocalStorageService
+} from "@webiny/app/features/localStorage/index.js";
+import { DiContainerProvider } from "@webiny/app/di/DiContainerProvider.js";
 
 export interface Tenant {
     id: string;
@@ -27,25 +32,18 @@ export const TenancyContext = React.createContext<TenancyContextValue>({
     isMultiTenant: false
 });
 
-const LOCAL_STORAGE_KEY = "webiny_tenant";
+const LOCAL_STORAGE_KEY = "tenantId";
 
-function loadState(): string | null {
-    return localStorage.get(LOCAL_STORAGE_KEY) || null;
-}
-
-function storeState(state: string) {
-    localStorage.set(LOCAL_STORAGE_KEY, state);
-}
-
-const getInitialTenant = (): string | null => {
+const getInitialTenant = (localStorage: LocalStorageService.Interface): string | null => {
     // Check if `tenantId` query parameter is set. If it is, it takes precedence over any other source.
     const searchParams = new URLSearchParams(location.search);
     const tenantId = searchParams.get("tenantId");
     if (tenantId) {
-        storeState(tenantId);
+        localStorage.set(LOCAL_STORAGE_KEY, tenantId);
     }
 
-    const currentTenant = loadState() || "root";
+    const currentTenant = localStorage.get(LOCAL_STORAGE_KEY) || "root";
+    localStorage.set(LOCAL_STORAGE_KEY, currentTenant);
     plugins.register(new TenantHeaderLinkPlugin(currentTenant));
     return currentTenant;
 };
@@ -58,8 +56,24 @@ const goToDashboard = () => {
 };
 
 export const TenancyProvider = (props: TenancyProviderProps) => {
-    const [currentTenant, setTenant] = useState(getInitialTenant);
+    const container = useContainer();
+    const localStorage = useLocalStorage();
+    const [currentTenant, setTenant] = useState(() => getInitialTenant(localStorage));
     const wcp = useWcp();
+
+    const tenantContainer = useMemo(() => {
+        // Get current service config
+        const { localStorageConfig } = LocalStorageFeature.init(container);
+
+        // Create tenant-specific container, and register LocalStorage service with a new prefix.
+        const tenantContainer = container.createChildContainer();
+
+        LocalStorageFeature.register(tenantContainer, {
+            prefix: `${localStorageConfig.prefix}/${currentTenant}`
+        });
+
+        return tenantContainer;
+    }, [currentTenant]);
 
     const changeTenant = useCallback(
         (tenant: string): void => {
@@ -72,11 +86,11 @@ export const TenancyProvider = (props: TenancyProviderProps) => {
             if (!currentTenant) {
                 plugins.register(new TenantHeaderLinkPlugin(tenant));
                 setTenant(tenant);
-                storeState(tenant);
+                localStorage.set(LOCAL_STORAGE_KEY, tenant);
                 return;
             }
 
-            storeState(tenant);
+            localStorage.set(LOCAL_STORAGE_KEY, tenant);
             goToDashboard();
         },
         [currentTenant]
@@ -93,7 +107,7 @@ export const TenancyProvider = (props: TenancyProviderProps) => {
 
     return (
         <TenancyContext.Provider value={value}>
-            <Fragment>{props.children}</Fragment>
+            <DiContainerProvider container={tenantContainer}>{props.children}</DiContainerProvider>
         </TenancyContext.Provider>
     );
 };
