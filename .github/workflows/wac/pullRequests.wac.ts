@@ -39,6 +39,33 @@ const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
         tests: ["vitest", storageOps?.shortId, "run"].filter(Boolean).join("-")
     };
 
+    const constantsJob: NormalJob = createJob({
+        needs: ["constants", "build"],
+        checkout: { path: DIR_WEBINY_JS },
+        name: `Vitest (${storageOps ? storageOps.displayName : "No storage"}) - Constants`,
+        outputs: {
+            "vitest-test-commands":
+                "${{ steps.list-vitest-test-commands.outputs.vitest-test-commands }}"
+        },
+        steps: [
+            {
+                id: "list-vitest-test-commands",
+                name: "List Vitest Test Commands",
+                "working-directory": DIR_WEBINY_JS,
+                run: runNodeScript(
+                    "listVitestTestCommands",
+                    `[${storageOps?.id || ""}, \${{ needs.constants.outputs.changed-packages }}]`,
+                    { outputAs: "vitest-test-commands" }
+                )
+            },
+            {
+                name: "Packages to test with Vitest",
+                id: "list-packages",
+                run: "echo '${{ steps.list-vitest-test-commands.outputs.vitest-test-commands }}'"
+            }
+        ]
+    });
+
     const env: Record<string, string> = { AWS_REGION };
 
     if (storageOps) {
@@ -55,47 +82,20 @@ const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
         }
     }
 
-    const constantsJob: NormalJob = createJob({
-        needs: ["constants", "build"],
-        checkout: { path: DIR_WEBINY_JS },
-        name: `Vitest (${storageOps ? storageOps.displayName : "No storage"}) - Constants`,
-        outputs: {
-            "packages-to-vitest-test":
-                "${{ steps.list-packages-to-vitest-test.outputs.packages-to-vitest-test }}"
-        },
-        steps: [
-            {
-                id: "list-vitest-test-commands",
-                name: "List Vitest Test Commands",
-                "working-directory": DIR_WEBINY_JS,
-                run: runNodeScript(
-                    "listVitestTestCommands",
-                    `[${storageOps?.id || ""}, \${{ needs.constants.outputs.changed-packages }}]`,
-                    { outputAs: "vitest-test-commands" }
-                )
-            },
-            {
-                name: "Packages to test with Vitest",
-                id: "list-packages",
-                run: "echo '${{ steps.list-packages-to-vitest-test.outputs.packages-to-vitest-test }}'"
-            }
-        ]
-    });
-
     const runJob: NormalJob = createJob({
         needs: ["constants", "build", jobNames.constants],
-        name: "${{ matrix.package.cmd }}",
+        name: "${{ matrix.testCommand.title }}",
         strategy: {
             "fail-fast": false,
             matrix: {
                 os: ["ubuntu-latest"],
                 node: [NODE_VERSION],
-                package: `$\{{ fromJson(needs.${jobNames.constants}.outputs.packages-to-vitest-test) }}`
+                testCommand: `$\{{ fromJSON(needs.${jobNames.constants}.outputs.vitest-test-commands) }}`
             }
         },
         "runs-on": "${{ matrix.os }}",
         env,
-        if: `needs.${jobNames.constants}.outputs.packages-to-vitest-test != '[]'`,
+        if: `needs.${jobNames.constants}.outputs.vitest-test-commands != '[]'`,
         awsAuth: !!storageOps,
         checkout: { path: DIR_WEBINY_JS },
         steps: [
@@ -104,7 +104,7 @@ const createVitestTestsJobs = (storageOps?: AbstractStorageOps) => {
             ...installBuildSteps,
             {
                 name: "Run tests",
-                run: "yarn test ${{ matrix.package.cmd }}",
+                run: "${{ matrix.testCommand.cmd }}",
                 "working-directory": DIR_WEBINY_JS
             }
         ]

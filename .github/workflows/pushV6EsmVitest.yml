@@ -277,6 +277,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::726952677045:role/GitHubActionsWebinyJs
+          aws-region: eu-central-1
       - uses: actions/checkout@v4
         with:
           path: feat_v6-esm-vitest
@@ -297,6 +302,8 @@ jobs:
       - name: Run tests
         run: ${{ matrix.testCommand.cmd }}
         working-directory: feat_v6-esm-vitest
+    permissions:
+      id-token: write
   vitest-ddbEs-constants:
     needs:
       - build

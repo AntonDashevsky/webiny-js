@@ -291,12 +291,11 @@ const createPushWorkflow = (branchName: string) => {
                     ...yarnCacheSteps,
                     ...runBuildCacheSteps,
                     ...installBuildSteps,
-                    ...withCommonParams(
-                        [{ name: "Run tests", run: "${{ matrix.testCommand.cmd }}" }],
-                        {
-                            "working-directory": DIR_WEBINY_JS
-                        }
-                    )
+                    {
+                        name: "Run tests",
+                        run: "${{ matrix.testCommand.cmd }}",
+                        "working-directory": DIR_WEBINY_JS
+                    }
                 ]
             })
         };
