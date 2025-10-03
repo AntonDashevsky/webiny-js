@@ -78,6 +78,7 @@ const createPushWorkflow = (branchName: string) => {
 
         const projectSetupJob: NormalJob = createJob({
             needs: ["constants", "build", jobNames.constants],
+            "runs-on": BUILD_PACKAGES_RUNNER,
             name: `E2E (${storageOps.displayName}) - Project setup`,
             outputs: {
                 "cypress-config": "${{ steps.save-cypress-config.outputs.cypress-config }}"
