@@ -24,6 +24,12 @@ export * from "./utils/createGenericContext.js";
 export { useContainer } from "./di/DiContainerProvider.js";
 
 export { Route } from "./features/router/Route.js";
-export { useRouter, useRoute } from "./presentation/router/index.js";
 export { RouteLink, type RouteLinkProps } from "./presentation/router/components/RouteLink.js";
 export { SimpleLink, type SimpleLinkProps } from "./presentation/router/components/SimpleLink.js";
+
+export { useRouter, useRoute } from "./presentation/router/index.js";
+export {
+    useLocalStorage,
+    useLocalStorageValue,
+    useLocalStorageValues
+} from "./presentation/localStorage/index.js";
