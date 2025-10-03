@@ -1,20 +1,21 @@
 import { createWorkflow, NormalJob } from "github-actions-wac";
-import { createJob } from "./jobs";
+import { createJob } from "./jobs/index.js";
 import {
     NODE_VERSION,
     BUILD_PACKAGES_RUNNER,
-    listPackagesWithJestTests,
+    listVitestPackages,
     AWS_REGION,
     runNodeScript,
     addToOutputs
-} from "./utils";
+} from "./utils/index.js";
 import {
     createGlobalBuildCacheSteps,
     createInstallBuildSteps,
     createRunBuildCacheSteps,
     createYarnCacheSteps,
     withCommonParams
-} from "./steps";
+} from "./steps/index.js";
+import { StorageOps } from "./types.ts";
 
 // Will print "next" or "dev". Important for caching (via actions/cache).
 const DIR_WEBINY_JS = "${{ github.base_ref }}";
@@ -24,20 +25,20 @@ const yarnCacheSteps = createYarnCacheSteps({ workingDirectory: DIR_WEBINY_JS })
 const globalBuildCacheSteps = createGlobalBuildCacheSteps({ workingDirectory: DIR_WEBINY_JS });
 const runBuildCacheSteps = createRunBuildCacheSteps({ workingDirectory: DIR_WEBINY_JS });
 
-const createJestTestsJobs = (storage: string | null) => {
-    const constantsJobName = storage
-        ? `jestTests${storage}Constants`
-        : "jestTestsNoStorageConstants";
-    const runJobName = storage ? `jestTests${storage}Run` : "jestTestsNoStorageRun";
+const createJestTestsJobs = (storageOps?: StorageOps) => {
+    const escapedStorageOps = storageOps ? storageOps.replace(",", "_") : "NoStorage";
+
+    const constantsJobName = `jestTests${escapedStorageOps}Constants`;
+    const runJobName = `jestTests${storageOps}Run`;
 
     const env: Record<string, string> = { AWS_REGION };
 
-    if (storage) {
-        if (storage === "ddb-es") {
+    if (storageOps) {
+        if (storageOps === "ddb-es,ddb") {
             env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] = "${{ secrets.AWS_ELASTIC_SEARCH_DOMAIN_NAME }}";
             env["ELASTIC_SEARCH_ENDPOINT"] = "${{ secrets.ELASTIC_SEARCH_ENDPOINT }}";
             env["ELASTIC_SEARCH_INDEX_PREFIX"] = "${{ matrix.package.id }}";
-        } else if (storage === "ddb-os") {
+        } else if (storageOps === "ddb-os,ddb") {
             // We still use the same environment variables as for "ddb-es" setup, it's
             // just that the values are read from different secrets.
             env["AWS_ELASTIC_SEARCH_DOMAIN_NAME"] = "${{ secrets.AWS_OPEN_SEARCH_DOMAIN_NAME }}";
@@ -46,9 +47,7 @@ const createJestTestsJobs = (storage: string | null) => {
         }
     }
 
-    const packagesWithJestTests = listPackagesWithJestTests({
-        storage
-    });
+    const packagesWithJestTests = listVitestPackages(storageOps);
 
     const constantsJob: NormalJob = createJob({
         needs: ["constants", "build"],
@@ -92,7 +91,7 @@ const createJestTestsJobs = (storage: string | null) => {
         "runs-on": "${{ matrix.os }}",
         env,
         if: `needs.${constantsJobName}.outputs.packages-to-jest-test != '[]'`,
-        awsAuth: storage === "ddb-es" || storage === "ddb-os",
+        awsAuth: storageOps === "ddb-es,ddb" || storageOps === "ddb-os,ddb",
         checkout: { path: DIR_WEBINY_JS },
         steps: [
             ...yarnCacheSteps,
@@ -108,7 +107,7 @@ const createJestTestsJobs = (storage: string | null) => {
 
     // We prevent running of Jest tests if a PR was created from a fork.
     // This is because we don't want to expose our AWS credentials to forks.
-    if (storage === "ddb-es" || storage === "ddb-os") {
+    if (storageOps === "ddb-es,ddb" || storageOps === "ddb-os,ddb") {
         runJob.if += " && needs.constants.outputs.is-fork-pr != 'true'";
     }
 
@@ -126,7 +125,6 @@ export const pullRequests = createWorkflow({
         "cancel-in-progress": true
     },
     jobs: {
-        // validateWorkflows: createValidateWorkflowsJob(),
         validateCommits: createJob({
             name: "Validate commit messages",
             if: "github.base_ref != 'dev'",
@@ -274,6 +272,10 @@ export const pullRequests = createWorkflow({
                         {
                             name: "Sync Dependencies Verification",
                             run: "yarn verify-dependencies"
+                        },
+                        {
+                            name: "Check Package Node Modules",
+                            run: "yarn check-package-dependencies"
                         }
                     ],
                     { "working-directory": DIR_WEBINY_JS }
@@ -295,6 +297,11 @@ export const pullRequests = createWorkflow({
                 {
                     name: "Sync Dependencies Verification",
                     run: "yarn verify-dependencies",
+                    "working-directory": DIR_WEBINY_JS
+                },
+                {
+                    name: "Check Package Node Modules",
+                    run: "yarn check-package-dependencies",
                     "working-directory": DIR_WEBINY_JS
                 }
             ]
@@ -319,9 +326,9 @@ export const pullRequests = createWorkflow({
                 )
             ]
         }),
-        ...createJestTestsJobs(null),
+        ...createJestTestsJobs(),
         ...createJestTestsJobs("ddb"),
-        ...createJestTestsJobs("ddb-es"),
-        ...createJestTestsJobs("ddb-os")
+        ...createJestTestsJobs("ddb-es,ddb"),
+        ...createJestTestsJobs("ddb-os,ddb")
     }
 });
