@@ -10,7 +10,7 @@ class GraphQLClientImpl implements GraphQLClient.Interface {
     }
 
     async execute<TVariables = any, TResult = any>(
-        params: GraphQLClient.Request<TVariables, TResult>
+        params: GraphQLClient.Request<TVariables>
     ): Promise<TResult> {
         const { query, mutation, variables, headers = {} } = params;
 
