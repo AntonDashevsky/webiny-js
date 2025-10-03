@@ -16285,6 +16285,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/global-config@workspace:packages/global-config"
   dependencies:
+    ci-info: "npm:^4.3.0"
     load-json-file: "npm:6.2.0"
     uuid: "npm:^13.0.0"
     write-json-file: "npm:^4.3.0"
