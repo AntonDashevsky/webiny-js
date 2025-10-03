@@ -60,9 +60,15 @@ export class LocalStorageRepositoryImpl implements LocalStorageRepositoryAbstrac
                     const { key, value, action } = ev.detail;
                     if (!this.prefix || key.startsWith(this.prefix + ":")) {
                         const cleanKey = this.stripPrefix(key);
-                        if (action === "set") this.store.set(cleanKey, value);
-                        if (action === "remove") this.store.delete(cleanKey);
-                        if (action === "clear") this.store.clear();
+                        if (action === "set") {
+                            this.store.set(cleanKey, value);
+                        }
+                        if (action === "remove") {
+                            this.store.delete(cleanKey);
+                        }
+                        if (action === "clear") {
+                            this.store.clear();
+                        }
                     }
                 }
             });
