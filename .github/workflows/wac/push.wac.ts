@@ -285,9 +285,7 @@ const createPushWorkflow = (branchName: string) => {
                 },
                 "runs-on": "${{ matrix.os }}",
                 env,
-                awsAuth:
-                    storageOps &&
-                    (storageOps.id === "ddb-es,ddb" || storageOps.id === "ddb-os,ddb"),
+                awsAuth: !!storageOps,
                 checkout: { path: DIR_WEBINY_JS },
                 steps: [
                     ...yarnCacheSteps,
