@@ -14,6 +14,6 @@ export function useLocalStorage(): LocalStorageService.Interface {
         set: localStorageService.set.bind(localStorageService),
         remove: localStorageService.remove.bind(localStorageService),
         clear: localStorageService.clear.bind(localStorageService),
-        keys: localStorageService.keys.bind(localStorageService),
+        keys: localStorageService.keys.bind(localStorageService)
     };
 }

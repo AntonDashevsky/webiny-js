@@ -4,7 +4,7 @@ import { RouterFeature } from "@webiny/app/features/router/feature.js";
 import { DefaultRouteElementRegistry } from "@webiny/app/presentation/router/RouteElementRegistry.js";
 import { RouterGateway } from "@webiny/app/features/router/abstractions.js";
 import { HistoryRouterGateway } from "@webiny/app/features/router/HistoryRouterGateway.js";
-import { EnvConfigFeature,  } from "@webiny/app/features/envConfig";
+import { EnvConfigFeature } from "@webiny/app/features/envConfig";
 import { GraphQLClientFeature } from "@webiny/app/features/graphqlClient";
 import { LocalStorageFeature } from "@webiny/app/features/localStorage";
 
