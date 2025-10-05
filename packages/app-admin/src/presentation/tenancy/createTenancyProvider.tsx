@@ -1,14 +1,14 @@
 import React from "react";
 import { createProvider } from "@webiny/app";
-import { TenancyProvider } from "./TenancyProvider";
+import { TenancyProvider as ContextProvider } from "./TenancyProvider";
 
 export const createTenancyProvider = () => {
     return createProvider(Original => {
-        return ({ children }) => {
+        return function TenancyProvider({ children }) {
             return (
-                <TenancyProvider>
+                <ContextProvider>
                     <Original>{children}</Original>
-                </TenancyProvider>
+                </ContextProvider>
             );
         };
     });

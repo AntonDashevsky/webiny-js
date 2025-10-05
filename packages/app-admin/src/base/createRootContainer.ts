@@ -30,19 +30,27 @@ export function createRootContainer() {
         wcpProjectId: process.env.REACT_APP_WCP_PROJECT_ID,
         webinyVersion: String(process.env.REACT_APP_WEBINY_VERSION),
         websocketUrl: String(process.env.REACT_APP_WEBSOCKET_URL)
+        // graphqlClient: {
+        //     retries: {
+        //         maxRetries: 3,
+        //         delayInMillis: 100
+        //     }
+        // }
     });
 
     // Router
     const history = createBrowserHistory();
     container.registerInstance(RouterGateway, new HistoryRouterGateway(history, ""));
-
     container.register(DefaultRouteElementRegistry).inSingletonScope();
+
     RouterFeature.register(container);
-    GraphQLClientFeature.register(container);
+
+    GraphQLClientFeature.register(container, { batching: true, retry: true });
 
     LocalStorageFeature.register(container, { prefix: `webiny/${deploymentId}` });
 
     TenancyFeature.register(container);
+
     WcpFeature.register(container);
 
     return container;

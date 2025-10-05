@@ -11,6 +11,12 @@ type Env = {
     wcpProjectId: string | undefined;
     webinyVersion: string;
     websocketUrl: string;
+    graphqlClient?: {
+        retries: {
+            maxRetries: number;
+            delayInMillis: number;
+        };
+    };
 };
 
 export interface IEnvConfig {

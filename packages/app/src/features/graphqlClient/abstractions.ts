@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { DocumentNode } from "graphql";
+import type { DocumentNode } from "graphql";
 
 type GraphQLRequest<TVariables = any> =
     | {

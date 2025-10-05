@@ -1,4 +1,3 @@
-// features/Wcp/WcpService.ts
 import { makeAutoObservable, runInAction } from "mobx";
 import { createImplementation } from "@webiny/di-container";
 import { LocalStorageService } from "@webiny/app/features/localStorage";
@@ -35,13 +34,15 @@ class WcpServiceImpl implements Abstraction.Interface {
         try {
             const cachedData = this.localStorage.get<DecryptedWcpProjectLicense>(LOCAL_STORAGE_KEY);
             if (cachedData) {
+                // If cache exists, we use that until the project is revalidated in the background.
                 this.project = new ReactLicense(License.fromLicenseDto(cachedData));
+                this.loaded = true;
             }
         } catch (error) {
             console.warn("Failed to load WCP project from localStorage:", error);
         }
 
-        /* Load WCP project in the background. */
+        /* Load/Revalidate WCP project in the background. */
         this.loadProject();
     }
 
@@ -70,7 +71,7 @@ class WcpServiceImpl implements Abstraction.Interface {
             const data = await this.gateway.fetchProject();
 
             if (!data) {
-                throw new Error("No WCP project data received");
+                throw new Error("No WCP project data received.");
             }
 
             const license = new ReactLicense(License.fromLicenseDto(data));
@@ -84,13 +85,6 @@ class WcpServiceImpl implements Abstraction.Interface {
             this.localStorage.set(LOCAL_STORAGE_KEY, data);
         } catch (error) {
             console.error("Failed to load WCP project:", error);
-
-            // If we have cached data, we're still "loaded"
-            runInAction(() => {
-                this.loaded = this.project !== null;
-            });
-
-            throw error;
         }
     }
 }

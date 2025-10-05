@@ -3,10 +3,10 @@ import { GraphQLClient } from "./abstractions.js";
 import { EnvConfig } from "~/features/envConfig/index.js";
 
 class GraphQLClientImpl implements GraphQLClient.Interface {
-    private envConfig: EnvConfig.Interface;
+    private readonly graphqlApiUrl: string;
 
     constructor(envConfig: EnvConfig.Interface) {
-        this.envConfig = envConfig;
+        this.graphqlApiUrl = envConfig.get("graphqlApiUrl");
     }
 
     async execute<TVariables = any, TResult = any>(
@@ -24,7 +24,7 @@ class GraphQLClientImpl implements GraphQLClient.Interface {
     private async fetch<TResult = any>(body: string, headers: Record<string, any>) {
         let response: Response;
         try {
-            response = await fetch(this.envConfig.get("graphqlApiUrl"), {
+            response = await fetch(this.graphqlApiUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -10,9 +10,9 @@ interface WcpProviderProps {
 
 export const WcpProvider = ({ children, loader }: WcpProviderProps) => {
     const { service } = useFeature(WcpFeature);
+
     const [isLoaded, setIsLoaded] = useState(service.isLoaded());
 
-    // Load project on mount
     useEffect(() => {
         return autorun(() => {
             setIsLoaded(service.isLoaded());
