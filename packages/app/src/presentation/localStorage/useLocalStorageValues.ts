@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { autorun } from "mobx";
 import isEqual from "lodash/isEqual.js";
 import { LocalStorageFeature } from "~/features/localStorage/index.js";
-import { useContainer } from "~/index.js";
+import { useFeature } from "~/di/useFeature.js";
 
 /**
  * Observes multiple keys in LocalStorage and returns an object of { key: value }.
@@ -11,8 +11,7 @@ import { useContainer } from "~/index.js";
 export function useLocalStorageValues<T extends Record<string, any>>(
     keys: (keyof T & string)[]
 ): Partial<T> {
-    const container = useContainer();
-    const { localStorageService } = LocalStorageFeature.resolve(container);
+    const { localStorageService } = useFeature(LocalStorageFeature);
 
     const [values, setValues] = useState<Partial<T>>(() => {
         const initial: Partial<T> = {};

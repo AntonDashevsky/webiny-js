@@ -22,6 +22,7 @@ export * from "./core/createProviderPlugin.js";
 export * from "./renderApp.js";
 export * from "./utils/createGenericContext.js";
 export { useContainer } from "./di/DiContainerProvider.js";
+export { useFeature } from "./di/useFeature.js";
 
 export { Route } from "./features/router/Route.js";
 export { RouteLink, type RouteLinkProps } from "./presentation/router/components/RouteLink.js";

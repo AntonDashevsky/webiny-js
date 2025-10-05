@@ -1,13 +1,12 @@
 import { LocalStorageFeature, LocalStorageService } from "~/features/localStorage/index.js";
-import { useContainer } from "~/index.js";
+import { useFeature } from "~/di/useFeature.js";
 
 /**
  * Returns the LocalStorageService instance from DI.
  * Useful when you want to call service methods imperatively inside components.
  */
 export function useLocalStorage(): LocalStorageService.Interface {
-    const container = useContainer();
-    const { localStorageService } = LocalStorageFeature.resolve(container);
+    const { localStorageService } = useFeature(LocalStorageFeature);
 
     return {
         get: localStorageService.get.bind(localStorageService),

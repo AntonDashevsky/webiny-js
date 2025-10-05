@@ -1,11 +1,11 @@
-import { useMemo } from "react";
-import { RouterPresenter } from "~/features/router/abstractions.js";
 import { type ReactRoute, RouteElementRegistry } from "~/presentation/router/index.js";
 import { useContainer } from "~/di/DiContainerProvider.js";
+import { useFeature } from "~/di/useFeature.js";
+import { RouterFeature } from "~/features/router/index.js";
 
 export const useRouter = () => {
+    const { presenter } = useFeature(RouterFeature);
     const container = useContainer();
-    const presenter = useMemo(() => container.resolve(RouterPresenter), []);
     const registry = container.resolve(RouteElementRegistry);
 
     return {
