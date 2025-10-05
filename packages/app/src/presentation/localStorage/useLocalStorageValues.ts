@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { autorun } from "mobx";
 import isEqual from "lodash/isEqual.js";
 import { LocalStorageFeature } from "~/features/localStorage/index.js";
-import { useFeature } from "~/di/useFeature.js";
+import { useFeature } from "~/shared/di/useFeature.js";
 
 /**
  * Observes multiple keys in LocalStorage and returns an object of { key: value }.

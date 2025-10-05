@@ -7,7 +7,7 @@ import {
     LocalStorageFeature,
     LocalStorageService
 } from "@webiny/app/features/localStorage/index.js";
-import { DiContainerProvider } from "@webiny/app/di/DiContainerProvider.js";
+import { DiContainerProvider } from "@webiny/app";
 
 export interface Tenant {
     id: string;

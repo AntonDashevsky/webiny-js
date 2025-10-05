@@ -38,8 +38,8 @@ export type {
 
 // Hooks
 export * from "./hooks/index.js";
-export { useWcp } from "@webiny/app-wcp";
-export type { AaclPermission } from "@webiny/app-wcp/types.js";
+export type { AaclPermission } from "./features/wcp/types.js";
+export { useWcp } from "./presentation/wcp/useWcp.js";
 
 export * from "@webiny/app/renderApp.js";
 

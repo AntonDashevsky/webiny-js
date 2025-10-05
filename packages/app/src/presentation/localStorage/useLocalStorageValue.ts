@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { autorun } from "mobx";
 import { LocalStorageFeature } from "~/features/localStorage/index.js";
-import { useFeature } from "~/di/useFeature.js";
+import { useFeature } from "~/shared/di/useFeature.js";
 
 export function useLocalStorageValue<T = string>(key: string): T | undefined {
     const { localStorageService } = useFeature(LocalStorageFeature);

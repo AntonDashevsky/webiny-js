@@ -1,5 +1,5 @@
 import { LocalStorageFeature, LocalStorageService } from "~/features/localStorage/index.js";
-import { useFeature } from "~/di/useFeature.js";
+import { useFeature } from "~/shared/di/useFeature.js";
 
 /**
  * Returns the LocalStorageService instance from DI.

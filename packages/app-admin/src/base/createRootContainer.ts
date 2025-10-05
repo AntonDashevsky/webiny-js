@@ -7,6 +7,8 @@ import { HistoryRouterGateway } from "@webiny/app/features/router/HistoryRouterG
 import { EnvConfigFeature } from "@webiny/app/features/envConfig";
 import { GraphQLClientFeature } from "@webiny/app/features/graphqlClient";
 import { LocalStorageFeature } from "@webiny/app/features/localStorage";
+import { WcpFeature } from "~/features/wcp/feature.js";
+import { TenancyFeature } from "~/features/tenancy/feature.js";
 
 const isUndefined = (value: any) => [undefined, "undefined"].includes(value);
 
@@ -39,6 +41,9 @@ export function createRootContainer() {
     GraphQLClientFeature.register(container);
 
     LocalStorageFeature.register(container, { prefix: `webiny/${deploymentId}` });
+
+    TenancyFeature.register(container);
+    WcpFeature.register(container);
 
     return container;
 }

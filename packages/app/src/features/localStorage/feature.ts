@@ -1,4 +1,3 @@
-import { createFeature } from "~/di/createFeature.js";
 import {
     LocalStorageConfig,
     LocalStorageGateway,
@@ -7,6 +6,7 @@ import {
 import { BrowserLocalStorageGateway } from "./BrowserLocalStorageGateway.js";
 import { LocalStorageRepository } from "./LocalStorageRepository.js";
 import { LocalStorageService } from "./LocalStorageService.js";
+import { createFeature } from "~/shared/di/createFeature.js";
 
 /**
  * LocalStorageFeature wires together:
