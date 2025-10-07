@@ -28,7 +28,7 @@ const createPushWorkflow = (branchName: string) => {
     const globalBuildCacheSteps = createGlobalBuildCacheSteps({ workingDirectory: DIR_WEBINY_JS });
     const runBuildCacheSteps = createRunBuildCacheSteps({ workingDirectory: DIR_WEBINY_JS });
 
-    const createCypressJobs = (storageOps: AbstractStorageOps) => {
+    const createE2EJobs = (storageOps: AbstractStorageOps) => {
         const jobNames = {
             constants: `e2eTests-${storageOps.shortId}-constants`,
             projectSetup: `e2eTests-${storageOps.shortId}-setup`,
@@ -401,18 +401,20 @@ const createPushWorkflow = (branchName: string) => {
             ...createVitestTestsJobs(ddbStorageOps),
             ...createVitestTestsJobs(ddbEsStorageOps),
             ...createVitestTestsJobs(ddbOsStorageOps),
-            ...createCypressJobs(ddbStorageOps),
-            ...createCypressJobs(ddbEsStorageOps),
-            ...createCypressJobs(ddbOsStorageOps)
+            ...createE2EJobs(ddbStorageOps),
+            ...createE2EJobs(ddbEsStorageOps),
+            ...createE2EJobs(ddbOsStorageOps)
         }
     });
 
     if (branchName === "next") {
-        const jestJobsNames = Object.keys(workflow.jobs).filter(name => name.startsWith("jest"));
-        const e2eJobsNames = Object.keys(workflow.jobs).filter(name => name.endsWith("cypress"));
+        const vitestJobsNames = Object.keys(workflow.jobs).filter(name =>
+            name.startsWith("vitest")
+        );
+        const e2eJobsNames = Object.keys(workflow.jobs).filter(name => name.startsWith("e2eTests"));
 
         workflow.jobs.npmReleaseUnstable = createJob({
-            needs: ["constants", "codeAnalysis", ...jestJobsNames, ...e2eJobsNames],
+            needs: ["constants", "codeAnalysis", ...vitestJobsNames, ...e2eJobsNames],
             name: 'NPM release ("unstable" tag)',
             environment: "release",
             env: {
