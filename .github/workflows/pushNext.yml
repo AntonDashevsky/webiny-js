@@ -910,19 +910,12 @@ jobs:
     needs:
       - constants
       - codeAnalysis
-      - vitest-constants
       - vitest-run
-      - vitest-ddb-constants
       - vitest-ddb-run
-      - vitest-ddbEs-constants
       - vitest-ddbEs-run
-      - vitest-ddbOs-constants
       - vitest-ddbOs-run
-      - e2eTests-ddb-constants
       - e2eTests-ddb-setup
-      - e2eTests-ddbEs-constants
       - e2eTests-ddbEs-setup
-      - e2eTests-ddbOs-constants
       - e2eTests-ddbOs-setup
     name: NPM release ("unstable" tag)
     environment: release

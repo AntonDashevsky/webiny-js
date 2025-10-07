@@ -408,10 +408,12 @@ const createPushWorkflow = (branchName: string) => {
     });
 
     if (branchName === "next") {
-        const vitestJobsNames = Object.keys(workflow.jobs).filter(name =>
-            name.startsWith("vitest")
+        const vitestJobsNames = Object.keys(workflow.jobs).filter(
+            name => name.startsWith("vitest") && name.endsWith("run")
         );
-        const e2eJobsNames = Object.keys(workflow.jobs).filter(name => name.startsWith("e2eTests"));
+        const e2eJobsNames = Object.keys(workflow.jobs).filter(
+            name => name.startsWith("e2eTests") && name.endsWith("setup")
+        );
 
         workflow.jobs.npmReleaseUnstable = createJob({
             needs: ["constants", "codeAnalysis", ...vitestJobsNames, ...e2eJobsNames],
