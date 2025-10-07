@@ -535,5 +535,3 @@ Resources:
               - iot:UpdateAuthorizer
               - iot:DeleteAuthorizer
               - iot:ListTagsForResource
-
-# https://cwpcftpl.s3.eu-central-1.amazonaws.com/DEPLOY_WEBINY_PROJECT_CF_TEMPLATE_V2.yamlcrfor
