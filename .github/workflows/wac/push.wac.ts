@@ -266,7 +266,7 @@ const createPushWorkflow = (branchName: string) => {
                         "working-directory": DIR_WEBINY_JS,
                         run: runNodeScript(
                             "listVitestTestCommands",
-                            JSON.stringify({ storageOps: storageOps?.id || null }),
+                            `["${storageOps?.id || ""}"]`,
                             { outputAs: "vitest-test-commands" }
                         )
                     }
@@ -349,7 +349,11 @@ const createPushWorkflow = (branchName: string) => {
                             { name: "Check code formatting", run: "yarn prettier:check" },
                             { name: "Check dependencies", run: "yarn adio" },
                             { name: "Check TS configs", run: "yarn check-ts-configs" },
-                            { name: "ESLint", run: "yarn eslint" }
+                            { name: "ESLint", run: "yarn eslint" },
+                            {
+                                name: "Check Package Node Modules",
+                                run: "yarn check-package-dependencies",
+                            }
                         ],
                         { "working-directory": DIR_WEBINY_JS }
                     )
@@ -369,11 +373,6 @@ const createPushWorkflow = (branchName: string) => {
                     {
                         name: "Sync Dependencies Verification",
                         run: "yarn verify-dependencies",
-                        "working-directory": DIR_WEBINY_JS
-                    },
-                    {
-                        name: "Check Package Node Modules",
-                        run: "yarn check-package-dependencies",
                         "working-directory": DIR_WEBINY_JS
                     }
                 ]
@@ -447,4 +446,3 @@ const createPushWorkflow = (branchName: string) => {
 };
 export const pushDev = createPushWorkflow("dev");
 export const pushNext = createPushWorkflow("next");
-export const pushV6EsmVitest = createPushWorkflow("feat/v6-esm-vitest");
