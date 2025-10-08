@@ -259,6 +259,10 @@ Resources:
             Resource:
               - arn:aws:iam::*:role/aws-service-role/es.amazonaws.com/AWSServiceRoleForAmazonElasticsearchService
               - arn:aws:iam::*:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService
+              # Without these, service-linked role creation would fail
+              - arn:aws:iam::*:role/AWSServiceRoleForAmazonElasticsearchService
+              - arn:aws:iam::*:role/AWSServiceRoleForAmazonOpenSearchService
+
 
           # AWS Step Functions
           - Effect: Allow
