@@ -188,6 +188,7 @@ Resources:
               - es:RemoveTags
               - es:UpdateElasticsearchDomainConfig
               - es:DescribeElasticsearchDomainConfig
+              - es:UpgradeDomain
             Resource: arn:aws:es:*:*:domain/wby-*
 
           # Amazon EventBridge
